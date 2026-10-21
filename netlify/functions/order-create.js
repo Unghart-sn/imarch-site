@@ -1,3 +1,5 @@
+const crypto = require('crypto');
+
 exports.handler = async function (event, context) {
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -35,8 +37,11 @@ exports.handler = async function (event, context) {
     const fullName = bodyData.full_name || '';
     const email = bodyData.email || '';
     const title = bodyData.title || '';
+    
+    // Генерируем уникальный токен, чтобы ублажить NOT NULL ограничение базы
+    const hmacToken = crypto.randomUUID();
 
-    // Создаем запись в таблице orders (только базовые поля, которые гарантированно есть в таблице)
+    // Создаем запись в таблице orders с обязательным hmac_token
     const dbResponse = await fetch(`${supabaseUrl}/rest/v1/orders`, {
       method: 'POST',
       headers: {
@@ -50,7 +55,8 @@ exports.handler = async function (event, context) {
         email: email,
         title: title,
         sha256: fileSha256,
-        status: 'pending'
+        status: 'pending',
+        hmac_token: hmacToken
       })
     });
 
@@ -80,7 +86,7 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({
         success: true,
         order_id: orderId,
-        hmac_token: order.hmac_token || 'mock-hmac',
+        hmac_token: order.hmac_token || hmacToken,
         upload_url: uploadUrl,
         upload_headers: {
           'apikey': supabaseKey,
