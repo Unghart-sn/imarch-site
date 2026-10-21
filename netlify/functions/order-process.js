@@ -19,7 +19,7 @@ const JSON_CT = { 'Content-Type': 'application/json' };
 const RFC3161_ENABLED = process.env.RFC3161_ENABLED !== 'false';
 const ANCHOR_ENABLED = process.env.ANCHOR_ENABLED === 'true';
 const VT_ENABLED = process.env.VT_ENABLED === 'true';
-const TSA_URL = process.env.TSA_URL || 'http://timestamp.digicert.com';
+const TSA_URL = process.env.TSA_URL || 'https://timestamp.sectigo.com';
 const RESEND_FROM = process.env.RESEND_FROM || 'info@imarch.ltd';
 
 let s3 = null;
