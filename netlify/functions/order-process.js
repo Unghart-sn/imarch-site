@@ -360,8 +360,8 @@ exports.handler = async (event) => {
     trace.push('status_processing');
 
     // R2 head
-    const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
-    trace.push('r2_head_ok size=' + head.ContentLength);
+  console.log('[DEBUG R2] bucket=', process.env.R2_BUCKET, 'key=', order.file_key_r2, 'endpoint=', process.env.R2_ENDPOINT);
+const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
 
     // Download + sha check
     const obj = await getS3().send(new GetObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
