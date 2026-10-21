@@ -366,7 +366,18 @@ const isTestGet = event.httpMethod === 'GET' &&
     trace.push('status_processing');
 
     // R2 head
-    const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+    try {
+  const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+} catch (r2err) {
+  return reply(500, {
+    debug: 'r2_head_failed',
+    bucket: process.env.R2_BUCKET || 'MISSING',
+    key: order.file_key_r2 || 'MISSING',
+    endpoint: process.env.R2_ENDPOINT || 'MISSING',
+    errName: r2err.name || 'unknown',
+    errMessage: r2err.message || 'unknown'
+  });
+}
     trace.push('r2_head_ok size=' + head.ContentLength);
 
     // Download + sha check
