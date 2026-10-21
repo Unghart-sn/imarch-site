@@ -361,7 +361,18 @@ exports.handler = async (event) => {
 
     // R2 head
   console.log('[DEBUG R2] bucket=', process.env.R2_BUCKET, 'key=', order.file_key_r2, 'endpoint=', process.env.R2_ENDPOINT);
-const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+try {
+  const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+} catch (r2err) {
+  return reply(500, {
+    debug: 'r2_head_failed',
+    bucket: process.env.R2_BUCKET || 'MISSING',
+    key: order.file_key_r2 || 'MISSING',
+    endpoint: process.env.R2_ENDPOINT || 'MISSING',
+    errName: r2err.name || 'unknown',
+    errMessage: r2err.message || 'unknown'
+  });
+}
 
     // Download + sha check
     const obj = await getS3().send(new GetObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
