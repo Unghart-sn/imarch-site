@@ -1,7 +1,6 @@
-const { createClient } = require('@supabase/supabase-js');
+import { createClient } from '@supabase/supabase-js';
 
-exports.handler = async function(event, context) {
-  // Разрешаем CORS
+export async function handler(event) {
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -20,17 +19,13 @@ exports.handler = async function(event, context) {
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ 
-          error: 'Missing ENV variables', 
-          has_url: !!url, 
-          has_key: !!key 
-        })
+        body: JSON.stringify({ error: 'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY' })
       };
     }
 
     const supabase = createClient(url, key);
     let bodyData = {};
-    
+
     if (event.body) {
       try {
         bodyData = JSON.parse(event.body);
@@ -53,7 +48,7 @@ exports.handler = async function(event, context) {
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ error: 'Supabase Error: ' + error.message })
+        body: JSON.stringify({ error: 'Supabase error: ' + error.message })
       };
     }
 
@@ -62,12 +57,11 @@ exports.handler = async function(event, context) {
       headers,
       body: JSON.stringify({ success: true, order_id: data.id })
     };
-
   } catch (err) {
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ error: 'Catch Error: ' + err.message })
+      body: JSON.stringify({ error: 'Catch error: ' + err.message })
     };
   }
-};
+}
