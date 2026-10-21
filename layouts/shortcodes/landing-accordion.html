@@ -1,0 +1,243 @@
+{{/* 
+landing-accordion — аккордеон лендинга с карточками
+Параметры:
+- title: заголовок аккордеона
+- teaser: текст тизера
+- button_text: текст кнопки
+- button_url: ссылка кнопки
+*/}}
+
+{{ $title := .Get "title" | default "Заголовок аккордеона" }}
+{{ $teaser := .Get "teaser" | default "Текст тизера..." }}
+{{ $buttonText := .Get "button_text" | default "Перейти →" }}
+{{ $buttonUrl := .Get "button_url" | default "#" }}
+{{ $id := printf "accordion-%d" now.UnixNano }}
+
+<div class="landing-accordion" id="{{ $id }}">
+    <div class="accordion-header">
+        <h2>{{ $title }}</h2>
+        <p class="accordion-teaser">{{ $teaser }}</p>
+        <button class="accordion-toggle" aria-expanded="false" aria-controls="{{ $id }}-content">
+            <span class="toggle-icon">▾</span>
+            <span class="toggle-text">Раскрыть</span>
+        </button>
+    </div>
+    
+    <div class="accordion-content" id="{{ $id }}-content" hidden>
+        <div class="accordion-inner">
+            {{/* Внутренний контент (карточки) */}}
+            <div class="accordion-cards">
+                {{ .Inner }}
+            </div>
+            
+            {{/* Кнопка в конце */}}
+            <div class="button-center">
+                <a href="{{ $buttonUrl }}" class="cta-button">{{ $buttonText }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.landing-accordion {
+    background: #f8f8f8;
+    border-radius: 8px;
+    padding: 40px;
+    margin: 50px 0;
+    border: 1px solid #eaeaea;
+    transition: all 0.3s ease;
+}
+
+.accordion-header {
+    position: relative;
+}
+
+.accordion-header h2 {
+    font-family: 'Georgia', serif;
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.accordion-header h2:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 80px;
+    height: 3px;
+    background: #5a5a5a;
+}
+
+.accordion-teaser {
+    font-size: 1.15rem;
+    color: #444;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 90%;
+}
+
+.accordion-toggle {
+    background: #5a5a5a;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-family: 'Georgia', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.accordion-toggle:hover {
+    background: #333;
+    transform: translateY(-2px);
+}
+
+.accordion-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 1.2rem;
+}
+
+/* Контент аккордеона с анимацией */
+.accordion-content {
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
+    max-height: 0;
+    opacity: 0;
+}
+
+.accordion-content[aria-hidden="false"] {
+    max-height: 2000px;
+    opacity: 1;
+    margin-top: 40px;
+}
+
+.accordion-inner {
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Карточки внутри аккордеона */
+.accordion-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 40px 0;
+}
+
+.accordion-card {
+    background: white;
+    padding: 30px;
+    border-radius: 6px;
+    border: 1px solid #eaeaea;
+    border-left: 4px solid #5a5a5a;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.accordion-card:hover {
+    border-left-color: #333;
+    border-color: #ccc;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.accordion-card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.accordion-card h4 {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+}
+
+.accordion-card p {
+    margin: 0;
+    font-size: 1.05rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+/* Кнопка */
+.button-center {
+    text-align: center;
+    margin: 50px 0 0;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #5a5a5a;
+    color: white;
+    padding: 14px 35px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 1px solid #4a4a4a;
+    font-family: 'Georgia', serif;
+}
+
+.cta-button:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Адаптивность */
+@media (max-width: 850px) {
+    .landing-accordion {
+        padding: 30px 20px;
+        margin: 30px 0;
+    }
+    
+    .accordion-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .accordion-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .accordion-card {
+        padding: 25px 20px;
+    }
+    
+    .accordion-content[aria-hidden="false"] {
+        margin-top: 30px;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.accordion-toggle').forEach(button => {
+        button.addEventListener('click', function() {
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            const content = document.getElementById(this.getAttribute('aria-controls'));
+            
+            this.setAttribute('aria-expanded', !expanded);
+            content.setAttribute('aria-hidden', expanded);
+            content.hidden = expanded;
+            
+            this.querySelector('.toggle-text').textContent = expanded ? 'Раскрыть' : 'Скрыть';
+        });
+    });
+});
+</script>

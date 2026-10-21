@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+  <head>
+    {{ partial "head.html" . }}
+        <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+
+    <!-- 🛑 HARD FIX LAYOUT — перебивает всё, что выше -->
+    <style>
+      html, body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
+      body {
+        display: block !important;
+        flex-flow: initial !important;
+        padding-top: 80px !important;
+      }
+      main {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+      footer {
+        position: static !important;
+        margin-top: 3rem !important;
+        display: block !important;
+        width: 100% !important;
+      }
+    </style>
+  </head>
+  <body>
+    {{ partial "nav.html" . }}
+
+    <main>
+      {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    <!-- Плавающая кнопка -->
+    <button id="openFormBtn" class="floating-btn">✉</button>
+
+    <!-- Модальное окно -->
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <span id="closeFormBtn" class="close">&times;</span>
+        <iframe src="https://forms.zohopublic.eu/adminima1/form/CustomerSupportRequestForm/formperma/AbFihH-NR7Iv2BufnOGTiWrfaRud1bW9-SeWL9aBc4Q"
+                frameborder="0"
+                style="width:100%; height:500px; border:none;">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const openBtn = document.getElementById('openFormBtn');
+  const modal = document.getElementById('formModal');
+  const closeBtn = document.getElementById('closeFormBtn');
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+});
+</script>
+
+

@@ -1,0 +1,12 @@
+---
+**Standard Class:** 8888
+**Marker Code:** 8888 • IMARCH.LTD • MKT-260902-013803
+**Source File:** D-annex-1.1.jpg
+**Hash:** 7465e5dacf51569ebbc9cec4ef57efa5667c422abaec8293607284cc4f6d6c72
+
+**Standard Class:** 8888
+**Marker Code:** 8888 • IMARCH.LTD • MKT-260902-013803
+**Source File:** D-annex-1.2.jpg
+**Hash:** 7b71cbd5ec05ae78062d6881b0e700f18b6a1f6cb6a884bdb5b3a75f17ac7b86
+
+---

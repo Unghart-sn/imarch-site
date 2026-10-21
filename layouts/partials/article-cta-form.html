@@ -1,0 +1,171 @@
+{{ if .Page.Store.Get "hasArticleCTA" }}
+{{ else }}
+{{ .Page.Store.Set "hasArticleCTA" true }}
+
+{{ $formType := "problem" }}
+{{ if in .Params.categories "solutions" }}{{ $formType = "solution" }}{{ end }}
+{{ if in .Params.categories "решения" }}{{ $formType = "solution" }}{{ end }}
+
+<div class="article-cta-block" data-form-type="{{ $formType }}">
+    
+    <div class="cta-decoration">📦</div>
+    
+    <div class="cta-header">
+        <h3 class="cta-title">
+            {{ if eq $formType "problem" }}
+                🛡️ Получите план действий
+            {{ else }}
+                🚀 Начните внедрять
+            {{ end }}
+        </h3>
+        <p class="cta-subtitle">
+            {{ if eq $formType "problem" }}
+                Мы подготовили конкретный чек-лист, который поможет избежать описанных ошибок.
+            {{ else }}
+                Скачайте готовый набор шаблонов для быстрого старта.
+            {{ end }}
+        </p>
+    </div>
+    
+    <div class="cta-content">
+        <div class="cta-benefits">
+            <div class="benefit">
+                <span class="benefit-icon">✅</span>
+                <span class="benefit-text">Конкретный ответ на проблему из статьи</span>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">📥</span>
+                <span class="benefit-text">Мгновенная отправка на email</span>
+            </div>
+            <div class="benefit">
+                <span class="benefit-icon">🎁</span>
+                <span class="benefit-text">+ полезные материалы в рассылке</span>
+            </div>
+        </div>
+        
+        <div class="cta-form-container">
+            {{ if eq $formType "problem" }}
+                {{ partial "forms/zoho-problem.html" . }}
+            {{ else }}
+                {{ partial "forms/zoho-solution.html" . }}
+            {{ end }}
+        </div>
+        
+        <div class="cta-footer">
+            <p class="cta-note">
+                🔒 Мы уважаем вашу приватность. Отправляем только полезный контент.
+            </p>
+        </div>
+    </div>
+    
+</div>
+
+<style>
+/* СТИЛИ ТЕ ЖЕ, ЧТО И РАНЬШЕ (без изменений) */
+.article-cta-block {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(155deg, #0c1120 0%, #1a1f3a 100%);
+    color: #f8fafc;
+    border-radius: 18px;
+    padding: 2.5rem;
+    margin: 3rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.article-cta-block[data-form-type="problem"] {
+    border-top: 4px solid #ef4444;
+}
+
+.article-cta-block[data-form-type="solution"] {
+    border-top: 4px solid #06b6d4;
+}
+
+.cta-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 4rem;
+    opacity: 0.05;
+}
+
+.cta-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.article-cta-block[data-form-type="solution"] .cta-title {
+    background: linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cta-subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.cta-benefits {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.benefit {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.benefit:last-child { margin-bottom: 0; }
+.benefit-icon { font-size: 1.3rem; }
+.benefit-text { color: #f8fafc; line-height: 1.5; }
+
+.cta-form-container { margin-bottom: 1.5rem; }
+
+.cta-footer { text-align: center; }
+.cta-note {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    line-height: 1.5;
+    opacity: 0.8;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .article-cta-block { padding: 1.75rem; margin: 2.5rem 0; }
+    .cta-title { font-size: 1.6rem; }
+    .cta-subtitle { font-size: 1rem; }
+    .cta-benefits { padding: 1.25rem; }
+    .benefit { font-size: 0.95rem; }
+}
+
+@media (max-width: 480px) {
+    .article-cta-block { padding: 1.5rem; margin: 2rem 0; }
+    .cta-title { font-size: 1.4rem; }
+}
+</style>
+
+{{ end }}

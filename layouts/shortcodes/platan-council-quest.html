@@ -1,0 +1,589 @@
+<style>
+/* =================== СОВЕТ КОНСОРЦИУМА - ИНСТИТУЦИОНАЛЬНЫЙ ФОРУМ =================== */
+/* СТИЛЬ: СТРОГИЙ, ИЕРАРХИЧНЫЙ, С ЭЛЕМЕНТАМИ ИГРОФИКАЦИИ */
+
+.council-forum-container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Заголовочный блок с инсигнией */
+.forum-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    padding: 40px 0;
+    border-bottom: 2px solid #1a365d;
+    border-top: 2px solid #1a365d;
+}
+
+.forum-insignia {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    display: block;
+    color: #1a365d;
+    text-shadow: 0 5px 15px rgba(26, 54, 93, 0.2);
+}
+
+.forum-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #1a365d;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.forum-subtitle {
+    font-size: 1.4rem;
+    color: #4a5568;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    position: relative;
+    padding: 20px 0;
+}
+
+.forum-subtitle::before,
+.forum-subtitle::after {
+    content: '—';
+    color: #2c5282;
+    margin: 0 15px;
+}
+
+/* Философская мантра */
+.forum-mantra {
+    background: linear-gradient(135deg, #0f1a2e 0%, #1a2538 100%);
+    border-radius: 12px;
+    padding: 50px 40px;
+    margin: 70px 0;
+    color: white;
+    text-align: center;
+    border-left: 5px solid #d69e2e;
+    border-right: 5px solid #d69e2e;
+    position: relative;
+    overflow: hidden;
+}
+
+.forum-mantra::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, #d69e2e, #2c5282, #d69e2e);
+}
+
+.mantra-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin: 0;
+    font-style: italic;
+}
+
+.mantra-warning {
+    color: #cbd5e0;
+    font-size: 1rem;
+    margin-top: 25px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Базовый квэст */
+.quest-section {
+    margin: 100px 0;
+}
+
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #1a365d;
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #2c5282, #d69e2e);
+}
+
+/* Этапы квэста */
+.quest-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+.quest-step {
+    background: white;
+    border-radius: 10px;
+    padding: 35px 30px;
+    border: 2px solid #e2e8f0;
+    position: relative;
+    transition: all 0.3s ease;
+    text-align: center;
+    counter-increment: step-counter;
+}
+
+.quest-step:hover {
+    border-color: #2c5282;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.quest-step::before {
+    content: counter(step-counter);
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.3);
+}
+
+.step-icon {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin: 0 0 15px 0;
+}
+
+.step-description {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    font-size: 1rem;
+}
+
+.step-detail {
+    background: #f7fafc;
+    padding: 15px;
+    border-radius: 6px;
+    border-left: 4px solid #38a169;
+    font-size: 0.95rem;
+    color: #4a5568;
+    margin: 15px 0 0 0;
+    text-align: left;
+}
+
+.step-detail strong {
+    color: #2c5282;
+}
+
+/* Рекомендация */
+.quest-recommendation {
+    background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 50px 0;
+    border: 2px solid #38a169;
+    text-align: center;
+    position: relative;
+}
+
+.recommendation-icon {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    display: block;
+    color: #38a169;
+}
+
+.recommendation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #22543d;
+    margin: 0 0 20px 0;
+}
+
+.recommendation-text {
+    color: #276749;
+    line-height: 1.6;
+    margin: 0 0 30px 0;
+    font-size: 1.1rem;
+}
+
+.recommendation-text strong {
+    color: #22543d;
+}
+
+/* Статус игрока */
+.player-status {
+    background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 60px 0;
+    border: 2px solid #d69e2e;
+    text-align: center;
+}
+
+.status-icon {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    display: block;
+    color: #d69e2e;
+}
+
+.status-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #744210;
+    margin: 0 0 20px 0;
+}
+
+.status-description {
+    color: #975a16;
+    line-height: 1.6;
+    margin: 0 0 30px 0;
+    font-size: 1.1rem;
+}
+
+/* Форматы входа */
+.access-formats {
+    margin: 80px 0;
+}
+
+.formats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.format-card {
+    background: white;
+    border-radius: 10px;
+    padding: 35px 30px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.format-card:hover {
+    border-color: #9f7aea;
+    transform: translateY(-5px);
+}
+
+.format-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+    color: #9f7aea;
+}
+
+.format-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin: 0 0 15px 0;
+}
+
+.format-card p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Кнопка начала квэста */
+.quest-cta {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.quest-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+    color: white;
+    text-decoration: none;
+    padding: 20px 50px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    border: 3px solid #1a365d;
+    box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.quest-button:hover {
+    background: linear-gradient(135deg, #153054 0%, #1a4473 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(26, 54, 93, 0.4);
+}
+
+.quest-button::before {
+    content: '⚔️';
+    font-size: 1.5rem;
+}
+
+.quest-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.quest-button:hover::after {
+    left: 100%;
+}
+
+.quest-note {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Институциональная печать */
+.forum-seal {
+    text-align: center;
+    margin-top: 100px;
+    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.seal-text {
+    font-family: monospace;
+    color: #718096;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .council-forum-container {
+        margin: 50px auto;
+        padding: 0 15px;
+    }
+    
+    .forum-header {
+        margin-bottom: 50px;
+        padding: 30px 0;
+    }
+    
+    .forum-insignia {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    
+    .forum-title {
+        font-size: 2.2rem;
+    }
+    
+    .forum-subtitle {
+        font-size: 1.2rem;
+        padding: 15px 0;
+    }
+    
+    .forum-mantra {
+        padding: 30px 20px;
+        margin: 40px 0;
+    }
+    
+    .mantra-text {
+        font-size: 1.5rem;
+    }
+    
+    .quest-steps {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .quest-step {
+        padding: 30px 25px;
+    }
+    
+    .quest-recommendation,
+    .player-status {
+        padding: 30px 20px;
+    }
+    
+    .formats-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .quest-cta {
+        margin-top: 50px;
+        padding-top: 40px;
+    }
+    
+    .quest-button {
+        padding: 18px 40px;
+        font-size: 1.1rem;
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+</style>
+
+<div class="council-forum-container">
+    <!-- Инсигния и заголовок -->
+    <div class="forum-header">
+        <div class="forum-insignia">🏛️</div>
+        <h1 class="forum-title">Совет консорциума PLATAN+</h1>
+        <p class="forum-subtitle">Сцена институционального мышления и признания</p>
+    </div>
+
+    <!-- Философская мантра -->
+    <div class="forum-mantra">
+        <p class="mantra-text">
+            Здесь каждый голос становится актом, каждая реплика — сцепкой. 
+            Без Совета мы теряем форму совместного признания, основу согласованности 
+            и сам <strong>Imperium Silenti</strong>.
+        </p>
+        <p class="mantra-warning">Вход только для прошедших инициацию</p>
+    </div>
+
+    <!-- Базовый квэст -->
+    <div class="quest-section">
+        <h2 class="section-title">Базовый квэст инициации</h2>
+        
+        <div class="quest-steps">
+            <!-- Шаг 1 -->
+            <div class="quest-step">
+                <div class="step-icon">👤</div>
+                <h3 class="step-title">GitHub аккаунт</h3>
+                <p class="step-description">
+                    Институциональная Игра требует наличия аккаунта на GitHub: 
+                    личного или организационного.
+                </p>
+                <p class="step-detail">
+                    <strong>Минимальное требование:</strong> Verified email, публичный профиль
+                </p>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div class="quest-step">
+                <div class="step-icon">🎭</div>
+                <h3 class="step-title">Игровой аккаунт</h3>
+                <p class="step-description">
+                    Мы настоятельно рекомендуем создать отдельный игровой аккаунт, 
+                    специально для участия в миссиях.
+                </p>
+                <p class="step-detail">
+                    <strong>Рекомендация:</strong> Имя отражает вашу роль в экосистеме
+                </p>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div class="quest-step">
+                <div class="step-icon">⚡</div>
+                <h3 class="step-title">Активация</h3>
+                <p class="step-description">
+                    После создания и подтверждения аккаунта вы получаете 
+                    статус Игрока в системе консорциума.
+                </p>
+                <p class="step-detail">
+                    <strong>Процесс:</strong> Автоматическая верификация через GitHub API
+                </p>
+            </div>
+        </div>
+
+        <!-- Рекомендация -->
+        <div class="quest-recommendation">
+            <div class="recommendation-icon">🛡️</div>
+            <h3 class="recommendation-title">Стратегическая рекомендация</h3>
+            <p class="recommendation-text">
+                <strong>Отдельный игровой аккаунт</strong> — это не просто техническая формальность. 
+                Это создание <strong>институциональной маски</strong>, ролевой идентичности, 
+                которая позволяет участвовать в Игре без смешения с личными или коммерческими активностями.
+            </p>
+        </div>
+
+        <!-- Статус игрока -->
+        <div class="player-status">
+            <div class="status-icon">🎯</div>
+            <h3 class="status-title">Статус Игрока</h3>
+            <p class="status-description">
+                После активации вы получаете доступ к выбору формата входа в Игру. 
+                Этот статус открывает доступ ко всем сценам и миссиям Проекта, 
+                но не даёт автоматических прав на участие — только возможность запросить доступ.
+            </p>
+        </div>
+
+        <!-- Форматы входа -->
+        <div class="access-formats">
+            <h3 class="section-title">Форматы входа в Игру</h3>
+            
+            <div class="formats-grid">
+                <div class="format-card">
+                    <div class="format-icon">👁️</div>
+                    <h4>Наблюдатель</h4>
+                    <p>Доступ к публичным материалам, чтение дискуссий, участие в открытых событиях без права голоса.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-icon">🤝</div>
+                    <h4>Участник</h4>
+                    <p>Включение в рабочие группы, участие в обсуждениях, выполнение задач с менторской поддержкой.</p>
+                </div>
+                
+                <div class="format-card">
+                    <div class="format-icon">⚔️</div>
+                    <h4>Миссионер</h4>
+                    <p>Полный доступ к сценам, право создания инициатив, участие в принятии стратегических решений.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Призыв к действию -->
+        <div class="quest-cta">
+            <a href="#" class="quest-button">ПРОЙТИ КВЭСТ</a>
+            <p class="quest-note">
+                После прохождения квэста вы получите доступ к форме выбора формата участия и инструкции 
+                по дальнейшей инициации в конкретные сцены Совета.
+            </p>
+        </div>
+    </div>
+
+    <!-- Институциональная печать -->
+    <div class="forum-seal">
+        <p class="seal-text">COUNCIL ACCESS • INITIATION REQUIRED • PLATAN+ CONSORTIUM</p>
+    </div>
+</div>

@@ -1,0 +1,22 @@
+{{ $title := .Get "title" | default "ТРИ УРОВНЯ ЭКОСИСТЕМЫ PLATAN+" }}
+{{ $subtitle := .Get "subtitle" | default "Институциональный контур управления знаниями и капитализацией" }}
+{{ $levels := .Get "levels" | default `[{"icon":"📘","title":"I. Интегрированный наукометрический контур","desc":"SHA-256 Hash Locking · Crossref/ORCID/Zenodo compatibility · Вечная фиксация приоритета","tag":"Наукометрика","tagClass":"tag-blue"},{"icon":"🧑‍🤝‍🧑","title":"II. Социально-прикладной полигон (Vis Realitatis)","desc":"Подготовка кадров · Социализация ветеранов · Квалификационная реновация","tag":"Социум","tagClass":"tag-gold"},{"icon":"⚖️","title":"III. Интеллектуальная собственность как сервис","desc":"Капитализация ноу-хау по UK Trade Secrets Regulations 2018 · Лицензирование","tag":"IP-капитал","tagClass":"tag-green"}]` }}
+
+{{ $levelsData := $levels | unmarshal }}
+
+<div class="light-widget three-levels">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="widget-sub">{{ $subtitle }}</div>
+
+  {{ range $index, $level := $levelsData }}
+    {{ if gt $index 0 }}<div class="widget-arrow">⬇</div>{{ end }}
+    <div class="level-card-light">
+      <div class="icon">{{ $level.icon }}</div>
+      <div class="content">
+        <h4>{{ $level.title }}</h4>
+        <p>{{ $level.desc }}</p>
+      </div>
+      <span class="tag {{ $level.tagClass }}">{{ $level.tag }}</span>
+    </div>
+  {{ end }}
+</div>

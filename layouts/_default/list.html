@@ -1,0 +1,35 @@
+{{ define "main" }}
+<main>
+  <div class="blog-content">
+
+    <h1>{{ .Title }}</h1>
+
+    {{ with .Params.teaser }}
+      <div class="teaser">{{ . | markdownify }}</div>
+    {{ end }}
+
+    {{ with .Params.banner }}
+      <div class="banner">
+        <a href="{{ .RelPermalink }}" title="Перейти к публикации {{ .Title }}">
+          <img src="{{ . | relURL }}" alt="{{ .Title }}" style="cursor:pointer;" />
+        </a>
+      </div>
+    {{ end }}
+
+    {{ .Content }}  <!-- Оставляем контент главной/страницы -->
+
+    {{/* Автопосты отключаем на главной: */}}
+    {{ if and (not .IsHome) (gt (len .Pages) 0) }}
+      <ul class="posts">
+        {{ range .Pages }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            {{ with .Summary }}<p>{{ . }}</p>{{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    {{ end }}
+
+  </div>
+</main>
+{{ end }}

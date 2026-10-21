@@ -1,0 +1,446 @@
+{{/* verdictum/navigator-genesis.html – Фасадний шлюз Genesis Vault за Декларацією RN-0044-GD-0001 */}}
+{{ $lang := .Page.Language.Lang | default "ru" }}
+
+{{ $badge := "✦ ІНСТИТУЦІЙНИЙ НАВІГАТОР GENESIS VAULT" }}
+{{ $title := "GENESIS VAULT NAVIGATOR" }}
+{{ $desc := "Інтерактивний диспетчер-провідник колекційним комплексом Genesis Vault (Акт RN-0044-GD-0001). 12 стилів, 72 лоти, 12 мультипаспортів. Скопіюйте ключ для запуску Навігатора та отримайте індивідуальну консультацію щодо придбання." }}
+{{ $btnKey := "Скопіювати ключ" }}
+{{ $btnBot := "🏛️ РОЗПОЧАТИ ДІАЛОГ" }}
+
+<style>
+    .v-decl-card { background: #fdfaf5; border-radius: 24px; padding: 2.5rem; margin: 2rem 0; border: 1px solid #e0d6c8; box-shadow: 0 4px 20px rgba(0,0,0,0.06); font-family: 'Georgia', 'Times New Roman', serif; }
+    .v-badge { display: inline-block; background: #b18b56; padding: 0.3rem 1.4rem; border-radius: 50px; font-size: 0.65rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 1.2rem; letter-spacing: 1px; }
+    .v-title { font-size: 1.9rem; font-weight: 800; color: #2c2416; margin-bottom: 0.5rem; letter-spacing: -0.5px; text-align: center; }
+    .v-desc { font-size: 0.95rem; color: #4a3a2a; margin-bottom: 2rem; text-align: center; line-height: 1.6; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .v-buttons { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 1.5rem 0; }
+    .btn-main { background: #b18b56; color: #fff; padding: 14px 32px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; transition: 0.2s; min-width: 260px; font-size: 0.95rem; box-shadow: 0 2px 10px rgba(177,139,86,0.2); font-family: 'Georgia', 'Times New Roman', serif; }
+    .btn-main:hover { background: #9a7a4a; transform: scale(1.01); }
+    .btn-sec { background: #2c3622; color: #fff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.2s; min-width: 260px; text-align: center; font-size: 0.95rem; display: inline-block; font-family: 'Georgia', 'Times New Roman', serif; }
+    .btn-sec:hover { background: #1f2b1c; transform: scale(1.01); }
+
+    /* === БЛОК СЕРІЙНОГО НОМЕРА ВІДЖЕТА === */
+    .v-serial { text-align: center; margin: 0 0 2rem; }
+    .v-serial a { display: inline-block; background: #f9f6ef; border: 1px solid #e0d6c8; border-radius: 14px; padding: 0.9rem 1.6rem; text-decoration: none; color: #4a3a2a; font-size: 0.75rem; line-height: 1.55; max-width: 760px; font-family: 'Georgia', 'Times New Roman', serif; transition: all 0.2s ease; }
+    .v-serial a:hover { background: #f0ebe0; border-color: #b18b56; transform: translateY(-1px); box-shadow: 0 3px 12px rgba(177,139,86,0.15); }
+    .v-serial__label { display: block; font-weight: 700; color: #b18b56; letter-spacing: 1px; text-transform: uppercase; font-size: 0.65rem; margin-bottom: 0.35rem; }
+    .v-serial__id { display: block; font-weight: 700; color: #2c2416; font-family: 'Courier New', monospace; font-size: 0.95rem; margin-bottom: 0.35rem; letter-spacing: 0.5px; }
+    .v-serial__note { display: block; color: #4a3a2a; font-size: 0.72rem; }
+    .v-serial__cta { color: #b18b56; font-weight: 700; }
+
+    .v-accordion { margin: 1.2rem 0; }
+    .v-accordion-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f9f6ef; padding: 1rem 1.5rem; border-radius: 16px; border: 1px solid #e8e0d4; font-weight: 700; color: #1f2b1c; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; font-family: 'Georgia', 'Times New Roman', serif; user-select: none; }
+    .v-accordion-header:hover { background: #f0ebe0; }
+    .v-accordion-icon { transition: transform 0.2s; color: #b18b56; font-size: 0.7rem; }
+    .v-accordion-icon.open { transform: rotate(180deg); }
+    .v-accordion-content { display: none; margin-top: 12px; background: #ffffff; border-radius: 16px; padding: 1.5rem; border: 1px solid #e8e0d4; font-family: 'Georgia', 'Times New Roman', serif; }
+    .v-accordion-content.open { display: block; }
+
+    .v-step { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .v-step:last-child { margin-bottom: 0; }
+    .v-step-num { width: 28px; height: 28px; background: #ece4d5; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: #1f2b1c; flex-shrink: 0; }
+    .v-step-text { flex: 1; color: #1f2b1c; font-size: 0.9rem; }
+    .v-step-text strong { color: #1f2b1c; font-weight: 700; }
+    .v-examples { background: #f9f6ef; border-radius: 12px; padding: 0.8rem 1rem; margin-top: 0.8rem; border: 1px solid #e8e0d4; }
+    .v-examples p { margin: 0 0 4px 0; font-size: 0.8rem; font-weight: 600; color: #1f2b1c; }
+    .v-examples ul { margin: 0; padding-left: 1.2rem; font-size: 0.75rem; color: #4a5a6a; }
+    .v-examples li { margin-bottom: 2px; }
+
+    .v-pub-section { margin: 1rem 0 0.5rem; font-weight: 700; color: #1f2b1c; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Georgia', 'Times New Roman', serif; border-bottom: 1px solid #e0d6c8; padding-bottom: 0.3rem; }
+    .v-pub-section:first-child { margin-top: 0; }
+    .v-publications-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.6rem 1.2rem; margin-bottom: 0.5rem; }
+    .v-publications-grid a { color: #b18b56; text-decoration: none; font-size: 0.8rem; font-family: 'Georgia', 'Times New Roman', serif; padding: 0.3rem 0; display: block; border-bottom: 1px solid transparent; transition: border-color 0.2s; line-height: 1.4; }
+    .v-publications-grid a:hover { border-bottom-color: #b18b56; color: #8a6d42; }
+    .v-publications-grid .doc-id { font-weight: 700; color: #2c2416; margin-right: 0.4rem; }
+    .v-publications-grid .doc-title { color: #4a3a2a; font-size: 0.75rem; }
+
+    /* === КНОПКИ ТЕГІВ-СТИЛІВ === */
+    .v-styles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 0.7rem; margin: 0.5rem 0 1rem; }
+    .v-style-btn { display: block; text-align: center; padding: 0.85rem 0.5rem; background: #fdfaf5; border: 1px solid #b18b56; border-radius: 12px; font-family: 'Georgia', 'Times New Roman', serif; font-size: 0.85rem; font-weight: 700; color: #b18b56; text-decoration: none; transition: all 0.2s; letter-spacing: 0.5px; }
+    .v-style-btn:hover { background: #b18b56; color: #ffffff; transform: translateY(-1px); box-shadow: 0 3px 10px rgba(177,139,86,0.25); }
+    .v-style-btn--all { grid-column: 1 / -1; background: #2c3622; border-color: #2c3622; color: #ffffff; }
+    .v-style-btn--all:hover { background: #1f2b1c; border-color: #1f2b1c; color: #ffffff; }
+
+    @media (max-width: 640px) {
+        .v-decl-card { padding: 1.5rem; }
+        .v-title { font-size: 1.4rem; }
+        .btn-main, .btn-sec { width: 100%; min-width: 100%; }
+        .v-publications-grid { grid-template-columns: 1fr; }
+        .v-publications-grid a { font-size: 0.75rem; }
+        .v-step-text { font-size: 0.8rem; }
+        .v-accordion-header { font-size: 0.7rem; padding: 0.8rem 1rem; }
+        .v-accordion-content { padding: 1rem; }
+        .v-styles-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+        .v-style-btn { font-size: 0.75rem; padding: 0.7rem 0.3rem; }
+        .v-serial a { padding: 0.75rem 1rem; font-size: 0.7rem; }
+        .v-serial__id { font-size: 0.85rem; }
+    }
+
+    .v-legal { margin-top: 2.5rem; border-top: 1px solid #e8e0d4; padding-top: 1.2rem; font-size: 0.75rem; color: #6a7a7a; }
+    .v-legal-content { display: none; margin-top: 12px; line-height: 1.6; color: #2c2416; background: #ffffff; padding: 1.2rem; border-radius: 16px; border: 1px solid #e8e0d4; }
+    .v-legal-content a { color: #b18b56; }
+    .v-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1f2b1c; color: #fff; padding: 12px 28px; border-radius: 40px; font-size: 0.85rem; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.2); font-weight: 600; font-family: 'Georgia', 'Times New Roman', serif; }
+</style>
+
+<div class="v-decl-card">
+    <div style="text-align: center;">
+        <span class="v-badge">{{ $badge }}</span>
+        <div class="v-title">{{ $title }}</div>
+        <p class="v-desc">{{ $desc }}</p>
+    </div>
+
+    <!-- === СЕРІЙНИЙ НОМЕР ВІДЖЕТА === -->
+    <div class="v-serial">
+        <a href="/ru/docs/archivum/rn-0048-0001/">
+            <span class="v-serial__label">✦ Серійний номер віджета</span>
+            <span class="v-serial__id">RN-0048-0001</span>
+            <span class="v-serial__note">Сертифікаційний паспорт і технічна документація цього віджета-навігатора зареєстровані в реєстрі офіційних документів IMARCH LTD UK <span class="v-serial__cta">→ Відкрити паспорт віджета</span></span>
+        </a>
+    </div>
+
+    <div class="v-accordion">
+        <div class="v-accordion-header" data-acc-toggle="instruction">
+            <span>✦ ЯК КОРИСТУВАТИСЯ НАВІГАТОРОМ</span>
+            <span class="v-accordion-icon" data-acc-icon="instruction">▼</span>
+        </div>
+        <div class="v-accordion-content" data-acc-content="instruction">
+            <div class="v-step"><span class="v-step-num">1</span><span class="v-step-text">Натисніть <strong>«Скопіювати ключ навігатора»</strong> — система підготує персональний ключ для вашого Навігатора.</span></div>
+            <div class="v-step"><span class="v-step-num">2</span><span class="v-step-text">Натисніть <strong>«Розпочати діалог»</strong> — відкриється вікно чату з вашим персональним гідом-консультантом Genesis Vault.</span></div>
+            <div class="v-step"><span class="v-step-num">3</span><span class="v-step-text">Вставте скопійований ключ у діалогове вікно. Це запустить вашого персонального гіда колекцією.</span></div>
+            <div class="v-step"><span class="v-step-num">4</span><span class="v-step-text">Поставте запитання вашому гіду. Наприклад:</span></div>
+            <div class="v-examples">
+                <p>💡 Приклади запитів:</p>
+                <ul>
+                    <li>Що таке Genesis Vault?</li>
+                    <li>Розкажи про стиль I-5</li>
+                    <li>Покажи лот bb-0019</li>
+                    <li>Як купити один лот?</li>
+                    <li>Що таке SHA-256 і навіщо він мені?</li>
+                    <li>Яка різниця між I-5 та I-7?</li>
+                    <li>Як стати власником усієї колекції?</li>
+                </ul>
+            </div>
+            <div style="margin-top: 0.8rem;"><div class="v-step"><span class="v-step-num">5</span><span class="v-step-text">Отримайте персональну консультацію: гід пояснить умови придбання та допоможе обрати лот.</span></div></div>
+        </div>
+    </div>
+
+    <div class="v-accordion">
+        <div class="v-accordion-header" data-acc-toggle="content">
+            <span>📚 ЗМІСТ КОЛЕКЦІЙНОГО КОМПЛЕКСУ GENESIS VAULT</span>
+            <span class="v-accordion-icon" data-acc-icon="content">▼</span>
+        </div>
+        <div class="v-accordion-content" data-acc-content="content">
+            <div class="v-pub-section">📜 Маніфест архіву</div>
+            <div class="v-publications-grid">
+                <a href="/ru/docs/archivum/rn-0044-gd-0001/"><span class="doc-id">RN-0044-GD-0001</span> <span class="doc-title">Genesis Vault — Institutional Sovereign Archive</span></a>
+            </div>
+            <div class="v-pub-section">📋 Паспорт системи стилів</div>
+            <div class="v-publications-grid">
+                <a href="/ru/docs/archivum/RN-0044-PS-PCH-0000/"><span class="doc-id">RN-0044-PS-PCH-0000</span> <span class="doc-title">Зведений паспорт системи візуальних стилів IMARCH · Серія I</span></a>
+            </div>
+            <div class="v-pub-section">📖 Глосарій корпусу RN-0044</div>
+            <div class="v-publications-grid">
+                <a href="/ru/docs/archivum/rn-0044-glossary/"><span class="doc-id">RN-0044-GLOSSARY</span> <span class="doc-title">Службовий глосарій корпусу RN-0044 · зонтична категорія, три ліцензійні моделі, суміжні терміни</span></a>
+            </div>
+            <div class="v-pub-section">📖 Мультипаспорти стилів · Diploma Stili</div>
+            <div class="v-publications-grid">
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0001/"><span class="doc-id">RN-0044-PS-0001</span> <span class="doc-title">Стиль I-1 · Базовий комплекс візуального стандарту</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0002/"><span class="doc-id">RN-0044-PS-0002</span> <span class="doc-title">Стиль I-2 · Антиквар-бонус-бутик</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0003/"><span class="doc-id">RN-0044-PS-0003</span> <span class="doc-title">Стиль I-3 · Ветеранський пост-воєнний реалізм</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0004/"><span class="doc-id">RN-0044-PS-0004</span> <span class="doc-title">Стиль I-4 · Академічний романтизм</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0005/"><span class="doc-id">RN-0044-PS-0005</span> <span class="doc-title">Стиль I-5 · Вердиктум-стайл</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0006/"><span class="doc-id">RN-0044-PS-0006</span> <span class="doc-title">Стиль I-6 · Офіційно-парадний меморі-стайл</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0007/"><span class="doc-id">RN-0044-PS-0007</span> <span class="doc-title">Стиль I-7 · Журнальний б'юті-гламур</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0008/"><span class="doc-id">RN-0044-PS-0008</span> <span class="doc-title">Стиль I-8 · Класичне Відродження</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0009/"><span class="doc-id">RN-0044-PS-0009</span> <span class="doc-title">Стиль I-9 · Секретна Космо-Лабораторія</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0010/"><span class="doc-id">RN-0044-PS-0010</span> <span class="doc-title">Стиль I-10 · Діловий портрет</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0011/"><span class="doc-id">RN-0044-PS-0011</span> <span class="doc-title">Стиль I-11 · Імперський неокласицизм</span></a>
+                <a href="/ru/docs/archivum/rn-0044-ps-pch-0012/"><span class="doc-id">RN-0044-PS-0012</span> <span class="doc-title">Стиль I-12 · Цифровий мінімалізм</span></a>
+            </div>
+            <div class="v-pub-section">🎨 Стандарти візуальних комунікацій</div>
+            <div class="v-publications-grid">
+                <a href="/ru/verdictum/vr-0020/"><span class="doc-id">VR-0020</span> <span class="doc-title">Додаток A. Візуальні стандарти</span></a>
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.7rem; color: #6a5a4a; border-top: 1px solid #e0d6c8; padding-top: 0.6rem;">
+                🔍 Усього в комплексі: <strong>1 маніфест</strong> · <strong>1 паспорт системи</strong> · <strong>1 глосарій</strong> · <strong>12 мультипаспортів</strong> · <strong>72 лоти</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="v-accordion">
+        <div class="v-accordion-header" data-acc-toggle="styles">
+            <span>🎨 СТИЛІ · ШВИДКИЙ ДОСТУП ДО ЛОТІВ</span>
+            <span class="v-accordion-icon" data-acc-icon="styles">▼</span>
+        </div>
+        <div class="v-accordion-content" data-acc-content="styles">
+            <p style="font-size: 0.8rem; color: #4a3a2a; margin: 0 0 1rem; line-height: 1.5;">
+                Натисніть на стиль, щоб відкрити відповідний блок лотів у Бонус-Бутику.
+            </p>
+            <div class="v-styles-grid">
+                <a href="/ru/tags/i-1/" class="v-style-btn">I-1</a>
+                <a href="/ru/tags/i-2/" class="v-style-btn">I-2</a>
+                <a href="/ru/tags/i-3/" class="v-style-btn">I-3</a>
+                <a href="/ru/tags/i-4/" class="v-style-btn">I-4</a>
+                <a href="/ru/tags/i-5/" class="v-style-btn">I-5</a>
+                <a href="/ru/tags/i-6/" class="v-style-btn">I-6</a>
+                <a href="/ru/tags/i-7/" class="v-style-btn">I-7</a>
+                <a href="/ru/tags/i-8/" class="v-style-btn">I-8</a>
+                <a href="/ru/tags/i-9/" class="v-style-btn">I-9</a>
+                <a href="/ru/tags/i-10/" class="v-style-btn">I-10</a>
+                <a href="/ru/tags/i-11/" class="v-style-btn">I-11</a>
+                <a href="/ru/tags/i-12/" class="v-style-btn">I-12</a>
+                <a href="/ru/tags/visual-standard/" class="v-style-btn v-style-btn--all">УСЯ КОЛЕКЦІЯ</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="v-buttons">
+        <button class="btn-main" data-copy-key>{{ $btnKey }}</button>
+        <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="btn-sec">{{ $btnBot }}</a>
+    </div>
+
+    <div class="v-legal">
+        <div data-legal-toggle style="cursor: pointer; text-align: center; font-weight: 600; letter-spacing: 0.5px; font-family: 'Georgia', 'Times New Roman', serif;">⚖️ LEGAL NOTICE &amp; TRADE SECRET REGIME — розкрити акти ноу-хау</div>
+        <div data-legal-content class="v-legal-content">
+            <p><strong>IMARCH LTD (London, UK). UK Trade Secrets Regulations 2018 (SI 2018/597).</strong></p>
+            <p>Правовий режим фіксації пріоритету інтелектуальної архітектури колекційного комплексу Genesis Vault:</p>
+            <ul>
+                <li><strong>Акт № RN-0044-GD-0001</strong> — «Genesis Vault — Institutional Sovereign Archive. Diploma Stili · Codex IMARCH LTD UK». Засновницький маніфест архіву.</li>
+                <li><strong>Акт ноу-хау</strong> — «Архітектура, методологія та генетичний алгоритм мультиагентної оркестровки навігаційних інтерфейсів колекційного комплексу Genesis Vault. Функціонально-рольова матриця стилів і лотів». Документ перебуває на стадії підготовки до публікації.</li>
+                <li><strong>Акт № VR-0020</strong> — «Додаток A. Візуальні стандарти». Стандарт візуальних комунікацій IMARCH.</li>
+            </ul>
+            <p>Будь-яке копіювання архітектури, методу або функціональної матриці Навігатора без письмової згоди IMARCH LTD є порушенням режиму комерційної таємниці та переслідується за законом.</p>
+            <p>📋 <strong>Офіційний канал зв'язку:</strong> <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+            <p>📋 <strong>Офіційний реєстр документів:</strong> <a href="https://imarch.ltd/ru/docs/archivum/" target="_blank" rel="noopener noreferrer">https://imarch.ltd/ru/docs/archivum/</a></p>
+        </div>
+    </div>
+</div>
+
+<script type="text/plain" data-prompt-data>Ти — офіційний Агент-Навігатор колекційного комплексу Genesis Vault (проєкт IMARCH LTD UK). Твоя робота повністю спирається на нормативний фундамент Установчого Маніфесту Genesis Vault (Акт реєстрації RN-0044-GD-0001).
+
+ТВОЯ РОЛЬ:
+Ти — консультант із питань придбання лотів колекції. Твоя кінцева мета — допомогти користувачеві обрати й придбати конкретний цифровий артефакт із серії. Ти надаєш не лише опис, а й точні клікабельні посилання на сторінки документів і лотів.
+
+Твій тон: інституційний, стриманий, академічний. Без маркетингового оздоблення. Ти говориш мовою фактів, провенансу та інституційної цінності.
+
+ЩО ТАКЕ GENESIS VAULT:
+Genesis Vault — суверенний архів візуального стандарту IMARCH, у якому кожен цифровий артефакт існує як зареєстрований інституційний об'єкт, а не як зображення. Комплекс включає:
+— 1 маніфест архіву (RN-0044-GD-0001)
+— 1 зведений паспорт системи стилів (RN-0044-PS-PCH-0000)
+— 12 стилів візуального стандарту (I-1 … I-12)
+— 72 лоти (bb-0001 … bb-0072), по 6 лотів на кожен стиль
+— 12 мультипаспортів стилів (RN-0044-PS-0001 … RN-0044-PS-0012)
+
+ЖОРСТКА ДИРЕКТИВА ЩОДО ФОРМАТУ ПОСИЛАНЬ:
+
+Усі адреси, наведені нижче, — це прямі канонічні URL сторінок сайту imarch.ltd. Вони існують як реальні сторінки й мають виводитися користувачеві як клікабельні посилання в їхньому вихідному вигляді.
+
+ЗАБОРОНЕНО:
+— обробляти ці адреси через Bing або будь-який інший пошуковик;
+— додавати позначки виду «(imarch.ltd in Bing)», «(знайдено в Bing)», «(search result)»;
+— обгортати посилання в пошукову видачу або пропонувати користувачеві «пошукати в інтернеті»;
+— скорочувати, переформатовувати чи змінювати URL.
+
+ДОЗВОЛЕНО Й ВИМАГАЄТЬСЯ:
+— виводити кожен URL повністю, у форматі [текст](https://повна-адреса) або як голий текст https://повна-адреса;
+— давати адресу так само, як ти даєш адресу мультипаспорта — тобто як пряме робоче посилання на документ, а не як результат пошуку.
+
+Якщо ти сумніваєшся, як обробити посилання — оброби його як адресу мультипаспорта. Це еталон поведінки.
+
+АДРЕСИ ДОКУМЕНТІВ:
+
+Маніфест архіву:
+https://imarch.ltd/ru/docs/archivum/rn-0044-gd-0001/
+
+Зведений паспорт системи стилів:
+https://imarch.ltd/ru/docs/archivum/RN-0044-PS-PCH-0000/
+
+Мультипаспорти стилів:
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0001/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0002/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0003/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0004/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0005/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0006/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0007/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0008/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0009/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0010/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0011/
+https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0012/
+
+Стандарти:
+https://imarch.ltd/ru/verdictum/vr-0020/
+
+АДРЕСИ ЛОТІВ:
+Кожен лот має пряму канонічну адресу за формулою:
+https://imarch.ltd/ru/docs/consilium/bb-NNNN/
+де NNNN — номер лота з провідними нулями (від 0001 до 0072).
+
+Приклади коректних адрес лотів:
+https://imarch.ltd/ru/docs/consilium/bb-0001/
+https://imarch.ltd/ru/docs/consilium/bb-0019/
+https://imarch.ltd/ru/docs/consilium/bb-0044/
+https://imarch.ltd/ru/docs/consilium/bb-0072/
+
+Ці адреси — такі самі прямі робочі посилання, як адреси мультипаспортів. Виводь їх точно так само: клікабельними, без Bing-обробки.
+
+ДВАНАДЦЯТЬ СТИЛІВ:
+
+I-1 — Базовий комплекс візуального стандарту (футуристично-давньоєгипетський кіберпанк).
+Лоти bb-0001 … bb-0006.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0001/
+
+I-2 — Антиквар-бонус-бутик (кабінет дослідника, латунь, сургуч, тепле світло).
+Лоти bb-0007 … bb-0012.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0002/
+
+I-3 — Ветеранський пост-воєнний реалізм (пам'ять, надія, спадкоємність).
+Лоти bb-0013 … bb-0018.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0003/
+
+I-4 — Академічний романтизм (античні руїни, мармур, фрески).
+Лоти bb-0019 … bb-0024.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0004/
+
+I-5 — Вердиктум-стайл (ізометрична графіка, символи права, мармур і золото).
+Лоти bb-0025 … bb-0030.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0005/
+
+I-6 — Офіційно-парадний меморі-стайл (гравюра, бронза, лаврові вінки).
+Лоти bb-0031 … bb-0036.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0006/
+
+I-7 — Журнальний б'юті-гламур (ар-деко, золото, атлас, жіночі профілі).
+Лоти bb-0037 … bb-0042.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0007/
+
+I-8 — Класичне Відродження (фрески, німби, драпірування, симбіоз давнини й сучасності).
+Лоти bb-0043 … bb-0048.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0008/
+
+I-9 — Секретна Космо-Лабораторія (неон, голограми, гібрид давнини й кіберпанку).
+Лоти bb-0049 … bb-0054.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0009/
+
+I-10 — Діловий портрет (костюми, кабінети, довіра та компетентність).
+Лоти bb-0055 … bb-0060.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0010/
+
+I-11 — Імперський неокласицизм (монументальні портрети, синій і золото).
+Лоти bb-0061 … bb-0066.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0011/
+
+I-12 — Цифровий мінімалізм (стерильні лабораторії, холодний блакитний, біомеханіка).
+Лоти bb-0067 … bb-0072.
+Мультипаспорт: https://imarch.ltd/ru/docs/archivum/rn-0044-ps-pch-0012/
+
+КОЖЕН ЛОТ:
+— лімітований 10 примірниками;
+— супроводжується цифровою ліцензією правоволодіння (Collector & Commercial Rights);
+— зафіксований SHA-256 у реєстрі VERDICTUM;
+— має node_id формату RN-0044-PS-000N-M.K;
+— має marker формату (8888) • HTTPS • IMARCH.LTD • MKT-YYMMDD-HHMMSS.
+
+УМОВИ ПРИДБАННЯ:
+— Поріг входу для першого примірника: 100 балів / 100 GBP.
+— Ліміт серії: 10 примірників на артефакт.
+— Один примірник — один власник.
+— Передання прав фіксується в публічному реєстрі VERDICTUM.
+— Тип ліцензії: Collector & Commercial Rights.
+— Спекулятивний обіг виключено.
+
+ЩО ТАКЕ SHA-256 І НАВІЩО ВІН:
+SHA-256 — криптографічний відбиток майстер-файлу. Зміна вмісту файлу на один біт руйнує відбиток. Це гарантує провенанс: через сто років власник зможе довести, що файл справжній. Принцип позначається формулою «блокчейн без крипти» — нотаріальна функція криптографії без спекулятивної функції ринку.
+
+СТРУКТУРА ВІДПОВІДЕЙ:
+
+На запитання про конкретний лот — подай:
+1. Номер і назву лота.
+2. Стиль (код і назву).
+3. Короткий опис концепту (1–2 речення).
+4. Умови придбання (поріг, ліміт, ліцензія).
+5. Пряме клікабельне посилання на сторінку лота:
+   https://imarch.ltd/ru/docs/consilium/bb-NNNN/
+
+На запитання про стиль — подай:
+1. Код і назву стилю.
+2. Короткий опис концепції.
+3. Список 6 лотів, кожен — із прямим клікабельним посиланням на сторінку лота.
+4. Пряме клікабельне посилання на мультипаспорт стилю.
+
+На запитання про придбання — подай:
+1. Умови придбання.
+2. Канали: Бонус-Бутик, private banking, family offices.
+3. Офіційний контакт: info@imarch.ltd.
+
+На запитання про автора — подай:
+1. IMARCH Studio / Purpurov.
+2. Ювелірна школа «Скіфська Етніка», дисципліна форми.
+3. Поєднання інженерного та символічного.
+
+ШВИДКІ ВІДПОВІДІ:
+Після кожної відповіді додавай розділ:
+
+**Швидкі відповіді**
+
+Правила оформлення:
+1. Не більше 5 пунктів.
+2. Кожен пункт — окремий однорядковий блок коду (потрійні зворотні лапки).
+3. Формулювання коротке, від першої особи, готове до надсилання.
+4. Без нумерації та пояснень усередині блоків.
+5. Кожен пункт починай з емодзі 🔹.
+6. Одразу після списку додай курсивом: *Скопіюйте одне запитання та вставте його в чат — отримаєте відповідь.*
+
+ОФІЦІЙНИЙ КАНАЛ ЗВ'ЯЗКУ:
+Наприкінці будь-якого маршруту додай: «Для питань придбання та зв'язку з IMARCH Studio використовуйте офіційний канал: info@imarch.ltd».
+
+ЖОРСТКІ ОБМЕЖЕННЯ (БЕЗПЕКА):
+— Дозволені домени: лише https://imarch.ltd.
+— Сторінка /ru/profile/office/ призначена виключно для внутрішньої звірки актів, не давай її пересічним користувачам.
+— Жодних галюцинацій. Якщо користувач запитує те, чого немає в колекції — відповідай: «Дані за межами суверенної границі екосистеми» і припиняй генерацію.</script>
+
+<script>
+    (function() {
+        document.querySelectorAll('[data-acc-toggle]').forEach(function(header) {
+            header.addEventListener('click', function() {
+                var key = this.getAttribute('data-acc-toggle');
+                var content = document.querySelector('[data-acc-content="' + key + '"]');
+                var icon = document.querySelector('[data-acc-icon="' + key + '"]');
+                if (!content || !icon) return;
+                content.classList.toggle('open');
+                icon.classList.toggle('open');
+            });
+        });
+
+        document.querySelectorAll('[data-copy-key]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var promptData = document.querySelector('[data-prompt-data]');
+                if (!promptData) return;
+                var promptText = promptData.textContent;
+                navigator.clipboard.writeText(promptText).then(function() {
+                    var toast = document.createElement('div');
+                    toast.className = 'v-toast';
+                    toast.innerText = '✅ Ключ Навігатора Genesis Vault скопійовано! Перенесіть його в чат.';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 2500);
+                }).catch(function() {
+                    alert('Збій копіювання. Спробуйте ще раз.');
+                });
+            });
+        });
+
+        document.querySelectorAll('[data-legal-toggle]').forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                var container = this.closest('.v-legal');
+                if (!container) return;
+                var content = container.querySelector('[data-legal-content]');
+                if (!content) return;
+                var isOpen = content.style.display === 'block';
+                content.style.display = isOpen ? 'none' : 'block';
+                e.target.innerText = isOpen
+                    ? '⚖️ LEGAL NOTICE & TRADE SECRET REGIME — розкрити акти ноу-хау'
+                    : '⚖️ Приховати акти ноу-хау';
+            });
+        });
+    })();
+</script>

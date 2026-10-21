@@ -1,0 +1,123 @@
+[[translation]]
+id = "dateFormat"
+translation = "2 de enero de 2006"
+
+[[translation]]
+id = "shortdateFormat"
+translation = "2 ene 2006 15:04:05"
+
+[[translation]]
+id = "postedOnDate"
+translation = "Publicado el {{ . }}"
+
+[[translation]]
+id = "lastModified"
+translation = "(Última modificación el {{ . }})"
+
+[[translation]]
+id = "translationsLabel"
+translation = "Otros idiomas: "
+
+[[translation]]
+id = "translationsSeparator"
+translation = ", "
+
+[[translation]]
+id = "readMore"
+translation = "Leer más"
+
+[[translation]]
+id = "olderPosts"
+translation = "Anterior"
+
+[[translation]]
+id = "newerPosts"
+translation = "Siguiente"
+
+[[translation]]
+id = "previousPost"
+translation = "Publicación anterior"
+
+[[translation]]
+id = "nextPost"
+translation = "Próxima publicación"
+
+[[translation]]
+id = "readTime"
+translation = "minutos"
+
+[[translation]]
+id = "words"
+translation = "palabras"
+
+[[translation]]
+id = "pageNotFound"
+translation = "¡Vaya! Página no encontrada. (Error 404)"
+
+[[translation]]
+id = "poweredBy"
+translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Tema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> derivado de <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+
+[[translation]]
+id = "toggleNavigation"
+translation = "Alternar navegación"
+
+[[translation]]
+id = "languageSwitcherLabel"
+translation = "Idioma"
+
+[[translation]]
+id = "gcseLabelShort"
+translation = "Buscar"
+
+[[translation]]
+id = "gcseLabelLong"
+translation = "Buscar en {{ .Site.Title }}"
+
+[[translation]]
+id = "gcseClose"
+translation = "Cerrar"
+
+[[translation]]
+id = "noComment"
+translation = "Sin comentarios"
+
+[[translation]]
+id = "oneComment"
+translation = "comentario"
+
+[[translation]]
+id = "moreComment"
+translation = "comentarios"
+
+[[translation]]
+id = "useMarkdown"
+translation = "Puedes usar sintaxis Markdown"
+
+[[translation]]
+id = "yourName"
+translation = "Tu nombre"
+
+[[translation]]
+id = "yourEmail"
+translation = "Tu correo electrónico"
+
+[[translation]]
+id = "yourWebsite"
+translation = "Tu sitio web"
+
+[[translation]]
+id = "show"
+translation = "Mostrar"
+
+[[translation]]
+id = "comments"
+translation = "Comentarios"
+
+[[translation]]
+id = "seeAlso"
+translation = "Ver también"
+
+
+
+

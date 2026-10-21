@@ -1,0 +1,274 @@
+{{/* chronicle-os-intro.html – главная карточка Chronicle OS (универсальная) */}}
+{{ $lang := .Page.Language.Lang | default "en" }}
+
+{{ $title := "" }}
+{{ $subtitle := "" }}
+{{ $line1 := "" }}
+{{ $publicationsIntro := "" }}
+{{ $publicationsList := slice }}
+{{ $line2 := "" }}
+{{ $line3 := "" }}
+{{ $line4 := "" }}
+{{ $listItems := slice }}
+{{ $buttonText := "" }}
+{{ $footnote1 := "" }}
+{{ $footnote2 := "" }}
+{{ $footnote3 := "" }}
+
+{{ if eq $lang "ru" }}
+  {{ $title = "📖 АРХИТЕКТУРА ИНТЕЛЛЕКТУАЛЬНОГО СУВЕРЕНИТЕТА" }}
+  {{ $subtitle = "От исследовательского архива — к инфраструктуре интеллектуального капитала" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> — это междисциплинарная исследовательская и публикационная платформа, развёрнутая в инфраструктуре <strong>IMARCH LTD</strong>." }}
+  {{ $publicationsIntro = "На единой инфраструктуре платформы работают несколько изданий:" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — научный рецензируемый журнал" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — экспертный журнал-реестр институционального аудита" }}
+  {{ $line2 = "Платформа объединяет:" }}
+  {{ $listItems = slice "цифровую фиксацию авторства" "исследовательские публикации" "редакционное рецензирование" "элементы защиты интеллектуальных активов" "систему долгосрочного архивирования материалов" }}
+  {{ $line3 = "Chronicle OS рассматривает научную публикацию не только как текст, но и как элемент исследовательской инфраструктуры." }}
+  {{ $buttonText = "🚀 Подробнее о CCS" }}
+  {{ $footnote1 = "Традиционные модели научной публикации часто ограничивают контроль автора над распространением и долгосрочным управлением интеллектуальными активами." }}
+  {{ $footnote2 = "Chronicle OS предлагает альтернативную модель исследовательской координации, в которой: публикации фиксируются в цифровой инфраструктуре платформы; авторство и приоритет документируются; материалы интегрируются в долгосрочный исследовательский архив; элементы цифровой верификации и криптографической фиксации используются для подтверждения целостности данных." }}
+  {{ $footnote3 = "Платформа развивается как часть инфраструктуры CCS (Chronicle Communication System) под управлением IMARCH LTD (United Kingdom)." }}
+{{ else if eq $lang "uk" }}
+  {{ $title = "📖 АРХІТЕКТУРА ІНТЕЛЕКТУАЛЬНОГО СУВЕРЕНІТЕТУ" }}
+  {{ $subtitle = "Від дослідницького архіву — до інфраструктури інтелектуального капіталу" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> — це міждисциплінарна дослідницька та публікаційна платформа, розгорнута в інфраструктурі <strong>IMARCH LTD</strong>." }}
+  {{ $publicationsIntro = "На єдиній інфраструктурі платформи працюють кілька видань:" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — науковий рецензований журнал" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — експертний журнал-реєстр інституційного аудиту" }}
+  {{ $line2 = "Платформа об'єднує:" }}
+  {{ $listItems = slice "цифрову фіксацію авторства" "дослідницькі публікації" "редакційне рецензування" "елементи захисту інтелектуальних активів" "систему довгострокового архівування матеріалів" }}
+  {{ $line3 = "Chronicle OS розглядає наукову публікацію не лише як текст, але й як елемент дослідницької інфраструктури." }}
+  {{ $buttonText = "🚀 Докладніше про CCS" }}
+  {{ $footnote1 = "Традиційні моделі наукової публікації часто обмежують контроль автора над поширенням та довгостроковим управлінням інтелектуальними активами." }}
+  {{ $footnote2 = "Chronicle OS пропонує альтернативну модель дослідницької координації, в якій: публікації фіксуються в цифровій інфраструктурі платформи; авторство та пріоритет документуються; матеріали інтегруються в довгостроковий дослідницький архів; елементи цифрової верифікації та криптографічної фіксації використовуються для підтвердження цілісності даних." }}
+  {{ $footnote3 = "Платформа розвивається як частина інфраструктури CCS (Chronicle Communication System) під управлінням IMARCH LTD (United Kingdom)." }}
+{{ else if eq $lang "en" }}
+  {{ $title = "📖 ARCHITECTURE OF INTELLECTUAL SOVEREIGNTY" }}
+  {{ $subtitle = "From research archive to intellectual capital infrastructure" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> is an interdisciplinary research and publishing platform deployed within the infrastructure of <strong>IMARCH LTD</strong>." }}
+  {{ $publicationsIntro = "Several editions operate on the unified infrastructure of the platform:" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — peer-reviewed scholarly journal" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — expert journal-registry of institutional audit" }}
+  {{ $line2 = "The platform unites:" }}
+  {{ $listItems = slice "digital fixation of authorship" "research publications" "editorial peer review" "protection of intellectual assets" "long-term archiving system" }}
+  {{ $line3 = "Chronicle OS views a scientific publication not only as a text, but also as an element of research infrastructure." }}
+  {{ $buttonText = "🚀 More about CCS" }}
+  {{ $footnote1 = "Traditional models of scientific publication often limit the author's control over distribution and long-term management of intellectual assets." }}
+  {{ $footnote2 = "Chronicle OS offers an alternative model of research coordination in which: publications are recorded in the digital infrastructure of the platform; authorship and priority are documented; materials are integrated into a long-term research archive; elements of digital verification and cryptographic fixation are used to confirm data integrity." }}
+  {{ $footnote3 = "The platform is being developed as part of the CCS (Chronicle Communication System) infrastructure under the management of IMARCH LTD (United Kingdom)." }}
+{{ else if eq $lang "la" }}
+  {{ $title = "📖 ARCHITECTURA SOVEREIGNITATIS INTELLECTUALIS" }}
+  {{ $subtitle = "Ab archivo investigationis ad infrastructuram capitalis intellectualis" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> est suggestus investigationis et publicationis interdisciplinaris in infrastructura <strong>IMARCH LTD</strong> explicatus." }}
+  {{ $publicationsIntro = "In infrastructura unificata suggestus plures editiones operantur:" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — ephemeris scientifica recensita" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — ephemeris perita registri auditus institutionalis" }}
+  {{ $line2 = "Suggerus coniungit:" }}
+  {{ $listItems = slice "fixationem digitalem auctoritatis" "publicationes investigationis" "recensionem redactionalem" "elementa protectionis bonorum intellectualium" "systema archivii longi temporis" }}
+  {{ $line3 = "Chronicle OS publicationem scientificam non tantum textum, sed etiam elementum infrastructurae investigationis considerat." }}
+  {{ $buttonText = "🚀 Plura de CCS" }}
+  {{ $footnote1 = "Exemplaria traditionalia publicationis scientificae saepe limitant auctoris potestatem super distributione et administratione diuturna bonorum intellectualium." }}
+  {{ $footnote2 = "Chronicle OS offert exemplar alternativum coordinationis investigationis in quo: publicationes in infrastructura digitali suggestus fixantur; auctoritas et prioritas documentantur; materiae in archivum investigationis diuturnum integrantur; elementa verificationis digitalis et fixationis cryptographicae ad integritatem datorum confirmandam adhibentur." }}
+  {{ $footnote3 = "Suggestus explicatur ut pars infrastructurae CCS (Chronicle Communication System) sub administratione IMARCH LTD (United Kingdom)." }}
+{{ else if eq $lang "fr" }}
+  {{ $title = "📖 ARCHITECTURE DE LA SOUVERAINETÉ INTELLECTUELLE" }}
+  {{ $subtitle = "D'archive de recherche à l'infrastructure du capital intellectuel" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> est une plateforme de recherche et d'édition interdisciplinaire déployée dans l'infrastructure de <strong>IMARCH LTD</strong>." }}
+  {{ $publicationsIntro = "Plusieurs éditions fonctionnent sur l'infrastructure unifiée de la plateforme :" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — revue scientifique à comité de lecture" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — revue d'expertise et registre d'audit institutionnel" }}
+  {{ $line2 = "La plateforme unit :" }}
+  {{ $listItems = slice "la fixation numérique de la paternité" "les publications de recherche" "l'évaluation éditoriale par les pairs" "les éléments de protection des actifs intellectuels" "le système d'archivage à long terme" }}
+  {{ $line3 = "Chronicle OS considère la publication scientifique non seulement comme un texte, mais aussi comme un élément de l'infrastructure de recherche." }}
+  {{ $buttonText = "🚀 En savoir plus sur CCS" }}
+  {{ $footnote1 = "Les modèles traditionnels de publication scientifique limitent souvent le contrôle de l'auteur sur la distribution et la gestion à long terme des actifs intellectuels." }}
+  {{ $footnote2 = "Chronicle OS offre un modèle alternatif de coordination de la recherche dans lequel : les publications sont enregistrées dans l'infrastructure numérique de la plateforme ; la paternité et la priorité sont documentées ; les matériaux sont intégrés dans une archive de recherche à long terme ; des éléments de vérification numérique et de fixation cryptographique sont utilisés pour confirmer l'intégrité des données." }}
+  {{ $footnote3 = "La plateforme se développe dans le cadre de l'infrastructure CCS (Chronicle Communication System) sous la gestion de IMARCH LTD (Royaume-Uni)." }}
+{{ else if eq $lang "es" }}
+  {{ $title = "📖 ARQUITECTURA DE LA SOBERANÍA INTELECTUAL" }}
+  {{ $subtitle = "Del archivo de investigación a la infraestructura del capital intelectual" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> es una plataforma de investigación y publicación interdisciplinaria desplegada en la infraestructura de <strong>IMARCH LTD</strong>." }}
+  {{ $publicationsIntro = "Varias ediciones operan sobre la infraestructura unificada de la plataforma:" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — revista científica revisada por pares" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — revista experta y registro de auditoría institucional" }}
+  {{ $line2 = "La plataforma une:" }}
+  {{ $listItems = slice "la fijación digital de la autoría" "las publicaciones de investigación" "la revisión editorial por pares" "elementos de protección de activos intelectuales" "el sistema de archivo a largo plazo" }}
+  {{ $line3 = "Chronicle OS considera la publicación científica no solo como un texto, sino también como un elemento de la infraestructura de investigación." }}
+  {{ $buttonText = "🚀 Más sobre CCS" }}
+  {{ $footnote1 = "Los modelos tradicionales de publicación científica a menudo limitan el control del autor sobre la distribución y la gestión a largo plazo de los activos intelectuales." }}
+  {{ $footnote2 = "Chronicle OS ofrece un modelo alternativo de coordinación de la investigación en el que: las publicaciones se registran en la infraestructura digital de la plataforma; la autoría y la prioridad se documentan; los materiales se integran en un archivo de investigación a largo plazo; se utilizan elementos de verificación digital y fijación criptográfica para confirmar la integridad de los datos." }}
+  {{ $footnote3 = "La plataforma se desarrolla como parte de la infraestructura CCS (Chronicle Communication System) bajo la gestión de IMARCH LTD (Reino Unido)." }}
+{{ else if eq $lang "zh" }}
+  {{ $title = "📖 知识主权架构" }}
+  {{ $subtitle = "从研究档案到知识资本基础设施" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> 是一个跨学科研究与出版平台，部署在 <strong>IMARCH LTD</strong> 的基础设施中。" }}
+  {{ $publicationsIntro = "多个出版物在平台的统一基础设施上运行：" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — 同行评审的科学期刊" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — 机构审计专家期刊和注册表" }}
+  {{ $line2 = "该平台整合了：" }}
+  {{ $listItems = slice "数字化的作者身份固定" "研究出版物" "编辑同行评审" "知识资产保护元素" "长期材料存档系统" }}
+  {{ $line3 = "Chronicle OS 将科学出版物不仅视为文本，而且视为研究基础设施的元素。" }}
+  {{ $buttonText = "🚀 了解更多关于 CCS" }}
+  {{ $footnote1 = "传统的科学出版模式往往限制了作者对知识资产传播和长期管理的控制。" }}
+  {{ $footnote2 = "Chronicle OS 提供了一种替代的研究协调模式：出版物在平台的数字基础设施中进行记录；作者身份和优先权被记录在案；材料被整合到长期研究档案中；数字验证和加密固定元素被用来确认数据完整性。" }}
+  {{ $footnote3 = "该平台是 CCS（Chronicle Communication System）基础设施的一部分，在 IMARCH LTD（英国）的管理下发展。" }}
+{{ else if eq $lang "ar" }}
+  {{ $title = "📖 هندسة السيادة الفكرية" }}
+  {{ $subtitle = "من أرشيف البحث إلى بنية رأس المال الفكري" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> عبارة عن منصة بحثية ونشر متعددة التخصصات منشورة ضمن البنية التحتية لـ <strong>IMARCH LTD</strong>." }}
+  {{ $publicationsIntro = "تعمل عدة إصدارات على البنية التحتية الموحدة للمنصة:" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — مجلة علمية محكمة" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — مجلة الخبراء وسجل التدقيق المؤسسي" }}
+  {{ $line2 = "توحد المنصة:" }}
+  {{ $listItems = slice "التثبيت الرقمي للتأليف" "منشورات البحث" "مراجعة الأقران التحريرية" "عناصر حماية الأصول الفكرية" "نظام الأرشفة طويل الأجل" }}
+  {{ $line3 = "تعتبر Chronicle OS المنشور العلمي ليس فقط كنص، ولكن أيضًا كعنصر من البنية التحتية للبحث." }}
+  {{ $buttonText = "🚀 المزيد عن CCS" }}
+  {{ $footnote1 = "النماذج التقليدية للنشر العلمي غالبًا ما تحد من سيطرة المؤلف على توزيع وإدارة الأصول الفكرية على المدى الطويل." }}
+  {{ $footnote2 = "تقدم Chronicle OS نموذجًا بديلاً للتنسيق البحثي حيث: يتم تسجيل المنشورات في البنية التحتية الرقمية للمنصة؛ يتم توثيق التأليف والأولوية؛ يتم دمج المواد في أرشيف بحثي طويل الأجل؛ يتم استخدام عناصر التحقق الرقمي والتثبيت المشفر لتأكيد سلامة البيانات." }}
+  {{ $footnote3 = "تتطور المنصة كجزء من البنية التحتية لـ CCS (نظام الاتصال الزمني) تحت إدارة IMARCH LTD (المملكة المتحدة)." }}
+{{ else }}
+  {{ $title = "📖 ARCHITECTURE OF INTELLECTUAL SOVEREIGNTY" }}
+  {{ $subtitle = "From research archive to intellectual capital infrastructure" }}
+  {{ $line1 = "<strong>Chronicle OS</strong> is an interdisciplinary research and publishing platform deployed within the infrastructure of <strong>IMARCH LTD</strong>." }}
+  {{ $publicationsIntro = "Several editions operate on the unified infrastructure of the platform:" }}
+  {{ $publicationsList = slice "<strong>Chronicle OS International Journal</strong> — peer-reviewed scholarly journal" "<strong>VERDICTUM: Journal of Cultural-Engineering Reconstruction and Renovation</strong> — expert journal-registry of institutional audit" }}
+  {{ $line2 = "The platform unites:" }}
+  {{ $listItems = slice "digital fixation of authorship" "research publications" "editorial peer review" "protection of intellectual assets" "long-term archiving system" }}
+  {{ $line3 = "Chronicle OS views a scientific publication not only as a text, but also as an element of research infrastructure." }}
+  {{ $buttonText = "🚀 More about CCS" }}
+  {{ $footnote1 = "Traditional models of scientific publication often limit the author's control over distribution and long-term management of intellectual assets." }}
+  {{ $footnote2 = "Chronicle OS offers an alternative model of research coordination in which: publications are recorded in the digital infrastructure of the platform; authorship and priority are documented; materials are integrated into a long-term research archive; elements of digital verification and cryptographic fixation are used to confirm data integrity." }}
+  {{ $footnote3 = "The platform is being developed as part of the CCS (Chronicle Communication System) infrastructure under the management of IMARCH LTD (United Kingdom)." }}
+{{ end }}
+
+<div class="eco-card-wrapper" style="margin: 2rem auto;">
+  <div class="eco-card">
+    <h4 class="eco-title">{{ $title }}</h4>
+    <p class="eco-desc">
+      <strong>{{ $subtitle }}</strong>
+    </p>
+    <p class="eco-desc">
+      {{ $line1 | safeHTML }}
+    </p>
+    <p class="eco-desc">{{ $publicationsIntro }}</p>
+    <ul class="eco-list">
+      {{ range $publicationsList }}
+        <li>{{ . | safeHTML }}</li>
+      {{ end }}
+    </ul>
+    <p class="eco-desc">{{ $line2 }}</p>
+    <ul class="eco-list">
+      {{ range $listItems }}
+        <li>{{ . }}</li>
+      {{ end }}
+    </ul>
+    <p class="eco-desc">
+      {{ $line3 }}
+    </p>
+    <div class="eco-buttons" style="justify-content: center;">
+      <a href="/{{ $lang }}/profile/ccs/" class="eco-button" style="flex: 0 1 auto; min-width: 200px;">{{ $buttonText }}</a>
+    </div>
+    <div class="eco-footnote" style="font-size: 0.75rem; margin-top: 1rem;">
+      <span>{{ $footnote1 }}</span>
+      <span>{{ $footnote2 }}</span>
+      <span>{{ $footnote3 }}</span>
+    </div>
+  </div>
+</div>
+
+<style>
+.eco-card-wrapper {
+  max-width: 100%;
+  margin: 2rem auto;
+}
+.eco-card {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.8rem;
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+              box-shadow 0.3s ease,
+              border-color 0.2s ease;
+  will-change: transform, box-shadow;
+}
+.eco-card:hover {
+  transform: translateY(-5px);
+  border-color: #c0a070;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.02);
+}
+.eco-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #2c2416;
+  margin: 0 0 0.75rem 0;
+  border-left: 3px solid #8b7355;
+  padding-left: 1rem;
+}
+.eco-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4a3a2a;
+  margin: 0.5rem 0 1rem 0;
+}
+.eco-desc strong {
+  font-weight: 800;
+  color: #2c2416;
+}
+.eco-list {
+  margin: 0.5rem 0 1rem 1.2rem;
+  padding: 0;
+  color: #4a3a2a;
+}
+.eco-list li {
+  margin-bottom: 0.3rem;
+}
+.eco-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1.5rem 0 1rem 0;
+}
+.eco-button {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  flex: 1 0 auto;
+}
+.eco-button:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.eco-button:active {
+  transform: scale(0.98);
+}
+.eco-footnote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #4a3a2a;
+  background: rgba(139,115,85,0.05);
+  border-radius: 12px;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+}
+.eco-footnote span {
+  position: relative;
+  padding-left: 1.2rem;
+}
+.eco-footnote span::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #8b7355;
+}
+@media (max-width: 640px) {
+  .eco-card { padding: 1.2rem; }
+  .eco-buttons { flex-direction: column; }
+  .eco-button { width: 100%; text-align: center; }
+}
+</style>

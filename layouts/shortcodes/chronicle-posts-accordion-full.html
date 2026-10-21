@@ -1,0 +1,186 @@
+{{/*  chronicle-posts-accordion-full.html – аккордеон со статьями, соцсетями и кнопкой каталога  */}}
+{{ $limit := .Get "limit" | default 10 }}
+{{ $pages := where .Site.RegularPages "Params.tags" "intersect" (slice "cos-article") }}
+{{ $pages = where $pages "Draft" false }}
+{{ $pages = sort $pages "Date" "desc" }}
+{{ $pages = first $limit $pages }}
+
+{{ if $pages }}
+<details class="chronicle-accordion-full">
+  <summary class="chronicle-accordion-full-summary" style="justify-content: center;">📑 ПУБЛИКАЦИИ</summary>
+  <div class="chronicle-accordion-full-content">
+
+    <!-- Пояснительный текст -->
+    <div style="background: #f0ede8; border-radius: 16px; padding: 0.8rem; margin: 1rem 0; text-align: center;">
+      <p style="margin: 0; font-size: 0.85rem; color: #4a3a2a;">
+        🔍 Для поиска статей по секциям, выпускам, авторам или тегам перейдите в каталог:
+      </p>
+    </div>
+
+    <!-- Кнопка "Все статьи" -->
+    <div style="text-align: center; margin: 1rem 0;">
+      <a href="/ru/profile/chronicle-os-journal/registry/" class="pilot-steel-btn" style="display: inline-block; width: auto;">📚 ВСЕ СТАТЬИ →</a>
+    </div>
+
+    <!-- Пустая строка для визуального отступа -->
+    <div style="margin: 1rem 0;"></div>
+
+    <!-- Пояснение о последних публикациях -->
+    <div style="text-align: center; margin: 0.5rem 0 1rem 0;">
+      <p style="margin: 0; font-size: 0.85rem; color: #8b7355; font-style: italic;">
+        ⬇️ Ниже приведены последние публикации (свежие — сверху):
+      </p>
+    </div>
+
+    <!-- Лента статей -->
+    <div class="chronicle-posts-list">
+      {{ range $pages }}
+        <div class="chronicle-post-card">
+          <div class="chronicle-post-title">
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          </div>
+          <div class="chronicle-post-meta">
+            <span class="chronicle-post-date">{{ .Date.Format "02.01.2006" }}</span>
+            <span class="chronicle-post-status" style="color: #d97706;">UNDER REVIEW</span>
+          </div>
+          <div class="chronicle-post-desc">
+            {{ .Params.description | default "Аннотация временно недоступна." | truncate 200 }}
+          </div>
+          <a href="{{ .RelPermalink }}" class="chronicle-post-button">📖 Читать статью →</a>
+        </div>
+      {{ end }}
+    </div>
+
+ <!-- Социальные сети -->
+    {{ partial "persona-socials.html" . }}
+
+  </div>
+</details>
+
+<style>
+/* стили аккордеона и карточек */
+.chronicle-accordion-full {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  transition: all 0.25s ease;
+}
+.chronicle-accordion-full[open] {
+  background: #ffffff;
+  border-color: #d4d8dd;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.chronicle-accordion-full-summary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 1.8rem;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: #1a1c1e;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+.chronicle-accordion-full-summary:hover {
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  transform: translateY(-1px);
+}
+.chronicle-accordion-full[open] .chronicle-accordion-full-summary {
+  border-radius: 20px 20px 0 0;
+  border-bottom: 1px solid #d4d8dd;
+}
+.chronicle-accordion-full-content {
+  padding: 1.5rem;
+}
+.chronicle-posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.chronicle-post-card {
+  background: #fff;
+  border: 1px solid #e0d6c8;
+  border-radius: 16px;
+  padding: 1.2rem;
+  transition: all 0.2s ease;
+}
+.chronicle-post-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.chronicle-post-title a {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-decoration: none;
+  border-left: 3px solid #8b7355;
+  padding-left: 0.75rem;
+}
+.chronicle-post-title a:hover {
+  color: #8b7355;
+}
+.chronicle-post-meta {
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.chronicle-post-date {
+  color: #8b7355;
+}
+.chronicle-post-status {
+  font-weight: 700;
+}
+.chronicle-post-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4a3a2a;
+  margin: 0.5rem 0;
+}
+.chronicle-post-button {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 6px;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: 0.2s;
+  margin-top: 0.5rem;
+}
+.chronicle-post-button:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+}
+@media (max-width: 768px) {
+  .chronicle-accordion-full-summary {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  .chronicle-accordion-full-content {
+    padding: 1rem;
+  }
+  .chronicle-post-title a {
+    font-size: 1rem;
+  }
+  .chronicle-post-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+{{ else }}
+<p>На данный момент статей с тегом "cos-article" не найдено.</p>
+{{ end }}

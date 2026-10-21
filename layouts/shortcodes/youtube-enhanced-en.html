@@ -1,0 +1,175 @@
+{{ $id := .Get "id" }}
+{{ $caption := .Get "caption" | default "YouTube видео" }}
+{{ $autoplay := .Get "autoplay" | default "0" }}
+{{ $start := .Get "start" | default "0" }}
+{{ $thumb := printf "https://i.ytimg.com/vi/%s/hqdefault.jpg" $id }}
+
+<div class="yt-card" data-yt-id="{{ $id }}" data-yt-autoplay="{{ $autoplay }}" data-yt-start="{{ $start }}" role="region" aria-label="{{ $caption }}">
+  <button class="yt-card__btn" type="button" aria-label="Воспроизвести видео: {{ $caption }}">
+    <span class="yt-card__thumb" style="background-image:url('{{ $thumb }}')" aria-hidden="true"></span>
+    <svg class="yt-card__play" viewBox="0 0 68 48" width="68" height="48" aria-hidden="true" focusable="false">
+      <path d="M66.52 7.03a8 8 0 0 0-5.64-5.64C56.6 0 34 0 34 0s-22.6 0-26.88 1.39a8 8 0 0 0-5.64 5.64C0 11.3 0 24 0 24s0 12.7 1.48 16.97a8 8 0 0 0 5.64 5.64C11.4 48 34 48 34 48s22.6 0 26.88-1.39a8 8 0 0 0 5.64-5.64C68 36.7 68 24 68 24s0-12.7-1.48-16.97z" fill="#f00"/>
+      <path d="M45 24 27 14v20z" fill="#fff"/>
+    </svg>
+  </button>
+
+  {{ if $caption }}
+    <p class="yt-card__caption">{{ $caption }}</p>
+  {{ end }}
+
+  <noscript>
+    <div class="yt-card__noscript">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/{{ $id }}?rel=0&modestbranding=1&autoplay={{ $autoplay }}&start={{ $start }}"
+        title="{{ $caption }}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+  </noscript>
+</div>
+
+<style>
+.yt-card {
+  margin: 2rem 0;
+  border-radius: 12px;
+  background: #f3f4f6; /* светлая серая подкладка */
+  box-shadow: 0 8px 24px rgba(18, 24, 32, 0.06);
+  padding: 0.6rem;
+  display: block;
+  max-width: 100%;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.yt-card__btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Thumbnail as background, cover to avoid black letterbox */
+.yt-card__thumb {
+  display: block;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 */
+  background-size: cover;       /* заполнение без полос */
+  background-position: center;  /* центрируем изображение */
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  background-color: #e9ecef;    /* цвет, который будет виден вместо чёрных полос */
+  overflow: hidden;
+}
+
+/* Play icon centered over thumbnail */
+.yt-card__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 48px;
+  opacity: 0.95;
+  transition: transform .18s ease, opacity .18s ease;
+  pointer-events: none;
+}
+.yt-card__btn:hover .yt-card__play { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
+
+.yt-card__caption {
+  text-align: center;
+  font-size: 0.92rem;
+  color: #555;
+  margin: 0.6rem 0 0;
+  padding: 0 0.5rem;
+}
+
+/* Noscript iframe fallback */
+.yt-card__noscript iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-radius: 8px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .yt-card { margin: 1.2rem 0; border-radius: 10px; padding: 0.4rem; }
+  .yt-card__play { width: 56px; height: 40px; }
+}
+
+.vis-project-sections {
+  max-width: 100%; /* Убираем ограничение */
+  margin: 4rem 0; /* Убираем auto-отступы */
+  padding: 0; /* Убираем боковые padding */
+}
+
+/* Или для всей страницы */
+body {
+  margin: 0;
+  padding: 0;
+  background: white; /* Убедитесь, что фон белый */
+}
+</style>
+
+<script>
+(function () {
+  // Delegate click to play button; supports multiple instances on page
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.yt-card__btn');
+    if (!btn) return;
+    var card = btn.closest('.yt-card');
+    if (!card) return;
+
+    var id = card.getAttribute('data-yt-id');
+    var autoplay = card.getAttribute('data-yt-autoplay') || '0';
+    var start = card.getAttribute('data-yt-start') || '0';
+
+    var src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+              '?rel=0&modestbranding=1&autoplay=' + encodeURIComponent(autoplay) +
+              '&start=' + encodeURIComponent(start);
+
+    var wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    wrapper.style.paddingBottom = '56.25%';
+    wrapper.style.height = '0';
+    wrapper.style.overflow = 'hidden';
+    wrapper.style.borderRadius = '8px';
+
+    var iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.title = card.getAttribute('aria-label') || 'YouTube video';
+    iframe.setAttribute('frameborder','0');
+    iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen','');
+    iframe.loading = 'lazy';
+    iframe.style.position = 'absolute';
+    iframe.style.top = '0';
+    iframe.style.left = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+
+    wrapper.appendChild(iframe);
+
+    // Replace the button (thumbnail) with the iframe wrapper
+    var btnEl = card.querySelector('.yt-card__btn');
+    if (btnEl) btnEl.replaceWith(wrapper);
+  });
+
+  // Optional: improve keyboard accessibility (Enter/Space on focused button)
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      var active = document.activeElement;
+      if (active && active.classList && active.classList.contains('yt-card__btn')) {
+        active.click();
+        e.preventDefault();
+      }
+    }
+  });
+})();
+</script>

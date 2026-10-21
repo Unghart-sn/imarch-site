@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="auth-wrap">
+  <div class="auth-card">
+
+    <h1 class="auth-title">Sign in to IMARCH</h1>
+    <p class="auth-sub">Enter the email linked to your account. We will send you a one-time login link.</p>
+    <form id="loginForm" autocomplete="on" novalidate>
+      <input id="email" type="email" name="email" required placeholder="your@email" autocomplete="email">
+      <button id="submitBtn" type="submit">Send Login Link</button>
+    </form>
+    <div id="loginMsg" class="auth-msg" hidden></div>
+    <p class="auth-foot">We never share your email. The link expires in 1 hour.</p>
+  </div>
+</div>
+<style>
+.auth-wrap{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:2rem 1rem;}
+.auth-card{background:#FAF8F5;border:1px solid #B0C4DE;border-radius:12px;padding:2.5rem 2rem;max-width:420px;width:100%;box-shadow:0 4px 24px rgba(30,58,95,.08);text-align:center;font-family:'Times New Roman',serif;}
+.auth-logo{margin-bottom:1.5rem;}
+.auth-title{font-family:Arial,sans-serif;color:#1E3A5F;font-size:1.5rem;margin:0 0 .5rem 0;}
+.auth-sub{color:#4A6A8A;font-size:.95rem;margin:0 0 1.75rem 0;line-height:1.5;}
+#loginForm{display:flex;flex-direction:column;gap:.75rem;}
+#email{font-family:inherit;font-size:1rem;padding:.75rem 1rem;border:1px solid #B0C4DE;border-radius:8px;background:#fff;color:#1E2A3A;outline:none;}
+#email:focus{border-color:#1E3A5F;box-shadow:0 0 0 3px rgba(30,58,95,.12);}
+#submitBtn{font-family:Arial,sans-serif;font-size:1rem;font-weight:600;padding:.85rem 1rem;border:none;border-radius:8px;background:#1E3A5F;color:#fff;cursor:pointer;transition:background .15s;}
+#submitBtn:hover:not(:disabled){background:#152a47;}
+#submitBtn:disabled{opacity:.6;cursor:wait;}
+.auth-msg{margin-top:1rem;padding:.75rem 1rem;border-radius:8px;font-size:.95rem;line-height:1.4;}
+.auth-msg.ok{background:#E3EAF2;color:#2E7D46;border:1px solid #2E7D46;}
+.auth-msg.err{background:#FAF8F5;color:#A02020;border:1px solid #A02020;}
+.auth-foot{font-size:.8rem;color:#4A6A8A;margin-top:1.5rem;margin-bottom:0;}
+body #openFormBtn{display:none!important;}
+</style>
+<script>
+(function(){
+  var form=document.getElementById('loginForm'),
+      emailInput=document.getElementById('email'),
+      btn=document.getElementById('submitBtn'),
+      msg=document.getElementById('loginMsg');
+  function show(k,t){msg.className='auth-msg '+k;msg.textContent=t;msg.hidden=false;}
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    btn.disabled=true;msg.hidden=true;
+    var email=(emailInput.value||'').trim();
+    if(!email){btn.disabled=false;return show('err','Please enter your email.');}
+    try{
+      var redirect=window.location.origin+'/auth/callback/';
+      var r=await window.imarchAuth.sendLoginLink(email,redirect);
+      if(r&&r.error)throw r.error;
+      show('ok','Check your email \u2014 we sent you a login link.');
+      form.reset();
+    }catch(err){
+      show('err','Could not send the link: '+(err&&err.message?err.message:'unknown error'));
+    }finally{btn.disabled=false;}
+  });
+})();
+</script>
+{{ end }}

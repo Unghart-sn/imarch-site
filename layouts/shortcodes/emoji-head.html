@@ -1,0 +1,20 @@
+{{ $emoji := .Page.Params.emoji | default "✨" }}
+{{ $animation := .Page.Params.animation | default "pulse" }}
+
+{{ $styles := dict
+    "pulse" "animation: pulse 1.5s infinite;"
+    "scale" "animation: scale 1.2s infinite alternate;"
+    "flash" "animation: flash 0.8s infinite alternate;"
+    "bounce" "animation: bounce 2s infinite;"
+}}
+
+{{ $style := index $styles $animation | default (index $styles "pulse") }}
+
+<div class="emoji-container" style="
+    font-size: 4rem;
+    text-align: center;
+    margin: 2rem 0;
+    {{ $style | safeCSS }}
+">
+    {{ $emoji }}
+</div>

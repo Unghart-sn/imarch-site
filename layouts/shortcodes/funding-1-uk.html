@@ -1,0 +1,346 @@
+{{/*  Shortcode: funding-1  (light, pitch-deck style)
+Usage:
+{{< funding-1 url="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" goal="8000" currency="GBP" about="/ru/about/" report="/ru/reports/" >}}
+*/}}
+
+{{ $uniqueID := substr (md5 (printf "%s%s" (now.UnixNano) (seq 1 100 | shuffle | first 1))) 0 10 }}
+{{ $lang := .Page.Language.Lang | default "en" }}
+{{ $base := printf "/%s" $lang }}
+{{ $url := .Get "url" | default "https://whydonate.com/fundraising/vis-realitatis-preserving-memory" }}
+{{ $goal := .Get "goal" | default "8000" }}
+{{ $currency := .Get "currency" | default "GBP" }}
+{{ $about := .Get "about" | default (printf "%s/profile/vis-realitatis/" $base) }}
+{{ $report := .Get "report" | default (printf "%s/verdictum/" $base) }}
+{{ $contactEmail := "admin@imarch.sbs" }}
+
+<div class="imarch-funding-light" id="funding-light-{{ $uniqueID }}">
+
+  <div class="funding-header">
+    <h2>Підтримка пілоту Vis Realitatis</h2>
+    <p class="subtitle">Ви підтримуєте не «збір заради збору».</p>
+    <p class="subtitle-smaller">
+      Ви входите в перше коло запуску, де кожен внесок фіксується в хроніці,
+      а результат упаковується у відтворюваний протокол.
+    </p>
+  </div>
+
+  <div class="funding-actions">
+    <a class="funding-btn primary" 
+       href="{{ $url }}" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      Підтримати на WhyDonate
+    </a>
+    {{ if $about }}
+    <a class="funding-btn secondary" href="{{ $about }}">Про проєкт</a>
+    {{ end }}
+    {{ if $report }}
+    <a class="funding-btn secondary" href="{{ $report }}">Звіти та архів</a>
+    {{ end }}
+  </div>
+
+  <div class="funding-meta">
+    Мета пілоту: <strong>{{ $goal }} {{ $currency }}</strong><br>
+    Формат: онлайн, індивідуальне проходження, спільне поле обговорення, фіксація результатів і звітність.
+  </div>
+
+  <div class="funding-grid">
+
+    <!-- ДОНОР -->
+    <div class="funding-card">
+      <div class="card-icon">💎</div>
+      <h3>Донор</h3>
+      <p class="card-description">
+        Внесок іде на запуск, організацію, інфраструктуру, оплату експертного контуру та підготовку звітності.
+      </p>
+      <div class="card-features">
+        <span class="feature">Статус учасника першого кола</span>
+        <span class="feature">Фіксація внеску як акту</span>
+        <span class="feature">Мета: {{ $goal }} {{ $currency }}</span>
+      </div>
+      <a class="funding-btn primary card-btn" 
+         href="{{ $url }}" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        💎 Підтримати проєкт
+      </a>
+    </div>
+
+    <!-- ЕКСПЕРТ -->
+    <div class="funding-card">
+      <div class="card-icon">🧑‍🔬</div>
+      <h3>Експерт</h3>
+      <p class="card-description">
+        Ви даєте рецензію на модулі пілоту, підтверджуєте коректність методології та логіки протоколів.
+      </p>
+      <div class="card-features">
+        <span class="feature">Експертний висновок як артефакт</span>
+        <span class="feature">Зазначення ролі та участі</span>
+        <span class="feature">Верифікація методології</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="{{ $base }}/vis-realitatis-center-experts/" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        🧑‍🔬 Приєднатися як експерт
+      </a>
+    </div>
+
+    <!-- ПАРТНЕР -->
+    <div class="funding-card">
+      <div class="card-icon">🤝</div>
+      <h3>Партнер</h3>
+      <p class="card-description">
+        Ви підключаєте майданчик, аудиторію, організацію, медіа, інститут чи інші ресурси.
+      </p>
+      <div class="card-features">
+        <span class="feature">Спільний модуль / подія</span>
+        <span class="feature">Прозора фіксація</span>
+        <span class="feature">Інтеграція в хроніку</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="mailto:info@imarch.sbs?subject=Партнерство%20Vis%20Realitatis">
+        📩 Зв'язатися з командою
+      </a>
+    </div>
+
+    <!-- УЧАСНИК ПІЛОТУ -->
+    <div class="funding-card">
+      <div class="card-icon">🚀</div>
+      <h3>Учасник пілоту</h3>
+      <p class="card-description">
+        Ви проходите пілотний практичний контур, допомагаєте зібрати матеріал для методички, покращень, кейсів.
+      </p>
+      <div class="card-features">
+        <span class="feature">Ваш досвід стає частиною бази</span>
+        <span class="feature">Зворотний зв'язок для покращень</span>
+        <span class="feature">Участь у звітах</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="mailto:info@imarch.sbs?subject=Участь%20в%20пілоті%20Vis%20Realitatis">
+        🚀 Участь у пілоті
+      </a>
+    </div>
+
+  </div>
+
+  <div class="funding-note">
+    <p>Ключовий принцип простий. Ми не просимо «повірити на слово». Ми фіксуємо дії, ролі, рішення, внески та результати так, щоб це переживало людей і обставини.</p>
+  </div>
+
+  <div class="funding-footer">
+    <p class="disclaimer">💡 Усі кошти йдуть на розвиток пілоту. Щомісячні звіти публікуються у відкритому доступі.</p>
+  </div>
+
+</div>
+
+<style>
+/* ===== СВЕТЛЫЙ СТИЛЬ (PITCH-DECK) ===== */
+#funding-light-{{ $uniqueID }} {
+  all: initial;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: all 0.25s ease;
+}
+
+#funding-light-{{ $uniqueID }} * {
+  box-sizing: border-box;
+}
+
+/* ШАПКА */
+#funding-light-{{ $uniqueID }} .funding-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#funding-light-{{ $uniqueID }} .funding-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2c2416;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+#funding-light-{{ $uniqueID }} .subtitle {
+  font-size: 1.1rem;
+  color: #4a3a2a;
+  margin-bottom: 0.5rem;
+}
+#funding-light-{{ $uniqueID }} .subtitle-smaller {
+  font-size: 0.95rem;
+  color: #6a5a48;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* КНОПКИ В ШАПКЕ */
+#funding-light-{{ $uniqueID }} .funding-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+#funding-light-{{ $uniqueID }} .funding-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+#funding-light-{{ $uniqueID }} .funding-btn.primary {
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border-color: #8b95a0;
+  color: #1a1c1e;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#funding-light-{{ $uniqueID }} .funding-btn.primary:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+#funding-light-{{ $uniqueID }} .funding-btn.secondary {
+  background: transparent;
+  border-color: #8b95a0;
+  color: #1a1c1e;
+}
+#funding-light-{{ $uniqueID }} .funding-btn.secondary:hover {
+  background: rgba(139, 115, 85, 0.1);
+  border-color: #c0a070;
+  transform: scale(1.02);
+}
+
+/* МЕТА */
+#funding-light-{{ $uniqueID }} .funding-meta {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  color: #4a3a2a;
+  line-height: 1.4;
+  background: #f8f4f0;
+  padding: 0.8rem;
+  border-radius: 12px;
+}
+#funding-light-{{ $uniqueID }} .funding-meta strong {
+  color: #8b7355;
+  font-weight: 800;
+}
+
+/* СЕТКА КАРТОЧЕК */
+#funding-light-{{ $uniqueID }} .funding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+#funding-light-{{ $uniqueID }} .funding-card {
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+#funding-light-{{ $uniqueID }} .funding-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+#funding-light-{{ $uniqueID }} .card-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+#funding-light-{{ $uniqueID }} .funding-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border-left: none;
+}
+#funding-light-{{ $uniqueID }} .card-description {
+  font-size: 0.85rem;
+  color: #6a5a48;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+#funding-light-{{ $uniqueID }} .card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+#funding-light-{{ $uniqueID }} .feature {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  padding: 0.4rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #4a3a2a;
+}
+#funding-light-{{ $uniqueID }} .card-btn {
+  width: 100%;
+  margin-top: auto;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+#funding-light-{{ $uniqueID }} .funding-note {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #6a5a48;
+  font-style: italic;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#funding-light-{{ $uniqueID }} .funding-footer {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e0d6c8;
+}
+#funding-light-{{ $uniqueID }} .disclaimer {
+  color: #6a5a48;
+  font-size: 0.85rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* АДАПТИВ */
+@media (max-width: 768px) {
+  #funding-light-{{ $uniqueID }} {
+    padding: 1.5rem;
+  }
+  #funding-light-{{ $uniqueID }} .funding-header h2 {
+    font-size: 1.5rem;
+  }
+  #funding-light-{{ $uniqueID }} .funding-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  #funding-light-{{ $uniqueID }} .funding-btn {
+    width: auto;
+    min-width: 200px;
+  }
+}
+@media (max-width: 640px) {
+  #funding-light-{{ $uniqueID }} .funding-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

@@ -1,0 +1,151 @@
+{{/*  chronicle-posts-accordion.html – аккордеон со статьями из блога по тегу cos-article  */}}
+{{ $pages := where .Site.RegularPages "Params.tags" "intersect" (slice "cos-article") }}
+{{ $pages = where $pages "Draft" false }}
+{{ $pages = sort $pages "Date" "desc" }}
+
+{{ if $pages }}
+<details class="chronicle-accordion">
+  <summary class="chronicle-accordion-summary">📑 Содержание</summary>
+  <div class="chronicle-accordion-content">
+    {{ range $pages }}
+      <div class="chronicle-post-card">
+        <div class="chronicle-post-title">
+          <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </div>
+        <div class="chronicle-post-meta">
+          <span class="chronicle-post-date">{{ .Date.Format "02.01.2006" }}</span>
+          <span class="chronicle-post-status" style="color: #d97706;">UNDER REVIEW</span>
+        </div>
+        <div class="chronicle-post-desc">
+          {{ .Params.description | default "Аннотация временно недоступна." | truncate 200 }}
+        </div>
+        <a href="{{ .RelPermalink }}" class="chronicle-post-button">📖 Читать статью →</a>
+      </div>
+    {{ end }}
+  </div>
+</details>
+
+<style>
+.chronicle-accordion {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  margin-bottom: 1.5rem;
+  transition: all 0.25s ease;
+}
+.chronicle-accordion[open] {
+  background: #ffffff;
+  border-color: #d4d8dd;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.chronicle-accordion-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.8rem;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  cursor: pointer;
+  list-style: none;
+  font-weight: 800;
+  font-size: 0.95rem;
+  letter-spacing: 2px;
+  color: #1a1c1e;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+.chronicle-accordion-summary:hover {
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  transform: translateY(-1px);
+}
+.chronicle-accordion[open] .chronicle-accordion-summary {
+  border-radius: 20px 20px 0 0;
+  border-bottom: 1px solid #d4d8dd;
+}
+.chronicle-accordion-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.chronicle-post-card {
+  background: #fff;
+  border: 1px solid #e0d6c8;
+  border-radius: 16px;
+  padding: 1.2rem;
+  transition: all 0.2s ease;
+}
+.chronicle-post-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.chronicle-post-title a {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-decoration: none;
+  border-left: 3px solid #8b7355;
+  padding-left: 0.75rem;
+}
+.chronicle-post-title a:hover {
+  color: #8b7355;
+}
+.chronicle-post-meta {
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.chronicle-post-date {
+  color: #8b7355;
+}
+.chronicle-post-status {
+  font-weight: 700;
+}
+.chronicle-post-desc {
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #4a3a2a;
+  margin: 0.5rem 0;
+}
+/* ЖЁСТКИЙ ПЕРЕОПРЕДЕЛЁННЫЙ СЕЛЕКТОР — квадратная кнопка */
+.chronicle-accordion .chronicle-post-button {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 0 !important;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: 0.2s;
+  margin-top: 0.5rem;
+}
+.chronicle-accordion .chronicle-post-button:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+}
+@media (max-width: 768px) {
+  .chronicle-accordion-summary {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  .chronicle-accordion-content {
+    padding: 1rem;
+  }
+  .chronicle-post-title a {
+    font-size: 1rem;
+  }
+  .chronicle-accordion .chronicle-post-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+{{ else }}
+<p>На данный момент статей с тегом "cos-article" не найдено.</p>
+{{ end }}

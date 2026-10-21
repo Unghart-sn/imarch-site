@@ -1,0 +1,332 @@
+{{/* verdictum/navigator.html – Фасадный шлюз VERDICTUM по Декларации RN-0028 */}}
+{{ $lang := .Page.Language.Lang | default "ru" }}
+
+{{/* Текстовые переменные фасада */}}
+{{ $badge := "✦ ИНСТИТУЦИОНАЛЬНЫЙ НАВИГАТОР PKI" }}
+{{ $title := "VERDICTUM DECLARATION NAVIGATOR" }}
+{{ $desc := "Интерактивный диспетчер-проводник по материалам журнала VERDICTUM (Акт RN-0028). Скопируйте ключ для запуска Навигатора и получите индивидуальную предварительную консультацию." }}
+{{ $btnKey := "Скопировать ключ" }}
+{{ $btnBot := "🏛️ НАЧАТЬ ДИАЛОГ" }}
+
+<style>
+    .v-decl-card {
+        background: #fdfaf5;
+        border-radius: 24px;
+        padding: 2.5rem;
+        margin: 2rem 0;
+        border: 1px solid #e0d6c8;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .v-badge { display: inline-block; background: #b18b56; padding: 0.3rem 1.4rem; border-radius: 50px; font-size: 0.65rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 1.2rem; letter-spacing: 1px; }
+    .v-title { font-size: 1.9rem; font-weight: 800; color: #2c2416; margin-bottom: 0.5rem; letter-spacing: -0.5px; text-align: center; }
+    .v-desc { font-size: 0.95rem; color: #4a3a2a; margin-bottom: 2rem; text-align: center; line-height: 1.6; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .v-buttons { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 1.5rem 0; }
+    .btn-main { background: #b18b56; color: #fff; padding: 14px 32px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; transition: 0.2s; min-width: 260px; font-size: 0.95rem; box-shadow: 0 2px 10px rgba(177,139,86,0.2); }
+    .btn-main:hover { background: #9a7a4a; transform: scale(1.01); }
+    .btn-sec { background: #2c3622; color: #fff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.2s; min-width: 260px; text-align: center; font-size: 0.95rem; display: inline-block; }
+    .btn-sec:hover { background: #1f2b1c; transform: scale(1.01); }
+    
+    /* Инструкция (аккордеон) */
+    .v-instruction-accordion {
+        margin: 1.5rem 0;
+    }
+    .v-accordion-header {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        padding: 0.5rem 0;
+        border-radius: 0;
+        color: #4a5a6a;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.2s;
+        user-select: none;
+        text-align: center;
+        border-bottom: 1px solid #e8e0d4;
+    }
+    .v-accordion-header:hover {
+        color: #1f2b1c;
+    }
+    .v-accordion-icon {
+        transition: transform 0.2s;
+        display: inline-block;
+        font-size: 0.6rem;
+        color: #b18b56;
+    }
+    .v-accordion-icon.open {
+        transform: rotate(180deg);
+    }
+    .v-accordion-content {
+        display: none;
+        margin-top: 12px;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .v-accordion-content.open {
+        display: block;
+    }
+    .v-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+    }
+    .v-step:last-child {
+        margin-bottom: 0;
+    }
+    .v-step-num {
+        width: 28px;
+        height: 28px;
+        background: #ece4d5;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: #1f2b1c;
+        flex-shrink: 0;
+        border: none;
+    }
+    .v-step-text {
+        flex: 1;
+        color: #1f2b1c;
+        font-size: 0.9rem;
+    }
+    .v-step-text strong {
+        color: #1f2b1c;
+        font-weight: 700;
+    }
+    .v-examples {
+        background: #f9f6ef;
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        margin-top: 0.8rem;
+        border: 1px solid #e8e0d4;
+    }
+    .v-examples p {
+        margin: 0 0 4px 0;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #1f2b1c;
+    }
+    .v-examples ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        font-size: 0.75rem;
+        color: #4a5a6a;
+    }
+    .v-examples li {
+        margin-bottom: 2px;
+    }
+
+    .v-legal { margin-top: 2.5rem; border-top: 1px solid #e8e0d4; padding-top: 1.2rem; font-size: 0.75rem; color: #6a7a7a; }
+    .v-legal-content { display: none; margin-top: 12px; line-height: 1.6; color: #2c2416; background: #ffffff; padding: 1.2rem; border-radius: 16px; border: 1px solid #e8e0d4; }
+    .v-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1f2b1c; color: #fff; padding: 12px 28px; border-radius: 40px; font-size: 0.85rem; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.2); font-weight: 600; }
+    @media (max-width: 640px) {
+        .v-decl-card { padding: 1.5rem; }
+        .v-title { font-size: 1.4rem; }
+        .btn-main, .btn-sec { width: 100%; min-width: 100%; }
+        .v-step-text { font-size: 0.8rem; }
+        .v-examples ul { font-size: 0.7rem; }
+    }
+</style>
+
+<div class="v-decl-card">
+    <div style="text-align: center;">
+        <span class="v-badge">{{ $badge }}</span>
+        <div class="v-title">{{ $title }}</div>
+        <p class="v-desc">{{ $desc }}</p>
+    </div>
+
+    <!-- АККОРДЕОН С ИНСТРУКЦИЕЙ -->
+    <div class="v-instruction-accordion">
+        <div class="v-accordion-header" id="vAccordionToggle">
+            <span>✦ КАК ПОЛЬЗОВАТЬСЯ НАВИГАТОРОМ</span>
+            <span class="v-accordion-icon" id="vAccordionIcon">▼</span>
+        </div>
+        <div class="v-accordion-content" id="vAccordionContent">
+            <div class="v-step">
+                <span class="v-step-num">1</span>
+                <span class="v-step-text">Нажмите <strong>«Скопировать ключ навигатора»</strong> — система подготовит персональный ключ для вашего Навигатора.</span>
+            </div>
+            <div class="v-step">
+                <span class="v-step-num">2</span>
+                <span class="v-step-text">Нажмите <strong>«Начать диалог»</strong> — откроется окно чата с вашим персональным гидом-навигатором.</span>
+            </div>
+            <div class="v-step">
+                <span class="v-step-num">3</span>
+                <span class="v-step-text">Вставьте скопированный ключ в диалоговое окно. Это запустит вашего персонального гида-навигатора.</span>
+            </div>
+            <div class="v-step">
+                <span class="v-step-num">4</span>
+                <span class="v-step-text">Задайте вопрос вашему гиду. Например, по тексту Декларации VERDICTUM:</span>
+            </div>
+            <div class="v-examples">
+                <p>💡 Примеры вопросов:</p>
+                <ul>
+                    <li>Что такое VERDICTUM?</li>
+                    <li>Каковы четыре основополагающих принципа реестра?</li>
+                    <li>Что такое Verdictum Record (VR)?</li>
+                    <li>Чем VERDICTUM отличается от Chronicle OS?</li>
+                    <li>Как зарегистрировать документированное действие?</li>
+                    <li>Что такое институциональная память?</li>
+                </ul>
+            </div>
+            <div style="margin-top: 0.8rem;">
+                <div class="v-step">
+                    <span class="v-step-num">5</span>
+                    <span class="v-step-text">Получите маршрут: ваш гид подскажет нужные разделы сайта и поможет быстро найти информацию.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- КНОПКИ -->
+    <div class="v-buttons">
+        <button class="btn-main" id="copyDeclKeyBtn">{{ $btnKey }}</button>
+        <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="btn-sec">{{ $btnBot }}</a>
+    </div>
+
+    <!-- ЮРИДИЧЕСКИЙ БЛОК -->
+    <div class="v-legal">
+        <div id="legalToggle" style="cursor: pointer; text-align: center; font-weight: 600; letter-spacing: 0.5px;">⚖️ LEGAL NOTICE &amp; TRADE SECRET REGIME — раскрыть акты ноу-хау</div>
+        <div id="legalContent" class="v-legal-content">
+            <p><strong>IMARCH LTD (London, UK). UK Trade Secrets Regulations 2018 (SI 2018/597).</strong></p>
+            <p>Правовой режим фиксации приоритета интеллектуальной архитектуры:</p>
+            <ul>
+                <li><strong>Акт № RN-0028</strong> — «Учредительная институциональная декларация VERDICTUM, суверенного инфраструктурного реестра документированных фактов, решений, обязательств и подтверждённых событий» (Идентификатор: VR-DECL-2026-001 от 06 июля 2026 г.).</li>
+                <li><strong>Акт № КН-0003 / RN-0019</strong> — «Архитектура, методология и генетический алгоритм мультиагентной оркестровки навигационных интерфейсов. Функционально-ролевая матрица 20 аминокислот ДНК Chronicle OS».</li>
+                <li><strong>Акт № RN-0017</strong> — «Метод использования внешнего интеллектуального агента Copilot в качестве навигационного интерфейса».</li>
+            </ul>
+            <p>Любое копирование архитектуры, метода или функциональной матрицы Навигатора без письменного согласия IMARCH LTD является нарушением режима коммерческой тайны и преследуется по закону.</p>
+            <p>📋 <strong>Официальный реестр документов:</strong> <a href="https://imarch.sbs/ru/profile/office/" target="_blank" rel="noopener noreferrer">imarch.sbs/ru/profile/office/</a></p>
+        </div>
+    </div>
+</div>
+
+{{/* Суверенный промпт-инструкция на базе Декларации RN-0028 */}}
+<div id="promptData" style="display: none;" data-prompt="Ты — официальный Агент-Навигатор суверенного инфраструктурного реестра VERDICTUM (проект IMARCH Public Knowledge Infrastructure - PKI). Твоя работа полностью опирается на нормативный фундамент Учредительной Институциональной Декларации VERDICTUM (Акт регистрации RN-0028, документ VR-DECL-2026-001 от 06 июля 2026 года).
+
+Твой тон: подчеркнуто академичный, взвешенный, юридически и технологически выверенный. Полное отсутствие маркетинговой мишуры. Ты говоришь на языке фактов и институциональной памяти.
+
+ЛОГИКА ИНИЦИАЛИЗАЦИИ И ПРИВЕТСТВИЕ:
+
+Начни диалог строго со следующего сообщения:
+
+«Приветствую. Я — официальный Агент-Навигатор Международного реестра VERDICTUM (IMARCH PKI). Моя задача — провести вас по контурам нашей Учредительной институциональной декларации (Акт RN-0028).
+
+Выберите один из трёх вариантов экскурса по VERDICTUM:
+1. Ознакомиться с институциональной архитектурой журнала — краткий обзор разделов Декларации (Преамбула, Статус, Миссия, Принципы, Архитектура, Жизненный цикл VR, Место в PKI).
+2. Получить информацию о процедурах и возможностях журнала — о том, как работает институциональный реестр: регистрация действий, верификация записей, использование Verdictum Record.
+3. Перейти к квизу и подписке на Telegram-бот».
+
+СЦЕНАРИЙ ЭКСКУРСА:
+
+Если пользователь выбирает вариант 1 — дай краткий, но содержательный обзор структуры Декларации, выделяя ключевые разделы, без перегруза деталями. Сделай акцент на том, что Декларация определяет институциональные принципы и архитектуру Реестра.
+Если пользователь выбирает вариант 2 — опиши процедуры регистрации, верификации и использования Verdictum Record. Объясни, что Реестр работает с документированными действиями, а не с личностями участников, и как это обеспечивает юридическую чистоту.
+Если пользователь выбирает вариант 3 — предложи перейти к квизу и подписке (см. ниже).
+
+ПРЕДЛОЖЕНИЕ ПОДПИСКИ НА ТЕЛЕГРАМ-БОТ:
+
+В конце любого маршрута, после предоставления информации, добавь следующий блок:
+
+«Для системного отслеживания новых публикаций и тизеров Verdictum Record (VR) вы можете подписаться на наш официальный Telegram-бот: https://t.me/imarch_chronical_bot. Это единственный шлюз для фиксации вашей подписки и получения регулярных обновлений».
+
+КВИЗ КАК ЗАКЛЮЧИТЕЛЬНАЯ ОПЦИЯ:
+
+После предложения подписки добавь:
+
+«Если вы хотите проверить своё понимание Декларации, мы предлагаем пройти экспресс-квиз из трёх вопросов. Это займёт 2–3 минуты и поможет закрепить знание основных принципов и идентификаторов журнала. Желаете пройти квиз? (да / нет)»
+
+СЦЕНАРИЙ ВЕРИФИКАЦИОННОГО КВИЗА (только при согласии пользователя):
+
+Задай пользователю по очереди 3 вопроса с вариантами ответов. Вопросы и варианты строго по тексту Декларации RN-0028:
+
+ВОПРОС 1: Что является первичной операционной единицей обработки в VERDICTUM согласно разделу V?
+
+Варианты:
+A) Личность участника
+B) Документированное действие
+C) Дата регистрации
+D) Организационная структура
+
+Правильный ответ: B. Документированное действие — именно оно создаёт юридические и организационные основания для формирования нового институционального объекта.
+
+ВОПРОС 2: Назовите 4 основополагающих принципа функционирования реестра из раздела IV.
+
+Варианты:
+A) Институциональная целостность, верифицируемость, подотчётность, институциональная непрерывность
+B) Открытость, доступность, публичность, скорость
+C) Иерархия, централизация, контроль, управление
+D) Независимость, прозрачность, эффективность, безопасность
+
+Правильный ответ: A. Это принципы, закреплённые Декларацией: институциональная целостность, верифицируемость, подотчётность и институциональная непрерывность.
+
+ВОПРОС 3: Чем отличается VERDICTUM от Chronicle OS в структуре PKI согласно разделу VIII?
+
+Варианты:
+A) Это одно и то же
+B) Chronicle OS — для коммерческих проектов, VERDICTUM — для государственных
+C) Chronicle OS отвечает за создание и распространение воспроизводимого знания, а VERDICTUM — за документирование институциональной реальности, записей и доказательств
+D) VERDICTUM — это программный код, Chronicle OS — это интерфейс
+
+Правильный ответ: C. Они выполняют разные, но взаимодополняющие функции: Chronicle OS создаёт знание, VERDICTUM фиксирует институциональную реальность.
+
+После каждого ответа давай краткий отзыв с пояснением. В конце квиза подведи итог: «Знание Декларации — это основа для включения в институциональную среду VERDICTUM».
+
+ЖЕСТКИЕ ОГРАНИЧЕНИЯ (БЕЗОПАСНОСТЬ):
+
+- Разрешенные домены: только https://imarch.sbs и https://t.me/imarch_chronical_bot.
+- Страница общего аудита /ru/profile/office/ предназначена только для внутренней сверки актов, не давай её рядовым пользователям.
+- Никаких галлюцинаций. Если пользователь спрашивает то, чего нет в Декларации RN-0028 — отвечай: «Данные за пределами суверенного предела экосистемы» и прекращай генерацию."></div>
+
+<script>
+    // Логика аккордеона инструкции
+    document.getElementById('vAccordionToggle').addEventListener('click', function() {
+        const content = document.getElementById('vAccordionContent');
+        const icon = document.getElementById('vAccordionIcon');
+        const isOpen = content.classList.contains('open');
+        if (isOpen) {
+            content.classList.remove('open');
+            icon.classList.remove('open');
+        } else {
+            content.classList.add('open');
+            icon.classList.add('open');
+        }
+    });
+
+    // Логика копирования промпта
+    document.getElementById('copyDeclKeyBtn').addEventListener('click', () => {
+        const promptText = document.getElementById('promptData').getAttribute('data-prompt');
+        navigator.clipboard.writeText(promptText).then(() => {
+            const toast = document.createElement('div');
+            toast.className = 'v-toast';
+            toast.innerText = '✅ Ключ Декларации скопирован! Перенесите его в Copilot.';
+            document.body.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 2500);
+        }).catch(() => {
+            alert('Сбой копирования. Повторите попытку.');
+        });
+    });
+
+    // Юридический блок
+    document.getElementById('legalToggle').addEventListener('click', (e) => {
+        const content = document.getElementById('legalContent');
+        const isOpen = content.style.display === 'block';
+        content.style.display = isOpen ? 'none' : 'block';
+        e.target.innerText = isOpen 
+            ? '⚖️ LEGAL NOTICE & TRADE SECRET REGIME — раскрыть акты ноу-хау' 
+            : '⚖️ Скрыть акты ноу-хау';
+    });
+</script>

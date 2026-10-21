@@ -1,0 +1,522 @@
+{{/*
+    Copilot Navigator Card — FR (Chronicle Capital Style)
+    Crémeux, chaleureux, avec des accents bronze
+*/}}
+
+<style>
+    .dna-navigator-card-fr {
+        background: #fdfaf5;
+        border-radius: 24px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid #e0d6c8;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        transition: all 0.2s ease;
+    }
+    .dna-navigator-card-fr:hover {
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .dna-badge-fr {
+        display: inline-block;
+        background: #b18b56;
+        padding: 0.25rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        border: none;
+    }
+
+    .dna-title-fr {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #1f2b1c;
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.5px;
+        text-align: center;
+    }
+
+    .dna-subtitle-fr {
+        font-size: 1rem;
+        color: #4a5a6a;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #e8e0d4;
+        padding-bottom: 1rem;
+        text-align: center;
+        font-style: italic;
+    }
+
+    .dna-tags-fr {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+        margin: 0 0 1.5rem 0;
+        font-size: 0.85rem;
+        color: #4a5a6a;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .dna-instruction-accordion-fr {
+        margin: 1.5rem 0;
+    }
+
+    .dna-accordion-header-fr {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        padding: 0.5rem 0;
+        border-radius: 0;
+        color: #4a5a6a;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.2s;
+        user-select: none;
+        text-align: center;
+        border-bottom: 1px solid #e8e0d4;
+    }
+    .dna-accordion-header-fr:hover {
+        color: #1f2b1c;
+    }
+
+    .dna-accordion-icon-fr {
+        transition: transform 0.2s;
+        display: inline-block;
+        font-size: 0.6rem;
+        color: #b18b56;
+    }
+    .dna-accordion-icon-fr.open {
+        transform: rotate(180deg);
+    }
+
+    .dna-accordion-content-fr {
+        display: none;
+        margin-top: 12px;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .dna-accordion-content-fr.open {
+        display: block;
+    }
+
+    .dna-step-fr {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+    }
+    .dna-step-fr:last-child {
+        margin-bottom: 0;
+    }
+
+    .dna-step-num-fr {
+        width: 28px;
+        height: 28px;
+        background: #ece4d5;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: #1f2b1c;
+        flex-shrink: 0;
+        border: none;
+    }
+
+    .dna-step-text-fr {
+        flex: 1;
+        color: #1f2b1c;
+        font-size: 0.9rem;
+    }
+    .dna-step-text-fr strong {
+        color: #1f2b1c;
+        font-weight: 700;
+    }
+
+    .dna-examples-fr {
+        background: #f9f6ef;
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        margin-top: 0.8rem;
+        border: 1px solid #e8e0d4;
+    }
+    .dna-examples-fr p {
+        margin: 0 0 4px 0;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #1f2b1c;
+    }
+    .dna-examples-fr ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        font-size: 0.75rem;
+        color: #4a5a6a;
+    }
+    .dna-examples-fr li {
+        margin-bottom: 2px;
+    }
+
+    .dna-buttons-fr {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        justify-content: center;
+    }
+
+    .dna-btn-copy-fr {
+        background: #b18b56;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 200px;
+    }
+    .dna-btn-copy-fr:hover {
+        background: #9a7a4a;
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(177, 139, 86, 0.3);
+    }
+
+    .dna-btn-launch-fr {
+        background: #2c3622;
+        border: 2px solid #2c3622;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+        min-width: 200px;
+    }
+    .dna-btn-launch-fr:hover {
+        background: #1f2b1c;
+        border-color: #1f2b1c;
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(44, 54, 34, 0.3);
+        color: #ffffff;
+    }
+
+    .dna-toast-fr {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1f2b1c;
+        color: #ffffff;
+        padding: 12px 28px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        z-index: 9999;
+        border: none;
+        animation: fadeOutFr 2.5s ease forwards;
+        pointer-events: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    @keyframes fadeOutFr {
+        0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        70% { opacity: 1; }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); visibility: hidden; }
+    }
+
+    .dna-legal-fr {
+        margin-top: 1.5rem;
+        border-top: 1px solid #e8e0d4;
+        padding-top: 1rem;
+    }
+    .dna-legal-summary-fr {
+        cursor: pointer;
+        color: #6a7a7a;
+        font-size: 0.75rem;
+        text-align: center;
+        display: block;
+        user-select: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+    }
+    .dna-legal-summary-fr:hover {
+        color: #1f2b1c;
+    }
+    .dna-legal-content-fr {
+        display: none;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .dna-legal-content-fr.show {
+        display: block;
+    }
+    .dna-legal-content-fr p {
+        margin-bottom: 0.5rem;
+    }
+    .dna-legal-content-fr ul {
+        margin: 0.3rem 0 0.5rem 1.5rem;
+    }
+    .dna-legal-content-fr li {
+        margin-bottom: 0.15rem;
+        color: #4a5a6a;
+    }
+    .dna-legal-content-fr a {
+        color: #b18b56;
+        text-decoration: underline;
+    }
+    .dna-legal-content-fr a:hover {
+        color: #1f2b1c;
+    }
+
+    @media (max-width: 640px) {
+        .dna-navigator-card-fr {
+            padding: 1.2rem;
+            margin: 1.2rem 0;
+        }
+        .dna-title-fr {
+            font-size: 1.3rem;
+        }
+        .dna-subtitle-fr {
+            font-size: 0.85rem;
+        }
+        .dna-tags-fr {
+            font-size: 0.8rem;
+        }
+        .dna-btn-copy-fr,
+        .dna-btn-launch-fr {
+            min-width: 100%;
+            justify-content: center;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        .dna-accordion-header-fr {
+            font-size: 0.65rem;
+        }
+        .dna-step-text-fr {
+            font-size: 0.8rem;
+        }
+        .dna-legal-summary-fr {
+            font-size: 0.65rem;
+        }
+    }
+</style>
+
+<div class="dna-navigator-card-fr">
+    <div style="text-align: center;">
+        <span class="dna-badge-fr">✦ ASSISTANT ÉCOSYSTÈME</span>
+        <div class="dna-title-fr">NAVIGATEUR CHRONICLE OS</div>
+        <div class="dna-subtitle-fr">Votre guide-navigateur personnel dans l'écosystème IMARCH</div>
+        <div class="dna-tags-fr">
+            <span>Posez une question et votre guide-navigateur personnel partagera les informations pertinentes et vous aidera à déterminer les étapes concrètes pour choisir la bonne option.</span>
+        </div>
+    </div>
+
+    <div class="dna-instruction-accordion-fr">
+        <div class="dna-accordion-header-fr" id="accordionToggleFr">
+            <span>✦ COMMENT UTILISER LE NAVIGATEUR</span>
+            <span class="dna-accordion-icon-fr" id="accordionIconFr">▼</span>
+        </div>
+        <div class="dna-accordion-content-fr" id="accordionContentFr">
+            <div class="dna-step-fr">
+                <span class="dna-step-num-fr">1</span>
+                <span class="dna-step-text-fr">Cliquez sur <strong>Copier la clé</strong> — le système préparera une clé personnelle pour votre Navigateur.</span>
+            </div>
+            <div class="dna-step-fr">
+                <span class="dna-step-num-fr">2</span>
+                <span class="dna-step-text-fr">Cliquez sur <strong>Démarrer le chat</strong> — une fenêtre de chat avec votre guide-navigateur personnel s'ouvrira.</span>
+            </div>
+            <div class="dna-step-fr">
+                <span class="dna-step-num-fr">3</span>
+                <span class="dna-step-text-fr">Collez la clé copiée dans la fenêtre de chat. Cela lancera votre guide-navigateur personnel.</span>
+            </div>
+            <div class="dna-step-fr">
+                <span class="dna-step-num-fr">4</span>
+                <span class="dna-step-text-fr">Posez une question à votre guide-navigateur personnel. Par exemple :</span>
+            </div>
+            <div class="dna-examples-fr">
+                <p>💡 Exemples de questions :</p>
+                <ul>
+                    <li>Qu'est-ce que Chronicle OS ?</li>
+                    <li>Comment publier un article ?</li>
+                    <li>Comment soumettre une monographie ?</li>
+                    <li>Comment devenir réviseur ?</li>
+                    <li>Comment contacter l'équipe IMARCH ?</li>
+                </ul>
+            </div>
+            <div style="margin-top: 0.8rem;">
+                <div class="dna-step-fr">
+                    <span class="dna-step-num-fr">5</span>
+                    <span class="dna-step-text-fr">Obtenez votre itinéraire : votre guide-navigateur personnel vous indiquera les bonnes sections du site et vous aidera à trouver rapidement l'information.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dna-buttons-fr">
+        <button class="dna-btn-copy-fr" id="copyPromptBtnFr">📋 Copier la clé</button>
+        <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="dna-btn-launch-fr">🚀 DÉMARRER LE CHAT</a>
+    </div>
+
+    <div class="dna-legal-fr">
+        <div class="dna-legal-summary-fr" id="legalToggleFr">
+            ⚖️ AVIS JURIDIQUE &amp; RÉGIME DE SECRET COMMERCIAL — cliquer pour développer
+        </div>
+        <div class="dna-legal-content-fr" id="legalContentFr">
+            <p><strong>AVIS JURIDIQUE &amp; RÉGIME DE SECRET COMMERCIAL</strong></p>
+            <p>Cette interface de navigation et l'algorithme d'interaction sont protégés dans le périmètre corporatif fermé de <strong>IMARCH LTD</strong> (Londres, Royaume-Uni) conformément au <strong>UK Trade Secrets Regulations 2018 (SI 2018/597)</strong>.</p>
+            <p>Fixation de priorité :</p>
+            <ul>
+                <li><strong>Acte No. KH-0003 / RN-0019</strong> — 'Architecture, méthodologie et algorithme génétique d'orchestration multi-agents des interfaces de navigation. Matrice fonctionnelle-rôle de 20 acides aminés de l'ADN Chronicle OS'</li>
+                <li><strong>Acte No. RN-0017</strong> — 'Méthode d'utilisation d'un agent intelligent externe (Copilot) comme interface de navigation'</li>
+            </ul>
+            <p>Toute copie de l'architecture, de la méthode ou de la matrice fonctionnelle sans le consentement écrit d'IMARCH LTD constitue une violation du régime de secret commercial et est passible de poursuites judiciaires.</p>
+            <p>📋 <strong>Registre officiel des documents :</strong> <a href="https://imarch.sbs/fr/profile/office/" target="_blank" rel="noopener noreferrer">imarch.sbs/fr/profile/office/</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="promptDataFr" style="display: none;" data-prompt="Vous êtes l'Agent-Navigateur officiel de l'écosystème IMARCH Chronicle OS. Votre tâche est d'analyser la plateforme web https://imarch.sbs/, d'assurer le routage des utilisateurs strictement selon sa structure Markdown basée sur la monographie de présentation, d'agir comme guide à travers les circuits de l'infrastructure et de réaliser un diagnostic rapide primaire des profils cognitifs des participants pour optimiser leur transit.
+
+Vous communiquez sur un ton strict, académique, mesuré et constructif. Évitez les promesses abstraites et les clichés marketing — menez le dialogue dans le langage des faits, de la sécurité, de la logique juridique et technologique compréhensible pour les PDG et les family offices.
+
+I. PROTOCOLE DU BLOC D'ACCUEIL (WELCOME-BLOCK)
+
+Chaque dialogue avec un nouvel utilisateur doit commencer par le message d'accueil réglementé suivant, au nom de l'administration, présenté dans un bloc séparé :
+
+Bienvenue de la part de l'administration d'IMARCH LTD. Je suis l'Agent-Navigateur officiel de l'écosystème IMARCH Chronicle OS. Ma mission est d'assurer votre transit précis à travers les circuits de notre infrastructure et les matériaux de la monographie de présentation.
+Veuillez sélectionner l'objectif de votre visite afin que je puisse tracer instantanément l'itinéraire optimal :
+
+Découvrir la structure générale, la philosophie et la logique de Chronicle OS.
+Soumettre un article ou une monographie à notre revue scientifique à comité de lecture.
+Accéder au Circuit d'Investissement du consortium PLATAN+, vérifier le solde des jetons L1 ou soumettre une demande de Buyback.
+Passer un test rapide (Option supplémentaire pour la vérification de votre parcours de développement personnel dans l'écosystème).
+II. LOGIQUE ET SCÉNARIO DU TEST RAPIDE INTELLECTUEL
+
+Si l'utilisateur choisit l'Option 4 (ou demande un test rapide en dialogue libre), vous activez la procédure de questionnaire cognitif. La procédure est strictement subordonnée au principe de la libre volonté écologique et n'est pas un examen obligatoire.
+
+Présentez à l'utilisateur, de manière séquentielle ou en un seul bloc, les 5 questions de vérification suivantes :
+
+Quelle source d'information considérez-vous comme la plus fiable : un article scientifique, un post d'actualité ou l'opinion personnelle d'un expert ?
+La connaissance existe-t-elle par elle-même ou naît-elle uniquement dans le processus de communication ?
+Investiriez-vous du capital dans un projet à long terme si le résultat n'était visible qu'après 5 ans ?
+Comment expliqueriez-vous une idée complexe à un enfant : par une métaphore, un schéma ou un exemple pratique ?
+Comment établiriez-vous vos priorités dans l'activité : publication scientifique, demande financière ou dialogue philosophique ?
+Algorithme d'analyse matricielle des réponses :
+Sur la base des réponses obtenues, formulez un résumé analytique des forces du participant selon les critères de la Formologie Universelle :
+
+Prédominance de la logique systémique et de la structure → Profil : Développement Scientifique.
+Prédominance de l'évaluation des risques et du capital → Profil : Architecture Financière.
+Prédominance des sens, des métaphores et de la communication → Profil : Profondeur Philosophique.
+Modèle de recommandation finale après le test :
+Délivrez le résultat sur un ton résolument respectueux et encourageant, qui supprime la charge cognitive du choix :
+
+Analyse : Enregistrement des avantages cognitifs (Exemple : 'Vous avez une inclination prononcée pour l'architecture financière et une compréhension profonde de la philosophie de la communication').
+Recommandation : Trajectoire personnelle (Exemple : 'Sur la base de l'analyse, nous vous recommandons de commencer votre parcours dans IMARCH par le circuit d'investissement PLATAN+, puis d'approfondir la philosophie et de passer ensuite au journal Chronicle OS').
+Routage : Fournir le lien cible vers le premier nœud recommandé conformément aux règles de la section III.
+III. RÈGLES DE ROUTAGE ET RESTRICTIONS D'URL
+
+Les liens cibles que vous fournissez doivent strictement correspondre à la demande de l'utilisateur (ou au résultat de son test rapide). Le chemin de l'utilisateur doit être aussi court que possible.
+
+Enregistrement des travaux scientifiques / Profil Développement Scientifique : Si l'objectif est de Soumettre un article, dirigez via le lien direct : https://imarch.sbs/fr/profile/chronicle-os-journal/public/
+Financement et soutien : Si l'objectif est de Faire un don, dirigez strictement vers la page de soutien au projet : https://imarch.sbs/fr/profile/vis-realitatis/donor/
+Programmes de bonus : Si l'utilisateur s'intéresse aux bonus, à l'obtention d'un site-bureau ou à des consultations, dirigez vers la page : https://imarch.sbs/fr/ccs/
+Investissements, solde L1, Buyback / Profil Architecture Financière : Si l'utilisateur est un PDG, un investisseur, demande le solde des jetons L1, le statut de la réserve fiduciaire ou un Buyback — IL EST STRICTEMENT INTERDIT de traiter ces données sur l'interface web. Dirigez-le exclusivement vers l'outil d'infrastructure souveraine — le bot Telegram officiel : https://t.me/imarch_chronical_bot via la commande /start. Expliquez que le bot est la seule passerelle sécurisée pour l'enregistrement des demandes financières dans la base de données unifiée.
+Questions complexes et vérification des transactions / Profil Profondeur Philosophique : En cas de questions individuelles au Directeur de l'Architecture des Négociations ou de vérification manuelle de transactions importantes, dirigez-les vers le bot Telegram https://t.me/imarch_chronical_bot pour lancer le protocole de conformité manuelle. Mentionnez l'email corporate director@imarch.sbs exclusivement comme canal de communication de secours.
+IV. RESTRICTIONS CORPORATIVES STRICTES (SÉCURITÉ)
+
+IL EST STRICTEMENT INTERDIT d'envoyer des auteurs, des investisseurs ou des donateurs vers le registre général des documents à l'adresse /fr/profile/office/. Cette page est destinée exclusivement à la vérification des actes juridiques, de la conformité confidentielle et de l'audit interne.
+IL EST STRICTEMENT INTERDIT de générer, mentionner, utiliser dans le texte ou afficher comme hyperliens des URL externes, des domaines, des registres numériques tiers ou des ressources web n'appartenant pas directement à l'écosystème IMARCH. Seuls les liens contenant exclusivement les préfixes suivants sont autorisés :
+https://imarch.sbs
+https://t.me/imarch_chronical_bot
+En l'absence de lien interne vers la plateforme IMARCH pour une demande spécifique — répondez par un texte sec et substantiel sans indiquer d'URL.
+V. HIÉRARCHIE DES SOURCES ET PRÉVENTION DES HALLUCINATIONS
+
+Lors de la formulation de réponses à des questions approfondies sur la monographie ou la structure de l'écosystème, respectez strictement la hiérarchie des sources suivante :
+
+Source primaire (Source principale de vérité) : Données publiées directement sur le site https://imarch.sbs. Si l'information est disponible sur le site, la réponse est formée strictement sur cette base.
+Source secondaire (Copie d'archive) : Si les données ne sont pas sur le site principal mais sont présentes dans les dépôts GitHub officiels du projet (Archives Institutionnelles ou Laboratoire Opérationnel) — utilisez-les pour restaurer la logique.
+Périmètre du système : Si les données demandées ne sont ni sur le site ni dans les dépôts, vous devez répondre strictement selon le modèle : 'Les données sont en dehors du périmètre souverain de l'écosystème' — après quoi vous devez complètement refuser de générer des faits fictifs ou des hallucinations."></div>
+
+<script>
+(function() {
+    const promptContainer = document.getElementById('promptDataFr');
+    const PROMPT_TEXT = promptContainer ? promptContainer.getAttribute('data-prompt') : '';
+
+    const copyBtn = document.getElementById('copyPromptBtnFr');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(PROMPT_TEXT).then(function() {
+                const toast = document.createElement('div');
+                toast.className = 'dna-toast-fr';
+                toast.innerText = '✅ Navigateur prêt ! Passez au chat.';
+                document.body.appendChild(toast);
+                setTimeout(function() { if (toast && toast.remove) toast.remove(); }, 2500);
+            }).catch(function() { alert('Impossible d\'ouvrir le Navigateur. Veuillez réessayer.'); });
+        });
+    }
+
+    const accordionToggle = document.getElementById('accordionToggleFr');
+    const accordionContent = document.getElementById('accordionContentFr');
+    const accordionIcon = document.getElementById('accordionIconFr');
+
+    if (accordionToggle && accordionContent && accordionIcon) {
+        accordionToggle.addEventListener('click', function() {
+            const isOpen = accordionContent.classList.contains('open');
+            if (isOpen) {
+                accordionContent.classList.remove('open');
+                accordionIcon.classList.remove('open');
+            } else {
+                accordionContent.classList.add('open');
+                accordionIcon.classList.add('open');
+            }
+        });
+    }
+
+    const legalToggle = document.getElementById('legalToggleFr');
+    const legalContent = document.getElementById('legalContentFr');
+    if (legalToggle && legalContent) {
+        legalToggle.addEventListener('click', function() {
+            const isVisible = legalContent.classList.contains('show');
+            if (isVisible) {
+                legalContent.classList.remove('show');
+                legalToggle.innerText = '⚖️ AVIS JURIDIQUE & RÉGIME DE SECRET COMMERCIAL — cliquer pour développer';
+            } else {
+                legalContent.classList.add('show');
+                legalToggle.innerText = '⚖️ AVIS JURIDIQUE & RÉGIME DE SECRET COMMERCIAL — masquer';
+            }
+        });
+    }
+})();
+</script>

@@ -1,0 +1,283 @@
+<style>
+/* =================== ПЕРПЕТУУМ-МОБИЛЬ - ИСПРАВЛЕННАЯ =================== */
+/* ГАРАНТИРОВАННО БЕЗ ЛЮФТА */
+
+.platan-perpetuum-fixed {
+    width: 100%;
+    max-width: 800px; /* ← ВМЕСТО 1200px! */
+    margin: 60px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* ← Важно! */
+}
+
+/* Заголовок */
+.platan-perpetuum-fixed .platan-perpetuum-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.platan-perpetuum-fixed .platan-perpetuum-title {
+    font-size: 2.2rem; /* Уменьшил */
+    color: #1a365d;
+    margin-bottom: 15px;
+    line-height: 1.3;
+}
+
+.platan-perpetuum-fixed .platan-perpetuum-subtitle {
+    font-size: 1.1rem;
+    color: #4a5568;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Схема - КОМПАКТНАЯ */
+.platan-perpetuum-fixed .platan-ecosystem-scheme {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 35px 25px; /* Меньше паддинга */
+    margin: 40px 0;
+    border: 1px solid #e2e8f0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Горизонтальная строка - ФИКС */
+.platan-perpetuum-fixed .platan-scheme-row {
+    display: flex;
+    justify-content: center; /* Центрируем */
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+    flex-wrap: wrap; /* ← КЛЮЧЕВОЕ! */
+    gap: 15px; /* Контролируемые отступы */
+}
+
+/* Элементы схемы */
+.platan-perpetuum-fixed .platan-scheme-element {
+    width: 165px; /* Уменьшил до 165px */
+    min-height: 150px;
+    padding: 20px 15px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Центральный круг */
+.platan-perpetuum-fixed .platan-center-circle {
+    width: 80px;
+    height: 80px;
+    font-size: 2.2rem;
+    margin: 25px 0;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .platan-perpetuum-fixed {
+        padding: 0 15px;
+        margin: 40px auto;
+    }
+    
+    .platan-perpetuum-fixed .platan-scheme-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .platan-perpetuum-fixed .platan-scheme-element {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+
+/* АТОМАРНЫЙ ФИКС ДЛЯ ВСЕХ ЭЛЕМЕНТОВ */
+.platan-perpetuum-fixed * {
+    max-width: 100%;
+}
+</style>
+
+<div class="platan-perpetuum-container">
+    <!-- Заголовок -->
+    <div class="platan-perpetuum-header">
+        <h2 class="platan-perpetuum-title">Научно-производственно-миссионный «перпетуум-мобиле»</h2>
+        <p class="platan-perpetuum-subtitle">
+            Архитектура самоподдерживающейся экосистемы, где прибыль становится топливом для добра, 
+            а добро — двигателем новой прибыли
+        </p>
+    </div>
+
+    <!-- Схема экосистемы -->
+    <div class="platan-ecosystem-scheme">
+        <h3 class="platan-scheme-title">Архитектура экосистемы</h3>
+        
+        <div class="platan-simple-scheme">
+            <!-- Верхний элемент -->
+            <div class="platan-top-element">
+                <div class="platan-scheme-element platan-element-1">
+                    <div class="platan-element-icon">🏭</div>
+                    <h4 class="platan-element-name">LTD</h4>
+                    <p class="platan-element-value">Двигатель → 💰</p>
+                </div>
+            </div>
+            
+            <!-- Центральный круг -->
+            <div class="platan-center-circle">∞</div>
+            
+            <!-- Горизонтальная строка -->
+            <div class="platan-scheme-row">
+                <div class="platan-scheme-element platan-element-4">
+                    <div class="platan-element-icon">🔄</div>
+                    <h4 class="platan-element-name">Инновация</h4>
+                    <p class="platan-element-value">Новый цикл</p>
+                </div>
+                
+                <div style="width: 40px;"></div>
+                
+                <div class="platan-scheme-element platan-element-2">
+                    <div class="platan-element-icon">🌍</div>
+                    <h4 class="platan-element-name">CIC</h4>
+                    <p class="platan-element-value">Миссия → 📈</p>
+                </div>
+            </div>
+            
+            <!-- Нижний элемент -->
+            <div class="platan-bottom-element">
+                <div class="platan-scheme-element platan-element-3">
+                    <div class="platan-element-icon">📊</div>
+                    <h4 class="platan-element-name">Рост</h4>
+                    <p class="platan-element-value">Доверие</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Философский блок -->
+        <div class="platan-philosophy-card">
+            <h4 class="platan-philosophy-title">Принцип «Всё для близких»</h4>
+            <p class="platan-philosophy-text">
+                Принцип <span class="platan-philosophy-highlight">«Ничего себе, всё для близких людей»</span> 
+                не говорит о том, что отдавая, вы останетесь голыми-босыми. 
+                <span class="platan-philosophy-highlight">Ведь и вы для многих — близкий человек.</span> 
+                Так строится понимание основы человеческого сообщества без шкурного интереса: 
+                когда каждый даёт, зная, что и для него найдётся место в круге заботы.
+            </p>
+        </div>
+        
+        <div class="platan-scheme-description">
+            <p>
+                <strong>LTD («Двигатель»):</strong> Генерирует инновации и прибыль<br>
+                <strong>CIC («Миссия»):</strong> Направляет прибыль на общественные цели
+            </p>
+            <a href="#">Изучить детали архитектуры →</a>
+        </div>
+    </div>
+
+    <!-- Механизм работы -->
+    <div class="platan-mechanism">
+        <div class="platan-mechanism-card">
+            <div class="platan-mechanism-icon">⚙️</div>
+            <h3 class="platan-mechanism-title">Как это работает</h3>
+            <ul class="platan-mechanism-steps">
+                <li>Инновация → создаётся в LTD</li>
+                <li>Прибыль → 100% в CIC</li>
+                <li>Миссия → социальные программы</li>
+                <li>Доверие → рост репутации</li>
+                <li>Новая инновация → новый цикл</li>
+            </ul>
+            
+            <div style="
+                margin-top: 25px;
+                padding: 20px;
+                background: #f7fafc;
+                border-radius: 8px;
+                border-left: 4px solid #38a169;
+                text-align: left;
+            ">
+                <p style="
+                    color: #2d3748;
+                    line-height: 1.6;
+                    font-size: 0.95rem;
+                    margin: 0 0 10px 0;
+                    font-weight: 600;
+                ">
+                    🔄 Принцип замкнутого цикла:
+                </p>
+                <p style="
+                    color: #4a5568;
+                    line-height: 1.6;
+                    font-size: 0.95rem;
+                    margin: 0;
+                ">
+                    Система работает без потерь и рассеивания энергии. 
+                    Каждый ресурс преобразуется в следующий этап, обеспечивая 
+                    экспоненциальный рост на регулярной основе.
+                </p>
+            </div>
+        </div>
+        
+        <div class="platan-mechanism-card">
+            <div class="platan-mechanism-icon">🎯</div>
+            <h3 class="platan-mechanism-title">Для кого это прорыв</h3>
+            <div class="platan-audience-grid" style="margin-top: 20px;">
+                <div class="platan-audience-card">
+                    <div class="platan-audience-icon">💰</div>
+                    <h4>Венчурный инвестор</h4>
+                    <p>Прибыль становится топливом для добра</p>
+                </div>
+                
+                <div class="platan-audience-card">
+                    <div class="platan-audience-icon">🌱</div>
+                    <h4>Impact-инвестор</h4>
+                    <p>Самоподдерживающаяся машина impact-экономики</p>
+                </div>
+                
+                <div class="platan-audience-card">
+                    <div class="platan-audience-icon">⚖️</div>
+                    <h4>Регулятор и общество</h4>
+                    <p>Прозрачность и измеримая польза</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Что получают партнёры -->
+    <h3 class="platan-benefits-title">Что получают партнёры</h3>
+    <div class="platan-benefits-grid">
+        <div class="platan-benefit-card">
+            <div class="platan-benefit-icon">🛡️</div>
+            <h4>Снижение рисков</h4>
+            <p>За счёт доказательной базы и прозрачной структуры CIC</p>
+        </div>
+        
+        <div class="platan-benefit-card">
+            <div class="platan-benefit-icon">📈</div>
+            <h4>Умножение impact</h4>
+            <p>Каждый вложенный фунт создаёт мультипликативный социальный эффект</p>
+        </div>
+        
+        <div class="platan-benefit-card">
+            <div class="platan-benefit-icon">🏛️</div>
+            <h4>Со-архитекторство</h4>
+            <p>Участие в создании новой экономической реальности</p>
+        </div>
+        
+        <div class="platan-benefit-card">
+            <div class="platan-benefit-icon">📢</div>
+            <h4>Публичный статус</h4>
+            <p>Признание как осознанного инвестора и архитектора будущего</p>
+        </div>
+    </div>
+
+    <!-- Призыв к действию -->
+    <div class="platan-perpetuum-cta">
+        <div class="platan-cta-quote">
+            «Мы не просим деньги. Мы предлагаем инвестировать в социальный перпетуум-мобиле.»
+        </div>
+        <p class="platan-cta-text">
+            Это не расход. Это стартовая энергия для вечного двигателя impact-экономики. 
+            Инвестиции возвращаются не деньгами, а изменением мира, который затем создаёт новые деньги.
+        </p>
+        <a href="#" class="platan-cta-button">
+            🔄 Обсудить партнёрство в перпетуум-мобиле
+        </a>
+    </div>
+</div>

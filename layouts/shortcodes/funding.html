@@ -1,0 +1,432 @@
+{{ $uniqueID := substr (md5 (printf "%s%s" (now.UnixNano) (seq 1 100 | shuffle | first 1))) 0 10 }}
+{{ $donateURL := "https://whydonate.com/fundraising/vis-realitatis-preserving-memory" }}
+
+<div class="imarha-funding-section" id="funding-{{ $uniqueID }}">
+
+  <div class="funding-header">
+      <h2>IMARCH Platform</h2>
+      <p class="subtitle">Цифровая инфраструктура персонального и командного представительства</p>
+      <p class="subtitle-smaller">Персональные сайты, коммуникационные инструменты и протоколы доверия
+      для экспертов, команд и институциональных сообществ.</p>
+  </div>
+
+  <div class="funding-options">
+
+      <!-- ОПЦИЯ 1: МИКРО-ПОДДЕРЖКА -->
+      <div class="funding-option">
+          <div class="option-icon">💝</div>
+          <h3>Микро-поддержка</h3>
+          <p class="option-description">
+              От €10 в месяц. Получайте регулярные отчёты о развитии и благодарность в нашем сообществе.
+          </p>
+          <div class="option-features">
+              <div class="feature">Ежемесячные отчёты</div>
+              <div class="feature">Бейдж в профиле</div>
+              <div class="feature">Ранний доступ к новым фичам</div>
+              <div class="feature">Персональный профиль</div>
+          </div>
+          <div class="price">От €10<span>/месяц</span></div>
+
+          <a class="funding-btn primary"
+             href="{{ $donateURL }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-type="donation">
+             Поддержать
+          </a>
+      </div>
+
+      <!-- ОПЦИЯ 2: ПОЛГОДА -->
+      <div class="funding-option">
+          <div class="option-icon">🎯</div>
+          <h3>Ранний доступ</h3>
+          <p class="option-description">
+              Полгода доступа к платформе со скидкой 40%. Начнётся сразу после запуска MVP.
+          </p>
+          <div class="option-features">
+              <div class="feature">6 месяцев доступа к платформе</div>
+              <div class="feature">Скидка 40% от будущей цены</div>
+              <div class="feature">Приоритетная поддержка</div>
+              <div class="feature">Участие в опросах по развитию</div>
+              <div class="feature">Сайт-маска с официальной почтой</div>
+          </div>
+          <div class="price">€50<span>/6 месяцев</span></div>
+
+          <a class="funding-btn primary"
+             href="{{ $donateURL }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-type="presale-6months">
+             Забронировать
+          </a>
+      </div>
+
+      <!-- ОПЦИЯ 3: ГОД -->
+      <div class="funding-option popular">
+          <div class="popular-badge">САМЫЙ ВЫГОДНЫЙ</div>
+          <div class="option-icon">🚀</div>
+          <h3>Ранний доступ (1 год)</h3>
+          <p class="option-description">
+              Годовая подписка на платформу со скидкой 50%. Начнётся сразу после запуска MVP.
+          </p>
+          <div class="option-features">
+              <div class="feature">Год доступа к платформе</div>
+              <div class="feature">Скидка 50% от будущей цены</div>
+              <div class="feature">Приоритетная поддержка</div>
+              <div class="feature">Возможность влиять на развитие</div>
+              <div class="feature">Консорциумный бизнес-сайт с полным функционалом инфораструктуры</div>
+          </div>
+          <div class="price">€100<span>/год</span></div>
+
+          <a class="funding-btn primary"
+             href="{{ $donateURL }}"
+             target="_blank"
+             rel="noopener noreferrer"
+             data-type="presale">
+             Забронировать
+          </a>
+      </div>
+
+      <!-- ОПЦИЯ 4: ПАРТНЁРСТВО -->
+      <div class="funding-option">
+          <div class="option-icon">🤝</div>
+          <h3>Партнёрство и фонды</h3>
+          <p class="option-description">
+              Если вы хотите поддержать проект как партнёр, организация или фонд, напишите нам. Мы обсудим формат, цели и прозрачную отчётность.
+          </p>
+          <div class="option-features">
+              <div class="feature">Письмо с описанием запроса</div>
+              <div class="feature">Пакет материалов по проекту</div>
+              <div class="feature">Календарь созвона</div>
+              <div class="feature">Индивидуальная дорожная карта</div>
+          </div>
+          <div class="price">По запросу</div>
+
+          <a href="mailto:partner@imarha.org?subject=Партнёрство с IMARCH"
+             class="funding-btn secondary">
+             Написать лично
+          </a>
+      </div>
+
+  </div>
+
+  <div class="funding-footer">
+      <p class="disclaimer">
+          💡 Все средства идут на развитие платформы. Ежемесячные отчёты о расходах публикуются в нашем блоге.
+      </p>
+  </div>
+
+</div>
+
+<style>
+/* ===== ИЗОЛИРОВАННЫЕ СТИЛИ ===== */
+#funding-{{ $uniqueID }} {
+    all: initial !important;
+    display: block !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    box-sizing: border-box !important;
+
+    --primary: #0c1120;
+    --secondary: #1a1f3a;
+    --accent: #9333ea;
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --success: #10b981;
+
+    background: linear-gradient(155deg, var(--primary) 0%, var(--secondary) 100%) !important;
+    color: var(--text) !important;
+    border-radius: 20px !important;
+    padding: 3rem 2rem !important;
+    margin: 3rem 0 !important;
+    width: 100% !important;
+    position: relative !important;
+    -webkit-text-size-adjust: 100% !important;
+}
+
+#funding-{{ $uniqueID }} * {
+    all: unset !important;
+    box-sizing: border-box !important;
+}
+
+/* ШАПКА */
+#funding-{{ $uniqueID }} .funding-header {
+    text-align: center !important;
+    margin-bottom: 5rem !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#funding-{{ $uniqueID }} .funding-header h2 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 0.5rem !important;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: block !important;
+    line-height: 1.2 !important;
+}
+
+#funding-{{ $uniqueID }} .subtitle {
+    font-size: 1.3rem !important;
+    color: var(--text) !important;
+    line-height: 1.5 !important;
+    display: block !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 500 !important;
+}
+
+#funding-{{ $uniqueID }} .subtitle-smaller {
+    font-size: 1.1rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    display: block !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+}
+
+/* СЕТКА ОПЦИЙ */
+#funding-{{ $uniqueID }} .funding-options {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 2rem !important;
+    margin-bottom: 3rem !important;
+    padding-top: 2rem !important;
+}
+
+#funding-{{ $uniqueID }} .funding-option {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+    padding: 2.5rem !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.3s ease !important;
+}
+
+#funding-{{ $uniqueID }} .funding-option:hover {
+    transform: translateY(-5px) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.2) !important;
+}
+
+#funding-{{ $uniqueID }} .popular-badge {
+    position: absolute !important;
+    top: -1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: var(--success) !important;
+    color: white !important;
+    padding: 0.25rem 1rem !important;
+    border-radius: 20px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    display: block !important;
+    text-transform: uppercase !important;
+}
+
+#funding-{{ $uniqueID }} .option-icon {
+    font-size: 3rem !important;
+    margin-bottom: 1.5rem !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+#funding-{{ $uniqueID }} .funding-option h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+#funding-{{ $uniqueID }} .option-description {
+    font-size: 1rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+#funding-{{ $uniqueID }} .option-features {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: 0.75rem !important;
+    margin-bottom: 2rem !important;
+}
+
+#funding-{{ $uniqueID }} .feature {
+    background: rgba(255, 255, 255, 0.05) !important;
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    display: block !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-secondary) !important;
+}
+
+#funding-{{ $uniqueID }} .price {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin: 1.5rem 0 !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+#funding-{{ $uniqueID }} .price span {
+    font-size: 1rem !important;
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+    margin-left: 5px !important;
+}
+
+/* КНОПКИ */
+#funding-{{ $uniqueID }} .funding-btn {
+    display: block !important;
+    width: 100% !important;
+    padding: 1rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    margin-top: auto !important;
+    min-height: 48px !important;
+    text-decoration: none !important;
+}
+
+#funding-{{ $uniqueID }} .funding-btn.primary {
+    background: linear-gradient(135deg, var(--accent) 0%, #7e22ce 100%) !important;
+    color: white !important;
+}
+
+#funding-{{ $uniqueID }} .funding-btn.secondary {
+    background: transparent !important;
+    color: var(--text) !important;
+    border: 2px solid var(--accent) !important;
+}
+
+#funding-{{ $uniqueID }} .funding-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3) !important;
+}
+
+/* ФУТЕР */
+#funding-{{ $uniqueID }} .funding-footer {
+    text-align: center !important;
+    padding-top: 2rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#funding-{{ $uniqueID }} .disclaimer {
+    color: var(--text-secondary) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+/* АДАПТИВ */
+@media (max-width: 768px) {
+    #funding-{{ $uniqueID }} .funding-header {
+        margin-bottom: 4.5rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-options {
+        grid-template-columns: 1fr !important;
+        padding: 0 1rem !important;
+        padding-top: 2rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-header h2 {
+        font-size: 2rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .subtitle {
+        font-size: 1.2rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .subtitle-smaller {
+        font-size: 1rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-option {
+        padding: 2rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #funding-{{ $uniqueID }} {
+        padding: 2rem 1rem !important;
+        margin: 2rem 0 !important;
+        border-radius: 16px !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-header {
+        margin-bottom: 4rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-header h2 {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+    }
+
+    #funding-{{ $uniqueID }} .subtitle {
+        font-size: 1.1rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .subtitle-smaller {
+        font-size: 0.95rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-options {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0 !important;
+        padding-top: 1.5rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-option {
+        padding: 1.5rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .option-icon {
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-option h3 {
+        font-size: 1.3rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .price {
+        font-size: 2rem !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-btn {
+        font-size: 1rem !important;
+        min-height: 48px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #funding-{{ $uniqueID }} * {
+        transition: none !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-option:hover {
+        transform: none !important;
+    }
+
+    #funding-{{ $uniqueID }} .funding-btn:hover {
+        transform: none !important;
+    }
+}
+</style>

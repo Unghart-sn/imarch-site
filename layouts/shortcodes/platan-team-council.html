@@ -1,0 +1,717 @@
+<style>
+/* =================== СОВЕТ И ЭКСПЕРТИЗА - PLATAN+ CONSORTIUM (ИСПРАВЛЕННАЯ ВЕРСИЯ) =================== */
+.platan-team-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: clamp(2rem, 5vw, 5rem) auto;
+    padding: 0 clamp(1rem, 3vw, 1.25rem);
+    box-sizing: border-box;
+}
+
+/* Главный заголовок */
+.platan-team-header {
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 3.75rem);
+    position: relative;
+    padding-bottom: 1.875rem;
+}
+
+.platan-team-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(150px, 40vw);
+    height: 3px;
+    background: linear-gradient(to right, #1a365d, #2c5282, #1a365d);
+}
+
+.platan-team-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: #1a365d;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+    padding: 0 0.5rem;
+}
+
+.platan-team-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #4a5568;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+    padding: 0 0.5rem;
+}
+
+/* Сетка совета - ИСПРАВЛЕННА */
+.platan-council-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: clamp(1.25rem, 3vw, 1.875rem);
+    margin-bottom: clamp(3rem, 5vw, 4.375rem);
+    padding: 0 0.5rem;
+}
+
+.platan-council-card {
+    background: white;
+    border-radius: 10px;
+    padding: clamp(1.5rem, 3vw, 2.1875rem) clamp(1.25rem, 2.5vw, 1.875rem);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.platan-council-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border-color: #2c5282;
+}
+
+.platan-council-badge {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    background: #2c5282;
+    color: white;
+    padding: 0.3125rem 0.9375rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.platan-council-icon {
+    width: clamp(4rem, 8vw, 5rem);
+    height: clamp(4rem, 8vw, 5rem);
+    margin: 0 auto 1.5625rem;
+    background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: #2c5282;
+    border: 3px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.platan-council-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+    color: #1a365d;
+    margin: 0 0 0.625rem 0;
+    line-height: 1.3;
+}
+
+.platan-council-role {
+    color: #2c5282;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.9375rem;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.platan-council-stats {
+    display: flex;
+    justify-content: center;
+    gap: clamp(1rem, 2vw, 1.25rem);
+    margin: 1.25rem 0;
+    flex-wrap: wrap;
+}
+
+.platan-stat {
+    text-align: center;
+    min-width: clamp(4rem, 8vw, 5rem);
+}
+
+.platan-stat-value {
+    display: block;
+    font-size: clamp(1.4rem, 3vw, 1.8rem);
+    font-weight: 700;
+    color: #1a365d;
+    line-height: 1;
+}
+
+.platan-stat-label {
+    display: block;
+    font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+    color: #718096;
+    margin-top: 0.3125rem;
+}
+
+.platan-council-competence {
+    color: #4a5568;
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    line-height: 1.6;
+    margin: 1.25rem 0;
+}
+
+/* Экспертный совет - ИСПРАВЛЕН */
+.platan-experts-section {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 12px;
+    padding: clamp(1.5rem, 3vw, 3.125rem) clamp(1.25rem, 2.5vw, 1.875rem);
+    margin: clamp(3rem, 5vw, 4.375rem) 0;
+    border: 1px solid #e2e8f0;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.platan-experts-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: #1a365d;
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 3.125rem);
+    position: relative;
+    line-height: 1.3;
+}
+
+.platan-experts-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.9375rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(100px, 30vw);
+    height: 2px;
+    background: #2c5282;
+}
+
+/* ИСПРАВЛЕН КРИТИЧЕСКИЙ МОМЕНТ */
+.platan-experts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    gap: clamp(1.25rem, 3vw, 1.875rem);
+    padding: 0 0.5rem;
+}
+
+.platan-expert-card {
+    background: white;
+    border-radius: 8px;
+    padding: clamp(1.5rem, 3vw, 1.875rem) clamp(1.25rem, 2.5vw, 1.875rem);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.platan-expert-card:hover {
+    border-color: #38a169;
+    transform: translateX(5px);
+}
+
+.platan-expert-header {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2vw, 1.25rem);
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+}
+
+.platan-expert-icon {
+    width: clamp(3rem, 6vw, 3.75rem);
+    height: clamp(3rem, 6vw, 3.75rem);
+    background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #38a169;
+    flex-shrink: 0;
+}
+
+.platan-expert-area {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+    color: #1a365d;
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+    min-width: min(200px, 100%);
+}
+
+.platan-expert-description {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5625rem;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+
+.platan-expert-metrics {
+    background: #f8fafc;
+    padding: clamp(1rem, 2vw, 1.25rem);
+    border-radius: 6px;
+    border-left: 4px solid #38a169;
+}
+
+.platan-metrics-title {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.625rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+}
+
+.platan-metrics-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.platan-metrics-list li {
+    padding: 0.375rem 0;
+    color: #4a5568;
+    font-size: clamp(0.8rem, 1.6vw, 0.95rem);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1.4;
+}
+
+.platan-metrics-list li::before {
+    content: '▸';
+    color: #38a169;
+    font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+}
+
+/* Операционная команда */
+.platan-operational-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #1a365d;
+    text-align: center;
+    margin: clamp(3rem, 5vw, 4.375rem) 0 clamp(2rem, 4vw, 2.5rem);
+    line-height: 1.3;
+    padding: 0 0.5rem;
+}
+
+/* ИСПРАВЛЕН ВТОРОЙ КРИТИЧЕСКИЙ МОМЕНТ */
+.platan-operational-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+    gap: clamp(1rem, 2.5vw, 1.5625rem);
+    padding: 0 0.5rem;
+}
+
+.platan-role-card {
+    background: white;
+    border-radius: 8px;
+    padding: clamp(1.25rem, 2.5vw, 1.5625rem) clamp(1rem, 2vw, 1.25rem);
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.platan-role-card:hover {
+    border-color: #d69e2e;
+    background: #fffaf0;
+}
+
+.platan-role-icon {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    margin-bottom: 0.9375rem;
+    display: block;
+    color: #d69e2e;
+}
+
+.platan-role-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+    color: #1a365d;
+    margin: 0 0 0.625rem 0;
+    line-height: 1.3;
+}
+
+.platan-role-description {
+    color: #718096;
+    font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Призыв к присоединению */
+.platan-join-section {
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+    border-radius: 12px;
+    padding: clamp(2.5rem, 5vw, 3.75rem) clamp(1.5rem, 3vw, 2.5rem);
+    margin-top: clamp(3rem, 5vw, 5rem);
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.platan-join-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #38a169, #d69e2e, #9f7aea);
+}
+
+.platan-join-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 1.25rem;
+    color: white;
+    line-height: 1.3;
+    padding: 0 0.5rem;
+}
+
+.platan-join-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto clamp(2rem, 4vw, 2.5rem);
+    opacity: 0.9;
+    padding: 0 0.5rem;
+}
+
+.platan-join-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    background: white;
+    color: #1a365d;
+    text-decoration: none;
+    padding: clamp(0.875rem, 2vw, 1.125rem) clamp(1.5rem, 3vw, 2.8125rem);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    transition: all 0.3s ease;
+    border: 2px solid white;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+    flex-wrap: wrap;
+    line-height: 1.4;
+}
+
+.platan-join-button:hover {
+    background: transparent;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+/* Улучшенная мобильная адаптация */
+@media (max-width: 480px) {
+    .platan-council-stats {
+        gap: 0.75rem;
+    }
+    
+    .platan-stat {
+        min-width: 4.5rem;
+    }
+    
+    .platan-expert-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 0.75rem;
+    }
+    
+    .platan-expert-icon {
+        margin: 0 auto;
+    }
+    
+    .platan-expert-area {
+        text-align: center;
+        width: 100%;
+    }
+    
+    .platan-join-button {
+        width: 100%;
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.platan-council-card {
+    animation: fadeInScale 0.6s ease forwards;
+}
+
+.platan-council-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.platan-council-card:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.platan-council-card:nth-child(4) {
+    animation-delay: 0.3s;
+}
+</style>
+
+<!-- HTML остается без изменений -->
+<div class="platan-team-container">
+
+    <!-- Совет Консорциума -->
+    <div class="platan-council-grid">
+        <!-- Член 1 -->
+        <div class="platan-council-card">
+            <div class="platan-council-badge">FOUNDER</div>
+            <div class="platan-council-icon">👑</div>
+            <h3 class="platan-council-name">Magister Structurae</h3>
+            <div class="platan-council-role">Глава Совета Консорциума</div>
+            
+            <div class="platan-council-stats">
+                <div class="platan-stat">
+                    <span class="platan-stat-value">24</span>
+                    <span class="platan-stat-label">года опыта</span>
+                </div>
+                <div class="platan-stat">
+                    <span class="platan-stat-value">PhD</span>
+                    <span class="platan-stat-label">степень</span>
+                </div>
+                <div class="platan-stat">
+                    <span class="platan-stat-value">89</span>
+                    <span class="platan-stat-label">публикации</span>
+                </div>
+            </div>
+            
+            <p class="platan-council-competence">
+                Архитектор методологии Формологии, автор Конституции Унгхарата. 
+                Специализация: институциональный дизайн, трансформация социальных систем, 
+                легализация гуманитарных проектов.
+            </p>
+        </div>
+
+        <!-- Член 2 -->
+        <div class="platan-council-card">
+            <div class="platan-council-badge">JURIS</div>
+            <div class="platan-council-icon">⚖️</div>
+            <h3 class="platan-council-name">Consul Legalis</h3>
+            <div class="platan-council-role">Главный юрисконсульт</div>
+            
+            <div class="platan-council-stats">
+                <div class="platan-stat">
+                    <span class="platan-stat-value">18</span>
+                    <span class="platan-stat-label">года опыта</span>
+                </div>
+                <div class="platan-stat">
+                    <span class="platan-stat-value">LLM</span>
+                    <span class="platan-stat-label">степень</span>
+                </div>
+                <div class="platan-stat">
+                    <span class="platan-stat-value">47</span>
+                    <span class="platan-stat-label">регистрации CIC</span>
+                </div>
+            </div>
+            
+            <p class="platan-council-competence">
+                Специалист по UK corporate law, международной юридической архитектуре. 
+                Автор модели CIC+LTD, эксперт по трансграничным структурам и compliance.
+            </p>
+        </div>
+
+        <!-- Член 3 -->
+        <div class="platan-council-card">
+            <div class="platan-council-badge">SCIENCE</div>
+            <div class="platan-council-icon">🔬</div>
+            <h3 class="platan-council-name">Professor Metrica</h3>
+            <div class="platan-council-role">Научный руководитель</div>
+            
+            <div class="platan-council-stats">
+                <div class="platan-stat">
+                    <span class="platan-stat-value">h-index 32</span>
+                    <span class="platan-stat-label">индекс</span>
+                </div>
+                <div class="platan-stat">
+                    <span class="platan-stat-value">214</span>
+                    <span class="platan-stat-label">Scopus</span>
+                </div>
+                <div class="platan-stat">
+                    <span class="platan-stat-value">Q1</span>
+                    <span class="platan-stat-label">журналы</span>
+                </div>
+            </div>
+            
+            <p class="platan-council-competence">
+                Разработчик наукометрического аппарата для измерения социального impact. 
+                Эксперт по валидации методологий через академические стандарты.
+            </p>
+        </div>
+
+        <!-- Член 4 -->
+        <div class="platan-council-card">
+            <div class="platan-council-badge">TECH</div>
+            <div class="platan-council-icon">💻</div>
+            <h3 class="platan-council-name">Architectus Digitalis</h3>
+            <div class="platan-council-role">Технический архитектор</div>
+            
+            <div class="platan-council-stats">
+                <div class="platan-stat">
+                    <span class="platan-stat-value">15</span>
+                    <span class="platan-stat-label">лет в SaaS</span>
+                </div>
+                <div class="platan-stat">
+                    <span class="platan-stat-value">3</span>
+                    <span class="platan-stat-label">экзиты</span>
+                </div>
+                <div class="platan-stat">
+                    <span class="platan-stat-value">MIT</span>
+                    <span class="platan-stat-label">образование</span>
+                </div>
+            </div>
+            
+            <p class="platan-council-competence">
+                Создатель платформенных решений для институциональных процессов. 
+                Специализация: digital governance, автоматизация юридических процедур, 
+                масштабируемые архитектуры.
+            </p>
+        </div>
+    </div>
+
+    <!-- Экспертный совет -->
+    <div class="platan-experts-section">
+        <h3 class="platan-experts-title">Экспертный совет консорциума</h3>
+        
+        <div class="platan-experts-grid">
+            <!-- Экспертная область 1 -->
+            <div class="platan-expert-card">
+                <div class="platan-expert-header">
+                    <div class="platan-expert-icon">🏛️</div>
+                    <h4 class="platan-expert-area">Институциональный дизайн</h4>
+                </div>
+                
+                <p class="platan-expert-description">
+                    Разработка и валидация организационных структур, систем управления, 
+                    распределения полномочий в социально-ориентированных предприятиях.
+                </p>
+                
+                <div class="platan-expert-metrics">
+                    <div class="platan-metrics-title">📊 Ключевые метрики области:</div>
+                    <ul class="platan-metrics-list">
+                        <li>12 разработанных организационных моделей</li>
+                        <li>7 успешных трансформаций НКО в CIC</li>
+                        <li>Методология оценки институциональной зрелости</li>
+                        <li>База данных 150+ кейсов UK CIC</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Экспертная область 2 -->
+            <div class="platan-expert-card">
+                <div class="platan-expert-header">
+                    <div class="platan-expert-icon">📈</div>
+                    <h4 class="platan-expert-area">Impact-метрики</h4>
+                </div>
+                
+                <p class="platan-expert-description">
+                    Разработка систем измерения социального воздействия, методологий оценки ROI 
+                    для гуманитарных проектов, валидация через международные стандарты.
+                </p>
+                
+                <div class="platan-expert-metrics">
+                    <div class="platan-metrics-title">📊 Ключевые метрики области:</div>
+                    <ul class="platan-metrics-list">
+                        <li>Собственная методология impact-оценки</li>
+                        <li>Интеграция с GRI, SASB, IRIS+</li>
+                        <li>25 валидированных индикаторов социального воздействия</li>
+                        <li>Публикации в рецензируемых журналах</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Экспертная область 3 -->
+            <div class="platan-expert-card">
+                <div class="platan-expert-header">
+                    <div class="platan-expert-icon">🌍</div>
+                    <h4 class="platan-expert-area">Международная экспансия</h4>
+                </div>
+                
+                <p class="platan-expert-description">
+                    Адаптация модели для различных юрисдикций, анализ регуляторных сред, 
+                    создание трансграничных структур, управление международными партнёрствами.
+                </p>
+                
+                <div class="platan-expert-metrics">
+                    <div class="platan-metrics-title">📊 Ключевые метрики области:</div>
+                    <ul class="platan-metrics-list">
+                        <li>Экспертиза в 8 юрисдикциях (UK, EU, US, Asia)</li>
+                        <li>Сравнительный анализ 25+ аналогов CIC в мире</li>
+                        <li>Сеть из 40+ международных партнёров</li>
+                        <li>Модель франчайзинга институциональных решений</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Операционная команда -->
+    <h3 class="platan-operational-title">Операционная команда</h3>
+    
+    <div class="platan-operational-grid">
+        <div class="platan-role-card">
+            <div class="platan-role-icon">🎯</div>
+            <h4 class="platan-role-name">Руководитель проектов</h4>
+            <p class="platan-role-description">
+                Управление реализацией, контроль сроков и бюджетов, координация рабочих групп.
+            </p>
+        </div>
+        
+        <div class="platan-role-card">
+            <div class="platan-role-icon">🧩</div>
+            <h4 class="platan-role-name">Методолог</h4>
+            <p class="platan-role-description">
+                Адаптация методологии под конкретные проекты, разработка индивидуальных решений.
+            </p>
+        </div>
+        
+        <div class="platan-role-card">
+            <div class="platan-role-icon">⚙️</div>
+            <h4 class="platan-role-name">Технический директор</h4>
+            <p class="platan-role-description">
+                Разработка и поддержка платформы, техническая инфраструктура, безопасность.
+            </p>
+        </div>
+        
+        <div class="platan-role-card">
+            <div class="platan-role-icon">🤝</div>
+            <h4 class="platan-role-name">Комьюнити-менеджер</h4>
+            <p class="platan-role-description">
+                Взаимодействие с участниками экосистемы, поддержка, развитие сети.
+            </p>
+        </div>
+    </div>
+
+    <!-- Призыв к присоединению -->
+    <div class="platan-join-section">
+        <h3 class="platan-join-title">Стать частью Совета PLATAN+</h3>
+        <p class="platan-join-text">
+            Мы ищем экспертов, готовых вложить свои компетенции в создание инфраструктуры 
+            новой экономики. Взамен предлагаем институциональный статус, со-архитекторство 
+            и участие в прибыли от масштабирования модели.
+        </p>
+        <a href="#" class="platan-join-button">📨 Предложить свою кандидатуру</a>
+    </div>
+</div>

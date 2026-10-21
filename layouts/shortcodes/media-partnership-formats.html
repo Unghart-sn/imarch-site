@@ -1,0 +1,295 @@
+{{/*
+    Универсальные карточки форматов партнёрства (Media Friend / Media Partner / Strategic Partner)
+    Адаптив, интерактив, правильные переносы строк на мобилке.
+    Язык: ru, en, uk, de, fr, es, zh, ar (определяется автоматически из .Page.Lang)
+*/}}
+
+{{ $lang := .Page.Lang }}
+{{ if .Get "lang" }}
+    {{ $lang = .Get "lang" }}
+{{ end }}
+
+{{/* Стили для карточек — интерактив и адаптив */}}
+<style>
+    .partnership-card {
+        flex: 1;
+        min-width: 220px;
+        background: #fdfaf5;
+        border-radius: 24px;
+        border: 1px solid #e0d2bc;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        transition: all 0.25s ease-in-out;
+        cursor: default;
+    }
+    .partnership-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px -10px rgba(0,0,0,0.15);
+        border-color: #b18b56;
+        background: #fffefa;
+    }
+    .partnership-card p {
+        margin: 0.75rem 0;
+        line-height: 1.4;
+        white-space: normal;
+        word-break: break-word;
+    }
+    .partnership-card br {
+        display: block;
+        content: "";
+        margin: 0;
+    }
+    @media (max-width: 640px) {
+        .partnership-card {
+            min-width: 100%;
+            margin: 0 0.5rem;
+        }
+        .partnership-card p br {
+            display: block !important;
+        }
+    }
+    .partnership-badge {
+        display: inline-block;
+        font-size: 0.65rem;
+        background: rgba(177,139,86,0.15);
+        padding: 0.25rem 0.75rem;
+        border-radius: 30px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+</style>
+
+{{/* ---------------------- RUSSIAN ---------------------- */}}
+{{ if eq $lang "ru" }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Друг медиа</div>
+        <p><strong>Вклад:</strong> 1 публикация<br><strong>Токены:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Медиа-партнёр</div>
+        <p><strong>Вклад:</strong> 3 публикации / серия<br><strong>Токены:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Стратегический партнёр</div>
+        <p><strong>Вклад:</strong> Постоянное освещение<br><strong>Токены:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+
+{{/* ---------------------- ENGLISH ---------------------- */}}
+{{ else if eq $lang "en" }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Media Friend</div>
+        <p><strong>Contribution:</strong> 1 publication<br><strong>Tokens:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Media Partner</div>
+        <p><strong>Contribution:</strong> 3 publications / series<br><strong>Tokens:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Strategic Partner</div>
+        <p><strong>Contribution:</strong> Ongoing coverage<br><strong>Tokens:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+
+{{/* ---------------------- UKRAINIAN ---------------------- */}}
+{{ else if eq $lang "uk" }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Друг медіа</div>
+        <p><strong>Внесок:</strong> 1 публікація<br><strong>Токени:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Медіа-партнер</div>
+        <p><strong>Внесок:</strong> 3 публікації / серія<br><strong>Токени:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Стратегічний партнер</div>
+        <p><strong>Внесок:</strong> Постійне висвітлення<br><strong>Токени:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+
+{{/* ---------------------- GERMAN ---------------------- */}}
+{{ else if eq $lang "de" }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Medienfreund</div>
+        <p><strong>Beitrag:</strong> 1 Publikation<br><strong>Token:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Medienpartner</div>
+        <p><strong>Beitrag:</strong> 3 Publikationen / Serie<br><strong>Token:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Strategischer Partner</div>
+        <p><strong>Beitrag:</strong> Laufende Berichterstattung<br><strong>Token:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+
+{{/* ---------------------- FRENCH ---------------------- */}}
+{{ else if eq $lang "fr" }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Ami des médias</div>
+        <p><strong>Contribution:</strong> 1 publication<br><strong>Tokens:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Partenaire média</div>
+        <p><strong>Contribution:</strong> 3 publications / série<br><strong>Tokens:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Partenaire stratégique</div>
+        <p><strong>Contribution:</strong> Couverture continue<br><strong>Tokens:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+
+{{/* ---------------------- SPANISH ---------------------- */}}
+{{ else if eq $lang "es" }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Amigo de medios</div>
+        <p><strong>Contribución:</strong> 1 publicación<br><strong>Tokens:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Socio mediático</div>
+        <p><strong>Contribución:</strong> 3 publicaciones / serie<br><strong>Tokens:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Socio estratégico</div>
+        <p><strong>Contribución:</strong> Cobertura continua<br><strong>Tokens:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+
+{{/* ---------------------- CHINESE ---------------------- */}}
+{{ else if eq $lang "zh" }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">媒体朋友</div>
+        <p><strong>贡献:</strong> 1 篇文章<br><strong>代币:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">媒体合作伙伴</div>
+        <p><strong>贡献:</strong> 3 篇文章 / 系列<br><strong>代币:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">战略合作伙伴</div>
+        <p><strong>贡献:</strong> 持续报道<br><strong>代币:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+
+{{/* ---------------------- ARABIC (RTL) ---------------------- */}}
+{{ else if eq $lang "ar" }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;" dir="rtl">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">صديق وسائل الإعلام</div>
+        <p><strong>المساهمة:</strong> منشور واحد<br><strong>الرموز:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">شريك إعلامي</div>
+        <p><strong>المساهمة:</strong> 3 منشورات / سلسلة<br><strong>الرموز:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">شريك استراتيجي</div>
+        <p><strong>المساهمة:</strong> تغطية مستمرة<br><strong>الرموز:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+
+{{/* ---------------------- DEFAULT (RUSSIAN) ---------------------- */}}
+{{ else }}
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1.5rem 0; justify-content: center;">
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Friend</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Друг медиа</div>
+        <p><strong>Вклад:</strong> 1 публикация<br><strong>Токены:</strong> 50</p>
+        <span class="partnership-badge">start</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Media Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Медиа-партнёр</div>
+        <p><strong>Вклад:</strong> 3 публикации / серия<br><strong>Токены:</strong> 200</p>
+        <span class="partnership-badge">professional</span>
+    </div>
+    <div class="partnership-card">
+        <div style="font-size: 2rem;">🤝</div>
+        <div style="font-size: 1.2rem; font-weight: 800;">Strategic Partner</div>
+        <div style="font-size: 0.75rem; color: #8b7355;">Стратегический партнёр</div>
+        <p><strong>Вклад:</strong> Постоянное освещение<br><strong>Токены:</strong> 1000</p>
+        <span class="partnership-badge">institutional</span>
+    </div>
+</div>
+{{ end }}

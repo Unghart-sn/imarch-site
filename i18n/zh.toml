@@ -1,0 +1,123 @@
+[[translation]]
+id = "dateFormat"
+translation = "2006年1月2日"
+
+[[translation]]
+id = "shortdateFormat"
+translation = "2006年1月2日 15:04:05"
+
+[[translation]]
+id = "postedOnDate"
+translation = "发表于 {{ . }}"
+
+[[translation]]
+id = "lastModified"
+translation = "(最后修改于 {{ . }})"
+
+[[translation]]
+id = "translationsLabel"
+translation = "其他语言："
+
+[[translation]]
+id = "translationsSeparator"
+translation = "，"
+
+[[translation]]
+id = "readMore"
+translation = "阅读更多"
+
+[[translation]]
+id = "olderPosts"
+translation = "较早"
+
+[[translation]]
+id = "newerPosts"
+translation = "较新"
+
+[[translation]]
+id = "previousPost"
+translation = "上一篇"
+
+[[translation]]
+id = "nextPost"
+translation = "下一篇"
+
+[[translation]]
+id = "readTime"
+translation = "分钟"
+
+[[translation]]
+id = "words"
+translation = "字"
+
+[[translation]]
+id = "pageNotFound"
+translation = "哎呀！页面未找到。（错误 404）"
+
+[[translation]]
+id = "poweredBy"
+translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; 主题 <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> 源自 <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+
+[[translation]]
+id = "toggleNavigation"
+translation = "切换导航"
+
+[[translation]]
+id = "languageSwitcherLabel"
+translation = "语言"
+
+[[translation]]
+id = "gcseLabelShort"
+translation = "搜索"
+
+[[translation]]
+id = "gcseLabelLong"
+translation = "搜索 {{ .Site.Title }}"
+
+[[translation]]
+id = "gcseClose"
+translation = "关闭"
+
+[[translation]]
+id = "noComment"
+translation = "暂无评论"
+
+[[translation]]
+id = "oneComment"
+translation = "评论"
+
+[[translation]]
+id = "moreComment"
+translation = "评论"
+
+[[translation]]
+id = "useMarkdown"
+translation = "您可以使用 Markdown 语法"
+
+[[translation]]
+id = "yourName"
+translation = "您的姓名"
+
+[[translation]]
+id = "yourEmail"
+translation = "您的邮箱"
+
+[[translation]]
+id = "yourWebsite"
+translation = "您的网站"
+
+[[translation]]
+id = "show"
+translation = "显示"
+
+[[translation]]
+id = "comments"
+translation = "评论"
+
+[[translation]]
+id = "seeAlso"
+translation = "另请参阅"
+
+
+
+

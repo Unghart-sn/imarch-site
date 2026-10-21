@@ -1,0 +1,28 @@
+{{- $rows := split (trim .Inner "\n\r ") "\n" -}}
+{{- $rows = where $rows "!=" "" -}}
+{{- $headers := split (index $rows 0) "|" -}}
+{{- $body := after 1 $rows -}}
+
+<table class="tb-table">
+  <thead>
+    <tr>
+      {{- range $headers }}
+        <th>{{ trim . " " }}</th>
+      {{- end }}
+    </tr>
+  </thead>
+  <tbody>
+    {{- range $row := $body }}
+      {{- $cells := split $row "|" }}
+      <tr>
+        {{- range $i, $cell := $cells }}
+          {{- $label := "" }}
+          {{- if lt $i (len $headers) }}
+            {{- $label = trim (index $headers $i) " " }}
+          {{- end }}
+          <td data-label="{{ $label }}">{{ trim $cell " " | safeHTML }}</td>
+        {{- end }}
+      </tr>
+    {{- end }}
+  </tbody>
+</table>

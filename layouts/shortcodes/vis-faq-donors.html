@@ -1,0 +1,153 @@
+<style>
+.vis-faq {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-faq-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #166534;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.faq-stat {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  text-align: center;
+  border-top: 4px solid #22c55e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faq-stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #166534;
+  margin-bottom: 10px;
+}
+
+.faq-stat-label {
+  color: #166534;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.faq-stat-desc {
+  color: #5d7690;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.faq-message {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #22c55e;
+  margin-bottom: 30px;
+}
+
+.faq-message p {
+  color: #2d3748;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.vis-faq-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #22c55e;
+  color: #166534;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.vis-faq-btn:hover {
+  background: #22c55e;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(34, 197, 94, 0.3);
+}
+
+@media (max-width: 768px) {
+  .vis-faq {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-faq-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .faq-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .faq-stat {
+    padding: 20px;
+  }
+  
+  .faq-message {
+    padding: 20px;
+  }
+}
+</style>
+
+<section id="faq" class="vis-section vis-faq">
+  <h2 class="vis-faq-title">❓ Частые вопросы</h2>
+  
+  <div class="faq-stats">
+    <div class="faq-stat">
+      <div class="faq-stat-value">💰</div>
+      <div class="faq-stat-label">Куда пойдут деньги?</div>
+      <p class="faq-stat-desc">Каждый рубль распределяется по чётким статьям бюджета: методическая база, софт, инфраструктура. Все отчёты публикуются.</p>
+    </div>
+    
+    <div class="faq-stat">
+      <div class="faq-stat-value">🚀</div>
+      <div class="faq-stat-label">Что будет дальше?</div>
+      <p class="faq-stat-desc">После первого этапа — масштабирование на регионы, создание сети центров и обучение новых специалистов.</p>
+    </div>
+    
+    <div class="faq-stat">
+      <div class="faq-stat-value">📊</div>
+      <div class="faq-stat-label">Как вы узнаете о результатах?</div>
+      <p class="faq-stat-desc">По каждому этапу собираются метрики: количество обученных пар, проведённых сеансов, отзывы участников.</p>
+    </div>
+  </div>
+  
+  <div class="faq-message">
+    <p>
+      <strong>Коротко отвечаем на то, что обычно волнует доноров:</strong><br>
+      куда пойдут деньги, что будет дальше и как вы узнаете о результатах.
+    </p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="/ru/profile/vis-realitatis/faq-donors/" class="vis-faq-btn">
+      👉 Ответы на вопросы доноров
+    </a>
+  </div>
+</section>

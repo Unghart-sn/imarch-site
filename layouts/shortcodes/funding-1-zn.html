@@ -1,0 +1,346 @@
+{{/*  Shortcode: funding-1  (light, pitch-deck style)
+Usage:
+{{< funding-1 url="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" goal="8000" currency="GBP" about="/ru/about/" report="/ru/reports/" >}}
+*/}}
+
+{{ $uniqueID := substr (md5 (printf "%s%s" (now.UnixNano) (seq 1 100 | shuffle | first 1))) 0 10 }}
+{{ $lang := .Page.Language.Lang | default "en" }}
+{{ $base := printf "/%s" $lang }}
+{{ $url := .Get "url" | default "https://whydonate.com/fundraising/vis-realitatis-preserving-memory" }}
+{{ $goal := .Get "goal" | default "8000" }}
+{{ $currency := .Get "currency" | default "GBP" }}
+{{ $about := .Get "about" | default (printf "%s/profile/vis-realitatis/" $base) }}
+{{ $report := .Get "report" | default (printf "%s/verdictum/" $base) }}
+{{ $contactEmail := "admin@imarch.sbs" }}
+
+<div class="imarch-funding-light" id="funding-light-{{ $uniqueID }}">
+
+  <div class="funding-header">
+    <h2>支持 Vis Realitatis 试点项目</h2>
+    <p class="subtitle">您不是在支持「为了筹款而筹款」。</p>
+    <p class="subtitle-smaller">
+      您将进入首个启动圈，每一项贡献都会被记录在编年史中，
+      而结果将被封装成可复制的协议。
+    </p>
+  </div>
+
+  <div class="funding-actions">
+    <a class="funding-btn primary" 
+       href="{{ $url }}" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      通过 WhyDonate 支持
+    </a>
+    {{ if $about }}
+    <a class="funding-btn secondary" href="{{ $about }}">关于项目</a>
+    {{ end }}
+    {{ if $report }}
+    <a class="funding-btn secondary" href="{{ $report }}">报告与档案</a>
+    {{ end }}
+  </div>
+
+  <div class="funding-meta">
+    试点目标：<strong>{{ $goal }} {{ $currency }}</strong><br>
+    形式：在线，个人学习路径，公共讨论区，结果固定与汇报。
+  </div>
+
+  <div class="funding-grid">
+
+    <!-- 捐助者 -->
+    <div class="funding-card">
+      <div class="card-icon">💎</div>
+      <h3>捐助者</h3>
+      <p class="card-description">
+        您的贡献将用于启动、组织、基础设施、专家圈费用以及报告的编制。
+      </p>
+      <div class="card-features">
+        <span class="feature">首圈参与者身份</span>
+        <span class="feature">贡献作为行为被记录</span>
+        <span class="feature">目标：{{ $goal }} {{ $currency }}</span>
+      </div>
+      <a class="funding-btn primary card-btn" 
+         href="{{ $url }}" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        💎 支持项目
+      </a>
+    </div>
+
+    <!-- 专家 -->
+    <div class="funding-card">
+      <div class="card-icon">🧑‍🔬</div>
+      <h3>专家</h3>
+      <p class="card-description">
+        您审查试点模块，确认方法论和协议逻辑的正确性。
+      </p>
+      <div class="card-features">
+        <span class="feature">专家意见作为一份工件</span>
+        <span class="feature">明确您的角色和参与</span>
+        <span class="feature">方法论验证</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="{{ $base }}/vis-realitatis-center-experts/" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        🧑‍🔬 以专家身份加入
+      </a>
+    </div>
+
+    <!-- 合作伙伴 -->
+    <div class="funding-card">
+      <div class="card-icon">🤝</div>
+      <h3>合作伙伴</h3>
+      <p class="card-description">
+        您提供平台、受众、组织、媒体、机构或其他资源。
+      </p>
+      <div class="card-features">
+        <span class="feature">联合模块 / 活动</span>
+        <span class="feature">透明记录</span>
+        <span class="feature">融入编年史</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="mailto:info@imarch.sbs?subject=Vis%20Realitatis%20合作伙伴">
+        📩 联系团队
+      </a>
+    </div>
+
+    <!-- 试点参与者 -->
+    <div class="funding-card">
+      <div class="card-icon">🚀</div>
+      <h3>试点参与者</h3>
+      <p class="card-description">
+        您将完成试点的实践部分，帮助收集手册材料、改进建议和案例。
+      </p>
+      <div class="card-features">
+        <span class="feature">您的经验成为数据库的一部分</span>
+        <span class="feature">反馈用于改进</span>
+        <span class="feature">参与报告</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="mailto:info@imarch.sbs?subject=参与%20Vis%20Realitatis%20试点">
+        🚀 参与试点
+      </a>
+    </div>
+
+  </div>
+
+  <div class="funding-note">
+    <p>核心原则很简单。我们不要求「相信空话」。我们记录行动、角色、决策、贡献和结果，使它们能够超越个人和环境而存在。</p>
+  </div>
+
+  <div class="funding-footer">
+    <p class="disclaimer">💡 所有资金将用于试点开发。月度报告将公开发布。</p>
+  </div>
+
+</div>
+
+<style>
+/* ===== СВЕТЛЫЙ СТИЛЬ (PITCH-DECK) ===== */
+#funding-light-{{ $uniqueID }} {
+  all: initial;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: all 0.25s ease;
+}
+
+#funding-light-{{ $uniqueID }} * {
+  box-sizing: border-box;
+}
+
+/* ШАПКА */
+#funding-light-{{ $uniqueID }} .funding-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#funding-light-{{ $uniqueID }} .funding-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2c2416;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+#funding-light-{{ $uniqueID }} .subtitle {
+  font-size: 1.1rem;
+  color: #4a3a2a;
+  margin-bottom: 0.5rem;
+}
+#funding-light-{{ $uniqueID }} .subtitle-smaller {
+  font-size: 0.95rem;
+  color: #6a5a48;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* КНОПКИ В ШАПКЕ */
+#funding-light-{{ $uniqueID }} .funding-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+#funding-light-{{ $uniqueID }} .funding-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+#funding-light-{{ $uniqueID }} .funding-btn.primary {
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border-color: #8b95a0;
+  color: #1a1c1e;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#funding-light-{{ $uniqueID }} .funding-btn.primary:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+#funding-light-{{ $uniqueID }} .funding-btn.secondary {
+  background: transparent;
+  border-color: #8b95a0;
+  color: #1a1c1e;
+}
+#funding-light-{{ $uniqueID }} .funding-btn.secondary:hover {
+  background: rgba(139, 115, 85, 0.1);
+  border-color: #c0a070;
+  transform: scale(1.02);
+}
+
+/* МЕТА */
+#funding-light-{{ $uniqueID }} .funding-meta {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  color: #4a3a2a;
+  line-height: 1.4;
+  background: #f8f4f0;
+  padding: 0.8rem;
+  border-radius: 12px;
+}
+#funding-light-{{ $uniqueID }} .funding-meta strong {
+  color: #8b7355;
+  font-weight: 800;
+}
+
+/* СЕТКА КАРТОЧЕК */
+#funding-light-{{ $uniqueID }} .funding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+#funding-light-{{ $uniqueID }} .funding-card {
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+#funding-light-{{ $uniqueID }} .funding-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+#funding-light-{{ $uniqueID }} .card-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+#funding-light-{{ $uniqueID }} .funding-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border-left: none;
+}
+#funding-light-{{ $uniqueID }} .card-description {
+  font-size: 0.85rem;
+  color: #6a5a48;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+#funding-light-{{ $uniqueID }} .card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+#funding-light-{{ $uniqueID }} .feature {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  padding: 0.4rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #4a3a2a;
+}
+#funding-light-{{ $uniqueID }} .card-btn {
+  width: 100%;
+  margin-top: auto;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+#funding-light-{{ $uniqueID }} .funding-note {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #6a5a48;
+  font-style: italic;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#funding-light-{{ $uniqueID }} .funding-footer {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e0d6c8;
+}
+#funding-light-{{ $uniqueID }} .disclaimer {
+  color: #6a5a48;
+  font-size: 0.85rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* АДАПТИВ */
+@media (max-width: 768px) {
+  #funding-light-{{ $uniqueID }} {
+    padding: 1.5rem;
+  }
+  #funding-light-{{ $uniqueID }} .funding-header h2 {
+    font-size: 1.5rem;
+  }
+  #funding-light-{{ $uniqueID }} .funding-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  #funding-light-{{ $uniqueID }} .funding-btn {
+    width: auto;
+    min-width: 200px;
+  }
+}
+@media (max-width: 640px) {
+  #funding-light-{{ $uniqueID }} .funding-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

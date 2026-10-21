@@ -1,0 +1,149 @@
+{{ if eq .Type "page" }}
+  {{ partial "page_meta.html" . }}
+{{ end }}
+{{- if and (not (isset .Site.Params "author")) (isset .Site "author") -}}
+  {{ errorf "Please move [author] to [params.author]; Hugo has deprecated the former." }}
+{{- end -}}
+
+<footer>
+  <div class="container">
+    {{ if .Site.Params.disclaimerText }}
+    <div class="row">
+      <div class="disclaimer">
+        <b>Disclaimer:</b> {{ .Site.Params.disclaimerText }}
+      </div>
+    </div>
+    {{ end }}
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        <ul class="list-inline text-center footer-links">
+          {{ range .Site.Data.beautifulhugo.social.social_icons }}
+            {{- if isset $.Site.Params.author .id }}
+              <li>
+                {{ if or ( hasPrefix ( index $.Site.Params.author .id ) "http://" ) ( hasPrefix ( index $.Site.Params.author .id ) "https://" ) }}
+                  <a {{ if .rel }}rel="{{ .rel }}"{{- end -}} href="{{ printf "%s" (index $.Site.Params.author .id) }}" title="{{ .title }}">
+                {{ else }}
+                  <a {{ if .rel }}rel="{{ .rel }}"{{- end -}} href="{{ printf .url (index $.Site.Params.author .id) }}" title="{{ .title }}">
+                {{ end }}
+                  <span class="fa-stack fa-lg">
+                    <i class="fas fa-circle fa-stack-2x"></i>
+                    <i class="{{ .icon }} fa-stack-1x fa-inverse"></i>
+                  </span>
+                  </a>
+              </li>
+            {{- end -}}
+          {{ end }}
+
+          {{ if .Site.Params.rss }}
+          {{ with .OutputFormats.Get "RSS" }}
+          <li>
+            <a href="{{ .RelPermalink }}" title="RSS">
+              <span class="fa-stack fa-lg">
+                <i class="fas fa-circle fa-stack-2x"></i>
+                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          {{ end }}
+          {{ end }}
+        </ul>
+
+        <p class="credits copyright text-muted">
+          {{ if .Site.Title }}
+            <a href="{{ "" | absLangURL }}">{{ .Site.Title }}</a>
+            &nbsp;&bull;&nbsp;
+          {{ end }}
+
+          <a href="https://imarch.sbs/en/imarch-ltd/">IMARCH LTD UK</a>
+          &nbsp;&bull;&nbsp; Reg. No: 16791765
+          &nbsp;&bull;&nbsp;&copy;
+          {{ if .Site.Params.since }}
+            {{ .Site.Params.since }} {{ .Site.Lastmod.Format "2006" }}
+          {{ else }}
+            {{ .Site.Lastmod.Format "2006" }}
+          {{ end }}
+          &nbsp;&bull;&nbsp;
+          Oleksandr Purpurov
+        </p>
+
+        <p class="credits text-muted" style="font-style: italic; margin-top: 8px; opacity: 0.85; text-align: center;">
+          Chronicle OS is an official operational interface for Complex Sociosystems Risk Management (CSRM).
+        </p>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+{{- if .Site.Params.selfHosted -}}
+<script defer src="{{ "js/katex.min.js" | absURL }}"></script>
+<script defer src="{{ "js/auto-render.min.js" | absURL }}" onload="renderMathInElement(document.body);"></script>
+<script src="{{ "js/jquery-3.7.0.slim.min.js" | absURL }}"></script>
+<script src="{{ "js/bootstrap.min.js" | absURL }}"></script>
+{{- else -}}
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+{{- end }}
+
+<script src="{{ "js/main.js" | absURL }}"></script>
+
+{{- if .Site.Params.staticman }}
+<script src="{{ "js/staticman.js" | absURL }}"></script>
+{{- end }}
+
+{{- if  .Site.Params.useHLJS }}
+<script src="{{ "js/highlight.min.js" | absURL }}"></script>
+<script> hljs.initHighlightingOnLoad(); </script>
+<script> $(document).ready(function() {$("pre.chroma").css("padding","0");}); </script>
+{{- end -}}
+
+{{- if .Site.Params.selfHosted -}}
+<script src="{{ "js/photoswipe.min.js" | absURL }}"></script>
+<script src="{{ "js/photoswipe-ui-default.min.js" | absURL }}"></script>
+{{- else -}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" crossorigin="anonymous"></script>
+{{- end -}}
+<script src="{{ "js/load-photoswipe.js" | absURL }}"></script>
+
+<script src="{{ "js/parallax.js" | absURL }}"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".imarch-module details").forEach(details => {
+    const content = details.querySelector(".accordion-content");
+    if (!content) return;
+
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        setTimeout(() => { content.style.maxHeight = "0px"; }, 20);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll('.fade-in-up');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>

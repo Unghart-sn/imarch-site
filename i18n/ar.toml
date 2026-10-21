@@ -1,0 +1,122 @@
+[[translation]]
+id = "dateFormat"
+translation = "2 يناير 2006"
+
+[[translation]]
+id = "shortdateFormat"
+translation = "2 يناير، 2006 15:04:05"
+
+[[translation]]
+id = "postedOnDate"
+translation = "نُشر في {{ . }}"
+
+[[translation]]
+id = "lastModified"
+translation = "(آخر تعديل في {{ . }})"
+
+[[translation]]
+id = "translationsLabel"
+translation = "لغات أخرى: "
+
+[[translation]]
+id = "translationsSeparator"
+translation = "، "
+
+[[translation]]
+id = "readMore"
+translation = "اقرأ المزيد"
+
+[[translation]]
+id = "olderPosts"
+translation = "المنشورات الأقدم"
+
+[[translation]]
+id = "newerPosts"
+translation = "المنشورات الأحدث"
+
+[[translation]]
+id = "previousPost"
+translation = "المنشور السابق"
+
+[[translation]]
+id = "nextPost"
+translation = "المنشور التالي"
+
+[[translation]]
+id = "readTime"
+translation = "دقائق"
+
+[[translation]]
+id = "words"
+translation = "كلمات"
+
+[[translation]]
+id = "pageNotFound"
+translation = "عذرًا، هذه الصفحة غير موجودة. (خطأ 404)"
+
+[[translation]]
+id = "poweredBy"
+translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> مدعوم &nbsp;&bull;&nbsp; القالب <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> مقتبس من <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+
+[[translation]]
+id = "toggleNavigation"
+translation = "تبديل التنقل"
+
+[[translation]]
+id = "languageSwitcherLabel"
+translation = "اللغة"
+
+[[translation]]
+id = "gcseLabelShort"
+translation = "بحث"
+
+[[translation]]
+id = "gcseLabelLong"
+translation = "بحث في {{ .Site.Title }}"
+
+[[translation]]
+id = "gcseClose"
+translation = "إغلاق"
+
+[[translation]]
+id = "noComment"
+translation = "لا توجد تعليقات"
+
+[[translation]]
+id = "oneComment"
+translation = "تعليق"
+
+[[translation]]
+id = "moreComment"
+translation = "تعليقات"
+
+[[translation]]
+id = "useMarkdown"
+translation = "يمكنك استخدام تنسيق Markdown"
+
+[[translation]]
+id = "yourName"
+translation = "اسمك"
+
+[[translation]]
+id = "yourEmail"
+translation = "بريدك الإلكتروني"
+
+[[translation]]
+id = "yourWebsite"
+translation = "موقعك الإلكتروني"
+
+[[translation]]
+id = "show"
+translation = "عرض"
+
+[[translation]]
+id = "comments"
+translation = "تعليقات"
+
+[[translation]]
+id = "seeAlso"
+translation = "أنظر أيضًا"
+
+
+

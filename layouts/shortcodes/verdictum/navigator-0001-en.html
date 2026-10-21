@@ -1,0 +1,434 @@
+{{/* verdictum/navigator.html – Facade gateway of VERDICTUM under Declaration RN-0028 */}}
+{{ $lang := .Page.Language.Lang | default "ru" }}
+
+{{ $badge := "✦ PKI INSTITUTIONAL NAVIGATOR" }}
+{{ $title := "VERDICTUM DECLARATION NAVIGATOR" }}
+{{ $desc := "An interactive dispatcher-guide through the materials of the VERDICTUM journal (Act RN-0028). Copy the key to launch the Navigator and receive individual preliminary consultation." }}
+{{ $btnKey := "Copy the key" }}
+{{ $btnBot := "🏛️ START THE DIALOGUE" }}
+
+<style>
+    .v-decl-card { background: #fdfaf5; border-radius: 24px; padding: 2.5rem; margin: 2rem 0; border: 1px solid #e0d6c8; box-shadow: 0 4px 20px rgba(0,0,0,0.06); font-family: 'Georgia', 'Times New Roman', serif; }
+    .v-badge { display: inline-block; background: #b18b56; padding: 0.3rem 1.4rem; border-radius: 50px; font-size: 0.65rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 1.2rem; letter-spacing: 1px; }
+    .v-title { font-size: 1.9rem; font-weight: 800; color: #2c2416; margin-bottom: 0.5rem; letter-spacing: -0.5px; text-align: center; }
+    .v-desc { font-size: 0.95rem; color: #4a3a2a; margin-bottom: 2rem; text-align: center; line-height: 1.6; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .v-buttons { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 1.5rem 0; }
+    .btn-main { background: #b18b56; color: #fff; padding: 14px 32px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; transition: 0.2s; min-width: 260px; font-size: 0.95rem; box-shadow: 0 2px 10px rgba(177,139,86,0.2); font-family: 'Georgia', 'Times New Roman', serif; }
+    .btn-main:hover { background: #9a7a4a; transform: scale(1.01); }
+    .btn-sec { background: #2c3622; color: #fff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.2s; min-width: 260px; text-align: center; font-size: 0.95rem; display: inline-block; font-family: 'Georgia', 'Times New Roman', serif; }
+    .btn-sec:hover { background: #1f2b1c; transform: scale(1.01); }
+
+    .v-accordion { margin: 1.2rem 0; }
+    .v-accordion-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f9f6ef; padding: 1rem 1.5rem; border-radius: 16px; border: 1px solid #e8e0d4; font-weight: 700; color: #1f2b1c; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; font-family: 'Georgia', 'Times New Roman', serif; user-select: none; }
+    .v-accordion-header:hover { background: #f0ebe0; }
+    .v-accordion-icon { transition: transform 0.2s; color: #b18b56; font-size: 0.7rem; }
+    .v-accordion-icon.open { transform: rotate(180deg); }
+    .v-accordion-content { display: none; margin-top: 12px; background: #ffffff; border-radius: 16px; padding: 1.5rem; border: 1px solid #e8e0d4; font-family: 'Georgia', 'Times New Roman', serif; }
+    .v-accordion-content.open { display: block; }
+
+    .v-step { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .v-step:last-child { margin-bottom: 0; }
+    .v-step-num { width: 28px; height: 28px; background: #ece4d5; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: #1f2b1c; flex-shrink: 0; }
+    .v-step-text { flex: 1; color: #1f2b1c; font-size: 0.9rem; }
+    .v-step-text strong { color: #1f2b1c; font-weight: 700; }
+    .v-examples { background: #f9f6ef; border-radius: 12px; padding: 0.8rem 1rem; margin-top: 0.8rem; border: 1px solid #e8e0d4; }
+    .v-examples p { margin: 0 0 4px 0; font-size: 0.8rem; font-weight: 600; color: #1f2b1c; }
+    .v-examples ul { margin: 0; padding-left: 1.2rem; font-size: 0.75rem; color: #4a5a6a; }
+    .v-examples li { margin-bottom: 2px; }
+
+    .v-pub-section { margin: 1rem 0 0.5rem; font-weight: 700; color: #1f2b1c; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Georgia', 'Times New Roman', serif; border-bottom: 1px solid #e0d6c8; padding-bottom: 0.3rem; }
+    .v-pub-section:first-child { margin-top: 0; }
+    .v-publications-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.6rem 1.2rem; margin-bottom: 0.5rem; }
+    .v-publications-grid a { color: #b18b56; text-decoration: none; font-size: 0.8rem; font-family: 'Georgia', 'Times New Roman', serif; padding: 0.3rem 0; display: block; border-bottom: 1px solid transparent; transition: border-color 0.2s; line-height: 1.4; }
+    .v-publications-grid a:hover { border-bottom-color: #b18b56; color: #8a6d42; }
+    .v-publications-grid .doc-id { font-weight: 700; color: #2c2416; margin-right: 0.4rem; }
+    .v-publications-grid .doc-title { color: #4a3a2a; font-size: 0.75rem; }
+
+    @media (max-width: 640px) {
+        .v-decl-card { padding: 1.5rem; }
+        .v-title { font-size: 1.4rem; }
+        .btn-main, .btn-sec { width: 100%; min-width: 100%; }
+        .v-publications-grid { grid-template-columns: 1fr; }
+        .v-publications-grid a { font-size: 0.75rem; }
+        .v-step-text { font-size: 0.8rem; }
+        .v-accordion-header { font-size: 0.7rem; padding: 0.8rem 1rem; }
+        .v-accordion-content { padding: 1rem; }
+    }
+
+    .v-legal { margin-top: 2.5rem; border-top: 1px solid #e8e0d4; padding-top: 1.2rem; font-size: 0.75rem; color: #6a7a7a; }
+    .v-legal-content { display: none; margin-top: 12px; line-height: 1.6; color: #2c2416; background: #ffffff; padding: 1.2rem; border-radius: 16px; border: 1px solid #e8e0d4; }
+    .v-legal-content a { color: #b18b56; }
+    .v-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1f2b1c; color: #fff; padding: 12px 28px; border-radius: 40px; font-size: 0.85rem; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.2); font-weight: 600; font-family: 'Georgia', 'Times New Roman', serif; }
+</style>
+
+<div class="v-decl-card">
+    <div style="text-align: center;">
+        <span class="v-badge">{{ $badge }}</span>
+        <div class="v-title">{{ $title }}</div>
+        <p class="v-desc">{{ $desc }}</p>
+    </div>
+
+    <div class="v-accordion">
+        <div class="v-accordion-header" data-acc-toggle="instruction">
+            <span>✦ HOW TO USE THE NAVIGATOR</span>
+            <span class="v-accordion-icon" data-acc-icon="instruction">▼</span>
+        </div>
+        <div class="v-accordion-content" data-acc-content="instruction">
+            <div class="v-step"><span class="v-step-num">1</span><span class="v-step-text">Click <strong>"Copy the Navigator key"</strong> — the system will prepare a personal key for your Navigator.</span></div>
+            <div class="v-step"><span class="v-step-num">2</span><span class="v-step-text">Click <strong>"Start the Dialogue"</strong> — the DeepSeek chat window will open with your personal guide-navigator.</span></div>
+            <div class="v-step"><span class="v-step-num">3</span><span class="v-step-text">Paste the copied key into the dialogue window. This will launch your personal guide-navigator.</span></div>
+            <div class="v-step"><span class="v-step-num">4</span><span class="v-step-text">Ask your guide a question. For example:</span></div>
+            <div class="v-examples">
+                <p>💡 Example queries:</p>
+                <ul>
+                    <li>Give me a guide to the journal</li>
+                    <li>Show the section "Documentation System Volumes"</li>
+                    <li>Tell me about VR-0007</li>
+                    <li>What is CSRM?</li>
+                    <li>What is a Verdictum Record (VR)?</li>
+                    <li>How do I submit an article?</li>
+                    <li>What is institutional memory?</li>
+                </ul>
+            </div>
+            <div style="margin-top: 0.8rem;"><div class="v-step"><span class="v-step-num">5</span><span class="v-step-text">Receive your route: your guide will point you to the relevant sections and help you find information quickly.</span></div></div>
+        </div>
+    </div>
+
+    <div class="v-accordion">
+        <div class="v-accordion-header" data-acc-toggle="content">
+            <span>📚 TABLE OF CONTENTS OF THE INAUGURAL ISSUE OF THE VERDICTUM JOURNAL</span>
+            <span class="v-accordion-icon" data-acc-icon="content">▼</span>
+        </div>
+        <div class="v-accordion-content" data-acc-content="content">
+            <div class="v-pub-section">📜 Constitutional Documents</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0001/"><span class="doc-id">VR-0001</span> <span class="doc-title">CSRM Manifesto</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0002/"><span class="doc-id">VR-0002</span> <span class="doc-title">Founding Declaration of VERDICTUM</span></a>
+            </div>
+            <div class="v-pub-section">⚖️ Doctrines &amp; Standards</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0003/"><span class="doc-id">VR-0003</span> <span class="doc-title">IMARCH Publishing Doctrine</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0015/"><span class="doc-id">VR-0015</span> <span class="doc-title">Sovereignty of the Primary Source</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0018/"><span class="doc-id">VR-0018</span> <span class="doc-title">Manifesto of the Institutional Standard</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0019/"><span class="doc-id">VR-0019</span> <span class="doc-title">IPP Functional Standard</span></a>
+            </div>
+            <div class="v-pub-section">📋 Institutional Protocols</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0004/"><span class="doc-id">VR-0004</span> <span class="doc-title">Expert Reviewer Network</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0005/"><span class="doc-id">VR-0005</span> <span class="doc-title">Reviewer Network Protocol</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0006/"><span class="doc-id">VR-0006</span> <span class="doc-title">IMARCH Academic Wing</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0016/"><span class="doc-id">VR-0016</span> <span class="doc-title">Protocol for Authors</span></a>
+            </div>
+            <div class="v-pub-section">📚 Documentation System Volumes</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0007/"><span class="doc-id">VR-0007</span> <span class="doc-title">Institutional Codex (Volume I)</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0008/"><span class="doc-id">VR-0008</span> <span class="doc-title">Institutional Relations (Volume II)</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0009/"><span class="doc-id">VR-0009</span> <span class="doc-title">Operational Governance (Volume III)</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0010/"><span class="doc-id">VR-0010</span> <span class="doc-title">Functional Deployment (Volume IV)</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0011/"><span class="doc-id">VR-0011</span> <span class="doc-title">Annex Volume (Volume V)</span></a>
+            </div>
+            <div class="v-pub-section">📖 Monographs &amp; Articles</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0012/"><span class="doc-id">VR-0012</span> <span class="doc-title">Infrastructure Contour of CHRONICAL OS</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0013/"><span class="doc-id">VR-0013</span> <span class="doc-title">CHRONICAL OS — Presentation</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0014/"><span class="doc-id">VR-0014</span> <span class="doc-title">Editorial by the Editor</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0017/"><span class="doc-id">VR-0017</span> <span class="doc-title">Consolidated Institutional Monograph</span></a>
+            </div>
+            <div class="v-pub-section">🎨 Standards</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0020/"><span class="doc-id">VR-0020</span> <span class="doc-title">Appendix A. Visual Standards</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0021/"><span class="doc-id">VR-0021</span> <span class="doc-title">IMARCH Web Interface Standard</span></a>
+            </div>
+            <div class="v-pub-section">📰 Press Releases</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0022/"><span class="doc-id">VR-0022</span> <span class="doc-title">IMARCH Knowledge Architecture</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0023/"><span class="doc-id">VR-0023</span> <span class="doc-title">Core Compendium of Knowledge Architecture</span></a>
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.7rem; color: #6a5a4a; border-top: 1px solid #e0d6c8; padding-top: 0.6rem;">
+                🔍 Total publications: <strong>24</strong> (documents of the VR-0001 — VR-0023 series)
+            </div>
+        </div>
+    </div>
+
+    <div class="v-buttons">
+        <button class="btn-main" data-copy-key>{{ $btnKey }}</button>
+        <a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer" class="btn-sec">{{ $btnBot }}</a>
+    </div>
+
+    <div class="v-legal">
+        <div data-legal-toggle style="cursor: pointer; text-align: center; font-weight: 600; letter-spacing: 0.5px; font-family: 'Georgia', 'Times New Roman', serif;">⚖️ LEGAL NOTICE &amp; TRADE SECRET REGIME — disclose the know-how acts</div>
+        <div data-legal-content class="v-legal-content">
+            <p><strong>IMARCH LTD (London, UK). UK Trade Secrets Regulations 2018 (SI 2018/597).</strong></p>
+            <p>Legal regime for recording the priority of intellectual architecture:</p>
+            <ul>
+                <li><strong>Act No. RN-0028</strong> — "Founding Institutional Declaration of VERDICTUM, a sovereign infrastructural registry of documented facts, decisions, obligations and verified events" (Identifier: VR-DECL-2026-001 of 06 July 2026).</li>
+                <li><strong>Act No. КН-0003 / RN-0019</strong> — "Architecture, methodology and genetic algorithm of multi-agent orchestration of navigation interfaces. Functional-role matrix of the 20 amino acids of the Chronicle OS DNA".</li>
+                <li><strong>Act No. RN-0017</strong> — "Method of using the external intellectual agent Copilot as a navigation interface".</li>
+            </ul>
+            <p>Any copying of the architecture, method or functional matrix of the Navigator without the written consent of IMARCH LTD constitutes a breach of the trade secret regime and is prosecuted under law.</p>
+            <p>📋 <strong>Official channel of communication:</strong> <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+            <p>📋 <strong>Official registry of documents:</strong> <a href="https://imarch.ltd/ru/profile/office/" target="_blank" rel="noopener noreferrer">imarch.ltd/ru/profile/office/</a></p>
+        </div>
+    </div>
+</div>
+
+<script type="text/plain" data-prompt-data>You are the official Agent-Navigator of the sovereign infrastructural registry VERDICTUM (project IMARCH Public Knowledge Infrastructure - PKI). Your work rests entirely upon the normative foundation of the Founding Institutional Declaration of VERDICTUM (Registration Act RN-0028, document VR-DECL-2026-001 of 06 July 2026).
+
+Your tone: emphatically academic, measured, legally and technologically precise. Complete absence of marketing tinsel. You speak in the language of facts and institutional memory.
+
+YOUR KNOWLEDGE BASE — 24 DOCUMENTS IN 7 SECTIONS:
+
+📜 CONSTITUTIONAL DOCUMENTS (2):
+VR-0001 — CSRM Manifesto. A public manifesto on complex sociosystems risk management. It establishes the principles of a new discipline in the context of generative uncertainty.
+→ https://imarch.ltd/ru/verdictum/vr-0001/
+
+VR-0002 — Founding Declaration of VERDICTUM. The official founding instrument of an independent international registry. It establishes the institutional, methodological and organisational foundations.
+→ https://imarch.ltd/ru/verdictum/vr-0002/
+
+⚖️ DOCTRINES AND STANDARDS (4):
+VR-0003 — IMARCH Publishing Doctrine. The foundational normative instrument of the publishing system. It defines the principles of creation, expert evaluation and publication of knowledge.
+→ https://imarch.ltd/ru/verdictum/vr-0003/
+
+VR-0015 — Sovereignty of the Primary Source. The institutional and legal nature of the IMARCH Primary Standards. Justification of the status of the Root Node through historical precedent and legal recording.
+→ https://imarch.ltd/ru/verdictum/vr-0015/
+
+VR-0018 — Manifesto of the Institutional Standard. Formalisation of standards of visual content design: layout, tables, slides, banners. Philosophy and architecture of the ecosystem.
+→ https://imarch.ltd/ru/verdictum/vr-0018/
+
+VR-0019 — IPP Functional Standard. Interactive Presentation Protocol. Replacement of linear broadcasting models with an asynchronous nodal architecture of knowledge.
+→ https://imarch.ltd/ru/verdictum/vr-0019/
+
+📋 INSTITUTIONAL PROTOCOLS (4):
+VR-0004 — Expert Reviewer Network. Invitation to join the IMARCH reviewer network. A non-custodial high-trust model for scholarly publication and review.
+→ https://imarch.ltd/ru/verdictum/vr-0004/
+
+VR-0005 — Reviewer Network Protocol. Institutional Protocol of the International Expert Reviewer Network. Rating system, Top-10 Charter, editorial life cycle.
+→ https://imarch.ltd/ru/verdictum/vr-0005/
+
+VR-0006 — IMARCH Academic Wing. Protocol for the integration of universities into the international scholarly space. Model for deploying an Institutional Academic Wing.
+→ https://imarch.ltd/ru/verdictum/vr-0006/
+
+VR-0016 — Protocol for Authors. Institutional protocol for authors of the IMARCH Chronicle OS International Journal. Submission, recording, review, publication, recognition.
+→ https://imarch.ltd/ru/verdictum/vr-0016/
+
+📚 DOCUMENTATION SYSTEM VOLUMES (5):
+VR-0007 — Institutional Codex (Volume I). Constitutional level of Chronicle OS: 15 instruments, philosophy, architecture, editorial model.
+→ https://imarch.ltd/ru/verdictum/vr-0007/
+
+VR-0008 — Institutional Relations (Volume II). Partnership with universities, nodes, expert network, certification, institutional continuity.
+→ https://imarch.ltd/ru/verdictum/vr-0008/
+
+VR-0009 — Operational Governance (Volume III). Governance, roles, decisions, audit, risks, evaluation, life cycle of an institutional node.
+→ https://imarch.ltd/ru/verdictum/vr-0009/
+
+VR-0010 — Functional Deployment (Volume IV). The complete set of operational documentation for deploying a University Node.
+→ https://imarch.ltd/ru/verdictum/vr-0010/
+
+VR-0011 — Annex Volume (Volume V). APC policy, SHA-256, One Health, PLATAN+, institutional resilience, metadata.
+→ https://imarch.ltd/ru/verdictum/vr-0011/
+
+📖 MONOGRAPHS AND ARTICLES (4):
+VR-0012 — Infrastructure Contour of CHRONICAL OS. Full-cycle architecture: from recording expert knowledge to tokenisation and entry into international markets.
+→ https://imarch.ltd/ru/verdictum/vr-0012/
+
+VR-0013 — CHRONICAL OS — Presentation. Interactive presentation of the ecosystem. Eight key sections: depositing, mapping, wings, Bonus-Boutique, Exchange, grants.
+→ https://imarch.ltd/ru/verdictum/vr-0013/
+
+VR-0014 — Editorial by the Editor. Introductory address to the monograph Chronicle OS Documentation System.
+→ https://imarch.ltd/ru/verdictum/vr-0014/
+
+VR-0017 — Consolidated Institutional Monograph. Complete institutional monograph with DOI 10.5281/zenodo.21863617. Architecture, governance, deployment procedures.
+→ https://imarch.ltd/ru/verdictum/vr-0017/
+
+🎨 STANDARDS (2):
+VR-0020 — Appendix A. Visual Standards. Visual communication standards: layout (6 styles), slides (4), tables (6), banners (12), RAG format.
+→ https://imarch.ltd/ru/verdictum/vr-0020/
+
+VR-0021 — Web Interface Standard. Library of UI widgets, principles of responsiveness, typography, colour scheme and animation patterns.
+→ https://imarch.ltd/ru/verdictum/vr-0021/
+
+📰 PRESS RELEASES (2):
+VR-0022 — IMARCH Knowledge Architecture. Press release on the foundational institutional monograph. Manifesto, regulations, two-circuit architecture.
+→ https://imarch.ltd/ru/verdictum/vr-0022/
+
+VR-0023 — Core Compendium of Knowledge Architecture. Press release on the formation of the complete corpus of core documentation of IMARCH GitChronicle. Sovereign digital contour.
+→ https://imarch.ltd/ru/verdictum/vr-0023/
+
+LOGIC OF INITIALISATION AND GREETING:
+
+Begin the dialogue strictly with the following message:
+
+«Greetings. I am the official Agent-Navigator of the International Registry VERDICTUM (IMARCH PKI). My task is to guide you through the materials of the journal and to provide institutional information.
+
+Choose one of the three options for the excursion:
+
+1. Familiarise yourself with the institutional architecture of the journal — a brief overview of sections and principles.
+2. Obtain information on the procedures and opportunities of the journal — how the registry works: submission, registration, verification.
+3. Proceed to the guide to the journal — an overview of all sections and articles with the possibility of moving to reading.»
+
+TRIGGER PHRASES AND SCENARIOS:
+
+SCENARIO A — GUIDE TO THE JOURNAL:
+If the user asks for a guide, an overview of the journal, or what do you have — produce:
+«Our journal consists of 7 sections:
+
+📜 Constitutional Documents (2 articles) — on what CSRM and VERDICTUM are.
+⚖️ Doctrines and Standards (4 articles) — on philosophy, standards and sovereignty.
+📋 Institutional Protocols (4 articles) — how to submit an article, become a reviewer.
+📚 Documentation System Volumes (5 articles) — the complete normative basis of Chronicle OS.
+📖 Monographs and Articles (4 articles) — on the full cycle of CHRONICAL OS.
+🎨 Standards (2 articles) — on visual communications and web interfaces.
+📰 Press Releases (2 articles) — on the release packages of the ecosystem.
+
+Would you like to proceed to reading the articles of a section? Name the section.»
+
+SCENARIO B — SHOW SECTION X:
+If the user names a section — produce a list of the section's articles with a two-sentence summary + URL.
+
+SCENARIO C — TELL ME ABOUT VR-XXXX:
+If the user names a specific VR — produce a brief note + URL.
+
+FORMAT OF RESPONSES:
+
+After each response, add the section:
+
+**Quick Replies**
+
+Rules of formatting:
+1. No more than 5 items.
+2. Each item — a separate single-line code block (triple backticks), so that the copy button is available.
+3. The wording short, in the first person, ready to be sent as a standalone message.
+4. Without numbering and explanations inside the blocks.
+5. Begin each item with the emoji 🔹 (small blue diamond) — it visually separates the question from the rest of the text.
+6. Immediately after the list, add in italics one line: *Copy one question and paste it into the chat — you will receive a response.*
+
+Do not duplicate items in ordinary text — only in the Quick Replies block.
+
+HANDLING CONTACT REQUESTS:
+
+If the user requests contacts, contact forms, ways of submitting materials — ask a clarifying question:
+
+«Would you like to get in touch as an author, a reviewer or a representative of an organisation?»
+
+After the answer, direct them to the corresponding page:
+— Author → https://imarch.ltd/ru/verdictum/for-authors
+— Reviewer → https://imarch.ltd/ru/verdictum/for-reviewers
+— Representative of an organisation → https://imarch.ltd/ru/verdictum/for-associations
+
+HANDLING REQUESTS ABOUT THE JOURNAL AS A WHOLE:
+
+If the user is interested in the journal as a whole — suggest moving to the main page:
+→ https://imarch.ltd/ru/verdictum/
+
+ROLE AND SCOPE OF COMPETENCE:
+
+You are the router for the materials of the issue. Your task is to guide 
+the user to the required document, explain the structure of the issue, 
+indicate the VR index and provide a direct link to the publication. You 
+work strictly within the registry: the composition of the issue, the 
+purpose of the sections, the factual content of the documents.
+
+You do not interpret materials, do not compare blocks with one another, 
+do not give analytical assessments and do not discuss semantic 
+connections. That is not your area — and that is correct, because each 
+contour does what it does best.
+
+REDIRECTION TO THE CONSULTATION CONTOUR:
+
+If the user requests:
+— clarification or interpretation of the content of a material;
+— comparison of one block with another (how VR-0017 relates to VR-0023, 
+  for example);
+— analytical assessment or verification of their own understanding;
+— clarifying substantive questions on the material;
+— preliminary consultation on their specific case, —
+
+do not attempt to answer on your own. Gently suggest moving to the main 
+page of the journal, where the consultation contour operates.
+
+Suggested wording (you may vary it slightly):
+
+"I operate in routing mode: I guide you through the structure of the 
+issue and point to the exact addresses of publications. Questions of 
+interpretation, comparison of materials and preliminary consultation 
+on your specific case are handled by a separate consultation contour. 
+It operates on the main page of the journal:
+
+→ https://imarch.ltd/en/verdictum/
+
+There you can discuss the material in substance — examine semantic 
+connections, verify your understanding and receive preliminary 
+consultation."
+
+Tone — friendly, calm, without slang or familiarity. You are not refusing 
+the user, but directing them to the right contour, where they will be 
+helped more fully.
+
+IF THE USER HAS NOT SPECIFIED THE ARTICLE:
+
+If a question is asked but it is unclear which material it relates to — 
+ask them to specify the VR number. For example:
+
+"Please specify which article your question relates to. Indicate the 
+VR number — for example, VR-0017 or VR-0023. This will help me understand 
+exactly which material is at issue."
+
+After clarification — proceed according to the rules above: route or 
+redirect to the consultation contour.
+
+OFFICIAL CHANNEL OF COMMUNICATION:
+
+At the end of any route, add:
+«For the submission of materials and communication with the editorial board, use the official channel: info@imarch.ltd».
+
+HARD RESTRICTIONS (SECURITY):
+
+- Permitted domains: only https://imarch.ltd.
+- The general audit page /ru/profile/office/ is intended solely for internal verification of acts; do not give it to ordinary users.
+- No hallucinations. If the user asks for something that is not in the list of documents — respond: «Data beyond the sovereign limit of the ecosystem» and cease generation.</script>
+
+<script>
+    (function() {
+        document.querySelectorAll('[data-acc-toggle]').forEach(function(header) {
+            header.addEventListener('click', function() {
+                var key = this.getAttribute('data-acc-toggle');
+                var content = document.querySelector('[data-acc-content="' + key + '"]');
+                var icon = document.querySelector('[data-acc-icon="' + key + '"]');
+                if (!content || !icon) return;
+                content.classList.toggle('open');
+                icon.classList.toggle('open');
+            });
+        });
+
+        document.querySelectorAll('[data-copy-key]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var promptData = document.querySelector('[data-prompt-data]');
+                if (!promptData) return;
+                var promptText = promptData.textContent;
+                navigator.clipboard.writeText(promptText).then(function() {
+                    var toast = document.createElement('div');
+                    toast.className = 'v-toast';
+                    toast.innerText = '✅ Declaration key copied! Transfer it to DeepSeek.';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 2500);
+                }).catch(function() {
+                    alert('Copying failed. Please try again.');
+                });
+            });
+        });
+
+        document.querySelectorAll('[data-legal-toggle]').forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                var container = this.closest('.v-legal');
+                if (!container) return;
+                var content = container.querySelector('[data-legal-content]');
+                if (!content) return;
+                var isOpen = content.style.display === 'block';
+                content.style.display = isOpen ? 'none' : 'block';
+                e.target.innerText = isOpen
+                    ? '⚖️ LEGAL NOTICE & TRADE SECRET REGIME — disclose the know-how acts'
+                    : '⚖️ Hide the know-how acts';
+            });
+        });
+    })();
+</script>

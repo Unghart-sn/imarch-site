@@ -1,0 +1,253 @@
+<style>
+/* МАГИЧЕСКИЙ АККОРДЕОН В СТИЛЕ НАШИХ БЛОКОВ */
+.magic-accordion-final {
+    margin: 3rem 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.magic-accordion-final summary {
+    padding: 22px 25px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #e2e8f0;
+    background: rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.magic-accordion-final summary::after {
+    content: '▾';
+    font-size: 1.3rem;
+    color: #a855f7;
+    transition: transform 0.3s ease;
+}
+
+.magic-accordion-final[open] summary::after {
+    transform: rotate(180deg);
+}
+
+.magic-accordion-final[open] summary {
+    background: rgba(168, 85, 247, 0.15);
+    border-bottom-color: rgba(168, 85, 247, 0.3);
+}
+
+.magic-accordion-final[open] {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    background: rgba(30, 41, 59, 0.7);
+}
+
+.magic-accordion-content-final {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.magic-accordion-final[open] .magic-accordion-content-final {
+    max-height: 5000px;
+}
+
+/* Контент внутри */
+.magic-socials-final {
+    padding: 25px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.magic-divider-final {
+    width: 100%;
+    text-align: center;
+    margin: 2rem 0;
+    padding: 0 25px;
+}
+
+.magic-divider-final hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent, 
+        rgba(168, 85, 247, 0.5), 
+        transparent
+    );
+}
+
+.magic-banner-final {
+    text-align: center;
+    padding: 0 25px 25px;
+}
+
+.magic-banner-final img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.magic-blog-title-final {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    color: #e0aaff;
+    margin: 20px 0 15px;
+}
+
+.magic-blog-text-final {
+    color: #cbd5e1;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.magic-tags-final {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 25px 0;
+}
+
+.magic-tags-final button {
+    background: rgba(168, 85, 247, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    color: #d8b4fe;
+    padding: 12px 22px;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.magic-tags-final button:hover {
+    background: rgba(168, 85, 247, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(168, 85, 247, 0.15);
+}
+
+/* МАГИЧЕСКАЯ ЧАСТЬ - вбирает в себя последующий контент */
+.magic-blog-content-final {
+    padding: 20px 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(203, 213, 225, 0.8);
+    font-style: italic;
+    text-align: center;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .magic-accordion-final {
+        margin: 2rem 0;
+        border-radius: 10px;
+    }
+    
+    .magic-accordion-final summary {
+        padding: 18px 20px;
+        font-size: 1.1rem;
+    }
+    
+    .magic-socials-final {
+        padding: 20px;
+    }
+    
+    .magic-banner-final {
+        padding: 0 20px 20px;
+    }
+    
+    .magic-blog-title-final {
+        font-size: 1.5rem;
+    }
+    
+    .magic-tags-final {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .magic-tags-final button {
+        width: 100%;
+        max-width: 250px;
+    }
+}
+</style>
+
+<details class="magic-accordion-final">
+    <summary>Contacts & Media ▾</summary>
+    
+    <div class="magic-accordion-content-final">
+        <!-- Социальные сети -->
+        <div class="magic-socials-final">
+            {{`{{< persona-socials >}}`}}
+        </div>
+        
+        <div class="magic-divider-final">
+            <hr>
+        </div>
+        
+        <!-- Баннер блога -->
+        <div class="magic-banner-final">
+            <img src="/images/persona/000-3.png" alt="Вердикт это официальный голос и сцена институционального признания" />
+            
+            <h3 class="magic-blog-title-final">Личный блог</h3>
+            
+            <p class="magic-blog-text-final">
+                В этом разделе я публикую заметки о проектах, размышления о формах и практиках, 
+                а также истории о том, как бюрократия превращается в ритуал.
+            </p>
+            
+            <section class="magic-tags-final">
+                <button onclick="location.href='/ru/tags/portrait/'">🏛 Портрет</button>
+                <button onclick="location.href='/ru/tags/action/'">🛠 Действие</button>
+                <button onclick="location.href='/ru/tags/inspiration/'">🌿 Вдохновение</button>
+            </section>
+        </div>
+        
+        <!-- МАГИЧЕСКАЯ ЧАСТЬ - сюда будет подхватываться контент блога -->
+        <div class="magic-blog-content-final">
+            ↓ Здесь автоматически появятся посты блога, которые идут на странице после этого блока ↓
+        </div>
+    </div>
+</details>
+
+<script>
+// Магия для плавного аккордеона
+document.addEventListener('DOMContentLoaded', function() {
+    const accordion = document.querySelector('.magic-accordion-final');
+    const content = accordion.querySelector('.magic-accordion-content-final');
+    
+    accordion.addEventListener('toggle', function() {
+        if (this.open) {
+            // Открываем
+            const contentHeight = content.scrollHeight + 'px';
+            content.style.maxHeight = contentHeight;
+            
+            // Эффект "вбирания" контента
+            this.style.transform = 'translateY(-5px)';
+            setTimeout(() => {
+                this.style.transform = 'translateY(0)';
+            }, 300);
+        } else {
+            // Закрываем
+            content.style.maxHeight = '0';
+        }
+    });
+    
+    // Инициализируем если аккордеон открыт по умолчанию
+    if (accordion.open) {
+        const contentHeight = content.scrollHeight + 'px';
+        content.style.maxHeight = contentHeight;
+    }
+});
+</script>

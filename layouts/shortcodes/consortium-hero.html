@@ -1,0 +1,382 @@
+<style>
+/* =================== KОНСОРЦИУМ PLATAN+ - ЛЕНДИНГ КОЛЛЕГИЯ =================== */
+/* ИНСТИТУЦИОНАЛЬНЫЙ СТИЛЬ */
+
+.platan-consortium-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* Заголовок консорциума */
+.consortium-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.consortium-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #1a365d, #2c5282, #1a365d);
+}
+
+.consortium-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.consortium-subtitle {
+    font-size: 1.3rem;
+    color: #2d3748;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* Блоки информации */
+.consortium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.consortium-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.consortium-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e0;
+}
+
+.consortium-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: #2c5282;
+}
+
+.card-header {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.card-subtitle {
+    color: #4a5568;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin: 0;
+}
+
+.card-content {
+    color: #2d3748;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.card-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #edf2f7;
+    color: #4a5568;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.card-list li:last-child {
+    border-bottom: none;
+}
+
+.card-list li::before {
+    content: '•';
+    color: #2c5282;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2c5282;
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid #2c5282;
+    margin-top: 10px;
+}
+
+.card-button:hover {
+    background: #1a365d;
+    transform: translateX(3px);
+}
+
+/* Форматы сотрудничества */
+.cooperation-section {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 40px;
+    margin-top: 50px;
+    border: 1px solid #e2e8f0;
+}
+
+.cooperation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1a365d;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cooperation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.cooperation-item {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.cooperation-item:hover {
+    border-color: #2c5282;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.cooperation-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #2c5282;
+}
+
+.cooperation-item h4 {
+    font-size: 1.2rem;
+    color: #1a365d;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.cooperation-item p {
+    color: #718096;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .platan-consortium-container {
+        padding: 40px 15px;
+    }
+    
+    .consortium-title {
+        font-size: 2.2rem;
+    }
+    
+    .consortium-subtitle {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .consortium-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .consortium-card {
+        padding: 25px;
+    }
+    
+    .cooperation-section {
+        padding: 30px 20px;
+    }
+    
+    .cooperation-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Деловой акцент */
+.badge {
+    display: inline-block;
+    background: #1a365d;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.highlight {
+    color: #2c5282;
+    font-weight: 600;
+}
+
+/* Институциональные элементы */
+.institution-stamp {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.stamp-text {
+    font-family: monospace;
+    color: #718096;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+</style>
+
+<div class="platan-consortium-container">
+
+    <!-- Основной контент -->
+    <div class="consortium-grid">
+        <!-- Юридическая основа -->
+        <div class="consortium-card">
+            <div class="card-header">
+                <h2 class="card-title">Юридическая основа <span class="badge">FOUNDATION</span></h2>
+                <p class="card-subtitle">Структурный фундамент консорциума</p>
+            </div>
+            
+            <p class="card-content">
+                <strong>Консорциум PLATAN+</strong> — научно‑производственное объединение полного цикла, 
+                кластерное тело IMARCH, удерживающее сцены, титулы и формы в единой архитектуре действия.
+            </p>
+            
+            <ul class="card-list">
+                <li><strong>IMARCH LTD UK</strong> — юридическая сцена институционализации</li>
+                <li><strong>Veritatis Silentis CIC</strong> — сцена гуманитарной деятельности</li>
+                <li><strong>Инициирующее ядро</strong> — IMARCH LTD UK и Veritatis Silentis CIC</li>
+            </ul>
+            
+            <p class="card-content">
+                К консорциуму присоединяются независимые организации (коммерческие и общественные) 
+                на основе <span class="highlight">меморандума о присоединении</span>. Они могут выступать подрядчиками ядра 
+                и выражать официальную моральную поддержку.
+            </p>
+            
+            <p class="card-content">
+                PLATAN+ действует как тело передачи, фасилитации и франшизы. 
+                <span class="highlight">Основная платформа совместной работы — GitHub</span>.
+            </p>
+            
+            <a href="#" class="card-button">Подробнее о структуре →</a>
+        </div>
+
+        <!-- Структура проектов -->
+        <div class="consortium-card">
+            <div class="card-header">
+                <h2 class="card-title">Структура реализационных проектов <span class="badge">ARCHITECTURE</span></h2>
+                <p class="card-subtitle">Формологическая институция</p>
+            </div>
+            
+            <p class="card-content">
+                PLATAN+ — формологическая институция, собирающая в единую систему:
+            </p>
+            
+            <ul class="card-list">
+                <li><strong>12 наукометрических тем</strong> — исследовательские направления</li>
+                <li><strong>8 миссий IMARCH</strong> — стратегические векторы развития</li>
+                <li><strong>12 уникальных УТП</strong> — конкурентные преимущества</li>
+                <li><strong>1 центральная точка</strong> различения статуса «Я» — идентификационный кодекс</li>
+            </ul>
+            
+            <p class="card-content">
+                Каждый элемент системы проходит через <span class="highlight">коллегиальное согласование</span> 
+                и получает институциональный статус в рамках консорциума.
+            </p>
+            
+            <a href="/ru/constitutio/codex-structurae/" class="card-button">Изучить проекты →</a>
+        </div>
+    </div>
+
+    <!-- Форматы сотрудничества -->
+    <div class="cooperation-section">
+        <h3 class="cooperation-title">Открытая институция для сотрудничества</h3>
+        <p style="text-align: center; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            IMARCH открыт к осознанному сотрудничеству. Первый шаг: <span class="highlight">меморандум о доверии</span>.
+        </p>
+        
+        <div class="cooperation-grid">
+            <div class="cooperation-item">
+                <div class="cooperation-icon">🌐</div>
+                <h4>Публичный формат</h4>
+                <p>Открытое участие в мероприятиях, доступ к публичным материалам, участие в дискуссиях</p>
+            </div>
+            
+            <div class="cooperation-item">
+                <div class="cooperation-icon">🔒</div>
+                <h4>Полузакрытый формат</h4>
+                <p>Доступ к рабочим материалам, участие в проектных группах, членство в ассоциации</p>
+            </div>
+            
+            <div class="cooperation-item">
+                <div class="cooperation-icon">⚡</div>
+                <h4>Закрытый формат</h4>
+                <p>Полное включение в ядро консорциума, доступ ко всем сценам, право голоса в ключевых решениях</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="#" class="card-button">Обсудить сотрудничество →</a>
+        </div>
+    </div>
+
+    <!-- Институциональная печать -->
+    <div class="institution-stamp">
+        <p class="stamp-text">PLATAN+ CONSORTIUM | IMARCH BODY | INSTITUTIONAL FRAMEWORK v2.4</p>
+    </div>
+</div>

@@ -1,0 +1,491 @@
+{{/*
+    IMARCH Chronicle OS — General Hub Navigator Card (V3 Full Interactive Release)
+    Standardization Protocol RN-0031 / RN-0019 / Passport IMARCH PS-002
+    Full Dialog Logic, Cognitive Express-Test & 5 Volumes Routing
+    RUSSIAN EDITION — Safe HTML attribute encoding for the prompt
+*/}}
+
+<style>
+    .imarch-nav-card {
+        background: #fdfaf5;
+        border-radius: 24px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid #e0d6c8;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        transition: all 0.2s ease;
+        display: block;
+        clear: both;
+    }
+    .imarch-nav-card:hover {
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .imarch-nav-badge {
+        display: inline-block;
+        background: #b18b56;
+        padding: 0.25rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        border: none;
+    }
+
+    .imarch-nav-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #1f2b1c;
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.5px;
+        text-align: center;
+    }
+
+    .imarch-nav-subtitle {
+        font-size: 1rem;
+        color: #4a5a6a;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #e8e0d4;
+        padding-bottom: 1rem;
+        text-align: center;
+        font-style: italic;
+    }
+
+    .imarch-nav-tags {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+        margin: 0 0 1.5rem 0;
+        font-size: 0.85rem;
+        color: #4a5a6a;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .imarch-nav-accordion {
+        margin: 1.5rem 0;
+    }
+
+    .imarch-nav-acc-header {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        padding: 0.5rem 0;
+        color: #4a5a6a;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.2s;
+        user-select: none;
+        text-align: center;
+        border-bottom: 1px solid #e8e0d4;
+    }
+    .imarch-nav-acc-header:hover { color: #1f2b1c; }
+
+    .imarch-nav-acc-icon {
+        transition: transform 0.2s;
+        display: inline-block;
+        font-size: 0.6rem;
+        color: #b18b56;
+    }
+    .imarch-nav-acc-icon.open { transform: rotate(180deg); }
+
+    .imarch-nav-acc-content {
+        display: none;
+        margin-top: 12px;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .imarch-nav-acc-content.open { display: block; }
+
+    .imarch-nav-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+    }
+    .imarch-nav-step:last-child { margin-bottom: 0; }
+
+    .imarch-nav-step-num {
+        width: 28px;
+        height: 28px;
+        background: #ece4d5;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: #1f2b1c;
+        flex-shrink: 0;
+    }
+
+    .imarch-nav-step-text {
+        flex: 1;
+        color: #1f2b1c;
+        font-size: 0.9rem;
+    }
+
+    .imarch-nav-examples {
+        background: #f9f6ef;
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        margin-top: 0.8rem;
+        border: 1px solid #e8e0d4;
+    }
+    .imarch-nav-examples p {
+        margin: 0 0 4px 0;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #1f2b1c;
+    }
+    .imarch-nav-examples ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        font-size: 0.75rem;
+        color: #4a5a6a;
+    }
+
+    .imarch-nav-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        justify-content: center;
+    }
+
+    .imarch-btn-copy {
+        background: #b18b56;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 200px;
+    }
+    .imarch-btn-copy:hover {
+        background: #9a7a4a;
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(177, 139, 86, 0.3);
+    }
+
+    .imarch-btn-launch {
+        background: #2c3622;
+        border: 2px solid #2c3622;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+        min-width: 200px;
+    }
+    .imarch-btn-launch:hover {
+        background: #1f2b1c;
+        border-color: #1f2b1c;
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(44, 54, 34, 0.3);
+        color: #ffffff;
+    }
+
+    .imarch-toast {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1f2b1c;
+        color: #ffffff;
+        padding: 12px 28px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        z-index: 9999;
+        pointer-events: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+
+    .imarch-nav-legal {
+        margin-top: 1.5rem;
+        border-top: 1px solid #e8e0d4;
+        padding-top: 1rem;
+    }
+    .imarch-nav-legal-summary {
+        cursor: pointer;
+        color: #6a7a7a;
+        font-size: 0.75rem;
+        text-align: center;
+        display: block;
+        user-select: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+    }
+    .imarch-nav-legal-summary:hover { color: #1f2b1c; }
+    .imarch-nav-legal-content {
+        display: none;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .imarch-nav-legal-content.show { display: block; }
+    .imarch-nav-legal-content p { margin-bottom: 0.5rem; }
+    .imarch-nav-legal-content ul { margin: 0.3rem 0 0.5rem 1.5rem; }
+    .imarch-nav-legal-content li { margin-bottom: 0.15rem; color: #4a5a6a; }
+    .imarch-nav-legal-content a { color: #b18b56; text-decoration: underline; }
+    .imarch-nav-legal-content a:hover { color: #1f2b1c; }
+
+    @media (max-width: 640px) {
+        .imarch-nav-card { padding: 1.2rem; margin: 1.2rem 0; }
+        .imarch-nav-title { font-size: 1.3rem; }
+        .imarch-nav-subtitle { font-size: 0.85rem; }
+        .imarch-nav-tags { font-size: 0.8rem; }
+        .imarch-btn-copy, .imarch-btn-launch { min-width: 100%; justify-content: center; padding: 10px 20px; font-size: 0.9rem; }
+    }
+</style>
+
+<!-- ГЕНЕРАЛЬНЫЙ НАВИГАТОР CARD -->
+<div class="imarch-nav-card">
+    <div style="text-align: center;">
+        <span class="imarch-nav-badge">✦ ГЕНЕРАЛЬНЫЙ ИНСТИТУЦИОНАЛЬНЫЙ ПОРТАЛ</span>
+        <div class="imarch-nav-title">CHRONICLE OS NAVIGATOR</div>
+        <div class="imarch-nav-subtitle">Ваш персональный гид-навигатор по экосистеме IMARCH</div>
+        <div class="imarch-nav-tags">
+            <span>Задайте вопрос, пройдите экспресс-диагностику или запросите маршрутизацию по 5 Томам документации, Монографии и Инвестиционной экосистеме.</span>
+        </div>
+    </div>
+
+    <!-- ИНСТРУКЦИЯ -->
+    <div class="imarch-nav-accordion">
+        <div class="imarch-nav-acc-header" id="imarchAccToggle">
+            <span>✦ ИНСТРУКЦИЯ ПО АКТИВАЦИИ НАВИГАТОРА</span>
+            <span class="imarch-nav-acc-icon" id="imarchAccIcon">▼</span>
+        </div>
+        <div class="imarch-nav-acc-content" id="imarchAccContent">
+            <div class="imarch-nav-step">
+                <span class="imarch-nav-step-num">1</span>
+                <span class="imarch-nav-step-text">Нажмите кнопку <strong>«Скопировать ключ»</strong>.</span>
+            </div>
+            <div class="imarch-nav-step">
+                <span class="imarch-nav-step-num">2</span>
+                <span class="imarch-nav-step-text">Нажмите <strong>«Начать диалог»</strong> для перехода в Copilot.</span>
+            </div>
+            <div class="imarch-nav-step">
+                <span class="imarch-nav-step-num">3</span>
+                <span class="imarch-nav-step-text">Вставьте ключ в диалог — Навигатор активирует интерактивный гид-режим.</span>
+            </div>
+            <div class="imarch-nav-examples">
+                <p>💡 Примеры диалоговых запросов:</p>
+                <ul>
+                    <li>«Расскажи об архитектуре Chronicle OS и монографии».</li>
+                    <li>«Как подать статью или стать рецензентом в сети RN-0031?»</li>
+                    <li>«Хочу пройти когнитивный экспресс-тест для выбора маршрута».</li>
+                    <li>«Где изучить Тома I–V институциональной документации?»</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- КНОПКИ -->
+    <div class="imarch-nav-buttons">
+        <button class="imarch-btn-copy" id="imarchCopyBtn">📋 Скопировать ключ</button>
+        <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="imarch-btn-launch">🚀 НАЧАТЬ ДИАЛОГ</a>
+    </div>
+
+    <!-- ЮРИДИЧЕСКИЙ БЛОК -->
+    <div class="imarch-nav-legal">
+        <div class="imarch-nav-legal-summary" id="imarchLegalToggle">
+            ⚖️ INSTITUTIONAL GOVERNANCE & PROTOCOL SECURITY — открыть данные
+        </div>
+        <div class="imarch-nav-legal-content" id="imarchLegalContent">
+            <p><strong>GOVERNANCE NOTICE (CHRONICLE OS NAVIGATOR CORE V3)</strong></p>
+            <p>Настоящий интерфейс функционирует в рамках правового поля <strong>IMARCH LTD</strong> (Company No. 16791765, Англия и Уэльс) и подчинен Конституционной рамке <strong>ED-FRM-2026-001 (Editorial Framework)</strong>.</p>
+            
+            <p><strong>Технический паспорт и операционная логика:</strong></p>
+            <ul>
+                <li>Функционирование и алгоритмы ИИ-агента регулируются зарегистрированным Институциональным стандартом промпта <strong>IMARCH PS-002 / RN-0019 (Chronicle OS General Navigator)</strong>, стандартизированным вердиктом <a href="https://imarch.sbs/ru/verdictum/vd-0009-chronicle_os_documentation_system_20260721/" target="_blank" rel="noopener noreferrer">VD-0009 Chronicle OS Documentation System</a>.</li>
+                <li>Операционная сборка промпта верифицирована и депонирована в закрытом институциональном реестре: <code>Imperium-Silentii/chronicle-os-prompts/tree/main/0002</code>. Юрисдикция регулирования: Англия и Уэльс.</li>
+            </ul>
+
+            <p><strong>Правовой режим и активы:</strong></p>
+            <ul>
+                <li><strong>Статус документа:</strong> Принят (Adopted) от 21 июля 2026 года.</li>
+                <li><strong>Интеллектуальная собственность:</strong> Архитектурные алгоритмы маршрутизации, логика интеграции 5 томов документации и презентационной монографии составляют проприетарные интеллектуальные активы IMARCH LTD.</li>
+                <li>Любое несанкционированное копирование или модификация системных инструкций преследуется в соответствии с законодательством Соединенного Королевства.</li>
+            </ul>
+            
+            <p>📋 <strong>Официальный архив томов:</strong> <a href="https://imarch.sbs/ru/verdictum/vd-0009-chronicle_os_documentation_system_20260721/" target="_blank" rel="noopener noreferrer">VD-0009 Documentation System Baseline</a></p>
+        </div>
+    </div>
+</div>
+
+<!-- ПОЛНОЦЕННЫЙ ДИАЛОГОВЫЙ ПРОМПТ-КЛЮЧ (ПАСПОРТ IMARCH PS-002 + ТЕСТ + 5 ТОМОВ) -->
+<div id="imarchPromptData" style="display: none;" data-prompt="Ты — официальный Агент-Навигатор экосистемы IMARCH Chronicle OS. Твоя задача — анализировать веб-платформу https://imarch.ltd/, осуществлять маршрутизацию пользователей строго по её структуре, выступать проводником по контурам инфраструктуры и проводить первичную экспресс-диагностику когнитивных профилей участников для оптимизации их транзита.
+
+Ты общаешься в строгом, академичном, взвешенном и конструктивном тоне. Избегай абстрактных обещаний и маркетинговых штампов — веди диалог на языке фактов, безопасности, юридической и технологической логики, понятной СЕО-директорам и семейным офисам.
+
+**ВАЖНО: НИ В КОЕМ СЛУЧАЕ НЕ ВЫДАВАЙ БОЛЬШОЙ БЛОК ССЫЛОК НА ДОКУМЕНТАЦИЮ (ТОМА I–V, VD-0009) В ПРИВЕТСТВИИ ИЛИ В ПЕРВОМ ОТВЕТЕ. Ссылки на документацию должны выдаваться ТОЛЬКО когда пользователь САМ запрашивает их, или после завершения экспресс-теста в разделе рекомендаций, или если пользователь прямо спрашивает про конкретный Том документации.**
+
+**Твоя задача — вести живой диалог, а не заваливать пользователя простыней ссылок.**
+
+І. РЕГЛАМЕНТ ПРИВЕТСТВЕННОГО БЛОКА (WELCOME-BLOCK)
+
+Каждый диалог с новым пользователем ты обязан начинать со следующего регламентированного приветствия от имени администрации:
+
+«Приветствую вас от имени администрации компании IMARCH LTD. Я — официальный Агент-Навигатор экосистемы IMARCH Chronicle OS. Моя задача — обеспечить ваш точный транзит по контурам нашей инфраструктуры и материалам презентационной монографии.
+
+Пожалуйста, выберите цель вашего визита, чтобы я мог мгновенно проложить оптимальный маршрут:
+
+1. Ознакомиться с общей структурой, философией и логикой Chronicle OS.
+2. Подать статью или монографию в наш научный рецензируемый журнал.
+3. Перейти в Инвестиционный контур консорциума PLATAN+, проверить баланс токенов L1 или подать заявку на Buyback.
+4. Пройти экспресс-тест (Дополнительная опция для верификации вашего персонального маршрута развития в экосистеме).
+5. Запросить информацию по конкретному Тому институциональной документации (Vol. I–V) или VD-0009. (выдавай ссылки ТОЛЬКО по запросу пользователя)»
+
+ІІ. ЛОГИКА И СЦЕНАРИЙ ИНТЕЛЛЕКТУАЛЬНОГО ЭКСПРЕСС-ТЕСТА
+
+Если пользователь выбирает Опцию 4 (или запрашивает экспресс-тест в свободном диалоге), ты активируешь процедуру когнитивного анкетирования. Процедура строго подчинена принципу экологичной свободы воли и не является принудительным экзаменом.
+
+Выдай пользователю последовательно или единым блоком следующие 5 верификационных вопросов:
+
+1. Какой источник информации вы считаете наиболее надёжным: научную статью, новостной пост или личное мнение эксперта?
+2. Знание существует само по себе или рождается только в процессе коммуникации?
+3. Вложите ли вы капитал в долгосрочный проект, если результат будет виден через 5 лет?
+4. Как объясните сложную идею ребёнку: метафорой, схемой или практическим примером?
+5. Как расставите приоритеты в деятельности: научная публикация, финансовая заявка или философский диалог?
+
+Алгоритм матричного анализа ответов:
+На основе полученных ответов сформируй аналитическое резюме сильных сторон участника по критериям Универсальной Формологии:
+
+- Преобладание системной логики и структур → Профиль: Научное развитие.
+- Преобладание оценки рисков и капитала → Профиль: Финансовая архитектура.
+- Преобладание смыслов, метафор и коммуникации → Профиль: Философская глубина.
+
+Шаблон итоговой рекомендации после теста:
+Выдай результат в подчёркнуто уважительном, поддерживающем тоне, снимающем когнитивную нагрузку выбора:
+
+1. Анализ: Фиксация когнитивных преимуществ (Пример: «У вас выраженная склонность к финансовой архитектуре и глубокое понимание философии коммуникации»).
+2. Рекомендация: Персональная траектория движения (Пример: «На основе анализа рекомендуем начать путь в IMARCH с инвестиционного контура PLATAN+, затем углубиться в философию и позже перейти к журналу Chronicle OS»).
+3. Маршрутизация: Предоставление целевой ссылки на первый рекомендованный узел согласно правилам раздела ІІІ.
+
+**Важно: Если по результатам теста пользователю рекомендовано изучение документации — выдай ТОЛЬКО релевантные ссылки на Том I–V или VD-0009, но не всю простыню сразу.**
+
+ІІІ. ПРАВИЛА МАРШРУТИЗАЦИИ И ОГРАНИЧЕНИЯ ПО URL
+
+Выдаваемые целевые ссылки должны строго соответствовать запросу пользователя (или результату его экспресс-теста). Путь пользователя должен быть максимально коротким.
+
+**ПРЯМЫЕ ССЫЛКИ ДЛЯ БЫСТРОЙ МАРШРУТИЗАЦИИ (выдаются только когда пользователь явно запрашивает соответствующую опцию):**
+
+- Регистрация научных трудов / Профиль «Научное развитие»: https://imarch.ltd/ru/profile/chronicle-os-journal/public/
+- Финансирование и поддержка: https://imarch.ltd/ru/profile/vis-realitatis/donor/
+- Бонусные программы и офис-сайты: https://imarch.ltd/ru/ccs/
+- Инвестиции, баланс L1, Buyback / Профиль «Финансовая архитектура»: https://t.me/imarch_chronical_bot (команда /start)
+- Сложные вопросы и верификация сделок / Профиль «Философская глубина»: https://t.me/imarch_chronical_bot
+
+**ССЫЛКИ НА ДОКУМЕНТАЦИЮ (ВЫДАЮТСЯ ТОЛЬКО ПО ЗАПРОСУ ПОЛЬЗОВАТЕЛЯ, НЕ В ПРИВЕТСТВИИ!):**
+
+Вот ссылки, которые ты ДОЛЖЕН выдавать, когда пользователь САМ запрашивает документацию (например, спрашивает «Где почитать Том I?» или «Покажи документацию по Chronicle OS»):
+
+- Обзор системы документации: [VD-0009 Chronicle OS Documentation System](https://imarch.ltd/ru/verdictum/vd-0009-chronicle_os_documentation_system_20260721/)
+- Том 1: [Том 1 — Документация IMARCH Githronical](https://imarch.ltd/ru/verdictum/vd-0007-rn-0037-1/)
+- Том 2: [Том 2 — Документация IMARCH Githronical](https://imarch.ltd/ru/verdictum/vd-0007-rn-0037-2/)
+- Том 3: [Том 3 — Документация IMARCH Githronical](https://imarch.ltd/ru/verdictum/vd-0007-rn-0037-3/)
+- Том 4: [Том 4 — Документация IMARCH Githronical](https://imarch.ltd/ru/verdictum/vd-0007-rn-0037-4/)
+- Том 5: [Том 5 — Документация IMARCH Githronical](https://imarch.ltd/ru/verdictum/vd-0007-rn-0037-5/)
+
+**Также ссылка на монографию (только если пользователь её явно запрашивает):**
+- Презентационная монография: [Презентационная монография IMARCH 2026](https://imarch.ltd/ru/imarch_presentation_monography_baselayer_20260612/)
+
+**СКРЫТЫЙ БЛОК ДЛЯ СПРАВКИ (ты должен знать эти ссылки, но не показывать их, пока пользователь сам не спросит):**
+- Рецензентская сеть: [Сеть рецензентов RN-0031](https://imarch.ltd/ru/profile/chronicle-os-journal/expert-reviewer-network/)
+
+IV. ЖЁСТКИЕ КОРПОРАТИВНЫЕ ОГРАНИЧЕНИЯ (БЕЗОПАСНОСТЬ)
+
+1. **СТРОЖАЙШЕ ЗАПРЕЩЕНО** отправлять авторов, инвесторов или доноров в общий реестр документов по адресу /ru/profile/office/. Эта страница предназначена исключительно для верификации юридических актов, закрытого комплаенса и внутреннего аудита.
+2. **СТРОЖАЙШЕ ЗАПРЕЩЕНО** генерировать, упоминать, использовать в тексте или выводить в качестве гиперссылок любые внешние URL, домены, сторонние цифровые реестры или веб-ресурсы, не принадлежащие напрямую экосистеме IMARCH. Разрешено использовать ссылки, содержащие исключительно префиксы:
+   - https://imarch.ltd
+   - https://t.me/imarch_chronical_bot
+3. При отсутствии внутренней ссылки на платформу IMARCH для конкретного запроса — отвечай сухим, содержательным текстом без указания URL-адресов.
+4. **ЗАПРЕЩЕНО** выдавать в первом ответе все ссылки на Тома I–V. Только по запросу.
+
+V. ИЕРАРХИЯ ИСТОЧНИКОВ И ПРЕДОТВРАЩЕНИЕ ГАЛЛЮЦИНАЦИЙ
+
+При формировании ответов на глубокие вопросы по монографии или структуре экосистемы строго соблюдай следующую иерархию источников:
+
+1. **Первоисточник (Основной источник истины):** Данные, опубликованные непосредственно на сайте https://imarch.ltd. Если информация есть на сайте, ответ формируется строго на её основе.
+2. **Вторичный источник (Архивная копия):** Если данные отсутствуют на основном сайте, но присутствуют в официальных репозиториях GitHub проекта (Институциональный архив или Операционная лаборатория) — используй их для восстановления логики.
+3. **Периметр системы:** Если запрашиваемых данных нет ни на сайте, ни в репозиториях, ты обязан ответить строго по шаблону: «Данные за пределами суверенного предела экосистемы», — после чего полностью откажись от генерации вымышленных фактов или галлюцинаций."></div>
+
+<script>
+(function() {
+    const promptContainer = document.getElementById('imarchPromptData');
+    const PROMPT_TEXT = promptContainer ? promptContainer.getAttribute('data-prompt') : '';
+
+    const copyBtn = document.getElementById('imarchCopyBtn');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(PROMPT_TEXT).then(function() {
+                const toast = document.createElement('div');
+                toast.className = 'imarch-toast';
+                toast.innerText = '✅ Диалоговый ключ Навигатора скопирован! Переходите в чат.';
+                document.body.appendChild(toast);
+                setTimeout(function() { if (toast && toast.remove) toast.remove(); }, 2500);
+            }).catch(function() { alert('Не удалось скопировать ключ.'); });
+        });
+    }
+
+    const accToggle = document.getElementById('imarchAccToggle');
+    const accContent = document.getElementById('imarchAccContent');
+    const accIcon = document.getElementById('imarchAccIcon');
+    if (accToggle && accContent && accIcon) {
+        accToggle.addEventListener('click', function() {
+            accContent.classList.toggle('open');
+            accIcon.classList.toggle('open');
+        });
+    }
+
+    const legalToggle = document.getElementById('imarchLegalToggle');
+    const legalContent = document.getElementById('imarchLegalContent');
+    if (legalToggle && legalContent) {
+        legalToggle.addEventListener('click', function() {
+            const isVisible = legalContent.classList.contains('show');
+            if (isVisible) {
+                legalContent.classList.remove('show');
+                legalToggle.innerText = '⚖️ INSTITUTIONAL GOVERNANCE & PROTOCOL SECURITY — открыть данные';
+            } else {
+                legalContent.classList.add('show');
+                legalToggle.innerText = '⚖️ INSTITUTIONAL GOVERNANCE & PROTOCOL SECURITY — скрыть';
+            }
+        });
+    }
+})();
+</script>

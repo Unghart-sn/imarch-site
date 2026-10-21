@@ -1,0 +1,42 @@
+{{ $link := .Get "link" | default "#" }}
+{{ $text := .Get "text" | default "КНОПКА" }}
+{{ $margin := .Get "margin" | default "2rem 0" }}
+
+<div style="text-align: center; margin: {{ $margin }};">
+  <a href="{{ $link | safeURL }}" class="pilot-steel-btn-shortcode">{{ $text }}</a>
+</div>
+
+<style>
+.pilot-steel-btn-shortcode {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.85rem 2.2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1a1c1e;
+  text-decoration: none;
+  text-align: center;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+  cursor: pointer;
+}
+.pilot-steel-btn-shortcode:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+.pilot-steel-btn-shortcode:active {
+  transform: scale(0.98);
+  background: linear-gradient(145deg, #a8afb8, #8b95a0, #6b7580);
+}
+@media (max-width: 640px) {
+  .pilot-steel-btn-shortcode {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.9rem;
+    white-space: normal;
+  }
+}
+</style>

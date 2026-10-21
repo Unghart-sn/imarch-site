@@ -1,0 +1,29 @@
+{{ $id := .Get "id" }}
+{{ $caption := .Get "caption" }}
+{{ $start := .Get "start" | default "0" }}
+
+<div class="youtube-enhanced-container">
+  <div class="youtube-enhanced-wrapper">
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/{{ $id }}?rel=0&modestbranding=1&start={{ $start }}&controls=1&playsinline=1"
+      title="{{ $caption | htmlEscape }}"
+      frameborder="0"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      loading="lazy"
+      aria-label="{{ $caption | htmlEscape }}">
+    </iframe>
+  </div>
+
+  {{ if and $caption (ne $caption "") }}
+    <p class="youtube-enhanced-caption">{{ $caption | htmlEscape }}</p>
+  {{ end }}
+</div>
+
+<style>
+.youtube-enhanced-container { margin: 2rem 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); background:#000; }
+.youtube-enhanced-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+.youtube-enhanced-wrapper iframe { position: absolute; top:0; left:0; width:100%; height:100%; border:0; }
+.youtube-enhanced-caption { text-align:center; font-size:0.9rem; color:#666; margin-top:0.5rem; padding:0 1rem; font-style:italic; }
+@media (max-width:768px) { .youtube-enhanced-container { margin:1.5rem 0; border-radius:8px; } }
+</style>

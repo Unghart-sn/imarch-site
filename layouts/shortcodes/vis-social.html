@@ -1,0 +1,135 @@
+<style>
+.vis-social {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #faf5ff 0%, #e9d8fd 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-social-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #553c9a;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.effect-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.effect-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 10px;
+  text-align: center;
+  border: 2px solid rgba(159, 122, 234, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.effect-card:hover {
+  transform: translateY(-5px);
+  border-color: #9f7aea;
+}
+
+.effect-card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.effect-card h4 {
+  color: #553c9a;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+}
+
+.effect-card p {
+  color: #5d7690;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.transparency-note {
+  background: rgba(159, 122, 234, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  border-left: 4px solid #9f7aea;
+}
+
+.transparency-note p {
+  color: #553c9a;
+  margin: 0;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .vis-social {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-social-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .effect-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .effect-card {
+    padding: 25px 20px;
+  }
+}
+</style>
+
+<section id="social" class="vis-section vis-social">
+  <h2 class="vis-social-title">Социальный эффект</h2>
+  
+  <div class="effect-grid">
+    <div class="effect-card">
+      <div class="effect-card-icon">👨‍👩‍👧‍👦</div>
+      <h4>Для семьи</h4>
+      <p>Каждая обученная пара получает инструмент для взаимной поддержки, укрепляя отношения и создавая безопасное пространство дома.</p>
+    </div>
+    
+    <div class="effect-card">
+      <div class="effect-card-icon">🔄</div>
+      <h4>Эффект умножения</h4>
+      <p>Одна обученная пара обеспечивает десятки бесплатных сеансов для других, создавая волновой эффект помощи в сообществе.</p>
+    </div>
+    
+    <div class="effect-card">
+      <div class="effect-card-icon">🌐</div>
+      <h4>Сеть взаимопомощи</h4>
+      <p>Формируется горизонтальная сеть "для дома, для семьи", где каждый может стать как получателем, так и источником поддержки.</p>
+    </div>
+    
+    <div class="effect-card">
+      <div class="effect-card-icon">📊</div>
+      <h4>Прозрачность</h4>
+      <p>Все результаты и движение средств отслеживаются через GitChronicle — систему открытой отчетности на основе Git.</p>
+    </div>
+  </div>
+  
+  <div class="transparency-note">
+    <p>Мы верим, что настоящие изменения происходят там, где есть доверие, а доверие рождается из прозрачности.</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="/ru/profile/vis-realitatis/social-impact/" class="vis-more-btn" style="border-color: #9f7aea; color: #553c9a;">
+      Подробнее о социальном эффекте
+    </a>
+  </div>
+</section>

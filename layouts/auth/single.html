@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="auth-wrap">
+  <div class="auth-card">
+
+    <h1 class="auth-title" id="ttl">Signing you in&hellip;</h1>
+    <p class="auth-sub" id="sub">Please wait while we verify your session.</p>
+    <div id="msg" class="auth-msg" hidden></div>
+  </div>
+</div>
+<style>
+.auth-wrap{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:2rem 1rem;}
+.auth-card{background:#FAF8F5;border:1px solid #B0C4DE;border-radius:12px;padding:2.5rem 2rem;max-width:420px;width:100%;box-shadow:0 4px 24px rgba(30,58,95,.08);text-align:center;font-family:'Times New Roman',serif;}
+.auth-logo{margin-bottom:1.5rem;}
+.auth-title{font-family:Arial,sans-serif;color:#1E3A5F;font-size:1.5rem;margin:0 0 .5rem 0;}
+.auth-sub{color:#4A6A8A;font-size:.95rem;margin:0 0 1rem 0;line-height:1.5;}
+.auth-msg{margin-top:1rem;padding:.75rem 1rem;border-radius:8px;font-size:.95rem;line-height:1.4;}
+.auth-msg.ok{background:#E3EAF2;color:#2E7D46;border:1px solid #2E7D46;}
+.auth-msg.err{background:#FAF8F5;color:#A02020;border:1px solid #A02020;}
+body #openFormBtn{display:none!important;}
+</style>
+<script>
+(function(){
+  var ttl=document.getElementById('ttl'),
+      sub=document.getElementById('sub'),
+      msg=document.getElementById('msg');
+  function show(k,t){msg.className='auth-msg '+k;msg.textContent=t;msg.hidden=false;}
+  function fail(t){ttl.textContent='Sign in failed';sub.textContent='You can try again.';show('err',t);}
+
+  async function complete(){
+    try{
+      var s=await window.imarchAuth.getSession();
+      if(!s){
+        await new Promise(function(r){setTimeout(r,600);});
+        s=await window.imarchAuth.getSession();
+      }
+      if(!s){return fail('No session found in URL. Try the login link again.');}
+      var account=await window.imarchAuth.findAccountForSession();
+      if(!account){return fail('No IMARCH account is linked to this email. Contact support.');}
+      var key=account.account_key;
+      if(!key){return fail('Account key missing. Contact support.');}
+      window.imarchAuth.saveSessionVersion(account);
+      ttl.textContent='Welcome, '+(account.owner_name||'friend');
+      sub.textContent='Redirecting to your account\u2026';
+      var cert=window.imarchAuth.firstCertId(account);
+      var u='/verify.html?key='+encodeURIComponent(key);
+      if(cert){u='/verify.html?hash='+encodeURIComponent(String(cert).toLowerCase())+'&key='+encodeURIComponent(key);}
+      window.location.replace(u);
+    }catch(err){
+      fail(err&&err.message?err.message:'Unknown error');
+    }
+  }
+
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',complete);}
+  else{complete();}
+})();
+</script>
+{{ end }}

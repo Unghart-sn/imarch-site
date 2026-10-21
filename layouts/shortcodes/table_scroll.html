@@ -1,0 +1,129 @@
+{{/* table_scroll_nuclear.html - ЯДЕРНЫЙ ВАРИАНТ ДЛЯ BEAUTIFUL HUGO */}}
+
+{{ $minWidth := .Get "width" | default "800px" }}
+{{ $header := .Get "header" | default "soft-blue" }}
+
+{{/* Вырезаем ТОЛЬКО таблицу из контента */}}
+{{ $tableHTML := .Inner | markdownify }}
+
+{{/* Проверяем, есть ли таблица вообще */}}
+{{ if not (findRE "<table>" $tableHTML) }}
+  {{/* Если нет, создаем таблицу из контента */}}
+  {{ $rows := split $tableHTML "\n" }}
+  {{ $cleanRows := slice }}
+  {{ range $rows }}
+    {{ $row := trim . " " }}
+    {{ if and (ne $row "") (not (hasPrefix $row "<")) }}
+      {{ $cleanRows = $cleanRows | append $row }}
+    {{ end }}
+  {{ end }}
+  
+  {{ if gt (len $cleanRows) 0 }}
+    {{ $tableHTML = "<table>" }}
+    {{ range $index, $row := $cleanRows }}
+      {{ if eq $index 0 }}
+        {{/* Первая строка - заголовок */}}
+        {{ $cells := split $row "|" }}
+        {{ $tableHTML = printf "%s<thead><tr>" $tableHTML }}
+        {{ range $cells }}
+          {{ $cell := trim . " " }}
+          {{ if ne $cell "" }}
+            {{ $tableHTML = printf "%s<th>%s</th>" $tableHTML $cell }}
+          {{ end }}
+        {{ end }}
+        {{ $tableHTML = printf "%s</tr></thead><tbody>" $tableHTML }}
+      {{ else }}
+        {{/* Остальные строки - данные */}}
+        {{ $cells := split $row "|" }}
+        {{ $tableHTML = printf "%s<tr>" $tableHTML }}
+        {{ range $cells }}
+          {{ $cell := trim . " " }}
+          {{ if ne $cell "" }}
+            {{ $tableHTML = printf "%s<td>%s</td>" $tableHTML $cell }}
+          {{ end }}
+        {{ end }}
+        {{ $tableHTML = printf "%s</tr>" $tableHTML }}
+      {{ end }}
+    {{ end }}
+    {{ $tableHTML = printf "%s</tbody></table>" $tableHTML }}
+  {{ end }}
+{{ end }}
+
+{{/* ЯДЕРНЫЙ КОНТЕЙНЕР - ВСЁ в iframe */}}
+<iframe 
+    srcdoc='
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                * { margin: 0; padding: 0; box-sizing: border-box; }
+                body { 
+                    padding: 15px; 
+                    background: #fefefe;
+                    font-family: "Times New Roman", Times, serif;
+                }
+                .table-wrapper {
+                    width: 100%;
+                    overflow-x: auto;
+                    -webkit-overflow-scrolling: touch;
+                }
+                table {
+                    min-width: {{ $minWidth }};
+                    width: 100%;
+                    border-collapse: collapse;
+                    font-size: 15px;
+                    line-height: 1.5;
+                }
+                thead th {
+                    background: linear-gradient(135deg, #7a9bdb 0%, #5a7fc9 100%);
+                    color: white;
+                    padding: 12px 15px;
+                    text-align: left;
+                    font-weight: 600;
+                    border-right: 1px solid rgba(255,255,255,0.2);
+                    white-space: nowrap;
+                }
+                thead th:last-child { border-right: none; }
+                tbody td {
+                    padding: 10px 15px;
+                    border-bottom: 1px solid #eee;
+                    border-right: 1px solid #eee;
+                    vertical-align: top;
+                }
+                tbody td:last-child { border-right: none; }
+                tbody tr:nth-child(even) { background: #f9f9f9; }
+                tbody tr:hover { background: #f0f7ff; }
+                
+                @media (max-width: 768px) {
+                    table { font-size: 14px; }
+                    thead th, tbody td { padding: 8px 12px; }
+                    thead th { white-space: normal; }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="table-wrapper">
+                {{ $tableHTML | safeHTML }}
+            </div>
+        </body>
+        </html>
+    '
+    style="
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        background: white;
+        margin: 20px 0;
+        display: block;
+    "
+    scrolling="no"
+    frameborder="0"
+    onload="
+        this.style.height = this.contentWindow.document.body.scrollHeight + 'px';
+    "
+></iframe>
+

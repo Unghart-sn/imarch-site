@@ -1,0 +1,100 @@
+---
+title: "IMARCH LTD награждает профессора М.Г. Щербаня"
+date: 2026-04-20
+draft: false
+tags: ["pilotnews", "recipient-registry"]
+description: "IMARCH LTD посмертно присваивает Орден Пурпурного Разума I степени профессору М.Г. Щербаню."
+---
+
+
+<div class="pixel-perfect-square" onclick="togglePlay()" style="
+    position: relative; 
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    overflow: hidden; 
+    border-radius: 8px; 
+    cursor: pointer;
+    background: #000;">
+    
+  <video 
+    id="mainBannerVideo"
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    poster="/images/banners/002.jpg"
+    style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);">
+    <source src="/video/IMARCH_DECREE_0001.mp4" type="video/mp4">
+  </video>
+
+  <div id="soundStatus" style="
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 5px 10px;
+      background: rgba(139, 115, 85, 0.8);
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;">
+      Audio Active
+  </div>
+</div>
+
+<script>
+function togglePlay() {
+  const v = document.getElementById('mainBannerVideo');
+  const status = document.getElementById('soundStatus');
+  
+  if (v.muted) {
+    v.muted = false;
+    status.style.opacity = '1';
+    // Если видео было на паузе (на мобилках) - запускаем
+    v.play(); 
+  } else {
+    v.muted = true;
+    status.style.opacity = '0';
+  }
+}
+</script>
+
+## IMARCH LTD посмертно награждает профессора М.Г. Щербаня Орденом Пурпурного Разума I степени
+
+**21 апреля 2026 года, Лондон** — IMARCH LTD (Company No. 16791765) объявляет о присвоении высшей корпоративной награды — Ордена Пурпурного Разума I степени — профессору, доктору медицинских наук М.Г. Щербаню (посмертно).  
+Статус награды: *In Memoriam · Honorary Asset*.
+
+### Основание награды
+Орден вручён за фундаментальный научно‑консультационный вклад в создание методологического ядра проекта **Vis Realitatis** и экосистемы **Chronicle OS 8888™**.
+
+### Объём признанного вклада
+Профессор Щербань провёл **50 стратегических экспертных сессий** (общим объёмом 80 часов), верифицировав наукометрическую базу системы, включающую 32 академические дисциплины и 5 кантов данных (эквивалент 50 докторских диссертаций).  
+Эксперт подтвердил готовность архитектуры OS 8888 к работе в соответствии с государственными и медицинскими стандартами безопасности, а также передал уникальные компетенции в области системной гигиены и контроля энтропии.
+
+### Фиксация в реестре
+Имя профессора М.Г. Щербаня внесено в **Реестр реципиентов наградных знаков IMARCH LTD** с правом наследования по праву миссии.  
+Акт оценки экспертного вклада № 08‑88/S зарегистрирован в институциональной памяти Chronicle OS.  
+К награде прилагаются уникальный аудио‑резонанс (четвёртая октава) и графический интерфейс верификации.
+
+### Права и условия
+Награда не предполагает автоматических финансовых выплат, но даёт право на участие в функциональном бюджете Миссии **Vis Realitatis** (30% от чистой прибыли) и личную поддержку наследников (10% от этой доли) в соответствии с Декретом № 0001.
+
+### Заключение
+**Вечная память. Acta Non Verba.**
+
+---
+
+🔗 Подробнее: [imarch.sbs/ru/recipients/shcherban](imarch.sbs/ru/recipients/shcherban)  
+📄 Акт оценки: [imarch.sbs/documents/imarch-act-08-88s.pdf](imarch.sbs/documents/imarch-act-08-88s.pdf)  
+🏛️ Реестр наград: [imarch.sbs/ru/profile/pilot/recipient-registry/](imarch.sbs/ru/profile/pilot/recipient-registry/)
+
+<p style="font-size: 0.75rem; color: #6a5a48; text-align: center; margin-top: 0.5rem;">© Oleksandr Purpurov 2026 IMARCH LTD UK Institutional Registry. All rights reserved. Unauthorised redistribution or re-upload is prohibited.</p>

@@ -1,0 +1,26 @@
+{{ $title := .Get "title" | default "СРАВНИТЕЛЬНАЯ ТАБЛИЦА" }}
+{{ $subtitle := .Get "subtitle" | default "" }}
+{{ $headers := .Get "headers" | default `["Параметр","Модель А","Модель Б"]` }}
+{{ $rows := .Get "rows" | default `[{"param":"Скорость","col1":"Быстро","col2":"Медленно"},{"param":"Цена","col1":"Дёшево","col2":"Дорого"}]` }}
+
+{{ $headersData := $headers | unmarshal }}
+{{ $rowsData := $rows | unmarshal }}
+
+<div class="light-widget comparison-widget">
+  <div class="widget-title">{{ $title }}</div>
+  {{ if $subtitle }}<div class="widget-sub">{{ $subtitle }}</div>{{ end }}
+  <div class="comparison-grid">
+    <div class="comparison-header">
+      {{ range $headersData }}
+        <div class="comparison-cell header">{{ . }}</div>
+      {{ end }}
+    </div>
+    {{ range $rowsData }}
+      <div class="comparison-row">
+        <div class="comparison-cell label">{{ .param }}</div>
+        <div class="comparison-cell">{{ .col1 }}</div>
+        <div class="comparison-cell">{{ .col2 }}</div>
+      </div>
+    {{ end }}
+  </div>
+</div>

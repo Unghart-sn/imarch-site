@@ -1,0 +1,403 @@
+<style>
+/* =================== ПЛАТФОРМА БЛОК - БЕЗОПАСНАЯ ВЕРСИЯ =================== */
+/* УНИКАЛЬНЫЕ КЛАССЫ, ЧТОБЫ НЕ КОНФЛИКТОВАТЬ С ТЕМОЙ */
+
+.platform-module-container {
+    /* КРИТИЧЕСКИ ВАЖНО: наследуем ширину от родителя */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    
+    /* Стили блока */
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0f1a2e 0%, #1a2538 100%);
+    color: #ffffff;
+    margin: 2rem 0;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    
+    /* Граница сверху */
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(to right, transparent, #8b5cf6, transparent) 1;
+}
+
+.platform-module-header {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.platform-module-main-title {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #a78bfa, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+.platform-module-main-subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Карточки */
+.platform-module-cards {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+.platform-module-card {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.platform-module-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.platform-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.platform-card-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 10px;
+}
+
+.platform-card-title {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: #e2e8f0;
+    margin: 0 0 5px 0;
+    line-height: 1.3;
+}
+
+.platform-card-subtitle {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+.platform-card-content {
+    color: #cbd5e1;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.platform-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.platform-card-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.platform-card-list li:last-child {
+    border-bottom: none;
+}
+
+.platform-card-list li::before {
+    content: '▸';
+    color: #8b5cf6;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.platform-card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(to right, #8b5cf6, #6366f1);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 10px;
+}
+
+.platform-card-button:hover {
+    background: linear-gradient(to right, #7c3aed, #4f46e5);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .platform-module-container {
+        padding: 30px 15px;
+        margin: 1.5rem 0;
+        border-radius: 10px;
+    }
+    
+    .platform-module-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .platform-module-main-subtitle {
+        font-size: 1rem;
+        padding: 0 5px;
+    }
+    
+    .platform-module-card {
+        padding: 20px;
+    }
+    
+    .platform-card-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .platform-card-icon {
+        margin: 0 auto;
+    }
+    
+    .platform-card-title {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    
+    .platform-card-subtitle {
+        text-align: center;
+    }
+    
+    .platform-card-content {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+    
+    .platform-card-list {
+        text-align: left;
+    }
+    
+    .platform-card-button {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 25px;
+    }
+}
+
+/* Очень маленькие экраны */
+@media (max-width: 480px) {
+    .platform-module-container {
+        padding: 25px 12px;
+        margin: 1rem 0;
+    }
+    
+    .platform-module-main-title {
+        font-size: 1.6rem;
+    }
+    
+    .platform-module-card {
+        padding: 18px;
+    }
+    
+    .platform-card-list li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Декоративный элемент (опционально) */
+.platform-module-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.03;
+    font-size: 8rem;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+/* Гарантия что ничего не вылезет за границы */
+.platform-module-container * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+</style>
+
+<div class="platform-module-container">
+    <div class="platform-module-decoration">⚙️</div>
+    
+    <div class="platform-module-header">
+        <h2 class="platform-module-main-title">Институциональный модуль «Открытый Код»</h2>
+        <p class="platform-module-main-subtitle">
+            Примером решения такого модуля служит наша демоверсия: с одной стороны это демонстрация возможностей, 
+            а с другой полностью функциональная Операционная Система, работающая в рамках гуманитарных миссий организации.
+        </p>
+    </div>
+    
+    <div class="platform-module-cards">
+        <!-- Карточка 1: Игра -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">🎮</div>
+                <div>
+                    <h3 class="platform-card-title">Игра: сцена вызова и признания</h3>
+                    <p class="platform-card-subtitle">Цель: Увидеть систему в действии</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                Здесь вы не просто прочитаете, вы увидите, как идея превращается в легальную структуру, 
+                управляет ресурсами и приносит пользу. Это наглядный путеводитель по нашей экосистеме.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>Живая схема CIC + LTD: интерактивная модель работы миссии и коммерческого механизма</li>
+                <li>Тизеры методологии: краткие пояснения ключевых понятий Формологии и Конституции Унгхарата</li>
+                <li>Сценарии использования: конкретные кейсы для разных типов гуманитарных проектов</li>
+                <li>Рабочий прототип: можно кликать, изучать потоки ресурсов и полномочий</li>
+            </ul>
+            
+            <a href="/ru/docs/ludus/" class="platform-card-button">Открыть демо →</a>
+        </div>
+        
+        <!-- Карточка 2: Архив -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">🏛️</div>
+                <div>
+                    <h3 class="platform-card-title">Архив: сцена фиксации и признания</h3>
+                    <p class="platform-card-subtitle">Цель: Сохранить эталон для вечности</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                Это ядро нашей операционной системы. Место, где хранятся не просто документы, 
+                а живая ДНК Консорциума проверенные процессы, ключевые решения и вся история их эволюции.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>Эталонные документы: Рабочие версии Уставов (CIC, LTD), меморандумы, регламенты взаимодействия</li>
+                <li>Протоколы решений: Полная хроника принятия ключевых решений и разрешения сложных вопросов</li>
+                <li>История изменений: Эволюция каждого документа и процесса с пояснениями "почему"</li>
+                <li>Образцы и шаблоны: Обкатанные на практике документы для новых проектов</li>
+            </ul>
+            
+            <a href="/ru/docs/archivum/" class="platform-card-button">Перейти в архив →</a>
+        </div>
+        
+        <!-- Карточка 3: Коллегия -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">🤝</div>
+                <div>
+                    <h3 class="platform-card-title">Коллегия: сцена соучастия и институционального голоса</h3>
+                    <p class="platform-card-subtitle">Цель: Стать видимыми и обрести соратников</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                Это витрина нашего живого организма. Здесь мы заявляем о себе миру, показываем своё лицо 
+                и открываем двери для осознанного сотрудничества.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>Наши лица и миссии: Представление ядра Консорциума, людей и организаций, которые его составляют</li>
+                <li>Партнёры и союзники: Открытый список тех, с кем мы уже делим путь, ведём совместные проекты</li>
+                <li>Открытые миссии: Активные проекты и направления, к которым можно присоединиться прямо сейчас</li>
+                <li>Титульные сцены: Описание и визуальное представление ролей (мастей) в нашей экосистеме</li>
+            </ul>
+            
+            <a href="/ru/docs/collegium/" class="platform-card-button">Перейти в Коллегию →</a>
+        </div>
+        
+        <!-- Карточка 4: Совет -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">⚖️</div>
+                <div>
+                    <h3 class="platform-card-title">Совет: сцена институционального мышления и признания</h3>
+                    <p class="platform-card-subtitle">Цель: Превращать идеи в совместные действия</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                Это рабочее сердце Консорциума, цифровая среда, где стратегия становится тактикой, 
+                а общая миссия распадается на конкретные задачи. Здесь мы не говорим о деле. Зднсь мы его делаем.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>GitHub Organizations: Основная площадка для совместной работы над кодом, документами и контентом</li>
+                <li>Доски задач (Kanban, Projects): Визуализация всех активных миссий с статусами и сроками</li>
+                <li>Каналы коммуникации: Структурированные чаты для обсуждения по проектам и ролям</li>
+                <li>Репозитории проектов: Каждый проект это отдельный репозиторий с полной историей изменений</li>
+            </ul>
+            
+            <a href="/ru/docs/consilium/" class="platform-card-button">Перейти в Совет →</a>
+        </div>
+        
+        <!-- Карточка 5: Вердикт -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">📢</div>
+                <div>
+                    <h3 class="platform-card-title">Вердикт: официальный голос и сцена институционального признания</h3>
+                    <p class="platform-card-subtitle">Цель: Говорить с миром одним голосом</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                Это официальный голос Консорциума, рупор наших ценностей, летопись нашего пути 
+                и компас, указывающий направление движения.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>Хроника проекта: Публичный дневник нашего становления. От первых идей до ключевых побед</li>
+                <li>Официальные заявления: Позиция Консорциума по важным вопросам, ответы на вызовы среды</li>
+                <li>Дорожные карты (Roadmaps): Прозрачные планы развития на ближайшую и долгосрочную перспективу</li>
+                <li>Методологический блог: Глубокие статьи, разъясняющие нашу философию и принципы работы</li>
+            </ul>
+            
+            <a href="/ru/verdictum/" class="platform-card-button">Перейти в Вердикт →</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+{{ define "main" }}
+<style>
+  .floating-btn, #formModal { display: none !important; }
+  .welcome-wrap {
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1rem;
+  }
+  .welcome-enter {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 18px 48px;
+    background: transparent;
+    color: #1E3A5F !important;
+    text-decoration: none !important;
+    border-radius: 4px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 2px solid #1E3A5F;
+    transition: background 0.15s, color 0.15s;
+  }
+  .welcome-enter:hover {
+    background: #E3EAF2;
+    color: #1E3A5F !important;
+  }
+  .welcome-enter .arrow { font-size: 1.35rem; line-height: 1; }
+</style>
+
+<div class="welcome-wrap">
+  {{ with .Params.target_url }}
+    <a class="welcome-enter" href="{{ . }}">Enter <span class="arrow">&rarr;</span></a>
+  {{ else }}
+    <p style="font-family:Arial,sans-serif;color:#A02020;">No target_url configured.</p>
+  {{ end }}
+</div>
+{{ end }}

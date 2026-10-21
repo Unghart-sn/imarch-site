@@ -1,0 +1,19 @@
+<div class="accordion-light">
+  <details>
+    <summary style="cursor:pointer; padding:0.75rem 1rem; background:#f5f5f5; color:#333; border-radius:8px; font-weight:600; transition:background 0.3s;">
+      {{ .Get "title" }}
+    </summary>
+    <div style="padding:1rem; background:#ffffff; color:#444; border:1px solid #ddd; border-radius:0 0 8px 8px; margin-top:0.5rem; line-height:1.6;">
+      {{ .Inner }}
+    </div>
+  </details>
+</div>
+
+<style>
+.accordion-light details[open] summary {
+  background:#e0e0e0;
+}
+.accordion-light summary:hover {
+  background:#ededed;
+}
+</style>

@@ -1,0 +1,539 @@
+<style>
+/* =================== АРХИТЕКТУРА БУДУЩЕГО - ИНВЕСТИЦИОННОЕ ПРЕДЛОЖЕНИЕ =================== */
+/* ПРОДОЛЖЕНИЕ СТИЛИСТИКИ PLATAN+ */
+
+.future-architecture-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.future-architecture-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #1a365d, #2c5282, #1a365d);
+}
+
+/* Заголовочная секция */
+.architecture-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.architecture-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #2c5282, transparent);
+}
+
+.architecture-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.architecture-subtitle {
+    font-size: 1.3rem;
+    color: #2d3748;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto 25px;
+    font-weight: 400;
+}
+
+.architecture-tagline {
+    font-size: 1.1rem;
+    color: #4a5568;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    border-left: 4px solid #2c5282;
+}
+
+/* Экосистема модулей */
+.ecosystem-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1a365d;
+    margin: 60px 0 40px;
+    position: relative;
+}
+
+.ecosystem-title::before {
+    content: '— ';
+    color: #2c5282;
+}
+
+.ecosystem-title::after {
+    content: ' —';
+    color: #2c5282;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.ecosystem-module {
+    background: white;
+    border-radius: 8px;
+    padding: 35px 30px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ecosystem-module:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: #2c5282;
+}
+
+.module-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #1a365d;
+    color: white;
+    padding: 6px 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom-left-radius: 8px;
+}
+
+.module-header {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.module-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #1a365d;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.module-role {
+    display: inline-block;
+    background: #ebf8ff;
+    color: #2c5282;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border: 1px solid #bee3f8;
+}
+
+.module-description {
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.module-status {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border-left: 3px solid #2c5282;
+}
+
+.status-title {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-title::before {
+    content: '📊';
+    font-size: 1rem;
+}
+
+.status-text {
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.module-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid #2c5282;
+    text-align: center;
+    margin-top: auto;
+}
+
+.module-button:hover {
+    background: linear-gradient(135deg, #1a365d 0%, #153054 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(28, 63, 117, 0.2);
+}
+
+.module-button::after {
+    content: '→';
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.module-button:hover::after {
+    transform: translateX(4px);
+}
+
+/* Специфические цвета для каждого модуля */
+.module-cic {
+    border-top: 4px solid #3182ce;
+}
+
+.module-cic .module-role {
+    background: #ebf8ff;
+    color: #2b6cb0;
+    border-color: #bee3f8;
+}
+
+.module-saas {
+    border-top: 4px solid #38a169;
+}
+
+.module-saas .module-role {
+    background: #f0fff4;
+    color: #276749;
+    border-color: #c6f6d5;
+}
+
+.module-consulting {
+    border-top: 4px solid #d69e2e;
+}
+
+.module-consulting .module-role {
+    background: #fffbeb;
+    color: #975a16;
+    border-color: #fefcbf;
+}
+
+.module-science {
+    border-top: 4px solid #9f7aea;
+}
+
+.module-science .module-role {
+    background: #faf5ff;
+    color: #6b46c1;
+    border-color: #e9d8fd;
+}
+
+/* Инвестиционный призыв */
+.investment-cta {
+    background: white;
+    border-radius: 10px;
+    padding: 50px;
+    margin-top: 60px;
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 4rem;
+    opacity: 0.05;
+    user-select: none;
+    pointer-events: none;
+}
+
+.cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #1a365d;
+    margin-bottom: 20px;
+}
+
+.cta-text {
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #38a169 0%, #276749 100%);
+    color: white;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(56, 161, 105, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3);
+}
+
+.cta-button::before {
+    content: '💎';
+    font-size: 1.2rem;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .future-architecture-container {
+        padding: 50px 15px;
+    }
+    
+    .architecture-title {
+        font-size: 2.2rem;
+    }
+    
+    .architecture-subtitle {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .ecosystem-title {
+        font-size: 1.8rem;
+        margin: 40px 0 30px;
+    }
+    
+    .modules-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .ecosystem-module {
+        padding: 25px 20px;
+    }
+    
+    .investment-cta {
+        padding: 30px 20px;
+        margin-top: 40px;
+    }
+    
+    .cta-title {
+        font-size: 1.8rem;
+    }
+    
+    .cta-text {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ecosystem-module {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.ecosystem-module:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.ecosystem-module:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.ecosystem-module:nth-child(4) {
+    animation-delay: 0.3s;
+}
+</style>
+
+<div class="future-architecture-container">
+ 
+        <div class="architecture-tagline">
+            Существующая система поощряет ценности «золотых унитазов». Мы предлагаем работающую альтернативу 
+            для тех, кто считает, что деньги должны работать на преображение общества.
+        </div>
+    </div>
+
+    <!-- Экосистема модулей -->
+    <h3 class="ecosystem-title">Наше решение: Экосистема из 4-х модулей</h3>
+    
+    <div class="modules-grid">
+        <!-- Модуль 1: CIC-as-a-Service -->
+        <div class="ecosystem-module module-cic">
+            <div class="module-badge">PIONEER</div>
+            
+            <div class="module-header">
+                <h3 class="module-title">CIC-as-a-Service</h3>
+                <div class="module-role">Стартовый хаб</div>
+            </div>
+            
+            <p class="module-description">
+                Мы не продаём услугу, мы создаём движение. Стань одним из первых, кто легализует свою деятельность 
+                по новой модели и получи пожизненный статус пионера экосистемы.
+            </p>
+            
+            <div class="module-status">
+                <div class="status-title">Текущий статус</div>
+                <p class="status-text">
+                    Идёт формирование пилотной группы. Мы ищем 10 первопроходцев, готовых стать со-основателями направления. 
+                    Их взносы полностью направятся на разработку автоматизированной платформы и оплату сертифицированного 
+                    юриста для безупречной процедуры регистрации.
+                </p>
+            </div>
+            
+            <a href="#" class="module-button">Стать основателем CIC-as-a-Service</a>
+        </div>
+
+        <!-- Модуль 2: Институциональная SaaS -->
+        <div class="ecosystem-module module-saas">
+            <div class="module-badge">OPERATING SYSTEM</div>
+            
+            <div class="module-header">
+                <h3 class="module-title">Институциональная SaaS</h3>
+                <div class="module-role">Операционная система для новых миров</div>
+            </div>
+            
+            <p class="module-description">
+                «Миссия Антипандоры»: Игра, где выиграют все, а проиграет тот кто не играет. Внешне это легализация Community Interest Company (CIC). 
+                Внутри это глубинная сборка команды, миссии, ролей.
+            </p>
+            
+            <div class="module-status">
+                <div class="status-title">Текущий статус</div>
+                <p class="status-text">
+                    Концепт готов. Преимущества очевидны. Платформа требует сборки. Ищем технологических партнёров 
+                    и первых alpha-тестеров для отладки системы.
+                </p>
+            </div>
+            
+            <a href="/ru/static-dynamic/" class="module-button">Войти в альфа-тест</a>
+        </div>
+
+        <!-- Модуль 3: Формологический консалтинг -->
+        <div class="ecosystem-module module-consulting">
+            <div class="module-badge">TRANSFORMATION ENGINE</div>
+            
+            <div class="module-header">
+                <h3 class="module-title">Формологический консалтинг</h3>
+                <div class="module-role">Двигатель трансформации</div>
+            </div>
+            
+            <p class="module-description">
+                Ты создаёшь смыслы. Мы упаковываем их в формы, которые понимают институты, инвесторы и аудитория. 
+                Перевод хаоса в структуру, идеи в measurable impact.
+            </p>
+            
+            <div class="module-status">
+                <div class="status-title">Текущий статус</div>
+                <p class="status-text">
+                    Методология готова и прошла предварительные испытания в "боевых" условиях. Автоматизация в разработке. 
+                    Планируются научные статистические исследования эффективности.
+                </p>
+            </div>
+            
+            <a href="#" class="module-button">Получить UTP-карту проекта</a>
+        </div>
+
+        <!-- Модуль 4: Наукометрическое ядро -->
+        <div class="ecosystem-module module-science">
+            <div class="module-badge">ACADEMIC FOUNDATION</div>
+            
+            <div class="module-header">
+                <h3 class="module-title">Наукометрическое ядро</h3>
+                <div class="module-role">Фундамент новой экономики</div>
+            </div>
+            
+            <p class="module-description">
+                Мы превращаем методологию в академический язык. Переводя интуицию в цитируемую науку. 
+                Легитимизация через метрики, статьи, индекс Хирша. Без него мы лишь голос в пустоте.
+            </p>
+            
+            <div class="module-status">
+                <div class="status-title">Текущий статус</div>
+                <p class="status-text">
+                    Формируем пул инвесторов для создания исследовательского центра. Ищем научных партнёров 
+                    из ведущих университетов и институтов.
+                </p>
+            </div>
+            
+            <a href="#" class="module-button">Обсудить конвертацию идеи в актив</a>
+        </div>
+    </div>
+
+    <!-- Инвестиционный призыв -->
+    <div class="investment-cta">
+        <div class="cta-decoration">⚡</div>
+        
+        <h3 class="cta-title">Готовы инвестировать в архитектуру будущего?</h3>
+        <p class="cta-text">
+            Каждый модуль — это не просто продукт, а кирпичик в фундаменте новой экономики. 
+            Мы предлагаем партнёрство, а не транзакцию. Соинвестирование в инфраструктуру, которая 
+            определит правила игры на десятилетия вперёд.
+        </p>
+        
+        <a href="#" class="cta-button">Запросить инвестиционный меморандум</a>
+    </div>
+</div>

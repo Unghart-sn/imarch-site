@@ -1,0 +1,204 @@
+/* ================================================
+   IMARCH · Accordion Styles
+   Путь: static/css/imarch-accordion.css
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@300;400;500&display=swap');
+
+/* ─── ПЕРЕМЕННЫЕ ─────────────────────────────── */
+:root {
+  --acc-ink:        #1a1612;
+  --acc-cream:      #f5f0e8;
+  --acc-cream-dark: #ede7db;
+  --acc-cream-mid:  #e8e0d0;
+  --acc-gold:       #9a7b3a;
+  --acc-gold-light: #c4a054;
+  --acc-mist:       #7a6e60;
+  --acc-border:     rgba(26, 22, 18, 0.12);
+  --acc-shadow:     rgba(26, 22, 18, 0.07);
+  --acc-radius:     3px;
+  --acc-ease:       0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─── КОНТЕЙНЕР ──────────────────────────────── */
+details {
+  margin-bottom: 5px;
+  border: 1px solid var(--acc-border);
+  border-radius: var(--acc-radius);
+  background: var(--acc-cream);
+  overflow: hidden;
+  transition: border-color var(--acc-ease), box-shadow var(--acc-ease);
+}
+
+details:hover {
+  border-color: rgba(154, 123, 58, 0.4);
+}
+
+details[open] {
+  border-color: rgba(154, 123, 58, 0.55);
+  box-shadow: 0 4px 20px var(--acc-shadow), 0 1px 4px rgba(154, 123, 58, 0.1);
+  background: #fff;
+}
+
+/* ─── ЗАГОЛОВОК ──────────────────────────────── */
+details > summary {
+  padding: 13px 18px 13px 14px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--acc-ink);
+  background: var(--acc-cream-dark);
+  border-bottom: 1px solid transparent;
+  transition: background var(--acc-ease), border-color var(--acc-ease);
+  user-select: none;
+}
+
+details > summary::-webkit-details-marker { display: none; }
+details > summary::marker { content: ''; }
+
+details > summary::before {
+  content: '';
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%239a7b3a' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: transform var(--acc-ease);
+  opacity: 0.75;
+}
+
+details[open] > summary::before {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+details[open] > summary {
+  background: var(--acc-cream-mid);
+  border-bottom: 1px solid var(--acc-border);
+  border-left: 3px solid var(--acc-gold);
+  padding-left: 11px;
+}
+
+details > summary:hover {
+  background: var(--acc-cream-mid);
+}
+
+/* ─── КОНТЕНТ ────────────────────────────────── */
+.accordion-content {
+  padding: 16px 18px 18px;
+  background: #fff;
+  animation: accFadeIn 0.22s ease both;
+}
+
+@keyframes accFadeIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SOFT-BUTTON ────────────────────────────── */
+.soft-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  margin: 4px 0;
+  background: var(--acc-cream);
+  color: var(--acc-ink);
+  text-decoration: none;
+  border-radius: var(--acc-radius);
+  border: 1px solid var(--acc-border);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  transition: background var(--acc-ease), border-color var(--acc-ease), transform var(--acc-ease);
+  line-height: 1.4;
+}
+
+.soft-button:hover {
+  background: var(--acc-cream-dark);
+  border-color: rgba(154, 123, 58, 0.45);
+  transform: translateX(5px);
+  text-decoration: none;
+  color: var(--acc-ink);
+}
+
+/* ─── ПОСЛЕДНИЙ АККОРДЕОН · ОСОБЫЙ ──────────── */
+details.imarch-module {
+  border-color: rgba(154, 123, 58, 0.3);
+}
+
+details.imarch-module > summary {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  background: linear-gradient(to right, var(--acc-cream-dark), rgba(196, 160, 84, 0.1));
+}
+
+details.imarch-module > summary::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2 4l4 4 4-4' stroke='%23c4a054' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+details.imarch-module[open] > summary {
+  border-left: 3px solid var(--acc-gold-light);
+  padding-left: 11px;
+  background: linear-gradient(to right, rgba(196, 160, 84, 0.15), rgba(196, 160, 84, 0.04));
+}
+
+details.imarch-module[open] {
+  box-shadow: 0 6px 28px rgba(154, 123, 58, 0.13), 0 2px 6px var(--acc-shadow);
+}
+
+/* ─── TAGS / КНОПКИ ЖУРНАЛА ──────────────────── */
+.tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.tags-list button {
+  padding: 7px 13px;
+  background: var(--acc-cream);
+  color: var(--acc-ink);
+  border: 1px solid var(--acc-border);
+  border-radius: var(--acc-radius);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.77rem;
+  font-weight: 300;
+  cursor: pointer;
+  transition: background var(--acc-ease), border-color var(--acc-ease), transform var(--acc-ease);
+}
+
+.tags-list button:hover {
+  background: var(--acc-cream-dark);
+  border-color: rgba(154, 123, 58, 0.45);
+  transform: translateY(-1px);
+}
+
+/* ─── АДАПТИВНОСТЬ ───────────────────────────── */
+@media (max-width: 640px) {
+  details > summary {
+    font-size: 0.75rem;
+    padding: 11px 14px 11px 12px;
+  }
+  .soft-button {
+    font-size: 0.78rem;
+    padding: 9px 12px;
+  }
+  details.imarch-module > summary {
+    font-size: 0.95rem;
+  }
+}

@@ -1,0 +1,95 @@
+{{ define "main" }}
+<main>
+  <div class="section-content">
+    
+    <!-- Заголовок статьи -->
+    <h1>{{ .Title }}</h1>
+    
+    <!-- Мета-информация (если нужна) -->
+    {{ if .Date }}
+    <div class="article-date">
+      📅 {{ .Date.Format "2 January 2006" }}
+    </div>
+    {{ end }}
+    
+    <!-- Языковой селектор -->
+    {{ if .IsTranslated }}
+    <div class="article-translations">
+      <span>🌐 {{ i18n "availableIn" }}:</span>
+      {{ range .Translations }}
+      <a href="{{ .Permalink }}" class="translation-link">{{ .Language.LanguageName }}</a>
+      {{ end }}
+    </div>
+    {{ end }}
+    
+    <!-- Основной контент -->
+    {{ .Content }}
+    
+    <!-- Определяем тип статьи: проблема/решение или обычная -->
+    {{ $hasForm := false }}
+    {{ if or (in .Params.categories "problems") (in .Params.categories "solutions") 
+             (in .Params.categories "проблемы") (in .Params.categories "решения") }}
+      {{ $hasForm = true }}
+    {{ end }}
+    
+  </div>
+</main>
+
+<style>
+/* Стили для мета-информации */
+.article-date {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Стили для языкового селектора */
+.article-translations {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+  border-left: 3px solid #9333ea;
+  font-size: 0.9rem;
+}
+
+.article-translations span {
+  color: #475569;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.translation-link {
+  color: #7c3aed;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.translation-link:hover {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .article-translations {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .article-translations span {
+    margin-bottom: 0.25rem;
+  }
+  
+  .translation-link {
+    align-self: flex-start;
+  }
+}
+</style>
+{{ end }}

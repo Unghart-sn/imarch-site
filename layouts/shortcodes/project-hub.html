@@ -1,0 +1,184 @@
+{{/*  project-hub.html – универсальная карточка для всех языков  */}}
+{{ $lang := .Page.Language.Lang }}
+
+{{ $title := "" }}
+{{ $desc := "" }}
+{{ $btn1 := "" }}
+{{ $btn2 := "" }}
+{{ $footnote1 := "" }}
+{{ $footnote2 := "" }}
+
+{{ if eq $lang "ru" }}
+  {{ $title = "🛠 ОТКРЫТАЯ ИНФРАСТРУКТУРА И R&D-КОНТУР (OPEN-SOURCE)" }}
+  {{ $desc = "Для обеспечения технологической прозрачности, воспроизводимости исследований и участия международного сообщества, разработка программно-аппаратных комплексов фиксации данных ведется в открытых репозиториях GitHub:" }}
+  {{ $btn1 = "🏛 ИНСТИТУЦИОНАЛЬНЫЙ АРХИВ" }}
+  {{ $btn2 = "🧪 ОПЕРАЦИОНАЛЬНАЯ ЛАБОРАТОРИЯ" }}
+  {{ $footnote1 = "Реестр верифицированных актов, финальных версий документации, архитектурных спецификаций и неизменяемых протоколов." }}
+  {{ $footnote2 = "Экспериментальный контур, где осуществляется системное моделирование, проектирование междисциплинарных методологий и обкатка прикладных модулей пространственно-оптического анализа." }}
+{{ else if eq $lang "uk" }}
+  {{ $title = "🛠 ВІДКРИТА ІНФРАСТРУКТУРА ТА R&D-КОНТУР (OPEN-SOURCE)" }}
+  {{ $desc = "Для забезпечення технологічної прозорості, відтворюваності досліджень та участі міжнародної спільноти, розробка програмно-апаратних комплексів фіксації даних ведеться у відкритих репозиторіях GitHub:" }}
+  {{ $btn1 = "🏛 ІНСТИТУЦІЙНИЙ АРХІВ" }}
+  {{ $btn2 = "🧪 ОПЕРАЦІЙНА ЛАБОРАТОРІЯ" }}
+  {{ $footnote1 = "Реєстр верифікованих актів, фінальних версій документації, архітектурних специфікацій та незмінних протоколів." }}
+  {{ $footnote2 = "Експериментальний контур, де здійснюється системне моделювання, проєктування міждисциплінарних методологій та обкатка прикладних модулів просторово-оптичного аналізу." }}
+{{ else if eq $lang "en" }}
+  {{ $title = "🛠 OPEN INFRASTRUCTURE AND R&D CONTOUR (OPEN-SOURCE)" }}
+  {{ $desc = "To ensure technological transparency, reproducibility of research and participation of the international community, the development of hardware and software data recording systems is carried out in open GitHub repositories:" }}
+  {{ $btn1 = "🏛 INSTITUTIONAL ARCHIVE" }}
+  {{ $btn2 = "🧪 OPERATIONAL LABORATORY" }}
+  {{ $footnote1 = "Registry of verified acts, final versions of documentation, architectural specifications and immutable protocols." }}
+  {{ $footnote2 = "Experimental contour where system modelling, design of interdisciplinary methodologies and testing of applied spatial-optical analysis modules are carried out." }}
+{{ else if eq $lang "la" }}
+  {{ $title = "🛠 INFRASTRUCTURA APERTA ET AMBITUS R&D (OPEN-SOURCE)" }}
+  {{ $desc = "Ad technologicam perspicuitatem, reproducibilitatem investigationum et participationem communitatis internationalis, progressio complexuum programmatum et apparatuum fixationis datorum aperte in repositoriis GitHub peragitur:" }}
+  {{ $btn1 = "🏛 ARCHIVUM INSTITUTIONALE" }}
+  {{ $btn2 = "🧪 LABORATORIUM OPERATIONALE" }}
+  {{ $footnote1 = "Regestrum actorum verificatorum, versionum finalium documentationis, specificationum architecturalium et protocollorum immutabilium." }}
+  {{ $footnote2 = "Ambitus experimentalis ubi fit exemplatio systematica, designatio methodologiarum interdisciplinarium et probatio modulorum applicatorum analyseos spatialis-opticalis." }}
+{{ else if eq $lang "fr" }}
+  {{ $title = "🛠 INFRASTRUCTURE OUVERTE ET CONTOUR R&D (OPEN-SOURCE)" }}
+  {{ $desc = "Pour garantir la transparence technologique, la reproductibilité des recherches et la participation de la communauté internationale, le développement des systèmes matériels et logiciels de fixation des données est effectué dans des dépôts GitHub ouverts :" }}
+  {{ $btn1 = "🏛 ARCHIVES INSTITUTIONNELLES" }}
+  {{ $btn2 = "🧪 LABORATOIRE OPÉRATIONNEL" }}
+  {{ $footnote1 = "Registre des actes vérifiés, versions finales de la documentation, spécifications architecturales et protocoles immuables." }}
+  {{ $footnote2 = "Contour expérimental où sont effectués la modélisation systémique, la conception de méthodologies interdisciplinaires et le test de modules appliqués d'analyse spatiale-optique." }}
+{{ else if eq $lang "es" }}
+  {{ $title = "🛠 INFRAESTRUCTURA ABIERTA Y CONTOUR R&D (OPEN-SOURCE)" }}
+  {{ $desc = "Para garantizar la transparencia tecnológica, la reproducibilidad de las investigaciones y la participación de la comunidad internacional, el desarrollo de sistemas hardware y software de fijación de datos se lleva a cabo en repositorios abiertos de GitHub:" }}
+  {{ $btn1 = "🏛 ARCHIVO INSTITUCIONAL" }}
+  {{ $btn2 = "🧪 LABORATORIO OPERACIONAL" }}
+  {{ $footnote1 = "Registro de actos verificados, versiones finales de documentación, especificaciones arquitectónicas y protocolos inmutables." }}
+  {{ $footnote2 = "Contorno experimental donde se realizan modelado sistémico, diseño de metodologías interdisciplinarias y prueba de módulos aplicados de análisis espacial-óptico." }}
+{{ else if eq $lang "zh" }}
+  {{ $title = "🛠 开放基础设施与研发领域 (开源)" }}
+  {{ $desc = "为确保技术透明度、研究的可重复性和国际社会的参与，数据记录软硬件系统的开发在开放的 GitHub 仓库中进行：" }}
+  {{ $btn1 = "🏛 机构档案库" }}
+  {{ $btn2 = "🧪 运营实验室" }}
+  {{ $footnote1 = "已验证行为、最终版文档、架构规范和不可变协议的注册表。" }}
+  {{ $footnote2 = "实验领域，在此进行系统建模、跨学科方法论的实验性模型，以及应用型空间-光学分析模块的测试。" }}
+{{ else if eq $lang "ar" }}
+  {{ $title = "🛠 بنية تحتية مفتوحة ومنطقة البحث والتطوير (مصدر مفتوح)" }}
+  {{ $desc = "لضمان الشفافية التكنولوجية وقابلية تكرار الأبحاث ومشاركة المجتمع الدولي، يتم تطوير أنظمة الأجهزة والبرمجيات لتثبيت البيانات في مستودعات GitHub المفتوحة:" }}
+  {{ $btn1 = "🏛 الأرشيف المؤسسي" }}
+  {{ $btn2 = "🧪 المختبر التشغيلي" }}
+  {{ $footnote1 = "سجل للإجراءات الموثقة، والإصدارات النهائية من الوثائق، والمواصفات المعمارية، والبروتوكولات غير القابلة للتغيير." }}
+  {{ $footnote2 = "منطقة تجريبية حيث يتم إجراء النمذجة النظامية، وتصميم المنهجيات متعددة التخصصات، واختبار الوحدات التطبيقية للتحليل المكاني البصري." }}
+{{ else }}
+  {{ $title = "🛠 OPEN INFRASTRUCTURE AND R&D CONTOUR (OPEN-SOURCE)" }}
+  {{ $desc = "To ensure technological transparency, reproducibility of research and participation of the international community, the development of hardware and software data recording systems is carried out in open GitHub repositories:" }}
+  {{ $btn1 = "🏛 INSTITUTIONAL ARCHIVE" }}
+  {{ $btn2 = "🧪 OPERATIONAL LABORATORY" }}
+  {{ $footnote1 = "Registry of verified acts, final versions of documentation, architectural specifications and immutable protocols." }}
+  {{ $footnote2 = "Experimental contour where system modelling, design of interdisciplinary methodologies and testing of applied spatial-optical analysis modules are carried out." }}
+{{ end }}
+
+<div class="eco-card-wrapper" style="margin: 2rem auto;">
+  <div class="eco-card">
+    <h4 class="eco-title">{{ $title }}</h4>
+    <p class="eco-desc">
+      {{ $desc }}
+    </p>
+    <div class="eco-buttons">
+      <a href="https://github.com/Imperium-Silentii/IMARCH-CCS-8888" class="eco-button" target="_blank" rel="noopener noreferrer">{{ $btn1 }}</a>
+      <a href="https://github.com/Imperium-Silentii/universal-formology-incubator" class="eco-button" target="_blank" rel="noopener noreferrer">{{ $btn2 }}</a>
+    </div>
+    <div class="eco-footnote">
+      <span>{{ $footnote1 }}</span>
+      <span>{{ $footnote2 }}</span>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Same creamy animated card style */
+.eco-card-wrapper {
+  max-width: 100%;
+  margin: 2rem auto;
+}
+.eco-card {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.8rem;
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+              box-shadow 0.3s ease,
+              border-color 0.2s ease;
+  will-change: transform, box-shadow;
+}
+.eco-card:hover {
+  transform: translateY(-5px);
+  border-color: #c0a070;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.02);
+}
+.eco-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #2c2416;
+  margin: 0 0 0.75rem 0;
+  border-left: 3px solid #8b7355;
+  padding-left: 1rem;
+}
+.eco-desc {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4a3a2a;
+  margin: 0.5rem 0 1.5rem 0;
+}
+.eco-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.eco-button {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  text-align: center;
+  flex: 1 0 auto;
+}
+.eco-button:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+.eco-button:active {
+  transform: scale(0.98);
+}
+.eco-footnote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: #4a3a2a;
+  background: rgba(139,115,85,0.05);
+  border-radius: 12px;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+}
+.eco-footnote span {
+  position: relative;
+  padding-left: 1.2rem;
+}
+.eco-footnote span::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: #8b7355;
+}
+@media (max-width: 640px) {
+  .eco-card { padding: 1.2rem; }
+  .eco-buttons { flex-direction: column; }
+  .eco-button { width: 100%; text-align: center; }
+}
+</style>

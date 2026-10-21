@@ -1,0 +1,463 @@
+<style>
+/* =================== КВЭСТ ЧЕТЫРЁХ СТИХИЙ =================== */
+/* ТОЧНЫЙ ПЕРЕНОС ПРЕДОСТАВЛЕННОГО КОНТЕНТА */
+
+.quest-elements-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Заголовок и описание */
+.quest-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.quest-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #1a365d;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.quest-subtitle {
+    font-size: 1.3rem;
+    color: #4a5568;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.quest-description {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 12px;
+    padding: 40px;
+    border-left: 5px solid #2c5282;
+    border-right: 5px solid #2c5282;
+    margin-top: 40px;
+}
+
+.quest-description p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.quest-description strong {
+    color: #1a365d;
+    font-weight: 600;
+}
+
+/* Четыре стихии */
+.elements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.element-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 35px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.element-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Цветовые акценты для каждой стихии */
+.element-card:nth-child(1) {
+    border-top: 5px solid #2c5282;
+}
+
+.element-card:nth-child(2) {
+    border-top: 5px solid #38a169;
+}
+
+.element-card:nth-child(3) {
+    border-top: 5px solid #d69e2e;
+}
+
+.element-card:nth-child(4) {
+    border-top: 5px solid #9f7aea;
+}
+
+/* Заголовок элемента */
+.element-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.element-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.element-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1a365d;
+    margin: 0 0 10px 0;
+}
+
+.element-subtitle {
+    color: #718096;
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Контент элемента */
+.element-content {
+    flex-grow: 1;
+}
+
+.element-section {
+    margin-bottom: 25px;
+}
+
+.element-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-label {
+    display: block;
+    font-weight: 600;
+    color: #2c5282;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-text {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Цитата */
+.element-quote {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    border-left: 3px solid #d69e2e;
+    font-style: italic;
+}
+
+.element-quote p {
+    color: #4a5568;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Кнопка */
+.element-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid #2c5282;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.element-button:hover {
+    background: linear-gradient(135deg, #1a365d 0%, #153054 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(44, 82, 130, 0.2);
+}
+
+/* Цвет кнопок по элементам */
+.element-card:nth-child(1) .element-button {
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    border-color: #2c5282;
+}
+
+.element-card:nth-child(2) .element-button {
+    background: linear-gradient(135deg, #38a169 0%, #276749 100%);
+    border-color: #38a169;
+}
+
+.element-card:nth-child(3) .element-button {
+    background: linear-gradient(135deg, #d69e2e 0%, #b7791f 100%);
+    border-color: #d69e2e;
+}
+
+.element-card:nth-child(4) .element-button {
+    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+    border-color: #9f7aea;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .quest-elements-container {
+        margin: 60px auto;
+        padding: 0 15px;
+    }
+    
+    .quest-main-title {
+        font-size: 2.2rem;
+    }
+    
+    .quest-subtitle {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .quest-description {
+        padding: 30px 20px;
+    }
+    
+    .elements-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+    
+    .element-card {
+        padding: 30px 25px;
+    }
+    
+    .element-title {
+        font-size: 1.6rem;
+    }
+    
+    .element-icon {
+        font-size: 3rem;
+    }
+}
+</style>
+        
+        <div class="quest-description">
+            <p>
+                <strong>Здесь не подают заявки, здесь приносят клятву или бросают вызов.</strong><br>
+                Наш Совет не платформа, а театр конструктивных действий, где у каждого есть роль, 
+                грим, текст и воля. Где вклад становится частью общего замысла, а действие частью общей реализации.
+            </p>
+        </div>
+    </div>
+
+    <!-- Четыре стихии -->
+    <div class="elements-grid">
+        <!-- Стихия 1: Ядро -->
+        <div class="element-card">
+            <div class="element-header">
+                <div class="element-icon">👑</div>
+                <h2 class="element-title">Ядро: Хранители Сценария</h2>
+                <p class="element-subtitle">Консилиум, сцена совета</p>
+            </div>
+            
+            <div class="element-content">
+                <div class="element-section">
+                    <span class="section-label">Ваша роль</span>
+                    <p class="section-text">
+                        Не пользователь, а со-Автор. Вы те, кто пишет правила, а не играет по ним. 
+                        Юрист-поэт, стратег-мистик, архитектор миров.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Ваш вклад</span>
+                    <p class="section-text">
+                        Полное погружение. Вы принимаете Конституцию Имарха как основу модели 
+                        социальной реализации и реализуете вашу индивидуальную миссию в рамках 
+                        гуманитарных миссий Проекта.
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>
+                        Не из страха, выгоды, нужды или обязательств.<br>
+                        Вы осознанно принимаете её положения как объективно обоснованного 
+                        инструмента гармонизации пространства личного интереса и общественного блага.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Ваша награда</span>
+                    <p class="section-text">
+                        Токены. Титулы. Голос. Паспорт. Вы становитесь частью Ядра не на словах, 
+                        а в структуре капитала и власти.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Квест входа</span>
+                    <p class="section-text">
+                        Подписать меморандум Истины Тишины. Пройти исповедь перед самим собой. 
+                        Получить паспорт сценического имени.
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>«Здесь не ищут сотрудников. Здесь набирают легион воинства Здравого Смысла.»</p>
+                </div>
+            </div>
+            
+            <a href="#" class="element-button">→ Войти в Ядро</a>
+        </div>
+
+        <!-- Стихия 2: Союзники -->
+        <div class="element-card">
+            <div class="element-header">
+                <div class="element-icon">⚔️</div>
+                <h2 class="element-title">Союзники: Мастера Вызова</h2>
+                <p class="element-subtitle">Консилиум сцена совета</p>
+            </div>
+            
+            <div class="element-content">
+                <div class="element-section">
+                    <span class="section-label">Ваша роль</span>
+                    <p class="section-text">
+                        Свободный агент, вольный стрелок. Вы приходите не менять жизнь, а решить задачу. 
+                        Ваш код, ваш проект, ваш pull-request — это ваш вызов нашему миру.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Ваш вклад</span>
+                    <p class="section-text">Конкретный результат. Вы не клянётесь, вы делаете.</p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Ваша награда</span>
+                    <p class="section-text">
+                        Компенсационный пакет. Доля в проекте. Уважение. Право на апгрейд глубины погружения.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Квест входа</span>
+                    <p class="section-text">
+                        Взять задачу из доски. Сделать её безупречно. Получить метку «Проверено боем».
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>«Не обязательно верить в нашу миссию. Достаточно сделать её сильнее.»</p>
+                </div>
+            </div>
+            
+            <a href="#" class="element-button">→ Стать Союзником</a>
+        </div>
+
+        <!-- Стихия 3: Творцы миссий -->
+        <div class="element-card">
+            <div class="element-header">
+                <div class="element-icon">🎭</div>
+                <h2 class="element-title">Творцы миссий: Инженеры человеческих душ</h2>
+                <p class="element-subtitle">Консилиум, сцена совета</p>
+            </div>
+            
+            <div class="element-content">
+                <div class="element-section">
+                    <span class="section-label">Ваша роль</span>
+                    <p class="section-text">
+                        Визионер, шаман, гуманитарный технолог. Вы не выполняете миссии, вы их рождаете. 
+                        Арт-терапия, ритуал, социальный код, вы превращаете идею в структуру.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Ваш вклад</span>
+                    <p class="section-text">Живая методология. Вы приносите не просто идею, а инструмент.</p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Ваша награда</span>
+                    <p class="section-text">Именной миссионный токен. Право вести за собой.</p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Квест входа</span>
+                    <p class="section-text">
+                        Оформить своё прозрение как «Issue». Провести его через огонь и воду. 
+                        Получить печать «Миссия рождена».
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>«Мы не ждём предложений. Мы ждём откровений, готовых стать технологией.»</p>
+                </div>
+            </div>
+            
+            <a href="#" class="element-button">→ Создать Миссию</a>
+        </div>
+
+        <!-- Стихия 4: Фабрика контента -->
+        <div class="element-card">
+            <div class="element-header">
+                <div class="element-icon">📜</div>
+                <h2 class="element-title">Фабрика контента: Скальды и Летописцы</h2>
+                <p class="element-subtitle">Консилиум, сцена совета</p>
+            </div>
+            
+            <div class="element-content">
+                <div class="element-section">
+                    <span class="section-label">Ваша роль</span>
+                    <p class="section-text">
+                        Алхимик смыслов. Вы берёте сырую правду и превращаете её в нарратив, визуал, символ. 
+                        Вы не «делаете контент», вы создаёте реальность.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Ваш вклад</span>
+                    <p class="section-text">Форма. Без вас идея останется криком в пустоте.</p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Ваша награда</span>
+                    <p class="section-text">
+                        Имя под произведением. Доступ к мастерским. Компенсационный пакет. Доля.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Квест входа</span>
+                    <p class="section-text">
+                        Создать артефакт. Вписать его в архив. Увидеть его живущим собственной жизнью.
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>«Если вы можете объяснить нашу магию — вы уже часть её.»</p>
+                </div>
+            </div>
+            
+            <a href="#" class="element-button">→ Войти в Фабрику</a>
+        </div>
+    </div>
+</div>

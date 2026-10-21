@@ -1,0 +1,156 @@
+{{/*  company-details-card.html – карточка реквизитов компании с составом директоров  */}}
+<div class="company-card-wrapper" style="margin: 2rem auto;">
+  <div class="company-card">
+    <h4 class="company-title">🏛 IMARCH LTD – Company Details</h4>
+    <div class="company-grid">
+      <!-- Company Number -->
+      <div class="company-row">
+        <div class="company-label">Company Number</div>
+        <div class="company-value">16791765</div>
+      </div>
+      <!-- Incorporated -->
+      <div class="company-row">
+        <div class="company-label">Incorporated</div>
+        <div class="company-value">17 October 2025</div>
+      </div>
+      <!-- Registered Office -->
+      <div class="company-row">
+        <div class="company-label">Registered Office</div>
+        <div class="company-value">128 City Road, London, EC1V 2NX, UK</div>
+      </div>
+      <!-- Jurisdiction -->
+      <div class="company-row">
+        <div class="company-label">Jurisdiction</div>
+        <div class="company-value">England and Wales</div>
+      </div>
+      <!-- Registrar -->
+      <div class="company-row">
+        <div class="company-label">Registrar</div>
+        <div class="company-value">Companies House</div>
+      </div>
+      <!-- SIC Codes -->
+      <div class="company-row">
+        <div class="company-label">SIC Codes</div>
+        <div class="company-value">72190 · 72200 · 85590</div>
+      </div>
+      <!-- Director -->
+      <div class="company-row">
+        <div class="company-label">Director</div>
+        <div class="company-value">Oleksandr Purpurov</div>
+      </div>
+      <!-- Board of Directors (новое поле) -->
+      <div class="company-row">
+        <div class="company-label">Board of Directors</div>
+        <div class="company-value">
+          <strong>Oleksandr Purpurov</strong> (Founder & MD)<br>
+        </div>
+      </div>
+      <!-- Contact -->
+      <div class="company-row">
+        <div class="company-label">Contact</div>
+        <div class="company-value"><a href="mailto:director@imarch.sbs">director@imarch.sbs</a></div>
+      </div>
+      <!-- Website -->
+      <div class="company-row">
+        <div class="company-label">Website</div>
+        <div class="company-value"><a href="https://imarch.sbs" target="_blank">imarch.sbs</a></div>
+      </div>
+      <!-- Public Profile -->
+      <div class="company-row">
+        <div class="company-label">Public Profile</div>
+        <div class="company-value"><a href="https://find-and-update.company-information.service.gov.uk/company/16791765" target="_blank">Companies House →</a></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Сливочная анимированная карточка */
+.company-card-wrapper {
+  max-width: 100%;
+  margin: 2rem auto;
+}
+.company-card {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.8rem;
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+              box-shadow 0.3s ease,
+              border-color 0.2s ease;
+  will-change: transform, box-shadow;
+}
+.company-card:hover {
+  transform: translateY(-5px);
+  border-color: #c0a070;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.02);
+}
+.company-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #2c2416;
+  margin: 0 0 1.5rem 0;
+  border-left: 3px solid #8b7355;
+  padding-left: 1rem;
+}
+.company-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.company-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: baseline;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid rgba(139, 115, 85, 0.15);
+}
+.company-label {
+  font-weight: 700;
+  color: #8b7355;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding-right: 1rem;
+}
+.company-value {
+  color: #2c2416;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.company-value a {
+  color: #2a5c7a;
+  text-decoration: none;
+  border-bottom: 1px dotted #2a5c7a;
+}
+.company-value a:hover {
+  border-bottom: 1px solid #2a5c7a;
+}
+.company-value strong {
+  font-weight: 700;
+  color: #1a1c1e;
+}
+
+/* Мобильная адаптация: вертикальные блоки */
+@media (max-width: 640px) {
+  .company-card {
+    padding: 1.2rem;
+  }
+  .company-row {
+    display: flex;
+    flex-direction: column;
+    padding: 0.9rem 0;
+    gap: 0.25rem;
+  }
+  .company-label {
+    font-size: 0.75rem;
+    padding-right: 0;
+  }
+  .company-value {
+    font-size: 0.9rem;
+    padding-left: 0.5rem;
+  }
+}
+</style>

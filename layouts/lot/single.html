@@ -1,0 +1,655 @@
+{{ define "main" }}
+
+{{ $lang := .Page.Language.Lang | default "ru" }}
+
+{{/* ===== СЛОВАРЬ ТЕКСТОВ ===== */}}
+{{ $tAvailable := "Доступно" }}
+{{ $tHashLabel := "SHA-256 FINGERPRINT · PREVIEW (WEBP)" }}
+{{ $tPassport := "🛡️ Открыть Мульти-Паспорт" }}
+{{ $tThreshold := "ПОРОГ ВХОДА" }}
+{{ $tSpec := "СПЕЦИФИКАЦИЯ ПОСТАВКИ" }}
+{{ $tSpecVault := "Vault Master File — исходник максимального разрешения, передаётся владельцу" }}
+{{ $tSpecPassport := "Node Passport — публичная запись подлинности в реестре" }}
+{{ $tSpecLicense := "License Agreement — юридическое закрепление прав использования" }}
+{{ $tSpecCrypto := "Crypto Core — SHA-256 фиксация версии артефакта" }}
+{{ $tOrderTitle := "ЗАПРОС НА ПЕРЕДАЧУ ПРАВ" }}
+{{ $tOrderSub := "Заявка проходит ручную верификацию Архивариусом IMARCH LTD" }}
+{{ $tContact := "Email / Telegram" }}
+{{ $tNote := "Примечание" }}
+{{ $tNoteOptional := "(необязательно)" }}
+{{ $tNotePlaceholder := "Комментарий к заявке" }}
+{{ $tMintBtn := "Запросить передачу прав" }}
+{{ $tDisclaimer := "Отправка заявки не является автоматической сделкой. Передача прав осуществляется после ручной верификации Архивариусом IMARCH LTD (UK Trade Secrets Regulations 2018)." }}
+{{ $tReturn := "← Вернуться в Бонус-Бутик" }}
+
+{{ if eq $lang "en" }}
+  {{ $tAvailable = "Available" }}
+  {{ $tHashLabel = "SHA-256 FINGERPRINT · PREVIEW (WEBP)" }}
+  {{ $tPassport = "🛡️ Open Multi-Passport" }}
+  {{ $tThreshold = "ENTRY THRESHOLD" }}
+  {{ $tSpec = "DELIVERY SPECIFICATION" }}
+  {{ $tSpecVault = "Vault Master File — maximum resolution master, transferred to the owner" }}
+  {{ $tSpecPassport = "Node Passport — public authenticity record in the registry" }}
+  {{ $tSpecLicense = "License Agreement — legal consolidation of usage rights" }}
+  {{ $tSpecCrypto = "Crypto Core — SHA-256 fixation of the artifact version" }}
+  {{ $tOrderTitle = "REQUEST FOR RIGHTS TRANSFER" }}
+  {{ $tOrderSub = "Application undergoes manual verification by the Archivist of IMARCH LTD" }}
+  {{ $tContact = "Email / Telegram" }}
+  {{ $tNote = "Note" }}
+  {{ $tNoteOptional = "(optional)" }}
+  {{ $tNotePlaceholder = "Comment on the application" }}
+  {{ $tMintBtn = "Request rights transfer" }}
+  {{ $tDisclaimer = "Submitting an application is not an automatic transaction. Rights transfer is carried out after manual verification by the Archivist of IMARCH LTD (UK Trade Secrets Regulations 2018)." }}
+  {{ $tReturn = "← Back to Bonus Boutique" }}
+{{ else if eq $lang "uk" }}
+  {{ $tAvailable = "Доступно" }}
+  {{ $tHashLabel = "SHA-256 FINGERPRINT · PREVIEW (WEBP)" }}
+  {{ $tPassport = "🛡️ Відкрити Мульти-Паспорт" }}
+  {{ $tThreshold = "ПОРІГ ВХОДУ" }}
+  {{ $tSpec = "СПЕЦИФІКАЦІЯ ПОСТАВКИ" }}
+  {{ $tSpecVault = "Vault Master File — вихідник максимальної роздільності, передається власнику" }}
+  {{ $tSpecPassport = "Node Passport — публічний запис справжності в реєстрі" }}
+  {{ $tSpecLicense = "License Agreement — юридичне закріплення прав використання" }}
+  {{ $tSpecCrypto = "Crypto Core — SHA-256 фіксація версії артефакту" }}
+  {{ $tOrderTitle = "ЗАПИТ НА ПЕРЕДАЧУ ПРАВ" }}
+  {{ $tOrderSub = "Заявка проходить ручну верифікацію Архіваріусом IMARCH LTD" }}
+  {{ $tContact = "Email / Telegram" }}
+  {{ $tNote = "Примітка" }}
+  {{ $tNoteOptional = "(необов'язково)" }}
+  {{ $tNotePlaceholder = "Коментар до заявки" }}
+  {{ $tMintBtn = "Запросити передачу прав" }}
+  {{ $tDisclaimer = "Надсилання заявки не є автоматичною угодою. Передача прав здійснюється після ручної верифікації Архіваріусом IMARCH LTD (UK Trade Secrets Regulations 2018)." }}
+  {{ $tReturn = "← Повернутися до Бонус-Бутіку" }}
+{{ end }}
+
+{{/* ===== ПАРАМЕТРЫ ЛОТА ===== */}}
+{{ $nodeID := .Params.node_id | default "NODE-ART-0000-000" }}
+{{ $lotNumber := .Params.lot_number | default "000" }}
+{{ $seriesTotal := .Params.series_total | default "000" }}
+{{ $seriesAvailable := .Params.series_available | default "000" }}
+{{ $licenseType := .Params.license_type | default "Collector Rights" }}
+{{ $passportURL := .Params.passport_url | default "/nodes/" }}
+{{ $imageWebp := .Params.image_webp | default "/img/boutique/placeholder.webp" }}
+{{ $fileHash := .Params.file_hash | default "не зафиксирован" }}
+{{ $marker := .Params.marker | default "—" }}
+{{ $thresholdPoints := .Params.threshold_points | default "0" }}
+{{ $thresholdGBP := .Params.threshold_gbp | default "0" }}
+{{ $lotTitle := .Title }}
+
+<article class="node-lot fade-in-up">
+
+  <!-- ===== A. ИДЕНТИФИКАЦИЯ ===== -->
+  <header class="node-header">
+    <div class="node-header__row">
+      <span class="node-badge">LOT #{{ $lotNumber }} / {{ $seriesTotal }}</span>
+      <span class="node-badge node-badge--available">{{ $tAvailable }}: {{ $seriesAvailable }} / {{ $seriesTotal }}</span>
+    </div>
+    <h1 class="node-title">{{ $lotTitle }}</h1>
+    <div class="node-header__row">
+      <span class="node-id">NODE ID: <code>{{ $nodeID }}</code></span>
+      <span class="node-license">LICENSE: <code>{{ $licenseType }}</code></span>
+    </div>
+  </header>
+
+  <!-- ===== Б. МЕДИА + ВАЛИДАЦИЯ ===== -->
+  <section class="node-media">
+    <div class="node-media__viewport">
+      <img src="{{ $imageWebp }}" alt="{{ $lotTitle }}" class="node-media__image" loading="lazy">
+      <div class="node-media__marker">{{ $nodeID }}</div>
+    </div>
+
+    <div class="node-validation">
+      <div class="node-validation__label">{{ $tHashLabel }}</div>
+      <div class="node-validation__hash">
+        <code>{{ $fileHash }}</code>
+      </div>
+      <div class="node-validation__actions">
+        <a href="{{ $passportURL }}" target="_blank" rel="noopener noreferrer" class="node-btn node-btn--passport">
+          {{ $tPassport }}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== В. СМЫСЛОВОЙ БЛОК ===== -->
+  <section class="node-body">
+
+    <div class="node-threshold">
+      <div class="node-threshold__label">{{ $tThreshold }}</div>
+      <div class="node-threshold__value">{{ $thresholdPoints }} PTS <span class="node-threshold__sep">·</span> £{{ $thresholdGBP }}</div>
+    </div>
+
+    <div class="node-description" id="node-details">
+      {{ .Content }}
+    </div>
+
+    <div class="node-spec">
+      <div class="node-spec__title">{{ $tSpec }}</div>
+      <ul class="node-spec__list">
+        <li><strong>Vault Master File</strong> — {{ $tSpecVault }}</li>
+        <li><strong>Node Passport</strong> — {{ $tSpecPassport }}</li>
+        <li><strong>License Agreement</strong> — {{ $tSpecLicense }}</li>
+        <li><strong>Crypto Core</strong> — {{ $tSpecCrypto }}</li>
+      </ul>
+    </div>
+
+  </section>
+
+  <!-- ===== Г. ФОРМА ЗАЯВКИ ===== -->
+  <section class="node-order">
+    <div class="node-order__title">{{ $tOrderTitle }}</div>
+    <div class="node-order__sub">{{ $tOrderSub }}</div>
+
+    <form id="nodeOrderForm" onsubmit="handleNodeOrderSubmit(event)" class="node-form">
+
+      <!-- Скрытые поля — реквизиты лота, уходят в sessionStorage -->
+      <input type="hidden" id="orderNodeId"       value="{{ $nodeID }}">
+      <input type="hidden" id="orderLotNumber"    value="{{ $lotNumber }}">
+      <input type="hidden" id="orderLotTitle"     value="{{ $lotTitle }}">
+      <input type="hidden" id="orderLicenseType"  value="{{ $licenseType }}">
+      <input type="hidden" id="orderMarker"       value="{{ $marker }}">
+      <input type="hidden" id="orderFileHash"     value="{{ $fileHash }}">
+      <input type="hidden" id="orderThresholdGbp" value="{{ $thresholdGBP }}">
+      <input type="hidden" id="orderPassportUrl"  value="{{ $passportURL }}">
+
+      <div class="node-form__field">
+        <label for="contact">{{ $tContact }}</label>
+        <input type="text" id="contact" name="contact" required placeholder="@username / email">
+      </div>
+
+      <div class="node-form__field">
+        <label for="note">{{ $tNote }} <span class="node-form__optional">{{ $tNoteOptional }}</span></label>
+        <textarea id="note" name="note" rows="3" placeholder="{{ $tNotePlaceholder }}"></textarea>
+      </div>
+
+      <button type="submit" class="node-btn node-btn--mint">
+        {{ $tMintBtn }} — {{ $nodeID }}
+      </button>
+
+      <p class="node-form__disclaimer">
+        {{ $tDisclaimer }}
+      </p>
+    </form>
+  </section>
+
+  <!-- ===== Д. ВОЗВРАТ В КАТАЛОГ ===== -->
+  <div class="node-return">
+    <a href="/{{ $lang }}/docs/consilium/" class="node-return__link">
+      {{ $tReturn }}
+    </a>
+  </div>
+
+</article>
+
+<script type="text/javascript">
+function handleNodeOrderSubmit(event) {
+  event.preventDefault();
+
+  var fields = {
+    node_id:       'orderNodeId',
+    lot_number:    'orderLotNumber',
+    lot_title:     'orderLotTitle',
+    license_type:  'orderLicenseType',
+    marker:        'orderMarker',
+    file_hash:     'orderFileHash',
+    threshold_gbp: 'orderThresholdGbp',
+    passport_url:  'orderPassportUrl'
+  };
+
+  Object.keys(fields).forEach(function (key) {
+    var el = document.getElementById(fields[key]);
+    if (el) sessionStorage.setItem('order_' + key, el.value);
+  });
+
+  sessionStorage.setItem('order_contact', document.getElementById('contact').value);
+  sessionStorage.setItem('order_note',    document.getElementById('note').value);
+
+  window.location.href = "/{{ $lang }}/boutique/order-step-2/";
+}
+</script>
+
+<style>
+/* ===== DIGITAL NODE — LAYOUT ===== */
+
+.node-lot {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  color: #d0dce4;
+  font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+/* A. HEADER */
+.node-header {
+  padding: 1.5rem 1.5rem 1.2rem;
+  background: linear-gradient(145deg, #0f1a24, #16222e);
+  border: 1px solid #2a3d52;
+  border-radius: 18px 18px 0 0;
+  border-bottom: none;
+}
+.node-header__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.8rem;
+}
+.node-header__row:last-child { margin-bottom: 0; }
+
+.node-badge {
+  display: inline-block;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #b18b56;
+  background: rgba(177,139,86,0.08);
+  border: 1px solid rgba(177,139,86,0.35);
+  border-radius: 30px;
+}
+.node-badge--available {
+  color: #8fb87a;
+  background: rgba(143,184,122,0.08);
+  border-color: rgba(143,184,122,0.35);
+}
+.node-title {
+  font-size: clamp(1.4rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  margin: 0 0 1rem 0;
+  line-height: 1.25;
+  text-align: center;
+}
+.node-id, .node-license {
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  color: #8fa5b8;
+  text-transform: uppercase;
+}
+.node-id code, .node-license code {
+  font-family: 'Courier New', monospace;
+  color: #b18b56;
+  font-weight: 700;
+  background: rgba(177,139,86,0.08);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Б. MEDIA */
+.node-media {
+  background: #0a1218;
+  border-left: 1px solid #2a3d52;
+  border-right: 1px solid #2a3d52;
+  padding: 1.5rem;
+}
+.node-media__viewport {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+  border: 1px solid #2a3d52;
+}
+.node-media__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.node-media__marker {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 0.3rem 0.8rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #0a1218;
+  background: rgba(177,139,86,0.9);
+  border-radius: 30px;
+  backdrop-filter: blur(4px);
+}
+
+.node-validation {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1rem 1.2rem;
+  background: #0f1a24;
+  border: 1px dashed #2a3d52;
+  border-radius: 12px;
+}
+.node-validation__label {
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  color: #8fa5b8;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+.node-validation__hash {
+  font-family: 'Courier New', monospace;
+  font-size: 0.78rem;
+  color: #b18b56;
+  word-break: break-all;
+  line-height: 1.5;
+  padding: 0.7rem 0.9rem;
+  background: rgba(177,139,86,0.04);
+  border-radius: 8px;
+  border: 1px solid rgba(177,139,86,0.15);
+  margin-bottom: 1rem;
+}
+.node-validation__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  justify-content: center;
+  align-items: center;
+}
+
+/* В. BODY */
+.node-body {
+  background: #0f1a24;
+  border-left: 1px solid #2a3d52;
+  border-right: 1px solid #2a3d52;
+  padding: 1.5rem;
+  color: #d0dce4;
+}
+.node-threshold {
+  text-align: center;
+  padding: 1.2rem;
+  background: linear-gradient(145deg, #16222e, #0f1a24);
+  border: 1px solid rgba(177,139,86,0.4);
+  border-radius: 14px;
+  margin-bottom: 1.8rem;
+}
+.node-threshold__label {
+  font-size: 0.7rem;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: #8fa5b8;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.node-threshold__value {
+  font-family: 'Georgia', serif;
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 800;
+  color: #ffffff;
+}
+.node-threshold__sep {
+  color: #b18b56;
+  margin: 0 0.4rem;
+}
+
+.node-description {
+  font-size: 1rem;
+  line-height: 1.65;
+  color: #c8d4dc;
+  margin-bottom: 2rem;
+  scroll-margin-top: 2rem;
+}
+.node-description p { margin: 0 0 1rem 0; }
+.node-description h2,
+.node-description h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin: 1.5rem 0 0.7rem;
+  text-align: left;
+}
+.node-description h2 { font-size: 1.3rem; }
+.node-description h3 { font-size: 1.1rem; }
+.node-description strong { color: #b18b56; }
+.node-description a {
+  color: #b18b56;
+  text-decoration: underline;
+}
+.node-description a:hover { color: #c9a068; }
+.node-description code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85em;
+  background: rgba(177,139,86,0.1);
+  color: #b18b56;
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+.node-description blockquote {
+  border-left: 3px solid #b18b56;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #a5b5c2;
+  font-style: italic;
+}
+
+.node-spec {
+  background: #0a1218;
+  border: 1px solid #2a3d52;
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+}
+.node-spec__title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: #8fa5b8;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+}
+.node-spec__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.node-spec__list li {
+  position: relative;
+  padding-left: 1.4rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: #c8d4dc;
+}
+.node-spec__list li:last-child { margin-bottom: 0; }
+.node-spec__list li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: #b18b56;
+  font-weight: 700;
+}
+.node-spec__list strong { color: #ffffff; }
+
+/* Г. ORDER */
+.node-order {
+  background: linear-gradient(145deg, #16222e, #0f1a24);
+  border: 1px solid #2a3d52;
+  border-top: none;
+  border-radius: 0 0 18px 18px;
+  padding: 1.8rem 1.5rem;
+}
+.node-order__title {
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+.node-order__sub {
+  font-size: 0.82rem;
+  color: #8fa5b8;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.node-form {
+  max-width: 480px;
+  margin: 0 auto;
+}
+.node-form__field {
+  margin-bottom: 1rem;
+}
+.node-form__field label {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 1px;
+  font-weight: 700;
+  color: #8fa5b8;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+.node-form__optional {
+  color: #5a6e80;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 0.75rem;
+}
+.node-form__field input,
+.node-form__field textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #0a1218;
+  border: 1px solid #2a3d52;
+  border-radius: 10px;
+  color: #d0dce4;
+  font-family: 'Georgia', serif;
+  font-size: 0.95rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+.node-form__field input:focus,
+.node-form__field textarea:focus {
+  outline: none;
+  border-color: #b18b56;
+}
+.node-form__field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.node-btn {
+  display: block;
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border-radius: 40px;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+.node-btn--passport {
+  display: inline-block;
+  width: auto;
+  min-width: 220px;
+  background: transparent;
+  color: #b18b56;
+  border: 1px solid #b18b56;
+}
+.node-btn--passport:hover {
+  background: rgba(177,139,86,0.1);
+}
+.node-btn--mint {
+  background: #b18b56;
+  color: #0f1a24;
+  margin-top: 0.5rem;
+}
+.node-btn--mint:hover {
+  background: #c9a068;
+  transform: translateY(-1px);
+}
+
+.node-form__disclaimer {
+  font-size: 0.72rem;
+  color: #5a6e80;
+  line-height: 1.5;
+  text-align: center;
+  margin: 1rem 0 0 0;
+}
+
+/* Д. RETURN */
+.node-return {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem 0;
+}
+.node-return__link {
+  display: inline-block;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #8fa5b8;
+  text-decoration: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  transition: all 0.2s ease;
+}
+.node-return__link:hover {
+  color: #b18b56;
+  background: rgba(177,139,86,0.06);
+}
+
+/* АДАПТИВ */
+@media (max-width: 640px) {
+  .node-header {
+    padding: 1.2rem 1rem 1rem;
+    border-radius: 14px 14px 0 0;
+  }
+  .node-header__row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .node-media,
+  .node-body {
+    padding: 1rem;
+  }
+  .node-order {
+    padding: 1.4rem 1rem;
+    border-radius: 0 0 14px 14px;
+  }
+  .node-media__viewport {
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  .node-media__marker {
+    bottom: 8px;
+    right: 8px;
+    font-size: 0.6rem;
+    padding: 0.25rem 0.6rem;
+  }
+  .node-validation {
+    padding: 0.8rem 1rem;
+  }
+  .node-validation__hash {
+    font-size: 0.7rem;
+    padding: 0.5rem 0.7rem;
+  }
+  .node-btn--passport {
+    width: 100%;
+    min-width: 100%;
+  }
+  .node-threshold {
+    padding: 1rem;
+  }
+}
+/* Fix: лот всегда виден при загрузке, без ожидания скролла */
+.node-lot.fade-in-up {
+  opacity: 1 !important;
+  transform: none !important;
+}
+</style>
+
+{{ end }}

@@ -1,0 +1,15 @@
+{{- $src := .Get "src" -}}
+{{- $poster := .Get "poster" -}}
+<div class="page-banner">
+  <video 
+    src="{{ $src | relURL }}" 
+    autoplay 
+    muted 
+    loop 
+    playsinline 
+    class="page-banner-video"
+    {{ with $poster }}poster="{{ . | relURL }}"{{ end }}
+  >
+    Your browser does not support the video tag.
+  </video>
+</div>

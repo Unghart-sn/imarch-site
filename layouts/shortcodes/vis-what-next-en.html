@@ -1,0 +1,153 @@
+<style>
+.vis-what-next {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #ecfeff 0%, #cffafe 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-what-next-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #0e7490;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.what-next-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.what-next-stat {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  text-align: center;
+  border-top: 4px solid #06b6d4;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.what-next-stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0e7490;
+  margin-bottom: 10px;
+}
+
+.what-next-stat-label {
+  color: #0e7490;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.what-next-stat-desc {
+  color: #5d7690;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.what-next-message {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #06b6d4;
+  margin-bottom: 30px;
+}
+
+.what-next-message p {
+  color: #2d3748;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.vis-what-next-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #06b6d4;
+  color: #0e7490;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.vis-what-next-btn:hover {
+  background: #06b6d4;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+}
+
+@media (max-width: 768px) {
+  .vis-what-next {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-what-next-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .what-next-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .what-next-stat {
+    padding: 20px;
+  }
+  
+  .what-next-message {
+    padding: 20px;
+  }
+}
+</style>
+
+<section id="what-next" class="vis-section vis-what-next">
+  <h2 class="vis-what-next-title">🗺️ What's Next</h2>
+  
+  <div class="what-next-stats">
+    <div class="what-next-stat">
+      <div class="what-next-stat-value">📅</div>
+      <div class="what-next-stat-label">Step-by-Step Plan</div>
+      <p class="what-next-stat-desc">Detailed project implementation schedule with milestones for each quarter</p>
+    </div>
+    
+    <div class="what-next-stat">
+      <div class="what-next-stat-value">⏱️</div>
+      <div class="what-next-stat-label">Clear Deadlines</div>
+      <p class="what-next-stat-desc">Each stage has specific timeframes and expected results</p>
+    </div>
+    
+    <div class="what-next-stat">
+      <div class="what-next-stat-value">🎯</div>
+      <div class="what-next-stat-label">Measurable Results</div>
+      <p class="what-next-stat-desc">Key performance indicators (KPIs) for evaluating progress in each area</p>
+    </div>
+  </div>
+  
+  <div class="what-next-message">
+    <p>
+      <strong>We show the project's path after fundraising in advance</strong><br>
+      — step by step, with deadlines and results.
+    </p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="/en/profile/vis-realitatis/what-next/" class="vis-what-next-btn">
+      👉 View the Development Plan
+    </a>
+  </div>
+</section>

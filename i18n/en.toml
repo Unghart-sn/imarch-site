@@ -1,0 +1,122 @@
+[[translation]]
+id = "dateFormat"
+translation = "January 2, 2006"
+
+[[translation]]
+id = "shortdateFormat"
+translation = "Jan 2, 2006 15:04:05"
+
+[[translation]]
+id = "postedOnDate"
+translation = "Posted on {{ . }}"
+
+[[translation]]
+id = "lastModified"
+translation = "(Last modified on {{ . }})"
+
+[[translation]]
+id = "translationsLabel"
+translation = "Other languages: "
+
+[[translation]]
+id = "translationsSeparator"
+translation = ", "
+
+[[translation]]
+id = "readMore"
+translation = "Read more"
+
+[[translation]]
+id = "olderPosts"
+translation = "Older"
+
+[[translation]]
+id = "newerPosts"
+translation = "Newer"
+
+[[translation]]
+id = "previousPost"
+translation = "Previous"
+
+[[translation]]
+id = "nextPost"
+translation = "Next"
+
+[[translation]]
+id = "readTime"
+translation = "minutes"
+
+[[translation]]
+id = "words"
+translation = "words"
+
+[[translation]]
+id = "pageNotFound"
+translation = "Oops! Page not found. (Error 404)"
+
+[[translation]]
+id = "poweredBy"
+translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> derived from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+
+[[translation]]
+id = "toggleNavigation"
+translation = "Toggle navigation"
+
+[[translation]]
+id = "languageSwitcherLabel"
+translation = "Language"
+
+[[translation]]
+id = "gcseLabelShort"
+translation = "Search"
+
+[[translation]]
+id = "gcseLabelLong"
+translation = "Search {{ .Site.Title }}"
+
+[[translation]]
+id = "gcseClose"
+translation = "Close"
+
+[[translation]]
+id = "noComment"
+translation = "No comments"
+
+[[translation]]
+id = "oneComment"
+translation = "comment"
+
+[[translation]]
+id = "moreComment"
+translation = "comments"
+
+[[translation]]
+id = "useMarkdown"
+translation = "You can use Markdown syntax"
+
+[[translation]]
+id = "yourName"
+translation = "Your name"
+
+[[translation]]
+id = "yourEmail"
+translation = "Your email"
+
+[[translation]]
+id = "yourWebsite"
+translation = "Your website"
+
+[[translation]]
+id = "show"
+translation = "Show"
+
+[[translation]]
+id = "comments"
+translation = "comments"
+
+[[translation]]
+id = "seeAlso"
+translation = "See also"
+
+
+

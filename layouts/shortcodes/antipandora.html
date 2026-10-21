@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMARCH | Статическая Динамика — Операционная система для новых миров</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* === ОБНОВЛЁННАЯ ЦВЕТОВАЯ ГАММА === */
+        :root {
+            --bg-dark: #0f0f14;
+            --bg-card: #1a1a24;
+            --bg-card-light: #242433;
+            --border: #2d2d3d;
+            --border-light: #3a3a4d;
+            
+            --text-primary: #f0f0ff;
+            --text-secondary: #d0d0ee;
+            --text-muted: #8888aa;
+            
+            --accent-gold: #ffcc66;
+            --accent-blue: #6699ff;
+            --accent-green: #66cc99;
+            
+            --gradient-gold: linear-gradient(135deg, #ffcc66, #ffaa33);
+            --gradient-blue: linear-gradient(135deg, #6699ff, #4477dd);
+        }
+
+        /* === БАЗОВЫЕ СТИЛИ === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-dark);
+            overflow-x: hidden;
+        }
+
+        .imarch-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        /* === ТИПОГРАФИЯ === */
+        .imarch-h1, .imarch-h2, .imarch-h3, .imarch-h4 {
+            font-family: 'Lora', 'Georgia', serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .imarch-h1 {
+            font-size: 3rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .imarch-h2 {
+            font-size: 2.2rem;
+            color: var(--text-primary);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .imarch-h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--gradient-gold);
+            border-radius: 2px;
+        }
+
+        .imarch-h3 {
+            font-size: 1.6rem;
+            color: var(--text-primary);
+        }
+
+        .imarch-h4 {
+            font-size: 1.3rem;
+            color: var(--accent-blue);
+        }
+
+        .imarch-p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .imarch-lead {
+            font-size: 1.3rem;
+            color: #444444;  /* ИЗМЕНЕНО: тёмно-серый для видимости на белом фоне */
+            font-weight: 500;
+        }
+
+        /* === ГЕРОЙ-СЕКЦИЯ === */
+        .imarch-hero {
+            min-height: auto;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 40px 0 60px 0 !important;
+            overflow: hidden;
+        }
+
+        .imarch-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 204, 102, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(102, 153, 255, 0.05) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .imarch-hero-tagline {
+            display: none;
+        }
+
+        .imarch-hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            color: #444444;  /* ИЗМЕНЕНО: тёмно-серый для видимости на белом фоне */
+            max-width: 100%;
+            line-height: 1.6;
+        }
+
+        /* === КАРТОЧКИ === */
+        .imarch-cards-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin: 60px 0;
+        }
+
+        .imarch-card {
+            background: var(--bg-card-light);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .imarch-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-gold);
+        }
+
+        .imarch-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.3),
+                0 0 30px rgba(255, 204, 102, 0.1);
+        }
+
+        .imarch-card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-gold);
+            color: var(--bg-dark);
+        }
+
+        /* === СТАТУС БАР === */
+        .imarch-status-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px 30px;
+            margin: 60px 0;
+            position: relative;
+        }
+
+        .imarch-status-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .imarch-status-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--bg-card-light);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+        }
+
+        .imarch-status-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .imarch-status-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 15px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* === ПРИЗЫВ К ДЕЙСТВИЮ === */
+        .imarch-cta-section {
+            text-align: center;
+            padding: 80px 0;
+            background: var(--bg-card);
+            border-radius: 20px;
+            margin: 80px 0;
+            border: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .imarch-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 20%, rgba(102, 153, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(255, 204, 102, 0.1) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .imarch-cta-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .imarch-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+            width: 100%;
+            gap: 12px;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .imarch-btn-primary {
+            background: var(--gradient-gold);
+            color: var(--bg-dark);
+            font-weight: 700;
+        }
+
+        .imarch-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 204, 102, 0.3);
+        }
+
+        .imarch-btn-secondary {
+            background: rgba(42, 42, 60, 0.8);
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            font-weight: 600;
+        }
+
+        .imarch-btn-secondary:hover {
+            background: rgba(102, 153, 255, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(102, 153, 255, 0.2);
+        }
+
+        /* === ИНФОГРАФИКА === */
+        .imarch-infographic {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 60px 0;
+            padding: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .imarch-infographic-visual {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--bg-card-light), var(--bg-card));
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .imarch-infographic-visual::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 30% 50%, rgba(102, 153, 255, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 70% 30%, rgba(255, 204, 102, 0.15) 0%, transparent 70%);
+        }
+
+        .imarch-infographic-visual::after {
+            content: '📊 📈 🔄';
+            font-size: 3rem;
+            opacity: 0.5;
+            animation: imarch-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes imarch-pulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.05); }
+        }
+
+        /* === СПИСКИ === */
+        .imarch-ul {
+            color: var(--text-secondary);
+            margin: 20px 0;
+            padding-left: 20px;
+            list-style: none;
+        }
+        
+        .imarch-li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            position: relative;
+            padding-left: 10px;
+        }
+        
+        .imarch-li::before {
+            content: '→';
+            color: var(--accent-gold);
+            position: absolute;
+            left: -15px;
+        }
+
+        /* === АДАПТИВНОСТЬ ДЛЯ ПЛАНШЕТОВ === */
+        @media (min-width: 768px) {
+            .imarch-cards-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .imarch-status-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+            }
+            
+            .imarch-cta-buttons {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 100%;
+                gap: 20px;
+            }
+            
+            .imarch-infographic {
+                flex-direction: row;
+                align-items: center;
+                padding: 40px;
+            }
+            
+            .imarch-infographic-visual {
+                height: 250px;
+                min-height: 250px;
+            }
+        }
+
+        /* === АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ === */
+        @media (max-width: 767px) {
+            .imarch-h1 {
+                font-size: 2.2rem;
+            }
+            
+            .imarch-h2 {
+                font-size: 1.8rem;
+            }
+            
+            .imarch-h3 {
+                font-size: 1.4rem;
+            }
+            
+            .imarch-hero {
+                padding: 30px 0 40px 0 !important;
+            }
+            
+            .imarch-hero-subtitle {
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
+            }
+            
+            .imarch-lead {
+                font-size: 1.1rem;
+            }
+            
+            .imarch-card {
+                padding: 25px 20px;
+            }
+            
+            .imarch-status-section {
+                padding: 30px 20px;
+                margin: 40px 0;
+            }
+            
+            .imarch-status-number {
+                font-size: 2.2rem;
+            }
+            
+            .imarch-infographic {
+                padding: 30px 20px;
+                margin: 40px 0;
+            }
+            
+            .imarch-infographic-visual {
+                height: 150px;
+            }
+            
+            .imarch-infographic-visual::after {
+                font-size: 2rem;
+            }
+            
+            .imarch-cta-section {
+                padding: 50px 20px;
+                margin: 50px 0;
+                border-radius: 16px;
+            }
+            
+            .imarch-btn {
+                padding: 14px 25px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* === АДАПТИВНОСТЬ ДЛЯ МАЛЕНЬКИХ МОБИЛЬНЫХ === */
+        @media (max-width: 480px) {
+            .imarch-container {
+                padding: 0 15px;
+            }
+            
+            .imarch-h1 {
+                font-size: 1.8rem;
+            }
+            
+            .imarch-h2 {
+                font-size: 1.5rem;
+            }
+            
+            .imarch-card-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .imarch-infographic {
+                padding: 25px 15px;
+            }
+        }
+
+        /* === АНИМАЦИИ === */
+        @keyframes imarch-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .imarch-floating {
+            animation: imarch-float 6s ease-in-out infinite;
+        }
+
+        /* === ТЕКСТОВЫЕ ВЫДЕЛЕНИЯ === */
+        .imarch-accent {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .imarch-strong {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        /* === ФИКС ДЛЯ ИЗОБРАЖЕНИЙ === */
+        .square-image {
+            margin: 0 auto 30px !important;
+            max-width: 800px;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .square-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        /* === РЕГУЛИРОВКА ОТСТУПОВ === */
+        .imarch-hero {
+            margin-top: -20px !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- ГЕРОЙ-СЕКЦИЯ -->
+    <section class="imarch-hero">
+        <div class="imarch-container">
+            <div class="imarch-hero-content">
+                <div class="imarch-hero-tagline"># ИНСТИТУЦИОНАЛЬНАЯ SAAS</div>
+                <h1 class="imarch-h1">Операционная система для новых миров</h1>
+                <p class="imarch-hero-subtitle">
+                    <span class="imarch-accent">«Миссия Антипандоры»:</span> Игра, где выиграют все, а проиграет тот кто не играет.<br>
+                    Внешне легализация Community Interest Company (CIC).<br>
+                    Внутри глубинная сборка команды, миссии и ролей.
+                </p>
+                <div class="imarch-cta-buttons">
+                    <a href="#alpha" class="imarch-btn imarch-btn-primary">
+                        🚀 Войти в альфа-тест
+                    </a>
+                    <a href="#solution" class="imarch-btn imarch-btn-secondary">
+                        🔍 Узнать детали
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- РЕШЕНИЕ -->
+    <section class="imarch-container" id="solution">
+        <h2 class="imarch-h2">🚀 Наше решение</h2>
+        <p class="imarch-lead">
+            Мы создали платформу, которая сочетает <span class="imarch-strong">простоту и надёжность</span>.<br>
+            Она позволяет сократить время согласования документов <span class="imarch-accent">до 70%</span>.
+        </p>
+        
+        <div class="imarch-cards-grid">
+            <div class="imarch-card imarch-floating">
+                <div class="imarch-card-icon">🛡️</div>
+                <h3 class="imarch-h3">Статическая безопасность</h3>
+                <p class="imarch-p">Используем абсолютную безопасность статических генераторов. Нет баз данных для взлома, нет уязвимых серверных компонентов.</p>
+            </div>
+            
+            <div class="imarch-card imarch-floating" style="animation-delay: 0.2s;">
+                <div class="imarch-card-icon">⚖️</div>
+                <h3 class="imarch-h3">Юридическая значимость</h3>
+                <p class="imarch-p">Каждое действие — коммит в Git. Каждая версия — верифицируемый снимок. Полный аудиторский след для миссий и переговоров.</p>
+            </div>
+            
+            <div class="imarch-card imarch-floating" style="animation-delay: 0.4s;">
+                <div class="imarch-card-icon">🎮</div>
+                <h3 class="imarch-h3">Геймификация процессов</h3>
+                <p class="imarch-p">Институционализация как игра. Каждый акт — вклад, каждая сцена — признание, каждый участник — соавтор общего движения.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ИНФОГРАФИКА -->
+    <section class="imarch-container">
+        <div class="imarch-infographic">
+            <div class="imarch-infographic-visual"></div>
+            <div class="imarch-infographic-content">
+                <h2 class="imarch-h2">📊 Как это работает</h2>
+                <p class="imarch-p"><span class="imarch-accent">«Статическая Динамика»</span> — парадокс, который меняет правила игры:</p>
+                <ul class="imarch-ul">
+                    <li class="imarch-li">Динамические интерфейсы на статической основе</li>
+                    <li class="imarch-li">Автоматическая генерация юридически значимых документов</li>
+                    <li class="imarch-li">Исчезающие комментарии и многоуровневый доступ</li>
+                    <li class="imarch-li">Полная автономия от внешних платформ</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ТЕКУЩИЙ СТАТУС -->
+    <section class="imarch-container">
+        <div class="imarch-status-section">
+            <h2 class="imarch-h2">📌 Текущий статус</h2>
+            <p class="imarch-lead">Концепт готов. Платформа требует сборки и первых тестировщиков.</p>
+            
+            <div class="imarch-status-grid">
+                <div class="imarch-status-item">
+                    <div class="imarch-status-number">1</div>
+                    <h4 class="imarch-h4">Концепция</h4>
+                    <p class="imarch-p">Архитектура проработана. Технологический стек определён.</p>
+                </div>
+                
+                <div class="imarch-status-item">
+                    <div class="imarch-status-number">2</div>
+                    <h4 class="imarch-h4">Прототип</h4>
+                    <p class="imarch-p">Рабочий прототип готов к демонстрации. Ищем технологических партнёров.</p>
+                </div>
+                
+                <div class="imarch-status-item">
+                    <div class="imarch-status-number">3</div>
+                    <h4 class="imarch-h4">Alpha-тест</h4>
+                    <p class="imarch-p">Готовим первую группу тестирования. Набор ограничен 50 участниками.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПОЧЕМУ ЭТО ВАЖНО -->
+    <section class="imarch-container">
+        <h2 class="imarch-h2">🔑 Почему это важно</h2>
+        
+        <div class="imarch-cards-grid">
+            <div class="imarch-card">
+                <div class="imarch-card-icon" style="background: var(--gradient-blue);">🎯</div>
+                <h3 class="imarch-h3">Простота</h3>
+                <p class="imarch-p">Вместо бюрократии — интуитивные геймифицированные протоколы. Вместо запутанных регламентов — понятные правила игры.</p>
+            </div>
+            
+            <div class="imarch-card">
+                <div class="imarch-card-icon" style="background: var(--gradient-blue);">🛡️</div>
+                <h3 class="imarch-h3">Надёжность</h3>
+                <p class="imarch-p">Вместо цифрового хаоса — архитектура, где нечего взламывать. Статическая безопасность как фундамент.</p>
+            </div>
+            
+            <div class="imarch-card">
+                <div class="imarch-card-icon" style="background: var(--gradient-blue);">💪</div>
+                <h3 class="imarch-h3">Сила</h3>
+                <p class="imarch-p">Вместо пустых обещаний — юридически значимые действия. Каждый этап фиксируется как правовое событие.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ПРИЗЫВ К ДЕЙСТВИЮ -->
+    <section class="imarch-cta-section" id="alpha">
+        <div class="imarch-container">
+            <h2 class="imarch-h2">🎯 Войти в альфа‑тест</h2>
+            <p class="imarch-lead" style="max-width: 100%; margin: 0 auto 30px;">
+                Станьте частью команды, которая строит новые миры.<br>
+                Alpha-тестирование начинается <span class="imarch-accent">15 марта 2024</span>.
+            </p>
+            
+            <div class="imarch-cta-buttons">
+                <a href="#" class="imarch-btn imarch-btn-primary">
+                    📋 Подать заявку
+                </a>
+                <a href="#" class="imarch-btn imarch-btn-secondary">
+                    🤝 Партнёрство
+                </a>
+                <a href="#" class="imarch-btn imarch-btn-secondary">
+                    📚 Документация
+                </a>
+            </div>
+            
+            <p style="margin-top: 30px; color: var(--text-muted); font-size: 0.9rem;">
+                Количество мест в первой волне тестирования ограничено 50 участниками
+            </p>
+        </div>
+    </section>
+
+    <!-- ПРОСТОЙ СКРИПТ ДЛЯ ПЛАВНОЙ ПРОКРУТКИ -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

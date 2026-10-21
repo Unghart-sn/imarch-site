@@ -1,0 +1,39 @@
+<div style="text-align: center; margin-top: 1.2rem;">
+  {{ $url := .Get "target" }}
+  {{ if strings.HasPrefix $url "http" }}
+    <a href="{{ $url }}" style="
+      display: inline-block;
+      font-size: 1.3rem;
+      padding: 0.8rem 1.6rem;
+      background-color: #cccccc;
+      color: #333;
+      text-transform: uppercase;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 0.6rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'"
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+      {{ .Get "text" | default "ПОДРОБНЕЕ" }}
+    </a>
+  {{ else }}
+    <a href="{{ "/" | relLangURL }}{{ $url }}" style="
+      display: inline-block;
+      font-size: 1.3rem;
+      padding: 0.8rem 1.6rem;
+      background-color: #cccccc;
+      color: #333;
+      text-transform: uppercase;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 0.6rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'"
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+      {{ .Get "text" | default "ПОДРОБНЕЕ" }}
+    </a>
+  {{ end }}
+</div>
+

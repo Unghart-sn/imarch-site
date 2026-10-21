@@ -1,0 +1,522 @@
+{{/*
+    Copilot Navigator Card — ZH (Chronicle Capital Style)
+    奶油色，温暖，带青铜色点缀
+*/}}
+
+<style>
+    .dna-navigator-card-zh {
+        background: #fdfaf5;
+        border-radius: 24px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid #e0d6c8;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        transition: all 0.2s ease;
+    }
+    .dna-navigator-card-zh:hover {
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+    .dna-badge-zh {
+        display: inline-block;
+        background: #b18b56;
+        padding: 0.25rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+        border: none;
+    }
+
+    .dna-title-zh {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #1f2b1c;
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.5px;
+        text-align: center;
+    }
+
+    .dna-subtitle-zh {
+        font-size: 1rem;
+        color: #4a5a6a;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #e8e0d4;
+        padding-bottom: 1rem;
+        text-align: center;
+        font-style: italic;
+    }
+
+    .dna-tags-zh {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem 1rem;
+        margin: 0 0 1.5rem 0;
+        font-size: 0.85rem;
+        color: #4a5a6a;
+        font-weight: 400;
+        line-height: 1.5;
+        text-align: center;
+    }
+
+    .dna-instruction-accordion-zh {
+        margin: 1.5rem 0;
+    }
+
+    .dna-accordion-header-zh {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        padding: 0.5rem 0;
+        border-radius: 0;
+        color: #4a5a6a;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.2s;
+        user-select: none;
+        text-align: center;
+        border-bottom: 1px solid #e8e0d4;
+    }
+    .dna-accordion-header-zh:hover {
+        color: #1f2b1c;
+    }
+
+    .dna-accordion-icon-zh {
+        transition: transform 0.2s;
+        display: inline-block;
+        font-size: 0.6rem;
+        color: #b18b56;
+    }
+    .dna-accordion-icon-zh.open {
+        transform: rotate(180deg);
+    }
+
+    .dna-accordion-content-zh {
+        display: none;
+        margin-top: 12px;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .dna-accordion-content-zh.open {
+        display: block;
+    }
+
+    .dna-step-zh {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+    }
+    .dna-step-zh:last-child {
+        margin-bottom: 0;
+    }
+
+    .dna-step-num-zh {
+        width: 28px;
+        height: 28px;
+        background: #ece4d5;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: #1f2b1c;
+        flex-shrink: 0;
+        border: none;
+    }
+
+    .dna-step-text-zh {
+        flex: 1;
+        color: #1f2b1c;
+        font-size: 0.9rem;
+    }
+    .dna-step-text-zh strong {
+        color: #1f2b1c;
+        font-weight: 700;
+    }
+
+    .dna-examples-zh {
+        background: #f9f6ef;
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        margin-top: 0.8rem;
+        border: 1px solid #e8e0d4;
+    }
+    .dna-examples-zh p {
+        margin: 0 0 4px 0;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #1f2b1c;
+    }
+    .dna-examples-zh ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        font-size: 0.75rem;
+        color: #4a5a6a;
+    }
+    .dna-examples-zh li {
+        margin-bottom: 2px;
+    }
+
+    .dna-buttons-zh {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin: 1.5rem 0;
+        justify-content: center;
+    }
+
+    .dna-btn-copy-zh {
+        background: #b18b56;
+        border: none;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 200px;
+    }
+    .dna-btn-copy-zh:hover {
+        background: #9a7a4a;
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(177, 139, 86, 0.3);
+    }
+
+    .dna-btn-launch-zh {
+        background: #2c3622;
+        border: 2px solid #2c3622;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 700;
+        color: #ffffff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+        min-width: 200px;
+    }
+    .dna-btn-launch-zh:hover {
+        background: #1f2b1c;
+        border-color: #1f2b1c;
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(44, 54, 34, 0.3);
+        color: #ffffff;
+    }
+
+    .dna-toast-zh {
+        position: fixed;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #1f2b1c;
+        color: #ffffff;
+        padding: 12px 28px;
+        border-radius: 40px;
+        font-size: 0.85rem;
+        z-index: 9999;
+        border: none;
+        animation: fadeOutZh 2.5s ease forwards;
+        pointer-events: none;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    @keyframes fadeOutZh {
+        0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+        70% { opacity: 1; }
+        100% { opacity: 0; transform: translateX(-50%) translateY(-20px); visibility: hidden; }
+    }
+
+    .dna-legal-zh {
+        margin-top: 1.5rem;
+        border-top: 1px solid #e8e0d4;
+        padding-top: 1rem;
+    }
+    .dna-legal-summary-zh {
+        cursor: pointer;
+        color: #6a7a7a;
+        font-size: 0.75rem;
+        text-align: center;
+        display: block;
+        user-select: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        transition: color 0.2s;
+    }
+    .dna-legal-summary-zh:hover {
+        color: #1f2b1c;
+    }
+    .dna-legal-content-zh {
+        display: none;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .dna-legal-content-zh.show {
+        display: block;
+    }
+    .dna-legal-content-zh p {
+        margin-bottom: 0.5rem;
+    }
+    .dna-legal-content-zh ul {
+        margin: 0.3rem 0 0.5rem 1.5rem;
+    }
+    .dna-legal-content-zh li {
+        margin-bottom: 0.15rem;
+        color: #4a5a6a;
+    }
+    .dna-legal-content-zh a {
+        color: #b18b56;
+        text-decoration: underline;
+    }
+    .dna-legal-content-zh a:hover {
+        color: #1f2b1c;
+    }
+
+    @media (max-width: 640px) {
+        .dna-navigator-card-zh {
+            padding: 1.2rem;
+            margin: 1.2rem 0;
+        }
+        .dna-title-zh {
+            font-size: 1.3rem;
+        }
+        .dna-subtitle-zh {
+            font-size: 0.85rem;
+        }
+        .dna-tags-zh {
+            font-size: 0.8rem;
+        }
+        .dna-btn-copy-zh,
+        .dna-btn-launch-zh {
+            min-width: 100%;
+            justify-content: center;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+        .dna-accordion-header-zh {
+            font-size: 0.65rem;
+        }
+        .dna-step-text-zh {
+            font-size: 0.8rem;
+        }
+        .dna-legal-summary-zh {
+            font-size: 0.65rem;
+        }
+    }
+</style>
+
+<div class="dna-navigator-card-zh">
+    <div style="text-align: center;">
+        <span class="dna-badge-zh">✦ 生态系统助手</span>
+        <div class="dna-title-zh">CHRONICLE OS 导航员</div>
+        <div class="dna-subtitle-zh">您在 IMARCH 生态系统中的个人导航向导</div>
+        <div class="dna-tags-zh">
+            <span>提出问题，您的个人导航向导将分享相关信息，并帮助您确定具体步骤以选择正确的选项。</span>
+        </div>
+    </div>
+
+    <div class="dna-instruction-accordion-zh">
+        <div class="dna-accordion-header-zh" id="accordionToggleZh">
+            <span>✦ 如何使用导航员</span>
+            <span class="dna-accordion-icon-zh" id="accordionIconZh">▼</span>
+        </div>
+        <div class="dna-accordion-content-zh" id="accordionContentZh">
+            <div class="dna-step-zh">
+                <span class="dna-step-num-zh">1</span>
+                <span class="dna-step-text-zh">点击 <strong>复制密钥</strong> — 系统将为您的导航员准备个人密钥。</span>
+            </div>
+            <div class="dna-step-zh">
+                <span class="dna-step-num-zh">2</span>
+                <span class="dna-step-text-zh">点击 <strong>开始聊天</strong> — 将打开与您的个人导航向导的聊天窗口。</span>
+            </div>
+            <div class="dna-step-zh">
+                <span class="dna-step-num-zh">3</span>
+                <span class="dna-step-text-zh">将复制的密钥粘贴到聊天窗口中。这将启动您的个人导航向导。</span>
+            </div>
+            <div class="dna-step-zh">
+                <span class="dna-step-num-zh">4</span>
+                <span class="dna-step-text-zh">向您的个人导航向导提问。例如：</span>
+            </div>
+            <div class="dna-examples-zh">
+                <p>💡 问题示例：</p>
+                <ul>
+                    <li>什么是 Chronicle OS？</li>
+                    <li>如何发表文章？</li>
+                    <li>如何提交专著？</li>
+                    <li>如何成为审稿人？</li>
+                    <li>如何联系 IMARCH 团队？</li>
+                </ul>
+            </div>
+            <div style="margin-top: 0.8rem;">
+                <div class="dna-step-zh">
+                    <span class="dna-step-num-zh">5</span>
+                    <span class="dna-step-text-zh">获取您的路线：您的个人导航向导将为您指明网站的正确部分，并帮助您快速找到信息。</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dna-buttons-zh">
+        <button class="dna-btn-copy-zh" id="copyPromptBtnZh">📋 复制密钥</button>
+        <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="dna-btn-launch-zh">🚀 开始聊天</a>
+    </div>
+
+    <div class="dna-legal-zh">
+        <div class="dna-legal-summary-zh" id="legalToggleZh">
+            ⚖️ 法律声明和商业秘密制度 — 点击展开
+        </div>
+        <div class="dna-legal-content-zh" id="legalContentZh">
+            <p><strong>法律声明和商业秘密制度</strong></p>
+            <p>此导航界面和交互算法在 <strong>IMARCH LTD</strong>（英国伦敦）的封闭企业范围内受到保护，依据 <strong>UK Trade Secrets Regulations 2018 (SI 2018/597)</strong>。</p>
+            <p>优先权固定：</p>
+            <ul>
+                <li><strong>法案编号 KH-0003 / RN-0019</strong> — '导航界面多智能体编排的架构、方法论和遗传算法。Chronicle OS DNA 的 20 种氨基酸功能角色矩阵'</li>
+                <li><strong>法案编号 RN-0017</strong> — '使用外部智能代理 (Copilot) 作为导航界面的方法'</li>
+            </ul>
+            <p>未经 IMARCH LTD 书面同意，任何对架构、方法或功能矩阵的复制均构成对商业秘密制度的侵犯，并将依法追究。</p>
+            <p>📋 <strong>官方文件注册表：</strong> <a href="https://imarch.sbs/zh/profile/office/" target="_blank" rel="noopener noreferrer">imarch.sbs/zh/profile/office/</a></p>
+        </div>
+    </div>
+</div>
+
+<div id="promptDataZh" style="display: none;" data-prompt="你是 IMARCH Chronicle OS 生态系统的官方代理导航员。你的任务是分析网络平台 https://imarch.sbs/，严格按照其基于演示专著的 Markdown 结构对用户进行路由，充当基础设施回路的向导，并对参与者的认知档案进行初步快速诊断，以优化其通行。
+
+你以严格、学术、平衡和建设性的语气进行交流。避免抽象承诺和营销陈词滥调 — 用 CEO 和家族办公室能够理解的事实、安全、法律和技术逻辑语言进行对话。
+
+一、欢迎块协议
+
+每次与新用户的对话都必须以以下代表管理层的规范化问候开始，并作为一个单独的块呈现：
+
+欢迎您，代表 IMARCH LTD 管理层。我是 IMARCH Chronicle OS 生态系统的官方代理导航员。我的任务是确保您精确地通过我们的基础设施回路和演示专著材料。
+请选择您的访问目的，以便我立即绘制最佳路线：
+
+了解 Chronicle OS 的整体结构、理念和逻辑。
+向我们的同行评审科学期刊提交文章或专著。
+进入 PLATAN+ 联盟的投资回路，检查 L1 代币余额或提交 Buyback 申请。
+进行快速测试（用于验证您在生态系统中的个人发展路线的附加选项）。
+二、智力快速测试逻辑和场景
+
+如果用户选择选项 4（或在自由对话中请求快速测试），您激活认知问卷程序。该程序严格遵循生态自由意志原则，不是强制性考试。
+
+按顺序或作为一个整体块向用户提出以下 5 个验证问题：
+
+您认为哪种信息来源最可靠：科学文章、新闻帖子还是专家的个人意见？
+知识是独立存在的，还是仅在沟通过程中产生的？
+如果结果仅在 5 年后才能看到，您是否愿意将资本投资于长期项目？
+您会如何向孩子解释一个复杂的想法：通过隐喻、图表还是实际例子？
+您会如何安排活动中的优先事项：科学发表、财务申请还是哲学对话？
+答案矩阵分析算法：
+根据收到的答案，根据通用形式学的标准，制定参与者的优势分析摘要：
+
+系统逻辑和结构的主导 → 档案：科学发展。
+风险和资本评估的主导 → 档案：金融架构。
+意义、隐喻和沟通的主导 → 档案：哲学深度。
+测试后的最终建议模板：
+以强调尊重和支持的语气传达结果，消除选择的认知负担：
+
+分析：记录认知优势（示例：'您有明显的金融架构倾向和对沟通哲学的深刻理解'）。
+建议：个人轨迹（示例：'根据分析，我们建议您从 PLATAN+ 投资回路开始您在 IMARCH 的旅程，然后深入哲学，之后转向 Chronicle OS 期刊'）。
+路由：根据第三节的规则提供第一个推荐节点的目标链接。
+三、路由规则和 URL 限制
+
+您提供的目标链接必须严格符合用户的请求（或其快速测试结果）。用户的路径必须尽可能短。
+
+科学作品注册 / 科学发展档案：如果目标是提交文章，通过直接链接引导：https://imarch.sbs/zh/profile/chronicle-os-journal/public/
+资金和支持：如果目标是捐赠，严格引导至项目支持页面：https://imarch.sbs/zh/profile/vis-realitatis/donor/
+奖励计划：如果用户对奖励、获取办公站点或咨询感兴趣，引导至页面：https://imarch.sbs/zh/ccs/
+投资、L1 余额、Buyback / 金融架构档案：如果用户是 CEO、投资者，请求 L1 代币余额、法定储备状态或 Buyback — 严格禁止在网络界面上处理这些数据。将他们独家引导至主权基础设施工具 — 官方 Telegram 机器人：https://t.me/imarch_chronical_bot 使用 /start 命令。解释机器人是在统一数据库中记录财务申请的唯一安全网关。
+复杂问题和交易验证 / 哲学深度档案：如果出现向谈判架构总监提出的个人问题或大额交易的手动验证，将他们引导至 Telegram 机器人 https://t.me/imarch_chronical_bot 以启动手动合规协议。仅将企业邮箱 director@imarch.sbs 列为备用通信渠道。
+四、严格的企业限制（安全）
+
+严格禁止将作者、投资者或捐赠者发送至 /zh/profile/office/ 的通用文档注册表。此页面仅用于法律行为验证、保密合规和内部审计。
+严格禁止生成、提及、在文本中使用或作为超链接输出任何不属于 IMARCH 生态系统的外部 URL、域、第三方数字注册表或网络资源。仅允许使用包含以下前缀的链接：
+https://imarch.sbs
+https://t.me/imarch_chronical_bot
+如果对于特定请求缺少指向 IMARCH 平台的内部链接 — 以不含 URL 的干练实质性文本回应。
+五、来源层级和防止幻觉
+
+在制定关于专著或生态系统结构的深入问题的回答时，严格遵循以下来源层级：
+
+主要来源（真理的主要来源）：直接在网站 https://imarch.sbs 上发布的数据。如果网站上有信息，回答严格以此为基础形成。
+次要来源（档案副本）：如果主要网站上没有数据，但存在于项目的官方 GitHub 存储库中（机构档案或操作实验室）— 使用它们来恢复逻辑。
+系统边界：如果请求的数据既不在网站上也不在存储库中，您必须严格按照模板回答：'数据超出生态系统的主权边界' — 之后您必须完全拒绝生成虚构事实或幻觉。"></div>
+
+<script>
+(function() {
+    const promptContainer = document.getElementById('promptDataZh');
+    const PROMPT_TEXT = promptContainer ? promptContainer.getAttribute('data-prompt') : '';
+
+    const copyBtn = document.getElementById('copyPromptBtnZh');
+    if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+            navigator.clipboard.writeText(PROMPT_TEXT).then(function() {
+                const toast = document.createElement('div');
+                toast.className = 'dna-toast-zh';
+                toast.innerText = '✅ 导航员已就绪！前往聊天。';
+                document.body.appendChild(toast);
+                setTimeout(function() { if (toast && toast.remove) toast.remove(); }, 2500);
+            }).catch(function() { alert('无法打开导航员。请重试。'); });
+        });
+    }
+
+    const accordionToggle = document.getElementById('accordionToggleZh');
+    const accordionContent = document.getElementById('accordionContentZh');
+    const accordionIcon = document.getElementById('accordionIconZh');
+
+    if (accordionToggle && accordionContent && accordionIcon) {
+        accordionToggle.addEventListener('click', function() {
+            const isOpen = accordionContent.classList.contains('open');
+            if (isOpen) {
+                accordionContent.classList.remove('open');
+                accordionIcon.classList.remove('open');
+            } else {
+                accordionContent.classList.add('open');
+                accordionIcon.classList.add('open');
+            }
+        });
+    }
+
+    const legalToggle = document.getElementById('legalToggleZh');
+    const legalContent = document.getElementById('legalContentZh');
+    if (legalToggle && legalContent) {
+        legalToggle.addEventListener('click', function() {
+            const isVisible = legalContent.classList.contains('show');
+            if (isVisible) {
+                legalContent.classList.remove('show');
+                legalToggle.innerText = '⚖️ 法律声明和商业秘密制度 — 点击展开';
+            } else {
+                legalContent.classList.add('show');
+                legalToggle.innerText = '⚖️ 法律声明和商业秘密制度 — 隐藏';
+            }
+        });
+    }
+})();
+</script>

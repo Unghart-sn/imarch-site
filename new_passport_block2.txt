@@ -1,0 +1,117 @@
+// ---------- PDF generation ----------
+function makePassportPDF(data) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const doc = new PDFDocument({ size: 'A4', margin: 0 });
+      const chunks = [];
+      doc.on('data', (c) => chunks.push(c));
+      doc.on('end', () => resolve(Buffer.concat(chunks)));
+      doc.on('error', reject);
+
+      const PW = 595.28, PH = 841.89;
+      const INK = '#1a1a1a', ACCENT = '#8b1a1a', MUTED = '#666666', PAPER = '#f7f5ef';
+
+      const qrPayload = 'https://imarch.ltd/en/certify/status/?order_id=' + data.order_id + '&token=' + data.hmac_token;
+      const qrBuf = await QRCode.toBuffer(qrPayload, { type: 'png', width: 240, margin: 1 });
+
+      doc.rect(0, 0, PW, PH).fill(PAPER);
+
+      doc.lineWidth(0.5).strokeColor(INK).rect(40, 40, PW - 80, PH - 80).stroke();
+      doc.lineWidth(1.5).strokeColor(ACCENT).rect(30, 30, PW - 60, PH - 60).stroke();
+
+      try {
+        const fs = require('fs');
+        const path = require('path');
+        const logoPath = path.join(__dirname, 'assets', 'logo.png');
+        const logoBuf = fs.readFileSync(logoPath);
+        doc.image(logoBuf, 60, 60, { width: 56, height: 56 });
+      } catch (e) {
+        console.error('PDF logo error:', e.message);
+      }
+
+      doc.fillColor(INK).font('Helvetica-Bold').fontSize(20)
+         .text('iMarch', PW - 260, 62, { width: 200, align: 'right' });
+      doc.fillColor(MUTED).font('Helvetica').fontSize(7)
+         .text('INSTITUTIONAL DIGITAL NOTARY', PW - 260, 88, { width: 200, align: 'right', characterSpacing: 1.2 });
+      doc.fillColor(MUTED).fontSize(7)
+         .text('imarch.ltd', PW - 260, 100, { width: 200, align: 'right' });
+
+      doc.lineWidth(0.5).strokeColor(ACCENT).moveTo(60, 135).lineTo(PW - 60, 135).stroke();
+
+      doc.fillColor(INK).font('Helvetica-Bold').fontSize(26)
+         .text('Act-Passport', 0, 160, { width: PW, align: 'center' });
+      doc.fillColor(MUTED).font('Helvetica').fontSize(9)
+         .text('Certificate of Timestamped Record', 0, 194, { width: PW, align: 'center', characterSpacing: 1.5 });
+
+      let y = 240;
+      const KX = 70, VX = 220, VW = PW - 70 - VX;
+      const row = (k, v) => {
+        doc.fillColor(MUTED).font('Helvetica').fontSize(9).text(k, KX, y, { width: VX - KX - 10 });
+        doc.fillColor(INK).font('Helvetica').fontSize(10).text(String(v), VX, y, { width: VW });
+        y += 20;
+      };
+      const sectionLabel = (t) => {
+        y += 4;
+        doc.fillColor(ACCENT).font('Helvetica-Bold').fontSize(8)
+           .text(t.toUpperCase(), KX, y, { characterSpacing: 1.5 });
+        y += 16;
+      };
+
+      sectionLabel('Record');
+      row('Order ID', data.order_id);
+      row('Holder', data.full_name + ' <' + data.email + '>');
+      row('Document title', data.title);
+      row('File name', data.filename);
+      row('Size (bytes)', data.size_bytes);
+
+      sectionLabel('Integrity');
+      doc.fillColor(MUTED).font('Helvetica').fontSize(9).text('SHA-256 of original file', KX, y);
+      y += 14;
+      doc.fillColor(INK).font('Courier').fontSize(8).text(String(data.sha256), KX, y, { width: PW - 2 * KX });
+      y += 24;
+
+      if (data.tsa_status === 'ok') {
+        row('RFC 3161 TSA', 'FreeTSA - status ' + data.tsa_status_code);
+        doc.fillColor(MUTED).font('Helvetica').fontSize(8).text('TSA token (base64, truncated)', KX, y);
+        y += 12;
+        const tsaStr = String(data.tsa_token_b64).slice(0, 400);
+        const tsaChunked = tsaStr.match(/.{1,80}/g).join('\n') + '...';
+        doc.fillColor(INK).font('Courier').fontSize(7)
+           .text(tsaChunked, KX, y, { width: PW - 2 * KX, lineGap: 2 });
+        y += doc.heightOfString(tsaChunked, { width: PW - 2 * KX, lineGap: 2 }) + 10;
+      } else {
+        row('RFC 3161 TSA', 'skipped (' + (data.tsa_status || 'disabled') + ')');
+      }
+
+      row('Anchor', ANCHOR_ENABLED ? 'pending' : 'skipped (dry-run)');
+      row('VirusTotal', VT_ENABLED ? 'pending' : 'skipped (dry-run)');
+
+      const FY = 630; 
+      doc.lineWidth(0.5).strokeColor(ACCENT).moveTo(60, FY).lineTo(PW - 60, FY).stroke();
+
+      const QR_SIZE = 110;
+      const QR_X = PW - 60 - QR_SIZE - 10;
+      doc.lineWidth(0.5).strokeColor(INK).rect(QR_X - 5, FY + 16, QR_SIZE + 10, QR_SIZE + 10).stroke();
+      doc.image(qrBuf, QR_X, FY + 21, { width: QR_SIZE, height: QR_SIZE });
+
+      const TEXT_W = PW - 60 - 60 - QR_SIZE - 30;
+      doc.fillColor(MUTED).font('Helvetica').fontSize(8)
+         .text('This passport binds the SHA-256 digest of the original file to a trusted timestamp.',
+               60, FY + 18, { width: TEXT_W });
+      doc.fillColor(MUTED).fontSize(8)
+         .text('Any modification of the file invalidates the digest. Keep the original file.',
+               60, FY + 32, { width: TEXT_W });
+
+      doc.fillColor(ACCENT).font('Helvetica-Bold').fontSize(8)
+         .text('VERIFY ONLINE', 60, FY + 60, { characterSpacing: 1.2 });
+      doc.fillColor(INK).font('Courier').fontSize(6)
+         .text(qrPayload, 60, FY + 74, { width: TEXT_W, lineGap: 2 });
+
+      doc.fillColor(MUTED).font('Helvetica').fontSize(7)
+         .text('Issued by imarch.ltd - ' + new Date().toISOString().slice(0, 10),
+               60, PH - 60, { width: PW - 120 });
+
+      doc.end();
+    } catch (e) { reject(e); }
+  });
+}

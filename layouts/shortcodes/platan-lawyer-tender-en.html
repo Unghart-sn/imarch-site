@@ -1,0 +1,297 @@
+<style>
+/* =================== TENDER FOR THE DREAM LAWYER =================== */
+/* LEAD‑MAGNET BLOCK FOR EXPERTS */
+
+.platan-lawyer-hunt {
+    width: 100%;
+    max-width: 1000px;
+    margin: 80px auto;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #0f1a2e 0%, #1a2538 100%);
+    border-radius: 16px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.platan-lawyer-hunt::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #8b5cf6, #3b82f6, #8b5cf6);
+}
+
+.platan-lawyer-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 6rem;
+    opacity: 0.1;
+    pointer-events: none;
+    user-select: none;
+}
+
+.platan-lawyer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: white;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.platan-lawyer-subtitle {
+    font-size: 1.3rem;
+    color: #cbd5e1;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+}
+
+.platan-lawyer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin: 50px 0;
+    position: relative;
+    z-index: 1;
+}
+
+.platan-lawyer-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.platan-lawyer-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    border-color: #8b5cf6;
+}
+
+.platan-lawyer-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.platan-lawyer-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: white;
+    margin: 0 0 15px 0;
+}
+
+.platan-lawyer-card p {
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.platan-lawyer-offer {
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 12px;
+    padding: 40px;
+    margin: 40px 0;
+    border-left: 4px solid #8b5cf6;
+    position: relative;
+    z-index: 1;
+}
+
+.platan-offer-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.platan-offer-title::before {
+    content: '🎁';
+    font-size: 2rem;
+}
+
+.platan-offer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.platan-offer-list li {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: #e2e8f0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
+.platan-offer-list li::before {
+    content: '✓';
+    color: #8b5cf6;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.platan-lawyer-cta {
+    text-align: center;
+    margin-top: 50px;
+    position: relative;
+    z-index: 1;
+}
+
+.platan-lawyer-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+    color: white;
+    text-decoration: none;
+    padding: 18px 45px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+}
+
+.platan-lawyer-button:hover {
+    background: linear-gradient(135deg, #7c3aed 0%, #2563eb 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.4);
+}
+
+.platan-lawyer-note {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+    .platan-lawyer-hunt {
+        padding: 40px 20px;
+        margin: 50px auto;
+    }
+    
+    .platan-lawyer-title {
+        font-size: 2.2rem;
+    }
+    
+    .platan-lawyer-subtitle {
+        font-size: 1.1rem;
+    }
+    
+    .platan-lawyer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .platan-lawyer-offer {
+        padding: 30px 20px;
+    }
+    
+    .platan-offer-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .platan-lawyer-button {
+        padding: 16px 35px;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+/* Animation */
+@keyframes pulseGlow {
+    0% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(139, 92, 246, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0); }
+}
+
+.platan-lawyer-hunt {
+    animation: pulseGlow 3s infinite;
+}
+</style>
+
+<div class="platan-lawyer-hunt">
+    <div class="platan-lawyer-decoration">⚖️</div>
+    
+    <h2 class="platan-lawyer-title">Tender: The Lawyer of the Future</h2>
+    <p class="platan-lawyer-subtitle">
+        We are not looking for just any lawyer. We are looking for an architect of the new economy. 
+        Someone who sees paragraphs not as constraints, but as opportunities. Who is ready to write laws 
+        where none yet exist.
+    </p>
+    
+    <div class="platan-lawyer-grid">
+        <div class="platan-lawyer-card">
+            <div class="platan-lawyer-icon">🎯</div>
+            <h4>Experience: from 0 to ∞</h4>
+            <p>
+                We don't care about years in consulting. What matters is the ability to think in systems, 
+                to see structure where others see chaos.
+            </p>
+        </div>
+        
+        <div class="platan-lawyer-card">
+            <div class="platan-lawyer-icon">🚀</div>
+            <h4>Ambitions: galactic</h4>
+            <p>
+                We don't fill out forms. We set precedents. We change the rules of the game. 
+                If your dream is to draft the law for the economy of meaning, you are our person.
+            </p>
+        </div>
+        
+        <div class="platan-lawyer-card">
+            <div class="platan-lawyer-icon">💫</div>
+            <h4>Mission: historic</h4>
+            <p>
+                Your name could go down in history as the creator of the legal infrastructure 
+                for conscious capitalism. Not just a job — a legacy.
+            </p>
+        </div>
+    </div>
+    
+    <div class="platan-lawyer-offer">
+        <h3 class="platan-offer-title">What we offer in return</h3>
+        <ul class="platan-offer-list">
+            <li>A stake in the consortium, not a salary</li>
+            <li>A seat on the Council as co‑architect</li>
+            <li>Authorship of methodology and publications</li>
+            <li>Freedom to build from scratch, no legacy</li>
+            <li>A team of like‑minded visionaries</li>
+            <li>The chance to define legal standards for decades</li>
+        </ul>
+    </div>
+    
+    <div class="platan-lawyer-cta">
+        <a href="#" class="platan-lawyer-button">
+            ⚖️ Apply to the dream‑lawyer tender
+        </a>
+        <p class="platan-lawyer-note">
+            P.S. If you don't have an LLM but you have a vision — write to us anyway. Diplomas can be bought, genius cannot.
+        </p>
+    </div>
+</div>

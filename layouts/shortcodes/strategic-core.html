@@ -1,0 +1,302 @@
+{{/* strategic-core.html – шестикарточная структура экосистемы IMARCH */}}
+{{ $lang := .Page.Language.Lang | default "en" }}
+
+{{/* strategic-core.html – шестикарточная структура экосистемы IMARCH */}}
+{{ $lang := .Page.Language.Lang | default "en" }}
+
+{{ $title1 := "" }} {{ $sub1 := "" }} {{ $desc1 := "" }} {{ $btn1 := "" }} {{ $tag1 := "" }}
+{{ $title2 := "" }} {{ $sub2 := "" }} {{ $desc2 := "" }} {{ $btn2 := "" }} {{ $tag2 := "" }}
+{{ $title3 := "" }} {{ $sub3 := "" }} {{ $desc3 := "" }} {{ $btn3 := "" }} {{ $tag3 := "" }}
+{{ $title4 := "" }} {{ $sub4 := "" }} {{ $desc4 := "" }} {{ $btn4 := "" }} {{ $tag4 := "" }}
+{{ $title5 := "" }} {{ $sub5 := "" }} {{ $desc5 := "" }} {{ $btn5 := "" }} {{ $tag5 := "" }}
+{{ $title6 := "" }} {{ $sub6 := "" }} {{ $desc6 := "" }} {{ $btn6 := "" }} {{ $tag6 := "" }}
+{{ $footer := "" }}
+
+{{ if eq $lang "ru" }}
+  {{ $title1 = "Vis Realitis™" }}
+  {{ $sub1 = "Идеология и адаптация" }}
+  {{ $desc1 = "Центр реновации и социальной адаптации ветеранов. Включает внутреннюю Школу Девяти Искусств. Базируется на безмедикаментозной превентивной медицине (школа проф. Щербаня, проф. Калмыкова, контур UMSS)." }}
+  {{ $btn1 = "❤️ Поддержать Центр" }}
+  {{ $tag1 = "идеология" }}
+  
+  {{ $title2 = "Chronicle Communication System™" }}
+  {{ $sub2 = "Технология измерения" }}
+  {{ $desc2 = "Специализированный софт и полный протокол цифровой хроники. Превращает терапию, эстетику и состояния в цифровую метрику через оптические засечки, 3D-сканирование и парсинг." }}
+  {{ $btn2 = "💾 Подробнее о CCS" }}
+  {{ $tag2 = "цифровая фиксация" }}
+  
+  {{ $title3 = "Chronicle OS™" }}
+  {{ $sub3 = "Научная верификация" }}
+  {{ $desc3 = "Международный рецензируемый научный журнал. Действует как публикационный конвейер знаний экосистемы: Double-Blind рецензирование, DOI, хеш-фиксация метаданных и открытый доступ." }}
+  {{ $btn3 = "📚 Перейти к журналу" }}
+  {{ $tag3 = "верификация" }}
+
+  {{ $title4 = "VERDICTUM™" }}
+  {{ $sub4 = "Экспертный контур" }}
+  {{ $desc4 = "Научно-публицистическое издание международного института RDIAR (деструкция рисков и фиксация институциональных действий). Суверенный линейный реестр верифицированного знания." }}
+  {{ $btn4 = "🏛️ Открыть Реестр" }}
+  {{ $tag4 = "реестр памяти" }}
+
+  {{ $title5 = "CONSILIUM™" }}
+  {{ $sub5 = "Реальный сектор" }}
+  {{ $desc5 = "Производственный и сервисный сектор экосистемы. Разработка, спецодежда, формологический консалтинг и франчайзинг. Каждое изделие и услуга получают DOI в общей базе знаний." }}
+  {{ $btn5 = "🏭 Вход в CONSILIUM" }}
+  {{ $tag5 = "производство" }}
+
+  {{ $title6 = "COLLEGIUM™" }}
+  {{ $sub6 = "Институциональный B2B" }}
+  {{ $desc6 = "Сектор стратегического корпоративного взаимодействия, выкупа активов, капитализации и управления фиатными резервами. Контур Меморандума и высшего координационного совета." }}
+  {{ $btn6 = "💼 Вход в COLLEGIUM" }}
+  {{ $tag6 = "капитализация" }}
+  
+  {{ $footer = "НАУЧНО-ПРОИЗВОДСТВЕННОЕ ПРЕДПРИЯТИЕ ЗАМКНУТОГО ЦИКЛА IMARCH" }}
+
+{{ else if eq $lang "uk" }}
+  {{ $title1 = "Vis Realitis™" }}
+  {{ $sub1 = "Ідеологія та адаптація" }}
+  {{ $desc1 = "Центр реновації та соціальної адаптації ветеранів. Включає внутрішню Школу Дев'яти Мистецтв. Базується на безмедикаментозній превентивній медицині (школа проф. Щербаня, проф. Калмыкова, контур UMSS)." }}
+  {{ $btn1 = "❤️ Підтримати Центр" }}
+  {{ $tag1 = "ідеологія" }}
+  
+  {{ $title2 = "Chronicle Communication System™" }}
+  {{ $sub2 = "Технологія вимірювання" }}
+  {{ $desc2 = "Спеціалізований софт та повний протокол цифрової хроніки. Перетворює терапію, естетику та стани на цифрову метрику через оптичні засічки, 3D-сканування та парсинг." }}
+  {{ $btn2 = "💾 Докладніше про CCS" }}
+  {{ $tag2 = "цифрова фіксація" }}
+  
+  {{ $title3 = "Chronicle OS™" }}
+  {{ $sub3 = "Наукова верифікація" }}
+  {{ $desc3 = "Міжнародний рецензований науковий журнал. Діє як публікаційний конвеєр знань екосистеми: Double-Blind рецензування, DOI, хеш-фіксація метаданих та відкритий доступ." }}
+  {{ $btn3 = "📚 Перейти до журналу" }}
+  {{ $tag3 = "верифікація" }}
+
+  {{ $title4 = "VERDICTUM™" }}
+  {{ $sub4 = "Експертний контур" }}
+  {{ $desc4 = "Науково-публіцистичне видання міжнародного інституту RDIAR (деструкція ризиків та фіксація інституційних дій). Суверенний лінійний реєстр верифікованого знання." }}
+  {{ $btn4 = "🏛️ Відкрити Реєстр" }}
+  {{ $tag4 = "реєстр пам'яті" }}
+
+  {{ $title5 = "CONSILIUM™" }}
+  {{ $sub5 = "Реальний сектор" }}
+  {{ $desc5 = "Виробничий та сервісний сектор екосистеми. Розробка, спецодяг, формологічний консалтинг та франчайзинг. Кожен виріб та послуга отримують DOI у загальній базі знань." }}
+  {{ $btn5 = "🏭 Вхід до CONSILIUM" }}
+  {{ $tag5 = "виробництво" }}
+
+  {{ $title6 = "COLLEGIUM™" }}
+  {{ $sub6 = "Інституційний B2B" }}
+  {{ $desc6 = "Сектор стратегічної корпоративної взаємодії, викупу активів, капіталізації та управління фіатними резервами. Контур Меморандуму та вищої координаційної ради." }}
+  {{ $btn6 = "💼 Вхід до COLLEGIUM" }}
+  {{ $tag6 = "капіталізація" }}
+  
+  {{ $footer = "НАУКОВО-ВИРОБНИЧЕ ПІДПРИЄМСТВО ЗАМКНЕНОГО ЦИКЛУ IMARCH" }}
+
+{{ else }}
+  {{ $title1 = "Vis Realitis™" }}
+  {{ $sub1 = "Ideology & Adaptation" }}
+  {{ $desc1 = "Center for renovation and social adaptation of veterans. Includes the internal School of Nine Arts. Based on drug-free preventive medicine (UMSS circuit)." }}
+  {{ $btn1 = "❤️ Support Center" }}
+  {{ $tag1 = "ideology" }}
+  
+  {{ $title2 = "Chronicle Communication System™" }}
+  {{ $sub2 = "Measurement Technology" }}
+  {{ $desc2 = "Specialized software and full digital chronicle protocol. Transforms therapy and states into digital metrics via optical markers and 3D scanning." }}
+  {{ $btn2 = "💾 More about CCS" }}
+  {{ $tag2 = "digital fixation" }}
+  
+  {{ $title3 = "Chronicle OS™" }}
+  {{ $sub3 = "Scientific Verification" }}
+  {{ $desc3 = "International peer-reviewed scientific journal. Knowledge pipeline: Double-Blind peer review, DOI, metadata hash fixation, and open access." }}
+  {{ $btn3 = "📚 Go to Journal" }}
+  {{ $tag3 = "verification" }}
+
+  {{ $title4 = "VERDICTUM™" }}
+  {{ $sub4 = "Expert Circuit" }}
+  {{ $desc4 = "Scientific-publicistic publication of the international institute RDIAR (risk deconstruction & institutional action recording). Sovereign registry." }}
+  {{ $btn4 = "🏛️ Open Registry" }}
+  {{ $tag4 = "registry" }}
+
+  {{ $title5 = "CONSILIUM™" }}
+  {{ $sub5 = "Real Sector" }}
+  {{ $desc5 = "Production and service sector of the ecosystem. Development, workwear, formological consulting. Every development receives a DOI." }}
+  {{ $btn5 = "🏭 Go to CONSILIUM" }}
+  {{ $tag5 = "production" }}
+
+  {{ $title6 = "COLLEGIUM™" }}
+  {{ $sub6 = "Institutional B2B" }}
+  {{ $desc6 = "Strategic corporate interaction, asset buyback, capitalization, and fiat backing reserve management panel." }}
+  {{ $btn6 = "💼 Go to COLLEGIUM" }}
+  {{ $tag6 = "capitalization" }}
+  
+  {{ $footer = "IMARCH CLOSED LOOP SCIENTIFIC AND PRODUCTION ENTERPRISE" }}
+{{ end }}
+
+<style>
+.custom-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.custom-card {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.custom-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.custom-emoji {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+.custom-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #2c2416;
+  margin-bottom: 0.25rem;
+  border-left: 3px solid #8b7355;
+  padding-left: 0.75rem;
+}
+.custom-subtitle {
+  font-weight: 600;
+  font-size: 0.8rem;
+  color: #8b7355;
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.custom-desc {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #4a3a2a;
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+.custom-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8b7355;
+  background: rgba(139,115,85,0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 30px;
+  margin-top: 0.75rem;
+  align-self: flex-start;
+}
+.pilot-steel-btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.6rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  text-align: center;
+  box-sizing: border-box;
+}
+.pilot-steel-btn:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+@media (max-width: 640px) {
+  .custom-cards {
+    grid-template-columns: 1fr;
+  }
+  .pilot-steel-btn {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>
+
+<div class="custom-cards">
+  <!-- Блок 1: Vis Realitis -->
+  <div class="custom-card">
+    <div class="custom-emoji">🧠</div>
+    <div class="custom-title">{{ $title1 }}</div>
+    <div class="custom-subtitle">{{ $sub1 }}</div>
+    <div class="custom-desc">{{ $desc1 | safeHTML }}</div>
+    <div style="margin-top: 1rem;">
+      <a href="/{{ $lang }}/profile/vis-realitatis/donor/" class="pilot-steel-btn" style="display: inline-block; width: 100%; text-align: center;">{{ $btn1 }}</a>
+    </div>
+    <div class="custom-tag">{{ $tag1 }}</div>
+  </div>
+
+  <!-- Блок 2: CCS -->
+  <div class="custom-card">
+    <div class="custom-emoji">💻</div>
+    <div class="custom-title">{{ $title2 }}</div>
+    <div class="custom-subtitle">{{ $sub2 }}</div>
+    <div class="custom-desc">{{ $desc2 | safeHTML }}</div>
+    <div style="margin-top: 1rem;">
+      <a href="/{{ $lang }}/profile/ccs/" class="pilot-steel-btn" style="display: inline-block; width: 100%; text-align: center;">{{ $btn2 }}</a>
+    </div>
+    <div class="custom-tag">{{ $tag2 }}</div>
+  </div>
+
+  <!-- Блок 3: Chronicle OS -->
+  <div class="custom-card">
+    <div class="custom-emoji">📚</div>
+    <div class="custom-title">{{ $title3 }}</div>
+    <div class="custom-subtitle">{{ $sub3 }}</div>
+    <div class="custom-desc">{{ $desc3 | safeHTML }}</div>
+    <div style="margin-top: 1rem;">
+      <a href="/{{ $lang }}/" class="pilot-steel-btn" style="display: inline-block; width: 100%; text-align: center;">{{ $btn3 }}</a>
+    </div>
+    <div class="custom-tag">{{ $tag3 }}</div>
+  </div>
+
+  <!-- Блок 4: VERDICTUM -->
+  <div class="custom-card">
+    <div class="custom-emoji">🏛️</div>
+    <div class="custom-title">{{ $title4 }}</div>
+    <div class="custom-subtitle">{{ $sub4 }}</div>
+    <div class="custom-desc">{{ $desc4 | safeHTML }}</div>
+    <div style="margin-top: 1rem;">
+      <a href="/{{ $lang }}/verdictum/" class="pilot-steel-btn" style="display: inline-block; width: 100%; text-align: center;">{{ $btn4 }}</a>
+    </div>
+    <div class="custom-tag">{{ $tag4 }}</div>
+  </div>
+
+  <!-- Блок 5: CONSILIUM -->
+  <div class="custom-card">
+    <div class="custom-emoji">🏗️</div>
+    <div class="custom-title">{{ $title5 }}</div>
+    <div class="custom-subtitle">{{ $sub5 }}</div>
+    <div class="custom-desc">{{ $desc5 | safeHTML }}</div>
+    <div style="margin-top: 1rem;">
+      <a href="/{{ $lang }}/docs/consilium/" class="pilot-steel-btn" style="display: inline-block; width: 100%; text-align: center;">{{ $btn5 }}</a>
+    </div>
+    <div class="custom-tag">{{ $tag5 }}</div>
+  </div>
+
+  <!-- Блок 6: COLLEGIUM -->
+  <div class="custom-card">
+    <div class="custom-emoji">💼</div>
+    <div class="custom-title">{{ $title6 }}</div>
+    <div class="custom-subtitle">{{ $sub6 }}</div>
+    <div class="custom-desc">{{ $desc6 | safeHTML }}</div>
+    <div style="margin-top: 1rem;">
+      <a href="/{{ $lang }}/docs/collegium/" class="pilot-steel-btn" style="display: inline-block; width: 100%; text-align: center;">{{ $btn6 }}</a>
+    </div>
+    <div class="custom-tag">{{ $tag6 }}</div>
+  </div>
+</div>
+
+<p style="text-align: center; font-size: 0.9rem; color: #8b7355; margin: 1rem 0 2rem 0;">
+  <strong>{{ $footer }}</strong>
+</p>

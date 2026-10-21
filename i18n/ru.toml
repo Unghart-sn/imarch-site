@@ -1,0 +1,123 @@
+[[translation]]
+id = "dateFormat"
+translation = "2 января 2006"
+
+[[translation]]
+id = "shortdateFormat"
+translation = "2 янв 2006 15:04:05"
+
+[[translation]]
+id = "postedOnDate"
+translation = "Опубликовано {{ . }}"
+
+[[translation]]
+id = "lastModified"
+translation = "(Последнее изменение {{ . }})"
+
+[[translation]]
+id = "translationsLabel"
+translation = "Другие языки: "
+
+[[translation]]
+id = "translationsSeparator"
+translation = ", "
+
+[[translation]]
+id = "readMore"
+translation = "Читать далее"
+
+[[translation]]
+id = "olderPosts"
+translation = "Ранее"
+
+[[translation]]
+id = "newerPosts"
+translation = "Позже"
+
+[[translation]]
+id = "previousPost"
+translation = "Предыдущий"
+
+[[translation]]
+id = "nextPost"
+translation = "Следующий"
+
+[[translation]]
+id = "readTime"
+translation = "минут"
+
+[[translation]]
+id = "words"
+translation = "слов"
+
+[[translation]]
+id = "pageNotFound"
+translation = "Увы! Страница не найдена. (Ошибка 404)"
+
+[[translation]]
+id = "poweredBy"
+translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Тема <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> основана на <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+
+[[translation]]
+id = "toggleNavigation"
+translation = "Переключить навигацию"
+
+[[translation]]
+id = "languageSwitcherLabel"
+translation = "Язык"
+
+[[translation]]
+id = "gcseLabelShort"
+translation = "Поиск"
+
+[[translation]]
+id = "gcseLabelLong"
+translation = "Поиск по {{ .Site.Title }}"
+
+[[translation]]
+id = "gcseClose"
+translation = "Закрыть"
+
+[[translation]]
+id = "noComment"
+translation = "Нет комментариев"
+
+[[translation]]
+id = "oneComment"
+translation = "комментарий"
+
+[[translation]]
+id = "moreComment"
+translation = "комментарии"
+
+[[translation]]
+id = "useMarkdown"
+translation = "Можно использовать синтаксис Markdown"
+
+[[translation]]
+id = "yourName"
+translation = "Ваше имя"
+
+[[translation]]
+id = "yourEmail"
+translation = "Ваш email"
+
+[[translation]]
+id = "yourWebsite"
+translation = "Ваш сайт"
+
+[[translation]]
+id = "show"
+translation = "Показать"
+
+[[translation]]
+id = "comments"
+translation = "Комментарии"
+
+[[translation]]
+id = "seeAlso"
+translation = "Смотрите также"
+
+
+
+

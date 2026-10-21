@@ -1,0 +1,230 @@
+{{ $lang := .Page.Language.Lang | default "en" }}
+{{ $base := printf "/%s" $lang }}
+
+{{ $p1 := "" }}
+{{ $p2 := "" }}
+{{ $btn1 := "" }}
+{{ $btn2 := "" }}
+{{ $p3 := "" }}
+{{ $meta := "" }}
+{{ $links := "" }}
+{{ $expert := "" }}
+
+{{ if eq $lang "ru" }}
+  {{ $p1 = "Официальная методология и правовая рамка проекта <strong>IMARCH | Chronicle OS</strong> фиксируют архитектуру функционально-когнитивного контура превентивной реновации." }}
+  {{ $p2 = "Развертывание экосистемы и верификация данных осуществляются международной платформой <strong>Chronicle OS Journal</strong> на базе концепции многомерной институциональной устойчивости (DSA) и открытого рецензирования." }}
+  {{ $btn1 = "📄 Открыть методологию и White Paper" }}
+  {{ $btn2 = "🤝 Поддержать гуманитарный трек исследований на WhyDonate" }}
+  {{ $p3 = "Практическая апробация модели проходит в рамках некоммерческого гуманитарного трека <strong>Vis Realitatis</strong> (комплексная безмедикаментозная реабилитация ветеранов) с фиксацией результатов в криптографическом архиве Archivum." }}
+  {{ $meta = "Отчёты, архив решений и хешированные препринты публикуются в Archivum по мере развития проекта." }}
+  {{ $expert = "вход эксперта →" }}
+{{ else if eq $lang "uk" }}
+  {{ $p1 = "Офіційна методологія та правова рамка проєкту <strong>IMARCH | Chronicle OS</strong> фіксують архітектуру функціонально-когнітивного контуру превентивної реновації." }}
+  {{ $p2 = "Розгортання екосистеми та верифікація даних здійснюються міжнародною платформою <strong>Chronicle OS Journal</strong> на базі концепції багатовимірної інституційної стійкості (DSA) та відкритого рецензування." }}
+  {{ $btn1 = "📄 Відкрити методологію та White Paper" }}
+  {{ $btn2 = "🤝 Підтримати гуманітарний трек досліджень на WhyDonate" }}
+  {{ $p3 = "Практична апробація моделі проходить у межах некомерційного гуманітарного треку <strong>Vis Realitatis</strong> (комплексна безмедикаментозна реабілітація ветеранів) з фіксацією результатів у криптографічному архіві Archivum." }}
+  {{ $meta = "Звіти, архів рішень та хешовані препринти публікуються в Archivum у міру розвитку проєкту." }}
+  {{ $expert = "вхід експерта →" }}
+{{ else if eq $lang "en" }}
+  {{ $p1 = "The official methodology and legal framework of the <strong>IMARCH | Chronicle OS</strong> project fix the architecture of the functional-cognitive contour of preventive renovation." }}
+  {{ $p2 = "Ecosystem deployment and data verification are carried out by the international platform <strong>Chronicle OS Journal</strong> based on the concept of multidimensional institutional sustainability (DSA) and open peer review." }}
+  {{ $btn1 = "📄 Open methodology and White Paper" }}
+  {{ $btn2 = "🤝 Support the humanitarian research track on WhyDonate" }}
+  {{ $p3 = "Practical approbation of the model takes place within the non-profit humanitarian track <strong>Vis Realitatis</strong> (comprehensive drug-free rehabilitation of veterans) with recording of results in the cryptographic Archivum archive." }}
+  {{ $meta = "Reports, decision archive and hashed preprints are published in Archivum as the project develops." }}
+  {{ $expert = "expert entry →" }}
+{{ else if eq $lang "la" }}
+  {{ $p1 = "Methodologia officialis et compages legalis propositi <strong>IMARCH | Chronicle OS</strong> architecturam contoris functionalis-cognitivae renovationis preventivae figunt." }}
+  {{ $p2 = "Explicatio oecosystematis et verificatio datorum peraguntur a suggestu internationali <strong>Chronicle OS Journal</strong> fundata in conceptu sustentationis institutionalis multidimensionalis (DSA) et recensionis apertae." }}
+  {{ $btn1 = "📄 Aperi methodologiam et Libellum Album" }}
+  {{ $btn2 = "🤝 Sustine tramitem humanitarium investigationum in WhyDonate" }}
+  {{ $p3 = "Approbatio practica exemplaris fit intra tramitem humanitarium non lucrativum <strong>Vis Realitatis</strong> (rehabilitatio comprehensiva veteranorum sine medicamentis) cum fixatione resultatorum in archivo cryptographico Archivum." }}
+  {{ $meta = "Relationes, archive decisionum et preprinta hashed publicantur in Archivum sicut propositum evolvitur." }}
+  {{ $expert = "ingressus periti →" }}
+{{ else if eq $lang "fr" }}
+  {{ $p1 = "La méthodologie officielle et le cadre juridique du projet <strong>IMARCH | Chronicle OS</strong> fixent l'architecture du contour fonctionnel-cognitif de la rénovation préventive." }}
+  {{ $p2 = "Le déploiement de l'écosystème et la vérification des données sont effectués par la plateforme internationale <strong>Chronicle OS Journal</strong> basée sur le concept de durabilité institutionnelle multidimensionnelle (DSA) et d'évaluation ouverte par les pairs." }}
+  {{ $btn1 = "📄 Ouvrir la méthodologie et le livre blanc" }}
+  {{ $btn2 = "🤝 Soutenir la piste de recherche humanitaire sur WhyDonate" }}
+  {{ $p3 = "L'approbation pratique du modèle a lieu dans le cadre de la piste humanitaire à but non lucratif <strong>Vis Realitatis</strong> (réadaptation complète sans médicaments des anciens combattants) avec enregistrement des résultats dans l'archive cryptographique Archivum." }}
+  {{ $meta = "Les rapports, l'archive des décisions et les prépublications hachées sont publiés dans Archivum au fur et à mesure du développement du projet." }}
+  {{ $expert = "entrée experte →" }}
+{{ else if eq $lang "es" }}
+  {{ $p1 = "La metodología oficial y el marco legal del proyecto <strong>IMARCH | Chronicle OS</strong> fijan la arquitectura del contorno funcional-cognitivo de la renovación preventiva." }}
+  {{ $p2 = "El despliegue del ecosistema y la verificación de datos son realizados por la plataforma internacional <strong>Chronicle OS Journal</strong> basada en el concepto de sostenibilidad institucional multidimensional (DSA) y revisión abierta por pares." }}
+  {{ $btn1 = "📄 Abrir metodología y Libro Blanco" }}
+  {{ $btn2 = "🤝 Apoyar el seguimiento de investigación humanitaria en WhyDonate" }}
+  {{ $p3 = "La aprobación práctica del modelo tiene lugar dentro del seguimiento humanitario sin fines de lucro <strong>Vis Realitatis</strong> (rehabilitación integral sin medicamentos de veteranos) con registro de resultados en el archivo criptográfico Archivum." }}
+  {{ $meta = "Los informes, el archivo de decisiones y las prepublicaciones hash se publican en Archivum a medida que se desarrolla el proyecto." }}
+  {{ $expert = "entrada experta →" }}
+{{ else if eq $lang "zh" }}
+  {{ $p1 = "<strong>IMARCH | Chronicle OS</strong> 项目的官方方法论和法律框架构建了预防性修复的功能-认知环路架构。" }}
+  {{ $p2 = "生态系统的部署和数据验证由国际平台 <strong>Chronicle OS Journal</strong> 基于多维机构可持续性（DSA）和开放同行评审的概念进行。" }}
+  {{ $btn1 = "📄 打开方法论和白皮书" }}
+  {{ $btn2 = "🤝 在 WhyDonate 上支持人道主义研究轨道" }}
+  {{ $p3 = "模型的实际验证在非营利人道主义轨道 <strong>Vis Realitatis</strong>（退伍军人综合性无药物康复）中进行，结果记录在加密档案 Archivum 中。" }}
+  {{ $meta = "报告、决策档案和哈希预印本随项目发展在 Archivum 中发布。" }}
+  {{ $expert = "专家入口 →" }}
+{{ else if eq $lang "ar" }}
+  {{ $p1 = "المنهجية الرسمية والإطار القانوني لمشروع <strong>IMARCH | Chronicle OS</strong> يثبتان هندسة المحيط الوظيفي المعرفي للتجديد الوقائي." }}
+  {{ $p2 = "يتم نشر النظام البيئي والتحقق من البيانات بواسطة المنصة الدولية <strong>Chronicle OS Journal</strong> القائمة على مفهوم الاستدامة المؤسسية متعددة الأبعاد (DSA) والمراجعة المفتوحة." }}
+  {{ $btn1 = "📄 فتح المنهجية والكتاب الأبيض" }}
+  {{ $btn2 = "🤝 دعم المسار البحثي الإنساني على WhyDonate" }}
+  {{ $p3 = "يتم التحقق العملي للنموذج ضمن المسار الإنساني غير الربحي <strong>Vis Realitatis</strong> (إعادة تأهيل شامل للمحاربين القدامى بدون أدوية) مع تسجيل النتائج في أرشيف Archivum المشفر." }}
+  {{ $meta = "التقارير وأرشيف القرارات والمسودات الهاشية تُنشر في Archivum مع تطور المشروع." }}
+  {{ $expert = "مدخل الخبراء ←" }}
+{{ else }}
+  {{ $p1 = "The official methodology and legal framework of the <strong>IMARCH | Chronicle OS</strong> project fix the architecture of the functional-cognitive contour of preventive renovation." }}
+  {{ $p2 = "Ecosystem deployment and data verification are carried out by the international platform <strong>Chronicle OS Journal</strong> based on the concept of multidimensional institutional sustainability (DSA) and open peer review." }}
+  {{ $btn1 = "📄 Open methodology and White Paper" }}
+  {{ $btn2 = "🤝 Support the humanitarian research track on WhyDonate" }}
+  {{ $p3 = "Practical approbation of the model takes place within the non-profit humanitarian track <strong>Vis Realitatis</strong> (comprehensive drug-free rehabilitation of veterans) with recording of results in the cryptographic Archivum archive." }}
+  {{ $meta = "Reports, decision archive and hashed preprints are published in Archivum as the project develops." }}
+  {{ $expert = "expert entry →" }}
+{{ end }}
+
+{{ if not (.Page.Scratch.Get "concept-paper-styles") }}
+  {{ .Page.Scratch.Set "concept-paper-styles" true }}
+  <style>
+    .concept-paper-block {
+      background: #fff9f0;
+      border: 1px solid #e5d5b0;
+      border-radius: 24px;
+      padding: 1.8rem;
+      margin: 2.5rem 0;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .concept-paper-block:hover {
+      background: #fffcf5;
+      border-color: #d4c090;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+    }
+    .concept-paper-description {
+      color: #4a3a2a;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 0.8rem 0;
+      text-align: center;
+    }
+    .concept-paper-description--bottom {
+      margin-top: 1.2rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .concept-paper-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .concept-paper-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+      border: 1px solid #8b95a0;
+      border-radius: 12px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1a1c1e;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .concept-paper-button:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .concept-paper-button.secondary {
+      background: transparent;
+      color: #4a3a2a;
+      border: 1px solid #c0a070;
+    }
+    .concept-paper-button.secondary:hover {
+      background: rgba(192, 160, 112, 0.1);
+      border-color: #8b7355;
+    }
+    .concept-paper-format {
+      font-size: 0.8rem;
+      font-weight: normal;
+    }
+    .concept-paper-meta {
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: #8b7355;
+      text-align: center;
+    }
+    .concept-paper-links {
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: #8b7355;
+      text-align: center;
+    }
+    .concept-paper-links a {
+      color: #8b7355;
+      text-decoration: none;
+      border-bottom: 1px dotted #d4c090;
+    }
+    .concept-paper-links a:hover {
+      border-bottom-color: #8b7355;
+      color: #5c4a2e;
+    }
+    @media (max-width: 768px) {
+      .concept-paper-block {
+        padding: 1.2rem;
+        margin: 1.5rem 0;
+      }
+      .concept-paper-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .concept-paper-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+{{ end }}
+
+<div class="concept-paper-block">
+  <p class="concept-paper-description">
+    {{ $p1 | safeHTML }}
+  </p>
+
+  <p class="concept-paper-description">
+    {{ $p2 | safeHTML }}
+  </p>
+
+  <div class="concept-paper-actions">
+    <a href="{{ $base }}/docs/archivum/rn-0001-imarch-whitepaper-8888-2026/" class="concept-paper-button">
+      {{ $btn1 }} <span class="concept-paper-format">(PDF / Markdown)</span>
+    </a>
+    <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="concept-paper-button secondary">
+      {{ $btn2 }}
+    </a>
+  </div>
+
+  <p class="concept-paper-description concept-paper-description--bottom">
+    {{ $p3 | safeHTML }}
+  </p>
+
+  <div class="concept-paper-meta">
+    {{ $meta }}
+  </div>
+
+  <div class="concept-paper-links">
+    Если вы эксперт, хотите поддержать проект или получить доступ к редакционной платформе, откройте
+    <a href="{{ $base }}/vis-realitatis-center-experts/">{{ $expert }}</a>
+  </div>
+</div>

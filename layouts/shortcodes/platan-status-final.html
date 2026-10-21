@@ -1,0 +1,468 @@
+<style>
+/* =================== ВАШ ИГРОВОЙ СТАТУС - ФИНАЛЬНЫЙ БЛОК =================== */
+/* ФИЛОСОФСКОЕ ЗАВЕРШЕНИЕ С ВЫБОРОМ ПУТИ */
+
+.status-final-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Заголовок с философским акцентом */
+.status-header {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+.status-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #1a365d;
+    margin-bottom: 25px;
+    line-height: 1.2;
+}
+
+.status-subtitle {
+    font-size: 1.4rem;
+    color: #4a5568;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.status-subtitle strong {
+    color: #2c5282;
+}
+
+/* Три статуса */
+.status-levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.status-level {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 35px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.status-level:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Акцентные полосы */
+.status-level:nth-child(1) {
+    border-top: 5px solid #9f7aea;
+}
+
+.status-level:nth-child(2) {
+    border-top: 5px solid #38a169;
+}
+
+.status-level:nth-child(3) {
+    border-top: 5px solid #2c5282;
+}
+
+.status-icon {
+    font-size: 3.5rem;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.status-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1a365d;
+    margin: 0 0 15px 0;
+}
+
+.status-description {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Метафора апгрейда */
+.upgrade-metaphor {
+    background: linear-gradient(135deg, #0f1a2e 0%, #1a2538 100%);
+    border-radius: 16px;
+    padding: 60px 50px;
+    margin: 80px 0;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(214, 158, 46, 0.3);
+}
+
+.upgrade-metaphor::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #d69e2e, #9f7aea, #d69e2e);
+}
+
+.metaphor-icon {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    display: block;
+    opacity: 0.9;
+}
+
+.metaphor-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.metaphor-text {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto 30px;
+    opacity: 0.9;
+}
+
+.metaphor-text strong {
+    color: #d69e2e;
+}
+
+.metaphor-path {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+.path-option {
+    text-align: center;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    min-width: 200px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.path-option:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-3px);
+}
+
+.path-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.path-option p {
+    margin: 0;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Финал: четыре двери */
+.final-doors {
+    margin: 100px 0;
+    text-align: center;
+}
+
+.doors-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 30px;
+}
+
+.doors-subtitle {
+    font-size: 1.3rem;
+    color: #4a5568;
+    max-width: 800px;
+    margin: 0 auto 60px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.doors-subtitle strong {
+    color: #2c5282;
+}
+
+.doors-description {
+    background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+    border-radius: 12px;
+    padding: 40px;
+    border: 2px solid #38a169;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.doors-description p {
+    color: #22543d;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    margin: 0;
+    text-align: center;
+}
+
+/* Кнопка финального выбора */
+.final-choice {
+    text-align: center;
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 2px solid #e2e8f0;
+}
+
+.choice-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+    color: white;
+    text-decoration: none;
+    padding: 20px 50px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    border: 3px solid #1a365d;
+    box-shadow: 0 10px 30px rgba(26, 54, 93, 0.3);
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.choice-button:hover {
+    background: linear-gradient(135deg, #153054 0%, #1a4473 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(26, 54, 93, 0.4);
+}
+
+.choice-button::before {
+    content: '🚪';
+    font-size: 1.5rem;
+}
+
+.choice-button::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.choice-button:hover::after {
+    left: 50%;
+    top: 50%;
+}
+
+/* Институциональная печать финала */
+.final-seal {
+    text-align: center;
+    margin-top: 100px;
+    padding-top: 40px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.seal-text {
+    font-family: monospace;
+    color: #718096;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.seal-text strong {
+    color: #2c5282;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .status-final-container {
+        margin: 60px auto;
+        padding: 0 15px;
+    }
+    
+    .status-main-title {
+        font-size: 2.2rem;
+    }
+    
+    .status-subtitle {
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+    
+    .status-levels {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+    
+    .status-level {
+        padding: 30px 25px;
+    }
+    
+    .status-icon {
+        font-size: 3rem;
+    }
+    
+    .status-name {
+        font-size: 1.6rem;
+    }
+    
+    .upgrade-metaphor {
+        padding: 40px 25px;
+        margin: 50px 0;
+    }
+    
+    .metaphor-title {
+        font-size: 1.8rem;
+    }
+    
+    .metaphor-text {
+        font-size: 1.1rem;
+    }
+    
+    .metaphor-path {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .path-option {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .doors-title {
+        font-size: 2rem;
+    }
+    
+    .doors-subtitle {
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+    
+    .doors-description {
+        padding: 30px 20px;
+    }
+    
+    .final-choice {
+        margin-top: 50px;
+        padding-top: 40px;
+    }
+    
+    .choice-button {
+        padding: 18px 40px;
+        font-size: 1.2rem;
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+</style>
+
+    <!-- Три уровня статуса -->
+    <div class="status-levels">
+        <!-- Кандидат -->
+        <div class="status-level">
+            <div class="status-icon">🎭</div>
+            <h2 class="status-name">Кандидат</h2>
+            <p class="status-description">
+                Вы примерили маску. Прислушались к шепоту за сценой.
+            </p>
+        </div>
+
+        <!-- Ассоциированный член -->
+        <div class="status-level">
+            <div class="status-icon">🎪</div>
+            <h2 class="status-name">Ассоциированный член</h2>
+            <p class="status-description">
+                Вы вышли на сцену. У вас есть роль и реплики.
+            </p>
+        </div>
+
+        <!-- Гражданин -->
+        <div class="status-level">
+            <div class="status-icon">🏛️</div>
+            <h2 class="status-name">Гражданин</h2>
+            <p class="status-description">
+                Вы один из тех, кто гасит свет в зале и отвечает за то, что происходит на Сцене.
+            </p>
+        </div>
+    </div>
+
+    <!-- Метафора апгрейда -->
+    <div class="upgrade-metaphor">
+        <div class="metaphor-icon">🦋</div>
+        <h2 class="metaphor-title">Апгрейд это не смена статуса. Это метаморфоза.</h2>
+        
+        <div class="metaphor-path">
+            <div class="path-option">
+                <div class="path-icon">🔄</div>
+                <p><strong>Постепенный путь</strong><br>от квеста к квесту</p>
+            </div>
+            
+            <div class="path-option">
+                <div class="path-icon">⚡</div>
+                <p><strong>Прямой вход</strong><br>принять Конституцию Имарха и войти в Ядро</p>
+            </div>
+        </div>
+        
+        <p class="metaphor-text">
+            <strong>Можно идти постепенно от квеста к квесту.</strong><br>
+            <strong>А можно сразу принять Конституцию Имарха и войти в Ядро,</strong><br>
+            если вы уже знаете, что это ваш дом.
+        </p>
+    </div>
+
+    <!-- Четыре двери - финальный выбор -->
+    <div class="final-doors">
+        <h2 class="doors-title">Консилиум, сцена совета</h2>
+        <p class="doors-subtitle">
+            <strong>Готовы ли вы выбрать не опцию, а Предназначение?</strong><br>
+            Перед вами четыре двери. Но это не вход, это выход на Сцену.
+        </p>
+        
+        <div class="doors-description">
+            <p>
+                На Сцену полной формы, где раскрывается ваше индивидуальное предназначение на планете Земля.<br>
+                Это пространство, позволяющее проявить талант, раскрыть потенциал, активировать скрытые возможности<br>
+                и сыграть свою значимую Роль в истории развития нашей цивилизации.
+            </p>
+        </div>
+    </div>
+
+    <!-- Финальный призыв -->
+    <div class="final-choice">
+        <a href="#" class="choice-button">ПРОЙТИ КВЭСТ</a>
+    </div>
+
+    <!-- Институциональная печать -->
+    <div class="final-seal">
+        <p class="seal-text"><strong>CONSILIUM ACCESS</strong> • FOUR DOORS • ONE DESTINY • PLATAN+</p>
+    </div>
+</div>

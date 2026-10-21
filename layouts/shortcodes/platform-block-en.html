@@ -1,0 +1,403 @@
+<style>
+/* =================== PLATFORM BLOCK - SAFE VERSION =================== */
+/* UNIQUE CLASSES TO AVOID THEME CONFLICTS */
+
+.platform-module-container {
+    /* CRITICALLY IMPORTANT: inherits width from parent */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    
+    /* Block styles */
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0f1a2e 0%, #1a2538 100%);
+    color: #ffffff;
+    margin: 2rem 0;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    
+    /* Top border */
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(to right, transparent, #8b5cf6, transparent) 1;
+}
+
+.platform-module-header {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    text-align: center;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.platform-module-main-title {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #a78bfa, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+.platform-module-main-subtitle {
+    font-size: 1.1rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Cards */
+.platform-module-cards {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    box-sizing: border-box;
+}
+
+.platform-module-card {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.platform-module-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.platform-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.platform-card-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(139, 92, 246, 0.1);
+    border-radius: 10px;
+}
+
+.platform-card-title {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: #e2e8f0;
+    margin: 0 0 5px 0;
+    line-height: 1.3;
+}
+
+.platform-card-subtitle {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    font-style: italic;
+}
+
+.platform-card-content {
+    color: #cbd5e1;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.platform-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.platform-card-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: #cbd5e1;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.95rem;
+}
+
+.platform-card-list li:last-child {
+    border-bottom: none;
+}
+
+.platform-card-list li::before {
+    content: '▸';
+    color: #8b5cf6;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.platform-card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(to right, #8b5cf6, #6366f1);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    margin-top: 10px;
+}
+
+.platform-card-button:hover {
+    background: linear-gradient(to right, #7c3aed, #4f46e5);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+    .platform-module-container {
+        padding: 30px 15px;
+        margin: 1.5rem 0;
+        border-radius: 10px;
+    }
+    
+    .platform-module-main-title {
+        font-size: 1.8rem;
+    }
+    
+    .platform-module-main-subtitle {
+        font-size: 1rem;
+        padding: 0 5px;
+    }
+    
+    .platform-module-card {
+        padding: 20px;
+    }
+    
+    .platform-card-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    
+    .platform-card-icon {
+        margin: 0 auto;
+    }
+    
+    .platform-card-title {
+        font-size: 1.3rem;
+        text-align: center;
+    }
+    
+    .platform-card-subtitle {
+        text-align: center;
+    }
+    
+    .platform-card-content {
+        font-size: 0.95rem;
+        text-align: center;
+    }
+    
+    .platform-card-list {
+        text-align: left;
+    }
+    
+    .platform-card-button {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 25px;
+    }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+    .platform-module-container {
+        padding: 25px 12px;
+        margin: 1rem 0;
+    }
+    
+    .platform-module-main-title {
+        font-size: 1.6rem;
+    }
+    
+    .platform-module-card {
+        padding: 18px;
+    }
+    
+    .platform-card-list li {
+        font-size: 0.9rem;
+    }
+}
+
+/* Decorative element (optional) */
+.platform-module-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    opacity: 0.03;
+    font-size: 8rem;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}
+
+/* Guarantee nothing exceeds boundaries */
+.platform-module-container * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+</style>
+
+<div class="platform-module-container">
+    <div class="platform-module-decoration">⚙️</div>
+    
+    <div class="platform-module-header">
+        <h2 class="platform-module-main-title">Institutional Module "Open Code"</h2>
+        <p class="platform-module-main-subtitle">
+            Our demo version serves as an example of such a module: on one hand, it is a demonstration of capabilities,
+            and on the other, a fully functional Operating System operating within the organization's humanitarian missions.
+        </p>
+    </div>
+    
+    <div class="platform-module-cards">
+        <!-- Card 1: Game -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">🎮</div>
+                <div>
+                    <h3 class="platform-card-title">Game: scene of challenge and recognition</h3>
+                    <p class="platform-card-subtitle">Goal: See the system in action</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                Here you don't just read — you see how an idea transforms into a legal structure,
+                manages resources, and creates value. This is an interactive guide to our ecosystem.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>Live CIC + LTD scheme: interactive model of mission and commercial mechanism operation</li>
+                <li>Methodology teasers: brief explanations of key Formology and Ungarath Constitution concepts</li>
+                <li>Use case scenarios: concrete cases for different types of humanitarian projects</li>
+                <li>Working prototype: clickable, explore resource and authority flows</li>
+            </ul>
+            
+            <a href="/en/docs/ludus/" class="platform-card-button">Open demo →</a>
+        </div>
+        
+        <!-- Card 2: Archive -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">🏛️</div>
+                <div>
+                    <h3 class="platform-card-title">Archive: scene of fixation and recognition</h3>
+                    <p class="platform-card-subtitle">Goal: Preserve the benchmark for eternity</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                This is the core of our operating system. A place not just for storing documents,
+                but the living DNA of the Consortium — proven processes, key decisions, and the entire history of their evolution.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>Benchmark documents: Working versions of Charters (CIC, LTD), memoranda, interaction regulations</li>
+                <li>Decision protocols: Complete chronicle of key decisions and resolution of complex issues</li>
+                <li>Change history: Evolution of each document and process with "why" explanations</li>
+                <li>Samples and templates: Practice‑tested documents for new projects</li>
+            </ul>
+            
+            <a href="/en/docs/archivum/" class="platform-card-button">Enter archive →</a>
+        </div>
+        
+        <!-- Card 3: Collegium -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">🤝</div>
+                <div>
+                    <h3 class="platform-card-title">Collegium: scene of co‑participation and institutional voice</h3>
+                    <p class="platform-card-subtitle">Goal: Become visible and find allies</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                This is the showcase of our living organism. Here we declare ourselves to the world,
+                show our face, and open doors for conscious collaboration.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>Our faces and missions: Presentation of the Consortium's core — the people and organizations that constitute it</li>
+                <li>Partners and allies: Open list of those with whom we already share the path, conduct joint projects</li>
+                <li>Open missions: Active projects and directions you can join right now</li>
+                <li>Title scenes: Description and visual representation of roles (suits) in our ecosystem</li>
+            </ul>
+            
+            <a href="/en/docs/collegium/" class="platform-card-button">Enter Collegium →</a>
+        </div>
+        
+        <!-- Card 4: Council -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">⚖️</div>
+                <div>
+                    <h3 class="platform-card-title">Council: scene of institutional thinking and recognition</h3>
+                    <p class="platform-card-subtitle">Goal: Turn ideas into collective action</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                This is the working heart of the Consortium, a digital environment where strategy becomes tactics,
+                and the shared mission breaks down into concrete tasks. Here we don't talk about the work. Here we do it.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>GitHub Organizations: Primary platform for collaborative work on code, documents, and content</li>
+                <li>Task boards (Kanban, Projects): Visualization of all active missions with statuses and deadlines</li>
+                <li>Communication channels: Structured chats for discussions by project and role</li>
+                <li>Project repositories: Each project is a separate repository with complete change history</li>
+            </ul>
+            
+            <a href="/en/docs/consilium/" class="platform-card-button">Enter Council →</a>
+        </div>
+        
+        <!-- Card 5: Verdict -->
+        <div class="platform-module-card">
+            <div class="platform-card-header">
+                <div class="platform-card-icon">📢</div>
+                <div>
+                    <h3 class="platform-card-title">Verdict: official voice and scene of institutional recognition</h3>
+                    <p class="platform-card-subtitle">Goal: Speak to the world with one voice</p>
+                </div>
+            </div>
+            
+            <p class="platform-card-content">
+                This is the official voice of the Consortium, the mouthpiece of our values,
+                the chronicle of our journey, and a compass pointing the direction.
+            </p>
+            
+            <ul class="platform-card-list">
+                <li>Project chronicle: Public diary of our formation — from first ideas to key victories</li>
+                <li>Official statements: The Consortium's position on important issues, responses to environmental challenges</li>
+                <li>Roadmaps: Transparent development plans for the near and long term</li>
+                <li>Methodology blog: In‑depth articles explaining our philosophy and working principles</li>
+            </ul>
+            
+            <a href="/en/verdictum/" class="platform-card-button">Enter Verdict →</a>
+        </div>
+    </div>
+</div>

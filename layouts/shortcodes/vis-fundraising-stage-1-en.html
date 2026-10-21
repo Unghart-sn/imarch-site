@@ -1,0 +1,154 @@
+<style>
+.vis-stage-one {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-stage-one-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #0369a1;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.stage-one-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stage-one-stat {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  text-align: center;
+  border-top: 4px solid #0ea5e9;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.stage-one-stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0369a1;
+  margin-bottom: 10px;
+}
+
+.stage-one-stat-label {
+  color: #0369a1;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.stage-one-stat-desc {
+  color: #5d7690;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.stage-one-message {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #0ea5e9;
+  margin-bottom: 30px;
+}
+
+.stage-one-message p {
+  color: #2d3748;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.vis-stage-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #0ea5e9;
+  color: #0369a1;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.vis-stage-btn:hover {
+  background: #0ea5e9;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+}
+
+@media (max-width: 768px) {
+  .vis-stage-one {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-stage-one-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .stage-one-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .stage-one-stat {
+    padding: 20px;
+  }
+  
+  .stage-one-message {
+    padding: 20px;
+  }
+}
+</style>
+
+<section id="fundraising-stage-1" class="vis-section vis-stage-one">
+  <h2 class="vis-stage-one-title">🎯 Project First Stage: Fundraising Goals</h2>
+  
+  <div class="stage-one-stats">
+    <div class="stage-one-stat">
+      <div class="stage-one-stat-value">📚</div>
+      <div class="stage-one-stat-label">Methodological Base</div>
+      <p class="stage-one-stat-desc">Creation of complete documentation and training materials for the SunLife-Massage method</p>
+    </div>
+    
+    <div class="stage-one-stat">
+      <div class="stage-one-stat-value">💻</div>
+      <div class="stage-one-stat-label">MVP Organizational Software</div>
+      <p class="stage-one-stat-desc">Development of a minimal version platform for project and volunteer management</p>
+    </div>
+    
+    <div class="stage-one-stat">
+      <div class="stage-one-stat-value">🏗️</div>
+      <div class="stage-one-stat-label">Infrastructure Prototypes</div>
+      <p class="stage-one-stat-desc">Creation of first workspaces for conducting veteran support sessions</p>
+    </div>
+  </div>
+  
+  <div class="stage-one-message">
+    <p>
+      <strong>We are raising funds to launch the first stage of the Vis Realitatis project</strong><br>
+      — creating a methodological base, MVP organizational software, and infrastructure prototypes for veteran support.<br>
+      Every contribution is directed toward specific, measurable results.
+    </p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="/en/profile/vis-realitatis/fundraising-stage-1/" class="vis-stage-btn">
+      👉 Learn more about fundraising goals
+    </a>
+  </div>
+</section>

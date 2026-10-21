@@ -1,0 +1,76 @@
+<details>
+  <summary>СВЯЗЬ</summary>
+
+  <div class="accordion-content persona-icon-grid">
+
+    {{ with .Site.Params.persona.email }}
+    <a href="mailto:{{ . }}" class="persona-icon-link">
+      <img class="persona-icon" src="/images/ikons/silver/email.png" alt="Email">
+    </a>
+    {{ end }}
+
+    {{ with .Site.Params.persona.telegram }}
+    <a href="{{ . }}" class="persona-icon-link" target="_blank">
+      <img class="persona-icon" src="/images/ikons/silver/tg.png" alt="Telegram">
+    </a>
+    {{ end }}
+
+    {{ with .Site.Params.persona.whatsapp }}
+    <a href="https://wa.me/{{ . }}" class="persona-icon-link" target="_blank">
+      <img class="persona-icon" src="/images/ikons/silver/wa.png" alt="WhatsApp">
+    </a>
+    {{ end }}
+
+    {{ with .Site.Params.persona.instagram }}
+    <a href="{{ . }}" class="persona-icon-link" target="_blank">
+      <img class="persona-icon" src="/images/ikons/silver/ig.png" alt="Instagram">
+    </a>
+    {{ end }}
+
+    {{ with .Site.Params.persona.youtube }}
+    <a href="{{ . }}" class="persona-icon-link" target="_blank">
+      <img class="persona-icon" src="/images/ikons/silver/yt.png" alt="YouTube">
+    </a>
+    {{ end }}
+
+    {{ with .Site.Params.persona.linkedin }}
+    <a href="{{ . }}" class="persona-icon-link" target="_blank">
+      <img class="persona-icon" src="/images/ikons/silver/li.png" alt="LinkedIn">
+    </a>
+    {{ end }}
+
+  </div>
+</details>
+
+<style>
+.persona-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* по умолчанию 2 иконки в ряд */
+  gap: 1rem;
+  padding: 1rem 0.2rem;
+  justify-items: center;
+}
+
+@media (min-width: 768px) {
+  .persona-icon-grid {
+    grid-template-columns: repeat(3, 1fr); /* на десктопе 3 иконки в ряд */
+  }
+}
+
+.persona-icon-link {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.persona-icon {
+  width: 46px;
+  height: 46px;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.9;
+}
+
+.persona-icon:hover {
+  transform: translateY(-3px);
+  opacity: 1;
+}
+</style>

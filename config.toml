@@ -1,0 +1,364 @@
+# ==========================
+# 🧩 CORE CONFIG — IMARCH LTD
+# ==========================
+
+disableKinds = ["RSS"]
+# theme = ""  ← Удалено, чтобы Hugo не искал "пустую тему"
+
+baseURL = "https://imarch.ltd/"
+languageCode = "la"
+defaultContentLanguage = "la"
+defaultContentLanguageInSubdir = false
+title = "Imarchia"
+
+# --------------------------
+# 🧠 MARKUP ENGINE SETTINGS
+# --------------------------
+[markup]
+  defaultMarkdownHandler = "goldmark"
+
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+# --------------------------
+# 🪶 SITE PARAMS
+# --------------------------
+[params]
+  logo = "images/logo.png"
+  selfHosted = false
+  homeTitle = "Imarchia"
+  favicon = "images/favicon.ico"
+  useHLJS = false
+  showAllSections = true 
+
+  [params.author]
+    name = "IMARCH LTD UK"
+    url = "https://imarch.ltd/en/verdictum/verdictum-0003/"
+    
+
+# --------------------------
+# 🌍 SITEMAP
+# --------------------------
+[sitemap]
+  changefreq = "monthly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# --------------------------
+# 🏛 LANGUAGES
+# --------------------------
+
+# LATIN
+[languages.la]
+languageName = "Latina"
+weight = 1
+contentDir = "content/la"
+title = "Imarchia"
+[languages.la.menu]
+  [[languages.la.menu.main]]
+  identifier = "menu.ludus"
+  name = "Ludus"
+  url = "/la/docs/ludus/"
+  weight = 1
+
+  [[languages.la.menu.main]]
+  identifier = "menu.archivum"
+  name = "Archivum"
+  url = "/la/docs/archivum/"
+  weight = 2
+
+  [[languages.la.menu.main]]
+  identifier = "menu.collegium"
+  name = "Collegium"
+  url = "/la/docs/collegium/"
+  weight = 3
+
+  [[languages.la.menu.main]]
+  identifier = "menu.consilium"
+  name = "Consilium"
+  url = "/la/docs/consilium/"
+  weight = 4
+
+  [[languages.la.menu.main]]
+  identifier = "menu.verdictum"
+  name = "Verdictum"
+  url = "/la/verdictum/"
+  weight = 5
+
+# ARABIC
+[languages.ar]
+languageName = "العربية"
+weight = 2
+contentDir = "content/ar"
+title = "إمارتشيا"
+[languages.ar.menu]
+  [[languages.ar.menu.main]]
+  identifier = "menu.ludus"
+  name = "اللعبة"
+  url = "/ar/docs/ludus/"
+  weight = 1
+
+  [[languages.ar.menu.main]]
+  identifier = "menu.archivum"
+  name = "الأرشيف"
+  url = "/ar/docs/archivum/"
+  weight = 2
+
+  [[languages.ar.menu.main]]
+  identifier = "menu.collegium"
+  name = "الكلية"
+  url = "/ar/docs/collegium/"
+  weight = 3
+
+  [[languages.ar.menu.main]]
+  identifier = "menu.consilium"
+  name = "المجلس"
+  url = "/ar/docs/consilium/"
+  weight = 4
+
+  [[languages.ar.menu.main]]
+  identifier = "menu.verdictum"
+  name = "الحكم"
+  url = "/ar/verdictum/"
+  weight = 5
+
+# CHINESE
+[languages.zh]
+languageName = "中文"
+weight = 3
+contentDir = "content/zh"
+title = "伊玛尔基亚"
+[languages.zh.menu]
+  [[languages.zh.menu.main]]
+  identifier = "menu.ludus"
+  name = "游戏"
+  url = "/zh/docs/ludus/"
+  weight = 1
+
+  [[languages.zh.menu.main]]
+  identifier = "menu.archivum"
+  name = "档案"
+  url = "/zh/docs/archivum/"
+  weight = 2
+
+  [[languages.zh.menu.main]]
+  identifier = "menu.collegium"
+  name = "学院"
+  url = "/zh/docs/collegium/"
+  weight = 3
+
+  [[languages.zh.menu.main]]
+  identifier = "menu.consilium"
+  name = "议会"
+  url = "/zh/docs/consilium/"
+  weight = 4
+
+  [[languages.zh.menu.main]]
+  identifier = "menu.verdictum"
+  name = "裁决"
+  url = "/zh/verdictum/"
+  weight = 5
+
+# ENGLISH
+[languages.en]
+languageName = "English"
+weight = 4
+contentDir = "content/en"
+title = "Imarchia"
+[languages.en.menu]
+  [[languages.en.menu.main]]
+  identifier = "menu.ludus"
+  name = "Game"
+  url = "/en/docs/ludus/"
+  weight = 1
+
+  [[languages.en.menu.main]]
+  identifier = "menu.archivum"
+  name = "Archive"
+  url = "/en/docs/archivum/"
+  weight = 2
+
+  [[languages.en.menu.main]]
+  identifier = "menu.collegium"
+  name = "College"
+  url = "/en/docs/collegium/"
+  weight = 3
+
+  [[languages.en.menu.main]]
+  identifier = "menu.consilium"
+  name = "Council"
+  url = "/en/docs/consilium/"
+  weight = 4
+
+  [[languages.en.menu.main]]
+  identifier = "menu.verdictum"
+  name = "Verdict"
+  url = "/en/verdictum/"
+  weight = 5
+
+# FRENCH
+[languages.fr]
+languageName = "Français"
+weight = 5
+contentDir = "content/fr"
+title = "Imarchia"
+[languages.fr.menu]
+  [[languages.fr.menu.main]]
+  identifier = "menu.ludus"
+  name = "Jeu"
+  url = "/fr/docs/ludus/"
+  weight = 1
+
+  [[languages.fr.menu.main]]
+  identifier = "menu.archivum"
+  name = "Archive"
+  url = "/fr/docs/archivum/"
+  weight = 2
+
+  [[languages.fr.menu.main]]
+  identifier = "menu.collegium"
+  name = "Collège"
+  url = "/fr/docs/collegium/"
+  weight = 3
+
+  [[languages.fr.menu.main]]
+  identifier = "menu.consilium"
+  name = "Conseil"
+  url = "/fr/docs/consilium/"
+  weight = 4
+
+  [[languages.fr.menu.main]]
+  identifier = "menu.verdictum"
+  name = "Verdict"
+  url = "/fr/verdictum/"
+  weight = 5
+
+# RUSSIAN
+[languages.ru]
+languageName = "Русский"
+weight = 6
+contentDir = "content/ru"
+title = "Имархия"
+[languages.ru.menu]
+  [[languages.ru.menu.main]]
+  identifier = "menu.ludus"
+  name = "Игра"
+  url = "/ru/docs/ludus/"
+  weight = 1
+
+  [[languages.ru.menu.main]]
+  identifier = "menu.archivum"
+  name = "Архив"
+  url = "/ru/docs/archivum/"
+  weight = 2
+
+  [[languages.ru.menu.main]]
+  identifier = "menu.collegium"
+  name = "Коллегия"
+  url = "/ru/docs/collegium/"
+  weight = 3
+
+  [[languages.ru.menu.main]]
+  identifier = "menu.consilium"
+  name = "Совет"
+  url = "/ru/docs/consilium/"
+  weight = 4
+
+  [[languages.ru.menu.main]]
+  identifier = "menu.verdictum"
+  name = "Вердикт"
+  url = "/ru/verdictum/"
+  weight = 5
+
+# SPANISH
+[languages.es]
+languageName = "Español"
+weight = 7
+contentDir = "content/es"
+title = "Imarchia"
+[languages.es.menu]
+  [[languages.es.menu.main]]
+  identifier = "menu.ludus"
+  name = "Juego"
+  url = "/es/docs/ludus/"
+  weight = 1
+
+  [[languages.es.menu.main]]
+  identifier = "menu.archivum"
+  name = "Archivo"
+  url = "/es/docs/archivum/"
+  weight = 2
+
+  [[languages.es.menu.main]]
+  identifier = "menu.collegium"
+  name = "Colegio"
+  url = "/es/docs/collegium/"
+  weight = 3
+
+  [[languages.es.menu.main]]
+  identifier = "menu.consilium"
+  name = "Consejo"
+  url = "/es/docs/consilium/"
+  weight = 4
+
+    [[languages.es.menu.main]]
+  identifier = "menu.verdictum"
+  name = "Veredicto"
+  url = "/es/verdictum/"
+  weight = 5
+
+# UKRAINIAN
+[languages.uk]
+languageName = "Українська"
+weight = 8
+contentDir = "content/uk"
+title = "Імархія"
+[languages.uk.menu]
+  [[languages.uk.menu.main]]
+  identifier = "menu.ludus"
+  name = "Гра"
+  url = "/uk/docs/ludus/"
+  weight = 1
+
+  [[languages.uk.menu.main]]
+  identifier = "menu.archivum"
+  name = "Архів"
+  url = "/uk/docs/archivum/"
+  weight = 2
+
+  [[languages.uk.menu.main]]
+  identifier = "menu.collegium"
+  name = "Колегія"
+  url = "/uk/docs/collegium/"
+  weight = 3
+
+  [[languages.uk.menu.main]]
+  identifier = "menu.consilium"
+  name = "Рада"
+  url = "/uk/docs/consilium/"
+  weight = 4
+
+  [[languages.uk.menu.main]]
+  identifier = "menu.verdictum"
+  name = "Вердикт"
+  url = "/uk/verdictum/"
+  weight = 5
+
+# --------------------------
+# 📤 OUTPUTS
+# --------------------------
+[outputs]
+  home = ["HTML"]
+  section = ["HTML"]
+  page = ["HTML"]
+
+# --------------------------
+# 🏷 TAXONOMIES
+# --------------------------
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+
+

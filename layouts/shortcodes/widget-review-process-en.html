@@ -1,0 +1,18 @@
+{{ $title := .Get "title" | default "PEER REVIEW & FIXATION PROCESS" }}
+{{ $steps := .Get "steps" | default `[{"num":"1","title":"Submission","desc":"ID + SHA-256"},{"num":"2","title":"Initial Screening","desc":"Editor + COPE"},{"num":"3","title":"Double-Blind Review","desc":"2 experts, 6 weeks"},{"num":"4","title":"Verdict","desc":"Accepted / Revision / Rejected"},{"num":"5","title":"Publication","desc":"Open Access","highlight":true}]` }}
+
+{{ $stepsData := $steps | unmarshal }}
+
+<div class="light-widget review-process">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="review-steps-light">
+    {{ range $index, $step := $stepsData }}
+      {{ if gt $index 0 }}<div class="review-arrow-light">→</div>{{ end }}
+      <div class="review-step-light{{ if $step.highlight }} highlight{{ end }}">
+        <div class="step-num">{{ $step.num }}</div>
+        <h5>{{ $step.title }}</h5>
+        <p>{{ $step.desc }}</p>
+      </div>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,25 @@
+{{ $title := .Get "title" | default "ВРЕМЕННАЯ ШКАЛА" }}
+{{ $subtitle := .Get "subtitle" | default "" }}
+{{ $events := .Get "events" | default `[{"date":"2026","title":"Старт","desc":"Начало проекта"},{"date":"2027","title":"Развитие","desc":"Масштабирование"},{"date":"2028","title":"Зрелость","desc":"Полный цикл"}]` }}
+
+{{ $eventsData := $events | unmarshal }}
+
+<div class="light-widget timeline-widget">
+  <div class="widget-title">{{ $title }}</div>
+  {{ if $subtitle }}<div class="widget-sub">{{ $subtitle }}</div>{{ end }}
+  <div class="timeline-grid">
+    {{ range $index, $event := $eventsData }}
+      <div class="timeline-item">
+        <div class="timeline-date">{{ $event.date }}</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h4>{{ $event.title }}</h4>
+          <p>{{ $event.desc }}</p>
+        </div>
+      </div>
+      {{ if ne $index (sub (len $eventsData) 1) }}
+        <div class="timeline-line"></div>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>

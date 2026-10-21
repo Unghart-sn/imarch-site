@@ -1,0 +1,106 @@
+{{ define "main" }}
+<style>
+.certify-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1rem 4rem; font-family: 'Times New Roman', serif; color: #1E2A3A; }
+.certify-hero { text-align: center; margin-bottom: 2.5rem; }
+.certify-hero h1 { font-family: Arial, sans-serif; color: #1E3A5F; font-size: 2rem; margin: 0 0 .75rem 0; }
+.certify-hero .lede { color: #4A6A8A; font-size: 1.05rem; line-height: 1.6; margin: 0; max-width: 640px; margin-left: auto; margin-right: auto; }
+.certify-form { display: flex; flex-direction: column; gap: 1.25rem; background: #FAF8F5; border: 1px solid #B0C4DE; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 24px rgba(30,58,95,.08); }
+.field { display: flex; flex-direction: column; gap: .4rem; }
+.field label { font-family: Arial, sans-serif; font-size: .9rem; font-weight: 600; color: #1E3A5F; }
+.req { color: #A02020; }
+.field input[type=text], .field input[type=email] { font-family: inherit; font-size: 1rem; padding: .75rem 1rem; border: 1px solid #B0C4DE; border-radius: 8px; background: #fff; color: #1E2A3A; outline: none; }
+.field input:focus { border-color: #1E3A5F; box-shadow: 0 0 0 3px rgba(30,58,95,.12); }
+.dropzone { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .35rem; padding: 2rem 1rem; border: 2px dashed #B0C4DE; border-radius: 10px; background: #fff; cursor: pointer; transition: border-color .15s, background .15s; text-align: center; }
+.dropzone.dragover { border-color: #1E3A5F; background: #E3EAF2; }
+.dropzone .dz-input { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.dz-icon { font-size: 2rem; line-height: 1; }
+.dz-text { font-family: Arial, sans-serif; font-size: .95rem; color: #1E3A5F; }
+.dz-hint { font-family: Arial, sans-serif; font-size: .8rem; color: #4A6A8A; }
+.file-info { margin-top: .5rem; padding: .75rem 1rem; background: #E3EAF2; border-radius: 8px; font-family: Arial, sans-serif; font-size: .85rem; color: #1E3A5F; }
+.file-name { font-weight: 600; margin-bottom: .35rem; word-break: break-all; }
+.file-meta { color: #4A6A8A; margin-bottom: .3rem; }
+.hash-box { background: #fff; border: 1px solid #B0C4DE; border-radius: 6px; padding: .5rem .6rem; word-break: break-all; }
+.hash-box code { font-family: Consolas, monospace; font-size: .78rem; color: #1E2A3A; }
+.field-check .check { display: flex; align-items: flex-start; gap: .6rem; font-family: Arial, sans-serif; font-size: .9rem; color: #1E2A3A; cursor: pointer; }
+.field-check input[type=checkbox] { margin-top: .2rem; }
+.submit { font-family: Arial, sans-serif; font-size: 1rem; font-weight: 600; padding: .9rem 1rem; border: none; border-radius: 8px; background: #1E3A5F; color: #fff; cursor: pointer; transition: background .15s; }
+.submit:hover:not(:disabled) { background: #152a47; }
+.submit:disabled { opacity: .6; cursor: wait; }
+.form-msg { padding: .75rem 1rem; border-radius: 8px; font-family: Arial, sans-serif; font-size: .9rem; line-height: 1.4; }
+.form-msg.ok { background: #E3EAF2; color: #2E7D46; border: 1px solid #2E7D46; }
+.form-msg.err { background: #FAF8F5; color: #A02020; border: 1px solid #A02020; }
+.certify-proves { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+@media (max-width: 640px) { .certify-proves { grid-template-columns: 1fr; } }
+.proves-col { background: #FAF8F5; border: 1px solid #B0C4DE; border-radius: 10px; padding: 1.25rem 1.5rem; }
+.proves-col h2 { font-family: Arial, sans-serif; color: #1E3A5F; font-size: 1rem; margin: 0 0 .75rem 0; text-transform: uppercase; letter-spacing: .05em; }
+.proves-col ul { margin: 0; padding-left: 1.2rem; font-size: .92rem; line-height: 1.55; color: #1E2A3A; }
+.proves-col li { margin-bottom: .35rem; }
+</style>
+
+<div class="certify-wrap">
+  <header class="certify-hero">
+    <h1>Document Certification</h1>
+    <p class="lede">Anchor any document to Bitcoin. Receive a certificate with an X.509 timestamp from a trusted Time-Stamp Authority (RFC&nbsp;3161) and a Bitcoin block height.</p>
+  </header>
+
+  <form id="certifyForm" class="certify-form" novalidate>
+    <div class="field">
+      <label for="full_name">Full name / Organization <span class="req">*</span></label>
+      <input id="full_name" type="text" name="full_name" required autocomplete="name">
+    </div>
+    <div class="field">
+      <label for="email">Email <span class="req">*</span></label>
+      <input id="email" type="email" name="email" required autocomplete="email" placeholder="your@email">
+    </div>
+    <div class="field">
+      <label for="title">Document title <span class="req">*</span></label>
+      <input id="title" type="text" name="title" required placeholder="e.g. Agreement 2026-10-17">
+    </div>
+    <div class="field">
+      <label>Document file <span class="req">*</span></label>
+      <div id="dropzone" class="dropzone">
+        <input id="file" type="file" name="file" class="dz-input" required>
+        <span class="dz-icon">&#128196;</span>
+        <span class="dz-text"><strong>Drop your file here</strong> or click to browse</span>
+        <span class="dz-hint">Max 100 MB. Any format.</span>
+      </div>
+      <div id="fileInfo" class="file-info" hidden>
+        <div class="file-name" id="fileName"></div>
+        <div class="file-meta"><span id="fileSize"></span> &middot; SHA-256:</div>
+        <div class="hash-box"><code id="fileHash">computing&hellip;</code></div>
+      </div>
+    </div>
+    <div class="field field-check">
+      <label class="check">
+        <input type="checkbox" id="tos" required>
+        <span>I confirm I have the right to submit this document and I accept the Terms of Service.</span>
+      </label>
+    </div>
+    <button id="submitBtn" type="submit" class="submit">Prepare Certification Order</button>
+    <div id="formMsg" class="form-msg" hidden></div>
+  </form>
+
+  <section class="certify-proves">
+    <div class="proves-col">
+      <h2>What this proves</h2>
+      <ul>
+        <li>The exact file (by SHA-256) existed no later than the timestamp date.</li>
+        <li>The file has not been altered since &mdash; any change breaks the hash.</li>
+        <li>The certificate was issued by IMARCH and timestamped by an RFC&nbsp;3161 TSA.</li>
+        <li>The hash is anchored to a Bitcoin block (upgrade after confirmation).</li>
+      </ul>
+    </div>
+    <div class="proves-col">
+      <h2>What this does not prove</h2>
+      <ul>
+        <li>Authorship or ownership of the content.</li>
+        <li>That the content is true, lawful, or complete.</li>
+        <li>The identity of the person who submitted it.</li>
+        <li>Legal validity in any particular jurisdiction.</li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<script src="/certify_form.js" defer></script>
+{{ end }}

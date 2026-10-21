@@ -1,0 +1,233 @@
+<!-- ВСТАВЬ ВЕСЬ ЭТОТ КОД В ФАЙЛ -->
+
+<div class="imarha-special-landing">
+
+<!-- НАЧАЛО ЛЕНДИНГА -->
+<header class="landing-header">
+    <div class="landing-container">
+        <a href="/" class="landing-logo">IMARCH<span>.</span>SBS Platform</a>
+    </div>
+</header>
+
+<main class="landing-main">
+    <section class="landing-hero">
+        <div class="landing-container">
+            <h1>Ваша умный дом и офис в цифре</h1>
+            <p>Визитка представительского класса для вас и команды</p>
+            <a href="#pricing" class="landing-btn">Начать с 14 дней бесплатно</a>
+        </div>
+    </section>
+
+    <section id="pricing" class="landing-pricing">
+        <div class="landing-container">
+            <h2>Выберите свой план</h2>
+            
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <h3>Экспериментатор</h3>
+                    <div class="price">$0<span>/месяц</span></div>
+                    <a href="#" class="landing-btn secondary">Начать бесплатно</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="badge">ПОПУЛЯРНЫЙ</div>
+                    <h3>Институция</h3>
+                    <div class="price">$10<span>/месяц</span></div>
+                    <a href="#" class="landing-btn">Начать триал</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3>Корпорация</h3>
+                    <div class="price">$49<span>/месяц</span></div>
+                    <a href="#" class="landing-btn secondary">Связаться</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="landing-footer">
+    <div class="landing-container">
+        <p>© 2024 Имарха</p>
+    </div>
+</footer>
+
+</div>
+
+<style>
+/* ===== ВОТ ВАЖНАЯ ЧАСТЬ ===== */
+.imarha-special-landing {
+    position: relative;
+    z-index: 1000;
+    margin: 40px -20px;
+    padding: 20px;
+}
+
+/* СБРАСЫВАЕМ ВСЁ ВНУТРИ */
+.imarha-special-landing * {
+    all: revert;
+    box-sizing: border-box;
+}
+
+/* НАШИ СТИЛИ */
+.imarha-special-landing {
+    background: linear-gradient(155deg, #0c1120 0%, #1a1f3a 100%);
+    color: #f8fafc;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.imarha-special-landing .landing-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ХЕДЕР */
+.imarha-special-landing .landing-header {
+    padding: 30px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.imarha-special-landing .landing-logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.imarha-special-landing .landing-logo span {
+    color: #9333ea;
+}
+
+/* ГЕРОЙ */
+.imarha-special-landing .landing-hero {
+    text-align: center;
+    padding: 60px 0;
+}
+
+.imarha-special-landing .landing-hero h1 {
+    font-size: 48px;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 20px;
+}
+
+.imarha-special-landing .landing-hero p {
+    font-size: 20px;
+    color: #cbd5e1;
+    margin-bottom: 30px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* КНОПКИ */
+.imarha-special-landing .landing-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #9333ea;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.imarha-special-landing .landing-btn.secondary {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* ТАРИФЫ */
+.imarha-special-landing .landing-pricing {
+    padding: 40px 0;
+}
+
+.imarha-special-landing .landing-pricing h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.imarha-special-landing .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.imarha-special-landing .pricing-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+}
+
+.imarha-special-landing .pricing-card.popular {
+    border: 2px solid #9333ea;
+    position: relative;
+}
+
+.imarha-special-landing .badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #9333ea;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.imarha-special-landing .pricing-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.imarha-special-landing .price {
+    font-size: 40px;
+    font-weight: 800;
+    margin: 20px 0;
+}
+
+.imarha-special-landing .price span {
+    font-size: 16px;
+    color: #cbd5e1;
+}
+
+/* ФУТЕР */
+.imarha-special-landing .landing-footer {
+    padding: 30px 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    color: #cbd5e1;
+}
+
+/* МОБИЛКА */
+@media (max-width: 768px) {
+    .imarha-special-landing .landing-hero h1 {
+        font-size: 32px;
+    }
+    
+    .imarha-special-landing .pricing-cards {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+// Простой скрипт для плавного скролла
+document.querySelector('.imarha-special-landing .landing-btn[href="#pricing"]')?.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector('.imarha-special-landing #pricing').scrollIntoView({
+        behavior: 'smooth'
+    });
+});
+</script>

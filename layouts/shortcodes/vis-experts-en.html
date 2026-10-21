@@ -1,0 +1,148 @@
+<style>
+.vis-experts {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f7fafc 0%, #e6fffa 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-experts-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #234e52;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.experts-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.expert-category {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border-top: 4px solid;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.category-science { border-color: #3182ce; }
+.category-art { border-color: #9f7aea; }
+.category-veterans { border-color: #e53e3e; }
+.category-it { border-color: #38a169; }
+
+.expert-category h3 {
+  color: #2d3748;
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.expert-category ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #4a5568;
+}
+
+.expert-category li {
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.expert-quote {
+  background: rgba(49, 130, 206, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #3182ce;
+  margin: 30px 0;
+  font-style: italic;
+  color: #2d3748;
+}
+
+.contact-note {
+  text-align: center;
+  color: #4a5568;
+  font-size: 0.95rem;
+  margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+  .vis-experts {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-experts-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .experts-categories {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<section id="experts" class="vis-section vis-experts">
+  <h2 class="vis-experts-title">Project Expert Core</h2>
+  
+  <div class="experts-categories">
+    <div class="expert-category category-science">
+      <h3>🔬 Scientific Council</h3>
+      <ul>
+        <li><strong>Doctor of Psychological Sciences</strong> — scientific basis of the method</li>
+        <li><strong>Candidate of Medical Sciences</strong> — body-oriented approach</li>
+        <li><strong>Neurophysiologist</strong> — research on massage impact on PTSD</li>
+      </ul>
+    </div>
+    
+    <div class="expert-category category-art">
+      <h3>🎭 Art Therapy</h3>
+      <ul>
+        <li>Members of the Artists' Union</li>
+        <li>Art therapists with 10+ years of practice</li>
+        <li>Music therapists</li>
+      </ul>
+    </div>
+    
+    <div class="expert-category category-veterans">
+      <h3>🎖️ Veteran Organizations</h3>
+      <ul>
+        <li>Control of targeted expenditures</li>
+        <li>Validation of veterans' needs</li>
+        <li>Dissemination within communities</li>
+      </ul>
+    </div>
+    
+    <div class="expert-category category-it">
+      <h3>💻 IT Development</h3>
+      <ul>
+        <li>Development of the GitChronicle platform</li>
+        <li>Creation of educational software</li>
+        <li>Gamification of the learning process</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="expert-quote">
+    <p>"Our method is based on an interdisciplinary approach: neuroscience, body practices, and digital documentation of results create a unique tool for rehabilitation."</p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="/en/team" class="vis-more-btn" style="border-color: #234e52; color: #234e52;">
+      Full team and certificates
+    </a>
+  </div>
+  
+  <div class="contact-note">
+    <p>For inquiries from scientific and public organizations: <a href="mailto:experts@imarch.sbs">experts@imarch.sbs</a></p>
+  </div>
+</section>

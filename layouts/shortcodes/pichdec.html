@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCS Pitch Deck 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f8fafc;
+            color: #0f172a;
+            line-height: 1.5;
+            padding: 2rem 1rem;
+        }
+        .slide {
+            max-width: 1100px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 32px;
+            box-shadow: 0 20px 35px -10px rgba(0,0,0,0.15);
+            padding: 2.5rem 2rem;
+            transition: all 0.2s;
+        }
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #3b7cff;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #e9eef3;
+            padding-bottom: 1rem;
+        }
+        .slide-header .title {
+            color: #1e293b;
+        }
+        .confidential {
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin: 1.5rem 0 1rem;
+        }
+        h3 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin: 1.2rem 0 0.5rem;
+        }
+        .badge {
+            background: #3b7cff;
+            color: white;
+            font-weight: 600;
+            padding: 0.2rem 0.8rem;
+            border-radius: 50px;
+            display: inline-block;
+            font-size: 0.8rem;
+            margin-right: 0.5rem;
+        }
+        .grid-2, .grid-3 {
+            display: grid;
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+        .grid-2 { grid-template-columns: repeat(2,1fr); }
+        .grid-3 { grid-template-columns: repeat(3,1fr); }
+        .card {
+            background: #f1f5f9;
+            padding: 1.5rem;
+            border-radius: 24px;
+        }
+        .card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .emoji-lg { font-size: 2rem; }
+        ul {
+            list-style: none;
+        }
+        li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        li::before {
+            content: "•";
+            color: #3b7cff;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .table-comparison {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+        }
+        .table-comparison th {
+            text-align: left;
+            background: #f1f5f9;
+            padding: 0.8rem;
+            font-weight: 600;
+        }
+        .table-comparison td {
+            padding: 0.8rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .table-comparison .check { color: #3b7cff; font-weight: 700; }
+        .table-comparison .x { color: #94a3b8; }
+        .roadmap {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 2rem 0;
+        }
+        .roadmap-item {
+            background: #f1f5f9;
+            border-radius: 40px;
+            padding: 0.5rem 1.2rem;
+            font-weight: 500;
+            margin: 0.3rem 0;
+        }
+        .footer-contact {
+            margin-top: 2rem;
+            background: #0f172a;
+            color: white;
+            padding: 2rem;
+            border-radius: 28px;
+            text-align: center;
+        }
+        .footer-contact a {
+            color: #90b4ff;
+            text-decoration: none;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #e2e8f0;
+            margin: 2rem 0;
+        }
+        @media (max-width: 700px) {
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Cover -->
+<div class="slide">
+    <div class="slide-header">
+        <span class="title">PITCH DECK 2025</span>
+        <span class="confidential">CONFIDENTIAL</span>
+    </div>
+    <h1 style="font-size:3.5rem; margin-top:1rem;">CCS</h1>
+    <p style="font-size:1.5rem; font-weight:300; max-width:80%;">Corporate Communication Suite</p>
+    <p style="margin-top:2rem; color:#334155;">Standardized digital infrastructure for the next generation of business</p>
+    <div style="display:flex; justify-content:space-between; margin-top:3rem; color:#64748b;">
+        <span>Alexander | CEO & Founder</span>
+        <span>2025</span>
+    </div>
+</div>
+
+<!-- SLIDE 2: Problem -->
+<div class="slide">
+    <div class="slide-header"><span>01</span> <span>THE PROBLEM</span></div>
+    <h2>Small and mid-sized businesses lose customers because they lack a credible digital presence</h2>
+    <div class="grid-3">
+        <div class="card">
+            <div class="emoji-lg">⏱</div>
+            <h4>Slow & Expensive</h4>
+            <p>Building a corporate website takes months and costs thousands — completely out of reach for most SMBs.</p>
+        </div>
+        <div class="card">
+            <div class="emoji-lg">🔒</div>
+            <h4>No Trust Signal</h4>
+            <p>Without a professional online presence, customers don't perceive a business as credible or legitimate.</p>
+        </div>
+        <div class="card">
+            <div class="emoji-lg">🔧</div>
+            <h4>Fragmentation</h4>
+            <p>10+ separate tools: domain, hosting, CRM, forms, catalogue, analytics — all disconnected and hard to manage.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 3: Solution -->
+<div class="slide">
+    <div class="slide-header"><span>02</span> <span>THE SOLUTION</span></div>
+    <h2>CCS — the office-site as a standardized infrastructure block</h2>
+    <p style="font-size:1.2rem; margin-bottom:2rem;">Not just a website. A unified command centre for a company's entire digital identity — deployed in under 24 hours and built to scale.</p>
+    <div class="grid-2">
+        <div class="card"><h4>🏢 Office-Site</h4> <p>A ready-made corporate site with standardized blocks: about us, services, contacts, team.</p></div>
+        <div class="card"><h4>🆔 CCS-ID</h4> <p>A verifiable digital business identity — the equivalent of a registered address, but for the web.</p></div>
+        <div class="card"><h4>🔌 Integrations</h4> <p>Built-in modules: CRM, forms, catalogue, analytics, messengers — all in one control panel.</p></div>
+        <div class="card"><h4>📐 Open Standard</h4> <p>Any developer, agency, or partner can build on top of the CCS block standard.</p></div>
+    </div>
+</div>
+
+<!-- SLIDE 4: Market -->
+<div class="slide">
+    <div class="slide-header"><span>03</span> <span>MARKET OPPORTUNITY</span></div>
+    <div style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:space-around; margin:2rem 0;">
+        <div><span style="font-size:2.5rem; font-weight:700;">$56B</span><br>TAM</div>
+        <div><span style="font-size:2.5rem; font-weight:700;">$4.2B</span><br>SAM</div>
+        <div><span style="font-size:2.5rem; font-weight:700;">$180M</span><br>SOM</div>
+    </div>
+    <p>📈 The website builder market grows at 7.4% per year. 70% of SMBs in Europe still lack a proper website.</p>
+</div>
+
+<!-- SLIDE 5: How it works -->
+<div class="slide">
+    <div class="slide-header"><span>04</span> <span>HOW IT WORKS</span></div>
+    <h3>From sign-up to a live office-site in under 24 hours</h3>
+    <ol style="margin:2rem 0 0 2rem; font-weight:500;">
+        <li style="margin-bottom:1rem;"><strong>1. Sign Up</strong> — Company creates an account and enters legal details. A CCS-ID is generated automatically.</li>
+        <li style="margin-bottom:1rem;"><strong>2. Configure</strong> — Choose a template from the standardized block library. Apply brand colors, logo, and content.</li>
+        <li style="margin-bottom:1rem;"><strong>3. Go Live</strong> — Office-site is published. Domain, SSL, and SEO metadata are configured automatically.</li>
+        <li style="margin-bottom:1rem;"><strong>4. Integrate</strong> — Connect CRM, forms, catalogue, and analytics via the CCS module marketplace.</li>
+    </ol>
+</div>
+
+<!-- SLIDE 6: Business Model -->
+<div class="slide">
+    <div class="slide-header"><span>05</span> <span>BUSINESS MODEL</span></div>
+    <div class="grid-2">
+        <div class="card"><h4>📦 SaaS Subscription</h4> <p><strong>€29–199/mo</strong><br>Three tiers: Basic, Business, Enterprise. Core features plus add-on modules.</p></div>
+        <div class="card"><h4>🔌 Module Marketplace</h4> <p><strong>30% Rev Share</strong><br>Third-party developers publish modules; CCS takes a platform commission.</p></div>
+        <div class="card"><h4>🏢 White-Label API</h4> <p><strong>€500–2,000/mo</strong><br>Agencies and platforms embed CCS into their own products via API.</p></div>
+        <div class="card"><h4>🎓 Grants & Accelerators</h4> <p><strong>Non-dilutive</strong><br>Google for Startups, AWS Activate, EU Horizon — infrastructure support.</p></div>
+    </div>
+</div>
+
+<!-- SLIDE 7: Competitive Landscape -->
+<div class="slide">
+    <div class="slide-header"><span>06</span> <span>COMPETITIVE LANDSCAPE</span></div>
+    <p>CCS occupies a unique space — between no-code builders and enterprise CMS</p>
+    <table class="table-comparison">
+        <tr><th></th><th>Wix / Squarespace</th><th>WordPress</th><th>Notion Sites</th><th>CCS</th></tr>
+        <tr><td>Standardized block system</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td><td class="check">✓</td></tr>
+        <tr><td>CCS-ID (digital verification)</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td><td class="check">✓</td></tr>
+        <tr><td>Module marketplace</td><td class="x">✗</td><td class="check">✓</td><td class="x">✗</td><td class="check">✓</td></tr>
+        <tr><td>White-Label API</td><td class="x">✗</td><td class="check">✓</td><td class="x">✗</td><td class="check">✓</td></tr>
+        <tr><td>Launch in < 24 hours</td><td class="check">✓</td><td class="x">✗</td><td class="check">✓</td><td class="check">✓</td></tr>
+        <tr><td>Corporate identity layer</td><td class="x">✗</td><td class="x">✗</td><td class="x">✗</td><td class="check">✓</td></tr>
+    </table>
+</div>
+
+<!-- SLIDE 8: Traction & Status -->
+<div class="slide">
+    <div class="slide-header"><span>07</span> <span>TRACTION & STATUS</span></div>
+    <div style="display:flex; flex-wrap:wrap; gap:1rem; margin-bottom:2rem;">
+        <span class="badge">LTD</span> Legal entity registered United Kingdom
+        <span class="badge">MVP</span> Prototype in development v0.1 complete
+        <span class="badge">3+</span> Pilot clients waiting list
+        <span class="badge">£0</span> External funding bootstrapped
+    </div>
+    <h3>ROADMAP</h3>
+    <div class="roadmap">
+        <span class="roadmap-item">Q2 2025: LTD + MVP v0.1</span>
+        <span class="roadmap-item">Q3 2025: 3 pilot clients</span>
+        <span class="roadmap-item">Q4 2025: Google / AWS Cloud Credits</span>
+        <span class="roadmap-item">Q1 2026: 100 paying customers</span>
+        <span class="roadmap-item">Q3 2026: Pre-Seed Round €300K</span>
+    </div>
+</div>
+
+<!-- SLIDE 9: Team -->
+<div class="slide">
+    <div class="slide-header"><span>08</span> <span>THE TEAM</span></div>
+    <p style="margin-bottom:1.5rem;">Experienced team focused on product and growth</p>
+    <div class="grid-3">
+        <div class="card"><h4>👤 Alexander</h4> <strong>CEO & Founder</strong><br>Strategy, product vision, UK LTD, partnerships and business development.</div>
+        <div class="card"><h4>👤 CTO (hiring)</h4> <strong>Chief Technology Officer</strong><br>Fullstack engineering, cloud architecture, DevOps.</div>
+        <div class="card"><h4>👤 CMO (hiring)</h4> <strong>Growth & Marketing</strong><br>B2B SaaS growth, lead generation, content strategy.</div>
+    </div>
+</div>
+
+<!-- SLIDE 10: What we're looking for -->
+<div class="slide">
+    <div class="slide-header"><span>09</span> <span>WHAT WE'RE LOOKING FOR</span></div>
+    <p><strong>We're not raising money. We're looking for infrastructure to grow.</strong></p>
+    <ul style="margin-top:1.5rem;">
+        <li>☁️ Google for Startups Cloud – up to $200,000 GCP credits</li>
+        <li>🚀 AWS Activate / Azure – up to $100,000 cloud infrastructure</li>
+        <li>🎓 Accelerator Program – 3–6 month program (mentorship, network)</li>
+        <li>🤝 Strategic Partner – Equity / Rev Share for market entry in UK/EU</li>
+    </ul>
+</div>
+
+<!-- SLIDE 11: Closing -->
+<div class="footer-contact">
+    <h2 style="color:white;">Let's build the digital infrastructure for business together.</h2>
+    <p style="font-size:1.2rem; margin:1rem 0;">CCS — not just a website builder. A standard.</p>
+    <p>Alexander | CEO & Founder, CCS</p>
+    <p>
+        <a href="mailto:hello@ccs.ltd">hello@ccs.ltd</a>  |  
+        <a href="#">linkedin.com/in/ccs-founder</a>  |  
+        ccs.ltd  |  UK LTD
+    </p>
+    <p style="margin-top:1.5rem; font-size:0.85rem;">Confidential – 2025</p>
+</div>
+
+</body>
+</html>

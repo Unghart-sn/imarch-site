@@ -1,0 +1,138 @@
+<style>
+.vis-hero {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  color: white;
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.vis-hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.vis-hero-subtitle {
+  font-size: 1.2rem;
+  margin-bottom: 35px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.vis-hero-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.vis-hero-btn {
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+  justify-content: center;
+  max-width: 200px;
+}
+
+.vis-hero-btn-primary {
+  background: linear-gradient(135deg, #38a169 0%, #276749 100%);
+  color: white;
+  border: 2px solid #38a169;
+}
+
+.vis-hero-btn-secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.vis-hero-btn-tertiary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.vis-hero-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.vis-hero-btn-primary:hover {
+  background: linear-gradient(135deg, #2f855a 0%, #22543d 100%);
+}
+
+.vis-hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@media (max-width: 768px) {
+  .vis-hero {
+    padding: 60px 15px;
+    margin: 30px 0;
+    border-radius: 8px;
+  }
+  
+  .vis-hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .vis-hero-subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
+  .vis-hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+  
+  .vis-hero-btn {
+    max-width: 100%;
+    width: 100%;
+    padding: 12px 20px;
+  }
+}
+</style>
+
+<section id="hero" class="vis-section vis-hero">
+  <div class="vis-hero-content">
+    <h1 class="vis-hero-title">Vis Realitatis: массаж как путь к восстановлению</h1>
+    <p class="vis-hero-subtitle">«От первых шагов с ветеранами до глобального комьюнити»</p>
+    
+    <div class="vis-hero-buttons">
+      <a href="#join" class="vis-hero-btn vis-hero-btn-primary">
+        <span>👥</span> Присоединиться
+      </a>
+      <a href="/support" class="vis-hero-btn vis-hero-btn-secondary">
+        <span>❤️</span> Поддержать проект
+      </a>
+      <a href="/training" class="vis-hero-btn vis-hero-btn-tertiary">
+        <span>🎓</span> Пройти обучение
+      </a>
+    </div>
+  </div>
+</section>

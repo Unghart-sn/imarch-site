@@ -1,0 +1,9 @@
+<figure class="banner">
+  <div class="banner-image">
+    <img src="{{ .Get "src" }}" alt="{{ .Get "alt" }}" class="{{ .Get "class" }}">
+  </div>
+  {{ with .Get "caption" }}
+    <figcaption class="banner-caption">{{ . }}</figcaption>
+  {{ end }}
+</figure>
+

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гуманитарный Исходный Код | IMARCH</title>
+    <style>
+        /* === СТИЛИ ИЗОЛИРОВАНЫ ВНУТРИ .landing-block === */
+        .landing-block {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #fdfdfd;
+            margin: 0 auto;
+            padding: 0 20px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+        /* Заголовки */
+        .landing-block h1,
+        .landing-block h2,
+        .landing-block h3 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 0;
+        }
+
+        .landing-block h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #222;
+            border-bottom: 3px solid #5a5a5a;
+            padding-bottom: 20px;
+        }
+
+        .landing-block h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .landing-block h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: #5a5a5a;
+        }
+
+        .landing-block h3 {
+            font-size: 1.6rem;
+            color: #444;
+            margin-bottom: 1.2rem;
+        }
+
+        .landing-block h4 {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Параграфы */
+        .landing-block p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        /* Блоки с фоном */
+        .landing-block .section-card {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 1px solid #eaeaea;
+        }
+
+        /* Три колонки */
+        .landing-block .three-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .landing-block .column {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .landing-block .column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .landing-block .column-icon {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        /* Четыре карточки принципов - ИСПРАВЛЕНО */
+        .landing-block .four-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .landing-block .principle-card {
+            background: white;
+            padding: 30px;
+            border-radius: 6px;
+            /* ИСПРАВЛЕНО: убрана двойная граница */
+            border: 1px solid #eaeaea;
+            border-left: 4px solid #5a5a5a;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .landing-block .principle-card:hover {
+            border-left-color: #333;
+            border-color: #ccc;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .landing-block .principle-icon {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Выделенный текст */
+        .landing-block .highlight-box {
+            background: #f0f0f0;
+            border-left: 4px solid #777;
+            padding: 30px;
+            margin: 40px 0;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .landing-block .highlight-box strong {
+            color: #333;
+        }
+
+        /* Кнопки */
+        .landing-block .cta-button {
+            display: inline-block;
+            background: #5a5a5a;
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #4a4a4a;
+            font-family: 'Georgia', serif;
+        }
+
+        .landing-block .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .landing-block .button-center {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        /* Формула */
+        .landing-block .formula {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #333;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            border: 2px dashed #e0e0e0;
+            margin: 40px 0;
+        }
+
+        /* Футер лендинга */
+        .landing-block .landing-footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+        }
+
+        /* АДАПТИВНОСТЬ - ИСПРАВЛЕНА */
+        @media (max-width: 850px) {
+            .landing-block .three-columns {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .landing-block .four-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .landing-block {
+                padding: 0 15px;
+            }
+            
+            .landing-block .section-card {
+                padding: 30px 20px;
+                margin: 30px 0;
+            }
+            
+            .landing-block h1 {
+                font-size: 2.2rem;
+                padding-bottom: 15px;
+            }
+            
+            .landing-block h2 {
+                font-size: 1.8rem;
+                padding-bottom: 12px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .landing-block h2:after {
+                width: 60px;
+            }
+            
+            .landing-block h3 {
+                font-size: 1.4rem;
+            }
+            
+            .landing-block h4 {
+                font-size: 1.2rem;
+            }
+            
+            .landing-block p {
+                font-size: 1.1rem;
+            }
+            
+            /* ИСПРАВЛЕНО: карточки на мобильном */
+            .landing-block .column,
+            .landing-block .principle-card {
+                padding: 25px 20px;
+            }
+            
+            .landing-block .column-icon,
+            .landing-block .principle-icon {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .landing-block .highlight-box {
+                padding: 25px 20px;
+                font-size: 1.15rem;
+                margin: 30px 0;
+            }
+            
+            .landing-block .formula {
+                font-size: 1.3rem;
+                padding: 20px;
+                margin: 30px 0;
+            }
+            
+            .landing-block .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            
+            .landing-block .button-center {
+                margin: 30px 0;
+            }
+        }
+        
+        /* Ещё более мелкие экраны */
+        @media (max-width: 400px) {
+            .landing-block h1 {
+                font-size: 1.9rem;
+            }
+            
+            .landing-block h2 {
+                font-size: 1.6rem;
+            }
+            
+            .landing-block .section-card {
+                padding: 25px 15px;
+            }
+            
+            .landing-block .column,
+            .landing-block .principle-card {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- === НАЧАЛО БЛОКА ЛЕНДИНГА === -->
+    <div class="landing-block">
+        <!-- Формула и заключение -->
+        <div class="section-card" id="start">
+            <h2>Ваша формула создания ценности</h2>
+            
+            <div class="formula">
+                ВЗАИМОДЕЙСТВИЕ + ОБЕТ + ХРОНИКА = ЦЕННОСТЬ
+            </div>
+            
+            <p>Это не просто слова, это операционная система для гуманитарного предприятия. Где каждый элемент усиливает другой в замкнутом цикле созидания. Превратите ваше движение в увлекательный и устойчивый проект!</p>
+            
+            <div class="button-center">
+                <a href="https://github.com/Imperium-Silentii/universal-formology-incubator/blob/main/README.RU.md" class="cta-button">Присоединиться к экосистеме →</a>
+            </div>
+        </div>
+    </div>
+    <!-- === КОНЕЦ БЛОКА ЛЕНДИНГА === -->
+</body>
+</html>

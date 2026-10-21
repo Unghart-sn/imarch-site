@@ -1,0 +1,604 @@
+<style>
+/* =================== FUTURE ROADMAP (CORRECTED VERSION) =================== */
+.platan-roadmap-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: clamp(2rem, 5vw, 5rem) auto;
+    padding: 0 clamp(1rem, 3vw, 1.25rem);
+    box-sizing: border-box;
+}
+
+.platan-roadmap-header {
+    text-align: center;
+    margin-bottom: clamp(2rem, 4vw, 3.75rem);
+    position: relative;
+}
+
+.platan-roadmap-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: #1a365d;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+    padding: 0 0.5rem;
+}
+
+.platan-roadmap-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: #4a5568;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    padding: 0 0.5rem;
+}
+
+.platan-roadmap-subtitle strong {
+    color: #2c5282;
+}
+
+/* Main timeline */
+.platan-timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.platan-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #2c5282, #38a169, #d69e2e);
+    border-radius: 2px;
+}
+
+/* Year */
+.platan-year {
+    position: relative;
+    margin: clamp(3rem, 5vw, 3.75rem) 0;
+    text-align: center;
+}
+
+.platan-year-marker {
+    display: inline-block;
+    background: #1a365d;
+    color: white;
+    padding: clamp(0.5rem, 1.5vw, 0.625rem) clamp(1.25rem, 3vw, 1.875rem);
+    border-radius: 50px;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.2);
+    line-height: 1.3;
+}
+
+.platan-year-marker::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    width: 2px;
+    height: 20px;
+    background: #2c5282;
+}
+
+/* Quarters */
+.platan-quarters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+    margin-top: clamp(2rem, 4vw, 2.5rem);
+}
+
+.platan-quarter {
+    position: relative;
+}
+
+.platan-quarter.left {
+    text-align: right;
+    padding-right: clamp(2rem, 4vw, 3.75rem);
+}
+
+.platan-quarter.right {
+    text-align: left;
+    padding-left: clamp(2rem, 4vw, 3.75rem);
+}
+
+/* Remove old dots */
+.platan-quarter-point {
+    display: none;
+}
+
+.platan-quarter-card {
+    background: white;
+    border-radius: 12px;
+    padding: clamp(1.25rem, 2.5vw, 1.5625rem);
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: visible;
+    min-height: clamp(180px, 30vw, 200px);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.platan-quarter-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border-color: #2c5282;
+}
+
+/* Accent bar on the left */
+.platan-quarter-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: #2c5282;
+    border-radius: 3px 0 0 3px;
+}
+
+/* For right cards – bar on the right */
+.platan-quarter.right .platan-quarter-card::before {
+    left: auto;
+    right: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+/* ARROWS INSTEAD OF DOTS */
+.platan-quarter-card::after {
+    content: '';
+    position: absolute;
+    top: clamp(1.5rem, 3vw, 1.875rem);
+    width: clamp(0.875rem, 2vw, 1.25rem);
+    height: clamp(0.875rem, 2vw, 1.25rem);
+    background: white;
+    border: 2px solid #2c5282;
+    z-index: 2;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Arrow for left cards */
+.platan-quarter.left .platan-quarter-card::after {
+    right: calc(clamp(0.875rem, 2vw, 1.25rem) * -0.5);
+    border-left: none;
+    border-top: none;
+    transform: rotate(-45deg);
+}
+
+/* Arrow for right cards */
+.platan-quarter.right .platan-quarter-card::after {
+    left: calc(clamp(0.875rem, 2vw, 1.25rem) * -0.5);
+    border-right: none;
+    border-bottom: none;
+    transform: rotate(135deg);
+}
+
+/* Hover effect */
+.platan-quarter-card:hover::after {
+    background: #2c5282;
+    border-color: #2c5282;
+    transform: scale(1.1);
+}
+
+.platan-quarter.left .platan-quarter-card:hover::after {
+    transform: rotate(-45deg) scale(1.1);
+}
+
+.platan-quarter.right .platan-quarter-card:hover::after {
+    transform: rotate(135deg) scale(1.1);
+}
+
+/* Card content */
+.platan-quarter-header {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.platan-quarter-icon {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    flex-shrink: 0;
+}
+
+.platan-quarter-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+    color: #1a365d;
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+    min-width: min(200px, 100%);
+}
+
+.platan-quarter-period {
+    display: inline-block;
+    background: rgba(44, 82, 130, 0.1);
+    color: #2c5282;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.platan-quarter-content {
+    color: #4a5568;
+    font-size: clamp(0.9rem, 1.8vw, 1rem);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.platan-quarter-metrics {
+    display: flex;
+    gap: clamp(0.75rem, 1.5vw, 1rem);
+    flex-wrap: wrap;
+}
+
+.platan-metric {
+    background: #f8fafc;
+    padding: 0.5rem 0.75rem;
+    border-radius: 6px;
+    border-left: 3px solid #38a169;
+    min-width: min(120px, 100%);
+}
+
+.platan-metric-label {
+    display: block;
+    font-size: clamp(0.7rem, 1.4vw, 0.8rem);
+    color: #718096;
+    margin-bottom: 0.125rem;
+}
+
+.platan-metric-value {
+    display: block;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: 700;
+    color: #1a365d;
+}
+
+/* Roadmap final */
+.platan-roadmap-final {
+    text-align: center;
+    margin-top: clamp(3rem, 5vw, 5rem);
+    padding: clamp(1.5rem, 3vw, 3.125rem) clamp(1.25rem, 2.5vw, 1.875rem);
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 16px;
+    border: 2px dashed #cbd5e0;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.platan-final-icon {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin-bottom: 1.5625rem;
+    opacity: 0.8;
+}
+
+.platan-final-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: #1a365d;
+    margin-bottom: 1.25rem;
+    line-height: 1.3;
+}
+
+.platan-final-text {
+    color: #4a5568;
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto clamp(1.5rem, 3vw, 1.875rem);
+}
+
+.platan-final-note {
+    color: #718096;
+    font-size: clamp(0.8rem, 1.6vw, 0.9rem);
+    font-style: italic;
+    margin-top: 1.5625rem;
+    line-height: 1.4;
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+    .platan-timeline::before {
+        left: clamp(1.5rem, 4vw, 1.875rem);
+    }
+    
+    .platan-year {
+        margin: clamp(2rem, 4vw, 2.5rem) 0;
+        text-align: left;
+        padding-left: clamp(2.5rem, 6vw, 3.125rem);
+    }
+    
+    .platan-year-marker {
+        margin-left: clamp(-1rem, -3vw, -0.625rem);
+        padding: 0.5rem 1.25rem;
+    }
+    
+    .platan-year-marker::before {
+        left: clamp(1.5rem, 4vw, 1.875rem);
+        bottom: -25px;
+        height: 25px;
+    }
+    
+    .platan-quarters {
+        grid-template-columns: 1fr;
+        gap: clamp(1.25rem, 3vw, 1.5625rem);
+        margin-top: clamp(1.5rem, 3vw, 2.5rem);
+    }
+    
+    .platan-quarter {
+        padding: 0 !important;
+        text-align: left !important;
+    }
+    
+    .platan-quarter-card {
+        margin-left: clamp(2rem, 5vw, 2.5rem);
+        min-height: auto;
+        width: calc(100% - clamp(2rem, 5vw, 2.5rem));
+    }
+    
+    .platan-quarter-card::before {
+        left: 0 !important;
+        right: auto !important;
+        width: 4px;
+        border-radius: 3px 0 0 3px !important;
+    }
+    
+    .platan-quarter-card::after {
+        left: calc(clamp(0.875rem, 2vw, 1.25rem) * -0.5) !important;
+        right: auto !important;
+        border-right: none;
+        border-bottom: none;
+        border-left: 2px solid #2c5282;
+        border-top: 2px solid #2c5282;
+        transform: rotate(135deg);
+    }
+    
+    .platan-quarter-card:hover::after {
+        transform: rotate(135deg) scale(1.1) !important;
+    }
+    
+    .platan-roadmap-final {
+        margin-top: clamp(2rem, 4vw, 3.125rem);
+        margin-left: clamp(2rem, 5vw, 2.5rem);
+        width: calc(100% - clamp(2rem, 5vw, 2.5rem));
+    }
+    
+    .platan-quarter-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .platan-quarter-title {
+        width: 100%;
+    }
+}
+
+/* Animations */
+@keyframes timelineReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.platan-quarter-card {
+    animation: timelineReveal 0.6s ease forwards;
+}
+
+.platan-quarter-card:nth-child(1) { animation-delay: 0.1s; }
+.platan-quarter-card:nth-child(2) { animation-delay: 0.2s; }
+.platan-quarter-card:nth-child(3) { animation-delay: 0.3s; }
+.platan-quarter-card:nth-child(4) { animation-delay: 0.4s; }
+</style>
+
+<!-- HTML - EXACT TRANSLATION, STRUCTURE UNCHANGED -->
+<div class="platan-roadmap-container">
+
+    <!-- Timeline -->
+    <div class="platan-timeline">
+        
+        <!-- 2026 -->
+        <div class="platan-year">
+            <div class="platan-year-marker">🎯 2026 — Year of Institutionalisation</div>
+            
+            <div class="platan-quarters">
+                <!-- Q1 2026 -->
+                <div class="platan-quarter left">
+                    <div class="platan-quarter-point"></div>
+                    <div class="platan-quarter-card">
+                        <div class="platan-quarter-header">
+                            <div class="platan-quarter-icon">🚀</div>
+                            <h3 class="platan-quarter-title">Platform v2.0 Launch</h3>
+                        </div>
+                        <div class="platan-quarter-period">Q1 2026</div>
+                        <p class="platan-quarter-content">
+                            Fully automated SaaS platform for CIC registration and management.
+                            Integration with Companies House, automated compliance, AI assistant.
+                        </p>
+                        <div class="platan-quarter-metrics">
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">CICs on platform</span>
+                                <span class="platan-metric-value">50+</span>
+                            </div>
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">Process automation</span>
+                                <span class="platan-metric-value">85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 2026 -->
+                <div class="platan-quarter right">
+                    <div class="platan-quarter-point"></div>
+                    <div class="platan-quarter-card">
+                        <div class="platan-quarter-header">
+                            <div class="platan-quarter-icon">🌍</div>
+                            <h3 class="platan-quarter-title">International Expansion</h3>
+                        </div>
+                        <div class="platan-quarter-period">Q2 2026</div>
+                        <p class="platan-quarter-content">
+                            Model adaptation for EU jurisdictions. Launch of partner network in Germany, France,
+                            the Netherlands. Creation of cross‑border CIC structure.
+                        </p>
+                        <div class="platan-quarter-metrics">
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">New jurisdictions</span>
+                                <span class="platan-metric-value">3 countries</span>
+                            </div>
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">International partners</span>
+                                <span class="platan-metric-value">15+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q3 2026 -->
+                <div class="platan-quarter left">
+                    <div class="platan-quarter-point"></div>
+                    <div class="platan-quarter-card">
+                        <div class="platan-quarter-header">
+                            <div class="platan-quarter-icon">📊</div>
+                            <h3 class="platan-quarter-title">Scientific Validation</h3>
+                        </div>
+                        <div class="platan-quarter-period">Q3 2026</div>
+                        <p class="platan-quarter-content">
+                            Publication of pilot study results in Q1 peer‑reviewed journals.
+                            Development of a methodology for measuring social ROI for CICs.
+                        </p>
+                        <div class="platan-quarter-metrics">
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">Scientific publications</span>
+                                <span class="platan-metric-value">5 papers</span>
+                            </div>
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">Team h‑index</span>
+                                <span class="platan-metric-value">25+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q4 2026 -->
+                <div class="platan-quarter right">
+                    <div class="platan-quarter-point"></div>
+                    <div class="platan-quarter-card">
+                        <div class="platan-quarter-header">
+                            <div class="platan-quarter-icon">🏛️</div>
+                            <h3 class="platan-quarter-title">Institutional Recognition</h3>
+                        </div>
+                        <div class="platan-quarter-period">Q4 2026</div>
+                        <p class="platan-quarter-content">
+                            Reaching policy‑making level. Participation in the development of legislative initiatives.
+                            Recognition of the model as an industry standard for social enterprises.
+                        </p>
+                        <div class="platan-quarter-metrics">
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">Government contracts</span>
+                                <span class="platan-metric-value">3+</span>
+                            </div>
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">Mentions in regulatory documents</span>
+                                <span class="platan-metric-value">Yes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2027 -->
+        <div class="platan-year">
+            <div class="platan-year-marker">🚀 2027 — Year of Scaling</div>
+            
+            <div class="platan-quarters">
+                <!-- Q1 2027 -->
+                <div class="platan-quarter left">
+                    <div class="platan-quarter-point"></div>
+                    <div class="platan-quarter-card">
+                        <div class="platan-quarter-header">
+                            <div class="platan-quarter-icon">🔄</div>
+                            <h3 class="platan-quarter-title">Model Franchising</h3>
+                        </div>
+                        <div class="platan-quarter-period">Q1 2027</div>
+                        <p class="platan-quarter-content">
+                            Launch of institutional hub franchise. Training regional operators,
+                            building a network in 20+ countries. Standardisation of processes and methodologies.
+                        </p>
+                        <div class="platan-quarter-metrics">
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">Franchise partners</span>
+                                <span class="platan-metric-value">10+</span>
+                            </div>
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">New countries</span>
+                                <span class="platan-metric-value">20+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Q2 2027 -->
+                <div class="platan-quarter right">
+                    <div class="platan-quarter-point"></div>
+                    <div class="platan-quarter-card">
+                        <div class="platan-quarter-header">
+                            <div class="platan-quarter-icon">💼</div>
+                            <h3 class="platan-quarter-title">Corporate Segment</h3>
+                        </div>
+                        <div class="platan-quarter-period">Q2 2027</div>
+                        <p class="platan-quarter-content">
+                            Entry into the corporate social entrepreneurship market.
+                            Creation of CIC structures for large businesses, integration into corporate ESG strategies.
+                        </p>
+                        <div class="platan-quarter-metrics">
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">Corporate clients</span>
+                                <span class="platan-metric-value">FTSE 100: 5+</span>
+                            </div>
+                            <div class="platan-metric">
+                                <span class="platan-metric-label">Managed assets</span>
+                                <span class="platan-metric-value">£50M+</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Roadmap finale -->
+    <div class="platan-roadmap-final">
+        <div class="platan-final-icon">🎯</div>
+        <h3 class="platan-final-title">Beyond the Map</h3>
+        <p class="platan-final-text">
+            By 2030, we plan to become an infrastructure operator for 1,000+ social enterprises worldwide,
+            creating a viable alternative to the traditional economy. Our goal is not just scaling,
+            but changing the rules of the game.
+        </p>
+        <p class="platan-final-note">
+            *The roadmap is based on current developments and market research.
+            Detailed business plans and financial models are available to potential investors upon request.
+        </p>
+    </div>
+</div>

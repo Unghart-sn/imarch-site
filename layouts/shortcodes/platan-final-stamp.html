@@ -1,0 +1,547 @@
+<style>
+/* =================== ФИНАЛЬНАЯ ПЕЧАТЬ И КОНТАКТЫ - PLATAN+ CONSORTIUM =================== */
+/* ИНСТИТУЦИОНАЛЬНЫЙ ЗАВЕРШАЮЩИЙ БЛОК */
+
+.platan-final-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Главная печать */
+.platan-main-stamp {
+    text-align: center;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 2px solid #e2e8f0;
+    position: relative;
+}
+
+.platan-main-stamp::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 2px;
+    background: linear-gradient(to right, #1a365d, #2c5282, #1a365d);
+}
+
+.platan-consortium-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: #1a365d;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.platan-institutional-line {
+    font-family: monospace;
+    color: #718096;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.platan-document-id {
+    font-family: monospace;
+    color: #a0aec0;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-top: 15px;
+}
+
+/* =================== ИСПРАВЛЕННЫЙ БЛОК КОНТАКТОВ =================== */
+/* АДАПТИВНАЯ ВЕРСИЯ ДЛЯ МОБИЛЬНЫХ */
+
+.platan-contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.platan-contact-section {
+    background: #f8fafc;
+    border-radius: 10px;
+    padding: 30px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.platan-contact-section:hover {
+    border-color: #2c5282;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.platan-contact-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #1a365d;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.platan-contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.platan-contact-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+}
+
+.platan-contact-item:last-child {
+    border-bottom: none;
+}
+
+.platan-contact-icon {
+    color: #2c5282;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(44, 82, 130, 0.1);
+    border-radius: 6px;
+}
+
+.platan-contact-content {
+    flex-grow: 1;
+    min-width: 0; /* Важно для переноса текста */
+}
+
+.platan-contact-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+.platan-contact-label {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.platan-contact-value {
+    color: #4a5568;
+    text-align: right;
+    font-size: 0.95rem;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.platan-contact-value a {
+    color: #2c5282;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    display: inline-block;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.platan-contact-value a:hover {
+    color: #1a365d;
+    text-decoration: underline;
+}
+
+/* Копирайт и легальная информация */
+.platan-legal-section {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 8px;
+    padding: 40px;
+    text-align: center;
+    border: 1px solid #e2e8f0;
+    margin-top: 40px;
+}
+
+.platan-legal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #1a365d;
+    margin-bottom: 20px;
+}
+
+.platan-legal-text {
+    color: #718096;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.platan-legal-text strong {
+    color: #4a5568;
+}
+
+/* Быстрые действия */
+.platan-actions-section {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+    flex-wrap: wrap;
+}
+
+.platan-action-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: #2c5282;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 2px solid #2c5282;
+}
+
+.platan-action-button:hover {
+    background: #2c5282;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(44, 82, 130, 0.2);
+}
+
+.platan-action-button-secondary {
+    background: #f8fafc;
+    border-color: #cbd5e0;
+    color: #4a5568;
+}
+
+.platan-action-button-secondary:hover {
+    background: #e2e8f0;
+    color: #2d3748;
+    border-color: #a0aec0;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .platan-final-container {
+        margin: 60px auto 30px;
+        padding: 0 15px;
+    }
+    
+    .platan-consortium-name {
+        font-size: 2rem;
+    }
+    
+    .platan-institutional-line {
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+    }
+    
+    .platan-contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .platan-contact-section {
+        padding: 25px 20px;
+    }
+    
+    .platan-contact-title {
+        font-size: 1.2rem;
+    }
+    
+    .platan-contact-item {
+        flex-direction: column;
+        gap: 12px;
+        padding: 20px 0;
+    }
+    
+    .platan-contact-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    
+    .platan-contact-row {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+    
+    .platan-contact-label {
+        white-space: normal;
+        font-size: 1rem;
+        color: #1a365d;
+        padding-bottom: 4px;
+        border-bottom: 1px dashed #e2e8f0;
+        width: 100%;
+    }
+    
+    .platan-contact-value {
+        text-align: left;
+        width: 100%;
+        font-size: 1rem;
+        padding-left: 10px;
+    }
+    
+    .platan-legal-section {
+        padding: 30px 20px;
+    }
+    
+    .platan-actions-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .platan-action-button {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+/* Десктопная оптимизация для контактов */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .platan-contact-row {
+        flex-wrap: wrap;
+    }
+    
+    .platan-contact-label {
+        min-width: 140px;
+    }
+    
+    .platan-contact-value {
+        flex-grow: 1;
+        min-width: 200px;
+    }
+}
+
+/* Декоративный элемент */
+.platan-seal-decoration {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    color: white;
+    border-radius: 50%;
+    line-height: 60px;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(26, 54, 93, 0.2);
+}
+</style>
+
+<div class="platan-final-container">
+    <!-- Главная институциональная печать -->
+    <div class="platan-main-stamp">
+        <div class="platan-seal-decoration">⚜️</div>
+        <div class="platan-consortium-name">PLATAN+ CONSORTIUM</div>
+        <div class="platan-institutional-line">INSTITUTIONAL FRAMEWORK v2.4</div>
+        <div class="platan-institutional-line">IMARCH BODY • CLUSTER ARCHITECTURE</div>
+        <div class="platan-document-id">DOCUMENT ID: PLT-2024-LND-COL-001 • STATUS: ACTIVE</div>
+    </div>
+
+    <!-- Контактная информация -->
+    <div class="platan-contacts-grid">
+        <!-- Юридические контакты -->
+        <div class="platan-contact-section">
+            <div class="platan-contact-title">🏛️ Юридическая структура</div>
+            <ul class="platan-contact-list">
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">📍</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Головная компания:</span>
+                            <span class="platan-contact-value">IMARCH LTD UK, London</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">⚖️</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">CIC-структура:</span>
+                            <span class="platan-contact-value">Veritatis Silentis CIC</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">📄</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Регистрационный №:</span>
+                            <span class="platan-contact-value">Available upon verification</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">🌐</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Юрисдикция:</span>
+                            <span class="platan-contact-value">United Kingdom (HQ), International Network</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Операционные контакты -->
+        <div class="platan-contact-section">
+            <div class="platan-contact-title">📞 Операционные контакты</div>
+            <ul class="platan-contact-list">
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">📧</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Для инвесторов:</span>
+                            <span class="platan-contact-value">
+                                <a href="mailto:invest@platan.imarch">invest@platan.imarch</a>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">🤝</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Для партнёров:</span>
+                            <span class="platan-contact-value">
+                                <a href="mailto:partners@platan.imarch">partners@platan.imarch</a>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">🔒</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Конфиденциально:</span>
+                            <span class="platan-contact-value">
+                                <a href="mailto:secure@platan.imarch">secure@platan.imarch</a><br>
+                                <small style="color: #718096;">(PGP available)</small>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">💬</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Общие вопросы:</span>
+                            <span class="platan-contact-value">
+                                <a href="mailto:consortium@platan.imarch">consortium@platan.imarch</a>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Техническая инфраструктура -->
+        <div class="platan-contact-section">
+            <div class="platan-contact-title">⚙️ Техническая инфраструктура</div>
+            <ul class="platan-contact-list">
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">💻</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Основная платформа:</span>
+                            <span class="platan-contact-value">
+                                <a href="https://github.com/platan-consortium" target="_blank">GitHub Organization</a>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">📚</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Документация:</span>
+                            <span class="platan-contact-value">
+                                <a href="https://docs.platan.imarch" target="_blank">docs.platan.imarch</a>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">🔐</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Безопасность:</span>
+                            <span class="platan-contact-value">
+                                <a href="https://security.platan.imarch" target="_blank">security.platan.imarch</a>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+                <li class="platan-contact-item">
+                    <div class="platan-contact-icon">🌍</div>
+                    <div class="platan-contact-content">
+                        <div class="platan-contact-row">
+                            <span class="platan-contact-label">Публичный сайт:</span>
+                            <span class="platan-contact-value">
+                                <a href="https://platan.imarch" target="_blank">platan.imarch</a>
+                            </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Быстрые действия -->
+    <div class="platan-actions-section">
+        <a href="#" class="platan-action-button">
+            📥 Скачать инвестиционный меморандум
+        </a>
+        <a href="#" class="platan-action-button platan-action-button-secondary">
+            📄 Запросить NDA для деталей
+        </a>
+        <a href="#" class="platan-action-button platan-action-button-secondary">
+            🗓️ Забронировать вводный звонок
+        </a>
+    </div>
+
+    <!-- Легальная информация -->
+    <div class="platan-legal-section">
+        <div class="platan-legal-title">Правовая информация и ограничения</div>
+        <div class="platan-legal-text">
+            <p>
+                © 2024 PLATAN+ Consortium. Все материалы, методологии, структурные решения и документы защищены 
+                авторским правом и коммерческой тайной. Распространение, копирование или использование в коммерческих 
+                целях разрешено только с письменного согласия Совета Консорциума.
+            </p>
+            <p>
+                <strong>Назначение документа:</strong> Предназначен исключительно для ознакомления аккредитованных 
+                инвесторов и потенциальных институциональных партнёров. Не является публичным предложением ценных бумаг 
+                или инвестиционной рекомендацией.
+            </p>
+            <p>
+                <strong>Конфиденциальность:</strong> Содержит информацию, составляющую коммерческую тайну PLATAN+ Consortium. 
+                Получатель обязуется сохранять конфиденциальность и использовать информацию исключительно для оценки 
+                возможностей сотрудничества.
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,159 @@
+{{ $lang := .Page.Language.Lang | default "es" }}
+{{ $base := printf "/%s" $lang }}
+{{ if not (.Page.Scratch.Get "concept-paper-styles") }}
+  {{ .Page.Scratch.Set "concept-paper-styles" true }}
+  <style>
+    .concept-paper-block {
+      background: #fff9f0;  /* fondo cremoso */
+      border: 1px solid #e5d5b0;
+      border-radius: 24px;
+      padding: 1.8rem;
+      margin: 2.5rem 0;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .concept-paper-block:hover {
+      background: #fffcf5;
+      border-color: #d4c090;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+    }
+
+    .concept-paper-description {
+      color: #4a3a2a;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 0.8rem 0;
+      text-align: center;
+    }
+
+    .concept-paper-description--bottom {
+      margin-top: 1.2rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+
+    .concept-paper-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+
+    .concept-paper-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+      border: 1px solid #8b95a0;
+      border-radius: 12px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1a1c1e;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .concept-paper-button:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .concept-paper-button.secondary {
+      background: transparent;
+      color: #4a3a2a;
+      border: 1px solid #c0a070;
+    }
+
+    .concept-paper-button.secondary:hover {
+      background: rgba(192, 160, 112, 0.1);
+      border-color: #8b7355;
+    }
+
+    .concept-paper-format {
+      font-size: 0.8rem;
+      font-weight: normal;
+    }
+
+    .concept-paper-meta {
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: #8b7355;
+      text-align: center;
+    }
+
+    .concept-paper-links {
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: #8b7355;
+      text-align: center;
+    }
+
+    .concept-paper-links a {
+      color: #8b7355;
+      text-decoration: none;
+      border-bottom: 1px dotted #d4c090;
+    }
+
+    .concept-paper-links a:hover {
+      border-bottom-color: #8b7355;
+      color: #5c4a2e;
+    }
+
+    @media (max-width: 768px) {
+      .concept-paper-block {
+        padding: 1.2rem;
+        margin: 1.5rem 0;
+      }
+      .concept-paper-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .concept-paper-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+{{ end }}
+
+<div class="concept-paper-block">
+  <p class="concept-paper-description">
+    Descripción autorizada del proyecto IMARCH Githronical | Chronicle OS, su misión, arquitectura y principios de participación.
+  </p>
+  <p class="concept-paper-description">
+    El proyecto comienza con Vis Realitatis — apoyo práctico a los veteranos, mientras que Chronicle OS amplía este modelo a otras iniciativas.
+  </p>
+
+  <div class="concept-paper-actions">
+    <a href="{{ $base }}/profile/office/rn-0001-imarch-whitepaper-8888-2026/" class="concept-paper-button">
+      Descripción completa del proyecto <span class="concept-paper-format">(Concept paper, Markdown / PDF)</span>
+    </a>
+    <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="concept-paper-button secondary">
+      Apoyar el proyecto en WhyDonate
+    </a>
+  </div>
+
+  <p class="concept-paper-description concept-paper-description--bottom">
+    Este documento registra la misión, la arquitectura y las reglas de participación, y sirve como punto de referencia para la transparencia y el desarrollo.
+  </p>
+
+  <div class="concept-paper-meta">
+    Los informes y archivos de decisiones se publican en Archivum a medida que el proyecto evoluciona.
+  </div>
+
+  <div class="concept-paper-links">
+    Si eres experto, quieres apoyar el proyecto y obtener un sitio-oficina, abre
+    <a href="{{ $base }}/vis-realitatis-center-experts/">entrada de experto</a>.
+  </div>
+</div>

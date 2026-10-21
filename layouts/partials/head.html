@@ -1,0 +1,132 @@
+{{- if eq .Kind "taxonomyTerm" }}
+  {{- range $key, $value := .Data.Terms.ByCount }}
+    {{- $.Scratch.Add "most_used" (slice $value.Name) }}
+  {{- end }}
+  {{- if not ($.Scratch.Get "most_used") }}
+    {{- $description := printf "A full overview of all pages with %s, ordered by %s" .Data.Plural .Data.Singular | truncate 180 }}
+    {{- $.Scratch.Set "Description" $description }}
+  {{- else }}
+    {{- $description := printf "A full overview of all pages with %s, ordered by %s, such as: %s" .Data.Plural .Data.Singular ( delimit ( $.Scratch.Get "most_used" ) ", " ", and " ) | truncate 180 }}
+    {{- $.Scratch.Set "Description" $description }}
+  {{- end }}
+  {{- $title := printf "Overview of all pages with %s, ordered by %s" .Data.Plural .Data.Singular | default "Verdictum overview" }}
+  {{- $.Scratch.Set "Title" $title }}
+{{- else if eq .Kind "taxonomy" }}
+  {{- $description := printf "Overview of all pages with the %s #%s, such as: %s" .Data.Singular $.Title ( index .Pages 0).Title | truncate 160 }}
+  {{- $.Scratch.Set "Description" $description }}
+  {{- $title := printf "Overview of all pages with the %s #%s" .Data.Singular $.Title | default "Verdictum overview" }}
+  {{- $.Scratch.Set "Title" $title }}
+{{- else }}
+  {{- $.Scratch.Set "Description" ( .Description | default .Params.subtitle | default .Summary | default "Imarchia — сцена признания и титулов" ) }}
+  {{- $.Scratch.Set "Title" ( .Title | default .Site.Title ) }}
+{{- end }}
+
+<!-- 🌐 META -->
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+{{ if .IsHome }}
+  <title>{{ .Site.Params.homeTitle | default .Site.Title }}</title>
+{{ else }}
+  {{- with ($.Scratch.Get "Title") }}
+    <title>{{ . }} - {{ $.Site.Params.homeTitle | default $.Site.Title }}</title>
+  {{- end }}
+{{ end }}
+
+{{- with ($.Scratch.Get "Description") }}
+  <meta name="description" content="{{ . }}" />
+{{- end }}
+{{- with .Site.Params.author.name }}
+  <meta name="author" content="{{ . }}" />
+{{- end }}
+
+<!-- 🔗 FAVICON -->
+{{- with .Site.Params.favicon }}
+  <link href="{{ . | absURL }}" rel="icon" type="image/x-icon" />
+{{- end -}}
+
+{{- if eq .Section "welcome" }}
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="manifest" href="/manifest-welcome.json">
+  <meta name="theme-color" content="#1E3A5F">
+{{- end }}
+
+{{ hugo.Generator -}}
+<link rel="alternate" href="{{ "index.xml" | absLangURL }}" type="application/rss+xml" title="{{ .Site.Title }}" />
+
+<!-- 🧱 BASE STYLES -->
+{{- if .Site.Params.selfHosted -}}
+  <link rel="stylesheet" href="{{ "css/katex.min.css" | absURL }}" />
+  <link rel="stylesheet" href="{{ "fontawesome/css/all.css" | absURL }}" />
+  <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | absURL }}" />
+{{- else -}}
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+{{- end -}}
+
+<!-- 🧩 THEME STYLES -->
+<link rel="stylesheet" href="{{ "css/main.css" | absURL }}" />
+
+<!-- 🎨 CUSTOM STYLES (финальное подключение, перезаписывает всё выше) -->
+<link rel="stylesheet" href="{{ "css/custom-v2.css" | absURL }}" />
+
+<!-- 🎨 PROJECT-SPECIFIC STYLES (Verdictum, Imarch) -->
+<link rel="stylesheet" href="{{ "css/ungchart.css" | absURL }}" />
+<!-- <link rel="stylesheet" href="{{ "css/imarch-accordion.css" | absURL }}" /> -->
+
+{{- if .Site.Params.staticman }}
+  <link rel="stylesheet" href="{{ "css/staticman.css" | absURL }}" />
+{{- end }}
+
+{{- if .Site.Params.selfHosted }}
+  <link rel="stylesheet" href="{{ "css/fonts.css" | absURL }}" />
+{{- else }}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+{{- end }}
+
+<!-- ============================================================ -->
+<!-- 🔥 ДОБАВЛЕНО: ШРИФТ INTER ДЛЯ ИНФОГРАФИКИ (НЕ ВЛИЯЕТ НА ОСНОВНОЙ ТЕКСТ) -->
+<!-- ============================================================ -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" />
+
+{{- if .Site.Params.useHLJS }}
+  <link rel="stylesheet" href="{{ "css/highlight.min.css" | absURL }}" />
+{{- else }}
+  <link rel="stylesheet" href="{{ "css/syntax.css" | absURL }}" />
+{{- end }}
+
+<link rel="stylesheet" href="{{ "css/codeblock.css" | absURL }}" />
+
+{{- if .Site.Params.staticman.recaptcha }}
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+{{- end }}
+
+{{- if .Site.Params.selfHosted }}
+  <link rel="stylesheet" href="{{ "css/photoswipe.min.css" | absURL }}" />
+  <link rel="stylesheet" href="{{ "css/photoswipe.default-skin.min.css" | absURL }}" />
+{{- else }}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" crossorigin="anonymous" />
+{{- end }}
+
+<!-- IMARCH AUTH: load Supabase SDK + helpers only on login / auth pages -->
+{{- $authType := .Type }}
+{{- if or (eq $authType "login") (eq $authType "auth") }}
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
+  <script src="{{ "auth-config.js" | absURL }}"></script>
+  <script src="{{ "auth.js" | absURL }}"></script>
+{{- end }}
+
+{{- if not hugo.IsServer -}}
+  {{ template "_internal/google_analytics.html" . }}
+{{- end }}
+
+<!-- 🎨 PAGE-SPECIFIC STYLES -->
+{{ range .Params.css }}
+  <link rel="stylesheet" href="{{ . | relURL }}">
+{{ end }}

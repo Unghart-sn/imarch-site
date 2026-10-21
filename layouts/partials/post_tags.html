@@ -1,0 +1,57 @@
+{{ with .Params.tags }}
+<div class="post-tags">
+  <span class="tags-label">🏷️ Теги:</span>
+  <div class="tags-container">
+    {{ range . }}
+    {{ $url := printf "%stags/%s/" $.Site.BaseURL (. | urlize) }}
+    <a href="{{ $url }}" class="post-tag" rel="tag">{{ . }}</a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
+<style>
+.post-tags {
+  margin: 2rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.tags-label {
+  font-weight: 600;
+  color: #475569;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.post-tag {
+  display: inline-block;
+  padding: 0.35rem 0.85rem;
+  background: #f1f5f9;
+  color: #475569;
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+
+.post-tag:hover {
+  background: #9333ea;
+  color: white;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+  .post-tags {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+</style>

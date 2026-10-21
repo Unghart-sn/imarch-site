@@ -1,0 +1,20 @@
+{{ $title := .Get "title" | default "Аккордеон" }}
+{{ $subtitle := .Get "subtitle" | default "" }}
+{{ $content := .Inner | .Page.RenderString }}
+
+<div class="style-accordion">
+  <div class="style-accordion-header" onclick="toggleAccordion(this)">
+    <span class="accordion-title">
+      <span>⚙️</span> {{ $title }}
+      {{ if $subtitle }}
+        <span style="font-size: 0.7rem; font-weight: 400; color: #8b7355; margin-left: 0.5rem;">
+          ({{ $subtitle }})
+        </span>
+      {{ end }}
+    </span>
+    <span class="accordion-icon">▼</span>
+  </div>
+  <div class="style-accordion-body">
+    {{ $content }}
+  </div>
+</div>

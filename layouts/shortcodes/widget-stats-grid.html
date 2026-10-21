@@ -1,0 +1,18 @@
+{{ $title := .Get "title" | default "КЛЮЧЕВЫЕ ПОКАЗАТЕЛИ" }}
+{{ $subtitle := .Get "subtitle" | default "" }}
+{{ $stats := .Get "stats" | default `[{"number":"150+","label":"Проектов"},{"number":"3.5M","label":"Инвестиций"},{"number":"95%","label":"Успеха"}]` }}
+
+{{ $statsData := $stats | unmarshal }}
+
+<div class="light-widget stats-widget">
+  <div class="widget-title">{{ $title }}</div>
+  {{ if $subtitle }}<div class="widget-sub">{{ $subtitle }}</div>{{ end }}
+  <div class="stats-grid">
+    {{ range $statsData }}
+      <div class="stat-item">
+        <div class="stat-number">{{ .number }}</div>
+        <div class="stat-label">{{ .label }}</div>
+      </div>
+    {{ end }}
+  </div>
+</div>

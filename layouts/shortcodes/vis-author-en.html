@@ -1,0 +1,122 @@
+<style>
+.vis-author {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-author-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.vis-author-avatar {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid white;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.vis-author-info {
+  flex-grow: 1;
+}
+
+.vis-author-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #744210;
+  margin: 0 0 10px 0;
+}
+
+.vis-author-title {
+  color: #d69e2e;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+.vis-author-description {
+  color: #744210;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.vis-author-quote {
+  font-style: italic;
+  color: #744210;
+  border-left: 3px solid #d69e2e;
+  padding-left: 20px;
+  margin: 25px 0;
+}
+
+.vis-author-contact {
+  margin-top: 25px;
+  font-size: 0.95rem;
+  color: #744210;
+}
+
+.vis-author-contact a {
+  color: #744210;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.vis-author-contact a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .vis-author {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-author-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 25px;
+  }
+  
+  .vis-author-avatar {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .vis-author-name {
+    font-size: 1.6rem;
+  }
+}
+</style>
+
+<section id="author" class="vis-section vis-author">
+  <div class="vis-author-container">
+    <img src="{{ .Get "avatar" | default "/images/banners/0013.png" }}" alt="Author of the method" class="vis-author-avatar">
+    <div class="vis-author-info">
+      <h3 class="vis-author-name">Alexander Purpurov</h3>
+      <div class="vis-author-title">Author of the SunLife-Massage method, ideologist of the Vis Realitatis project</div>
+      <p class="vis-author-description">
+        30+ years of practice in body-oriented therapy and renovation. 
+        Developed a unique protocol combining massage techniques, elements of art therapy, and neurophysiological principles.
+      </p>
+      <div class="vis-author-quote">
+        "Our body remembers everything. The task is to help it remember the state of peace and safety."
+      </div>
+      <a href="/en/profile/vis-realitatis/experts/#purpurov" class="vis-more-btn" style="border-color: #d69e2e; color: #744210;">
+        More about the author
+      </a>
+      <div class="vis-author-contact">
+        <p>For personal inquiries: <a href="mailto:info@purpurov.imarch.sbs">info@purpurov.imarch.sbs</a></p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,227 @@
+---
+title: "Реестр наградных знаков IMARCH LTD и рецепиентов награждения"
+type: "section"
+layout: "list"
+translationKey: "recipient-registry"
+css: ["css/ungchart.css"]
+---
+
+Ниже представлены уровни наградных знаков, степени (от VIII до I) и соответствующие эквиваленты суммы вклада, измеряемых в финансовых вложениях и экпертном вкладе на уровне обозначенных сумм. 
+
+Каждый знак и реципиент знака зафиксирован в институциональной памяти Chronicle OS 8888™.
+
+---
+
+<div class="pixel-perfect-square" onclick="togglePlay()" style="
+    position: relative; 
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    overflow: hidden; 
+    border-radius: 8px; 
+    cursor: pointer;
+    background: #000;">
+    
+  <video 
+    id="mainBannerVideo"
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    poster="/images/banners/003.jpg"
+    style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);">
+    <source src="/video/PILOT_ORIGIN_ASSET.mp4" type="video/mp4">
+  </video>
+
+  <div id="soundStatus" style="
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 5px 10px;
+      background: rgba(139, 115, 85, 0.8);
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;">
+      Audio Active
+  </div>
+</div>
+
+<script>
+function togglePlay() {
+  const v = document.getElementById('mainBannerVideo');
+  const status = document.getElementById('soundStatus');
+  
+  if (v.muted) {
+    v.muted = false;
+    status.style.opacity = '1';
+    v.play(); 
+  } else {
+    v.muted = true;
+    status.style.opacity = '0';
+  }
+}
+</script>
+
+<!-- 1. УРОВЕНЬ — ЗНАК «ВЕКТОР СТРЕМЛЕНИЯ» (🧭) -->
+<h3>1. УРОВЕНЬ — ЗНАК «ВЕКТОР СТРЕМЛЕНИЯ»</h3>
+<p><em>Эквивалент суммы вклада: 10 – 80 £ · Бирюзовая гамма</em></p>
+<div class="custom-cards">
+  <div class="custom-card" style="background: rgba(64, 224, 208, 0.15);"><div class="custom-emoji">🧭</div><div class="custom-title">Знак «Вектор Стремления»<br>VIII степень</div><div class="custom-desc">Вклад: 10 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/vektor-stremleniya-viii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">бирюза · VIII</div></div>
+  <div class="custom-card" style="background: rgba(64, 224, 208, 0.25);"><div class="custom-emoji">🧭</div><div class="custom-title">Знак «Вектор Стремления»<br>VII степень</div><div class="custom-desc">Вклад: 20 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/vektor-stremleniya-vii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">бирюза · VII</div></div>
+  <div class="custom-card" style="background: rgba(64, 224, 208, 0.35);"><div class="custom-emoji">🧭</div><div class="custom-title">Знак «Вектор Стремления»<br>VI степень</div><div class="custom-desc">Вклад: 30 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/vektor-stremleniya-vi/" class="custom-button">Реципиенты</a></div><div class="custom-tag">бирюза · VI</div></div>
+  <div class="custom-card" style="background: rgba(64, 224, 208, 0.45);"><div class="custom-emoji">🧭</div><div class="custom-title">Знак «Вектор Стремления»<br>V степень</div><div class="custom-desc">Вклад: 40 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/vektor-stremleniya-v/" class="custom-button">Реципиенты</a></div><div class="custom-tag">бирюза · V</div></div>
+  <div class="custom-card" style="background: rgba(64, 224, 208, 0.55);"><div class="custom-emoji">🧭</div><div class="custom-title">Знак «Вектор Стремления»<br>IV степень</div><div class="custom-desc">Вклад: 50 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/vektor-stremleniya-iv/" class="custom-button">Реципиенты</a></div><div class="custom-tag">бирюза · IV</div></div>
+  <div class="custom-card" style="background: rgba(64, 224, 208, 0.65);"><div class="custom-emoji">🧭</div><div class="custom-title">Знак «Вектор Стремления»<br>III степень</div><div class="custom-desc">Вклад: 60 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/vektor-stremleniya-iii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">бирюза · III</div></div>
+  <div class="custom-card" style="background: rgba(64, 224, 208, 0.75);"><div class="custom-emoji">🧭</div><div class="custom-title">Знак «Вектор Стремления»<br>II степень</div><div class="custom-desc">Вклад: 70 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/vektor-stremleniya-ii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">бирюза · II</div></div>
+  <div class="custom-card" style="background: rgba(64, 224, 208, 0.85);"><div class="custom-emoji">🧭</div><div class="custom-title">Знак «Вектор Стремления»<br>I степень</div><div class="custom-desc">Вклад: 80 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/vektor-stremleniya-i/" class="custom-button">Реципиенты</a></div><div class="custom-tag">бирюза · I</div></div>
+</div>
+
+<!-- 2. УРОВЕНЬ — ПАМЯТНАЯ МЕДАЛЬ «НЕСОКРУШИМОЙ ВОЛИ» (🏅) -->
+<h3>2. УРОВЕНЬ — ПАМЯТНАЯ МЕДАЛЬ «СИЛЫ ВОЛИ»</h3>
+<p><em>Эквивалент суммы вклада: 100 – 800 £ · Малахитовая гамма</em></p>
+<div class="custom-cards">
+  <div class="custom-card" style="background: rgba(80, 200, 120, 0.15);"><div class="custom-emoji">🏅</div><div class="custom-title">Медаль «Несокрушимой Воли»<br>VIII степень</div><div class="custom-desc">Вклад: 100 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/sily-voli-viii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">малахит · VIII</div></div>
+  <div class="custom-card" style="background: rgba(80, 200, 120, 0.25);"><div class="custom-emoji">🏅</div><div class="custom-title">Медаль «Несокрушимой Воли»<br>VII степень</div><div class="custom-desc">Вклад: 200 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/sily-voli-vii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">малахит · VII</div></div>
+  <div class="custom-card" style="background: rgba(80, 200, 120, 0.35);"><div class="custom-emoji">🏅</div><div class="custom-title">Медаль «Несокрушимой Воли»<br>VI степень</div><div class="custom-desc">Вклад: 300 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/sily-voli-vi/" class="custom-button">Реципиенты</a></div><div class="custom-tag">малахит · VI</div></div>
+  <div class="custom-card" style="background: rgba(80, 200, 120, 0.45);"><div class="custom-emoji">🏅</div><div class="custom-title">Медаль «Несокрушимой Воли»<br>V степень</div><div class="custom-desc">Вклад: 400 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/sily-voli-v/" class="custom-button">Реципиенты</a></div><div class="custom-tag">малахит · V</div></div>
+  <div class="custom-card" style="background: rgba(80, 200, 120, 0.55);"><div class="custom-emoji">🏅</div><div class="custom-title">Медаль «Несокрушимой Воли»<br>IV степень</div><div class="custom-desc">Вклад: 500 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/sily-voli-iv/" class="custom-button">Реципиенты</a></div><div class="custom-tag">малахит · IV</div></div>
+  <div class="custom-card" style="background: rgba(80, 200, 120, 0.65);"><div class="custom-emoji">🏅</div><div class="custom-title">Медаль «Несокрушимой Воли»<br>III степень</div><div class="custom-desc">Вклад: 600 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/sily-voli-iii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">малахит · III</div></div>
+  <div class="custom-card" style="background: rgba(80, 200, 120, 0.75);"><div class="custom-emoji">🏅</div><div class="custom-title">Медаль «Несокрушимой Воли»<br>II степень</div><div class="custom-desc">Вклад: 700 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/sily-voli-ii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">малахит · II</div></div>
+  <div class="custom-card" style="background: rgba(80, 200, 120, 0.85);"><div class="custom-emoji">🏅</div><div class="custom-title">Медаль «Несокрушимой Воли»<br>I степень</div><div class="custom-desc">Вклад: 800 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/sily-voli-i/" class="custom-button">Реципиенты</a></div><div class="custom-tag">малахит · I</div></div>
+</div>
+
+<!-- 3. УРОВЕНЬ — ПАМЯТНАЯ МЕДАЛЬ «ХАРАКТЕР СТАЛИ» (🎖️) -->
+<h3>3. УРОВЕНЬ — ПАМЯТНАЯ МЕДАЛЬ «ХАРАКТЕР СТАЛИ»</h3>
+<p><em>Эквивалент суммы вклада: 1 000 – 8 000 £ · Стальная гамма</em></p>
+<div class="custom-cards">
+  <div class="custom-card" style="background: rgba(128, 128, 144, 0.15);"><div class="custom-emoji">🎖️</div><div class="custom-title">Медаль «Характер Стали»<br>VIII степень</div><div class="custom-desc">Вклад: 1 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/kharakter-stali-viii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">сталь · VIII</div></div>
+  <div class="custom-card" style="background: rgba(128, 128, 144, 0.25);"><div class="custom-emoji">🎖️</div><div class="custom-title">Медаль «Характер Стали»<br>VII степень</div><div class="custom-desc">Вклад: 2 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/kharakter-stali-vii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">сталь · VII</div></div>
+  <div class="custom-card" style="background: rgba(128, 128, 144, 0.35);"><div class="custom-emoji">🎖️</div><div class="custom-title">Медаль «Характер Стали»<br>VI степень</div><div class="custom-desc">Вклад: 3 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/kharakter-stali-vi/" class="custom-button">Реципиенты</a></div><div class="custom-tag">сталь · VI</div></div>
+  <div class="custom-card" style="background: rgba(128, 128, 144, 0.45);"><div class="custom-emoji">🎖️</div><div class="custom-title">Медаль «Характер Стали»<br>V степень</div><div class="custom-desc">Вклад: 4 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/kharakter-stali-v/" class="custom-button">Реципиенты</a></div><div class="custom-tag">сталь · V</div></div>
+  <div class="custom-card" style="background: rgba(128, 128, 144, 0.55);"><div class="custom-emoji">🎖️</div><div class="custom-title">Медаль «Характер Стали»<br>IV степень</div><div class="custom-desc">Вклад: 5 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/kharakter-stali-iv/" class="custom-button">Реципиенты</a></div><div class="custom-tag">сталь · IV</div></div>
+  <div class="custom-card" style="background: rgba(128, 128, 144, 0.65);"><div class="custom-emoji">🎖️</div><div class="custom-title">Медаль «Характер Стали»<br>III степень</div><div class="custom-desc">Вклад: 6 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/kharakter-stali-iii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">сталь · III</div></div>
+  <div class="custom-card" style="background: rgba(128, 128, 144, 0.75);"><div class="custom-emoji">🎖️</div><div class="custom-title">Медаль «Характер Стали»<br>II степень</div><div class="custom-desc">Вклад: 7 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/kharakter-stali-ii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">сталь · II</div></div>
+  <div class="custom-card" style="background: rgba(128, 128, 144, 0.85);"><div class="custom-emoji">🎖️</div><div class="custom-title">Медаль «Характер Стали»<br>I степень</div><div class="custom-desc">Вклад: 8 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/kharakter-stali-i/" class="custom-button">Реципиенты</a></div><div class="custom-tag">сталь · I</div></div>
+</div>
+
+<!-- 4. УРОВЕНЬ — ОРДЕН «ПУРПУРНОГО РАЗУМА» (👑) -->
+<h3>4. УРОВЕНЬ — ОРДЕН «ПУРПУРНОГО РАЗУМА»</h3>
+<p><em>Эквивалент суммы вклада: 10 000 – 80 000 £ · Пурпурная гамма</em></p>
+<div class="custom-cards">
+  <div class="custom-card" style="background: rgba(156, 39, 176, 0.15);"><div class="custom-emoji">👑</div><div class="custom-title">Орден «Пурпурного Разума»<br>VIII степень</div><div class="custom-desc">Вклад: 10 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/purpurnogo-razuma-viii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">пурпур · VIII</div></div>
+  <div class="custom-card" style="background: rgba(156, 39, 176, 0.25);"><div class="custom-emoji">👑</div><div class="custom-title">Орден «Пурпурного Разума»<br>VII степень</div><div class="custom-desc">Вклад: 20 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/purpurnogo-razuma-vii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">пурпур · VII</div></div>
+  <div class="custom-card" style="background: rgba(156, 39, 176, 0.35);"><div class="custom-emoji">👑</div><div class="custom-title">Орден «Пурпурного Разума»<br>VI степень</div><div class="custom-desc">Вклад: 30 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/purpurnogo-razuma-vi/" class="custom-button">Реципиенты</a></div><div class="custom-tag">пурпур · VI</div></div>
+  <div class="custom-card" style="background: rgba(156, 39, 176, 0.45);"><div class="custom-emoji">👑</div><div class="custom-title">Орден «Пурпурного Разума»<br>V степень</div><div class="custom-desc">Вклад: 40 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/purpurnogo-razuma-v/" class="custom-button">Реципиенты</a></div><div class="custom-tag">пурпур · V</div></div>
+  <div class="custom-card" style="background: rgba(156, 39, 176, 0.55);"><div class="custom-emoji">👑</div><div class="custom-title">Орден «Пурпурного Разума»<br>IV степень</div><div class="custom-desc">Вклад: 50 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/purpurnogo-razuma-iv/" class="custom-button">Реципиенты</a></div><div class="custom-tag">пурпур · IV</div></div>
+  <div class="custom-card" style="background: rgba(156, 39, 176, 0.65);"><div class="custom-emoji">👑</div><div class="custom-title">Орден «Пурпурного Разума»<br>III степень</div><div class="custom-desc">Вклад: 60 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/purpurnogo-razuma-iii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">пурпур · III</div></div>
+  <div class="custom-card" style="background: rgba(156, 39, 176, 0.75);"><div class="custom-emoji">👑</div><div class="custom-title">Орден «Пурпурного Разума»<br>II степень</div><div class="custom-desc">Вклад: 70 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/purpurnogo-razuma-ii/" class="custom-button">Реципиенты</a></div><div class="custom-tag">пурпур · II</div></div>
+  <div class="custom-card" style="background: rgba(156, 39, 176, 0.85);"><div class="custom-emoji">👑</div><div class="custom-title">Орден «Пурпурного Разума»<br>I степень</div><div class="custom-desc">Вклад: 80 000 £</div><div class="card-buttons"><a href="#" class="custom-button">О награде</a><a href="/ru/tags/purpurnogo-razuma-i/" class="custom-button">Реципиенты</a></div><div class="custom-tag">пурпур · I</div></div>
+</div>
+
+<div style="text-align: center; margin: 3rem 0;">
+  <a href="/ru/profile/pilot/" class="steel-button" style="display: inline-block; background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8); border: 1px solid #8b95a0; border-radius: 50px; padding: 0.85rem 2.2rem; text-decoration: none; font-weight: 800; letter-spacing: 2px; color: #1a1c1e; box-shadow: 0 6px 12px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.6);">
+    ← Назад к пилотному модулю
+  </a>
+</div>
+
+<p style="font-size: 0.75rem; color: #6a5a48; text-align: center; margin-top: 0.5rem;">© Oleksandr Purpurov 2026 IMARCH LTD UK Institutional Registry. All rights reserved. Unauthorised redistribution or re-upload is prohibited.</p>
+
+&nbsp;
+
+<style>
+/* ===== СТИЛИ ДЛЯ КАРТОЧЕК ===== */
+.custom-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.custom-card {
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+  background: #fdfaf5;
+}
+.custom-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.custom-emoji {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+.custom-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #2c2416;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid #8b7355;
+  padding-left: 0.75rem;
+}
+.custom-desc {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4a3a2a;
+  margin-bottom: 1rem;
+}
+.card-buttons {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0.75rem 0;
+}
+.custom-button {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: 0.2s;
+  text-align: center;
+}
+.custom-button:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+}
+.custom-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8b7355;
+  background: rgba(139, 115, 85, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 30px;
+  margin-top: 0.5rem;
+}
+@media (max-width: 640px) {
+  .custom-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .card-buttons {
+    flex-direction: column;
+  }
+  .custom-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+</style>

@@ -1,0 +1,701 @@
+{{- /* ============================================
+     VIS REALITATIS - АДАПТИВНЫЙ ВИДЕО-АККОРДЕОН
+     Версия: 2.0 (эволюционированная)
+     Особенности: умная адаптация картинок для десктоп/мобил
+     Автор: Линь & Команда Vis Realitatis
+     ============================================ */ -}}
+
+{{- $videoID := .Get "id" -}}
+{{- $image := .Get "image" -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+{{- $title := .Get "title" | default "Смотреть видео-презентацию" -}}
+{{- $aspectDesktop := .Get "aspectDesktop" | default "16:9" -}}
+{{- $aspectMobile := .Get "aspectMobile" | default "1:1" -}}
+
+{{- /* Вычисляем соотношения сторон */ -}}
+{{- $desktopRatio := 56.25 -}} {{- /* 16:9 по умолчанию */ -}}
+{{- $mobileRatio := 100 -}} {{- /* 1:1 по умолчанию */ -}}
+
+{{- if eq $aspectDesktop "4:3" -}}{{ $desktopRatio = 75 }}{{- end -}}
+{{- if eq $aspectDesktop "3:2" -}}{{ $desktopRatio = 66.67 }}{{- end -}}
+{{- if eq $aspectDesktop "square" -}}{{ $desktopRatio = 100 }}{{- end -}}
+
+{{- if eq $aspectMobile "4:3" -}}{{ $mobileRatio = 75 }}{{- end -}}
+{{- if eq $aspectMobile "3:2" -}}{{ $mobileRatio = 66.67 }}{{- end -}}
+{{- if eq $aspectMobile "16:9" -}}{{ $mobileRatio = 56.25 }}{{- end -}}
+
+<div class="visr-video-accordion" data-video-id="{{ $videoID }}">
+    <!-- Контейнер для картинки с умной адаптацией -->
+    <div class="visr-image-container">
+        <img src="{{ $image }}" 
+             alt="{{ $alt }}" 
+             loading="lazy" 
+             class="visr-adaptive-image"
+             data-desktop-ratio="{{ $desktopRatio }}"
+             data-mobile-ratio="{{ $mobileRatio }}">
+        
+        <!-- Индикатор загрузки -->
+        <div class="visr-image-loader">
+            <div class="visr-loader-spinner"></div>
+        </div>
+    </div>
+    
+    <!-- Аккордеонная панель (европейский стандарт качества) -->
+    <div class="visr-accordion-panel">
+        <button class="visr-panel-button" 
+                onclick="visrTogglePanel(this)" 
+                aria-expanded="false"
+                aria-controls="video-panel-{{ $videoID }}">
+            <div class="visr-button-content">
+                <span class="visr-button-icon" aria-hidden="true">▶</span>
+                <span class="visr-button-title">{{ $title }}</span>
+                <span class="visr-button-badge" aria-label="Длительность видео">2:45</span>
+            </div>
+            <span class="visr-button-arrow" aria-hidden="true">▼</span>
+        </button>
+        
+        <div class="visr-panel-content" id="video-panel-{{ $videoID }}">
+            <!-- YouTube iframe с ленивой загрузкой -->
+            <div class="visr-video-embed">
+                <iframe 
+                    src="" 
+                    data-src="https://www.youtube.com/embed/{{ $videoID }}?rel=0&modestbranding=1&showinfo=0&cc_load_policy=1" 
+                    title="Видео: {{ $alt }}"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen
+                    loading="lazy"
+                    aria-label="Встроенное видео YouTube">
+                </iframe>
+                <div class="visr-video-overlay">
+                    <button class="visr-play-trigger" onclick="visrLoadVideo(this)">
+                        <span>▶ Загрузить видео</span>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Капшен с микроформатированием -->
+            {{ if $caption }}
+            <div class="visr-panel-caption" role="contentinfo">
+                <div class="visr-caption-content">
+                    {{ $caption }}
+                </div>
+                <div class="visr-caption-meta">
+                    <small>YouTube • 2 мин 45 сек • HD</small>
+                </div>
+            </div>
+            {{ end }}
+            
+            <!-- Дополнительные действия -->
+            <div class="visr-panel-actions">
+                <a href="https://youtu.be/{{ $videoID }}" 
+                   target="_blank" 
+                   rel="noopener noreferrer"
+                   class="visr-action-link">
+                    <span>📺 Открыть на YouTube</span>
+                </a>
+                <button class="visr-action-button" onclick="visrCopyVideoLink('{{ $videoID }}')">
+                    <span>📋 Скопировать ссылку</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+/* ============================================
+   VIS REALITATIS - СТИЛИ АДАПТИВНОГО АККОРДЕОНА
+   ============================================ */
+
+/* Базовый контейнер */
+.visr-video-accordion {
+    max-width: min(1000px, 90vw);
+    margin: 2.5rem auto;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 
+        0 8px 40px rgba(0, 0, 0, 0.08),
+        0 2px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e0e6ed;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+}
+
+/* ========== АДАПТИВНАЯ КАРТИНКА ========== */
+.visr-image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: 
+        linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%),
+        repeating-conic-gradient(#f1f5f9 0% 25%, transparent 0% 50%) 50%/20px 20px;
+}
+
+/* Десктоп: интеллектуальная обрезка */
+@media (min-width: 768px) {
+    .visr-image-container {
+        aspect-ratio: var(--desktop-ratio, 16/9);
+        max-height: 550px;
+    }
+    
+    .visr-adaptive-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center 35%;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .visr-video-accordion:hover .visr-adaptive-image {
+        transform: scale(1.02);
+    }
+}
+
+/* Мобильные: адаптивный контейнер */
+@media (max-width: 767px) {
+    .visr-image-container {
+        aspect-ratio: var(--mobile-ratio, 1/1);
+    }
+    
+    .visr-adaptive-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: white;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+}
+
+/* Индикатор загрузки */
+.visr-image-loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(248, 250, 252, 0.9);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.visr-adaptive-image.loading + .visr-image-loader {
+    opacity: 1;
+}
+
+.visr-loader-spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid #e0e6ed;
+    border-top-color: #3b82f6;
+    border-radius: 50%;
+    animation: visr-spin 1s linear infinite;
+}
+
+@keyframes visr-spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ========== АККОРДЕОННАЯ ПАНЕЛЬ ========== */
+.visr-accordion-panel {
+    background: linear-gradient(to bottom, #ffffff, #fafbfc);
+    border-top: 1px solid #f1f5f9;
+}
+
+/* Кнопка аккордеона */
+.visr-panel-button {
+    width: 100%;
+    padding: 1.4rem 2rem;
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.15rem;
+    color: #1e293b;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.visr-panel-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(59, 130, 246, 0.05), 
+        transparent);
+    transition: left 0.7s ease;
+}
+
+.visr-panel-button:hover::before {
+    left: 100%;
+}
+
+.visr-panel-button:hover {
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    color: #0f172a;
+    border-bottom-color: #e0e6ed;
+}
+
+.visr-panel-button.active {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    color: #1d4ed8;
+    border-bottom-color: #3b82f6;
+    box-shadow: inset 0 2px 8px rgba(59, 130, 246, 0.08);
+}
+
+/* Контент кнопки */
+.visr-button-content {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-grow: 1;
+}
+
+.visr-button-icon {
+    font-size: 1.5rem;
+    color: #ef4444;
+    filter: drop-shadow(0 2px 3px rgba(239, 68, 68, 0.2));
+    transition: transform 0.3s ease;
+}
+
+.visr-panel-button:hover .visr-button-icon {
+    transform: scale(1.1);
+}
+
+.visr-button-title {
+    flex-grow: 1;
+    line-height: 1.4;
+}
+
+.visr-button-badge {
+    background: #f1f5f9;
+    color: #64748b;
+    font-size: 0.85rem;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    border: 1px solid #e0e6ed;
+    transition: all 0.3s ease;
+}
+
+.visr-panel-button.active .visr-button-badge {
+    background: #3b82f6;
+    color: white;
+    border-color: #2563eb;
+}
+
+.visr-button-arrow {
+    font-size: 1.1rem;
+    color: #94a3b8;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    font-weight: bold;
+    min-width: 24px;
+    text-align: center;
+}
+
+.visr-panel-button.active .visr-button-arrow {
+    transform: rotate(180deg);
+    color: #3b82f6;
+}
+
+/* ========== КОНТЕНТ АККОРДЕОНА ========== */
+.visr-panel-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.215, 0.61, 0.355, 1);
+    background: white;
+}
+
+.visr-panel-content.open {
+    max-height: 2000px;
+}
+
+/* Видео-контейнер */
+.visr-video-embed {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    background: #000;
+    border-bottom: 1px solid #1e293b;
+}
+
+.visr-video-embed iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.visr-video-embed iframe.loaded {
+    opacity: 1;
+}
+
+.visr-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease;
+}
+
+.visr-video-embed iframe.loaded + .visr-video-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.visr-play-trigger {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 4px 20px rgba(239, 68, 68, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.visr-play-trigger:hover {
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 30px rgba(239, 68, 68, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+}
+
+/* Капшен */
+.visr-panel-caption {
+    padding: 1.8rem 2rem;
+    background: linear-gradient(to bottom, #fafbfc, #ffffff);
+    border-top: 1px solid #f1f5f9;
+}
+
+.visr-caption-content {
+    color: #334155;
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+}
+
+.visr-caption-meta {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.visr-caption-meta::before {
+    content: '';
+    flex-grow: 1;
+    height: 1px;
+    background: #e0e6ed;
+}
+
+/* Действия */
+.visr-panel-actions {
+    display: flex;
+    gap: 12px;
+    padding: 1.2rem 2rem;
+    background: #f8fafc;
+    border-top: 1px solid #f1f5f9;
+}
+
+.visr-action-link,
+.visr-action-button {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.visr-action-link {
+    background: #ffffff;
+    color: #475569;
+    border: 1px solid #e0e6ed;
+}
+
+.visr-action-link:hover {
+    background: #f8fafc;
+    border-color: #cbd5e1;
+    color: #1e293b;
+}
+
+.visr-action-button {
+    background: #f1f5f9;
+    color: #475569;
+    border: 1px solid #e0e6ed;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.visr-action-button:hover {
+    background: #e0e6ed;
+    border-color: #cbd5e1;
+    color: #1e293b;
+}
+
+/* ========== АДАПТИВНОСТЬ ========== */
+@media (max-width: 768px) {
+    .visr-video-accordion {
+        margin: 1.5rem auto;
+        border-radius: 12px;
+    }
+    
+    .visr-panel-button {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.05rem;
+    }
+    
+    .visr-button-content {
+        gap: 10px;
+    }
+    
+    .visr-button-icon {
+        font-size: 1.3rem;
+    }
+    
+    .visr-button-badge {
+        font-size: 0.8rem;
+        padding: 3px 8px;
+    }
+    
+    .visr-panel-caption {
+        padding: 1.4rem 1.5rem;
+    }
+    
+    .visr-panel-actions {
+        padding: 1rem 1.5rem;
+        flex-direction: column;
+    }
+    
+    .visr-action-link,
+    .visr-action-button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .visr-image-container {
+        aspect-ratio: 1/1 !important;
+    }
+    
+    .visr-adaptive-image {
+        object-fit: contain !important;
+    }
+    
+    .visr-button-badge {
+        display: none;
+    }
+}
+
+/* ========== АНИМАЦИИ ========== */
+@keyframes visr-fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.visr-video-accordion {
+    animation: visr-fade-in 0.6s ease-out;
+}
+
+/* ========== ДОСТУПНОСТЬ ========== */
+.visr-panel-button:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+.visr-action-link:focus-visible,
+.visr-action-button:focus-visible {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Улучшенная печать */
+@media print {
+    .visr-video-accordion {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    
+    .visr-video-embed,
+    .visr-panel-actions {
+        display: none;
+    }
+    
+    .visr-panel-content.open {
+        max-height: none;
+    }
+}
+</style>
+
+<script>
+// ============================================
+// VIS REALITATIS - СКРИПТЫ АДАПТИВНОГО АККОРДЕОНА
+// ============================================
+
+// Основная функция переключения панели
+function visrTogglePanel(button) {
+    const content = button.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    
+    // Просто и надежно: только toggle, никакого автозакрытия
+    button.classList.toggle('active');
+    content.classList.toggle('open');
+    
+    if (isOpen) {
+        content.style.maxHeight = '0';
+    } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        
+        // Автозагрузка видео при открытии (ленивая)
+        const iframe = content.querySelector('iframe');
+        if (iframe && !iframe.src) {
+            iframe.src = iframe.dataset.src;
+        }
+    }
+    
+    // Обновляем aria-expanded
+    button.setAttribute('aria-expanded', !isOpen);
+}
+
+// Ленивая загрузка видео
+function visrLoadVideo(button) {
+    const embed = button.closest('.visr-video-embed');
+    const iframe = embed.querySelector('iframe');
+    
+    if (iframe && !iframe.src) {
+        iframe.src = iframe.dataset.src;
+        iframe.classList.add('loaded');
+        button.style.display = 'none';
+        
+        // Старт видео
+        setTimeout(() => {
+            iframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+        }, 1000);
+    }
+}
+
+// Копирование ссылки на видео
+function visrCopyVideoLink(videoId) {
+    const url = `https://youtu.be/${videoId}`;
+    
+    navigator.clipboard.writeText(url).then(() => {
+        const button = event.target.closest('.visr-action-button');
+        const originalText = button.querySelector('span').textContent;
+        
+        button.querySelector('span').textContent = '✓ Скопировано!';
+        button.style.background = '#10b981';
+        button.style.color = 'white';
+        button.style.borderColor = '#10b981';
+        
+        setTimeout(() => {
+            button.querySelector('span').textContent = originalText;
+            button.style.background = '';
+            button.style.color = '';
+            button.style.borderColor = '';
+        }, 2000);
+    }).catch(err => {
+        console.error('Ошибка копирования:', err);
+    });
+}
+
+// Адаптация соотношения сторон для картинки
+function visrUpdateImageRatios() {
+    document.querySelectorAll('.visr-adaptive-image').forEach(img => {
+        const container = img.closest('.visr-image-container');
+        const desktopRatio = img.dataset.desktopRatio || '56.25';
+        const mobileRatio = img.dataset.mobileRatio || '100';
+        
+        if (window.innerWidth >= 768) {
+            container.style.setProperty('--desktop-ratio', `${desktopRatio}%`);
+        } else {
+            container.style.setProperty('--mobile-ratio', `${mobileRatio}%`);
+        }
+        
+        // Индикатор загрузки
+        if (!img.complete) {
+            img.classList.add('loading');
+            img.onload = () => img.classList.remove('loading');
+            img.onerror = () => img.classList.remove('loading');
+        }
+    });
+}
+
+// Инициализация при загрузке и ресайзе
+document.addEventListener('DOMContentLoaded', visrUpdateImageRatios);
+window.addEventListener('resize', visrUpdateImageRatios);
+
+// Авто-обновление высоты при ресайзе
+let visrResizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(visrResizeTimer);
+    visrResizeTimer = setTimeout(() => {
+        document.querySelectorAll('.visr-panel-content.open').forEach(content => {
+            content.style.maxHeight = content.scrollHeight + 'px';
+        });
+    }, 150);
+});
+
+// Закрытие при клике вне (опционально)
+document.addEventListener('click', (event) => {
+    if (!event.target.closest('.visr-video-accordion')) {
+        document.querySelectorAll('.visr-panel-content.open').forEach(content => {
+            content.classList.remove('open');
+            content.previousElementSibling.classList.remove('active');
+            content.style.maxHeight = '0';
+        });
+    }
+});
+
+// Экспорт функций для глобального доступа
+window.visrTogglePanel = visrTogglePanel;
+window.visrLoadVideo = visrLoadVideo;
+window.visrCopyVideoLink = visrCopyVideoLink;
+</script>

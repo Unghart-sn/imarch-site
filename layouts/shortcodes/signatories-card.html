@@ -1,0 +1,145 @@
+{{/*  signatories-card.html – Трёхголовая подпись в сливочном стиле  */}}
+<div class="sig-card-wrapper" style="margin: 2rem auto;">
+  <div class="sig-card">
+    <h4 class="sig-title">📜 Signatories</h4>
+    <div class="sig-table">
+      <!-- Роль / Статус -->
+      <div class="sig-row sig-header">
+        <div class="sig-cell">Role</div>
+        <div class="sig-cell">Name</div>
+        <div class="sig-cell">Signature</div>
+      </div>
+      <!-- Founder & Managing Director -->
+      <div class="sig-row">
+        <div class="sig-cell">Founder & Managing Director</div>
+        <div class="sig-cell">Oleksandr Purpurov</div>
+        <div class="sig-cell"><span class="sig-mark">✓</span> Signed</div>
+      </div>
+      <!-- CEO -->
+      <div class="sig-row">
+        <div class="sig-cell">Chief Executive Officer (CEO)</div>
+        <div class="sig-cell">Volodymyr Kravets</div>
+        <div class="sig-cell"><span class="sig-mark">✓</span> Signed</div>
+      </div>
+      <!-- Executive Director (COO) -->
+      <div class="sig-row">
+        <div class="sig-cell">Executive Director (COO)</div>
+        <div class="sig-cell">Anastasiia Bezrodna</div>
+        <div class="sig-cell"><span class="sig-mark">✓</span> Signed</div>
+      </div>
+    </div>
+    <div class="sig-footnote">Legally binding signature. See Executed Bilingual Copy for physical signatures</div>
+  </div>
+</div>
+
+<style>
+/* Сливочная карточка с анимацией */
+.sig-card-wrapper {
+  max-width: 100%;
+  margin: 2rem auto;
+}
+.sig-card {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.8rem;
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1),
+              box-shadow 0.3s ease,
+              border-color 0.2s ease;
+  will-change: transform, box-shadow;
+}
+.sig-card:hover {
+  transform: translateY(-5px);
+  border-color: #c0a070;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.02);
+}
+.sig-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #2c2416;
+  margin: 0 0 1.5rem 0;
+  border-left: 3px solid #8b7355;
+  padding-left: 1rem;
+}
+/* таблица сеткой */
+.sig-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.sig-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+}
+.sig-row.sig-header {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8b7355;
+  border-bottom: 2px solid #8b7355;
+  margin-bottom: 0.25rem;
+}
+.sig-cell {
+  padding: 0.5rem 0.75rem;
+  color: #2c2416;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.sig-mark {
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+  color: #2a5c7a;
+  font-weight: bold;
+  margin-right: 0.3rem;
+}
+.sig-footnote {
+  margin-top: 1.5rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #8b7355;
+  font-style: italic;
+  border-top: 1px solid rgba(139, 115, 85, 0.2);
+  padding-top: 1rem;
+}
+
+/* мобильная адаптация: переводим в вертикальные блоки */
+@media (max-width: 640px) {
+  .sig-card {
+    padding: 1.2rem;
+  }
+  .sig-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    padding: 1rem 0;
+  }
+  .sig-row.sig-header {
+    display: none; /* скрываем заголовки на мобилке, они дублируются в каждой строке как текст */
+  }
+  .sig-cell {
+    padding: 0.2rem 0.5rem;
+    width: 100%;
+    position: relative;
+    padding-left: 1.2rem;
+  }
+  .sig-cell::before {
+    content: "▹";
+    position: absolute;
+    left: 0;
+    color: #8b7355;
+    font-size: 0.8rem;
+  }
+  /* Убираем лишнюю точку у первой ячейки (Role) – можно оставить для красоты */
+  .sig-row .sig-cell:first-child {
+    font-weight: 700;
+    margin-top: 0.25rem;
+  }
+}
+</style>

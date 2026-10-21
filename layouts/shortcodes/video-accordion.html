@@ -1,0 +1,185 @@
+{{- $videoID := .Get "id" -}}
+{{- $image := .Get "image" -}}
+{{- $alt := .Get "alt" -}}
+{{- $caption := .Get "caption" -}}
+{{- $title := .Get "title" | default "Смотреть видео-презентацию" -}}
+
+<div class="video-accordion-adaptive">
+    <!-- Картинка -->
+    <div class="video-image-adaptive">
+        <img src="{{ $image }}" alt="{{ $alt }}" loading="lazy" class="adaptive-image">
+    </div>
+    
+    <!-- Аккордеон -->
+    <div class="video-accordion-panel">
+        <button class="accordion-panel-button" onclick="toggleVideoPanel(this)">
+            <div class="panel-button-content">
+                <span class="panel-icon">▶</span>
+                <span class="panel-title">{{ $title }}</span>
+            </div>
+            <span class="panel-arrow">▼</span>
+        </button>
+        
+        <div class="accordion-panel-content">
+            <div class="video-embed-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/{{ $videoID }}?rel=0&modestbranding=1&showinfo=0" 
+                    frameborder="0" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            
+            {{ if $caption }}
+            <div class="video-panel-caption">{{ $caption }}</div>
+            {{ end }}
+        </div>
+    </div>
+</div>
+
+<style>
+.video-accordion-adaptive {
+    max-width: 1000px;
+    margin: 2rem auto;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px rgba(0,0,0,0.08);
+    border: 1px solid #e8e8e8;
+}
+
+/* АДАПТИВНАЯ КАРТИНКА */
+.video-image-adaptive {
+    width: 100%;
+    overflow: hidden;
+    background: #f8f9fa;
+}
+
+.adaptive-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+/* Десктоп: горизонтальная обрезка */
+@media (min-width: 768px) {
+    .video-image-adaptive {
+        max-height: 500px;
+        min-height: 350px;
+    }
+    
+    .adaptive-image {
+        height: 100%;
+        min-height: 350px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+/* Мобильные: адаптивный квадрат */
+@media (max-width: 767px) {
+    .video-image-adaptive {
+        position: relative;
+        padding-top: 75%; /* 4:3 */
+    }
+    
+    .adaptive-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        background: white;
+    }
+}
+
+/* Маленькие экраны: квадрат */
+@media (max-width: 480px) {
+    .video-image-adaptive {
+        padding-top: 100%; /* 1:1 */
+    }
+}
+
+/* Остальные стили аккордеона остаются как в предыдущем варианте */
+.video-accordion-panel { background: #fff; }
+.accordion-panel-button {
+    width: 100%;
+    padding: 1.3rem 1.8rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border: none;
+    border-top: 1px solid #dee2e6;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    color: #2c3e50;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.accordion-panel-button:hover { background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%); }
+.accordion-panel-button.active {
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    color: #0d47a1;
+}
+.panel-button-content { display: flex; align-items: center; gap: 12px; }
+.panel-icon { font-size: 1.4rem; color: #ff0000; }
+.panel-arrow {
+    font-size: 1rem;
+    color: #6c757d;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.accordion-panel-button.active .panel-arrow { transform: rotate(180deg); color: #0d47a1; }
+.accordion-panel-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.accordion-panel-content.open { max-height: 1200px; }
+.video-embed-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+.video-embed-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.video-panel-caption {
+    padding: 1.2rem 1.8rem;
+    color: #495057;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    border-top: 1px solid #f1f3f4;
+    background: #fdfdfd;
+}
+
+@media (max-width: 768px) {
+    .video-accordion-adaptive { margin: 1.5rem auto; border-radius: 10px; }
+    .accordion-panel-button { padding: 1.1rem 1.4rem; font-size: 1rem; }
+    .panel-icon { font-size: 1.2rem; }
+    .video-panel-caption { padding: 1rem 1.4rem; }
+}
+</style>
+
+<script>
+function toggleVideoPanel(button) {
+    const content = button.nextElementSibling;
+    const isOpen = content.classList.contains('open');
+    
+    button.classList.toggle('active');
+    content.classList.toggle('open');
+    
+    if (isOpen) {
+        content.style.maxHeight = '0';
+    } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+    }
+}
+</script>

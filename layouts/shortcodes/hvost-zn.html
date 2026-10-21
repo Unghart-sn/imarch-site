@@ -1,0 +1,286 @@
+{{ $lang := .Page.Language.Lang | default "en" }}
+{{ $base := printf "/%s" $lang }}
+<!-- 机构信息块（轻量、浅色、精细排版） -->
+<div class="inst-block-light">
+  <div class="inst-header">
+    <div class="inst-icon">🏛️</div>
+    <h2>这是一个机构性项目</h2>
+    <p class="inst-subtitle">您的支持是对全新数字社区模式的贡献</p>
+  </div>
+
+  <div class="inst-grid">
+    <!-- 卡片1：章程 -->
+    <div class="inst-card">
+      <div class="inst-card-icon">📜</div>
+      <h3>章程</h3>
+      <p>规则明确，载于公开文件。没有任何隐藏条款。</p>
+      <div class="inst-card-btn">
+        <a href="{{ $base }}/constitutio/" class="inst-btn">了解更多</a>
+      </div>
+    </div>
+    <!-- 卡片2：法律透明 -->
+    <div class="inst-card">
+      <div class="inst-card-icon">⚖️</div>
+      <h3>法律透明</h3>
+      <p>UK LTD 的所有文件均公开可查。定期审计与报告。</p>
+      <div class="inst-card-btn">
+        <a href="{{ $base }}/imarch-ltd/" class="inst-btn">了解更多</a>
+      </div>
+    </div>
+    <!-- 卡片3：社区决定 -->
+    <div class="inst-card">
+      <div class="inst-card-icon">🤝</div>
+      <h3>社区决定</h3>
+      <p>重大决策由活跃参与者投票通过。</p>
+      <div class="inst-card-btn">
+        <a href="#" class="inst-btn">了解更多</a>
+      </div>
+    </div>
+    <!-- 卡片4：可持续发展 -->
+    <div class="inst-card">
+      <div class="inst-card-icon">🌱</div>
+      <h3>可持续发展</h3>
+      <p>所有收入的10%用于储备基金，保障6个月运作。</p>
+      <div class="inst-card-btn">
+        <a href="#" class="inst-btn">了解更多</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- 文档块 -->
+  <div class="inst-docs">
+    <h3>更多关于项目</h3>
+    <div class="inst-docs-list">
+      <a href="{{ $base }}/" class="inst-doc-link">
+        <span class="inst-doc-icon">📄</span>
+        <span>您为何需要 Chronicle OS</span>
+      </a>
+      <a href="{{ $base }}/docs/collegium/" class="inst-doc-link">
+        <span class="inst-doc-icon">📄</span>
+        <span>Platan+ 联盟的任务</span>
+      </a>
+      <a href="{{ $base }}/verdictum/" class="inst-doc-link">
+        <span class="inst-doc-icon">📄</span>
+        <span>官方信息机构</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 最终行动呼吁（按钮居中） -->
+  <div class="inst-cta">
+    <p class="inst-cta-text">
+      <strong>这不仅仅是您的支持。</strong><br>
+      这是您参与创建可持续、透明、自治社区的范例，具备所有机构属性和实施工具。
+    </p>
+    <div class="inst-cta-buttons">
+      <a href="https://signal.me/#eu/PbAVxdbX1Wja23fxRdV7bkiUTDlDJinAEFfZMFNAe2r8D9fuHABBoLydBN62ZK5N" class="inst-btn-large">💬 讨论参与项目</a>
+    </div>
+  </div>
+</div>
+
+<style>
+/* 完全自包含的样式，无外部影响 */
+.inst-block-light {
+  background: linear-gradient(135deg, #fffcf7, #fef7ef);
+  border: 1px solid #e8dac8;
+  border-radius: 28px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+}
+.inst-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.inst-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.inst-header h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #2c2416;
+  margin: 0 0 0.5rem;
+}
+.inst-subtitle {
+  font-size: 1rem;
+  color: #6a5a48;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.inst-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.inst-card {
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.inst-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.inst-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+.inst-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2c2416;
+  margin: 0 0 0.5rem;
+}
+.inst-card p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #6a5a48;
+  margin: 0 0 1.2rem;
+  flex-grow: 1;
+}
+.inst-card-btn {
+  margin-top: auto;
+}
+.inst-btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.inst-btn:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+}
+.inst-docs {
+  background: #fdf8f2;
+  border: 1px solid #e8dac8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.inst-docs h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+.inst-docs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.inst-doc-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #2c2416;
+  transition: all 0.2s ease;
+}
+.inst-doc-link:hover {
+  border-color: #c0a070;
+  transform: translateX(5px);
+  background: #fefaf5;
+}
+.inst-doc-icon {
+  font-size: 1.2rem;
+}
+.inst-doc-link span:last-child {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.inst-cta {
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 2rem;
+}
+.inst-cta-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4a3a2a;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+.inst-cta-text strong {
+  color: #2c2416;
+}
+.inst-cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.inst-btn-large {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.7rem 1.8rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.inst-btn-large:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+@media (max-width: 768px) {
+  .inst-block-light {
+    padding: 1.5rem;
+  }
+  .inst-header h2 {
+    font-size: 1.5rem;
+  }
+  .inst-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .inst-btn-large {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .inst-header h2 {
+    font-size: 1.3rem;
+  }
+  .inst-subtitle {
+    font-size: 0.85rem;
+  }
+  .inst-docs h3 {
+    font-size: 1.1rem;
+  }
+  .inst-doc-link span:last-child {
+    font-size: 0.8rem;
+  }
+  .inst-cta-text {
+    font-size: 0.9rem;
+  }
+}
+</style>

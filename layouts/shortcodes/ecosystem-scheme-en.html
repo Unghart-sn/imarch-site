@@ -1,0 +1,142 @@
+<style>
+.vis-ecosystem {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f5f3ff 0%, #e9d8fd 100%);
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.vis-ecosystem-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.vis-ecosystem-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+  animation: vis-ecosystem-pulse 2s infinite;
+}
+
+@keyframes vis-ecosystem-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.vis-ecosystem-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #553c9a;
+  margin-bottom: 20px;
+}
+
+.vis-ecosystem-text {
+  font-size: 1.1rem;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.vis-ecosystem-list {
+  text-align: left;
+  margin: 0 auto 30px;
+  max-width: 600px;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.vis-ecosystem-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.vis-ecosystem-list li {
+  margin-bottom: 15px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.vis-ecosystem-list li:before {
+  content: "•";
+  color: #9f7aea;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+.vis-ecosystem-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #553c9a;
+  border: 2px solid #553c9a;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.vis-ecosystem-btn:hover {
+  background: #553c9a;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.vis-ecosystem-btn::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.vis-ecosystem-btn:hover::after {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .vis-ecosystem {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  .vis-ecosystem-title { font-size: 1.6rem; }
+  .vis-ecosystem-text, .vis-ecosystem-list { font-size: 1rem; }
+  .vis-ecosystem-icon { font-size: 2.5rem; }
+  .vis-ecosystem-list li { padding-left: 20px; }
+}
+</style>
+
+<!-- Ecosystem and software block -->
+<section id="ecosystem" class="vis-section vis-ecosystem">
+  <div class="vis-ecosystem-content">
+    <div class="vis-ecosystem-icon">🔑</div>
+    <h2 class="vis-ecosystem-title">Ecosystem and Software — Key to Project Sustainability</h2>
+    <p class="vis-ecosystem-text">
+      Vis Realitatis effectiveness is ensured by its own digital infrastructure.<br>
+      It integrates accounting, training, practice, and reporting into a single transparent system.
+    </p>
+    <div class="vis-ecosystem-list">
+      <ul>
+        <li><strong>Accounting</strong> — resource, session, and result control.</li>
+        <li><strong>Training</strong> — online school for couples, certification.</li>
+        <li><strong>Practice</strong> — schedules, protocols, communication.</li>
+        <li><strong>Reporting</strong> — automatic reports for donors.</li>
+      </ul>
+    </div>
+    <p class="vis-ecosystem-text">
+      The software enables scaling assistance, reducing costs, and guaranteeing donors control and trust.
+    </p>
+    <a href="/en/posts/ecosystem-trust" class="vis-ecosystem-btn">
+      More about the project ecosystem
+    </a>
+  </div>
+</section>

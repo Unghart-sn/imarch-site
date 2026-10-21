@@ -1,0 +1,91 @@
+.banner.constitution-banner {
+  text-align: center;       /* центрируем контейнер */
+  margin: 2rem auto;
+}
+
+.banner.constitution-banner img {
+  display: inline-block;
+  margin: 0 auto;
+  width: 300px;             /* фиксированный квадрат */
+  height: 300px;
+  object-fit: cover;        /* обрезает лишнее, чтобы было ровно 1:1 */
+  border-radius: 8px;       /* можно убрать, если нужен строгий квадрат */
+}
+
+/* По умолчанию — как сейчас, 6 в ряд */
+.persona-icon-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* остаётся 6 колонок на десктопе */
+  gap: 1rem;
+  justify-items: center;
+  padding: 1rem 0.2rem;
+}
+
+/* На мобильных — ломаем на 2 в ряд */
+@media (max-width: 767px) {
+  .persona-icon-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 иконки в ряд */
+  }
+}
+
+.elegant-accordion-module > summary {
+  color: #f0f0f0; /* светло‑серый */
+  font-weight: bold; /* можно усилить жирность */
+}
+
+details {
+  padding: 1rem;          /* внутренние поля вокруг всего блока */
+  border: 1px solid #ccc; /* необязательно, но красиво отделяет */
+  border-radius: 4px;     /* скругление углов */
+}
+
+details summary {
+  padding: 0.5rem 1rem;   /* поля для заголовка */
+  cursor: pointer;        /* чтобы было видно, что кликабельно */
+}
+
+details > *:not(summary) {
+  padding: 0.5rem 1rem;   /* поля для содержимого */
+}
+
+/* ===== АДАПТИВНІ ДІВАЙДЕРИ ===== */
+.boutique-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #8b7355, transparent);
+  max-width: 80%;
+  margin: 2rem auto;
+}
+
+.boutique-divider-dark {
+  background: linear-gradient(to right, transparent, #4b2e2e, transparent);
+}
+
+@media (max-width: 768px) {
+  .boutique-divider {
+    max-width: 90%;
+    margin: 1.5rem auto;
+  }
+}
+
+/* ===== АДАПТИВНІ КНОПКИ ===== */
+@media (max-width: 480px) {
+  .steel-button,
+  a[style*="background: #b18b56"] {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    padding: 0.75rem 1rem !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+/* ===== АДАПТИВНІ ГРІДИ ===== */
+@media (max-width: 600px) {
+  .teaser-block div[style*="display: grid"] {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+}

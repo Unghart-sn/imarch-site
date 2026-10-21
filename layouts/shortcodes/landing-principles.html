@@ -1,0 +1,19 @@
+{{/* 
+landing-principles — блок с четырьмя принципами
+Используется внутри landing-accordion
+*/}}
+
+{{ range $index, $element := split .Inner "|||" }}
+    {{ $parts := split $element "|" }}
+    {{ if eq (len $parts) 3 }}
+        {{ $icon := index $parts 0 }}
+        {{ $title := index $parts 1 }}
+        {{ $text := index $parts 2 }}
+        
+        <div class="accordion-card">
+            {{ if $icon }}<span class="accordion-card-icon">{{ $icon }}</span>{{ end }}
+            <h4>{{ $title }}</h4>
+            <p>{{ $text }}</p>
+        </div>
+    {{ end }}
+{{ end }}

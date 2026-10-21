@@ -1,0 +1,382 @@
+<style>
+/* =================== PLATAN+ CONSORTIUM - COLLEGIUM LANDING =================== */
+/* INSTITUTIONAL STYLE */
+
+.platan-consortium-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+/* Consortium header */
+.consortium-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.consortium-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(to right, #1a365d, #2c5282, #1a365d);
+}
+
+.consortium-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 15px;
+    letter-spacing: -0.5px;
+}
+
+.consortium-subtitle {
+    font-size: 1.3rem;
+    color: #2d3748;
+    line-height: 1.6;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+/* Information blocks */
+.consortium-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.consortium-card {
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.consortium-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #cbd5e0;
+}
+
+.consortium-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: #2c5282;
+}
+
+.card-header {
+    margin-bottom: 20px;
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #1a365d;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.card-subtitle {
+    color: #4a5568;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin: 0;
+}
+
+.card-content {
+    color: #2d3748;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-list {
+    list-style: none;
+    padding: 0;
+    margin: 25px 0;
+}
+
+.card-list li {
+    padding: 8px 0;
+    border-bottom: 1px solid #edf2f7;
+    color: #4a5568;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.card-list li:last-child {
+    border-bottom: none;
+}
+
+.card-list li::before {
+    content: '•';
+    color: #2c5282;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.card-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #2c5282;
+    color: white;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid #2c5282;
+    margin-top: 10px;
+}
+
+.card-button:hover {
+    background: #1a365d;
+    transform: translateX(3px);
+}
+
+/* Cooperation formats */
+.cooperation-section {
+    background: #f7fafc;
+    border-radius: 8px;
+    padding: 40px;
+    margin-top: 50px;
+    border: 1px solid #e2e8f0;
+}
+
+.cooperation-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1a365d;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.cooperation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.cooperation-item {
+    text-align: center;
+    padding: 25px;
+    background: white;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.cooperation-item:hover {
+    border-color: #2c5282;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.cooperation-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #2c5282;
+}
+
+.cooperation-item h4 {
+    font-size: 1.2rem;
+    color: #1a365d;
+    margin: 0 0 10px 0;
+    font-weight: 600;
+}
+
+.cooperation-item p {
+    color: #718096;
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+    .platan-consortium-container {
+        padding: 40px 15px;
+    }
+    
+    .consortium-title {
+        font-size: 2.2rem;
+    }
+    
+    .consortium-subtitle {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .consortium-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .consortium-card {
+        padding: 25px;
+    }
+    
+    .cooperation-section {
+        padding: 30px 20px;
+    }
+    
+    .cooperation-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Business accent */
+.badge {
+    display: inline-block;
+    background: #1a365d;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.highlight {
+    color: #2c5282;
+    font-weight: 600;
+}
+
+/* Institutional elements */
+.institution-stamp {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.stamp-text {
+    font-family: monospace;
+    color: #718096;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+</style>
+
+<div class="platan-consortium-container">
+
+    <!-- Main content -->
+    <div class="consortium-grid">
+        <!-- Legal foundation -->
+        <div class="consortium-card">
+            <div class="card-header">
+                <h2 class="card-title">Legal Foundation <span class="badge">FOUNDATION</span></h2>
+                <p class="card-subtitle">Structural foundation of the consortium</p>
+            </div>
+            
+            <p class="card-content">
+                <strong>PLATAN+ Consortium</strong> is a full‑cycle research and production association, 
+                the cluster body of IMARCH, holding scenes, titles and forms within a unified architecture of action.
+            </p>
+            
+            <ul class="card-list">
+                <li><strong>IMARCH LTD UK</strong> — legal scene of institutionalisation</li>
+                <li><strong>Veritatis Silentis CIC</strong> — humanitarian activity scene</li>
+                <li><strong>Initiating core</strong> — IMARCH LTD UK and Veritatis Silentis CIC</li>
+            </ul>
+            
+            <p class="card-content">
+                Independent organisations (commercial and non‑profit) join the consortium on the basis 
+                of a <span class="highlight">memorandum of accession</span>. They may act as contractors of the core 
+                and express official moral support.
+            </p>
+            
+            <p class="card-content">
+                PLATAN+ operates as a body of transfer, facilitation and franchise. 
+                <span class="highlight">The main platform for collaborative work is GitHub</span>.
+            </p>
+            
+            <a href="/en/constitutio/codex-structurae/" class="card-button">More on structure →</a>
+        </div>
+
+        <!-- Project structure -->
+        <div class="consortium-card">
+            <div class="card-header">
+                <h2 class="card-title">Implementation Project Structure <span class="badge">ARCHITECTURE</span></h2>
+                <p class="card-subtitle">Formological institution</p>
+            </div>
+            
+            <p class="card-content">
+                PLATAN+ is a formological institution that assembles into a single system:
+            </p>
+            
+            <ul class="card-list">
+                <li><strong>12 scientometric themes</strong> — research directions</li>
+                <li><strong>8 IMARCH missions</strong> — strategic development vectors</li>
+                <li><strong>12 unique USPs</strong> — competitive advantages</li>
+                <li><strong>1 central point</strong> of distinction of the “I” status — identification codex</li>
+            </ul>
+            
+            <p class="card-content">
+                Every element of the system undergoes <span class="highlight">collegial approval</span> 
+                and receives an institutional status within the consortium.
+            </p>
+            
+            <a href="/en/constitutio/codex-structurae/" class="card-button">Explore projects →</a>
+        </div>
+    </div>
+
+    <!-- Cooperation formats -->
+    <div class="cooperation-section">
+        <h3 class="cooperation-title">Open Institution for Cooperation</h3>
+        <p style="text-align: center; color: #4a5568; margin-bottom: 30px; max-width: 800px; margin-left: auto; margin-right: auto;">
+            IMARCH is open to conscious cooperation. First step: <span class="highlight">memorandum of trust</span>.
+        </p>
+        
+        <div class="cooperation-grid">
+            <div class="cooperation-item">
+                <div class="cooperation-icon">🌐</div>
+                <h4>Public format</h4>
+                <p>Open participation in events, access to public materials, involvement in discussions</p>
+            </div>
+            
+            <div class="cooperation-item">
+                <div class="cooperation-icon">🔒</div>
+                <h4>Semi‑closed format</h4>
+                <p>Access to working materials, participation in project groups, association membership</p>
+            </div>
+            
+            <div class="cooperation-item">
+                <div class="cooperation-icon">⚡</div>
+                <h4>Closed format</h4>
+                <p>Full inclusion in the consortium core, access to all scenes, voting rights on key decisions</p>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="#" class="card-button">Discuss cooperation →</a>
+        </div>
+    </div>
+
+    <!-- Institutional seal -->
+    <div class="institution-stamp">
+        <p class="stamp-text">PLATAN+ CONSORTIUM | IMARCH BODY | INSTITUTIONAL FRAMEWORK v2.4</p>
+    </div>
+</div>

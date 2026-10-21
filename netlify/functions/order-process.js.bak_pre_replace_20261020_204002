@@ -1,0 +1,375 @@
+// Netlify Function: /.netlify/functions/order-process
+// Dry-run order processor: RFC3161 timestamp (FreeTSA) + PDF Act-Passport + Resend email.
+// Anchor + VirusTotal disabled in this iteration (flags below).
+// Protected: requires X-Admin-Token header === GIFT_ADMIN_TOKEN.
+'use strict';
+
+const crypto = require('crypto');
+const { S3Client, HeadObjectCommand, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/client-s3');
+const PDFDocument = require('pdfkit');
+const QRCode = require('qrcode');
+
+const CORS = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Token',
+  'Access-Control-Allow-Methods': 'POST, OPTIONS',
+};
+const JSON_CT = { 'Content-Type': 'application/json' };
+
+const RFC3161_ENABLED = process.env.RFC3161_ENABLED !== 'false';
+const ANCHOR_ENABLED = process.env.ANCHOR_ENABLED === 'true';
+const VT_ENABLED = process.env.VT_ENABLED === 'true';
+const FREETSA_URL = process.env.FREETSA_URL || 'https://freetsa.org/tsr';
+const RESEND_FROM = process.env.RESEND_FROM || 'info@imarch.ltd';
+
+let s3 = null;
+function getS3() {
+  if (s3) return s3;
+  s3 = new S3Client({
+    region: 'auto',
+    endpoint: process.env.R2_ENDPOINT,
+    credentials: {
+      accessKeyId: process.env.R2_ACCESS_KEY_ID,
+      secretAccessKey: process.env.R2_SECRET_ACCESS_KEY,
+    },
+  });
+  return s3;
+}
+
+function reply(code, obj) {
+  return { statusCode: code, headers: Object.assign({}, CORS, JSON_CT), body: JSON.stringify(obj) };
+}
+
+function parseJsonBody(event) {
+  if (!event.body) return null;
+  try {
+    const raw = event.isBase64Encoded ? Buffer.from(event.body, 'base64').toString('utf8') : event.body;
+    return JSON.parse(raw);
+  } catch (e) { return null; }
+}
+
+function sbHeaders() {
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  if (!key) throw new Error('SUPABASE_SERVICE_ROLE_KEY missing');
+  return { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' };
+}
+
+async function sbGetOrder(orderId) {
+  const url = process.env.SUPABASE_URL;
+  if (!url) throw new Error('SUPABASE_URL missing');
+  const res = await fetch(url.replace(/\/$/, '') + '/rest/v1/orders?id=eq.' + encodeURIComponent(orderId) + '&select=*', { headers: sbHeaders() });
+  const text = await res.text();
+  if (!res.ok) throw new Error('supabase get ' + res.status + ': ' + text.slice(0, 300));
+  const arr = JSON.parse(text);
+  return Array.isArray(arr) ? arr[0] : null;
+}
+
+async function sbPatchOrder(orderId, patch) {
+  const url = process.env.SUPABASE_URL;
+  const res = await fetch(url.replace(/\/$/, '') + '/rest/v1/orders?id=eq.' + encodeURIComponent(orderId), {
+    method: 'PATCH',
+    headers: Object.assign({}, sbHeaders(), { Prefer: 'return=minimal' }),
+    body: JSON.stringify(patch),
+  });
+  if (!res.ok) {
+    const text = await res.text();
+    throw new Error('supabase patch ' + res.status + ': ' + text.slice(0, 300));
+  }
+}
+
+// ---------- Minimal ASN.1 DER for RFC3161 TimeStampReq ----------
+function derLen(n) {
+  if (n < 0x80) return Buffer.from([n]);
+  const bytes = [];
+  let v = n;
+  while (v > 0) { bytes.unshift(v & 0xff); v >>= 8; }
+  return Buffer.from([0x80 | bytes.length].concat(bytes));
+}
+function derTLV(tag, value) { return Buffer.concat([Buffer.from([tag]), derLen(value.length), value]); }
+function derInt(n) {
+  let hex = n.toString(16);
+  if (hex.length % 2) hex = '0' + hex;
+  let buf = Buffer.from(hex, 'hex');
+  if (buf[0] & 0x80) buf = Buffer.concat([Buffer.from([0x00]), buf]);
+  return derTLV(0x02, buf);
+}
+function derOctet(buf) { return derTLV(0x04, buf); }
+function derNull() { return Buffer.from([0x05, 0x00]); }
+function derSeq(items) { return derTLV(0x30, Buffer.concat(items)); }
+function derOid(oidStr) {
+  const parts = oidStr.split('.').map(Number);
+  const first = parts[0] * 40 + parts[1];
+  const bytes = [first];
+  for (let i = 2; i < parts.length; i++) {
+    let v = parts[i];
+    const stack = [v & 0x7f];
+    v >>= 7;
+    while (v > 0) { stack.unshift((v & 0x7f) | 0x80); v >>= 7; }
+    bytes.push.apply(bytes, stack);
+  }
+  return derTLV(0x06, Buffer.from(bytes));
+}
+
+function buildTimeStampRequest(sha256Hex) {
+  const digest = Buffer.from(sha256Hex, 'hex');
+  const messageImprint = derSeq([
+    derSeq([derOid('2.16.840.1.101.3.4.2.1'), derNull()]), // sha256
+    derOctet(digest),
+  ]);
+  const nonce = crypto.randomBytes(8).readBigUInt64BE(0);
+  const req = derSeq([
+    derInt(1),
+    messageImprint,
+    Buffer.from([0x01, 0x01, 0xff]), // certReq: true
+    derInt(nonce),
+  ]);
+  return req;
+}
+
+// Minimal parse: extract PKIStatus (INTEGER) and the full TimeStampToken (SEQUENCE) from response.
+// We don't need deep ASN.1 introspection here; we just keep the raw response bytes.
+function parseTimeStampResponse(buf) {
+  // Top-level: SEQUENCE { PKIStatusInfo, timeStampToken OPTIONAL }
+  if (buf[0] !== 0x30) throw new Error('bad_tsr_toplevel');
+  let off = 1;
+  let lenByte = buf[off++];
+  let len;
+  if (lenByte < 0x80) len = lenByte;
+  else { const n = lenByte & 0x7f; len = 0; for (let i = 0; i < n; i++) len = (len << 8) | buf[off++]; }
+  const end = off + len;
+  // PKIStatusInfo
+  if (buf[off] !== 0x30) throw new Error('bad_tsr_status_seq');
+  off++;
+  let siLenByte = buf[off++];
+  let siLen;
+  if (siLenByte < 0x80) siLen = siLenByte;
+  else { const n = siLenByte & 0x7f; siLen = 0; for (let i = 0; i < n; i++) siLen = (siLen << 8) | buf[off++]; }
+  const siEnd = off + siLen;
+  if (buf[off] !== 0x02) throw new Error('bad_tsr_pkistatus');
+  off++;
+  const intLen = buf[off++];
+  const status = buf.readUIntBE(off, intLen);
+  off += intLen;
+  off = siEnd;
+  // token is everything after PKIStatusInfo up to end
+  const token = buf.slice(off, end);
+  return { status, token };
+}
+
+async function requestTimestamp(sha256Hex) {
+  const body = buildTimeStampRequest(sha256Hex);
+  const res = await fetch(FREETSA_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/timestamp-query', Accept: 'application/timestamp-reply' },
+    body,
+  });
+  if (!res.ok) throw new Error('freetsa_http_' + res.status);
+  const arr = Buffer.from(await res.arrayBuffer());
+  const parsed = parseTimeStampResponse(arr);
+  if (parsed.status !== 0 && parsed.status !== 1) throw new Error('freetsa_status_' + parsed.status);
+  return { raw: arr, token: parsed.token, status: parsed.status };
+}
+
+// ---------- PDF generation ----------
+function makePassportPDF(data) {
+  return new Promise(async (resolve, reject) => {
+    try {
+      const doc = new PDFDocument({ size: 'A4', margin: 50 });
+      const chunks = [];
+      doc.on('data', (c) => chunks.push(c));
+      doc.on('end', () => resolve(Buffer.concat(chunks)));
+      doc.on('error', reject);
+
+      const qrPayload = 'https://imarch.ltd/en/certify/status/?order_id=' + data.order_id + '&token=' + data.hmac_token;
+      const qrBuf = await QRCode.toBuffer(qrPayload, { type: 'png', width: 200, margin: 1 });
+
+      doc.fontSize(20).text('iMarch  Act-Passport', { align: 'center' });
+      doc.moveDown(0.2);
+      doc.fontSize(9).fillColor('#666').text('Institutional Digital Notary  imarch.ltd', { align: 'center' });
+      doc.moveDown(1.5).fillColor('#000');
+
+      const line = (k, v) => {
+        doc.fontSize(10).fillColor('#444').text(k, { continued: false });
+        doc.fontSize(10).fillColor('#000').text(v);
+        doc.moveDown(0.4);
+      };
+
+      line('Order ID', data.order_id);
+      line('Holder', data.full_name + ' <' + data.email + '>');
+      line('Document title', data.title);
+      line('File name', data.filename);
+      line('Size (bytes)', String(data.size_bytes));
+      doc.moveDown(0.5);
+      doc.fontSize(10).fillColor('#444').text('SHA-256 of original file:');
+      doc.fontSize(8).fillColor('#000').text(data.sha256, { width: 500 });
+      doc.moveDown(0.8);
+
+      if (data.tsa_status === 'ok') {
+        line('RFC 3161 TSA', 'FreeTSA  status ' + data.tsa_status_code);
+        doc.fontSize(8).fillColor('#444').text('TSA token (base64, truncated):');
+        doc.fontSize(7).fillColor('#000').text(String(data.tsa_token_b64).slice(0, 400) + '...', { width: 500 });
+        doc.moveDown(0.6);
+      } else {
+        line('RFC 3161 TSA', 'skipped (' + (data.tsa_status || 'disabled') + ')');
+      }
+
+      line('Anchor', ANCHOR_ENABLED ? 'pending' : 'skipped (dry-run)');
+      line('VirusTotal', VT_ENABLED ? 'pending' : 'skipped (dry-run)');
+
+      doc.image(qrBuf, 400, 650, { width: 140 });
+      doc.fontSize(8).fillColor('#666').text('Verify online:', 400, 800);
+      doc.fontSize(7).fillColor('#000').text(qrPayload, 400, 810, { width: 150 });
+
+      doc.fontSize(8).fillColor('#666').text(
+        'This passport binds the SHA-256 digest of the original file to a trusted timestamp. ' +
+        'Any modification of the file invalidates the digest. Keep the original file.',
+        50, 760, { width: 320 }
+      );
+
+      doc.end();
+    } catch (e) { reject(e); }
+  });
+}
+
+// ---------- Email via Resend ----------
+async function sendEmail(to, subject, html, attachments) {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) throw new Error('RESEND_API_KEY missing');
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from: RESEND_FROM, to: [to], subject, html, attachments }),
+  });
+  const text = await res.text();
+  if (!res.ok) throw new Error('resend_' + res.status + ': ' + text.slice(0, 300));
+  return JSON.parse(text);
+}
+
+// ---------- Handler ----------
+exports.handler = async (event) => {
+  if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: CORS, body: '' };
+  if (event.httpMethod !== 'POST') return reply(405, { ok: false, error: 'method_not_allowed' });
+
+  const adminToken = process.env.GIFT_ADMIN_TOKEN;
+  if (!adminToken) return reply(500, { ok: false, error: 'GIFT_ADMIN_TOKEN_missing' });
+  const hdr = event.headers['x-admin-token'] || event.headers['X-Admin-Token'];
+  if (!hdr || hdr !== adminToken) return reply(403, { ok: false, error: 'forbidden' });
+
+  const body = parseJsonBody(event);
+  const orderId = body && String(body.order_id || '').trim();
+  if (!orderId || !/^[0-9a-f-]{36}$/i.test(orderId)) return reply(400, { ok: false, error: 'bad_order_id' });
+
+  const trace = [];
+  try {
+    const order = await sbGetOrder(orderId);
+    if (!order) return reply(404, { ok: false, error: 'order_not_found' });
+    if (order.status !== 'payment_pending' && order.status !== 'processing' && order.status !== 'ready') {
+      return reply(409, { ok: false, error: 'bad_status', current: order.status });
+    }
+    if (order.status === 'ready') {
+      return reply(200, { ok: true, status: 'ready', idempotent: true, pdf_url: order.pdf_url || null });
+    }
+    trace.push('order_loaded');
+
+    await sbPatchOrder(orderId, { status: 'processing' });
+    trace.push('status_processing');
+
+    // R2 head
+    const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+    trace.push('r2_head_ok size=' + head.ContentLength);
+
+    // Download + sha check
+    const obj = await getS3().send(new GetObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+    const fileBuf = Buffer.from(await obj.Body.transformToByteArray());
+    const shaActual = crypto.createHash('sha256').update(fileBuf).digest('hex');
+    if (shaActual !== String(order.sha256).toLowerCase()) {
+      await sbPatchOrder(orderId, { status: 'payment_pending' });
+      return reply(409, { ok: false, error: 'sha_mismatch', expected: order.sha256, actual: shaActual });
+    }
+    trace.push('sha_ok');
+
+    // VirusTotal (skipped)
+    const vtStatus = VT_ENABLED ? 'pending' : 'skipped';
+    trace.push('vt_' + vtStatus);
+
+    // RFC3161
+    let tsa = { status: 'skipped', token: null, raw: null, statusCode: null };
+    if (RFC3161_ENABLED) {
+      try {
+        const t = await requestTimestamp(shaActual);
+        tsa = { status: 'ok', token: t.token, raw: t.raw, statusCode: t.status };
+        const b64 = t.raw.toString('base64');
+        const tsrKey = 'certs/' + orderId + '/timestamp.tsr';
+        await getS3().send(new PutObjectCommand({
+          Bucket: process.env.R2_BUCKET, Key: tsrKey, Body: t.raw, ContentType: 'application/timestamp-reply',
+        }));
+        await sbPatchOrder(orderId, { tsa_token: b64, tsa_status: 'ok' });
+        trace.push('tsa_ok size=' + t.raw.length);
+      } catch (e) {
+        tsa = { status: 'error', token: null, raw: null, statusCode: null, error: String(e && e.message || e) };
+        await sbPatchOrder(orderId, { tsa_status: 'error' });
+        trace.push('tsa_error ' + (e && e.message));
+      }
+    } else {
+      await sbPatchOrder(orderId, { tsa_status: 'skipped' });
+    }
+
+    // Anchor (skipped)
+    const anchorStatus = ANCHOR_ENABLED ? 'pending' : 'skipped';
+    await sbPatchOrder(orderId, { anchor_status: anchorStatus, vt_status: vtStatus });
+    trace.push('anchor_' + anchorStatus);
+
+    // PDF
+    const pdfBuf = await makePassportPDF({
+      order_id: orderId,
+      hmac_token: order.hmac_token,
+      full_name: order.full_name,
+      email: order.email,
+      title: order.title,
+      filename: order.file_key_r2.split('/').pop(),
+      size_bytes: order.size_bytes,
+      sha256: shaActual,
+      tsa_status: tsa.status,
+      tsa_status_code: tsa.statusCode,
+      tsa_token_b64: tsa.raw ? tsa.raw.toString('base64') : '',
+    });
+    const pdfKey = 'certs/' + orderId + '/passport.pdf';
+    await getS3().send(new PutObjectCommand({
+      Bucket: process.env.R2_BUCKET, Key: pdfKey, Body: pdfBuf, ContentType: 'application/pdf',
+    }));
+    const pdfUrl = 'https://imarch.ltd/.netlify/functions/cert-download?order_id=' + orderId + '&token=' + order.hmac_token;
+    await sbPatchOrder(orderId, { pdf_url: pdfUrl });
+    trace.push('pdf_ok size=' + pdfBuf.length);
+
+    // Email
+    try {
+      await sendEmail(
+        order.email,
+        'Your iMarch Act-Passport #' + orderId.slice(0, 8),
+        '<p>Hello, ' + escapeHtml(order.full_name) + '.</p>' +
+        '<p>Your document <b>' + escapeHtml(order.title) + '</b> has been stamped.</p>' +
+        '<p>SHA-256: <code>' + shaActual + '</code></p>' +
+        '<p>Status: <a href="https://imarch.ltd/en/certify/status/?order_id=' + orderId + '&token=' + order.hmac_token + '">verify online</a></p>' +
+        '<p>The Act-Passport PDF is attached.</p>' +
+        '<p> iMarch</p>',
+        [{ filename: 'act-passport-' + orderId.slice(0, 8) + '.pdf', content: pdfBuf.toString('base64') }]
+      );
+      trace.push('email_ok');
+    } catch (e) {
+      trace.push('email_error ' + (e && e.message));
+    }
+
+    await sbPatchOrder(orderId, { status: 'ready', processed_at: new Date().toISOString() });
+    trace.push('status_ready');
+
+    return reply(200, { ok: true, status: 'ready', pdf_url: pdfUrl, tsa_status: tsa.status, trace });
+  } catch (e) {
+    console.error('[order-process]', e, trace);
+    try { await sbPatchOrder(orderId, { status: 'payment_pending' }); } catch (_) {}
+    return reply(500, { ok: false, error: 'internal', detail: String(e && e.message || e), trace });
+  }
+};
+
+function escapeHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}

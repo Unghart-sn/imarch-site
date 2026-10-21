@@ -1,0 +1,30 @@
+# Hugo build artifacts
+/public/
+/resources/
+.hugo_build.lock
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Node.js (если используется)
+node_modules/
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# Logs and temp
+*.log
+*.tmp
+
+# Environment and secrets
+.env
+.env.local
+
+
+# Hugo build lock (regenerated on every build)
+hugo_build.lock
+
+# Local Netlify folder
+.netlify

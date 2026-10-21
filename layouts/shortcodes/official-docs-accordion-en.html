@@ -1,0 +1,606 @@
+{{/* Шорткод: official-docs-accordion-en (Английская версия) */}}
+{{/* Вставьте на страницу как {{< official-docs-accordion-en >}} */}}
+
+<style>
+/* =================== OFFICIAL DOCUMENTATION (ENGLISH) =================== */
+.official-docs-accordion {
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    box-sizing: border-box;
+    clear: both;
+}
+
+.official-docs-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #b89a5f;
+}
+
+.official-docs-header h2 {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.official-docs-header p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #4a5568;
+    line-height: 1.6;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+
+/* Accordion */
+.official-accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.official-section {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #d4c9b8;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.official-section:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.official-section-header {
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(to right, #f8f5f0, #ffffff);
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.official-section-header:hover {
+    background: linear-gradient(to right, #f0ebe2, #ffffff);
+}
+
+.official-section-header.active {
+    background: #ffffff;
+    border-bottom: 3px solid #2a5c7a;
+}
+
+.official-section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: 600;
+    margin: 0;
+    color: #1a1a1a;
+    flex: 1;
+    min-width: 0;
+}
+
+.official-section-icon {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    width: clamp(40px, 8vw, 50px);
+    height: clamp(40px, 8vw, 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(42, 92, 122, 0.1);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.official-section-arrow {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #2a5c7a;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+}
+
+.official-section-header.active .official-section-arrow {
+    transform: rotate(180deg);
+}
+
+.official-section-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.official-section-content.open {
+    padding: 1.5rem;
+    max-height: 5000px;
+}
+
+@media (min-width: 768px) {
+    .official-section-content.open {
+        padding: 2.5rem;
+    }
+}
+
+/* Cards */
+.official-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .official-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+}
+
+.official-doc-card {
+    background: #f8f5f0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid #d4c9b8;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.official-doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: #2a5c7a;
+}
+
+.official-doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(42, 92, 122, 0.15);
+    border-color: #2a5c7a;
+}
+
+.doc-card-icon {
+    font-size: clamp(2.2rem, 5vw, 2.8rem);
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.doc-card-title {
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    text-align: center;
+    line-height: 1.3;
+    word-wrap: break-word;
+}
+
+.doc-card-description {
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-style: italic;
+    text-align: center;
+}
+
+/* Buttons */
+.doc-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+.doc-card-btn {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.doc-card-btn-details {
+    background: #b89a5f;
+    color: white;
+    border-color: #b89a5f;
+}
+.doc-card-btn-details:hover {
+    background: #9c7e4a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(184, 154, 95, 0.3);
+}
+
+.doc-card-btn-primary {
+    background: #2a5c7a;
+    color: white;
+    border-color: #2a5c7a;
+}
+.doc-card-btn-primary:hover {
+    background: #1e455d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 92, 122, 0.3);
+}
+
+/* Modals (same as before, but text in English) */
+.official-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+.official-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.modal-content {
+    background: #f8f5f0;
+    width: 100%;
+    max-width: min(700px, calc(100% - 1rem));
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    border: 2px solid #b89a5f;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease;
+    margin: auto;
+    max-height: min(90vh, 800px);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+@media (min-width: 768px) {
+    .modal-content { padding: 3rem; max-height: 90vh; }
+}
+.modal-content::-webkit-scrollbar { width: 8px; }
+.modal-content::-webkit-scrollbar-track { background: rgba(184,154,95,0.1); border-radius: 4px; }
+.modal-content::-webkit-scrollbar-thumb { background: #b89a5f; border-radius: 4px; }
+.modal-content::-webkit-scrollbar-thumb:hover { background: #9c7e4a; }
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #2a5c7a;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.modal-close:hover {
+    background: rgba(42, 92, 122, 0.1);
+    transform: rotate(90deg);
+}
+.modal-icon {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+.modal-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.2;
+}
+.modal-subtitle {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: #b89a5f;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+.modal-text {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.7;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+.modal-text p { margin-bottom: 1.25rem; }
+.modal-text p:last-child { margin-bottom: 0; }
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(184, 154, 95, 0.3);
+    position: sticky;
+    bottom: 0;
+    background: #f8f5f0;
+}
+@media (min-width: 768px) {
+    .modal-actions { flex-direction: row; justify-content: center; }
+}
+.modal-btn {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+@media (min-width: 768px) {
+    .modal-btn { min-width: 160px; max-width: 200px; }
+}
+.modal-btn-close {
+    background: transparent;
+    color: #4a5568;
+    border-color: #cbd5e0;
+}
+.modal-btn-close:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+.modal-btn-primary {
+    background: #2a5c7a;
+    color: white;
+    border-color: #2a5c7a;
+}
+.modal-btn-primary:hover {
+    background: #1e455d;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(42, 92, 122, 0.4);
+}
+@media (max-width: 480px) {
+    .official-docs-accordion { padding: 0 0.75rem; }
+    .official-section-header { padding: 1.25rem 1rem; }
+    .official-section-content.open { padding: 1.25rem; }
+    .official-doc-card { padding: 1.25rem; }
+    .doc-card-btn { padding: 0.75rem 0.5rem; font-size: 0.9rem; }
+    .modal-content { padding: 1.5rem; }
+    .modal-btn { padding: 0.9rem 1rem; width: 100%; }
+}
+@media (max-width: 360px) {
+    .official-section-title { font-size: 1.1rem; }
+    .official-section-icon { width: 36px; height: 36px; font-size: 1.6rem; }
+    .doc-card-title { font-size: 1.2rem; }
+}
+</style>
+
+<div class="official-docs-accordion">
+    <div class="official-docs-header">
+        <h2>OFFICIAL DOCUMENTATION</h2>
+        <p>Scene of the institutional shaping of the Form of Imarchia</p>
+    </div>
+
+    <div class="official-accordion-container">
+        <div class="official-section" id="foundational-docs-en">
+            <div class="official-section-header" onclick="toggleOfficialSection(this)">
+                <div class="official-section-title">
+                    <div class="official-section-icon">📜</div>
+                    <h3>Foundational Documents</h3>
+                </div>
+                <div class="official-section-arrow">▼</div>
+            </div>
+            <div class="official-section-content">
+                <div class="official-cards-grid">
+                    <!-- Constitution -->
+                    <div class="official-doc-card">
+                        <div class="doc-card-icon">⚖️</div>
+                        <h4 class="doc-card-title">Constitution of Imarchia</h4>
+                        <p class="doc-card-description">Scene of affirmation of Form. Paragraphs as acts of recognition.</p>
+                        <div class="doc-card-actions">
+                            <button class="doc-card-btn doc-card-btn-details" onclick="openModal('constitutionModalEn')">Read more</button>
+                            <a href="https://imarch.sbs/en/constitutio/" target="_blank" class="doc-card-btn doc-card-btn-primary">Explore</a>
+                        </div>
+                    </div>
+                    <!-- Civil Registry -->
+                    <div class="official-doc-card">
+                        <div class="doc-card-icon">📇</div>
+                        <h4 class="doc-card-title">Civil Registry</h4>
+                        <p class="doc-card-description">Scene of recognition. Titles as acts of publication.</p>
+                        <div class="doc-card-actions">
+                            <button class="doc-card-btn doc-card-btn-details" onclick="openModal('registryModalEn')">Read more</button>
+                            <a href="https://imarch.sbs/en/tituli/" target="_blank" class="doc-card-btn doc-card-btn-primary">Explore</a>
+                        </div>
+                    </div>
+                    <!-- Official Acts -->
+                    <div class="official-doc-card">
+                        <div class="doc-card-icon">📑</div>
+                        <h4 class="doc-card-title">Official Acts</h4>
+                        <p class="doc-card-description">Defining the framework for interpreting provisions.</p>
+                        <div class="doc-card-actions">
+                            <button class="doc-card-btn doc-card-btn-details" onclick="openModal('actsModalEn')">Read more</button>
+                            <a href="/en/profile/office/" class="doc-card-btn doc-card-btn-primary">Explore</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals (English) -->
+<div class="official-modal" id="constitutionModalEn">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('constitutionModalEn')">×</button>
+        <div class="modal-icon">⚖️</div>
+        <h3 class="modal-title">Constitution of Imarchia</h3>
+        <div class="modal-subtitle">Scene of affirmation of Form</div>
+        <div class="modal-text">
+            <p><strong>The Constitution is not a set of prescriptions, but a coupling. It does not limit, it shapes Form. IMARCH does not regulate – it recognises. The Constitution of Imarchia is the voice that affirms scenes, titles and acts.</strong></p>
+            <p>The Constitution of Imarchia – a scene of affirmation of Form. The “Constitution” section is a scene where every paragraph sounds like an act of recognition. Here we structure, fix the voice and affirm the institutional coupling.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-close" onclick="closeModal('constitutionModalEn')">Back</button>
+            <a href="https://imarch.sbs/en/constitutio/" target="_blank" class="modal-btn modal-btn-primary">Open Constitution</a>
+        </div>
+    </div>
+</div>
+
+<div class="official-modal" id="registryModalEn">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('registryModalEn')">×</button>
+        <div class="modal-icon">📇</div>
+        <h3 class="modal-title">Civil Registry</h3>
+        <div class="modal-subtitle">Scene of recognition</div>
+        <div class="modal-text">
+            <p><strong>A certificate is not an asset, but a title. It does not certify – it recognises. Citizenship is not belonging, but a coupling with Form. IMARCH does not issue paper – it issues a voice.</strong></p>
+            <p>Citizenship passports – a scene of recognition. The “Civil Registry” section is a scene where every act of publication becomes an act of recognition. Here we design titles, issue forms and fix the voice of the institution.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-close" onclick="closeModal('registryModalEn')">Back</button>
+            <a href="https://imarch.sbs/en/tituli/" target="_blank" class="modal-btn modal-btn-primary">Open Registry</a>
+        </div>
+    </div>
+</div>
+
+<div class="official-modal" id="actsModalEn">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('actsModalEn')">×</button>
+        <div class="modal-icon">📑</div>
+        <h3 class="modal-title">Official Acts</h3>
+        <div class="modal-subtitle">Defining the framework of interpretation</div>
+        <div class="modal-text">
+            <p><strong>An act is not an order, but a marking of the scene. It does not prescribe – it outlines. The official position is not a directive, but a context for dialogue.</strong></p>
+            <p>The Official Acts of the Administration of Imarchia – a scene for defining the boundaries of meaning. Each act establishes the framework for interpreting the provisions of the Constitution and Regulations, removing ambiguities and creating a clear context for interaction.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-close" onclick="closeModal('actsModalEn')">Back</button>
+            <button class="modal-btn modal-btn-primary" onclick="closeModal('actsModalEn')">Got it</button>
+        </div>
+    </div>
+</div>
+
+<div style="clear: both; width: 100%;"></div>
+
+<script>
+function toggleOfficialSection(header) {
+    const section = header.parentElement;
+    const content = section.querySelector('.official-section-content');
+    const isOpen = content.classList.contains('open');
+    document.querySelectorAll('.official-section-content.open').forEach(openContent => {
+        if (openContent !== content) {
+            openContent.classList.remove('open');
+            openContent.parentElement.querySelector('.official-section-header').classList.remove('active');
+        }
+    });
+    header.classList.toggle('active');
+    content.classList.toggle('open');
+    if (isOpen) {
+        setTimeout(() => { content.style.maxHeight = '0'; }, 10);
+    } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        setTimeout(() => { content.style.maxHeight = 'none'; }, 400);
+    }
+}
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    const modalContent = modal.querySelector('.modal-content');
+    modalContent.scrollTop = 0;
+}
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    document.body.style.position = '';
+    document.body.style.width = '';
+}
+document.querySelectorAll('.official-modal').forEach(modal => {
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) closeModal(this.id);
+    });
+});
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.official-modal.active').forEach(modal => closeModal(modal.id));
+    }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const firstSection = document.querySelector('.official-section');
+    if (firstSection) {
+        const header = firstSection.querySelector('.official-section-header');
+        const content = firstSection.querySelector('.official-section-content');
+        header.classList.add('active');
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        setTimeout(() => { content.style.maxHeight = 'none'; }, 400);
+    }
+    if ('ontouchstart' in window) {
+        document.querySelectorAll('.doc-card-btn, .modal-btn').forEach(btn => {
+            btn.style.cursor = 'pointer';
+        });
+    }
+});
+</script>

@@ -1,0 +1,207 @@
+<style>
+/* =================== ФИНАЛЬНЫЙ БЛОК "ПРИГЛАШЕНИЕ" =================== */
+.invitation-elegant {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 60px 20px;
+    background: linear-gradient(155deg, #0c1120 0%, #1a1f3a 100%);
+    color: #ffffff;
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.invitation-elegant::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(to right, 
+        transparent 0%, 
+        rgba(168, 85, 247, 0.4) 20%, 
+        rgba(139, 92, 246, 0.6) 50%, 
+        rgba(168, 85, 247, 0.4) 80%, 
+        transparent 100%
+    );
+}
+
+.invitation-elegant-content {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.invitation-elegant-title {
+    font-family: 'Lora', serif;
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: #f0e6ff;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+}
+
+.invitation-elegant-text {
+    font-size: 1.25rem;
+    color: #d8dce9;
+    line-height: 1.7;
+    margin-bottom: 30px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 300;
+}
+
+.invitation-elegant-highlight {
+    background: linear-gradient(135deg, 
+        rgba(147, 51, 234, 0.12) 0%, 
+        rgba(168, 85, 247, 0.08) 100%
+    );
+    padding: 28px 30px;
+    border-radius: 12px;
+    margin: 35px 0;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.invitation-elegant-highlight p {
+    font-size: 1.2rem;
+    color: #e9d5ff;
+    margin: 0;
+    line-height: 1.6;
+    font-weight: 400;
+}
+
+.invitation-elegant-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+    color: white;
+    text-decoration: none;
+    padding: 18px 42px;
+    border-radius: 60px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    box-shadow: 
+        0 10px 25px rgba(147, 51, 234, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.1) inset,
+        0 2px 0 rgba(255, 255, 255, 0.15) inset;
+    margin: 30px 0 50px;
+}
+
+.invitation-elegant-button:hover {
+    background: linear-gradient(135deg, #7e22ce 0%, #9333ea 100%);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(147, 51, 234, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+}
+
+.invitation-elegant-accordion {
+    max-width: 850px;
+    margin: 50px auto 0;
+}
+
+.elegant-accordion-module {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+.elegant-accordion-module summary {
+    padding: 24px 30px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+    text-align: left;
+    font-size: 1.25rem;
+    color: #f0e6ff;
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.elegant-accordion-module summary::after {
+    content: '▾';
+    font-size: 1.4rem;
+    color: #a855f7;
+}
+
+.elegant-accordion-content {
+    padding: 30px;
+}
+
+.elegant-blog {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Новый класс для тизера */
+.elegant-blog p.teaser {
+    color: #f8faff; /* светлый оттенок */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 15px auto 25px;
+    max-width: 700px;
+    font-weight: 400;
+}
+
+.elegant-socials {
+    text-align: center;
+    margin-top: 30px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.elegant-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 30px 0;
+}
+</style>
+
+<div class="invitation-elegant">
+    <div class="invitation-elegant-content">
+        <h2 class="invitation-elegant-title">Приглашение</h2>
+        
+        <p class="invitation-elegant-text">
+            Мы открыты для тех, кто хочет применять эти наработки в своей практике. 
+            Не как потребитель, а как соучастник институционального тела.
+        </p>
+        
+        <div class="invitation-elegant-highlight">
+            <p>
+                Присоединение через титульную сцену, где каждый шаг это обет перед хроникой.
+            </p>
+        </div>
+        
+        <a href="https://imarch.sbs/ru/vis-realitatis-center/" class="invitation-elegant-button">ПРИСОЕДИНИТЬСЯ</a>
+        
+     
+                </div>
+            </details>
+        </div>
+    </div>
+</div>

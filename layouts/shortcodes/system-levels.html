@@ -1,0 +1,270 @@
+{{/*  Shortcode: system-levels
+Usage:
+{{< system-levels >}}
+*/}}
+
+{{ $uniqueID := substr (md5 (printf "%s%s" (now.UnixNano) (seq 1 100 | shuffle | first 1))) 0 10 }}
+
+<div class="imarha-system" id="system-{{ $uniqueID }}">
+
+  <div class="system-header">
+    <h2>⚙️ Как работает система</h2>
+    <p class="subtitle">IMARCH строится как последовательная система из пяти уровней:</p>
+  </div>
+
+  <div class="system-grid">
+
+    {{/*  УРОВЕНЬ 1: ПРАКТИКА  */}}
+    <div class="system-card">
+      <div class="card-icon">🌿</div>
+      <div class="card-content">
+        <h3>Практика</h3>
+        <p class="card-description"><strong>SunLife‑Massage Harmonia</strong> — протокол саморегуляции и телесной практики</p>
+        <a class="system-btn" href="/ru/sunlife-massage/post2/" target="_blank" rel="noopener noreferrer">Подробнее →</a>
+      </div>
+    </div>
+
+    {{/*  УРОВЕНЬ 2: ХРОНИКА  */}}
+    <div class="system-card">
+      <div class="card-icon">📝</div>
+      <div class="card-content">
+        <h3>Хроника</h3>
+        <p class="card-description"><strong>CCS Chronicle Profile</strong> — цифровая фиксация действий и участия</p>
+        <a class="system-btn" href="/ru/ccs/post2/" target="_blank" rel="noopener noreferrer">Подробнее →</a>
+      </div>
+    </div>
+
+    {{/*  УРОВЕНЬ 3: ИССЛЕДОВАНИЕ  */}}
+    <div class="system-card">
+      <div class="card-icon">🔬</div>
+      <div class="card-content">
+        <h3>Исследование</h3>
+        <p class="card-description"><strong>Research Track</strong> — наблюдение и аналитика результатов</p>
+        <a class="system-btn" href="/ru/sunlife-massage/post3/" target="_blank" rel="noopener noreferrer">Подробнее →</a>
+      </div>
+    </div>
+
+    {{/*  УРОВЕНЬ 4: МЕТОДОЛОГИЯ  */}}
+    <div class="system-card">
+      <div class="card-icon">🧭</div>
+      <div class="card-content">
+        <h3>Методология</h3>
+        <p class="card-description"><strong>Формологический консалтинг</strong> — диагностика среды и разработка организационных решений</p>
+        <a class="system-btn" href="/ru/fc/post2/" target="_blank" rel="noopener noreferrer">Подробнее →</a>
+      </div>
+    </div>
+
+    {{/*  УРОВЕНЬ 5: ИНСТИТУЦИЯ  */}}
+    <div class="system-card">
+      <div class="card-icon">🌐</div>
+      <div class="card-content">
+        <h3>Институция</h3>
+        <p class="card-description"><strong>IMARCH Network</strong> — формирование устойчивой сети и институциональной среды</p>
+        <!-- здесь нет кнопки, как в исходном тексте -->
+      </div>
+    </div>
+
+  </div>
+
+  <div class="system-footer">
+    <p class="disclaimer">Пять уровней, образующих целостную институциональную экосистему.</p>
+  </div>
+
+</div>
+
+<style>
+/* ===== ИЗОЛИРОВАННЫЕ СТИЛИ ===== */
+#system-{{ $uniqueID }} {
+    all: initial !important;
+    display: block !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    box-sizing: border-box !important;
+
+    --primary: #2c3e50;
+    --secondary: #4a6b8a;
+    --accent: #c5a059;
+    --text: #f0f0f0;
+    --text-secondary: #cccccc;
+    --card-bg: rgba(255, 255, 255, 0.05);
+
+    background: linear-gradient(145deg, var(--primary), var(--secondary)) !important;
+    color: var(--text) !important;
+    border-radius: 20px !important;
+    padding: 3rem 2rem !important;
+    margin: 3rem 0 !important;
+    width: 100% !important;
+    position: relative !important;
+    -webkit-text-size-adjust: 100% !important;
+}
+
+#system-{{ $uniqueID }} * {
+    box-sizing: border-box !important;
+}
+
+/* ШАПКА */
+#system-{{ $uniqueID }} .system-header {
+    text-align: center !important;
+    margin-bottom: 3rem !important;
+}
+
+#system-{{ $uniqueID }} .system-header h2 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 1rem !important;
+    background: linear-gradient(135deg, var(--accent) 0%, #e6c27a 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: block !important;
+    line-height: 1.2 !important;
+}
+
+#system-{{ $uniqueID }} .subtitle {
+    font-size: 1.2rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.5 !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+}
+
+/* СЕТКА КАРТОЧЕК */
+#system-{{ $uniqueID }} .system-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem !important;
+    max-width: 900px !important;
+    margin: 0 auto !important;
+}
+
+#system-{{ $uniqueID }} .system-card {
+    background: var(--card-bg) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    padding: 1.5rem !important;
+    display: flex !important;
+    gap: 1.5rem !important;
+    align-items: flex-start !important;
+    transition: transform 0.3s ease, border-color 0.3s ease !important;
+}
+
+#system-{{ $uniqueID }} .system-card:hover {
+    transform: translateY(-2px) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 6px 18px rgba(197, 160, 89, 0.15) !important;
+}
+
+#system-{{ $uniqueID }} .card-icon {
+    font-size: 2.8rem !important;
+    line-height: 1 !important;
+    min-width: 3.5rem !important;
+    text-align: center !important;
+}
+
+#system-{{ $uniqueID }} .card-content {
+    flex: 1 !important;
+}
+
+#system-{{ $uniqueID }} .system-card h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin: 0 0 0.5rem 0 !important;
+    color: var(--text) !important;
+}
+
+#system-{{ $uniqueID }} .card-description {
+    font-size: 1rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.5 !important;
+    margin: 0 0 1rem 0 !important;
+}
+
+#system-{{ $uniqueID }} .card-description strong {
+    color: var(--accent) !important;
+    font-weight: 600 !important;
+}
+
+#system-{{ $uniqueID }} .system-btn {
+    display: inline-block !important;
+    padding: 0.5rem 1.2rem !important;
+    border-radius: 30px !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    text-decoration: none !important;
+    color: var(--text) !important;
+    border: 1px solid var(--accent) !important;
+    background: transparent !important;
+    transition: all 0.3s ease !important;
+}
+
+#system-{{ $uniqueID }} .system-btn:hover {
+    background: var(--accent) !important;
+    color: #222 !important;
+    transform: translateY(-1px) !important;
+}
+
+/* ФУТЕР */
+#system-{{ $uniqueID }} .system-footer {
+    text-align: center !important;
+    margin-top: 3rem !important;
+    padding-top: 2rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#system-{{ $uniqueID }} .disclaimer {
+    color: var(--text-secondary) !important;
+    font-size: 0.95rem !important;
+    font-style: italic !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    #system-{{ $uniqueID }} {
+        padding: 2rem 1.5rem !important;
+    }
+    #system-{{ $uniqueID }} .system-header h2 {
+        font-size: 2rem !important;
+    }
+    #system-{{ $uniqueID }} .subtitle {
+        font-size: 1.1rem !important;
+    }
+    #system-{{ $uniqueID }} .system-card {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 1rem !important;
+    }
+    #system-{{ $uniqueID }} .card-icon {
+        font-size: 3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #system-{{ $uniqueID }} {
+        padding: 1.5rem 1rem !important;
+    }
+    #system-{{ $uniqueID }} .system-header h2 {
+        font-size: 1.8rem !important;
+    }
+    #system-{{ $uniqueID }} .system-card h3 {
+        font-size: 1.3rem !important;
+    }
+    #system-{{ $uniqueID }} .card-description {
+        font-size: 0.95rem !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #system-{{ $uniqueID }} * {
+        transition: none !important;
+    }
+    #system-{{ $uniqueID }} .system-card:hover {
+        transform: none !important;
+    }
+}
+
+#system-{{ $uniqueID }} .subtitle {
+    text-align: center !important;
+    width: 100% !important;
+}
+</style>

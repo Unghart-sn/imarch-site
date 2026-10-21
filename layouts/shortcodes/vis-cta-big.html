@@ -1,0 +1,215 @@
+<style>
+.vis-cta {
+  padding: 70px 20px;
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.vis-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+  background-size: cover;
+  opacity: 0.3;
+}
+
+.vis-cta-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.vis-cta-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.vis-cta-text {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
+
+.vis-cta-text p {
+  margin-bottom: 20px;
+}
+
+.vis-cta-text strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.cta-btn {
+  padding: 16px 35px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cta-btn-primary {
+  background: linear-gradient(135deg, #38a169 0%, #276749 100%);
+  color: white;
+  border: 2px solid #38a169;
+}
+
+.cta-btn-secondary {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.cta-btn-tertiary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn-primary:hover {
+  background: linear-gradient(135deg, #2f855a 0%, #22543d 100%);
+}
+
+.cta-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.cta-btn-tertiary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cta-email {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+}
+
+.cta-email a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.cta-email a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .vis-cta {
+    padding: 50px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-cta-title {
+    font-size: 1.8rem;
+  }
+  
+  .vis-cta-text {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+    padding: 14px 25px;
+  }
+}
+</style>
+
+<section id="cta" class="vis-section vis-cta">
+  <div class="vis-cta-content">
+    <h2 class="vis-cta-title">Как поддержать проект Vis Realitatis</h2>
+    <div class="vis-cta-text">
+      <p>Проект Vis Realitatis открыт для участия на разных уровнях — в зависимости от вашей роли, возможностей и интересов.</p>
+      
+      <p><strong>❤️ Поддержка как донор</strong><br>
+      Вы можете внести вклад в развитие проекта через краудфандинговую платформу.<br>
+      Эти средства направляются на:<br>
+      - помощь ветеранам и их семьям,<br>
+      - обучение пар и фасилитаторов,<br>
+      - развитие цифровой инфраструктуры,<br>
+      - обеспечение прозрачной отчётности.<br>
+      Каждый донор получает уверенность в том, что его вклад работает системно и прозрачно.</p>
+      
+      <p><strong>🤝 Партнёрство и институциональная поддержка</strong><br>
+      Мы открыты к сотрудничеству с:<br>
+      - фондами и грантодателями,<br>
+      - НКО и социальными инициативами,<br>
+      - институциональными и корпоративными партнёрами.<br>
+      Для партнёров доступен отдельный лендинг с детальной информацией о модели, масштабировании и устойчивости проекта.</p>
+      
+      <p><strong>🎓 Участие как эксперт</strong><br>
+      Мы приглашаем специалистов, фасилитаторов и исследователей, готовых:<br>
+      - участвовать в практической работе,<br>
+      - развивать методологию,<br>
+      - подключаться к обучению и супервизии,<br>
+      - вносить вклад в развитие сообщества.<br>
+      Проект строится на принципах доверия, прозрачности и совместного действия.</p>
+      
+      <p><strong>Vis Realitatis — это не разовая инициатива, а живая система.<br>
+      Вы можете стать её частью уже сейчас.</strong></p>
+    </div>
+    
+    <div class="cta-buttons">
+      <a href="/support" class="cta-btn cta-btn-primary">
+        <span>❤️</span> Поддержать как донор
+      </a>
+      <a href="/ru/docs/collegium/" class="cta-btn cta-btn-secondary">
+        <span>🤝</span> Партнёрство и инвестиции
+      </a>
+      <a href="/ru/vis-realitatis-center-experts/" class="cta-btn cta-btn-tertiary">
+        <span>🎓</span> Присоединиться как эксперт
+      </a>
+    </div>
+    
+    <div class="cta-email">
+      <p>Есть вопросы? Пишите нам: <a href="mailto:info@imarch.sbs">info@imarch.sbs</a></p>
+    </div>
+  </div>
+</section>

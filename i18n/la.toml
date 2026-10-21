@@ -1,0 +1,123 @@
+[[translation]]
+id = "dateFormat"
+translation = "2 Ianuarii 2006"
+
+[[translation]]
+id = "shortdateFormat"
+translation = "2 Ian 2006 15:04:05"
+
+[[translation]]
+id = "postedOnDate"
+translation = "Editum die {{ . }}"
+
+[[translation]]
+id = "lastModified"
+translation = "(Postremo mutatum die {{ . }})"
+
+[[translation]]
+id = "translationsLabel"
+translation = "Aliae linguae: "
+
+[[translation]]
+id = "translationsSeparator"
+translation = ", "
+
+[[translation]]
+id = "readMore"
+translation = "Plura lege"
+
+[[translation]]
+id = "olderPosts"
+translation = "Prior"
+
+[[translation]]
+id = "newerPosts"
+translation = "Recentior"
+
+[[translation]]
+id = "previousPost"
+translation = "Praecedens"
+
+[[translation]]
+id = "nextPost"
+translation = "Sequens"
+
+[[translation]]
+id = "readTime"
+translation = "minuta"
+
+[[translation]]
+id = "words"
+translation = "verba"
+
+[[translation]]
+id = "pageNotFound"
+translation = "Heu! Pagina non exstat. (Error 404)"
+
+[[translation]]
+id = "poweredBy"
+translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> auctore &nbsp;&bull;&nbsp; Thema <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> ex <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a> derivatum'
+
+[[translation]]
+id = "toggleNavigation"
+translation = "Navigatio alterna"
+
+[[translation]]
+id = "languageSwitcherLabel"
+translation = "Lingua"
+
+[[translation]]
+id = "gcseLabelShort"
+translation = "Quaere"
+
+[[translation]]
+id = "gcseLabelLong"
+translation = "Quaere {{ .Site.Title }}"
+
+[[translation]]
+id = "gcseClose"
+translation = "Claude"
+
+[[translation]]
+id = "noComment"
+translation = "Nulla commentaria"
+
+[[translation]]
+id = "oneComment"
+translation = "commentarium"
+
+[[translation]]
+id = "moreComment"
+translation = "commentaria"
+
+[[translation]]
+id = "useMarkdown"
+translation = "Syntaxin Markdown uti potes"
+
+[[translation]]
+id = "yourName"
+translation = "Nomen tuum"
+
+[[translation]]
+id = "yourEmail"
+translation = "Inscriptio electronica tua"
+
+[[translation]]
+id = "yourWebsite"
+translation = "Pagina tua"
+
+[[translation]]
+id = "show"
+translation = "Ostende"
+
+[[translation]]
+id = "comments"
+translation = "commentaria"
+
+[[translation]]
+id = "seeAlso"
+translation = "Vide etiam"
+
+
+
+

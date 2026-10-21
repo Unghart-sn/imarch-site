@@ -1,0 +1,20 @@
+{{ $title := .Get "title" | default "ONE HEALTH SYSTEMS ENGINEERING" }}
+{{ $center := .Get "center" | default "One Health" }}
+{{ $domains := .Get "domains" | default `[{"icon":"🧪","title":"Biomedicine","desc":"Human health"},{"icon":"🏭","title":"Critical Infrastructure","desc":"UMSS/Dual-Use"},{"icon":"🏛️","title":"Institutional Resilience","desc":"Resilience Studies"},{"icon":"💻","title":"Digital Environment","desc":"Data & AI"}]` }}
+
+{{ $domainsData := $domains | unmarshal }}
+
+<div class="light-widget one-health">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="oh-grid-light">
+    {{ range $index, $domain := $domainsData }}
+      {{ if eq $index 2 }}
+        <div class="oh-center-light">{{ $center }}</div>
+      {{ end }}
+      <div class="oh-card-light">
+        <h5>{{ $domain.icon }} {{ $domain.title }}</h5>
+        <p>{{ $domain.desc }}</p>
+      </div>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,16 @@
+{{ $title := .Get "title" | default "KEY PLATFORM STATISTICS" }}
+{{ $stats := .Get "stats" | default `[{"number":"24-48","label":"Hours for typesetting"},{"number":"SHA-256","label":"Priority fixation"},{"number":"100+","label":"Monographs in progress"}]` }}
+
+{{ $statsData := $stats | unmarshal }}
+
+<div class="light-widget stats-widget">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="stats-grid">
+    {{ range $statsData }}
+      <div class="stat-item">
+        <div class="stat-number">{{ .number }}</div>
+        <div class="stat-label">{{ .label }}</div>
+      </div>
+    {{ end }}
+  </div>
+</div>

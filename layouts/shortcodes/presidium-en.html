@@ -1,0 +1,365 @@
+<style>
+/* =================== EXPERT COUNCIL PRESIDIUM =================== */
+.vis-presidium {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+  border-radius: 16px;
+  margin: 60px auto;
+  max-width: 1000px;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.vis-presidium::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(to right, #38a169, #3182ce, #9f7aea);
+}
+
+.vis-presidium-header {
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.vis-presidium-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: white;
+  margin: 0 0 20px 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.vis-presidium-subtitle {
+  color: #cbd5e0;
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Experts grid */
+.vis-presidium-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .vis-presidium-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+/* Expert card */
+.vis-expert-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #e2e8f0;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.vis-expert-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.vis-expert-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(to bottom, #3182ce, #38a169);
+}
+
+/* Card top part */
+.vis-expert-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+
+.vis-expert-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f7fafc;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+}
+
+.vis-expert-title {
+  flex-grow: 1;
+}
+
+.vis-expert-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: #1a365d;
+  margin: 0 0 5px 0;
+  line-height: 1.3;
+}
+
+.vis-expert-rank {
+  color: #3182ce;
+  font-weight: 600;
+  font-size: 1rem;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.vis-expert-role {
+  color: #38a169;
+  font-size: 1rem;
+  font-weight: 600;
+  background: #f0fff4;
+  padding: 4px 12px;
+  border-radius: 20px;
+  display: inline-block;
+}
+
+/* Main text */
+.vis-expert-description {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  flex-grow: 1;
+  font-size: 0.95rem;
+}
+
+/* "More" button */
+.vis-expert-more {
+  align-self: flex-start;
+  background: transparent;
+  color: #3182ce;
+  border: 2px solid #3182ce;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.vis-expert-more:hover {
+  background: #3182ce;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.vis-expert-more::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.vis-expert-more:hover::after {
+  transform: translateX(4px);
+}
+
+/* Importance badges - WITHOUT ANIMATIONS */
+.vis-expert-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #d69e2e; /* Solid color instead of gradient */
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 10px rgba(214, 158, 46, 0.3);
+  animation: none !important;
+  transition: none !important;
+}
+
+/* Mobile adaptation */
+@media (max-width: 600px) {
+  .vis-presidium {
+    padding: 50px 15px;
+    margin: 40px auto;
+    border-radius: 12px;
+  }
+  
+  .vis-presidium-title {
+    font-size: 2.2rem;
+  }
+  
+  .vis-presidium-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .vis-expert-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+  
+  .vis-expert-card {
+    padding: 25px;
+  }
+  
+  .vis-expert-name {
+    font-size: 1.4rem;
+  }
+}
+
+/* Appearance animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.vis-expert-card {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Badges - SEMI-TRANSPARENT AND ELEVATED */
+.vis-expert-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(214, 158, 46, 0.9); /* Semi-transparent */
+  backdrop-filter: blur(5px);           /* Background blur */
+  -webkit-backdrop-filter: blur(5px);
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.vis-expert-card:nth-child(2) { animation-delay: 0.1s; }
+.vis-expert-card:nth-child(3) { animation-delay: 0.2s; }
+.vis-expert-card:nth-child(4) { animation-delay: 0.3s; }
+</style>
+
+<section id="presidium" class="vis-section vis-presidium">
+  <div class="vis-presidium-header">
+    <h3 class="vis-presidium-title">Expert Council Presidium</h2>
+    <p class="vis-presidium-subtitle">Leading specialists providing the scientific and methodological foundation of the Vis Realitatis project</p>
+  </div>
+  
+  <div class="vis-presidium-grid">
+    
+    <!-- Expert 1 -->
+    <div class="vis-expert-card">
+      <div class="vis-expert-badge">Strategy</div>
+      <div class="vis-expert-header">
+        <img src="/images/banners/0023.png" alt="Nikolay Shcherban" class="vis-expert-avatar" onerror="this.src='/images/avatars/default1.png'">
+        <div class="vis-expert-title">
+          <h3 class="vis-expert-name">Nikolay Shcherban</h3>
+          <span class="vis-expert-rank">Professor, Dr. Med. Sci.</span>
+          <span class="vis-expert-role">Strategic leader of scientometric research</span>
+        </div>
+      </div>
+      <p class="vis-expert-description">
+        Head of strategic direction for scientometric analysis of project effectiveness. 
+        Author of over 120 scientific publications in medical rehabilitation. Under his leadership, 
+        the methodology for assessing long-term effects of SunLife-Massage was developed.
+      </p>
+      <a href="/en/posts/experts/#scherban" class="vis-expert-more">More</a>
+    </div>
+    
+    <!-- Expert 2 -->
+    <div class="vis-expert-card">
+      <div class="vis-expert-badge">Methodology</div>
+      <div class="vis-expert-header">
+        <img src="/images/banners/0024.png" alt="Alexey Kalmykov" class="vis-expert-avatar" onerror="this.src='/images/avatars/default2.png'">
+        <div class="vis-expert-title">
+          <h3 class="vis-expert-name">Alexey Kalmykov</h3>
+          <span class="vis-expert-rank">Professor, Dr. Med. Sci.</span>
+          <span class="vis-expert-role">Head of scientometric research on method effectiveness</span>
+        </div>
+      </div>
+      <p class="vis-expert-description">
+        Leading specialist in validation of SunLife-Massage therapeutic protocols. 
+        Developed a system of objective effectiveness indicators including stress biomarkers, 
+        psycho-emotional indices, and veteran social adaptation metrics.
+      </p>
+      <a href="/en/posts/experts/#kalmykov" class="vis-expert-more">More</a>
+    </div>
+    
+    <!-- Expert 3 -->
+    <div class="vis-expert-card">
+      <div class="vis-expert-badge">Ergonomics</div>
+      <div class="vis-expert-header">
+        <img src="/images/experts/grtsuk.jpg" alt="Igor Grtsuk" class="vis-expert-avatar" onerror="this.src='/images/banners/0022.png'">
+        <div class="vis-expert-title">
+          <h3 class="vis-expert-name">Igor Grtsuk</h3>
+          <span class="vis-expert-rank">Professor, Dr. Tech. Sci.</span>
+          <span class="vis-expert-role">Head of research on specialized clothing for method practice</span>
+        </div>
+      </div>
+      <p class="vis-expert-description">
+        Expert in ergonomics and medical textiles. Developed specialized clothing 
+        for practicing massage therapists and veterans, ensuring maximum comfort, hygiene, 
+        and therapeutic effect during SunLife-Massage sessions.
+      </p>
+      <a href="/en/posts/experts/#grytsuk" class="vis-expert-more">More</a>
+    </div>
+    
+    <!-- Expert 4 -->
+    <div class="vis-expert-card">
+      <div class="vis-expert-badge">Community</div>
+      <div class="vis-expert-header">
+        <img src="/images/experts/kravets.jpg" alt="Vladimir Kravets" class="vis-expert-avatar" onerror="this.src='/images/banners/0021.png'">
+        <div class="vis-expert-title">
+          <h3 class="vis-expert-name">Vladimir Kravets</h3>
+          <span class="vis-expert-rank">Public figure</span>
+          <span class="vis-expert-role">Chairman of the project's board of trustees</span>
+        </div>
+      </div>
+      <p class="vis-expert-description">
+        Chairman of unit No. 27 of Shevchenkovsky District, Kharkiv VO "Children of War". 
+        Provides project connection with veteran organizations, participates in forming 
+        focus groups, organizing pilot programs, and assessing project social impact 
+        on target audience.
+      </p>
+      <a href="/en/posts/experts/#kravets" class="vis-expert-more">More</a>
+    </div>
+    
+  </div>
+  
+  <div style="text-align: center; margin-top: 50px; color: #cbd5e0; font-size: 0.9rem;">
+    <p>The Expert Council provides scientific guidance, methodological support, and quality control for the implementation of the Vis Realitatis project</p>
+  </div>
+</section>

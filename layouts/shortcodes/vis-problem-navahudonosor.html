@@ -1,0 +1,101 @@
+<style>
+.vis-problem {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.vis-problem-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.vis-problem-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+  animation: vis-problem-pulse 2s infinite;
+}
+
+@keyframes vis-problem-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.vis-problem-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #742a2a;
+  margin-bottom: 20px;
+}
+
+.vis-problem-text {
+  font-size: 1.1rem;
+  color: #744848;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.vis-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #742a2a;
+  border: 2px solid #742a2a;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.vis-more-btn:hover {
+  background: #742a2a;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.vis-more-btn::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.vis-more-btn:hover::after {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .vis-problem {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  .vis-problem-title { font-size: 1.6rem; }
+  .vis-problem-text { font-size: 1rem; }
+  .vis-problem-icon { font-size: 2.5rem; }
+}
+</style>
+
+<!-- Блок проблемы -->
+<section id="problem" class="vis-section vis-problem">
+  <div class="vis-problem-content">
+    <div class="vis-problem-icon">💔</div>
+    <h2 class="vis-problem-title">Проблема: стресс деактивации</h2>
+    <p class="vis-problem-text">
+Ветераны и их семьи сталкиваются с хроническим стрессом, ПТСР, потерей роли и отсутствием доступных инструментов восстановления.
+Система поддержки перегружена, специалисты недоступны, и тысячи людей остаются один на один с болью, которая только усиливается.
+    </p>
+    <a href="/ru/profile/vis-realitatis/problem-veterans/" class="vis-more-btn">
+      Узнать больше о проблеме
+    </a>
+  </div>
+</section>

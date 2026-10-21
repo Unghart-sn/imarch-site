@@ -1,0 +1,302 @@
+{{ if not (.Page.Scratch.Get "membership-levels-styles") }}
+{{ .Page.Scratch.Set "membership-levels-styles" true }}
+<style>
+/* =================== БЛОК УРОВНЕЙ УЧАСТИЯ =================== */
+.membership-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+    border-radius: 10px;
+    padding: 2rem;
+    margin: 2.5rem 0;
+    border: 1px solid #e1e8ed;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    position: relative;
+    overflow: hidden;
+}
+
+.membership-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #8B4513, #D4A76A, #8B4513);
+}
+
+.membership-title {
+    font-size: clamp(1.4rem, 2.5vw, 1.7rem) !important;
+    color: #5D4037;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-weight: 600;
+}
+
+.membership-title::before {
+    content: '🏛️';
+    font-size: 1.5rem;
+}
+
+.membership-subtitle {
+    color: #6D4C41;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: clamp(1rem, 1.8vw, 1.1rem) !important;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.membership-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.8rem;
+    margin-top: 1.5rem;
+}
+
+.membership-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.8rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.membership-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(139, 69, 19, 0.1);
+}
+
+.membership-badge {
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 5px rgba(139, 69, 19, 0.3);
+}
+
+.membership-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.membership-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.member-icon {
+    background: linear-gradient(135deg, #E8F5E9, #C8E6C9);
+    color: #2E7D32;
+}
+
+.citizen-icon {
+    background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+    color: #1565C0;
+}
+
+.membership-header h3 {
+    font-size: clamp(1.2rem, 2.2vw, 1.4rem) !important;
+    color: #5D4037;
+    margin: 0;
+    font-weight: 600;
+}
+
+.membership-features {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    flex-grow: 1;
+}
+
+.membership-features li {
+    margin-bottom: 0.7rem;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem) !important;
+    color: #6D4C41;
+    line-height: 1.5;
+}
+
+.membership-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #8B4513;
+    font-weight: bold;
+}
+
+.membership-principle {
+    margin-top: 2rem;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, rgba(139, 69, 19, 0.05), rgba(255, 255, 255, 0.8));
+    border-radius: 8px;
+    border-left: 4px solid #8B4513;
+    font-style: italic;
+    color: #5D4037;
+    line-height: 1.6;
+    text-align: center;
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem) !important;
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    .membership-section {
+        padding: 1.5rem;
+        margin: 2rem 0;
+    }
+    
+    .membership-title {
+        font-size: clamp(1.2rem, 2.2vw, 1.4rem) !important;
+        margin-bottom: 1.2rem;
+    }
+    
+    .membership-subtitle {
+        font-size: clamp(0.95rem, 1.7vw, 1rem) !important;
+        margin-bottom: 1.5rem;
+    }
+    
+    .membership-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .membership-card {
+        padding: 1.5rem;
+    }
+    
+    .membership-header {
+        gap: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .membership-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .membership-header h3 {
+        font-size: clamp(1.1rem, 2vw, 1.3rem) !important;
+    }
+    
+    .membership-features li {
+        font-size: clamp(0.9rem, 1.7vw, 1rem) !important;
+    }
+    
+    .membership-principle {
+        padding: 1rem;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .membership-section {
+        padding: 1.2rem;
+        margin: 1.5rem 0;
+        border-radius: 8px;
+    }
+    
+    .membership-grid {
+        gap: 1.2rem;
+    }
+    
+    .membership-card {
+        padding: 1.2rem;
+    }
+    
+    .membership-badge {
+        right: 15px;
+        padding: 0.2rem 0.8rem;
+        font-size: 0.75rem;
+    }
+}
+</style>
+{{ end }}
+
+<div class="membership-section">
+    <h2 class="membership-title">Две формы участия</h2>
+    
+    <p class="membership-subtitle">
+        Вы сами выбираете форму вовлечения в Консорциум. Никаких обязательств, только возможности, соответствующие вашему взвешенному выбору.
+    </p>
+    
+    <div class="membership-grid">
+        <!-- Член без гражданства -->
+        <div class="membership-card">
+            <div class="membership-badge">ПОЧЁТНЫЙ ГРАЖДАНИН</div>
+            
+            <div class="membership-header">
+                <div class="membership-icon member-icon">👤</div>
+                <h3>Член гильдии Доноров</h3>
+            </div>
+            
+            <ul class="membership-features">
+                <li>Публичный профиль на консорциумном сайте</li>
+                <li>Доступ к базовому функционалу интеграции, геймификации и реферализации</li>
+                <li>Бонусы внешней интеграции (новости, рассылки, интерфейсы)</li>
+                <li>Форма поддержки проекта через абонплату</li>
+                <li>Без обязательств и институциональной ответственности</li>
+                <li>Участие в миссиях и управлении через финансовую поддержку Проекта</li>
+            </ul>
+            
+            <div style="margin-top: auto; padding-top: 1rem;">
+                <p style="font-size: 0.9rem; color: #8B4513; font-style: italic; margin: 0;">
+                    <strong>Для тех, кому интересны вложения финансами</strong> мы предоставляем функционал экосситемы без обязательств, но с выбором приоритетной поддержки Игроков.
+                </p>
+            </div>
+        </div>
+        
+        <!-- Пользователь со статусом сценического гражданства -->
+        <div class="membership-card">
+            <div class="membership-badge">ГРАЖДАНИН СЦЕНЫ</div>
+            
+            <div class="membership-header">
+                <div class="membership-icon citizen-icon">🏛️</div>
+                <h3>Оператор Ирового поля</h3>
+            </div>
+            
+            <ul class="membership-features">
+                <li>Осознанное решение: прошение, меморандум, зачёт по Конституции</li>
+                <li>Полный доступ к консорциумным функциям</li>
+                <li>Участие в миссиях и право голоса</li>
+                <li>Внесение рационализаторских предложений</li>
+                <li>Поддержка сообщества при формировании продукта</li>
+                <li>Институциональная ответственность вместе с другими гражданами сцены Имарха</li>
+            </ul>
+            
+            <div style="margin-top: auto; padding-top: 1rem;">
+                <p style="font-size: 0.9rem; color: #1565C0; font-style: italic; margin: 0;">
+                    <strong>Для тех, кого интересует институциональная Игра</strong> открыта возможность непосредственного участия в миссиях и внутреннем управлении.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="membership-principle">
+        💡 <strong>Принцип прост:</strong> Если вам достаточно функционала, применяйте его как пользователь и по желанию участвуйте в Игре в качестве члена гильтдии доноров. 
+        Если интересно участие в миссиях и управлении, добро пожаловать в сценическое гражданство Консорциума. 
+Без вас Иры не будет!
+    </div>
+</div>

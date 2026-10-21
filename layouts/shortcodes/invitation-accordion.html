@@ -1,0 +1,62 @@
+<style>
+/* БЕЗОПАСНЫЙ АККОРДЕОН */
+.invitation-accordion {
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #0a0f1a 0%, #151a2e 100%);
+    color: white;
+    margin: 2rem 0;
+    border-radius: 10px;
+    text-align: center;
+    border-top: 3px solid #9d4edd;
+}
+
+/* ... остальные стили из простого блока ... */
+
+/* АККОРДЕОН */
+.accordion-details {
+    margin: 30px 0;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.accordion-summary {
+    padding: 18px 20px;
+    background: rgba(255,255,255,0.07);
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-content {
+    padding: 20px;
+    background: rgba(255,255,255,0.03);
+    text-align: left;
+}
+</style>
+
+<div class="invitation-accordion">
+    <h2>Приглашение</h2>
+    
+    <p>Мы открыты для тех, кто хочет применять эти наработки в своей практике.</p>
+    
+    <div class="highlight">
+        <p>Присоединение через титульную сцену, где каждый шаг — это обет перед хроникой.</p>
+    </div>
+    
+    <a href="#" class="button">ПРИСОЕДИНИТЬСЯ</a>
+    
+    <!-- АККОРДЕОН -->
+    <details class="accordion-details">
+        <summary class="accordion-summary">
+            Contacts & Media ▾
+            <span style="font-size: 1.2rem;">▼</span>
+        </summary>
+        <div class="accordion-content">
+            <p>Социальные сети и контакты будут здесь.</p>
+            <p>Личный блог с тегами.</p>
+        </div>
+    </details>
+</div>

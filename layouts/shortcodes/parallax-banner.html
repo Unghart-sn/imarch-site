@@ -1,0 +1,32 @@
+<div class="parallax-banner">
+  <img src="{{ .src }}" alt="{{ .alt }}">
+</div>
+
+<style>
+.parallax-banner {
+  position: relative;
+  height: 600px; /* можно менять высоту */
+  overflow: hidden;
+}
+
+.parallax-banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+</style>
+
+<script>
+window.addEventListener('scroll', function() {
+  const banners = document.querySelectorAll('.parallax-banner img');
+  const scrollY = window.scrollY;
+  banners.forEach(img => {
+    img.style.transform = `translateY(${scrollY * 0.3}px)`; 
+  });
+});
+</script>

@@ -1,0 +1,354 @@
+<style>
+/* ===== "DONOR BENEFITS" BLOCK (BUTTON STYLE LIKE "SUPPORT") ===== */
+.bonus-block {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+    
+    --primary: #0c1120;
+    --secondary: #1a1f3a;
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --accent: #9333ea;
+    
+    background: linear-gradient(155deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--text);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+    width: 100%;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* HEADER */
+.bonus-block .funding-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bonus-block h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.bonus-block .subtitle {
+    font-size: 1.3rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.bonus-block .subtitle-smaller {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* CARDS GRID */
+.bonus-block .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+}
+
+/* CARD */
+.bonus-block .bonus-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+/* Individual highlight colors for cards (only border on hover) */
+.bonus-card-1 {
+    --card-accent: #9333ea;
+}
+.bonus-card-2 {
+    --card-accent: #3b82f6;
+}
+.bonus-card-3 {
+    --card-accent: #10b981;
+}
+.bonus-card-4 {
+    --card-accent: #ec4899;
+}
+
+.bonus-block .bonus-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--card-accent);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--card-accent) 40%, transparent);
+}
+
+.bonus-block .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: drop-shadow(0 0 8px var(--card-accent));
+    text-align: center;
+}
+
+.bonus-block h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.bonus-block .card-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* CARD BUTTONS – STYLE LIKE "SUPPORT" */
+.bonus-block .card-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin-top: auto;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.bonus-block .card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+    border-color: var(--accent);
+}
+
+/* FIFTH BUTTON (bottom) – SAME STYLE */
+.bonus-block .footer-button-section {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bonus-block .footer-button-section p:first-child {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.bonus-block .footer-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    min-width: 260px;
+    cursor: pointer;
+}
+
+.bonus-block .footer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+    border-color: var(--accent);
+}
+
+.bonus-block .footer-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 1.5rem auto 0;
+    text-align: center;
+}
+
+/* ADAPTIVITY */
+@media (max-width: 768px) {
+    .bonus-block {
+        padding: 2rem 1.5rem;
+    }
+    .bonus-block .funding-header {
+        margin-bottom: 4rem;
+    }
+    .bonus-block h2 {
+        font-size: 2rem;
+    }
+    .bonus-block .subtitle {
+        font-size: 1.2rem;
+    }
+    .bonus-block .subtitle-smaller {
+        font-size: 1rem;
+    }
+    .bonus-block .bonus-grid {
+        grid-template-columns: 1fr;
+        padding-top: 1.5rem;
+        gap: 1.5rem;
+    }
+    .bonus-block .bonus-card {
+        padding: 2rem;
+    }
+    .bonus-block .footer-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bonus-block {
+        padding: 1.5rem 1rem;
+    }
+    .bonus-block .funding-header {
+        margin-bottom: 3rem;
+    }
+    .bonus-block h2 {
+        font-size: 1.75rem;
+    }
+    .bonus-block .subtitle {
+        font-size: 1.1rem;
+    }
+    .bonus-block .subtitle-smaller {
+        font-size: 0.95rem;
+    }
+    .bonus-block .bonus-grid {
+        padding-top: 1rem;
+    }
+    .bonus-block .bonus-card {
+        padding: 1.5rem;
+    }
+    .bonus-block h3 {
+        font-size: 1.3rem;
+    }
+    .bonus-block .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .bonus-block .card-btn {
+        font-size: 1rem;
+        padding: 0.875rem;
+    }
+    .bonus-block .footer-btn {
+        font-size: 1rem;
+        padding: 0.875rem 2rem;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .bonus-block {
+        padding: 1rem 0.75rem;
+    }
+    .bonus-block .funding-header {
+        margin-bottom: 2.5rem;
+    }
+    .bonus-block h2 {
+        font-size: 1.5rem;
+    }
+    .bonus-block .subtitle {
+        font-size: 1rem;
+    }
+    .bonus-block .subtitle-smaller {
+        font-size: 0.85rem;
+    }
+    .bonus-block .bonus-card {
+        padding: 1.25rem;
+    }
+    .bonus-block h3 {
+        font-size: 1.2rem;
+    }
+}
+
+/* DISABLE ANIMATIONS */
+@media (prefers-reduced-motion: reduce) {
+    .bonus-block * {
+        transition: none !important;
+    }
+    .bonus-block .bonus-card:hover,
+    .bonus-block .card-btn:hover,
+    .bonus-block .footer-btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+</style>
+
+<div class="bonus-block">
+    <div class="funding-header">
+        <h2>Donor Benefits</h2>
+        <p class="subtitle">Every contribution helps build the future of institutionalization</p>
+        <p class="subtitle-smaller">Become part of a project that is changing the rules for digital communities.</p>
+    </div>
+
+    <div class="bonus-grid">
+        <!-- Card 1: Entrepreneur or specialist -->
+        <div class="bonus-card bonus-card-1">
+            <div class="card-icon">💼</div>
+            <h3>I am an entrepreneur or specialist</h3>
+            <p class="card-description">I need a digital office, order in documents, visibility on the web, and workflow support.</p>
+            <a href="/en/posts/business-bonus/" class="card-btn">Learn more</a>
+        </div>
+
+        <!-- Card 2: Idea or project -->
+        <div class="bonus-card bonus-card-2">
+            <div class="card-icon">💡</div>
+            <h3>I have an idea or project</h3>
+            <p class="card-description">I need mission packaging, implementation structure, team support, and fundraising access.</p>
+            <a href="/en/posts/mission-bonus/" class="card-btn">Learn more</a>
+        </div>
+
+        <!-- Card 3: Expert -->
+        <div class="bonus-card bonus-card-3">
+            <div class="card-icon">🎓</div>
+            <h3>I am an expert</h3>
+            <p class="card-description">I need an expert office, participation in the consortium circuit, publications, and transparent contribution tracking.</p>
+            <a href="/en/posts/expert-bonus/" class="card-btn">Learn more</a>
+        </div>
+
+        <!-- Card 4: Organization -->
+        <div class="bonus-card bonus-card-4">
+            <div class="card-icon">🏢</div>
+            <h3>I represent an organization</h3>
+            <p class="card-description">I need office infrastructure, email, roles, archive, and implementation support.</p>
+            <a href="/en/posts/organisation-bonus/" class="card-btn">Learn more</a>
+        </div>
+    </div>
+
+    <!-- Fifth button (bottom) -->
+    <div class="footer-button-section">
+        <p><b>Support the development of Chronicle OS</b></p>
+        <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="footer-btn">Go to WeyDonate</a>
+        <p class="footer-note">Access to tools is granted as they become ready. You choose the convenient format of participation.</p>
+    </div>
+</div>

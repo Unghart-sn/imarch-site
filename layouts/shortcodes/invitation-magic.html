@@ -1,0 +1,202 @@
+<style>
+/* ГИБРИД: КРАСОТА invitation-block + ФУНКЦИОНАЛ КОНТЕЙНЕРА */
+.invitation-magic-hybrid {
+    margin: 3rem 0 0;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    background: linear-gradient(155deg, #0c1120 0%, #1a1f3a 100%);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Шапка как у invitation-block */
+.invitation-magic-header {
+    padding: 24px 30px;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+    font-size: 1.4rem;
+    color: #f0e6ff;
+    background: rgba(255, 255, 255, 0.07);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+.invitation-magic-header:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.invitation-magic-header::after {
+    content: '▾';
+    font-size: 1.3rem;
+    color: #a855f7;
+    transition: transform 0.3s ease;
+}
+
+/* Контент блоков */
+.invitation-magic-content {
+    padding: 40px 30px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.invitation-magic-title {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    color: #e0aaff;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.invitation-magic-text {
+    font-size: 1.2rem;
+    color: #cbd5e1;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.invitation-magic-highlight {
+    background: linear-gradient(135deg, 
+        rgba(147, 51, 234, 0.12) 0%, 
+        rgba(168, 85, 247, 0.08) 100%
+    );
+    padding: 25px;
+    border-radius: 12px;
+    margin: 30px 0;
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    backdrop-filter: blur(10px);
+}
+
+.invitation-magic-highlight p {
+    font-size: 1.2rem;
+    color: #e9d5ff;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* ПУРПУРНАЯ КНОПКА */
+.invitation-magic-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #9333ea 0%, #a855f7 100%);
+    color: white;
+    text-decoration: none;
+    padding: 17px 40px;
+    border-radius: 60px;
+    font-weight: 700;
+    font-size: 1.15rem;
+    transition: all 0.4s ease;
+    border: 2px solid rgba(199, 125, 255, 0.3);
+    box-shadow: 0 10px 25px rgba(147, 51, 234, 0.25);
+    margin: 25px 0 15px;
+}
+
+.invitation-magic-button:hover {
+    background: linear-gradient(135deg, #7e22ce 0%, #9333ea 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(147, 51, 234, 0.35);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .invitation-magic-hybrid {
+        margin: 2rem 0 0;
+    }
+    
+    .invitation-magic-header {
+        padding: 20px;
+        font-size: 1.2rem;
+    }
+    
+    .invitation-magic-content {
+        padding: 30px 20px;
+    }
+    
+    .invitation-magic-title {
+        font-size: 1.8rem;
+    }
+    
+    .invitation-magic-button {
+        padding: 15px 30px;
+        font-size: 1.1rem;
+    }
+}
+</style>
+
+<!-- ОСНОВНОЙ КОНТЕЙНЕР -->
+<div class="invitation-magic-hybrid">
+    <!-- ШАПКА-КНОПКА -->
+    <div class="invitation-magic-header" onclick="toggleMagicContainer()">
+        <span>Приглашение & Contacts ▾</span>
+        <span style="color: #a855f7; font-size: 1.2rem;" id="magic-arrow">▼</span>
+    </div>
+    
+    <!-- СКРЫТЫЙ КОНТЕНТ -->
+    <div id="magic-content" style="display: none;">
+        <div class="invitation-magic-content">
+            <h2 class="invitation-magic-title">Приглашение</h2>
+            
+            <p class="invitation-magic-text">
+                Мы открыты для тех, кто хочет применять эти наработки в своей практике. 
+                Не как потребитель, а как соучастник институционального тела.
+            </p>
+            
+            <div class="invitation-magic-highlight">
+                <p>
+                    Присоединение через титульную сцену, где каждый шаг — это обет перед хроникой.
+                </p>
+            </div>
+            
+            <a href="#" class="invitation-magic-button">ПРИСОЕДИНИТЬСЯ</a>
+        </div>
+        
+        <!-- МЕСТО ДЛЯ ШОРТКОДА -->
+        <div style="padding: 30px; background: rgba(255,255,255,0.02); text-align: center;">
+            <p style="color: #cbd5e1;">Social links & blog content here</p>
+        </div>
+    </div>
+</div>
+
+<script>
+// ПРОСТАЯ ФУНКЦИЯ ПЕРЕКЛЮЧЕНИЯ
+function toggleMagicContainer() {
+    const content = document.getElementById('magic-content');
+    const arrow = document.getElementById('magic-arrow');
+    const container = document.querySelector('.invitation-magic-hybrid');
+    
+    if (content.style.display === 'none' || content.style.display === '') {
+        // Открываем
+        content.style.display = 'block';
+        arrow.style.transform = 'rotate(180deg)';
+        arrow.style.transition = 'transform 0.3s ease';
+        container.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.3)';
+        
+        // МАГИЯ: находим все элементы ПОСЛЕ этого блока и перемещаем внутрь
+        const allElements = Array.from(document.body.children);
+        const ourIndex = allElements.indexOf(container);
+        const elementsAfter = allElements.slice(ourIndex + 1);
+        
+        // Перемещаем их в контейнер (кроме скриптов)
+        elementsAfter.forEach(el => {
+            if (el.tagName !== 'SCRIPT') {
+                content.appendChild(el);
+            }
+        });
+        
+    } else {
+        // Закрываем
+        content.style.display = 'none';
+        arrow.style.transform = 'rotate(0)';
+        container.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+    }
+}
+</script>

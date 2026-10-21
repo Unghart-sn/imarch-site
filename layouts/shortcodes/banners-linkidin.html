@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocol 8888 - Final Official Covers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@700;900&family=Azeret+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --accent-cyan: #00f2ff;
+            --accent-gold: #d4af37;
+            --accent-neon: #deff9a;
+            --text-dim: #94a3b8;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #fff;
+            font-family: 'Urbanist', sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .final-cover {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #000;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.8) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px;
+        }
+
+        .top-tag {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 16px;
+            letter-spacing: 6px;
+            color: var(--accent-cyan);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 90px;
+            line-height: 0.9;
+            margin: 0;
+            text-transform: uppercase;
+            font-weight: 900;
+            letter-spacing: -2px;
+        }
+
+        .description {
+            font-family: 'Azeret Mono', monospace;
+            font-size: 20px;
+            margin-top: 30px;
+            max-width: 800px;
+            color: #fff;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 20px;
+        }
+
+        .brand-footer {
+            position: absolute;
+            bottom: 40px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Azeret Mono', monospace;
+            font-size: 12px;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Variants */
+        .gold-theme h2 { color: var(--accent-gold); }
+        .gold-theme .top-tag { color: var(--accent-gold); }
+        
+        .neon-theme h2 { color: var(--accent-neon); }
+        .neon-theme .top-tag { color: var(--accent-neon); }
+
+    </style>
+</head>
+<body>
+
+    <!-- VIDEO 1: THE HOOK -->
+    <div class="final-cover">
+        <!-- Используем арт с распадающимся Google -->
+        <img src="image(1).png" class="bg-image" alt="The Hook Background">
+        <div class="overlay">
+            <div class="top-tag">System Protocol 8888</div>
+            <h2>The <span style="color: var(--accent-cyan);">Hook</span></h2>
+            <p class="description">Digital Transformation | Revelation | Preventing $1.5B Market Failures</p>
+        </div>
+        <div class="brand-footer">
+            <span>© Oleksandr Purpurov</span>
+            <span>Universal Formology // CCS</span>
+        </div>
+    </div>
+
+    <!-- VIDEO 2: THE MYTH -->
+    <div class="final-cover gold-theme">
+        <!-- Используем золотой арт с глазом и космосом -->
+        <img src="image(3).png" class="bg-image" alt="The Myth Background">
+        <div class="overlay">
+            <div class="top-tag">Universal Formology</div>
+            <h2>The <span style="color: #fff;">Myth</span></h2>
+            <p class="description">Narrative Branding | Collective Resonance | The Architecture of Belief</p>
+        </div>
+        <div class="brand-footer">
+            <span>© Oleksandr Purpurov</span>
+            <span>London // 2026</span>
+        </div>
+    </div>
+
+    <!-- VIDEO 3: THE LOGIC -->
+    <div class="final-cover neon-theme">
+        <!-- Используем арт с ныряльщиком и глазом-схемой -->
+        <img src="image(2).png" class="bg-image" alt="The Logic Background">
+        <div class="overlay">
+            <div class="top-tag">Categorical Coding System</div>
+            <h2>The <span style="color: #fff;">Logic</span></h2>
+            <p class="description">Intellectual Depth | Scenario Modeling | Institutionalization of Knowledge</p>
+        </div>
+        <div class="brand-footer">
+            <span>© Oleksandr Purpurov</span>
+            <span>Protocol Archive 8888</span>
+        </div>
+    </div>
+
+</body>
+</html>

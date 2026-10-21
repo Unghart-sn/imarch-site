@@ -1,0 +1,302 @@
+{{/*
+    Универсальные карточки "Что получает партнёр / Что мы просим"
+    Адаптив, интерактив, правильные переносы строк на мобилке.
+    Язык: ru, en, uk, de, fr, es, zh, ar (определяется автоматически из .Page.Lang)
+*/}}
+
+{{ $lang := .Page.Lang }}
+{{ if .Get "lang" }}
+    {{ $lang = .Get "lang" }}
+{{ end }}
+
+{{/* Стили для карточек — интерактив и адаптив */}}
+<style>
+    .cards-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 1.5rem 0;
+        justify-content: center;
+    }
+    .card-benefit {
+        flex: 1;
+        min-width: 260px;
+        background: #fdfaf5;
+        border-radius: 24px;
+        border: 1px solid #e0d2bc;
+        padding: 1.5rem;
+        transition: all 0.25s ease-in-out;
+        cursor: default;
+    }
+    .card-benefit:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 25px -10px rgba(0,0,0,0.15);
+        border-color: #b18b56;
+        background: #fffefa;
+    }
+    .card-benefit ul {
+        margin: 1rem 0;
+        padding-left: 1.2rem;
+        line-height: 1.5;
+    }
+    .card-benefit li {
+        margin-bottom: 0.5rem;
+        word-break: break-word;
+    }
+    .badge {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 700;
+        background: #e6d9c8;
+        color: #3d2c1c;
+        padding: 0.25rem 0.75rem;
+        border-radius: 30px;
+        letter-spacing: 0.5px;
+        transition: all 0.2s;
+    }
+    .card-benefit:hover .badge {
+        background: #d4c4ae;
+        color: #2b1f12;
+    }
+    @media (max-width: 640px) {
+        .card-benefit {
+            min-width: 100%;
+            margin: 0 0.5rem;
+        }
+    }
+</style>
+
+{{/* ---------------------- RUSSIAN ---------------------- */}}
+{{ if eq $lang "ru" }}
+<div class="cards-wrapper">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Что получает партнёр</div>
+        <ul>
+            <li><strong>Статус Institutional Media Partner</strong> (право использования в карточке издания)</li>
+            <li><strong>Токены участия</strong> — доля в будущих коммерческих потоках</li>
+            <li><strong>Эксклюзивный доступ</strong> к кейсам, препринтам, интервью</li>
+            <li><strong>Приоритетное освещение</strong> ваших материалов (8 языков)</li>
+        </ul>
+        <span class="badge">выгоды</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Что мы просим</div>
+        <ul>
+            <li>Публикация (или серия) о проекте IMARCH</li>
+            <li>Использование материалов без искажения смысла</li>
+            <li>Участие в наших медиа-мероприятиях (онлайн-конференции, эфиры)</li>
+        </ul>
+        <span class="badge">условия</span>
+    </div>
+</div>
+
+{{/* ---------------------- ENGLISH ---------------------- */}}
+{{ else if eq $lang "en" }}
+<div class="cards-wrapper">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">What the partner gets</div>
+        <ul>
+            <li><strong>Institutional Media Partner status</strong> (right to use in media kit)</li>
+            <li><strong>Participation tokens</strong> — share in future commercial flows</li>
+            <li><strong>Exclusive access</strong> to cases, preprints, interviews</li>
+            <li><strong>Priority coverage</strong> of your materials (8 languages)</li>
+        </ul>
+        <span class="badge">benefits</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">What we ask</div>
+        <ul>
+            <li>Publication (or series) about IMARCH project</li>
+            <li>Use of materials without distortion of meaning</li>
+            <li>Participation in our media events (online conferences, livestreams)</li>
+        </ul>
+        <span class="badge">conditions</span>
+    </div>
+</div>
+
+{{/* ---------------------- UKRAINIAN ---------------------- */}}
+{{ else if eq $lang "uk" }}
+<div class="cards-wrapper">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Що отримує партнер</div>
+        <ul>
+            <li><strong>Статус Institutional Media Partner</strong> (право використання в картці видання)</li>
+            <li><strong>Токени участі</strong> — частка в майбутніх комерційних потоках</li>
+            <li><strong>Ексклюзивний доступ</strong> до кейсів, препринтів, інтерв'ю</li>
+            <li><strong>Пріоритетне висвітлення</strong> ваших матеріалів (8 мов)</li>
+        </ul>
+        <span class="badge">вигоди</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Що ми просимо</div>
+        <ul>
+            <li>Публікація (або серія) про проєкт IMARCH</li>
+            <li>Використання матеріалів без спотворення сенсу</li>
+            <li>Участь у наших медіа-заходах (онлайн-конференції, ефіри)</li>
+        </ul>
+        <span class="badge">умови</span>
+    </div>
+</div>
+
+{{/* ---------------------- GERMAN ---------------------- */}}
+{{ else if eq $lang "de" }}
+<div class="cards-wrapper">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Was der Partner erhält</div>
+        <ul>
+            <li><strong>Institutional Media Partner Status</strong> (Nutzungsrecht im Medienkit)</li>
+            <li><strong>Partizipationstoken</strong> — Anteil an zukünftigen kommerziellen Erträgen</li>
+            <li><strong>Exklusiver Zugang</strong> zu Cases, Preprints, Interviews</li>
+            <li><strong>Prioritäre Berichterstattung</strong> Ihrer Inhalte (8 Sprachen)</li>
+        </ul>
+        <span class="badge">vorteile</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Was wir bitten</div>
+        <ul>
+            <li>Publikation (oder Serie) über das IMARCH-Projekt</li>
+            <li>Nutzung der Materialien ohne Sinnentstellung</li>
+            <li>Teilnahme an unseren Medienveranstaltungen</li>
+        </ul>
+        <span class="badge">bedingungen</span>
+    </div>
+</div>
+
+{{/* ---------------------- FRENCH ---------------------- */}}
+{{ else if eq $lang "fr" }}
+<div class="cards-wrapper">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Ce que reçoit le partenaire</div>
+        <ul>
+            <li><strong>Statut Institutional Media Partner</strong> (droit d'utilisation dans le kit média)</li>
+            <li><strong>Tokens de participation</strong> — part dans les flux commerciaux futurs</li>
+            <li><strong>Accès exclusif</strong> aux cas, prépublications, interviews</li>
+            <li><strong>Couverture prioritaire</strong> de vos contenus (8 langues)</li>
+        </ul>
+        <span class="badge">avantages</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Ce que nous demandons</div>
+        <ul>
+            <li>Publication (ou série) sur le projet IMARCH</li>
+            <li>Utilisation des documents sans déformation du sens</li>
+            <li>Participation à nos événements médias (conférences en ligne, directs)</li>
+        </ul>
+        <span class="badge">conditions</span>
+    </div>
+</div>
+
+{{/* ---------------------- SPANISH ---------------------- */}}
+{{ else if eq $lang "es" }}
+<div class="cards-wrapper">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Lo que recibe el socio</div>
+        <ul>
+            <li><strong>Estatus Institutional Media Partner</strong> (derecho de uso en el kit de prensa)</li>
+            <li><strong>Tokens de participación</strong> — participación en futuros flujos comerciales</li>
+            <li><strong>Acceso exclusivo</strong> a casos, preimpresiones, entrevistas</li>
+            <li><strong>Cobertura prioritaria</strong> de sus materiales (8 idiomas)</li>
+        </ul>
+        <span class="badge">beneficios</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Lo que pedimos</div>
+        <ul>
+            <li>Publicación (o serie) sobre el proyecto IMARCH</li>
+            <li>Uso de los materiales sin distorsión del sentido</li>
+            <li>Participación en nuestros eventos de medios (conferencias online, directos)</li>
+        </ul>
+        <span class="badge">condiciones</span>
+    </div>
+</div>
+
+{{/* ---------------------- CHINESE ---------------------- */}}
+{{ else if eq $lang "zh" }}
+<div class="cards-wrapper">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">合作伙伴获得</div>
+        <ul>
+            <li><strong>机构媒体合作伙伴地位</strong>（在媒体包中的使用权）</li>
+            <li><strong>参与代币</strong> — 未来商业流量的份额</li>
+            <li><strong>独家访问</strong>案例、预印本、访谈</li>
+            <li><strong>优先报道</strong>您的材料（8种语言）</li>
+        </ul>
+        <span class="badge">福利</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">我们请求</div>
+        <ul>
+            <li>发表关于IMARCH项目的文章（或系列）</li>
+            <li>使用材料时不歪曲原意</li>
+            <li>参与我们的媒体活动（在线会议、直播）</li>
+        </ul>
+        <span class="badge">条件</span>
+    </div>
+</div>
+
+{{/* ---------------------- ARABIC (RTL) ---------------------- */}}
+{{ else if eq $lang "ar" }}
+<div class="cards-wrapper" dir="rtl">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">ماذا يحصل الشريك</div>
+        <ul>
+            <li><strong>حالة شريك إعلامي مؤسسي</strong> (حق الاستخدام في الحزمة الإعلامية)</li>
+            <li><strong>رموز المشاركة</strong> — حصة في التدفقات التجارية المستقبلية</li>
+            <li><strong>وصول حصري</strong> إلى الحالات والمسودات والمقابلات</li>
+            <li><strong>تغطية تفضيلية</strong> لموادكم (8 لغات)</li>
+        </ul>
+        <span class="badge">الفوائد</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">ماذا نطلب</div>
+        <ul>
+            <li>نشر (أو سلسلة) عن مشروع IMARCH</li>
+            <li>استخدام المواد دون تحريف المعنى</li>
+            <li>المشاركة في فعالياتنا الإعلامية (مؤتمرات عبر الإنترنت، بث مباشر)</li>
+        </ul>
+        <span class="badge">الشروط</span>
+    </div>
+</div>
+
+{{/* ---------------------- DEFAULT (RUSSIAN) ---------------------- */}}
+{{ else }}
+<div class="cards-wrapper">
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🎁</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Что получает партнёр</div>
+        <ul>
+            <li><strong>Статус Institutional Media Partner</strong></li>
+            <li><strong>Токены участия</strong> — доля в будущих потоках</li>
+            <li><strong>Эксклюзивный доступ</strong> к кейсам и интервью</li>
+            <li><strong>Приоритетное освещение</strong> (8 языков)</li>
+        </ul>
+        <span class="badge">выгоды</span>
+    </div>
+    <div class="card-benefit">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🤝</div>
+        <div style="font-size: 1.3rem; font-weight: 800; margin-bottom: 0.25rem;">Что мы просим</div>
+        <ul>
+            <li>Публикация (или серия) о проекте IMARCH</li>
+            <li>Использование материалов без искажения</li>
+            <li>Участие в онлайн-мероприятиях</li>
+        </ul>
+        <span class="badge">условия</span>
+    </div>
+</div>
+{{ end }}

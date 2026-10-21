@@ -1,0 +1,216 @@
+<!-- =================== БЛОК "ВЕРДИКТУМ" (ИСПРАВЛЕННАЯ ВЕРСИЯ) =================== -->
+<style>
+    .institution-verdictum {
+        width: 100%;
+        max-width: 1000px;
+        margin: 3rem auto;
+        padding: 0 15px;
+        box-sizing: border-box;
+    }
+
+    .verdictum-container {
+        background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+        border: 1px solid #e1e8ed;
+        border-radius: 16px;
+        padding: 2rem;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .verdictum-container::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+        background: linear-gradient(to bottom, #2c3e50, #5d7690);
+    }
+
+    .verdictum-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+    }
+
+    .verdictum-icon {
+        font-size: 2.2rem;
+        background: linear-gradient(135deg, #2c3e50, #5d7690);
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 20px rgba(44, 62, 80, 0.2);
+        flex-shrink: 0;
+    }
+
+    .verdictum-title {
+        font-family: 'Lora', serif;
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin: 0;
+        letter-spacing: -0.5px;
+        line-height: 1.2;
+    }
+
+    .verdictum-subtitle {
+        font-size: 1rem;
+        color: #5d7690;
+        font-weight: 500;
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    .verdictum-description {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: #444;
+        margin: 0 0 1.5rem 0;
+    }
+
+    .verdictum-description strong {
+        color: #2c3e50;
+        font-weight: 600;
+    }
+
+    .verdictum-legal {
+        background: rgba(44, 62, 80, 0.03);
+        border-left: 3px solid #5d7690;
+        padding: 1.2rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+    }
+
+    .verdictum-legal p {
+        margin: 0;
+        font-size: 0.95rem;
+        color: #5d7690;
+        line-height: 1.5;
+    }
+
+    /* КНОПКИ - АДАПТИВНЫЙ ДИЗАЙН */
+    .verdictum-buttons {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 10px;
+        margin-bottom: 1.5rem;
+    }
+
+    .verdictum-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: #2c3e50;
+        color: white;
+        text-decoration: none;
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+        border: 1px solid transparent;
+        text-align: center;
+        min-height: 44px;
+        box-sizing: border-box;
+    }
+
+    .verdictum-button:hover {
+        background: #1a252f;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(44, 62, 80, 0.15);
+    }
+
+    .verdictum-button.outline {
+        background: transparent;
+        color: #2c3e50;
+        border: 1px solid #5d7690;
+    }
+
+    .verdictum-button.outline:hover {
+        background: rgba(44, 62, 80, 0.05);
+    }
+
+    /* На очень узких экранах - одна кнопка в ряд */
+    @media (max-width: 480px) {
+        .verdictum-buttons {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .verdictum-email {
+        text-align: center;
+        font-size: 0.95rem;
+        color: #5d7690;
+        padding-top: 1.5rem;
+        border-top: 1px solid #e1e8ed;
+    }
+
+    .verdictum-email a {
+        color: #2c3e50;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        margin-left: 5px;
+    }
+
+    .verdictum-email a:hover {
+        text-decoration: underline;
+    }
+
+    /* Улучшения для десктопа */
+    @media (min-width: 769px) {
+        .institution-verdictum {
+            margin: 4rem auto;
+            padding: 0 20px;
+        }
+        
+        .verdictum-container {
+            padding: 2.5rem;
+        }
+        
+        .verdictum-title {
+            font-size: 2.2rem;
+        }
+        
+        .verdictum-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .verdictum-description {
+            font-size: 1.15rem;
+        }
+        
+        .verdictum-buttons {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+    }
+</style>
+        
+        <div class="verdictum-legal">
+            <p>Каждая публикация юридически валидна. Доверяйте только подтверждённым источникам.</p>
+        </div>
+
+        <div class="verdictum-buttons">
+            <a href="/ru/posts/" class="verdictum-button">📄 Все публикации</a>
+            <a href="/ru/tags/официально/" class="verdictum-button outline">🏛️ Официальные заявления</a>
+            <a href="/ru/categories/новости/" class="verdictum-button outline">📰 Новости проекта</a>
+            <a href="/ru/tags/договоры/" class="verdictum-button">📜 Договоры</a>
+            <a href="/ru/tags/переписка/" class="verdictum-button outline">✉️ Переписка</a>
+            <a href="/ru/categories/архив/" class="verdictum-button outline">🗂️ Архив</a>
+        </div>
+
+        <div class="verdictum-email">
+            <span>📧 Для прессы:</span>
+            <a href="mailto:press@imarch.sbs">press@imarch.sbs</a>
+        </div>
+    </div>
+</div>
+<!-- =================== КОНЕЦ БЛОКА "ВЕРДИКТУМ" =================== -->

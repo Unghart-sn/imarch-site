@@ -1,0 +1,447 @@
+<style>
+.solution-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    margin: 3rem 0;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #3b82f6, transparent);
+}
+
+.solution-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    z-index: 1;
+}
+
+.solution-title {
+    font-family: 'Lora', serif;
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #93c5fd, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.solution-subtitle {
+    font-size: 1.4rem;
+    color: #cbd5e1;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.solution-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.solution-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 35px 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.solution-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #3b82f6, #60a5fa);
+}
+
+.solution-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(59, 130, 246, 0.4);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.solution-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.solution-icon {
+    font-size: 2.2rem;
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+.solution-card-title {
+    font-family: 'Lora', serif;
+    font-size: 1.6rem;
+    color: #e2e8f0;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.solution-card-desc {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.solution-details {
+    background: rgba(30, 41, 59, 0.5);
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    border-left: 3px solid #3b82f6;
+}
+
+.solution-details p {
+    margin: 0 0 15px 0;
+    color: #cbd5e1;
+    font-size: 1.05rem;
+}
+
+.solution-details p:last-child {
+    margin-bottom: 0;
+}
+
+.solution-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.solution-button:hover {
+    background: linear-gradient(to right, #2563eb, #3b82f6);
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+}
+
+.solution-button::after {
+    content: '→';
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.solution-button:hover::after {
+    transform: translateX(3px);
+}
+
+/* Style for special card 3 */
+.solution-card.featured {
+    background: rgba(34, 197, 94, 0.05);
+    border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.solution-card.featured::before {
+    background: linear-gradient(to bottom, #22c55e, #16a34a);
+}
+
+.solution-card.featured .solution-icon {
+    color: #22c55e;
+}
+
+.solution-card.featured .solution-card-title {
+    color: #86efac;
+}
+
+.solution-card.featured .solution-button {
+    background: linear-gradient(to right, #22c55e, #16a34a);
+}
+
+.solution-card.featured .solution-button:hover {
+    background: linear-gradient(to right, #16a34a, #15803d);
+}
+
+/* Style for card 4 (platform) */
+.solution-card.platform {
+    background: rgba(168, 85, 247, 0.05);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+}
+
+.solution-card.platform::before {
+    background: linear-gradient(to bottom, #a855f7, #9333ea);
+}
+
+.solution-card.platform .solution-icon {
+    color: #a855f7;
+}
+
+.solution-card.platform .solution-card-title {
+    color: #d8b4fe;
+}
+
+.solution-card.platform .solution-button {
+    background: linear-gradient(to right, #a855f7, #9333ea);
+}
+
+.solution-card.platform .solution-button:hover {
+    background: linear-gradient(to right, #9333ea, #7e22ce);
+}
+
+/* Style for conclusion card 5 */
+.solution-card.conclusion {
+    grid-column: 1 / -1;
+    max-width: 1000px;
+    margin: 40px auto 0;
+    background: linear-gradient(135deg, rgba(25, 15, 35, 0.95) 0%, rgba(45, 25, 65, 0.95) 100%);
+    border: 1px solid rgba(157, 78, 221, 0.4);
+    text-align: center;
+    padding: 40px 35px;
+}
+
+.solution-card.conclusion::before {
+    background: linear-gradient(to bottom, #9d4edd, #c77dff);
+    width: 5px;
+}
+
+.solution-card.conclusion .solution-icon {
+    font-size: 3.5rem;
+    color: #c77dff;
+    margin: 0 auto 20px;
+    display: block;
+    animation: gentle-pulse 3s infinite;
+}
+
+@keyframes gentle-pulse {
+    0%, 100% { opacity: 0.9; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+}
+
+.solution-card.conclusion .solution-card-title {
+    font-size: 2rem;
+    color: #e0aaff;
+    text-align: center;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.solution-card.conclusion .solution-card-desc {
+    font-size: 1.3rem;
+    color: #d0b3e6;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.solution-card.conclusion .solution-details {
+    background: rgba(157, 78, 221, 0.15);
+    border-left: 3px solid #9d4edd;
+    border-radius: 8px;
+    margin: 25px 0 30px;
+    padding: 25px;
+    text-align: left;
+}
+
+.solution-card.conclusion .solution-details p {
+    font-size: 1.15rem;
+    color: #e0aaff;
+    margin-bottom: 15px;
+}
+
+.solution-card.conclusion .solution-details p:last-child {
+    margin-bottom: 0;
+}
+
+.solution-card.conclusion .conclusion-button {
+    background: linear-gradient(to right, #7b2cbf, #9d4edd);
+    padding: 16px 40px;
+    font-size: 1.2rem;
+    margin-top: 15px;
+    border: 1px solid rgba(199, 125, 255, 0.4);
+    box-shadow: 0 5px 20px rgba(157, 78, 221, 0.2);
+}
+
+.solution-card.conclusion .conclusion-button:hover {
+    background: linear-gradient(to right, #9d4edd, #c77dff);
+    box-shadow: 0 8px 25px rgba(157, 78, 221, 0.4);
+    transform: translateY(-3px) translateX(5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .solution-title {
+        font-size: 2.2rem;
+    }
+    
+    .solution-subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .solution-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .solution-card {
+        padding: 25px 20px;
+    }
+    
+    .solution-card.conclusion {
+        margin: 25px auto 0;
+        padding: 30px 25px;
+    }
+    
+    .solution-card.conclusion .solution-card-title {
+        font-size: 1.7rem;
+    }
+    
+    .solution-card.conclusion .solution-card-desc {
+        font-size: 1.15rem;
+    }
+}
+
+/* Decorative element */
+.solution-decoration {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0.03;
+    font-size: 10rem;
+    pointer-events: none;
+    user-select: none;
+}
+</style>
+
+<div class="solution-section">
+    <div class="solution-decoration">🔧</div>
+    
+    <div class="solution-header">
+        <h2 class="solution-title">Solution: "Source Code" for Humanitarians</h2>
+        <p class="solution-subtitle">
+            We provide the tools to do good: legally, structurally, and eternally.
+            An open infrastructure where missions take form, teams gain rules, and personal contributions receive recognition.
+        </p>
+    </div>
+    
+    <div class="solution-grid">
+        <!-- Card 1 -->
+        <div class="solution-card">
+            <div class="solution-card-header">
+                <div class="solution-icon">📚</div>
+                <h3 class="solution-card-title">Library of institutional "templates" (CIC, LTD, mandates)</h3>
+            </div>
+            <p class="solution-card-desc">
+                Ready-made legal structures (CIC+LTD) "out of the box."
+                Your mission + our framework = legal organization in days, not months.
+            </p>
+            
+            <div class="solution-details">
+                <p>We have created an open library of ready-made, legally flawless organizational "templates." For example, the CIC (for mission) + LTD (for profit) combination.</p>
+                <p>You take this proven framework, insert your mission's name, and receive a ready-made, legal structure to operate — without spending years and thousands of pounds on lawyers.</p>
+            </div>
+            
+            <a href="/en/posts/mission-legalization-constructor/" class="solution-button">Learn more</a>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="solution-card">
+            <div class="solution-card-header">
+                <div class="solution-icon">🗣️</div>
+                <h3 class="solution-card-title">Standard for describing missions and roles</h3>
+            </div>
+            <p class="solution-card-desc">
+                A unified language (Universal Formology) for team assembly. All participants understand the rules, roles, and goals from day one.
+            </p>
+            
+            <div class="solution-details">
+                <p>Just as programmers have a shared standard (e.g., git) to collaborate on code, we provide a unified language (Formology) to describe missions, participant roles, and their contributions.</p>
+                <p>This allows teams to form that understand each other instantly, making collaboration structured and predictable.</p>
+            </div>
+            
+            <a href="/en/posts/trust-and-inheritance-protocols/" class="solution-button">Learn more</a>
+        </div>
+        
+        <!-- Card 3 - Special -->
+        <div class="solution-card featured">
+            <div class="solution-card-header">
+                <div class="solution-icon">⚖️</div>
+                <h3 class="solution-card-title">Contribution tokenization mechanism</h3>
+            </div>
+            <p class="solution-card-desc">
+                Your ideas and labor transform into measurable tokens that can become a stake in the collective success.
+                Fairness becomes an algorithm.
+            </p>
+            
+            <div class="solution-details">
+                <p>We transform ideas, time, and labor of participants into measurable units: tokens. This is an internal "currency of merit" that fairly records who contributed what to the common cause.</p>
+                <p>These tokens can later be converted into real equity in the project's commercial success, creating a fair and transparent motivation system.</p>
+            </div>
+            
+            <a href="/en/posts/anti-entropy-methodology/" class="solution-button">Learn how</a>
+        </div>
+        
+        <!-- Card 4 - Platform -->
+        <div class="solution-card platform">
+            <div class="solution-card-header">
+                <div class="solution-icon">🌐</div>
+                <h3 class="solution-card-title">Referral site platform</h3>
+            </div>
+            <p class="solution-card-desc">
+                Multiply personal and business websites with an integrated referral system.
+            </p>
+            
+            <div class="solution-details">
+                <p>The platform enables the creation of full-fledged websites for consortium members, automatically integrated into a unified referral interaction system.</p>
+                <p>Value-locked content, hidden from external observers, a protected system with no "referral tail trimming." Every contribution is recorded and accounted for in the value creation chain.</p>
+            </div>
+            
+            <a href="/en/posts/community-of-practitioners/" class="solution-button">Explore platform</a>
+        </div>
+        
+        <!-- Card 5 - Conclusion (wide) -->
+        <div class="solution-card conclusion">
+            <div class="solution-card-header" style="flex-direction: column; align-items: center;">
+                <div class="solution-icon">🌌</div>
+                <h3 class="solution-card-title">When technique catches up with intention</h3>
+            </div>
+            
+            <p class="solution-card-desc">
+                Refined organizational solutions and scenario-based thinking unlock access to the fullness of your purpose.
+            </p>
+            
+            <div class="solution-details">
+                <p>Now, providing real help to those close to you, changing lives around you, and contributing to our shared future is <strong style="color: #c77dff;">no longer a matter of superhuman effort — it's a matter of technique</strong>.</p>
+                <p>If you have the desire to make the colors of the world brighter, all the means to do so are already before you. The infrastructure for good has been built. It only remains to put it to work.</p>
+                <p style="margin-top: 15px; font-style: italic;">
+                    Unlock the fullness of your purpose. Realize your mission. Make the world brighter. Now it's a matter of technique.
+                </p>
+            </div>
+            
+            <a href="/en/vis-realitatis/" class="conclusion-button">
+                Activate ✨
+            </a>
+        </div>
+    </div>
+</div>

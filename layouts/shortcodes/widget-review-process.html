@@ -1,0 +1,18 @@
+{{ $title := .Get "title" | default "ПРОЦЕСС РЕЦЕНЗИРОВАНИЯ И ФИКСАЦИИ" }}
+{{ $steps := .Get "steps" | default `[{"num":"1","title":"Подача","desc":"ID + SHA-256"},{"num":"2","title":"Первичный отсев","desc":"Редактор + COPE"},{"num":"3","title":"Double-Blind","desc":"2 эксперта, 6 недель"},{"num":"4","title":"Вердикт","desc":"Accepted / Revision / Rejected"},{"num":"5","title":"Публикация","desc":"Open Access","highlight":true}]` }}
+
+{{ $stepsData := $steps | unmarshal }}
+
+<div class="light-widget review-process">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="review-steps-light">
+    {{ range $index, $step := $stepsData }}
+      {{ if gt $index 0 }}<div class="review-arrow-light">→</div>{{ end }}
+      <div class="review-step-light{{ if $step.highlight }} highlight{{ end }}">
+        <div class="step-num">{{ $step.num }}</div>
+        <h5>{{ $step.title }}</h5>
+        <p>{{ $step.desc }}</p>
+      </div>
+    {{ end }}
+  </div>
+</div>

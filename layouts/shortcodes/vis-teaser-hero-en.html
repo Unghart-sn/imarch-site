@@ -1,0 +1,101 @@
+<style>
+.vis-teaser {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.vis-teaser-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.vis-teaser-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+  animation: vis-teaser-pulse 2s infinite;
+}
+
+@keyframes vis-teaser-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.vis-teaser-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+}
+
+.vis-teaser-text {
+  font-size: 1.1rem;
+  color: #1e40af;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.vis-teaser-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #1e3a8a;
+  border: 2px solid #1e3a8a;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.vis-teaser-btn:hover {
+  background: #1e3a8a;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.vis-teaser-btn::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.vis-teaser-btn:hover::after {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .vis-teaser {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  .vis-teaser-title { font-size: 1.6rem; }
+  .vis-teaser-text { font-size: 1rem; }
+  .vis-teaser-icon { font-size: 2.5rem; }
+}
+</style>
+
+<!-- Teaser block -->
+<section id="teaser" class="vis-section vis-teaser">
+  <div class="vis-teaser-content">
+    <div class="vis-teaser-icon">🛡️</div>
+    <h2 class="vis-teaser-title">Vis Realitatis: Body-Emotional Support System for Veterans and Their Families</h2>
+    <p class="vis-teaser-text">
+      We are creating a sustainable mutual aid network based on the proprietary SunLife-Massage® method, family couple training, and a transparent digital ecosystem.<br><br>
+      Every contribution turns into real assistance, into dozens of free sessions, and into a new culture of care "for home, for family".
+    </p>
+    <a href="/en/profile/vis-realitatis/executive-summary/" class="vis-teaser-btn">
+      Learn more about the project
+    </a>
+  </div>
+</section>

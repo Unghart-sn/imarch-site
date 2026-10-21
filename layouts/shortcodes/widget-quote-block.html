@@ -1,0 +1,11 @@
+{{ $text := .Get "text" | default "«Текст цитаты»" }}
+{{ $author := .Get "author" | default "" }}
+{{ $title := .Get "title" | default "" }}
+
+<div class="light-widget quote-widget">
+  <div class="quote-icon">❝</div>
+  <div class="quote-text">{{ $text }}</div>
+  {{ if $author }}
+    <div class="quote-author">— {{ $author }}{{ if $title }}, {{ $title }}{{ end }}</div>
+  {{ end }}
+</div>

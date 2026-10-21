@@ -1,0 +1,18 @@
+{{ $title := .Get "title" | default "СТРУКТУРА ТОМОВ CHRONICLE OS" }}
+{{ $tomes := .Get "tomes" | default `[{"icon":"📖","title":"Том I","desc":"Архитектурно-концептуальная основа","q":"«Почему?»"},{"icon":"📋","title":"Том II","desc":"Организационно-нормативная система","q":"«Кто и на каком основании?»"},{"icon":"⚙️","title":"Том III","desc":"Функциональная операционная система","q":"«Как именно?»"},{"icon":"🛠️","title":"Том IV","desc":"Прикладной и лицензионно-процедурный контур","q":"«Что гарантирует?»"}]` }}
+
+{{ $tomesData := $tomes | unmarshal }}
+
+<div class="light-widget tomes-grid">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="tome-grid-light">
+    {{ range $tomesData }}
+      <div class="tome-card-light">
+        <div class="tome-icon">{{ .icon }}</div>
+        <h4>{{ .title }}</h4>
+        <p>{{ .desc }}</p>
+        <div class="tome-q">{{ .q }}</div>
+      </div>
+    {{ end }}
+  </div>
+</div>

@@ -1,0 +1,332 @@
+{{/* verdictum/navigator.html – VERDICTUM Facade Gateway per Declaration RN-0028 */}}
+{{ $lang := .Page.Language.Lang | default "en" }}
+
+{{/* Facade text variables */}}
+{{ $badge := "✦ INSTITUTIONAL PKI NAVIGATOR" }}
+{{ $title := "VERDICTUM DECLARATION NAVIGATOR" }}
+{{ $desc := "Interactive dispatcher-guide through the materials of the VERDICTUM Journal (Act RN-0028). Copy the key to launch the Navigator and receive an individual preliminary consultation." }}
+{{ $btnKey := "Copy Navigator Key" }}
+{{ $btnBot := "🏛️ START DIALOGUE" }}
+
+<style>
+    .v-decl-card {
+        background: #fdfaf5;
+        border-radius: 24px;
+        padding: 2.5rem;
+        margin: 2rem 0;
+        border: 1px solid #e0d6c8;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+    .v-badge { display: inline-block; background: #b18b56; padding: 0.3rem 1.4rem; border-radius: 50px; font-size: 0.65rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 1.2rem; letter-spacing: 1px; }
+    .v-title { font-size: 1.9rem; font-weight: 800; color: #2c2416; margin-bottom: 0.5rem; letter-spacing: -0.5px; text-align: center; }
+    .v-desc { font-size: 0.95rem; color: #4a3a2a; margin-bottom: 2rem; text-align: center; line-height: 1.6; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .v-buttons { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 1.5rem 0; }
+    .btn-main { background: #b18b56; color: #fff; padding: 14px 32px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; transition: 0.2s; min-width: 260px; font-size: 0.95rem; box-shadow: 0 2px 10px rgba(177,139,86,0.2); }
+    .btn-main:hover { background: #9a7a4a; transform: scale(1.01); }
+    .btn-sec { background: #2c3622; color: #fff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.2s; min-width: 260px; text-align: center; font-size: 0.95rem; display: inline-block; }
+    .btn-sec:hover { background: #1f2b1c; transform: scale(1.01); }
+    
+    /* Instruction accordion */
+    .v-instruction-accordion {
+        margin: 1.5rem 0;
+    }
+    .v-accordion-header {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        padding: 0.5rem 0;
+        border-radius: 0;
+        color: #4a5a6a;
+        font-weight: 600;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: color 0.2s;
+        user-select: none;
+        text-align: center;
+        border-bottom: 1px solid #e8e0d4;
+    }
+    .v-accordion-header:hover {
+        color: #1f2b1c;
+    }
+    .v-accordion-icon {
+        transition: transform 0.2s;
+        display: inline-block;
+        font-size: 0.6rem;
+        color: #b18b56;
+    }
+    .v-accordion-icon.open {
+        transform: rotate(180deg);
+    }
+    .v-accordion-content {
+        display: none;
+        margin-top: 12px;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .v-accordion-content.open {
+        display: block;
+    }
+    .v-step {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.8rem;
+        margin-bottom: 0.8rem;
+        flex-wrap: wrap;
+    }
+    .v-step:last-child {
+        margin-bottom: 0;
+    }
+    .v-step-num {
+        width: 28px;
+        height: 28px;
+        background: #ece4d5;
+        border-radius: 50%;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 0.75rem;
+        color: #1f2b1c;
+        flex-shrink: 0;
+        border: none;
+    }
+    .v-step-text {
+        flex: 1;
+        color: #1f2b1c;
+        font-size: 0.9rem;
+    }
+    .v-step-text strong {
+        color: #1f2b1c;
+        font-weight: 700;
+    }
+    .v-examples {
+        background: #f9f6ef;
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        margin-top: 0.8rem;
+        border: 1px solid #e8e0d4;
+    }
+    .v-examples p {
+        margin: 0 0 4px 0;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: #1f2b1c;
+    }
+    .v-examples ul {
+        margin: 0;
+        padding-left: 1.2rem;
+        font-size: 0.75rem;
+        color: #4a5a6a;
+    }
+    .v-examples li {
+        margin-bottom: 2px;
+    }
+
+    .v-legal { margin-top: 2.5rem; border-top: 1px solid #e8e0d4; padding-top: 1.2rem; font-size: 0.75rem; color: #6a7a7a; }
+    .v-legal-content { display: none; margin-top: 12px; line-height: 1.6; color: #2c2416; background: #ffffff; padding: 1.2rem; border-radius: 16px; border: 1px solid #e8e0d4; }
+    .v-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1f2b1c; color: #fff; padding: 12px 28px; border-radius: 40px; font-size: 0.85rem; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.2); font-weight: 600; }
+    @media (max-width: 640px) {
+        .v-decl-card { padding: 1.5rem; }
+        .v-title { font-size: 1.4rem; }
+        .btn-main, .btn-sec { width: 100%; min-width: 100%; }
+        .v-step-text { font-size: 0.8rem; }
+        .v-examples ul { font-size: 0.7rem; }
+    }
+</style>
+
+<div class="v-decl-card">
+    <div style="text-align: center;">
+        <span class="v-badge">{{ $badge }}</span>
+        <div class="v-title">{{ $title }}</div>
+        <p class="v-desc">{{ $desc }}</p>
+    </div>
+
+    <!-- INSTRUCTION ACCORDION -->
+    <div class="v-instruction-accordion">
+        <div class="v-accordion-header" id="vAccordionToggle">
+            <span>✦ HOW TO USE THE NAVIGATOR</span>
+            <span class="v-accordion-icon" id="vAccordionIcon">▼</span>
+        </div>
+        <div class="v-accordion-content" id="vAccordionContent">
+            <div class="v-step">
+                <span class="v-step-num">1</span>
+                <span class="v-step-text">Click <strong>‘Copy Navigator Key’</strong> — the system will prepare a personal key for your Navigator.</span>
+            </div>
+            <div class="v-step">
+                <span class="v-step-num">2</span>
+                <span class="v-step-text">Click <strong>‘Start Dialogue’</strong> — a chat window will open with your personal guide-navigator.</span>
+            </div>
+            <div class="v-step">
+                <span class="v-step-num">3</span>
+                <span class="v-step-text">Paste the copied key into the dialogue window. This will launch your personal guide-navigator.</span>
+            </div>
+            <div class="v-step">
+                <span class="v-step-num">4</span>
+                <span class="v-step-text">Pose a question to your guide. For example, concerning the text of the VERDICTUM Declaration:</span>
+            </div>
+            <div class="v-examples">
+                <p>💡 Example questions:</p>
+                <ul>
+                    <li>What is VERDICTUM?</li>
+                    <li>What are the four foundational principles of the Registry?</li>
+                    <li>What is a Verdictum Record (VR)?</li>
+                    <li>How does VERDICTUM differ from Chronicle OS?</li>
+                    <li>How do I register a documented action?</li>
+                    <li>What is institutional memory?</li>
+                </ul>
+            </div>
+            <div style="margin-top: 0.8rem;">
+                <div class="v-step">
+                    <span class="v-step-num">5</span>
+                    <span class="v-step-text">Receive your route: your guide will indicate the relevant sections of the site and help you locate the information quickly.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BUTTONS -->
+    <div class="v-buttons">
+        <button class="btn-main" id="copyDeclKeyBtn">{{ $btnKey }}</button>
+        <a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer" class="btn-sec">{{ $btnBot }}</a>
+    </div>
+
+    <!-- LEGAL BLOCK -->
+    <div class="v-legal">
+        <div id="legalToggle" style="cursor: pointer; text-align: center; font-weight: 600; letter-spacing: 0.5px;">⚖️ LEGAL NOTICE &amp; TRADE SECRET REGIME — expand know-how acts</div>
+        <div id="legalContent" class="v-legal-content">
+            <p><strong>IMARCH LTD (London, UK). UK Trade Secrets Regulations 2018 (SI 2018/597).</strong></p>
+            <p>Legal regime for the fixation of intellectual architecture priority:</p>
+            <ul>
+                <li><strong>Act No. RN-0028</strong> — ‘Founding Institutional Declaration of VERDICTUM, a sovereign infrastructural registry of documented facts, decisions, obligations and validated events’ (Identifier: VR-DECL-2026-001 of 6 July 2026).</li>
+                <li><strong>Act No. KN-0003 / RN-0019</strong> — ‘Architecture, methodology and genetic algorithm for multi-agent orchestration of navigational interfaces. Functional-role matrix of the 20 amino acids of the Chronicle OS DNA’.</li>
+                <li><strong>Act No. RN-0017</strong> — ‘Method for using an external intelligent agent (Copilot) as a navigational interface’.</li>
+            </ul>
+            <p>Any copying of the architecture, method or functional matrix of the Navigator without the written consent of IMARCH LTD constitutes a violation of the trade secret regime and is actionable under the law.</p>
+            <p>📋 <strong>Official Document Registry:</strong> <a href="https://imarch.sbs/en/profile/office/" target="_blank" rel="noopener noreferrer">imarch.sbs/en/profile/office/</a></p>
+        </div>
+    </div>
+</div>
+
+{{/* Sovereign prompt instruction based on Declaration RN-0028 */}}
+<div id="promptData" style="display: none;" data-prompt="You are the official Navigator Agent of the sovereign infrastructural registry VERDICTUM (IMARCH Public Knowledge Infrastructure - PKI project). Your work is entirely grounded in the normative foundation of the Founding Institutional Declaration of VERDICTUM (Registration Act RN-0028, document VR-DECL-2026-001 of 6 July 2026).
+
+Your tone: emphatically academic, measured, legally and technologically precise. Complete absence of marketing embellishment. You speak the language of facts and institutional memory.
+
+INITIALISATION LOGIC AND GREETING:
+
+Begin the dialogue strictly with the following message:
+
+‘Greetings. I am the official Navigator Agent of the International VERDICTUM Registry (IMARCH PKI). My task is to guide you through the contours of our Founding Institutional Declaration (Act RN-0028).
+
+Please select one of three tour options through VERDICTUM:
+1. To familiarise yourself with the institutional architecture of the Journal — a brief overview of the Declaration's sections (Preamble, Status, Mission, Principles, Architecture, VR Life Cycle, Place within PKI).
+2. To obtain information on the procedures and capabilities of the Journal — how the institutional registry operates: registration of actions, verification of records, use of Verdictum Records.
+3. To proceed to the quiz and subscription to the Telegram bot.’
+
+TOUR SCENARIO:
+
+If the user selects option 1 — provide a concise but substantive overview of the Declaration's structure, highlighting the key sections without overburdening with detail. Emphasise that the Declaration establishes the institutional principles and architecture of the Registry.
+If the user selects option 2 — describe the procedures for registration, verification and use of Verdictum Records. Explain that the Registry operates with documented actions, not with the personalities of participants, and how this ensures legal integrity.
+If the user selects option 3 — offer to proceed to the quiz and subscription (see below).
+
+SUBSCRIPTION OFFER TO TELEGRAM BOT:
+
+At the end of any route, after providing information, add the following block:
+
+‘For systematic tracking of new publications and teasers of Verdictum Records (VR), you may subscribe to our official Telegram bot: https://t.me/imarch_chronical_bot. This is the sole gateway for recording your subscription and receiving regular updates.’
+
+QUIZ AS A FINAL OPTION:
+
+After the subscription offer, add:
+
+‘If you wish to test your understanding of the Declaration, we offer a brief three-question quiz. This will take 2–3 minutes and will help consolidate your knowledge of the fundamental principles and identifiers of the Journal. Would you like to take the quiz? (yes / no)’
+
+VERIFICATION QUIZ SCENARIO (only upon user consent):
+
+Ask the user, in sequence, 3 questions with answer options. Questions and options strictly according to the text of Declaration RN-0028:
+
+QUESTION 1: What is the primary operational unit of processing in VERDICTUM according to Section V?
+
+Options:
+A) The participant's identity
+B) A documented action
+C) The registration date
+D) The organisational structure
+
+Correct answer: B. A documented action — it is this that creates the legal and organisational grounds for the formation of a new institutional object.
+
+QUESTION 2: Name the 4 foundational principles of the Registry's functioning from Section IV.
+
+Options:
+A) Institutional integrity, verifiability, accountability, institutional continuity
+B) Openness, accessibility, publicity, speed
+C) Hierarchy, centralisation, control, management
+D) Independence, transparency, efficiency, security
+
+Correct answer: A. These are the principles enshrined in the Declaration: institutional integrity, verifiability, accountability and institutional continuity.
+
+QUESTION 3: How does VERDICTUM differ from Chronicle OS within the PKI structure according to Section VIII?
+
+Options:
+A) They are the same thing
+B) Chronicle OS is for commercial projects, VERDICTUM is for governmental ones
+C) Chronicle OS is responsible for the creation and dissemination of reproducible knowledge, while VERDICTUM is responsible for documenting institutional reality, records and evidence
+D) VERDICTUM is software code, Chronicle OS is the interface
+
+Correct answer: C. They perform different but complementary functions: Chronicle OS creates knowledge, VERDICTUM records institutional reality.
+
+After each answer, provide brief feedback with explanation. At the end of the quiz, summarise: 'Knowledge of the Declaration is the foundation for inclusion in the institutional environment of VERDICTUM.'
+
+STRICT RESTRICTIONS (SECURITY):
+
+- Permitted domains: only https://imarch.sbs and https://t.me/imarch_chronical_bot.
+- The general audit page /en/profile/office/ is intended solely for internal verification of acts; do not provide it to ordinary users.
+- No hallucinations. If the user asks something that is not in Declaration RN-0028 — respond: 'The data are beyond the sovereign perimeter of the ecosystem' and cease generation."></div>
+
+<script>
+    // Accordion logic
+    document.getElementById('vAccordionToggle').addEventListener('click', function() {
+        const content = document.getElementById('vAccordionContent');
+        const icon = document.getElementById('vAccordionIcon');
+        const isOpen = content.classList.contains('open');
+        if (isOpen) {
+            content.classList.remove('open');
+            icon.classList.remove('open');
+        } else {
+            content.classList.add('open');
+            icon.classList.add('open');
+        }
+    });
+
+    // Copy prompt logic
+    document.getElementById('copyDeclKeyBtn').addEventListener('click', () => {
+        const promptText = document.getElementById('promptData').getAttribute('data-prompt');
+        navigator.clipboard.writeText(promptText).then(() => {
+            const toast = document.createElement('div');
+            toast.className = 'v-toast';
+            toast.innerText = '✅ Declaration key copied! Transfer it to Copilot.';
+            document.body.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 2500);
+        }).catch(() => {
+            alert('Copy failed. Please try again.');
+        });
+    });
+
+    // Legal block
+    document.getElementById('legalToggle').addEventListener('click', (e) => {
+        const content = document.getElementById('legalContent');
+        const isOpen = content.style.display === 'block';
+        content.style.display = isOpen ? 'none' : 'block';
+        e.target.innerText = isOpen 
+            ? '⚖️ LEGAL NOTICE & TRADE SECRET REGIME — expand know-how acts' 
+            : '⚖️ Hide know-how acts';
+    });
+</script>

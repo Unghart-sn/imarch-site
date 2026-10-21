@@ -1,0 +1,27 @@
+<!-- layouts/shortcodes/verify.html -->
+{{ $hash := .Get "hash" | default "не указан" }}
+
+<div style="max-width:800px; margin:0 auto; text-align:left; padding:0 1.5rem; box-sizing:border-box;">
+  <strong>VERIFICATION OF THE ORIGINAL:</strong><br>
+  The authenticity of this document's publication is confirmed by the hash value of the original english document provided below:
+</div>
+
+<div class="hash-container" style="max-width:100%; box-sizing:border-box; margin-top:0.5rem;">
+  <details style="width:100%;">
+    <summary style="cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; padding:0.5rem; background:#f8f9fa; border-radius:4px;">
+      <span>CRYPTOGRAPHIC SIGNATURE (SHA-256)</span>
+      <span class="hash-arrow">▼</span>
+    </summary>
+    <div style="margin-top:0.5rem; padding:0.5rem; background:#fff; border:1px solid #dee2e6; border-radius:4px;">
+      <!-- Поле с хешем (фон #f1f3f5) -->
+      <pre style="white-space: pre-wrap; word-break: break-all; background:#f1f3f5; padding:1rem; border-radius:4px; margin:0; overflow-x:auto;">{{ $hash }}</pre>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.5rem; font-size:0.9rem;">
+        <span>✓ Document fixed • 64 characters</span>
+        <!-- Кнопка теперь тоже #f1f3f5 -->
+        <button onclick="navigator.clipboard.writeText({{ $hash | jsonify }})" style="padding:0.25rem 0.75rem; background:#f1f3f5; color:#2c3e50; border:1px solid #b0b0b0; border-radius:4px; cursor:pointer; font-weight:500;">
+          Copy
+        </button>
+      </div>
+    </div>
+  </details>
+</div>

@@ -1,0 +1,546 @@
+<style>
+/* =================== ARCHITECTURE OF THE FUTURE - INVESTMENT PROPOSAL =================== */
+/* CONTINUATION OF PLATAN+ STYLING */
+
+.future-architecture-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+.future-architecture-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #1a365d, #2c5282, #1a365d);
+}
+
+/* Header section */
+.architecture-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.architecture-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #2c5282, transparent);
+}
+
+.architecture-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #1a365d;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.architecture-subtitle {
+    font-size: 1.3rem;
+    color: #2d3748;
+    line-height: 1.7;
+    max-width: 900px;
+    margin: 0 auto 25px;
+    font-weight: 400;
+}
+
+.architecture-tagline {
+    font-size: 1.1rem;
+    color: #4a5568;
+    font-style: italic;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 6px;
+    border-left: 4px solid #2c5282;
+}
+
+/* Ecosystem of modules */
+.ecosystem-title {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: #1a365d;
+    margin: 60px 0 40px;
+    position: relative;
+}
+
+.ecosystem-title::before {
+    content: '— ';
+    color: #2c5282;
+}
+
+.ecosystem-title::after {
+    content: ' —';
+    color: #2c5282;
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.ecosystem-module {
+    background: white;
+    border-radius: 8px;
+    padding: 35px 30px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.ecosystem-module:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-color: #2c5282;
+}
+
+.module-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #1a365d;
+    color: white;
+    padding: 6px 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom-left-radius: 8px;
+}
+
+.module-header {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf2f7;
+}
+
+.module-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #1a365d;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.module-role {
+    display: inline-block;
+    background: #ebf8ff;
+    color: #2c5282;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border: 1px solid #bee3f8;
+}
+
+.module-description {
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.module-status {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 6px;
+    margin-bottom: 25px;
+    border-left: 3px solid #2c5282;
+}
+
+.status-title {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-title::before {
+    content: '📊';
+    font-size: 1rem;
+}
+
+.status-text {
+    color: #718096;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.module-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid #2c5282;
+    text-align: center;
+    margin-top: auto;
+}
+
+.module-button:hover {
+    background: linear-gradient(135deg, #1a365d 0%, #153054 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(28, 63, 117, 0.2);
+}
+
+.module-button::after {
+    content: '→';
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.module-button:hover::after {
+    transform: translateX(4px);
+}
+
+/* Specific colours for each module */
+.module-cic {
+    border-top: 4px solid #3182ce;
+}
+
+.module-cic .module-role {
+    background: #ebf8ff;
+    color: #2b6cb0;
+    border-color: #bee3f8;
+}
+
+.module-saas {
+    border-top: 4px solid #38a169;
+}
+
+.module-saas .module-role {
+    background: #f0fff4;
+    color: #276749;
+    border-color: #c6f6d5;
+}
+
+.module-consulting {
+    border-top: 4px solid #d69e2e;
+}
+
+.module-consulting .module-role {
+    background: #fffbeb;
+    color: #975a16;
+    border-color: #fefcbf;
+}
+
+.module-science {
+    border-top: 4px solid #9f7aea;
+}
+
+.module-science .module-role {
+    background: #faf5ff;
+    color: #6b46c1;
+    border-color: #e9d8fd;
+}
+
+/* Investment call to action */
+.investment-cta {
+    background: white;
+    border-radius: 10px;
+    padding: 50px;
+    margin-top: 60px;
+    text-align: center;
+    border: 2px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-decoration {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 4rem;
+    opacity: 0.05;
+    user-select: none;
+    pointer-events: none;
+}
+
+.cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #1a365d;
+    margin-bottom: 20px;
+}
+
+.cta-text {
+    color: #4a5568;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #38a169 0%, #276749 100%);
+    color: white;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: none;
+    box-shadow: 0 4px 15px rgba(56, 161, 105, 0.2);
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(56, 161, 105, 0.3);
+}
+
+.cta-button::before {
+    content: '💎';
+    font-size: 1.2rem;
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+    .future-architecture-container {
+        padding: 50px 15px;
+    }
+    
+    .architecture-title {
+        font-size: 2.2rem;
+    }
+    
+    .architecture-subtitle {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .ecosystem-title {
+        font-size: 1.8rem;
+        margin: 40px 0 30px;
+    }
+    
+    .modules-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .ecosystem-module {
+        padding: 25px 20px;
+    }
+    
+    .investment-cta {
+        padding: 30px 20px;
+        margin-top: 40px;
+    }
+    
+    .cta-title {
+        font-size: 1.8rem;
+    }
+    
+    .cta-text {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 14px 30px;
+        font-size: 1rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.ecosystem-module {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.ecosystem-module:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.ecosystem-module:nth-child(3) {
+    animation-delay: 0.2s;
+}
+
+.ecosystem-module:nth-child(4) {
+    animation-delay: 0.3s;
+}
+</style>
+
+<div class="future-architecture-container">
+    <div class="architecture-header">
+        <h1 class="architecture-title">Architecture of the Future</h1>
+        <p class="architecture-subtitle">
+            An investment proposal for those who believe that capital can and should work 
+            for the transformation of society — not just for private luxury.
+        </p>
+        
+        <div class="architecture-tagline">
+            The current system rewards “golden toilet” values. We offer a working alternative 
+            for those who believe that money should serve the betterment of society.
+        </div>
+    </div>
+
+    <!-- Ecosystem of modules -->
+    <h3 class="ecosystem-title">Our solution: A 4‑module ecosystem</h3>
+    
+    <div class="modules-grid">
+        <!-- Module 1: CIC-as-a-Service -->
+        <div class="ecosystem-module module-cic">
+            <div class="module-badge">PIONEER</div>
+            
+            <div class="module-header">
+                <h3 class="module-title">CIC-as-a-Service</h3>
+                <div class="module-role">Start‑up hub</div>
+            </div>
+            
+            <p class="module-description">
+                We don't sell a service — we ignite a movement. Become one of the first to legalise 
+                your activity under the new model and receive lifelong pioneer status in the ecosystem.
+            </p>
+            
+            <div class="module-status">
+                <div class="status-title">Current status</div>
+                <p class="status-text">
+                    Forming the pilot group. We are looking for 10 pioneers ready to become co‑founders 
+                    of the direction. Their contributions will be fully directed toward developing the 
+                    automated platform and paying a certified lawyer for an impeccable registration procedure.
+                </p>
+            </div>
+            
+            <a href="#" class="module-button">Become a founder of CIC-as-a-Service</a>
+        </div>
+
+        <!-- Module 2: Institutional SaaS -->
+        <div class="ecosystem-module module-saas">
+            <div class="module-badge">OPERATING SYSTEM</div>
+            
+            <div class="module-header">
+                <h3 class="module-title">Institutional SaaS</h3>
+                <div class="module-role">Operating system for new worlds</div>
+            </div>
+            
+            <p class="module-description">
+                “Antipandora Mission”: a game where everyone wins — the only loser is the one who doesn't play. 
+                On the surface it is the legalisation of a Community Interest Company (CIC). 
+                Inside it is a deep‑seated assembly of team, mission and roles.
+            </p>
+            
+            <div class="module-status">
+                <div class="status-title">Current status</div>
+                <p class="status-text">
+                    Concept is ready. Advantages are obvious. The platform needs to be built. 
+                    We are looking for technology partners and first alpha‑testers to debug the system.
+                </p>
+            </div>
+            
+            <a href="/en/static-dynamic/" class="module-button">Join the alpha test</a>
+        </div>
+
+        <!-- Module 3: Formological Consulting -->
+        <div class="ecosystem-module module-consulting">
+            <div class="module-badge">TRANSFORMATION ENGINE</div>
+            
+            <div class="module-header">
+                <h3 class="module-title">Formological Consulting</h3>
+                <div class="module-role">Transformation engine</div>
+            </div>
+            
+            <p class="module-description">
+                You create meaning. We package it into forms that institutions, investors and audiences understand. 
+                Translating chaos into structure, ideas into measurable impact.
+            </p>
+            
+            <div class="module-status">
+                <div class="status-title">Current status</div>
+                <p class="status-text">
+                    Methodology is ready and has undergone preliminary field tests in “combat” conditions. 
+                    Automation is under development. Scientific statistical studies of effectiveness are planned.
+                </p>
+            </div>
+            
+            <a href="#" class="module-button">Get a project UTP card</a>
+        </div>
+
+        <!-- Module 4: Scientometric Core -->
+        <div class="ecosystem-module module-science">
+            <div class="module-badge">ACADEMIC FOUNDATION</div>
+            
+            <div class="module-header">
+                <h3 class="module-title">Scientometric Core</h3>
+                <div class="module-role">Foundation of the new economy</div>
+            </div>
+            
+            <p class="module-description">
+                We turn methodology into academic language. Translating intuition into citable science. 
+                Legitimisation through metrics, papers, H‑index. Without it we are merely a voice in the void.
+            </p>
+            
+            <div class="module-status">
+                <div class="status-title">Current status</div>
+                <p class="status-text">
+                    Assembling a pool of investors to establish a research centre. Seeking academic partners 
+                    from leading universities and institutes.
+                </p>
+            </div>
+            
+            <a href="#" class="module-button">Discuss converting an idea into an asset</a>
+        </div>
+    </div>
+
+    <!-- Investment call to action -->
+    <div class="investment-cta">
+        <div class="cta-decoration">⚡</div>
+        
+        <h3 class="cta-title">Ready to invest in the architecture of the future?</h3>
+        <p class="cta-text">
+            Each module is not merely a product — it is a building block in the foundation of a new economy. 
+            We offer partnership, not a transaction. Co‑investment in an infrastructure that will define 
+            the rules of the game for decades to come.
+        </p>
+        
+        <a href="#" class="cta-button">Request investment memorandum</a>
+    </div>
+</div>

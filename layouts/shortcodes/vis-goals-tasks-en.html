@@ -1,0 +1,148 @@
+<style>
+.vis-goals {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  text-align: center;
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.vis-goals-content {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.vis-goals-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  display: block;
+  animation: vis-goals-pulse 2s infinite;
+}
+
+@keyframes vis-goals-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.vis-goals-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #22543d;
+  margin-bottom: 20px;
+}
+
+.vis-goals-text {
+  font-size: 1.1rem;
+  color: #2d3748;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.vis-goals-list {
+  text-align: left;
+  margin: 0 auto 30px;
+  max-width: 600px;
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+.vis-goals-list ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.vis-goals-list li {
+  margin-bottom: 15px;
+  padding-left: 24px;
+  position: relative;
+}
+
+.vis-goals-list li:before {
+  content: "•";
+  color: #38a169;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -5px;
+}
+
+.vis-goals-smart {
+  font-style: italic;
+  color: #4a5568;
+  margin-bottom: 30px;
+  font-size: 1rem;
+}
+
+.vis-goals-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: #22543d;
+  border: 2px solid #22543d;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.vis-goals-btn:hover {
+  background: #22543d;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.vis-goals-btn::after {
+  content: '→';
+  transition: transform 0.3s ease;
+}
+
+.vis-goals-btn:hover::after {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .vis-goals {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  .vis-goals-title { font-size: 1.6rem; }
+  .vis-goals-text, .vis-goals-list, .vis-goals-smart { font-size: 1rem; }
+  .vis-goals-icon { font-size: 2.5rem; }
+  .vis-goals-list li { padding-left: 20px; }
+}
+</style>
+
+<!-- Goals and objectives block -->
+<section id="goals" class="vis-section vis-goals">
+  <div class="vis-goals-content">
+    <div class="vis-goals-icon">🎯</div>
+    <h2 class="vis-goals-title">Project Goals and Objectives</h2>
+    <p class="vis-goals-text">
+      We are building a sustainable model of assistance for veterans and their families.<br>
+      Our goals are divided into stages so that donors can understand how the project develops:
+    </p>
+    <div class="vis-goals-list">
+      <ul>
+        <li><strong>0–12 months</strong> — pilot launch, training of first couples, start of digital infrastructure.</li>
+        <li><strong>12–24 months</strong> — scaling to regions, online school, and expansion of scientific base.</li>
+        <li><strong>3–5 years</strong> — international Vis Realitatis network, SunLife-Massage® franchise, and full sustainability.</li>
+      </ul>
+    </div>
+    <p class="vis-goals-smart">
+      Our goal system is built according to the international SMART standard: clear, transparent, and measurable.
+    </p>
+    <a href="/en/profile/vis-realitatis/objectives-goals/" class="vis-goals-btn">
+      More about goals and objectives
+    </a>
+  </div>
+</section>

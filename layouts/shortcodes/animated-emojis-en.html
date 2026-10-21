@@ -1,0 +1,191 @@
+<style>
+/* =================== ANIMATED EMOJIS =================== */
+.emoji-container {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.emoji-block {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 320px;
+    margin: 0 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8));
+    border: 1px solid rgba(139, 69, 19, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.emoji-block:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(139, 69, 19, 0.1);
+}
+
+/* Animated emojis */
+.animated-emoji {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+}
+
+/* 1. Profile emoji */
+.emoji-profile {
+    animation: floatProfile 3s ease-in-out infinite;
+}
+
+@keyframes floatProfile {
+    0%, 100% { 
+        transform: translateY(0) rotate(0deg); 
+    }
+    50% { 
+        transform: translateY(-10px) rotate(5deg); 
+    }
+}
+
+/* 2. Mask emoji */
+.emoji-mask {
+    animation: pulseMask 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseMask {
+    0%, 100% { 
+        transform: scale(1); 
+        filter: drop-shadow(0 0 5px rgba(156, 39, 176, 0.3));
+    }
+    50% { 
+        transform: scale(1.1); 
+        filter: drop-shadow(0 0 15px rgba(156, 39, 176, 0.6));
+    }
+}
+
+/* 3. Building emoji */
+.emoji-building {
+    animation: glowBuilding 3s ease-in-out infinite;
+}
+
+@keyframes glowBuilding {
+    0%, 100% { 
+        transform: translateY(0); 
+        text-shadow: 0 0 5px rgba(41, 98, 255, 0.3);
+    }
+    50% { 
+        transform: translateY(-8px); 
+        text-shadow: 0 0 20px rgba(41, 98, 255, 0.8), 0 0 30px rgba(41, 98, 255, 0.4);
+    }
+}
+
+.emoji-title {
+    font-size: clamp(1.1rem, 2vw, 1.3rem) !important;
+    color: #5D4037;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.3;
+    min-height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.emoji-description {
+    font-size: clamp(0.95rem, 1.8vw, 1.05rem) !important;
+    color: #6D4C41;
+    line-height: 1.5;
+    text-align: center;
+    margin: 0;
+}
+
+.emoji-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+/* Responsiveness */
+@media (max-width: 1100px) {
+    .emoji-grid {
+        gap: 1rem;
+    }
+    
+    .emoji-block {
+        margin: 0 0.5rem;
+        padding: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .emoji-container {
+        margin: 1.5rem 0;
+    }
+    
+    .emoji-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+    
+    .emoji-block {
+        width: 100%;
+        max-width: 400px;
+        margin: 0;
+    }
+    
+    .animated-emoji {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .emoji-block {
+        padding: 1rem;
+    }
+    
+    .animated-emoji {
+        font-size: 2.5rem;
+    }
+    
+    .emoji-title {
+        font-size: clamp(1rem, 1.8vw, 1.2rem) !important;
+    }
+}
+</style>
+
+<div class="emoji-container">
+    <div class="emoji-grid">
+        <!-- Block 1: Profile -->
+        <div class="emoji-block">
+            <div class="animated-emoji emoji-profile">🧑‍💻</div>
+            <h3 class="emoji-title">Access to Profile on the Imarch GitHronical Platform</h3>
+            <p class="emoji-description">
+                Communication module within the community platform, allows forming a network of contacts, 
+                quoting author content from the subject mask-site in publications
+            </p>
+        </div>
+        
+        <!-- Block 2: Mask Site -->
+        <div class="emoji-block">
+            <div class="animated-emoji emoji-mask">🎭</div>
+            <h3 class="emoji-title">Access to a Subdomain Mask-Site within the Institutional Game</h3>
+            <p class="emoji-description">
+                Integration with the profile, official personal email, ability to enter contractual relations, 
+                publication of author materials with institutional copyright protection
+            </p>
+        </div>
+        
+        <!-- Block 3: Business Site -->
+        <div class="emoji-block">
+            <div class="animated-emoji emoji-building">🏛️</div>
+            <h3 class="emoji-title">Access to the Consortium Business Site</h3>
+            <p class="emoji-description">
+                Full-functional digital office with access to the internal exchange, confirming internal integration 
+                with the profile and mask-site, official representation under institutional status
+            </p>
+        </div>
+    </div>
+</div>

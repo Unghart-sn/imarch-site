@@ -1,0 +1,49 @@
+{{ $title := .Get "title" | default "3 PAINS → 3 PLATAN SOLUTIONS" }}
+{{ $subtitle := .Get "subtitle" | default "From problems to institutional mechanisms" }}
+{{ $leftHeader := .Get "leftHeader" | default "Pains" }}
+{{ $rightHeader := .Get "rightHeader" | default "Solutions" }}
+{{ $leftItems := .Get "leftItems" | default `[{"num":"1️⃣","icon":"😩","title":"Motivation doesn't sell","desc":"Burnout and staff turnover"},{"num":"2️⃣","icon":"🔓","title":"Data leakage","desc":"Big Tech dictate"},{"num":"3️⃣","icon":"💸","title":"Crypto-promises without income","desc":"No real income"}]` }}
+{{ $rightItems := .Get "rightItems" | default `[{"num":"1️⃣","icon":"🏅","title":"Reputation Token","desc":"Can only be earned through real achievements"},{"num":"2️⃣","icon":"🛡️","title":"Digital Sovereignty","desc":"AI on a closed server"},{"num":"3️⃣","icon":"📈","title":"Economic Model","desc":"Fiat buyout and clearing (30% Buyback Fund)"}]` }}
+{{ $timeline := .Get "timeline" | default `["JULY 2026","2027","JULY 2027"]` }}
+
+{{ $left := $leftItems | unmarshal }}
+{{ $right := $rightItems | unmarshal }}
+{{ $tl := $timeline | unmarshal }}
+
+<div class="light-widget pains-solutions">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="widget-sub">{{ $subtitle }}</div>
+
+  <div class="ps-grid">
+    <div class="ps-col">
+      <h3><span class="emoji">⚠️</span> {{ $leftHeader }}</h3>
+      {{ range $left }}
+        <div class="ps-item">
+          <span class="num">{{ .num }}</span>
+          <span class="icon">{{ .icon }}</span>
+          <span class="text"><strong>{{ .title }}</strong> <span class="sub">{{ .desc }}</span></span>
+        </div>
+      {{ end }}
+    </div>
+
+    <div class="ps-arrow-col">➔</div>
+
+    <div class="ps-col">
+      <h3><span class="emoji">✅</span> {{ $rightHeader }}</h3>
+      {{ range $right }}
+        <div class="ps-item">
+          <span class="num">{{ .num }}</span>
+          <span class="icon">{{ .icon }}</span>
+          <span class="text"><strong>{{ .title }}</strong> <span class="sub">{{ .desc }}</span></span>
+        </div>
+      {{ end }}
+    </div>
+  </div>
+
+  <div class="ps-timeline">
+    {{ range $index, $item := $tl }}
+      <span class="tl-item"><span class="tl-dot"></span> {{ $item }}</span>
+      {{ if ne $index (sub (len $tl) 1) }}<span class="tl-line"></span>{{ end }}
+    {{ end }}
+  </div>
+</div>

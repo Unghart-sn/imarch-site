@@ -1,0 +1,91 @@
+{{/* 
+  guide_card.html — карточка на всю ширину с кнопкой по центру
+  
+  Параметры:
+  - link    : ссылка (обязательный)
+  - text    : текст кнопки (по умолчанию "ГАЙД-МЕНЮ")
+  - bg      : цвет фона карточки (по умолчанию "#f5f5f5")
+  - border  : цвет границы карточки (по умолчанию "#e0d6c8")
+  - hover   : цвет границы при наведении (по умолчанию "#c0a070")
+*/}}
+
+<div class="full-width-card">
+  <div class="full-width-card-inner" 
+       {{ with (.Get "bg") }}style="background: {{ . }};"{{ end }}>
+    <a href="{{ .Get "link" }}" class="card-button-centered">
+      {{ .Get "text" | default "ГАЙД-МЕНЮ" }}
+    </a>
+  </div>
+</div>
+
+<style>
+/* ===== КАРТОЧКА НА ВСЮ ШИРИНУ ===== */
+.full-width-card {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+.full-width-card-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: #f5f5f5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 2rem 1rem;
+  transition: all 0.25s ease;
+}
+
+.full-width-card-inner:hover {
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.card-button-centered {
+  display: inline-block;
+  background: linear-gradient(145deg, #e6e6e6, #c0c0c0);
+  border: 1px solid #a8a8a8;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  letter-spacing: 1px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  cursor: pointer;
+}
+
+.card-button-centered:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #d5d5d5, #b0b0b0);
+  color: #1a140c;
+}
+
+/* ===== АДАПТИВ ===== */
+@media (max-width: 768px) {
+  .full-width-card-inner {
+    padding: 1.5rem 0.8rem;
+  }
+  .card-button-centered {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .full-width-card-inner {
+    padding: 1.2rem 0.5rem;
+  }
+  .card-button-centered {
+    padding: 0.7rem 1.8rem;
+    font-size: 0.95rem;
+  }
+}
+</style>

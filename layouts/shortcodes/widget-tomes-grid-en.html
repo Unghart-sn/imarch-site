@@ -1,0 +1,18 @@
+{{ $title := .Get "title" | default "CHRONICLE OS STRUCTURE (VOLUMES I–V)" }}
+{{ $tomes := .Get "tomes" | default `[{"icon":"📖","title":"Volume I","desc":"Architectural and Conceptual Foundation","q":"«Why?»"},{"icon":"📋","title":"Volume II","desc":"Organizational and Regulatory System","q":"«Who and on what basis?»"},{"icon":"⚙️","title":"Volume III","desc":"Functional Operational System","q":"«How exactly?»"},{"icon":"🛠️","title":"Volume IV","desc":"Applied and Licensing-Procedural Contour","q":"«What does it guarantee?»"},{"icon":"🌐","title":"Volume V","desc":"Integration & Institutional Expansion","q":"«How to scale?»"}]` }}
+
+{{ $tomesData := $tomes | unmarshal }}
+
+<div class="light-widget tomes-grid">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="tome-grid-light">
+    {{ range $tomesData }}
+      <div class="tome-card-light">
+        <div class="tome-icon">{{ .icon }}</div>
+        <h4>{{ .title }}</h4>
+        <p>{{ .desc }}</p>
+        <div class="tome-q">{{ .q }}</div>
+      </div>
+    {{ end }}
+  </div>
+</div>

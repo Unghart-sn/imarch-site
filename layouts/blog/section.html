@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+  {{ with .Params.cover }}
+    <div class="section-banner">
+      <img src="{{ . | relURL }}" alt="Banner" class="banner-image">
+    </div>
+  {{ end }}
+
+  {{ with .Params.description }}
+    <div class="section-description">
+      {{ . | markdownify }}
+    </div>
+  {{ end }}
+
+  <div class="section-content">
+    {{ .Content }}
+  </div>
+
+  {{ range .Pages }}
+    <div class="section-entry">
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      {{ .Summary }}
+    </div>
+  {{ end }}
+
+{{ end }}

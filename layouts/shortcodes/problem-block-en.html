@@ -1,0 +1,372 @@
+<style>
+/* ================== PROBLEM BLOCK - FIXED VERSION ================== */
+/* ADDING SAFE STYLES */
+
+.problem-section-safe {
+    /* CRITICAL SAFETY LINES */
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    
+    /* Other styles with adjustments */
+    padding: 50px 15px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    color: white;
+    margin: 2rem 0;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.problem-section-safe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #5a5a5a, transparent);
+}
+
+.problem-header-safe {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.problem-title-safe {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    background: linear-gradient(to right, #ddd, #aaa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    line-height: 1.2;
+}
+
+.problem-subtitle-safe {
+    font-size: 1.2rem;
+    color: #ccc;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.problem-grid-safe {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+.problem-card-safe {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 25px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.problem-card-safe::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #5a5a5a, #777);
+}
+
+.problem-card-safe:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.problem-card-header-safe {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.problem-icon-safe {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+    opacity: 0.9;
+}
+
+.problem-card-title-safe {
+    font-family: 'Lora', serif;
+    font-size: 1.4rem;
+    color: #ddd;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.problem-card-desc-safe {
+    color: #aaa;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.problem-details-safe {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 18px;
+    border-radius: 6px;
+    margin-bottom: 18px;
+    border-left: 3px solid #5a5a5a;
+    box-sizing: border-box;
+}
+
+.problem-details-safe p {
+    margin: 0 0 12px 0;
+    color: #bbb;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.problem-details-safe p:last-child {
+    margin-bottom: 0;
+}
+
+.problem-button-safe {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(to right, #5a5a5a, #777);
+    color: white;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-sizing: border-box;
+}
+
+.problem-button-safe:hover {
+    background: linear-gradient(to right, #777, #8a8a8a);
+    transform: translateX(3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.problem-button-safe::after {
+    content: '→';
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.problem-button-safe:hover::after {
+    transform: translateX(3px);
+}
+
+/* SPECIAL CARD - 4TH */
+.problem-card-critical-safe {
+    background: rgba(255, 100, 100, 0.05);
+    border: 1px solid rgba(255, 100, 100, 0.2);
+}
+
+.problem-card-critical-safe::before {
+    background: linear-gradient(to bottom, #ff5a5a, #ff3333);
+}
+
+.problem-card-critical-safe .problem-icon-safe {
+    color: #ff5a5a;
+}
+
+.problem-card-critical-safe .problem-card-title-safe {
+    color: #ff9999;
+}
+
+.problem-card-critical-safe .problem-button-safe {
+    background: linear-gradient(to right, #ff5a5a, #ff3333);
+}
+
+.problem-card-critical-safe .problem-button-safe:hover {
+    background: linear-gradient(to right, #ff3333, #ff1a1a);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .problem-section-safe {
+        padding: 35px 12px;
+        margin: 1.5rem 0;
+    }
+    
+    .problem-title-safe {
+        font-size: 1.8rem;
+    }
+    
+    .problem-subtitle-safe {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .problem-grid-safe {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 0 10px;
+    }
+    
+    .problem-card-safe {
+        padding: 22px 18px;
+    }
+    
+    .problem-card-title-safe {
+        font-size: 1.3rem;
+    }
+    
+    .problem-details-safe {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .problem-section-safe {
+        padding: 30px 10px;
+        margin: 1rem 0;
+    }
+    
+    .problem-title-safe {
+        font-size: 1.6rem;
+    }
+    
+    .problem-card-safe {
+        padding: 20px 15px;
+    }
+    
+    .problem-button-safe {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Decorative element */
+.problem-decoration-safe {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    opacity: 0.03;
+    font-size: 8rem;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Safety guarantee */
+.problem-section-safe * {
+    box-sizing: border-box;
+    max-width: 100%;
+}
+</style>
+
+<div class="problem-section-safe">
+    <div class="problem-decoration-safe">⚡</div>
+    
+    <div class="problem-header-safe">
+        <h2 class="problem-title-safe">The Problem: Institutional Vacuum</h2>
+        <p class="problem-subtitle-safe">
+            Today, doing good is legally painful. There are no ready-made solutions for legal operation,
+            no rules for managing trust, and every project drowns in chaos, built from scratch.
+        </p>
+    </div>
+    
+    <div class="problem-grid-safe">
+        <!-- Card 1 -->
+        <div class="problem-card-safe">
+            <div class="problem-card-header-safe">
+                <div class="problem-icon-safe">📦</div>
+                <h3 class="problem-card-title-safe">No "boxed solutions" for mission legalization</h3>
+            </div>
+            <p class="problem-card-desc-safe">
+                You have to fight through bureaucratic hell alone,
+                instead of focusing on what matters: your mission.
+            </p>
+            
+            <div class="problem-details-safe">
+                <p>Today, to legally do good work (help, teach, heal, create), you must endure bureaucratic hell alone: sole proprietorship, taxes, reporting.</p>
+                <p>There is no ready-made "construction kit" that provides a legal shell for your mission "out of the box," leaving you to focus on the mission itself.</p>
+            </div>
+            
+            <a href="/en/posts/no-boxed-solutions-for-mission-legalization/" class="problem-button-safe">Learn more</a>
+        </div>
+        
+        <!-- Card 2 -->
+        <div class="problem-card-safe">
+            <div class="problem-card-header-safe">
+                <div class="problem-icon-safe">🤝</div>
+                <h3 class="problem-card-title-safe">No protocols for trust management and succession</h3>
+            </div>
+            <p class="problem-card-desc-safe">
+                Any project falls apart when money appears or the leader leaves.
+                There are no rules that automatically resolve disputes and pass the mission to successors.
+            </p>
+            
+            <div class="problem-details-safe">
+                <p>When money, partners, or apprentices enter a project, the "disassembly" begins: who invested how much, who's in charge, who gets what. There are no ready-made, proven rules (protocols) that automatically resolve these disputes.</p>
+                <p>And if the leader leaves, the project dies. There is no mechanism for handing over the mission to someone who will truly continue it — not just a relative.</p>
+            </div>
+            
+            <a href="/en/posts/no-trust-management-protocols/" class="problem-button-safe">Learn more</a>
+        </div>
+        
+        <!-- Card 3 -->
+        <div class="problem-card-safe">
+            <div class="problem-card-header-safe">
+                <div class="problem-icon-safe">🔥</div>
+                <h3 class="problem-card-title-safe">Every project is built from scratch → social entropy</h3>
+            </div>
+            <p class="problem-card-desc-safe">
+                Enormous energy is spent not on development, but on reinventing the wheel,
+                leading to burnout and the collapse of initiatives.
+            </p>
+            
+            <div class="problem-details-safe">
+                <p>Every social entrepreneur or activist is forced to reinvent the wheel. This massive waste of energy on underwater, mission‑unrelated issues leads to burnout, team dissolution, and the collapse of promising initiatives.</p>
+                <p>This is entropy: energy turning into useless heat instead of forward motion.</p>
+            </div>
+            
+            <a href="/en/posts/social-entropy-every-project-from-scratch/" class="problem-button-safe">Learn more</a>
+        </div>
+        
+        <!-- CARD 4 - CRITICAL -->
+        <div class="problem-card-safe problem-card-critical-safe">
+            <div class="problem-card-header-safe">
+                <div class="problem-icon-safe">💥</div>
+                <h3 class="problem-card-title-safe">Where it's thin, it tears: infrastructural collapse</h3>
+            </div>
+            <p class="problem-card-desc-safe">
+                The absence of software infrastructure and a proven methodology nullifies all efforts to transform the world into something worthwhile.
+            </p>
+            
+            <div class="problem-details-safe">
+                <p>Without technological infrastructure and a proven methodology, even the most brilliant ideas shatter against everyday life, bureaucracy, and the human factor.</p>
+                <p>It is the presence of such tools that determines whether a mission is realized or remains yet another unrealized opportunity. After all, niches are never empty... But if not us, then who?</p>
+                <p>Why be surprised that the world changes so slowly, when those who want to change it don't even have the basic tools to do so?</p>
+            </div>
+            
+            <a href="/en/posts/infrastructural-collapse-where-thin-there-tears/" class="problem-button-safe">Realize the scale</a>
+        </div>
+    </div>
+</div>

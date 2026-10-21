@@ -1,0 +1,12 @@
+{{ $key := .Params.translationKey }}
+{{ $current := .Lang }}
+<div class="language-switch" style="text-align: center; margin-top: 30px;">
+  {{ range slice "la" "ar" "zh" "en" "fr" "ru" "es" }}
+    {{ if eq . $current }}
+      <span class="lang-btn active-lang">{{ upper . }} ✓</span>
+    {{ else }}
+      <a href="/{{ . }}/{{ $key }}/" class="lang-btn">{{ upper . }}</a>
+    {{ end }}
+  {{ end }}
+</div>
+

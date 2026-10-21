@@ -1,0 +1,464 @@
+<style>
+/* =================== QUEST OF THE FOUR ELEMENTS =================== */
+/* EXACT TRANSPOSITION OF PROVIDED CONTENT */
+
+.quest-elements-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Header and description */
+.quest-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.quest-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #1a365d;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.quest-subtitle {
+    font-size: 1.3rem;
+    color: #4a5568;
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+    font-style: italic;
+}
+
+.quest-description {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 12px;
+    padding: 40px;
+    border-left: 5px solid #2c5282;
+    border-right: 5px solid #2c5282;
+    margin-top: 40px;
+}
+
+.quest-description p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.quest-description strong {
+    color: #1a365d;
+    font-weight: 600;
+}
+
+/* Four elements */
+.elements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+}
+
+.element-card {
+    background: white;
+    border-radius: 12px;
+    padding: 40px 35px;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.element-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Color accents for each element */
+.element-card:nth-child(1) {
+    border-top: 5px solid #2c5282;
+}
+
+.element-card:nth-child(2) {
+    border-top: 5px solid #38a169;
+}
+
+.element-card:nth-child(3) {
+    border-top: 5px solid #d69e2e;
+}
+
+.element-card:nth-child(4) {
+    border-top: 5px solid #9f7aea;
+}
+
+/* Element header */
+.element-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.element-icon {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.element-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1a365d;
+    margin: 0 0 10px 0;
+}
+
+.element-subtitle {
+    color: #718096;
+    font-size: 1rem;
+    font-style: italic;
+    margin: 0;
+}
+
+/* Element content */
+.element-content {
+    flex-grow: 1;
+}
+
+.element-section {
+    margin-bottom: 25px;
+}
+
+.element-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-label {
+    display: block;
+    font-weight: 600;
+    color: #2c5282;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.section-text {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* Quote */
+.element-quote {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    border-left: 3px solid #d69e2e;
+    font-style: italic;
+}
+
+.element-quote p {
+    color: #4a5568;
+    line-height: 1.5;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Button */
+.element-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    color: white;
+    text-decoration: none;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    border: 1px solid #2c5282;
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.element-button:hover {
+    background: linear-gradient(135deg, #1a365d 0%, #153054 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(44, 82, 130, 0.2);
+}
+
+/* Button colors by element */
+.element-card:nth-child(1) .element-button {
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    border-color: #2c5282;
+}
+
+.element-card:nth-child(2) .element-button {
+    background: linear-gradient(135deg, #38a169 0%, #276749 100%);
+    border-color: #38a169;
+}
+
+.element-card:nth-child(3) .element-button {
+    background: linear-gradient(135deg, #d69e2e 0%, #b7791f 100%);
+    border-color: #d69e2e;
+}
+
+.element-card:nth-child(4) .element-button {
+    background: linear-gradient(135deg, #9f7aea 0%, #805ad5 100%);
+    border-color: #9f7aea;
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+    .quest-elements-container {
+        margin: 60px auto;
+        padding: 0 15px;
+    }
+    
+    .quest-main-title {
+        font-size: 2.2rem;
+    }
+    
+    .quest-subtitle {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .quest-description {
+        padding: 30px 20px;
+    }
+    
+    .elements-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+    
+    .element-card {
+        padding: 30px 25px;
+    }
+    
+    .element-title {
+        font-size: 1.6rem;
+    }
+    
+    .element-icon {
+        font-size: 3rem;
+    }
+}
+</style>
+
+<div class="quest-elements-container">
+    
+    <div class="quest-description">
+        <p>
+            <strong>Here you do not submit applications — you swear an oath or issue a challenge.</strong><br>
+            Our Council is not a platform, but a theatre of constructive actions, where everyone has a role, 
+            a mask, a script and a will. Where contribution becomes part of the common design, and action 
+            part of the common realisation.
+        </p>
+    </div>
+
+    <!-- Four elements -->
+    <div class="elements-grid">
+        <!-- Element 1: Core -->
+        <div class="element-card">
+            <div class="element-header">
+                <div class="element-icon">👑</div>
+                <h2 class="element-title">Core: Keepers of the Script</h2>
+                <p class="element-subtitle">Consilium, council scene</p>
+            </div>
+            
+            <div class="element-content">
+                <div class="element-section">
+                    <span class="section-label">Your Role</span>
+                    <p class="section-text">
+                        Not a user, but a co‑Author. You are those who write the rules, not those who play by them. 
+                        Lawyer‑poet, strategist‑mystic, architect of worlds.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Your Contribution</span>
+                    <p class="section-text">
+                        Full immersion. You accept the Constitution of IIMARCH as the foundation of the social realisation 
+                        model and realise your individual mission within the humanitarian missions of the Project.
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>
+                        Not out of fear, profit, need or obligation.<br>
+                        You consciously accept its provisions as an objectively justified 
+                        instrument for harmonising the space of personal interest and the common good.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Your Reward</span>
+                    <p class="section-text">
+                        Tokens. Titles. Voice. Passport. You become part of the Core not in words, 
+                        but in the structure of capital and power.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Entry Quest</span>
+                    <p class="section-text">
+                        Sign the Memorandum of the Truth of Silence. Undergo confession before oneself. 
+                        Obtain a Stage Name Passport.
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>“Here we do not seek employees. Here we recruit a legion of the army of Common Sense.”</p>
+                </div>
+            </div>
+            
+            <a href="#" class="element-button">→ Enter the Core</a>
+        </div>
+
+        <!-- Element 2: Allies -->
+        <div class="element-card">
+            <div class="element-header">
+                <div class="element-icon">⚔️</div>
+                <h2 class="element-title">Allies: Masters of Challenge</h2>
+                <p class="element-subtitle">Consilium, council scene</p>
+            </div>
+            
+            <div class="element-content">
+                <div class="element-section">
+                    <span class="section-label">Your Role</span>
+                    <p class="section-text">
+                        Free agent, lone ranger. You come not to change your life, but to solve a task. 
+                        Your code, your project, your pull‑request — that is your challenge to our world.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Your Contribution</span>
+                    <p class="section-text">Concrete result. You do not swear, you deliver.</p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Your Reward</span>
+                    <p class="section-text">
+                        Compensation package. Share in the project. Respect. Right to upgrade the depth of immersion.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Entry Quest</span>
+                    <p class="section-text">
+                        Take a task from the board. Execute it impeccably. Receive the “Battle‑tested” badge.
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>“You don’t have to believe in our mission. It is enough to make it stronger.”</p>
+                </div>
+            </div>
+            
+            <a href="#" class="element-button">→ Become an Ally</a>
+        </div>
+
+        <!-- Element 3: Mission Creators -->
+        <div class="element-card">
+            <div class="element-header">
+                <div class="element-icon">🎭</div>
+                <h2 class="element-title">Mission Creators: Engineers of Human Souls</h2>
+                <p class="element-subtitle">Consilium, council scene</p>
+            </div>
+            
+            <div class="element-content">
+                <div class="element-section">
+                    <span class="section-label">Your Role</span>
+                    <p class="section-text">
+                        Visionary, shaman, humanitarian technologist. You do not execute missions — you give birth to them. 
+                        Art therapy, ritual, social code — you turn an idea into a structure.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Your Contribution</span>
+                    <p class="section-text">Living methodology. You bring not just an idea, but a tool.</p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Your Reward</span>
+                    <p class="section-text">Named Mission Token. Right to lead.</p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Entry Quest</span>
+                    <p class="section-text">
+                        Formalise your insight as an “Issue”. Take it through fire and water. 
+                        Receive the “Mission Born” seal.
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>“We do not wait for proposals. We wait for revelations ready to become technology.”</p>
+                </div>
+            </div>
+            
+            <a href="#" class="element-button">→ Create a Mission</a>
+        </div>
+
+        <!-- Element 4: Content Factory -->
+        <div class="element-card">
+            <div class="element-header">
+                <div class="element-icon">📜</div>
+                <h2 class="element-title">Content Factory: Skalds and Chroniclers</h2>
+                <p class="element-subtitle">Consilium, council scene</p>
+            </div>
+            
+            <div class="element-content">
+                <div class="element-section">
+                    <span class="section-label">Your Role</span>
+                    <p class="section-text">
+                        Alchemist of meanings. You take raw truth and turn it into narrative, visual, symbol. 
+                        You do not “make content” — you create reality.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Your Contribution</span>
+                    <p class="section-text">Form. Without you, the idea remains a cry into the void.</p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Your Reward</span>
+                    <p class="section-text">
+                        Name under the work. Access to workshops. Compensation package. Share.
+                    </p>
+                </div>
+                
+                <div class="element-section">
+                    <span class="section-label">Entry Quest</span>
+                    <p class="section-text">
+                        Create an artefact. Inscribe it into the archive. See it live its own life.
+                    </p>
+                </div>
+                
+                <div class="element-quote">
+                    <p>“If you can explain our magic — you are already part of it.”</p>
+                </div>
+            </div>
+            
+            <a href="#" class="element-button">→ Enter the Factory</a>
+        </div>
+    </div>
+</div>

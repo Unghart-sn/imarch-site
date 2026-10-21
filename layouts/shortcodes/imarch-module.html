@@ -1,0 +1,20 @@
+{{ $title := .Get "title" }}
+{{ $mode := .Get "mode" | default "default" }}
+{{ $cta := .Get "cta" }}
+{{ $link := .Get "link" }}
+
+<div class="imarch-module {{ $mode }}">
+  <details>
+    <summary>
+      <span class="imarch-title">{{ $title }}</span>
+      <span class="imarch-arrow">▾</span>
+    </summary>
+
+    <div class="accordion-content">
+      <div class="imarch-body">
+        {{ .Inner | markdownify }}
+      </div>
+
+    </div>
+  </details>
+</div>

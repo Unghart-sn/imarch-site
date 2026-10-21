@@ -1,0 +1,425 @@
+<style>
+/* =================== COLLABORATION PLATFORM - GITHUB ORGANIZATION =================== */
+
+.platan-platform-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+/* Header */
+.platan-platform-header {
+    text-align: center;
+    margin-bottom: 60px;
+    position: relative;
+    padding-bottom: 30px;
+}
+
+.platan-platform-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 3px;
+    background: linear-gradient(to right, #1a365d, #38a169, #1a365d);
+}
+
+.platan-platform-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    color: #1a365d;
+    margin-bottom: 20px;
+}
+
+.platan-platform-subtitle {
+    font-size: 1.3rem;
+    color: #4a5568;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Main content */
+.platan-platform-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* Cards */
+.platan-platform-card {
+    background: white;
+    border-radius: 12px;
+    padding: 35px 30px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.platan-platform-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+.platan-platform-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #2c5282, #38a169);
+}
+
+.platform-card-icon {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    display: block;
+    text-align: center;
+}
+
+.platform-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #1a365d;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+/* Card lists */
+.platform-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.platform-card-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid #edf2f7;
+    color: #4a5568;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 1rem;
+}
+
+.platform-card-list li:last-child {
+    border-bottom: none;
+}
+
+.platform-card-list li::before {
+    content: '•';
+    color: #2c5282;
+    font-weight: bold;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: -2px;
+}
+
+/* Semantic emphasis */
+.platan-platform-emphasis {
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 16px;
+    padding: 50px;
+    margin: 60px 0;
+    border: 2px solid #e2e8f0;
+    position: relative;
+    overflow: hidden;
+}
+
+.platan-platform-emphasis::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(to right, #38a169, #d69e2e);
+}
+
+.emphasis-icon {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    text-align: center;
+    display: block;
+    opacity: 0.8;
+}
+
+.emphasis-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #1a365d;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.emphasis-text {
+    color: #4a5568;
+    line-height: 1.7;
+    font-size: 1.1rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.emphasis-text strong {
+    color: #2c5282;
+}
+
+/* Joining process */
+.platan-join-process {
+    margin: 70px 0;
+}
+
+.process-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #1a365d;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    counter-reset: step-counter;
+}
+
+.process-step {
+    background: white;
+    border-radius: 12px;
+    padding: 35px 30px;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    counter-increment: step-counter;
+    transition: all 0.3s ease;
+}
+
+.process-step:hover {
+    border-color: #2c5282;
+    transform: translateY(-5px);
+}
+
+.process-step::before {
+    content: counter(step-counter);
+    position: absolute;
+    top: -20px;
+    left: 30px;
+    width: 40px;
+    height: 40px;
+    background: #2c5282;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.process-step h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #1a365d;
+    margin: 0 0 15px 0;
+}
+
+.process-step p {
+    color: #4a5568;
+    line-height: 1.6;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Join button */
+.platan-join-button-container {
+    text-align: center;
+    margin-top: 60px;
+}
+
+.platan-join-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%);
+    color: white;
+    text-decoration: none;
+    padding: 18px 45px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    border: 2px solid #2c5282;
+    box-shadow: 0 10px 30px rgba(44, 82, 130, 0.2);
+}
+
+.platan-join-button:hover {
+    background: linear-gradient(135deg, #1a365d 0%, #153054 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(44, 82, 130, 0.3);
+}
+
+.platan-join-button::before {
+    content: '🤝';
+    font-size: 1.2rem;
+}
+
+/* Mobile adaptation */
+@media (max-width: 768px) {
+    .platan-platform-container {
+        margin: 60px auto;
+        padding: 0 15px;
+    }
+    
+    .platan-platform-title {
+        font-size: 2.2rem;
+    }
+    
+    .platan-platform-subtitle {
+        font-size: 1.1rem;
+        padding: 0 10px;
+    }
+    
+    .platan-platform-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .platan-platform-card {
+        padding: 30px 25px;
+    }
+    
+    .platform-card-title {
+        font-size: 1.4rem;
+    }
+    
+    .platan-platform-emphasis {
+        padding: 30px 20px;
+        margin: 40px 0;
+    }
+    
+    .emphasis-icon {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+    
+    .emphasis-title {
+        font-size: 1.6rem;
+    }
+    
+    .emphasis-text {
+        font-size: 1rem;
+    }
+    
+    .process-steps {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .process-step {
+        padding: 30px 25px 30px 25px;
+    }
+    
+    .process-step::before {
+        left: 50%;
+        transform: translateX(-50%);
+        top: -20px;
+    }
+    
+    .platan-join-button {
+        padding: 16px 35px;
+        font-size: 1rem;
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+</style>
+
+<div class="platan-platform-container">
+
+    <!-- Structure in GitHub -->
+    <div class="platan-platform-content">
+        <!-- Card 1: Organization -->
+        <div class="platan-platform-card">
+            <div class="platform-card-icon">🏛️</div>
+            <h3 class="platform-card-title">GitHub Structure</h3>
+            <ul class="platform-card-list">
+                <li><strong>Organization:</strong> PLATAN-Consortium</li>
+                <li><strong>Core Team:</strong> core (IMARCH LTD UK + Veritatis Silentis CIC)</li>
+                <li><strong>Associates:</strong> independent participants, contractors, partners</li>
+                <li><strong>Mission‑Creators:</strong> humanitarian missions and human technologies</li>
+                <li><strong>Content‑Factory:</strong> editors, designers, researchers</li>
+            </ul>
+        </div>
+
+        <!-- Card 2: Roles -->
+        <div class="platan-platform-card">
+            <div class="platform-card-icon">👥</div>
+            <h3 class="platform-card-title">Ecosystem Roles</h3>
+            <ul class="platform-card-list">
+                <li><strong>Core Team:</strong> manages the legal and humanitarian scene</li>
+                <li><strong>Associates:</strong> contribute via pull‑requests and projects</li>
+                <li><strong>Mission‑Creators:</strong> develop body‑oriented practices, art therapy, human technologies</li>
+                <li><strong>Content‑Factory:</strong> provides packaging, SEO, visualisation</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Semantic emphasis -->
+    <div class="platan-platform-emphasis">
+        <div class="emphasis-icon">🎯</div>
+        <h3 class="emphasis-title">Semantic emphasis</h3>
+        <p class="emphasis-text">
+            <strong>GitHub is only a tool.</strong> The semantic centre of the consortium is the methodology of humanitarian missions, 
+            where the main resource is the human factor. Participants are organisations, experts and ordinary people 
+            connected with human technologies, body‑oriented practice and art therapy as developers, 
+            testers and consumers.
+        </p>
+    </div>
+
+    <!-- Joining process -->
+    <div class="platan-join-process">
+        <h3 class="process-title">Joining the Platform</h3>
+        
+        <div class="process-steps">
+            <!-- Step 1 -->
+            <div class="process-step">
+                <h4>Signing the memorandum</h4>
+                <p>Formal alignment of values and cooperation principles. Legal formalisation of relations.</p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="process-step">
+                <h4>Access to GitHub Organization</h4>
+                <p>Receive an invitation to the main consortium organisation. Profile and access setup.</p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="process-step">
+                <h4>Joining a team</h4>
+                <p>Join the corresponding team: Core, Associates, Mission‑Creators or Content‑Factory.</p>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="process-step">
+                <h4>Collaborative action</h4>
+                <p>Start of real work: code, content, missions. Participation in projects and working groups.</p>
+            </div>
+        </div>
+        
+        <!-- Join button -->
+        <div class="platan-join-button-container">
+            <a href="#" class="platan-join-button">
+                → Join the platform
+            </a>
+        </div>
+    </div>
+</div>

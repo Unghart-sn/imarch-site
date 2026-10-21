@@ -1,0 +1,391 @@
+<style>
+/* =================== БЛОГ И КОНТАКТЫ - АККОРДЕОН =================== */
+.blog-contacts-accordion {
+    width: 100%;
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 0 20px;
+}
+
+.blog-contacts-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.blog-contacts-header h2 {
+    font-family: 'Lora', serif;
+    font-size: 2.2rem;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.5px;
+}
+
+.blog-contacts-header p {
+    font-size: 1.1rem;
+    color: #5d7690;
+    line-height: 1.6;
+}
+
+/* АККОРДЕОН */
+.blog-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.blog-accordion-section {
+    background: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e1e8ed;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.blog-accordion-section:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.09);
+}
+
+.blog-accordion-header {
+    padding: 1.6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.blog-accordion-header:hover {
+    background: linear-gradient(to right, rgba(245, 247, 250, 0.8), #ffffff);
+}
+
+.blog-accordion-header.active {
+    background: #ffffff;
+    border-bottom: 2px solid;
+}
+
+.blog-accordion-title {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    font-size: 1.45rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.blog-accordion-icon {
+    font-size: 2rem;
+}
+
+.blog-accordion-arrow {
+    font-size: 1.6rem;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: bold;
+}
+
+.blog-accordion-header.active .blog-accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.blog-accordion-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.blog-accordion-content.open {
+    padding: 2rem;
+    max-height: 1500px;
+}
+
+/* СЕТКА КНОПОК */
+.blog-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .blog-buttons-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* КАРТОЧКИ-КНОПКИ */
+.blog-button-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.75rem;
+    background: #f5f7fa;
+    border-radius: 10px;
+    border: 1px solid #e1e8ed;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    color: inherit;
+    min-height: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-button-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: currentColor;
+    opacity: 0.15;
+}
+
+.blog-button-card:hover {
+    background: #ffffff;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-color: #d1d9e6;
+}
+
+.blog-button-icon {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.1));
+}
+
+.blog-button-text {
+    font-size: 1.15rem;
+    color: #2c3e50;
+    font-weight: 600;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* ЦВЕТА КАТЕГОРИЙ */
+.category-socials {
+    color: #6a5acd;
+}
+.category-socials .blog-accordion-header.active {
+    border-bottom-color: #6a5acd;
+    background: linear-gradient(to right, rgba(106, 90, 205, 0.05), #ffffff);
+}
+.category-socials .blog-button-card {
+    color: #6a5acd;
+}
+.category-socials .blog-button-card:hover {
+    background: rgba(106, 90, 205, 0.05);
+}
+
+.category-share {
+    color: #b8860b;
+}
+.category-share .blog-accordion-header.active {
+    border-bottom-color: #b8860b;
+    background: linear-gradient(to right, rgba(184, 134, 11, 0.05), #ffffff);
+}
+.category-share .blog-button-card {
+    color: #b8860b;
+}
+.category-share .blog-button-card:hover {
+    background: rgba(184, 134, 11, 0.05);
+}
+
+.category-messengers {
+    color: #8a2be2;
+}
+.category-messengers .blog-accordion-header.active {
+    border-bottom-color: #8a2be2;
+    background: linear-gradient(to right, rgba(138, 43, 226, 0.05), #ffffff);
+}
+.category-messengers .blog-button-card {
+    color: #8a2be2;
+}
+.category-messengers .blog-button-card:hover {
+    background: rgba(138, 43, 226, 0.05);
+}
+
+.blog-button-subtext {
+    font-size: 0.85rem;
+    color: rgba(44, 62, 80, 0.7);
+    font-weight: 400;
+    margin-top: 0.3rem;
+    font-style: italic;
+}
+
+.center-text {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+}
+</style>
+
+<div id="блог-контакты" class="blog-contacts-accordion">
+    <div class="blog-contacts-header">
+        <h2>📡 Контакты</h2>
+        <p class="center-text">Также вы можете связаться с нами любыми удобными вам способами.</p>
+</div>
+    </div>
+    
+    <div class="blog-accordion">
+        <!-- 1. ПОДПИШИСЬ -->
+        <div class="blog-accordion-section category-socials">
+            <div class="blog-accordion-header" onclick="toggleBlogAccordion(this)">
+                <div class="blog-accordion-title">
+                    <div class="blog-accordion-icon">📡</div>
+                    <h3>Подпишись</h3>
+                </div>
+                <div class="blog-accordion-arrow">▼</div>
+            </div>
+            
+            <div class="blog-accordion-content">
+                <div class="blog-buttons-grid">
+                    <a href="https://t.me/твойканал" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">📨</div>
+                        <div class="blog-button-text">Telegram</div>
+                    </a>
+                    
+                    <a href="https://medium.com/@твойаккаунт" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">ᴍ</div>
+                        <div class="blog-button-text">Medium</div>
+                    </a>
+                    
+                    <a href="https://twitter.com/твойаккаунт" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">𝕏</div>
+                        <div class="blog-button-text">Twitter</div>
+                    </a>
+                    
+                    <a href="https://linkedin.com/in/твойаккаунт" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">💼</div>
+                        <div class="blog-button-text">LinkedIn</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 2. ПОДЕЛИТЬСЯ -->
+        <div class="blog-accordion-section category-share">
+            <div class="blog-accordion-header" onclick="toggleBlogAccordion(this)">
+                <div class="blog-accordion-title">
+                    <div class="blog-accordion-icon">📤</div>
+                    <h3>Поделиться</h3>
+                </div>
+                <div class="blog-accordion-arrow">▼</div>
+            </div>
+            
+            <div class="blog-accordion-content">
+                <div class="blog-buttons-grid">
+                    <button class="blog-button-card share-btn" data-type="twitter">
+                        <div class="blog-button-icon">𝕏</div>
+                        <div class="blog-button-text">Twitter</div>
+                    </button>
+                    
+                    <button class="blog-button-card share-btn" data-type="telegram">
+                        <div class="blog-button-icon">📨</div>
+                        <div class="blog-button-text">Telegram</div>
+                    </button>
+                    
+                    <button class="blog-button-card share-btn" data-type="medium">
+                        <div class="blog-button-icon">ᴍ</div>
+                        <div class="blog-button-text">Medium</div>
+                    </button>
+                    
+                    <button class="blog-button-card share-btn" data-type="copy">
+                        <div class="blog-button-icon">📋</div>
+                        <div class="blog-button-text">Скопировать</div>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 3. СВЯЗЬ (МЕССЕНДЖЕРЫ) -->
+        <div class="blog-accordion-section category-messengers">
+            <div class="blog-accordion-header" onclick="toggleBlogAccordion(this)">
+                <div class="blog-accordion-title">
+                    <div class="blog-accordion-icon">📞</div>
+                    <h3>Связь</h3>
+                </div>
+                <div class="blog-accordion-arrow">▼</div>
+            </div>
+            
+            <div class="blog-accordion-content">
+                <div class="blog-buttons-grid">
+                    <a href="https://wa.me/номер" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">💬</div>
+                        <div class="blog-button-text">WhatsApp</div>
+                    </a>
+                    
+                    <a href="https://t.me/твойник" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">📨</div>
+                        <div class="blog-button-text">Telegram (личный)</div>
+                    </a>
+                    
+                    <a href="viber://chat?number=номер" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">💜</div>
+                        <div class="blog-button-text">Viber</div>
+                    </a>
+                    
+                    <a href="https://signal.me/#p/номер" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">🔐</div>
+                        <div class="blog-button-text">Signal</div>
+                    </a>
+                    
+                    <a href="https://m.me/твойник" class="blog-button-card" target="_blank">
+                        <div class="blog-button-icon">💙</div>
+                        <div class="blog-button-text">FB Messenger</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleBlogAccordion(header) {
+    const section = header.parentElement;
+    const content = section.querySelector('.blog-accordion-content');
+    const isOpen = content.classList.contains('open');
+    
+    document.querySelectorAll('.blog-accordion-content.open').forEach(openContent => {
+        if (openContent !== content) {
+            openContent.classList.remove('open');
+            openContent.parentElement.querySelector('.blog-accordion-header').classList.remove('active');
+        }
+    });
+    
+    header.classList.toggle('active');
+    content.classList.toggle('open');
+    
+    if (isOpen) {
+        setTimeout(() => {
+            content.style.maxHeight = '0';
+        }, 10);
+    } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        setTimeout(() => {
+            content.style.maxHeight = 'none';
+        }, 400);
+    }
+}
+
+// Простейший шаринг
+document.querySelectorAll('.share-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const type = this.getAttribute('data-type');
+        const url = window.location.href;
+        const title = document.title;
+        
+        if (type === 'copy') {
+            navigator.clipboard.writeText(url);
+            alert('Ссылка скопирована!');
+        } else if (type === 'twitter') {
+            window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank');
+        } else if (type === 'telegram') {
+            window.open(`https://t.me/share/url?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`, '_blank');
+        } else if (type === 'medium') {
+            window.open(`https://medium.com/m/import?url=${encodeURIComponent(url)}`, '_blank');
+        }
+    });
+});
+</script>

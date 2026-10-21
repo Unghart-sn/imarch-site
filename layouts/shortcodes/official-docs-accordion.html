@@ -1,0 +1,733 @@
+{{/* Шорткод: official-docs-accordion (ИСПРАВЛЕННАЯ ВЕРСИЯ С ОБРЕЗАНИЕМ ПОТОКА) */}}
+{{/* Вставьте в content файла как {{< official-docs-accordion >}} */}}
+
+<style>
+/* =================== ОФИЦИАЛЬНАЯ ДОКУМЕНТАЦИЯ =================== */
+.official-docs-accordion {
+    width: 100%;
+    max-width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    box-sizing: border-box;
+    clear: both; /* Отделяем от последующего контента */
+}
+
+.official-docs-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #b89a5f;
+}
+
+.official-docs-header h2 {
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    color: #1a1a1a;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+.official-docs-header p {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: #4a5568;
+    line-height: 1.6;
+    font-style: italic;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+}
+
+/* =================== АККОРДЕОН =================== */
+.official-accordion-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+}
+
+.official-section {
+    background: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #d4c9b8;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.official-section:hover {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.official-section-header {
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(to right, #f8f5f0, #ffffff);
+    border-bottom: 3px solid transparent;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.official-section-header:hover {
+    background: linear-gradient(to right, #f0ebe2, #ffffff);
+}
+
+.official-section-header.active {
+    background: #ffffff;
+    border-bottom: 3px solid #2a5c7a;
+}
+
+.official-section-title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: 600;
+    margin: 0;
+    color: #1a1a1a;
+    flex: 1;
+    min-width: 0;
+}
+
+.official-section-icon {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    width: clamp(40px, 8vw, 50px);
+    height: clamp(40px, 8vw, 50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(42, 92, 122, 0.1);
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.official-section-arrow {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    color: #2a5c7a;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-weight: bold;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+}
+
+.official-section-header.active .official-section-arrow {
+    transform: rotate(180deg);
+}
+
+.official-section-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.official-section-content.open {
+    padding: 1.5rem;
+    max-height: 5000px;
+}
+
+@media (min-width: 768px) {
+    .official-section-content.open {
+        padding: 2.5rem;
+    }
+}
+
+/* =================== КАРТОЧКИ ДОКУМЕНТОВ =================== */
+.official-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .official-cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+}
+
+.official-doc-card {
+    background: #f8f5f0;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid #d4c9b8;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.official-doc-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: #2a5c7a;
+}
+
+.official-doc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(42, 92, 122, 0.15);
+    border-color: #2a5c7a;
+}
+
+.doc-card-icon {
+    font-size: clamp(2.2rem, 5vw, 2.8rem);
+    margin-bottom: 1.25rem;
+    text-align: center;
+}
+
+.doc-card-title {
+    font-size: clamp(1.3rem, 3vw, 1.5rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    text-align: center;
+    line-height: 1.3;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.doc-card-description {
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-style: italic;
+    text-align: center;
+}
+
+/* КНОПКИ */
+.doc-card-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: auto;
+    width: 100%;
+}
+
+.doc-card-btn {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border-radius: 6px;
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    box-sizing: border-box;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.doc-card-btn-details {
+    background: #b89a5f;
+    color: white;
+    border-color: #b89a5f;
+}
+
+.doc-card-btn-details:hover {
+    background: #9c7e4a;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(184, 154, 95, 0.3);
+}
+
+.doc-card-btn-primary {
+    background: #2a5c7a;
+    color: white;
+    border-color: #2a5c7a;
+}
+
+.doc-card-btn-primary:hover {
+    background: #1e455d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(42, 92, 122, 0.3);
+}
+
+/* =================== МОДАЛЬНЫЕ ОКНА =================== */
+.official-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.85);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+.official-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: #f8f5f0;
+    width: 100%;
+    max-width: min(700px, calc(100% - 1rem));
+    border-radius: 12px;
+    padding: 2rem;
+    position: relative;
+    border: 2px solid #b89a5f;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease;
+    margin: auto;
+    max-height: min(90vh, 800px);
+    overflow-y: auto;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .modal-content {
+        padding: 3rem;
+        max-height: 90vh;
+    }
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 8px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: rgba(184, 154, 95, 0.1);
+    border-radius: 4px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: #b89a5f;
+    border-radius: 4px;
+}
+.modal-content::-webkit-scrollbar-thumb:hover {
+    background: #9c7e4a;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: #2a5c7a;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.modal-close:hover {
+    background: rgba(42, 92, 122, 0.1);
+    transform: rotate(90deg);
+}
+
+.modal-icon {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+.modal-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    color: #1a1a1a;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 700;
+    line-height: 1.2;
+    word-wrap: break-word;
+}
+
+.modal-subtitle {
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    color: #b89a5f;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.modal-text {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    line-height: 1.7;
+    color: #2d3748;
+    margin-bottom: 2rem;
+    text-align: justify;
+}
+
+.modal-text p {
+    margin-bottom: 1.25rem;
+}
+.modal-text p:last-child {
+    margin-bottom: 0;
+}
+
+.modal-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(184, 154, 95, 0.3);
+    position: sticky;
+    bottom: 0;
+    background: #f8f5f0;
+}
+
+@media (min-width: 768px) {
+    .modal-actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.modal-btn {
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    flex: 1;
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+    .modal-btn {
+        min-width: 160px;
+        max-width: 200px;
+    }
+}
+
+.modal-btn-close {
+    background: transparent;
+    color: #4a5568;
+    border-color: #cbd5e0;
+}
+.modal-btn-close:hover {
+    background: #e2e8f0;
+    transform: translateY(-2px);
+}
+
+.modal-btn-primary {
+    background: #2a5c7a;
+    color: white;
+    border-color: #2a5c7a;
+}
+.modal-btn-primary:hover {
+    background: #1e455d;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(42, 92, 122, 0.4);
+}
+
+/* =================== АДАПТИВНОСТЬ =================== */
+@media (max-width: 480px) {
+    .official-docs-accordion {
+        padding: 0 0.75rem;
+    }
+    .official-section-header {
+        padding: 1.25rem 1rem;
+    }
+    .official-section-content.open {
+        padding: 1.25rem;
+    }
+    .official-doc-card {
+        padding: 1.25rem;
+    }
+    .doc-card-btn {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    .modal-content {
+        padding: 1.5rem;
+    }
+    .modal-btn {
+        padding: 0.9rem 1rem;
+        width: 100%;
+    }
+}
+@media (max-width: 360px) {
+    .official-section-title {
+        font-size: 1.1rem;
+    }
+    .official-section-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1.6rem;
+    }
+    .doc-card-title {
+        font-size: 1.2rem;
+    }
+}
+</style>
+
+<!-- Основной контейнер аккордеона -->
+<div class="official-docs-accordion">
+    <div class="official-docs-header">
+        <h2>ОФИЦИАЛЬНАЯ ДОКУМЕНТАЦИЯ</h2>
+        <p>Сцена институционального оформления Формы Имархии</p>
+    </div>
+
+    <div class="official-accordion-container">
+        <!-- Секция: Основополагающие документы -->
+        <div class="official-section" id="foundational-docs">
+            <div class="official-section-header" onclick="toggleOfficialSection(this)">
+                <div class="official-section-title">
+                    <div class="official-section-icon">📜</div>
+                    <h3>Основополагающие документы</h3>
+                </div>
+                <div class="official-section-arrow">▼</div>
+            </div>
+            <div class="official-section-content">
+                <div class="official-cards-grid">
+                    <!-- Конституция -->
+                    <div class="official-doc-card">
+                        <div class="doc-card-icon">⚖️</div>
+                        <h4 class="doc-card-title">Конституция Имархии</h4>
+                        <p class="doc-card-description">Сцена утверждения Формы. Параграфы как акты признания.</p>
+                        <div class="doc-card-actions">
+                            <button class="doc-card-btn doc-card-btn-details" onclick="openModal('constitutionModal')">Подробнее</button>
+                            <a href="https://imarch.sbs/ru/constitutio/" target="_blank" class="doc-card-btn doc-card-btn-primary">Ознакомиться</a>
+                        </div>
+                    </div>
+                    <!-- Гражданский реестр -->
+                    <div class="official-doc-card">
+                        <div class="doc-card-icon">📇</div>
+                        <h4 class="doc-card-title">Гражданский реестр</h4>
+                        <p class="doc-card-description">Сцена признания. Титулы как акты публикации.</p>
+                        <div class="doc-card-actions">
+                            <button class="doc-card-btn doc-card-btn-details" onclick="openModal('registryModal')">Подробнее</button>
+                            <a href="https://imarch.sbs/ru/tituli/" target="_blank" class="doc-card-btn doc-card-btn-primary">Ознакомиться</a>
+                        </div>
+                    </div>
+                    <!-- Журнал Chronicle OS -->
+                    <div class="official-doc-card">
+                        <div class="doc-card-icon">📖</div>
+                        <h4 class="doc-card-title">Chronicle OS</h4>
+                        <p class="doc-card-description">Международный рецензируемый междисциплинарный научный журнал</p>
+                        <div class="doc-card-actions">
+                            <button class="doc-card-btn doc-card-btn-details" onclick="openModal('journalModal')">Подробнее</button>
+                            <a href="/ru/profile/chronicle-os-journal/" target="_blank" class="doc-card-btn doc-card-btn-primary">Ознакомиться</a>
+                        </div>
+                    </div>
+                    <!-- Официальные акты -->
+                    <div class="official-doc-card">
+                        <div class="doc-card-icon">📑</div>
+                        <h4 class="doc-card-title">Официальные акты</h4>
+                        <p class="doc-card-description">Определение рамок интерпретации положений.</p>
+                        <div class="doc-card-actions">
+                            <button class="doc-card-btn doc-card-btn-details" onclick="openModal('actsModal')">Подробнее</button>
+                            <a href="/ru/profile/office/" class="doc-card-btn doc-card-btn-primary">Изучить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальные окна (вынесены за пределы основного контейнера) -->
+<div class="official-modal" id="constitutionModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('constitutionModal')">×</button>
+        <div class="modal-icon">⚖️</div>
+        <h3 class="modal-title">Конституция Имархии</h3>
+        <div class="modal-subtitle">Сцена утверждения Формы</div>
+        <div class="modal-text">
+            <p><strong>Конституция это не свод предписаний, а сцепка. Она не ограничивает, она оформляет Форму. IMARCH не регулирует. Он признаёт. Конституция Имархии это голос, который утверждает сцены, титулы и акты.</strong></p>
+            <p>Конституция Имархии  это сцена утверждения Формы. Раздел «Конституция» это сцена, где каждый параграф звучит как акт признания. Здесь мы оформляем структуру, закрепляем голос и утверждаем институциональную сцепку.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-close" onclick="closeModal('constitutionModal')">Вернуться</button>
+            <a href="https://imarch.sbs/ru/constitutio/" target="_blank" class="modal-btn modal-btn-primary">Открыть Конституцию</a>
+        </div>
+    </div>
+</div>
+
+<div class="official-modal" id="registryModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('registryModal')">×</button>
+        <div class="modal-icon">📇</div>
+        <h3 class="modal-title">Гражданский реестр</h3>
+        <div class="modal-subtitle">Сцена признания</div>
+        <div class="modal-text">
+            <p><strong>Свидетельство это не актив, а титул. Он не удостоверяет, он признаёт. Гражданство не принадлежность, а сцепка с Формой. IMARCH выдаёт не бумагу, а голос.</strong></p>
+            <p>Паспорта гражданства сцена признания. Раздел «Гражданский реестр» это сцена, где каждый акт публикации становится актом признания. Здесь мы оформляем титулы, выдаём формы и закрепляем голос институции.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-close" onclick="closeModal('registryModal')">Вернуться</button>
+            <a href="https://imarch.sbs/ru/tituli/" target="_blank" class="modal-btn modal-btn-primary">Открыть Реестр</a>
+        </div>
+    </div>
+</div>
+
+<div class="official-modal" id="journalModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('journalModal')">×</button>
+        <div class="modal-icon">📖</div>
+        <h3 class="modal-title">Chronicle OS</h3>
+        <div class="modal-subtitle">Международный рецензируемый междисциплинарный научный журнал</div>
+        <div class="modal-text">
+            <p><strong>Издатель:</strong> IMARCH LTD (Великобритания).<br>
+            <strong>Лицензия:</strong> Open Access.<br>
+            <strong>Формат:</strong> Ежеквартальный (4 выпуска в год).</p>
+            <p><strong>Миссия:</strong> Журнал «Chronicle OS» создаёт междисциплинарную платформу для исследований на стыке Универсальной Формологии, сложных систем и безопасности жизнедеятельности. Цель — индексация в Scopus, Web of Science и DOAJ.</p>
+            <p><strong>Рецензирование:</strong> Только строгое двустороннее слепое рецензирование (Double‑Blind Peer Review). Статья считается принятой только после положительных заключений двух независимых экспертов.</p>
+            <p><strong>Этика и финансы:</strong> Журнал функционирует как некоммерческий проект IMARCH LTD. APC не превышает £150 за принятую статью, возможны вайверы для авторов без финансирования. Средства реинвестируются в развитие инфраструктуры.</p>
+            <p><strong>Регистрация препринта:</strong> Каждая рукопись фиксируется с присвоением SHA‑256 хеша и регистрируется в институциональном реестре IMARCH LTD для защиты авторских прав.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-close" onclick="closeModal('journalModal')">Вернуться</button>
+            <a href="/ru/profile/ccs/" target="_blank" class="modal-btn modal-btn-primary">Перейти к журналу</a>
+        </div>
+    </div>
+</div>
+
+<div class="official-modal" id="actsModal">
+    <div class="modal-content">
+        <button class="modal-close" onclick="closeModal('actsModal')">×</button>
+        <div class="modal-icon">📑</div>
+        <h3 class="modal-title">Официальные акты</h3>
+        <div class="modal-subtitle">Определение рамок интерпретации</div>
+        <div class="modal-text">
+            <p><strong>Акт это не приказ, а разметка сцены. Он не предписывает, он очерчивает. Официальная позиция это не директива, а контекст для диалога.</strong></p>
+            <p>Официальные акты Администрации Имархии — это сцена определения границ смысла. Каждый акт устанавливает рамки интерпретации положений Конституции и Регламентов, устраняя двусмысленности и создавая ясный контекст для взаимодействия.</p>
+        </div>
+        <div class="modal-actions">
+            <button class="modal-btn modal-btn-close" onclick="closeModal('actsModal')">Вернуться</button>
+            <button class="modal-btn modal-btn-primary" onclick="closeModal('actsModal')">Понятно</button>
+        </div>
+    </div>
+</div>
+
+<!-- Принудительный сброс потока для отделения от следующего контента -->
+<div style="clear: both; width: 100%;"></div>
+
+<script>
+// Функции для аккордеона
+function toggleOfficialSection(header) {
+    const section = header.parentElement;
+    const content = section.querySelector('.official-section-content');
+    const isOpen = content.classList.contains('open');
+    
+    // Закрываем другие секции
+    document.querySelectorAll('.official-section-content.open').forEach(openContent => {
+        if (openContent !== content) {
+            openContent.classList.remove('open');
+            openContent.parentElement.querySelector('.official-section-header').classList.remove('active');
+        }
+    });
+    
+    // Переключаем текущую секцию
+    header.classList.toggle('active');
+    content.classList.toggle('open');
+    
+    if (isOpen) {
+        setTimeout(() => {
+            content.style.maxHeight = '0';
+        }, 10);
+    } else {
+        content.style.maxHeight = content.scrollHeight + 'px';
+        setTimeout(() => {
+            content.style.maxHeight = 'none';
+        }, 400);
+    }
+}
+
+// Модальные окна
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.width = '100%';
+    const modalContent = modal.querySelector('.modal-content');
+    modalContent.scrollTop = 0;
+}
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    document.body.style.position = '';
+    document.body.style.width = '';
+}
+
+// Закрытие по клику на фон
+document.querySelectorAll('.official-modal').forEach(modal => {
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) closeModal(this.id);
+    });
+});
+// Закрытие по Escape
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        document.querySelectorAll('.official-modal.active').forEach(modal => closeModal(modal.id));
+    }
+});
+
+// Инициализация: открываем первую секцию
+document.addEventListener('DOMContentLoaded', function() {
+    const firstSection = document.querySelector('.official-section');
+    if (firstSection) {
+        const header = firstSection.querySelector('.official-section-header');
+        const content = firstSection.querySelector('.official-section-content');
+        header.classList.add('active');
+        content.classList.add('open');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        setTimeout(() => {
+            content.style.maxHeight = 'none';
+        }, 400);
+    }
+    if ('ontouchstart' in window) {
+        document.querySelectorAll('.doc-card-btn, .modal-btn').forEach(btn => {
+            btn.style.cursor = 'pointer';
+        });
+    }
+});
+</script>

@@ -1,0 +1,133 @@
+<style>
+.vis-finance {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #fefce8 0%, #fef9c3 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-finance-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #744210;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.finance-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.finance-stat {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  text-align: center;
+  border-top: 4px solid #d69e2e;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.finance-stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #744210;
+  margin-bottom: 10px;
+}
+
+.finance-stat-label {
+  color: #744210;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.finance-stat-desc {
+  color: #5d7690;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.finance-message {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #d69e2e;
+  margin-bottom: 30px;
+}
+
+.finance-message p {
+  color: #2d3748;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .vis-finance {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-finance-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .finance-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .finance-stat {
+    padding: 20px;
+  }
+  
+  .finance-message {
+    padding: 20px;
+  }
+}
+</style>
+
+<section id="finance" class="vis-section vis-finance">
+  <h2 class="vis-finance-title">Financial Model</h2>
+  
+  <div class="finance-stats">
+    <div class="finance-stat">
+      <div class="finance-stat-value">$50/hour</div>
+      <div class="finance-stat-label">Experimental Work</div>
+      <p class="finance-stat-desc">Sessions with veterans at preferential cost</p>
+    </div>
+    
+    <div class="finance-stat">
+      <div class="finance-stat-value">$70/hour</div>
+      <div class="finance-stat-label">Couple Training</div>
+      <p class="finance-stat-desc">Individual training sessions on methodology</p>
+    </div>
+    
+    <div class="finance-stat">
+      <div class="finance-stat-value">Barter</div>
+      <div class="finance-stat-label">Social Exchange</div>
+      <p class="finance-stat-desc">Trained couples help others without monetary transactions</p>
+    </div>
+  </div>
+  
+  <div class="finance-message">
+    <p>
+      <strong>Every dollar transforms into a sustainable self-help system.</strong><br>
+      By investing in training one couple, you create a source of support for dozens of people.
+    </p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="/en/profile/vis-realitatis/finance-model/" class="vis-more-btn" style="border-color: #d69e2e; color: #744210;">
+      More about the financial model
+    </a>
+  </div>
+</section>

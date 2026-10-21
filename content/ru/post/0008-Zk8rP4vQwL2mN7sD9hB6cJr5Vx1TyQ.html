@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vis Realitatis | Complete Document (Latin - English - Ukrainian)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 1.5;
+            color: #000;
+            background-color: #fff;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .print-meta {
+            text-align: center;
+            border-bottom: 3px double #000;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .print-meta h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .print-meta .doc-id {
+            font-family: monospace;
+            background-color: #f5f5f5;
+            padding: 5px 10px;
+            border-radius: 4px;
+            display: inline-block;
+            margin: 10px 0;
+        }
+        
+        .print-meta .hash-info {
+            font-size: 12px;
+            color: #666;
+            margin-top: 10px;
+        }
+        
+        .language-section {
+            page-break-inside: avoid;
+            margin-bottom: 60px;
+            border: 1px solid #ddd;
+            padding: 25px;
+            background-color: #fff;
+        }
+        
+        .language-badge {
+            display: inline-block;
+            background-color: #333;
+            color: white;
+            padding: 5px 15px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-radius: 3px;
+        }
+        
+        .header-info {
+            border-bottom: 1px solid #000;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .document-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .document-list li {
+            margin-bottom: 15px;
+        }
+        
+        /* Стили для таблиц в едином стиле */
+        .scroll-table {
+            overflow-x: auto;
+            margin: 25px 0;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fafafa;
+        }
+        
+        .scroll-table table {
+            min-width: 800px;
+            border-collapse: collapse;
+            width: 100%;
+            font-size: 14px;
+        }
+        
+        .scroll-table thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .scroll-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            white-space: nowrap;
+        }
+        
+        .scroll-table th:last-child {
+            border-right: none;
+        }
+        
+        .scroll-table tbody tr {
+            border-bottom: 1px solid #e8e8e8;
+            transition: background-color 0.2s ease;
+        }
+        
+        .scroll-table tbody tr:nth-child(even) {
+            background-color: #f8f8f8;
+        }
+        
+        .scroll-table tbody tr:hover {
+            background-color: #f0f2ff;
+        }
+        
+        .scroll-table td {
+            padding: 16px 15px;
+            vertical-align: top;
+            border-right: 1px solid #e8e8e8;
+        }
+        
+        .scroll-table td:last-child {
+            border-right: none;
+        }
+        
+        .response-template {
+            border: 1px dashed #000;
+            padding: 25px;
+            margin: 25px 0;
+            background-color: #f9f9f9;
+        }
+        
+        .checkbox-item {
+            margin: 20px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .checkbox-item:before {
+            content: "☐";
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+        
+        .footnote {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+        }
+        
+        .confidential-note {
+            border: 1px solid #c00;
+            padding: 15px;
+            margin: 20px 0;
+            background-color: #fff0f0;
+        }
+        
+        .signature {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 2px solid #000;
+        }
+        
+        .page-break {
+            page-break-before: always;
+            height: 0;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .toc {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+        }
+        
+        .toc h3 {
+            margin-bottom: 15px;
+        }
+        
+        .toc ul {
+            list-style-type: none;
+        }
+        
+        .toc li {
+            margin: 8px 0;
+        }
+        
+        .toc a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 1px dotted #666;
+        }
+        
+        .protocol-ref {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        
+        @media print {
+            body {
+                padding: 10px;
+                max-width: 100%;
+            }
+            
+            .toc {
+                display: none;
+            }
+            
+            .page-break {
+                display: block;
+            }
+            
+            .language-section {
+                border: none;
+                padding: 0;
+                margin-bottom: 40px;
+            }
+            
+            .confidential-note {
+                border: 1px solid #000;
+                background-color: transparent;
+            }
+            
+            .scroll-table {
+                border: 1px solid #000;
+            }
+        }
+        
+        @media screen {
+            .toc {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="print-meta">
+    <h1>VIS REALITATIS DOCUMENT PACKAGE</h1>
+    <p class="doc-id">Document ID: Kt7bYp3QwLm2Nz8Rd4sHb6cJr5vFx9</p>
+    <p>Complete version with all language translations</p>
+    <p class="hash-info">For integrity verification: SHA-256 hash of entire document (including this header)</p>
+    <p><strong>Generated:</strong> <span id="current-date"></span></p>
+</div>
+
+<div class="toc">
+    <h3>Table of Contents / Зміст</h3>
+    <ul>
+        <li><a href="#latin">I. Latin Version (Primary Official)</a></li>
+        <li><a href="#english">II. English Version (Legal Validation)</a></li>
+        <li><a href="#ukrainian">III. Ukrainian Version (Informational)</a></li>
+        <li><a href="#integrity">IV. Integrity Verification Data</a></li>
+    </ul>
+</div>
+
+<!-- =========================================== -->
+<!-- LATIN VERSION (PRIMARY OFFICIAL) -->
+<!-- =========================================== -->
+<div id="latin" class="language-section">
+    <div class="language-badge">I. VERSIO LATINA (PRIMARIA OFFICIALIS)</div>
+    
+    <div class="header-info">
+        <p><strong>Ad:</strong> m@kalmykov.info</p>
+        <p><strong>Subiectum:</strong> Invitatio ad Manifestum «Vis Realitatis» et Memorandum intellectus considerandum</p>
+    </div>
+    
+    <p><strong>Spectabilis Alexei Alexeevich!</strong></p>
+    
+    <p>Ex Protocollo colloquiorum initialium cum Organizatione "Filii Belli" (additur) de programmate renovationis et adaptationis veteranorum belli et laboris, paravimus fasciculum documentorum ad considerandum per peritos et socios claves.</p>
+    
+    <p>Rogamus ut contenta cognoscas et tuam positionem praeviam declares:</p>
+    
+    <ol class="document-list">
+        <li><strong>Protocolum colloquiorum praeviorum IMARCH LTD UK et Organizationis "Filii Belli"</strong> (cellula 27 regionis Sevcenkivsci in urbe Charcoviensi):<br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/</span>
+        </li>
+        <li><strong>Manifestum centri renovationis et adaptationis Vis Realitatis:</strong><br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/</span>
+        </li>
+    </ol>
+    
+    <p><strong>Pro contextu generali etiam praesto est presentatio publica projecti:</strong></p>
+    
+    <ul>
+        <li>Pagina introductoria pro micro-donatoribus:<br>
+            <span class="protocol-ref">https://imarch.sbs/la/vis-realitatis-center/</span>
+        </li>
+        <li>Textus compilationis presentationis:<br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/</span>
+        </li>
+    </ul>
+    
+    <h3>🔗 Catena logica documentorum</h3>
+    <p>Protocollum petitionis → Manifestum solutionis → Memorandum cooperationis → Munus specificum in Projecto</p>
+    
+    <ol>
+        <li><strong>Protocollum</strong> confirmat necessitatem.</li>
+        <li><strong>Manifestum</strong> describit <em>quomodo</em> nos huic necessitati respondemus.</li>
+        <li><strong>Memorandum</strong> definit <em>quis</em> et <em>quibus principiis</em> in exsecutione participat.</li>
+        <li><strong>Munus specificum</strong> in annexo separato ad memorandum post consensum tuum specificatur.</li>
+    </ol>
+    
+    <h3>📝 Exemplar responsi tui</h3>
+    
+    <div class="response-template">
+        <p><strong>Subiectum:</strong> Responsio ad fasciculum documentorum «Vis Realitatis»</p>
+        
+        <p>Spectabilis turma projecti «Vis Realitatis»,</p>
+        
+        <div class="checkbox-item">
+            <strong>CUM MANIFESTO COGNITUM HABEO</strong><br>
+            Manifestum renovationis «Vis Realitatis» in genere ad notitiam acceptum est.
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>SUPPORTUM CONCEPTUALE</strong><br>
+            Principia et modos in Manifesto expositos in genere sustineo / sustineo cum annotationibus*.<br>
+            <em>*Adnotatio: [si quae sunt, indica annotationes vel quaestiones]</em>
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>PARATUS/PARATA SUM AD SPECIFICATIONEM PARTICIPATIONIS</strong><br>
+            Paratus/Parata sum ad specificum munus in projecto considerandum et ad singula in congressu separato vel protocollo colloquiorum discutienda.
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>CONSENSUS PRAEVIUS AD MEMORANDUM</strong><br>
+            Non contradico praeparationi et subscriptioni memorandi bilateralis de intellectu et cooperatione in fundamento documentorum praesentatorum.
+        </div>
+        
+        <p>Data: ___________________</p>
+        <p>Nomen: ____________________</p>
+        <p>Organizatio: ____________</p>
+        <p>Munus: ______________</p>
+        <p>Electronica epistula: ________</p>
+        <p>Telephonum: ________________</p>
+    </div>
+    
+    <h3>🚀 Quid post responsum tuum fiet</h3>
+    
+    <ol>
+        <li>Tibi mittemus <strong>designum memorandi personalisatum</strong> cum consideratione regionis tuae expertiae.</li>
+        <li>Textum intra <strong>5 dies laboris</strong> concordabimus.</li>
+        <li><strong>Subscriptionem</strong> (electronicam vel in charta) ordinabimus.</li>
+        <li>Te / tuam organizationem in <strong>indicem sociorum</strong> in situ interretiali projecti includemus (si consentis).</li>
+        <li>Ad <strong>sessionem inauguralem</strong> gregis laboris invitabimus.</li>
+    </ol>
+    
+    <h3>🎯 Formata participationis possibilia (ad electionem post subscriptionem memorandi)</h3>
+    
+    <div class="scroll-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>🎚️ Gradus</th>
+                    <th>📋 Forma participationis</th>
+                    <th>📝 Exempla</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Expertus</strong></td>
+                    <td>Comitatus methodologicus</td>
+                    <td>– Membrum consilii peritorum<br>– Supervisio programmatis piloti<br>– Recensio scientifica</td>
+                </tr>
+                <tr>
+                    <td><strong>Resursorum</strong></td>
+                    <td>Praebitio bonorum</td>
+                    <td>– Celebratio eventuum in tua platea<br>– Commutatio personalis<br>– Supportum informationis</td>
+                </tr>
+                <tr>
+                    <td><strong>Strategicus</strong></td>
+                    <td>Participatio in administratione</td>
+                    <td>– Membrum comitati gubernatorii<br>– Coordinatio directionis</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h3>⏱ Tempus responsionis</h3>
+    <p>Gratias agimus pro responsione ante <strong>[Data, +7-10 dies ab missione]</strong>.</p>
+    
+    <h3>📬 Si quaestiones ortae sunt</h3>
+    <ul>
+        <li>De contento Manifesti</li>
+        <li>De procedura subscriptionis</li>
+        <li>Quaestiones technicae</li>
+    </ul>
+    <p>Pone eas in epistula responsiva tua.</p>
+    
+    <div class="confidential-note">
+        <p><strong>🔒 Adnotatio de confidentialitate</strong></p>
+        <p>Omnia documenta annexa sunt materialia praevia ad cognoscendum. Rogamus ne ea disseminetis sine concordatione cum nostra turma. Post subscriptionem memorandi, versio publica fasciculi documentorum praesto erit.</p>
+    </div>
+    
+    <div class="footnote">
+        <p><strong>P.S.</strong> Etiam aperti sumus ad colloquium praevium informale ante responsum officiale. Si tibi convenit, possumus brevem telephoniam ordinare ad <span class="protocol-ref">https://calendly.com/purpurov566/30min</span></p>
+    </div>
+    
+    <div class="signature">
+        <p>Cum observantia,<br>
+        Turma projecti <strong>Vis Realitatis</strong></p>
+        <p><span class="protocol-ref">https://imarch.sbs/</span></p>
+        <p><span class="protocol-ref">admin@imarch.sbs</span></p>
+        <p><em>Primus in mundo campus apertus systematis operativi socialis</em></p>
+    </div>
+    
+    <div class="footnote">
+        <p><strong>Adnotatio:</strong> Si non es persona auctorizata ad huiusmodi decisiones accipiendas, quaesumus, hanc epistulam collegae competenti transmittas.</p>
+    </div>
+</div>
+
+<!-- Разрыв страницы для печати -->
+<div class="page-break"></div>
+
+<!-- =========================================== -->
+<!-- ENGLISH VERSION (LEGAL VALIDATION) -->
+<!-- =========================================== -->
+<div id="english" class="language-section">
+    <div class="language-badge">II. ENGLISH VERSION (LEGAL VALIDATION)</div>
+    
+    <div class="header-info">
+        <p><strong>To:</strong> m@kalmykov.info</p>
+        <p><strong>Subject:</strong> Invitation to review the "Vis Realitatis" Manifesto and Memorandum of Understanding</p>
+    </div>
+    
+    <p><strong>Dear Alexey Alexeevich!</strong></p>
+    
+    <p>Based on the Protocol of initial negotiations with the Public Organization "Children of War" (attached) regarding the formation of a renovation and adaptation program for veterans of war and labor, we have prepared a package of documents for review by key experts and partners.</p>
+    
+    <p>We ask you to review the contents and express your preliminary position:</p>
+    
+    <ol class="document-list">
+        <li><strong>Protocol of preliminary negotiations between IMARCH LTD UK and the Public Organization "Children of War"</strong> (unit 27 of Shevchenkivskyi district, Kharkiv):<br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/</span>
+        </li>
+        <li><strong>Manifesto of the Vis Realitatis renovation and adaptation center:</strong><br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/</span>
+        </li>
+    </ol>
+    
+    <p><strong>For general context, a public project presentation is also available:</strong></p>
+    
+    <ul>
+        <li>Landing page for micro-donors:<br>
+            <span class="protocol-ref">https://imarch.sbs/la/vis-realitatis-center/</span>
+        </li>
+        <li>Compiled presentation text:<br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/</span>
+        </li>
+    </ul>
+    
+    <h3>🔗 Logical chain of documents</h3>
+    <p>Request Protocol → Solution Manifesto → Cooperation Memorandum → Specific Role in the Project</p>
+    
+    <ol>
+        <li><strong>Protocol</strong> confirms the need.</li>
+        <li><strong>Manifesto</strong> describes <em>how</em> we respond to this need.</li>
+        <li><strong>Memorandum</strong> defines <em>who</em> and <em>on what principles</em> participates in the implementation.</li>
+        <li><strong>Detailed role</strong> is specified in a separate annex to the memorandum after your consent.</li>
+    </ol>
+    
+    <h3>📝 Your response template</h3>
+    
+    <div class="response-template">
+        <p><strong>Subject:</strong> Response to the "Vis Realitatis" document package</p>
+        
+        <p>Dear "Vis Realitatis" project team,</p>
+        
+        <div class="checkbox-item">
+            <strong>I HAVE REVIEWED THE MANIFESTO</strong><br>
+            The "Vis Realitatis" renovation manifesto has been generally noted.
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>CONCEPTUAL SUPPORT</strong><br>
+            The principles and approaches outlined in the Manifesto are generally supported / supported with remarks*.<br>
+            <em>*Note: [if any, indicate remarks or questions]</em>
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>READY TO SPECIFY PARTICIPATION</strong><br>
+            I am ready to consider a specific functional role within the project and discuss details during a separate meeting or negotiation protocol.
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>PRELIMINARY AGREEMENT TO THE MEMORANDUM</strong><br>
+            I do not object to the preparation and signing of a bilateral memorandum of understanding and cooperation based on the presented documents.
+        </div>
+        
+        <p>Date: ___________________</p>
+        <p>Full Name: ____________________</p>
+        <p>Organization: ____________</p>
+        <p>Position: ______________</p>
+        <p>Contact email: ________</p>
+        <p>Phone: ________________</p>
+    </div>
+    
+    <h3>🚀 What will happen after your response</h3>
+    
+    <ol>
+        <li>We will send you a <strong>personalized draft memorandum</strong> considering your expert area.</li>
+        <li>We will coordinate the text within <strong>5 working days</strong>.</li>
+        <li>We will organize <strong>signing</strong> (electronic or on paper).</li>
+        <li>We will include you / your organization in the <strong>partner list</strong> on the project website (if you agree).</li>
+        <li>We will invite you to the <strong>inaugural session</strong> of the working group.</li>
+    </ol>
+    
+    <h3>🎯 Possible participation formats (to choose after signing the memorandum)</h3>
+    
+    <div class="scroll-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>🎚️ Level</th>
+                    <th>📋 Participation form</th>
+                    <th>📝 Examples</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Expert</strong></td>
+                    <td>Methodological support</td>
+                    <td>– Member of the expert council<br>– Supervision of the pilot program<br>– Scientific review</td>
+                </tr>
+                <tr>
+                    <td><strong>Resource</strong></td>
+                    <td>Provision of assets</td>
+                    <td>– Holding events at your venue<br>– Personnel exchange<br>– Information support</td>
+                </tr>
+                <tr>
+                    <td><strong>Strategic</strong></td>
+                    <td>Participation in management</td>
+                    <td>– Member of the management committee<br>– Coordination of a direction</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h3>⏱ Response deadline</h3>
+    <p>We would appreciate your response by <strong>[Date, +7-10 days from sending]</strong>.</p>
+    
+    <h3>📬 If you have questions</h3>
+    <ul>
+        <li>About the Manifesto content</li>
+        <li>About the signing procedure</li>
+        <li>Technical questions</li>
+    </ul>
+    <p>Please ask them in your reply email.</p>
+    
+    <div class="confidential-note">
+        <p><strong>🔒 Confidentiality note</strong></p>
+        <p>All attached documents are preliminary materials for review. We ask you not to distribute them without coordination with our team. After signing the memorandum, a public version of the document package will be available.</p>
+    </div>
+    
+    <div class="footnote">
+        <p><strong>P.S.</strong> We are also open to a preliminary informal conversation before the official response. If it's convenient for you, we can schedule a brief call at <span class="protocol-ref">https://calendly.com/purpurov566/30min</span></p>
+    </div>
+    
+    <div class="signature">
+        <p>Sincerely,<br>
+        The <strong>Vis Realitatis</strong> Project Team</p>
+        <p><span class="protocol-ref">https://imarch.sbs/</span></p>
+        <p><span class="protocol-ref">admin@imarch.sbs</span></p>
+        <p><em>The world's first open testing ground for a social operating system</em></p>
+    </div>
+    
+    <div class="footnote">
+        <p><strong>Note:</strong> If you are not the authorized person to make such decisions, please forward this email to the appropriate colleague.</p>
+    </div>
+</div>
+
+<!-- Разрыв страницы для печати -->
+<div class="page-break"></div>
+
+<!-- =========================================== -->
+<!-- UKRAINIAN VERSION (INFORMATIONAL) -->
+<!-- =========================================== -->
+<div id="ukrainian" class="language-section">
+    <div class="language-badge">III. УКРАЇНСЬКА ВЕРСІЯ (ІНФОРМАЦІЙНА)</div>
+    
+    <div class="header-info">
+        <p><strong>Кому:</strong> m@kalmykov.info</p>
+        <p><strong>Тема:</strong> Запрошення до розгляду Маніфесту «Vis Realitatis» та Меморандуму про взаєморозуміння</p>
+    </div>
+    
+    <p><strong>Шановний Олексію Олексійовичу!</strong></p>
+    
+    <p>На підставі Протоколу попередніх переговорів із Громадською Організацією «Діти війни» (додається) щодо формування програми реновації та адаптації ветеранів війни та праці, ми підготували пакет документів для розгляду ключовими експертами та партнерами.</p>
+    
+    <p>Просимо Вас ознайомитись із змістом та висловити Вашу попередню позицію:</p>
+    
+    <ol class="document-list">
+        <li><strong>Протокол попередніх переговорів IMARCH LTD UK та ГО «Діти війни»</strong> (комірка 27 Шевченківського району м. Харкова):<br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/</span>
+        </li>
+        <li><strong>Маніфест центру реновації та адаптації Vis Realitatis:</strong><br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/</span>
+        </li>
+    </ol>
+    
+    <p><strong>Для загального контексту також доступна публічна презентація проєкту:</strong></p>
+    
+    <ul>
+        <li>Лендінг для мікродонаторів:<br>
+            <span class="protocol-ref">https://imarch.sbs/la/vis-realitatis-center/</span>
+        </li>
+        <li>Компільований текст презентації:<br>
+            <span class="protocol-ref">https://imarch.sbs/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/</span>
+        </li>
+    </ul>
+    
+    <h3>🔗 Логічний ланцюг документів</h3>
+    <p>Протокол запиту → Маніфест рішення → Меморандум співпраці → Конкретна роль у Проєкті</p>
+    
+    <ol>
+        <li><strong>Протокол</strong> підтверджує потребу.</li>
+        <li><strong>Маніфест</strong> описує, <em>як</em> ми відповідаємо на цю потребу.</li>
+        <li><strong>Меморандум</strong> визначає, <em>хто</em> та <em>на яких принципах</em> бере участь у впровадженні.</li>
+        <li><strong>Детальна роль</strong> уточнюється в окремому додатку до меморандуму після вашої згоди.</li>
+    </ol>
+    
+    <h3>📝 Шаблон Вашої відповіді</h3>
+    
+    <div class="response-template">
+        <p><strong>Тема:</strong> Відповідь на пакет документів «Vis Realitatis»</p>
+        
+        <p>Шановна командо проєкту «Vis Realitatis»,</p>
+        
+        <div class="checkbox-item">
+            <strong>З МАНІФЕСТОМ ОЗНАЙОМЛЕНИЙ/ОЗНАЙОМЛЕНА</strong><br>
+            Маніфест реновації «Vis Realitatis» загалом прийнятий до відома.
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>КОНЦЕПТУАЛЬНА ПІДТРИМКА</strong><br>
+            Принципи та підходи, викладені в Маніфесті, загалом підтримую / підтримую з зауваженнями*.<br>
+            <em>*Примітка: [якщо є, вказати зауваження або питання]</em>
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>ГОТОВИЙ/ГОТОВА ДО ДЕТАЛІЗАЦІЇ УЧАСТІ</strong><br>
+            Готовий/Готова розглянути конкретну функціональну роль в рамках проєкту та обговорити деталі в ході окремої зустрічі або протоколу переговорів.
+        </div>
+        
+        <div class="checkbox-item">
+            <strong>ПОПЕРЕДНЯ ЗГОДА НА МЕМОРАНДУМ</strong><br>
+            Не заперечую проти підготовки та підписання двостороннього меморандуму про взаєморозуміння та співпрацю на основі поданих документів.
+        </div>
+        
+        <p>Дата: ___________________</p>
+        <p>ПІБ: ____________________</p>
+        <p>Організація: ____________</p>
+        <p>Посада: ______________</p>
+        <p>Електронна пошта: ________</p>
+        <p>Телефон: ________________</p>
+    </div>
+    
+    <h3>🚀 Що буде після вашої відповіді</h3>
+    
+    <ol>
+        <li>Ми надішлемо вам <strong>персоніфікований проєкт меморандуму</strong> з урахуванням вашої експертної області.</li>
+        <li>Узгодимо текст протягом <strong>5 робочих днів</strong>.</li>
+        <li>Організуємо <strong>підписання</strong> (електронне або на паперовому носії).</li>
+        <li>Включимо вас / вашу організацію до <strong>списку партнерів</strong> на сайті проєкту (якщо погоджуєтесь).</li>
+        <li>Запросимо на <strong>встановчу сесію</strong> робочої групи.</li>
+    </ol>
+    
+    <h3>🎯 Можливі формати участі (на вибір після підписання меморандуму)</h3>
+    
+    <div class="scroll-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>🎚️ Рівень</th>
+                    <th>📋 Форма участі</th>
+                    <th>📝 Приклади</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Експертний</strong></td>
+                    <td>Методологічний супровід</td>
+                    <td>– Член експертної ради<br>– Супервізія пілотної програми<br>– Наукове рецензування</td>
+                </tr>
+                <tr>
+                    <td><strong>Ресурсний</strong></td>
+                    <td>Надання активів</td>
+                    <td>– Проведення заходів на вашому майданчику<br>– Кадровий обмін<br>– Інформаційна підтримка</td>
+                </tr>
+                <tr>
+                    <td><strong>Стратегічний</strong></td>
+                    <td>Участь в управлінні</td>
+                    <td>– Член управлінського комітету<br>– Координація напрямку</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <h3>⏱ Строк відповіді</h3>
+    <p>Будемо вдячні за відповідь до <strong>[Дата, +7-10 днів від відправлення]</strong>.</p>
+    
+    <h3>📬 Якщо виникли питання</h3>
+    <ul>
+        <li>Щодо змісту Маніфесту</li>
+        <li>Щодо процедури підписання</li>
+        <li>Технічні питання</li>
+    </ul>
+    <p>Задайте їх вашим зворотним листом.</p>
+    
+    <div class="confidential-note">
+        <p><strong>🔒 Примітка про конфіденційність</strong></p>
+        <p>Всі додані документи є попередніми матеріалами для ознайомлення. Ми просимо не поширювати їх без узгодження з нашою командою. Після підписання меморандуму буде доступна публічна версія пакету документів.</p>
+    </div>
+    
+    <div class="footnote">
+        <p><strong>P.S.</strong> Ми також відкриті до попередньої неформальної бесіди перед офіційною відповіддю. Якщо вам зручно, можемо призначити коротку дзвінкову конференцію на <span class="protocol-ref">https://calendly.com/purpurov566/30min</span></p>
+    </div>
+    
+    <div class="signature">
+        <p>З повагою,<br>
+        Команда проєкту <strong>Vis Realitatis</strong></p>
+        <p><span class="protocol-ref">https://imarch.sbs/</span></p>
+        <p><span class="protocol-ref">admin@imarch.sbs</span></p>
+        <p><em>Перший у світі відкритий полігон соціальної операційної системи</em></p>
+    </div>
+    
+    <div class="footnote">
+        <p><strong>Примітка:</strong> Якщо ви не є уповноваженою особою для прийняття таких рішень, будь ласка, перешліть цей лист відповідному колезі.</p>
+    </div>
+</div>
+
+<details>
+  <summary>Post Scriptum🔻</summary>
+
+<!-- =========================================== -->
+<!-- INTEGRITY VERIFICATION SECTION -->
+<!-- =========================================== -->
+<div id="integrity" class="language-section" style="background-color: #f8f8f8; border: none; padding: 20px;">
+    <div class="language-badge">IV. INTEGRITY VERIFICATION DATA</div>
+    
+    <h2>Дані для перевірки цілісності документу</h2>
+    
+    <div class="confidential-note" style="background-color: #e8f4f8;">
+        <p><strong>Цей розділ призначений для перевірки цілісності та автентичності документа.</strong></p>
+        <p>Для хешування використовуйте весь вміст цього HTML-файлу, починаючи з заголовка "VIS REALITATIS DOCUMENT PACKAGE" і закінчуючи цим розділом.</p>
+    </div>
+    
+    <!-- Блок метаданных в стиле PLATAN+ -->
+    <div style="text-align: left !important; max-width: 800px; margin: 30px auto 20px; padding-left: 0 !important; padding-right: 0 !important;">
+        <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;">
+            <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="/la/imarch-ltd-uk/">IMARCH LTD</a></em></p>
+            <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+            <p style="text-align: left !important; margin-left: 0 !important;"><em>2026.01.06, <a href="/la/vis-realitatis-center/">landing-version</a></em></p>
+            <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/archive/2026-01-06-VisRealitatis_Concept_paper.pdf">2026-01-06-VisRealitatis_Concept_paper.pdf</a></p>
+            <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>Note: The cryptographic hash value shows SHA-256 of the original Latin document</em></p>
+        </div>
+    </div>
+    
+    <div style="background: linear-gradient(145deg, #fefefe, #f5f0eb); border: none; border-radius: 12px; padding: 1.75em; margin: 2em auto; max-width: 700px; box-shadow: 0 4px 20px rgba(75, 46, 46, 0.08), 0 0 0 1px rgba(75, 46, 46, 0.05) inset;">
+    <details>
+      <summary style="font-weight: 700; font-size: 1.25em; cursor: pointer; color: #2c1810; padding: 0.75em 1em; background: #fff; border-radius: 8px; border: 1px solid #e8dcd3; box-shadow: 0 2px 8px rgba(75, 46, 46, 0.05); display: flex; align-items: center; justify-content: space-between; list-style: none;">
+        <span>CRYPTOGRAPHIC SIGNATURE (SHA-256 of the original Latin document)</span>
+        <span style="font-size: 0.9em; color: #8b7355;">🔻</span>
+      </summary>
+      <div style="margin-top: 1.75em;">
+        <pre style="background: #f8f4f0; padding: 1.25em; border-radius: 8px; overflow-x: auto; margin: 0; font-family: 'Courier New', 'Cascadia Code', monospace; font-size: 0.95em; line-height: 1.6; border: 1px solid #e8dcd3; color: #2c1810; white-space: pre-wrap; word-break: break-all;">
+11c781d82436f58f59dc2dc8822d86b819ad7422cdc6c6ef21c9b8e6c1ca6540
+        </pre>
+        <div style="margin-top: 1em; display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #8b7355;">
+          <span>✓ Hash of the Latin original • 64 characters</span>
+          <button onclick="navigator.clipboard.writeText('11c781d82436f58f59dc2dc8822d86b819ad7422cdc6c6ef21c9b8e6c1ca6540')" 
+                  style="background: transparent; color: #8b7355; border: 1px solid #d4c4b8; padding: 0.4em 1em; border-radius: 6px; font-size: 0.9em; cursor: pointer;"
+                  onmouseover="this.style.backgroundColor='#f5f0eb'; this.style.borderColor='#8b7355';"
+                  onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#d4c4b8';">
+            Copy
+          </button>
+        </div>
+        <p style="font-size: 0.85em; color: #8b7355; margin-top: 1em; font-style: italic;">
+          *This SHA-256 corresponds to the original Latin document. The Authentic Version is its official translation and is validated by this hash.
+        </p>
+      </div>
+    </details>
+  </div>
+</details>

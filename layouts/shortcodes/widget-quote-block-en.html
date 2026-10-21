@@ -1,0 +1,9 @@
+{{ $text := .Get "text" | default "«Science is not only knowledge, but also institutional memory. Without priority fixation and copyright protection, knowledge turns into noise.»" }}
+{{ $author := .Get "author" | default "O. Purpruv" }}
+{{ $title := .Get "title" | default "Founder of IMARCH LTD" }}
+
+<div class="light-widget quote-widget" style="text-align: center; padding: 1.5rem;">
+  <div style="font-size: 3rem; color: #b18b56; opacity: 0.3;">❝</div>
+  <div style="font-size: 1.2rem; font-style: italic; color: #2c2416; max-width: 700px; margin: 0.5rem auto;">{{ $text }}</div>
+  <div style="font-weight: 600; color: #b18b56; margin-top: 0.5rem;">— {{ $author }}, {{ $title }}</div>
+</div>

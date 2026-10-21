@@ -1,0 +1,153 @@
+<style>
+.vis-fundraising {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #e8f4f8 0%, #d1e7f0 100%);
+  border-radius: 12px;
+  margin: 40px 0;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vis-fundraising-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  color: #1a535c;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.fundraising-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.fundraising-stat {
+  background: white;
+  padding: 25px 20px;
+  border-radius: 10px;
+  text-align: center;
+  border-top: 4px solid #4ecdc4;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.fundraising-stat-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a535c;
+  margin-bottom: 10px;
+}
+
+.fundraising-stat-label {
+  color: #1a535c;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.fundraising-stat-desc {
+  color: #5d7690;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.fundraising-message {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  border-left: 4px solid #4ecdc4;
+  margin-bottom: 30px;
+}
+
+.fundraising-message p {
+  color: #2d3748;
+  line-height: 1.6;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.vis-more-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: transparent;
+  border: 2px solid #4ecdc4;
+  color: #1a535c;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.vis-more-btn:hover {
+  background: #4ecdc4;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(78, 205, 196, 0.3);
+}
+
+@media (max-width: 768px) {
+  .vis-fundraising {
+    padding: 40px 15px;
+    margin: 30px 0;
+  }
+  
+  .vis-fundraising-title {
+    font-size: 1.6rem;
+    margin-bottom: 30px;
+  }
+  
+  .fundraising-stats {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .fundraising-stat {
+    padding: 20px;
+  }
+  
+  .fundraising-message {
+    padding: 20px;
+  }
+}
+</style>
+
+<section id="fundraising-goals" class="vis-section vis-fundraising">
+  <h2 class="vis-fundraising-title">🎯 Цели сбора средств</h2>
+  
+  <div class="fundraising-stats">
+    <div class="fundraising-stat">
+      <div class="fundraising-stat-value">🏢</div>
+      <div class="fundraising-stat-label">Запуск центра</div>
+      <p class="fundraising-stat-desc">Создание реабилитационного пространства с оборудованием для работы с ветеранами</p>
+    </div>
+    
+    <div class="fundraising-stat">
+      <div class="fundraising-stat-value">💻</div>
+      <div class="fundraising-stat-label">Цифровое ядро</div>
+      <p class="fundraising-stat-desc">Разработка платформы для управления проектом и обучения методике</p>
+    </div>
+    
+    <div class="fundraising-stat">
+      <div class="fundraising-stat-value">🤝</div>
+      <div class="fundraising-stat-label">Первые программы</div>
+      <p class="fundraising-stat-desc">Проведение пилотных программ поддержки для 50+ ветеранов с ПТСР</p>
+    </div>
+  </div>
+  
+  <div class="fundraising-message">
+    <p>
+      <strong>Мы собираем средства не «вообще на помощь», а на чётко определённые этапы.</strong><br>
+      Каждый вклад имеет понятное назначение и измеримый результат.
+    </p>
+  </div>
+  
+  <div style="text-align: center;">
+    <a href="/ru/profile/vis-realitatis/fundraising-goals/" class="vis-more-btn">
+      Подробнее о целях сбора
+    </a>
+  </div>
+</section>

@@ -1,0 +1,828 @@
+<section class="funding">
+
+  <h2>Support Vis Realitatis</h2>
+
+  <div class="funding-grid">
+
+    <!-- OPTION 1 -->
+    <div class="funding-card">
+      <h3>Supporter</h3>
+      <p>Support the mission and receive early access benefits.</p>
+
+      <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="funding-btn primary">
+         Support
+      </a>
+    </div>
+
+    <!-- OPTION 2 -->
+    <div class="funding-card">
+      <h3>Early Access</h3>
+      <p>Reserve early participation in Chronicle OS tools.</p>
+
+      <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="funding-btn primary">
+         Reserve
+      </a>
+    </div>
+
+    <!-- OPTION 3 -->
+    <div class="funding-card">
+      <h3>Institutional Partner</h3>
+      <p>For experts, organizations and consortium partners.</p>
+
+      <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="funding-btn primary">
+         Reserve
+      </a>
+    </div>
+
+  </div>
+
+</section>{{ $uniqueID := printf "funding-%d" now.UnixNano }}
+{{ $donateURL := "https://whydonate.com/fundraising/vis-realitatis-preserving-memory" }}
+
+<div class="imarha-funding-section" id="{{ $uniqueID }}">
+
+  <div class="funding-header">
+    <h2>IMARCH Platform</h2>
+    <p class="subtitle">Digital infrastructure for personal and team representation</p>
+    <p class="subtitle-smaller">
+      Personal sites, communication tools, and trust protocols for experts, teams, and institutional communities.
+    </p>
+  </div>
+
+  <div class="funding-options">
+
+    <div class="funding-option">
+      <div class="option-icon">💝</div>
+      <h3>Micro support</h3>
+      <p class="option-description">
+        From £10 per month. Receive regular updates and a supporter badge.
+      </p>
+
+      <div class="option-features">
+        <div class="feature">Monthly updates</div>
+        <div class="feature">Profile badge</div>
+        <div class="feature">Early access</div>
+        <div class="feature">Personal profile</div>
+      </div>
+
+      <div class="price">From £10<span>/month</span></div>
+
+      <a class="funding-btn primary"
+         href="{{ $donateURL }}"
+         target="_blank"
+         rel="noopener noreferrer">
+         Support
+      </a>
+    </div>
+
+    <div class="funding-option">
+      <div class="option-icon">🎯</div>
+      <h3>Early access</h3>
+      <p class="option-description">
+        6 months with 40% discount. Starts right after MVP launch.
+      </p>
+
+      <div class="option-features">
+        <div class="feature">6 months access</div>
+        <div class="feature">40% discount</div>
+        <div class="feature">Priority support</div>
+        <div class="feature">Roadmap surveys</div>
+        <div class="feature">Site mask and official email</div>
+      </div>
+
+      <div class="price">£50<span>/6 months</span></div>
+
+      <a class="funding-btn primary"
+         href="{{ $donateURL }}"
+         target="_blank"
+         rel="noopener noreferrer">
+         Reserve
+      </a>
+    </div>
+
+    <div class="funding-option popular">
+      <div class="popular-badge">BEST VALUE</div>
+      <div class="option-icon">🚀</div>
+      <h3>Early access 1 year</h3>
+      <p class="option-description">
+        12 months with 50% discount. Starts right after MVP launch.
+      </p>
+
+      <div class="option-features">
+        <div class="feature">12 months access</div>
+        <div class="feature">50% discount</div>
+        <div class="feature">Priority support</div>
+        <div class="feature">Influence product direction</div>
+        <div class="feature">Consortium business site package</div>
+      </div>
+
+      <div class="price">£100<span>/year</span></div>
+
+      <a class="funding-btn primary"
+         href="{{ $donateURL }}"
+         target="_blank"
+         rel="noopener noreferrer">
+         Reserve
+      </a>
+    </div>
+
+    <div class="funding-option">
+      <div class="option-icon">🤝</div>
+      <h3>Partners and foundations</h3>
+      <p class="option-description">
+        If you want to support as a partner, organization, or foundation, contact us to discuss format and transparency.
+      </p>
+
+      <div class="option-features">
+        <div class="feature">Email request</div>
+        <div class="feature">Project materials pack</div>
+        <div class="feature">Call scheduling</div>
+        <div class="feature">Individual roadmap</div>
+      </div>
+
+      <div class="price">On request</div>
+
+      <a href="mailto:partner@imarha.org?subject=Partnership with IMARCH"
+         class="funding-btn secondary">
+         Contact us
+      </a>
+    </div>
+
+  </div>
+
+  <div class="funding-footer">
+    <p class="disclaimer">
+      💡 All funds go to platform development. Regular reports are published in our blog.
+    </p>
+  </div>
+
+</div>
+
+<style>
+#{{ $uniqueID }} {
+  all: initial !important;
+  display: block !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  box-sizing: border-box !important;
+
+  --primary: #0c1120;
+  --secondary: #1a1f3a;
+  --accent: #9333ea;
+  --text: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --success: #10b981;
+
+  background: linear-gradient(155deg, var(--primary) 0%, var(--secondary) 100%) !important;
+  color: var(--text) !important;
+  border-radius: 20px !important;
+  padding: 3rem 2rem !important;
+  margin: 3rem 0 !important;
+  width: 100% !important;
+  position: relative !important;
+  -webkit-text-size-adjust: 100% !important;
+}
+
+#{{ $uniqueID }} * {
+  all: unset !important;
+  box-sizing: border-box !important;
+}
+
+/* Header */
+#{{ $uniqueID }} .funding-header {
+  text-align: center !important;
+  margin-bottom: 3rem !important;
+  max-width: 860px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#{{ $uniqueID }} .funding-header h2 {
+  font-size: 2.5rem !important;
+  font-weight: 800 !important;
+  margin-bottom: 0.5rem !important;
+  background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  display: block !important;
+  line-height: 1.2 !important;
+}
+
+#{{ $uniqueID }} .subtitle {
+  font-size: 1.25rem !important;
+  color: var(--text) !important;
+  line-height: 1.5 !important;
+  display: block !important;
+  margin-bottom: 0.75rem !important;
+  font-weight: 500 !important;
+}
+
+#{{ $uniqueID }} .subtitle-smaller {
+  font-size: 1.05rem !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.6 !important;
+  display: block !important;
+  max-width: 720px !important;
+  margin: 0 auto !important;
+}
+
+/* Grid */
+#{{ $uniqueID }} .funding-options {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+#{{ $uniqueID }} .funding-option {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  padding: 2.25rem !important;
+  position: relative !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: all 0.3s ease !important;
+}
+
+#{{ $uniqueID }} .funding-option:hover {
+  transform: translateY(-5px) !important;
+  border-color: var(--accent) !important;
+  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.2) !important;
+}
+
+#{{ $uniqueID }} .popular-badge {
+  position: absolute !important;
+  top: -1rem !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: var(--success) !important;
+  color: white !important;
+  padding: 0.25rem 1rem !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  display: block !important;
+  text-transform: uppercase !important;
+}
+
+#{{ $uniqueID }} .option-icon {
+  font-size: 3rem !important;
+  margin-bottom: 1.25rem !important;
+  display: block !important;
+  text-align: center !important;
+}
+
+#{{ $uniqueID }} .funding-option h3 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 0.9rem !important;
+  text-align: center !important;
+  display: block !important;
+}
+
+#{{ $uniqueID }} .option-description {
+  font-size: 1rem !important;
+  color: var(--text-secondary) !important;
+  line-height: 1.6 !important;
+  margin-bottom: 1.25rem !important;
+  text-align: center !important;
+  display: block !important;
+}
+
+#{{ $uniqueID }} .option-features {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+  gap: 0.75rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+#{{ $uniqueID }} .feature {
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding: 0.75rem !important;
+  border-radius: 8px !important;
+  font-size: 0.9rem !important;
+  text-align: center !important;
+  display: block !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: var(--text-secondary) !important;
+}
+
+#{{ $uniqueID }} .price {
+  font-size: 2.25rem !important;
+  font-weight: 800 !important;
+  margin: 1.25rem 0 !important;
+  text-align: center !important;
+  display: block !important;
+}
+
+#{{ $uniqueID }} .price span {
+  font-size: 1rem !important;
+  color: var(--text-secondary) !important;
+  font-weight: 500 !important;
+  margin-left: 6px !important;
+}
+
+/* Buttons */
+#{{ $uniqueID }} .funding-btn {
+  display: block !important;
+  width: 100% !important;
+  padding: 1rem !important;
+  border-radius: 12px !important;
+  font-weight: 600 !important;
+  font-size: 1.05rem !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+  margin-top: auto !important;
+  min-height: 48px !important;
+  text-decoration: none !important;
+}
+
+#{{ $uniqueID }} .funding-btn.primary {
+  background: linear-gradient(135deg, var(--accent) 0%, #7e22ce 100%) !important;
+  color: white !important;
+}
+
+#{{ $uniqueID }} .funding-btn.secondary {
+  background: transparent !important;
+  color: var(--text) !important;
+  border: 2px solid var(--accent) !important;
+}
+
+#{{ $uniqueID }} .funding-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3) !important;
+}
+
+/* Footer */
+#{{ $uniqueID }} .funding-footer {
+  text-align: center !important;
+  padding-top: 1.5rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#{{ $uniqueID }} .disclaimer {
+  color: var(--text-secondary) !important;
+  font-size: 0.9rem !important;
+  line-height: 1.6 !important;
+  max-width: 650px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #{{ $uniqueID }} {
+    padding: 2rem 1.25rem !important;
+  }
+
+  #{{ $uniqueID }} .funding-header h2 {
+    font-size: 2rem !important;
+  }
+
+  #{{ $uniqueID }} .funding-options {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #{{ $uniqueID }} * {
+    transition: none !important;
+  }
+  #{{ $uniqueID }} .funding-option:hover,
+  #{{ $uniqueID }} .funding-btn:hover {
+    transform: none !important;
+  }
+}
+</style>
+
+<style>
+/* ===== ISOLATED STYLES ===== */
+#funding-{{ $uniqueID }} {
+    all: initial !important;
+    display: block !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    box-sizing: border-box !important;
+    
+    --primary: #0c1120;
+    --secondary: #1a1f3a;
+    --accent: #9333ea;
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --success: #10b981;
+    
+    background: linear-gradient(155deg, var(--primary) 0%, var(--secondary) 100%) !important;
+    color: var(--text) !important;
+    border-radius: 20px !important;
+    padding: 3rem 2rem !important;
+    margin: 3rem 0 !important;
+    width: 100% !important;
+    position: relative !important;
+    -webkit-text-size-adjust: 100% !important;
+}
+
+#funding-{{ $uniqueID }} * {
+    all: unset !important;
+    box-sizing: border-box !important;
+}
+
+/* HEADER */
+#funding-{{ $uniqueID }} .funding-header {
+    text-align: center !important;
+    margin-bottom: 5rem !important;
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+#funding-{{ $uniqueID }} .funding-header h2 {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin-bottom: 0.5rem !important;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: block !important;
+    line-height: 1.2 !important;
+}
+
+#funding-{{ $uniqueID }} .subtitle {
+    font-size: 1.3rem !important;
+    color: var(--text) !important;
+    line-height: 1.5 !important;
+    display: block !important;
+    margin-bottom: 0.75rem !important;
+    font-weight: 500 !important;
+}
+
+#funding-{{ $uniqueID }} .subtitle-smaller {
+    font-size: 1.1rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    display: block !important;
+    max-width: 700px !important;
+    margin: 0 auto !important;
+}
+
+/* OPTIONS GRID */
+#funding-{{ $uniqueID }} .funding-options {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 2rem !important;
+    margin-bottom: 3rem !important;
+    padding-top: 2rem !important;
+}
+
+#funding-{{ $uniqueID }} .funding-option {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+    padding: 2.5rem !important;
+    position: relative !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transition: all 0.3s ease !important;
+}
+
+#funding-{{ $uniqueID }} .funding-option:hover {
+    transform: translateY(-5px) !important;
+    border-color: var(--accent) !important;
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.2) !important;
+}
+
+#funding-{{ $uniqueID }} .popular-badge {
+    position: absolute !important;
+    top: -1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    background: var(--success) !important;
+    color: white !important;
+    padding: 0.25rem 1rem !important;
+    border-radius: 20px !important;
+    font-size: 0.8rem !important;
+    font-weight: 600 !important;
+    display: block !important;
+    text-transform: uppercase !important;
+}
+
+#funding-{{ $uniqueID }} .option-icon {
+    font-size: 3rem !important;
+    margin-bottom: 1.5rem !important;
+    display: block !important;
+    text-align: center !important;
+}
+
+#funding-{{ $uniqueID }} .funding-option h3 {
+    font-size: 1.5rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+#funding-{{ $uniqueID }} .option-description {
+    font-size: 1rem !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    margin-bottom: 1.5rem !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+#funding-{{ $uniqueID }} .option-features {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)) !important;
+    gap: 0.75rem !important;
+    margin-bottom: 2rem !important;
+}
+
+#funding-{{ $uniqueID }} .feature {
+    background: rgba(255, 255, 255, 0.05) !important;
+    padding: 0.75rem !important;
+    border-radius: 8px !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+    display: block !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-secondary) !important;
+}
+
+#funding-{{ $uniqueID }} .price {
+    font-size: 2.5rem !important;
+    font-weight: 800 !important;
+    margin: 1.5rem 0 !important;
+    text-align: center !important;
+    display: block !important;
+}
+
+#funding-{{ $uniqueID }} .price span {
+    font-size: 1rem !important;
+    color: var(--text-secondary) !important;
+    font-weight: 500 !important;
+    margin-left: 5px !important;
+}
+
+/* BUTTONS */
+#funding-{{ $uniqueID }} .funding-btn {
+    display: block !important;
+    width: 100% !important;
+    padding: 1rem !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    font-size: 1.1rem !important;
+    text-align: center !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    margin-top: auto !important;
+    min-height: 48px !important;
+}
+
+#funding-{{ $uniqueID }} .funding-btn.primary {
+    background: linear-gradient(135deg, var(--accent) 0%, #7e22ce 100%) !important;
+    color: white !important;
+}
+
+#funding-{{ $uniqueID }} .funding-btn.secondary {
+    background: transparent !important;
+    color: var(--text) !important;
+    border: 2px solid var(--accent) !important;
+}
+
+#funding-{{ $uniqueID }} .funding-btn:not(.primary, .secondary) {
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+#funding-{{ $uniqueID }} .funding-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3) !important;
+}
+
+/* FOOTER */
+#funding-{{ $uniqueID }} .funding-footer {
+    text-align: center !important;
+    padding-top: 2rem !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+#funding-{{ $uniqueID }} .disclaimer {
+    color: var(--text-secondary) !important;
+    font-size: 0.9rem !important;
+    line-height: 1.6 !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+/* ADAPTIVE */
+@media (max-width: 768px) {
+    #funding-{{ $uniqueID }} .funding-header {
+        margin-bottom: 4.5rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-options {
+        grid-template-columns: 1fr !important;
+        padding: 0 1rem !important;
+        padding-top: 2rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-header h2 {
+        font-size: 2rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .subtitle {
+        font-size: 1.2rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .subtitle-smaller {
+        font-size: 1rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-option {
+        padding: 2rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #funding-{{ $uniqueID }} {
+        padding: 2rem 1rem !important;
+        margin: 2rem 0 !important;
+        border-radius: 16px !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-header {
+        margin-bottom: 4rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-header h2 {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    #funding-{{ $uniqueID }} .subtitle {
+        font-size: 1.1rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .subtitle-smaller {
+        font-size: 0.95rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-options {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0 !important;
+        padding-top: 1.5rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-option {
+        padding: 1.5rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .option-icon {
+        font-size: 2.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-option h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .price {
+        font-size: 2rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-btn {
+        font-size: 1rem !important;
+        min-height: 48px !important;
+    }
+}
+
+@media (max-width: 360px) {
+    #funding-{{ $uniqueID }} {
+        padding: 1.5rem 0.75rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-header {
+        margin-bottom: 3.5rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-header h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .subtitle {
+        font-size: 1rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .subtitle-smaller {
+        font-size: 0.85rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-option {
+        padding: 1.25rem !important;
+        border-radius: 16px !important;
+    }
+    
+    #funding-{{ $uniqueID }} .option-icon {
+        font-size: 2rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-option h3 {
+        font-size: 1.2rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .option-description {
+        font-size: 0.9rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .feature {
+        font-size: 0.85rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .price {
+        font-size: 1.75rem !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-btn {
+        padding: 0.875rem !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #funding-{{ $uniqueID }} * {
+        transition: none !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-option:hover {
+        transform: none !important;
+    }
+    
+    #funding-{{ $uniqueID }} .funding-btn:hover {
+        transform: none !important;
+    }
+}
+
+.price-note {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-top: -0.8rem;
+    display: block;
+    width: 100%;
+}
+
+.price {
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+    text-align: center;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+#funding-{{ $uniqueID }} .price-note {
+    display: block !important;
+    width: 100% !important;
+    text-align: center !important;
+    margin: -0.8rem auto 0 !important;
+    font-size: 0.95rem !important;
+    color: var(--text-secondary) !important;
+}
+</style>
+
+<script>
+(function() {
+    const sectionId = 'funding-{{ $uniqueID }}';
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    section.querySelectorAll('button.funding-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const type = this.getAttribute('data-type');
+
+            if (type === 'donation') {
+                alert('Thank you for your support! The payment button is connected via WeyDonate. Click the donate button on the project page or write to us if you need a link.');
+            } 
+            else if (type === 'presale-6months') {
+                alert('Early access for 6 months will be available as soon as the MVP is ready. We will add you to the notification list after confirming the donation.');
+            }
+            else if (type === 'presale') {
+                alert('Early access for one year will be available as soon as the MVP is ready. We will add you to the notification list after confirming the donation.');
+            }
+        });
+    });
+})();
+</script>

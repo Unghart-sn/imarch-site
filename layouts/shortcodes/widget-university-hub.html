@@ -1,0 +1,20 @@
+{{ $title := .Get "title" | default "УНИВЕРСИТЕТСКИЙ ХАБ: ПУТЬ К ГЛОБАЛЬНОЙ ИНДЕКСАЦИИ" }}
+{{ $nodes := .Get "nodes" | default `[{"icon":"🏛️","title":"University Hub","desc":"Faculties · Research Centers"},{"icon":"📚","title":"Scientific Development Cluster","desc":"Review · Layout · Proofing"},{"icon":"📖","title":"Journal Publication","desc":"Open Access · ISSN · DOI"},{"icon":"🌍","title":"Global Indexation","desc":"Scopus · WOS · RSCI · Zenodo"}]` }}
+{{ $footer := .Get "footer" | default "🤝 Гранты и сотрудничество · Образовательная платформа · Академическая интеграция" }}
+
+{{ $nodesData := $nodes | unmarshal }}
+
+<div class="light-widget university-hub">
+  <div class="widget-title">{{ $title }}</div>
+  <div class="hub-flow-light">
+    {{ range $index, $node := $nodesData }}
+      {{ if gt $index 0 }}<div class="hub-arrow-light">→</div>{{ end }}
+      <div class="hub-node-light">
+        <div class="hub-icon">{{ $node.icon }}</div>
+        <h5>{{ $node.title }}</h5>
+        <p>{{ $node.desc }}</p>
+      </div>
+    {{ end }}
+  </div>
+  <div class="hub-footer-light">{{ $footer }}</div>
+</div>
