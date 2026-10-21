@@ -33,15 +33,16 @@ exports.handler = async function (event, context) {
     }
 
     const fileName = bodyData.filename || bodyData.file_name || 'document.pdf';
+    const fileSizeBytes = Number(bodyData.size_bytes || bodyData.file_size || 0);
     const fileSha256 = bodyData.sha256 || '';
     const fullName = bodyData.full_name || '';
     const email = bodyData.email || '';
     const title = bodyData.title || '';
     
-    // Генерируем уникальный токен, чтобы ублажить NOT NULL ограничение базы
+    // Генерируем уникальный токен
     const hmacToken = crypto.randomUUID();
 
-    // Создаем запись в таблице orders с обязательным hmac_token
+    // Создаем запись в таблице orders со всеми обязательными колонками
     const dbResponse = await fetch(`${supabaseUrl}/rest/v1/orders`, {
       method: 'POST',
       headers: {
@@ -55,6 +56,7 @@ exports.handler = async function (event, context) {
         email: email,
         title: title,
         sha256: fileSha256,
+        size_bytes: fileSizeBytes,
         status: 'pending',
         hmac_token: hmacToken
       })
