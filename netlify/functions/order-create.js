@@ -39,10 +39,8 @@ exports.handler = async function (event, context) {
     const email = bodyData.email || '';
     const title = bodyData.title || '';
     
-    // Генерируем уникальный токен
     const hmacToken = crypto.randomUUID();
 
-    // Создаем запись в таблице orders со всеми обязательными колонками
     const dbResponse = await fetch(`${supabaseUrl}/rest/v1/orders`, {
       method: 'POST',
       headers: {
@@ -93,6 +91,7 @@ exports.handler = async function (event, context) {
         upload_headers: {
           'apikey': supabaseKey,
           'Authorization': `Bearer ${supabaseKey}`,
+          'Content-Type': 'application/octet-stream',
           'x-upsert': 'true'
         },
         whydonate_url: order.whydonate_url || 'https://imarch.ltd/'
