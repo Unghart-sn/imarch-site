@@ -1,4 +1,3 @@
-<script>
 (function() {
   const img = document.querySelector('.parallax-banner img');
   let current = 0;
@@ -16,4 +15,4 @@
     img.style.transform = `translateY(${current}px)`;
   });
 })();
-</script>
+
