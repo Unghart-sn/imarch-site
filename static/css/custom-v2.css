@@ -1961,12 +1961,6 @@ details p {
 }
 
 /* 1. ПРИНУДИТЕЛЬНЫЙ ВОЗВРАТ ШРИФТА */
-@font-face {
-    font-family: 'YourMagicFont'; /* Замени на точное название своего шрифта */
-    src: url('/fonts/your-font.woff2') format('woff2'); /* Проверь путь к файлу! */
-    font-display: swap;
-}
-
 body, p, h4 {
     font-family: 'YourMagicFont', Georgia, serif !important; /* Резервный Georgia ближе всего к твоему стилю */
     -webkit-font-smoothing: antialiased;
