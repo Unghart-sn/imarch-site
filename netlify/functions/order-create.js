@@ -14,12 +14,21 @@ exports.handler = async function (event, context) {
   try {
     const supabaseUrl = process.env.SUPABASE_URL;
     const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+    const hmacSecret = process.env.HMAC_ORDER_SECRET; // Добавили секрет
 
     if (!supabaseUrl || !supabaseKey) {
       return {
         statusCode: 500,
         headers,
         body: JSON.stringify({ error: 'Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY' })
+      };
+    }
+    
+    if (!hmacSecret) {
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: 'Missing HMAC_ORDER_SECRET' })
       };
     }
 
@@ -39,13 +48,9 @@ exports.handler = async function (event, context) {
     const email = bodyData.email || '';
     const title = bodyData.title || '';
     
-    //const hmacToken = crypto.randomUUID();
-    // Генерируем правильный 64-символьный HMAC-токен
-    const secretKey = process.env.HMAC_SECRET || 'super_secret_key_123'; // Если на Netlify задан секрет, возьмется он, иначе дефолтный
-    const hmacToken = crypto
-      .createHmac('sha256', secretKey)
-      .update(`${fullName}|${email}|${title}`) // Берем данные, которые есть
-      .digest('hex');
+    // Временный токен для создания записи
+    const tempToken = crypto.randomUUID();
+
     const dbResponse = await fetch(`${supabaseUrl}/rest/v1/orders`, {
       method: 'POST',
       headers: {
@@ -61,7 +66,7 @@ exports.handler = async function (event, context) {
         sha256: fileSha256,
         size_bytes: fileSizeBytes,
         status: 'pending',
-        hmac_token: hmacToken
+        hmac_token: tempToken // Пока кладем временный
       })
     });
 
@@ -83,6 +88,23 @@ exports.handler = async function (event, context) {
 
     const order = Array.isArray(dbResult) ? dbResult[0] : dbResult;
     const orderId = order.id;
+
+    // СЧИТАЕМ ПРАВИЛЬНЫЙ ХЭШ (как требует order-confirm.js)
+    const finalHmac = crypto.createHmac('sha256', hmacSecret)
+      .update(orderId + '|' + email)
+      .digest('hex');
+
+    // Обновляем базу правильным хэшем
+    await fetch(`${supabaseUrl}/rest/v1/orders?id=eq.${orderId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': supabaseKey,
+        'Authorization': `Bearer ${supabaseKey}`
+      },
+      body: JSON.stringify({ hmac_token: finalHmac })
+    });
+
     const uploadUrl = `${supabaseUrl}/storage/v1/object/orders/${orderId}_${fileName}`;
 
     return {
@@ -91,7 +113,7 @@ exports.handler = async function (event, context) {
       body: JSON.stringify({
         success: true,
         order_id: orderId,
-        hmac_token: order.hmac_token || hmacToken,
+        hmac_token: finalHmac, // Отдаем правильный хэш фронтенду
         upload_url: uploadUrl,
         upload_headers: {
           'apikey': supabaseKey,
