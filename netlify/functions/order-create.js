@@ -121,7 +121,7 @@ exports.handler = async function (event, context) {
           'Content-Type': 'application/octet-stream',
           'x-upsert': 'true'
         },
-        whydonate_url: order.whydonate_url || 'https://imarch.ltd/'
+        whydonate_url: order.whydonate_url || 'https://whydonate.com/donate/vis-realitatis-preserving-memory?amount=20&currency=gbp'
       })
     };
 
