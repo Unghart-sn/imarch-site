@@ -39,8 +39,13 @@ exports.handler = async function (event, context) {
     const email = bodyData.email || '';
     const title = bodyData.title || '';
     
-    const hmacToken = crypto.randomUUID();
-
+    //const hmacToken = crypto.randomUUID();
+    // Генерируем правильный 64-символьный HMAC-токен
+    const secretKey = process.env.HMAC_SECRET || 'super_secret_key_123'; // Если на Netlify задан секрет, возьмется он, иначе дефолтный
+    const hmacToken = crypto
+      .createHmac('sha256', secretKey)
+      .update(`${fullName}|${email}|${title}`) // Берем данные, которые есть
+      .digest('hex');
     const dbResponse = await fetch(`${supabaseUrl}/rest/v1/orders`, {
       method: 'POST',
       headers: {
