@@ -46,7 +46,7 @@
   <form id="certifyForm" class="certify-form" novalidate>
     <div class="field">
       <label for="full_name">Full name / Organization <span class="req">*</span></label>
-      <input id="full_name" type="text" name="full_name" required autocomplete="name">
+      <input id="full_name" type="text" name="full_name" required autocomplete="name" pattern="[A-Za-z\s]+" title="Please use only Latin letters and spaces">
     </div>
     <div class="field">
       <label for="email">Email <span class="req">*</span></label>

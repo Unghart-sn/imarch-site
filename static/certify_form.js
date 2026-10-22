@@ -172,6 +172,12 @@
       var title = (titleEl ? titleEl.value : '').trim();
       var tos = tosEl ? tosEl.checked : true;
 
+      // ПРОВЕРКА НА ЛАТИНИЦУ (добавлено)
+      var latinRegex = /^[A-Za-z\s]+$/;
+      if (name && !latinRegex.test(name)) {
+        return showMsg('err', 'Please use only Latin letters and spaces for your name.');
+      }
+
       if (!name) return showMsg('err', 'Please enter your name or organization.');
       if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) return showMsg('err', 'Please enter a valid email.');
       if (!title) return showMsg('err', 'Please enter a document title.');
