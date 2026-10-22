@@ -209,7 +209,7 @@
           hmac_token: order.hmac_token
         }).then(function (confirmRes) {
           showMsg('ok', 'Upload confirmed. Redirecting to payment\u2026');
-          window.location.href = order.whydonate_url;
+          window.open(order.whydonate_url, '_blank');
         });
       }).catch(function (err) {
         submitting = false;
