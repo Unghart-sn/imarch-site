@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Certificates — IMARCH LTD</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
+<script src="/auth-config.js"></script>
+<script src="/auth.js"></script>
+<meta name="theme-color" content="#1E3A5F">
+<style>
+  :root {
+    --c-primary:#1E3A5F; --c-light:#E3EAF2; --c-muted:#4A6A8A;
+    --c-bg:#FAF8F5; --c-border:#B0C4DE; --c-text:#1E2A3A;
+    --c-ok:#2E7D46; --c-err:#A02020;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Times New Roman', Georgia, serif;
+    background: var(--c-bg); color: var(--c-text);
+    margin: 0; padding: 2rem 1rem 0; line-height: 1.5;
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; flex: 1; width: 100%; }
+  .brand { text-align: center; margin-bottom: 2rem; }
+  .brand img { width: 64px; height: auto; }
+  .brand h1 { font-family: Arial, sans-serif; color: var(--c-primary); margin: 0.6rem 0 0.25rem; font-size: 1.4rem; letter-spacing: 0.05em; }
+  .brand .sub { font-family: Arial, sans-serif; color: #666; font-size: 0.75rem; line-height: 1.4; }
+  
+  h2.title { text-align: center; font-family: Arial, sans-serif; color: var(--c-primary); font-size: 1.6rem; margin: 0 0 0.25rem; }
+  .subtitle { text-align: center; font-style: italic; color: var(--c-muted); margin-bottom: 1.5rem; }
+
+  .card { background: var(--c-light); border: 1px solid var(--c-border); border-radius: 4px; padding: 1.25rem; margin-bottom: 1rem; }
+  
+  .tx-table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.85rem; }
+  .tx-table th { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--c-border); color: var(--c-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: bold; }
+  .tx-table td { padding: 10px 8px; border-bottom: 1px solid rgba(176,196,222,0.4); word-break: break-word; vertical-align: middle; }
+  
+  .btn { display: inline-block; padding: 8px 16px; background: var(--c-primary); color: white; text-decoration: none; border-radius: 4px; font-family: Arial, sans-serif; font-weight: bold; transition: background 0.15s; border: 1px solid var(--c-primary); cursor: pointer; font-size: 0.85rem; }
+  .btn:hover { background: #2A4A6A; text-decoration: none; }
+  .btn-ghost { background: transparent; color: var(--c-primary); margin-bottom: 1.5rem; }
+  .btn-ghost:hover { background: var(--c-light); }
+  
+  .loading { text-align: center; color: var(--c-muted); font-style: italic; padding: 2rem; }
+  .error-box { background: #F0D0D0; border: 1px solid var(--c-err); color: var(--c-err); padding: 1.25rem; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; }
+  .header-band { background: var(--c-light); border-top: 1px solid var(--c-border); padding: 0.6rem; text-align: center; font-family: Arial, sans-serif; color: var(--c-primary); font-size: 0.7rem; margin-top: 2rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <img src="/logo.png" alt="IMARCH">
+    <h1>IMARCH LTD</h1>
+    <div class="sub">
+      Jurisdiction: England &amp; Wales, United Kingdom<br>
+      Company Registration No. 16791765
+    </div>
+  </div>
+
+  <h2 class="title">My Certificates</h2>
+  <div class="subtitle">All your issued documents and proofs of priority</div>
+
+  <div style="text-align:left;">
+    <a href="/verify.html" class="btn btn-ghost">&larr; Back to Account</a>
+  </div>
+
+  <div class="card" id="content">
+    <div class="loading">Loading your certificates…</div>
+  </div>
+
+  <div style="text-align:center; margin-top: 2rem;">
+    <a href="/en/certify/" class="btn">Order New Certificate</a>
+  </div>
+</div>
+
+<div class="header-band">
+  IMARCH LTD UK &nbsp;&nbsp;·&nbsp;&nbsp; Reg. No: 16791765 &nbsp;&nbsp;·&nbsp;&nbsp; © 2026
+</div>
+
+<script>
+(function () {
+  const contentEl = document.getElementById('content');
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  }
+
+  async function loadCertificates() {
+    try {
+      const session = await window.imarchAuth.getSession();
+      if (!session || !session.user) {
+        contentEl.innerHTML = '<div class="error-box">Please <a href="/login/" style="color:inherit;text-decoration:underline;">sign in</a> to view your certificates.</div>';
+        return;
+      }
+
+      const sb = window.imarchAuth.getClient();
+      const res = await sb.from('orders')
+        .select('id,title,holder_name,created_at,pdf_url,status')
+        .eq('issuer_user_id', session.user.id)
+        .eq('status', 'ready')
+        .order('created_at', { ascending: false });
+
+      if (res.error) {
+        contentEl.innerHTML = '<div class="error-box">Failed to load: ' + esc(res.error.message) + '</div>';
+        return;
+      }
+
+      const orders = res.data || [];
+
+      if (orders.length === 0) {
+        contentEl.innerHTML = '<div style="text-align:center;color:var(--c-muted);font-style:italic;padding:1rem;">You have no certificates yet.</div>';
+        return;
+      }
+
+      let h = '<table class="tx-table"><thead><tr>'
+        + '<th>Date</th><th>Title</th><th>Holder</th><th style="text-align:right;">Action</th>'
+        + '</tr></thead><tbody>';
+
+      for (const o of orders) {
+        const date = String(o.created_at || '').slice(0, 10);
+        const url = o.pdf_url || '#';
+        h += '<tr>'
+          + '<td class="mono" style="color:var(--c-muted);font-size:0.75rem;">' + esc(date) + '</td>'
+          + '<td>' + esc(o.title || 'Untitled') + '</td>'
+          + '<td>' + esc(o.holder_name || '—') + '</td>'
+          + '<td style="text-align:right;">'
+          + '<a href="' + esc(url) + '" target="_blank" class="btn">Download PDF</a>'
+          + '</td></tr>';
+      }
+      h += '</tbody></table>';
+      
+      contentEl.innerHTML = h;
+
+    } catch (e) {
+      contentEl.innerHTML = '<div class="error-box">Error: ' + esc(e.message) + '</div>';
+    }
+  }
+
+  loadCertificates();
+})();
+</script>
+</body>
+</html>
