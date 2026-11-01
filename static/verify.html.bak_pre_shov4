@@ -1,0 +1,743 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verdictum Verification — IMARCH LTD</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="apple-touch-icon" href="/icon-192.png">
+<link rel="manifest" href="/manifest.json">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
+<script src="/auth-config.js"></script>
+<script src="/auth.js"></script>
+<script src="/safe.js"></script>
+<script src="/safe-api.js"></script>
+<script src="/verify-boot.js"></script>
+<meta name="theme-color" content="#1E3A5F">
+<style>
+  :root {
+    --c-primary:#1E3A5F; --c-light:#E3EAF2; --c-muted:#4A6A8A;
+    --c-bg:#FAF8F5; --c-border:#B0C4DE; --c-text:#1E2A3A;
+    --c-ok:#2E7D46; --c-warn:#A66A2E; --c-err:#A02020;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Times New Roman', Georgia, serif;
+    background: var(--c-bg); color: var(--c-text);
+    margin: 0; padding: 2rem 1rem 0; line-height: 1.5;
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; flex: 1; width: 100%; }
+  .brand { text-align: center; margin-bottom: 2rem; }
+  .brand h1 {
+    font-family: Arial, sans-serif; color: var(--c-primary);
+    margin: 0.6rem 0 0.25rem; font-size: 1.4rem; letter-spacing: 0.05em;
+  }
+  .brand .sub { font-family: Arial, sans-serif; color: #666; font-size: 0.75rem; line-height: 1.4; }
+  h2.title {
+    text-align: center; font-family: Arial, sans-serif;
+    color: var(--c-primary); font-size: 1.6rem; margin: 0 0 0.25rem;
+  }
+  .subtitle {
+    text-align: center; font-style: italic;
+    color: var(--c-muted); margin-bottom: 1.5rem;
+  }
+  .card {
+    background: var(--c-light); border: 1px solid var(--c-border);
+    border-radius: 4px; padding: 1.25rem; margin-bottom: 1rem;
+  }
+  .status-badge {
+    display: inline-block; padding: 2px 10px; border-radius: 3px;
+    font-family: Arial, sans-serif; font-size: 0.85rem; font-weight: bold;
+  }
+  .status-badge.ok   { background:#DCEFE0; color:var(--c-ok);   border:1px solid var(--c-ok); }
+  .status-badge.warn { background:#F0E0D0; color:var(--c-warn); border:1px solid var(--c-warn); }
+  .status-badge.err  { background:#F0D0D0; color:var(--c-err);  border:1px solid var(--c-err); }
+  .field-grid {
+    display: grid; grid-template-columns: 150px 1fr;
+    gap: 6px 20px; font-family: Arial, sans-serif; font-size: 0.9rem;
+  }
+  .field-label { color: var(--c-muted); font-weight: bold; }
+  .field-value { word-break: break-all; }
+  .mono { font-family: Consolas, Monaco, monospace; font-size: 0.8rem; }
+  a { color: var(--c-primary); }
+  a:hover { text-decoration: underline; }
+  .btn {
+    display: inline-block; padding: 10px 24px; background: var(--c-primary);
+    color: white; text-decoration: none; border-radius: 4px;
+    font-family: Arial, sans-serif; font-weight: bold;
+    transition: background 0.15s; border: 1px solid var(--c-primary);
+    cursor: pointer; font-size: 0.9rem;
+  }
+  .btn:hover { background: #2A4A6A; text-decoration: none; }
+  .btn-ghost {
+    background: transparent; color: var(--c-primary);
+  }
+  .btn-ghost:hover { background: var(--c-light); }
+  .btn[disabled], .btn[aria-disabled="true"] {
+    opacity: 0.5; cursor: not-allowed; pointer-events: none;
+  }
+  .footnote {
+    font-size: 0.8rem; color: var(--c-muted); text-align: center;
+    margin-top: 2rem; font-style: italic;
+  }
+  .loading { text-align: center; color: var(--c-muted); font-style: italic; padding: 2rem; }
+  .error-box {
+    background: #F0D0D0; border: 1px solid var(--c-err); color: var(--c-err);
+    padding: 1.25rem; border-radius: 4px; text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  .error-box code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px; }
+  .header-band {
+    background: var(--c-light); border-top: 1px solid var(--c-border);
+    padding: 0.6rem; text-align: center; font-family: Arial, sans-serif;
+    color: var(--c-primary); font-size: 0.7rem; margin-top: 2rem;
+  }
+
+  /* Tabs */
+  .tabs {
+    display: flex; gap: 0; margin: 0 0 1rem;
+    border-bottom: 2px solid var(--c-border);
+  }
+  .tab {
+    flex: 1; padding: 0.75rem 1rem; background: transparent;
+    border: none; border-bottom: 3px solid transparent;
+    font-family: Arial, sans-serif; font-size: 0.95rem; font-weight: bold;
+    color: var(--c-muted); cursor: pointer; margin-bottom: -2px;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .tab:hover { color: var(--c-primary); }
+  .tab.active {
+    color: var(--c-primary); border-bottom-color: var(--c-primary);
+  }
+  .tab[disabled] { opacity: 0.4; cursor: not-allowed; }
+
+  /* Account pane */
+  .balance-box {
+    text-align: center; padding: 1.5rem 1rem 1rem;
+  }
+  .balance-num {
+    font-family: Arial, sans-serif; font-size: 3rem; font-weight: bold;
+    color: var(--c-primary); line-height: 1;
+  }
+  .balance-label {
+    font-family: Arial, sans-serif; font-size: 0.75rem; letter-spacing: 0.15em;
+    color: var(--c-muted); text-transform: uppercase; margin-top: 0.5rem;
+  }
+  .account-actions {
+    display: flex; gap: 0.75rem; justify-content: center;
+    margin: 0.5rem 0 1.5rem; flex-wrap: wrap;
+  }
+  .tx-table {
+    width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;
+    font-size: 0.85rem; margin-top: 0.5rem;
+  }
+  .tx-table th {
+    text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--c-border);
+    color: var(--c-muted); font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 0.05em; font-weight: bold;
+  }
+  .tx-table td {
+    padding: 8px; border-bottom: 1px solid rgba(176,196,222,0.4);
+    word-break: break-word;
+  }
+  .tx-pos { color: var(--c-ok); font-weight: bold; }
+  .tx-neg { color: var(--c-warn); font-weight: bold; }
+  .section-label {
+    font-family: Arial, sans-serif; font-weight: bold; color: var(--c-muted);
+    font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
+    margin: 1rem 0 0.25rem;
+  }
+
+  /* Digital Safe */
+  .safe-hint {
+    font-family: Arial, sans-serif; font-size: 0.8rem; color: var(--c-muted);
+    margin: 0.25rem 0 0.85rem; line-height: 1.45;
+  }
+  .safe-pw-row { display: flex; gap: 0.4rem; margin-bottom: 0.6rem; }
+  .safe-pw-input {
+    flex: 1; padding: 8px 10px; border: 1px solid var(--c-border);
+    border-radius: 3px; font-family: Arial, sans-serif; font-size: 0.9rem;
+    background: #fff; color: var(--c-text);
+  }
+  .safe-pw-input:focus { outline: none; border-color: var(--c-primary); }
+  .safe-actions {
+    display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem;
+  }
+  .safe-actions .btn { padding: 8px 16px; font-size: 0.85rem; }
+  .safe-quota { margin-bottom: 1rem; }
+  .safe-quota-bar {
+    height: 6px; background: #D7E0EC; border-radius: 3px; overflow: hidden;
+  }
+  .safe-quota-fill {
+    height: 100%; background: var(--c-primary); width: 0;
+    transition: width 0.3s;
+  }
+  .safe-quota-text {
+    font-family: Arial, sans-serif; font-size: 0.75rem;
+    color: var(--c-muted); margin-top: 0.35rem;
+  }
+  .safe-table {
+    width: 100%; border-collapse: collapse; font-family: Arial, sans-serif;
+    font-size: 0.82rem;
+  }
+  .safe-table th {
+    text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--c-border);
+    color: var(--c-muted); font-size: 0.7rem; text-transform: uppercase;
+    letter-spacing: 0.05em; font-weight: bold;
+  }
+  .safe-table td {
+    padding: 8px; border-bottom: 1px solid rgba(176,196,222,0.4);
+    vertical-align: middle;
+  }
+  .safe-empty {
+    text-align: center; color: var(--c-muted); font-style: italic;
+    padding: 1rem 0 !important;
+  }
+  .safe-msg {
+    font-family: Arial, sans-serif; font-size: 0.82rem;
+    margin: 0 0 0.75rem; padding: 6px 10px; border-radius: 3px;
+  }
+  .safe-msg.err { background: #F0D0D0; color: var(--c-err); border: 1px solid var(--c-err); }
+  .safe-msg.ok  { background: #DCEFE0; color: var(--c-ok);  border: 1px solid var(--c-ok); }
+  .safe-row-btn {
+    background: transparent; border: 1px solid var(--c-border);
+    color: var(--c-primary); padding: 4px 10px; border-radius: 3px;
+    font-family: Arial, sans-serif; font-size: 0.78rem; cursor: pointer;
+  }
+  .safe-row-btn:hover { background: var(--c-light); }
+  .safe-row-btn.danger { color: var(--c-err); border-color: var(--c-err); }
+  .safe-row-btn.danger:hover { background: #F5E0E0; }
+  .safe-locked {
+    text-align: center; padding: 1rem 0;
+    font-family: Arial, sans-serif; color: var(--c-muted); font-size: 0.9rem;
+  }
+
+  @media (max-width: 600px) {
+    .field-grid { grid-template-columns: 1fr; gap: 2px 0; }
+    .field-label { margin-top: 8px; }
+    .balance-num { font-size: 2.4rem; }
+    .tx-table th:nth-child(1), .tx-table td:nth-child(1) { display: none; }
+    .safe-table th:nth-child(3), .safe-table td:nth-child(3) { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">
+    <img src="/logo.png" alt="IMARCH" style="width:64px;height:auto;">
+    <h1>IMARCH LTD</h1>
+    <div class="sub">
+      Jurisdiction: England &amp; Wales, United Kingdom<br>
+      Company Registration No. 16791765
+    </div>
+  </div>
+
+  <h2 class="title">Certificate Verification</h2>
+  <div class="subtitle">Cryptographically provable proof of priority</div>
+
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-tab="document">Document</button>
+    <button class="tab" data-tab="account">Account</button>
+  </div>
+
+  <div id="pane-document"></div>
+  <div id="pane-account" hidden></div>
+
+  <div class="footnote">
+    This page verifies the existence of a document at a given Bitcoin block
+    via OpenTimestamps. It does not make the document itself indestructible —
+    only the fact of its existence at that time is cryptographically provable.
+  </div>
+</div>
+
+<div class="header-band">
+  IMARCH LTD UK &nbsp;&nbsp;·&nbsp;&nbsp; Reg. No: 16791765 &nbsp;&nbsp;·&nbsp;&nbsp; © 2026 &nbsp;&nbsp;·&nbsp;&nbsp; Oleksandr Purpurov
+</div>
+
+<script>
+(function () {
+  const paneDoc = document.getElementById('pane-document');
+  const paneAcc = document.getElementById('pane-account');
+  const tabsEl  = document.getElementById('tabs');
+
+  /* ---------- WhuDonate endpoint ---------- */
+  const WHYDONATE_URL = 'https://whydonate.com/fundraising/vis-realitatis-preserving-memory';
+
+  function getHashFromUrl() {
+    const m = location.pathname.match(/\/verify\/([a-f0-9]{64})/i);
+    if (m) return m[1].toLowerCase();
+    const p = new URLSearchParams(location.search).get('hash');
+    if (p) return p.toLowerCase().replace(/[^a-f0-9]/g, '');
+    return null;
+  }
+
+  function getKeyFromUrl() {
+    const k = new URLSearchParams(location.search).get('key');
+    if (!k) return null;
+    return k.trim();
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[c]));
+  }
+
+  function maskEmail(email) {
+    if (!email || email.indexOf('@') < 0) return email || '';
+    const parts = email.split('@');
+    const local = parts[0], domain = parts[1];
+    if (local.length <= 2) {
+      return local[0] + '•'.repeat(Math.max(1, local.length - 1)) + '@' + domain;
+    }
+    const keep = 2, tail = 1;
+    const middle = '•'.repeat(Math.max(1, local.length - keep - tail));
+    return local.slice(0, keep) + middle + local.slice(-tail) + '@' + domain;
+  }
+
+  function renderError(target, msg) {
+    target.innerHTML = '<div class="error-box">' + msg + '</div>';
+  }
+
+  /* ---------- Document pane ---------- */
+  function renderEntry(entry) {
+    const statusClass = entry.status === 'bitcoin' ? 'ok'
+                      : entry.status === 'pending' ? 'warn' : 'err';
+    const statusLabel = entry.status === 'bitcoin'
+                      ? 'BITCOIN-ATTESTED' : String(entry.status).toUpperCase();
+    const block = entry.block_height || '';
+
+    let h = '<div class="card"><div class="field-grid">';
+    h += '<div class="field-label">Status</div><div class="field-value"><span class="status-badge ' + statusClass + '">' + esc(statusLabel) + '</span></div>';
+    h += '<div class="field-label">Document</div><div class="field-value">' + esc(entry.file) + '</div>';
+    h += '<div class="field-label">SHA-256</div><div class="field-value mono">' + esc(entry.sha256) + '</div>';
+    h += '<div class="field-label">Size</div><div class="field-value">' + esc(entry.size_bytes) + ' bytes</div>';
+    if (entry.block_height) {
+      h += '<div class="field-label">Bitcoin block</div><div class="field-value">'
+        + '<a href="https://blockstream.info/block-height/' + esc(block) + '" target="_blank" rel="noopener">'
+        + esc(block) + '</a></div>';
+    }
+    h += '<div class="field-label">Attestations</div><div class="field-value">' + esc(entry.attestation_count) + '</div>';
+    if (entry.calendars && entry.calendars.length) {
+      h += '<div class="field-label">Calendars</div><div class="field-value mono">'
+        + entry.calendars.map(esc).join('<br>') + '</div>';
+    }
+    h += '</div></div>';
+
+    if (entry.certificate) {
+      const certFile = entry.certificate.replace(/\\/g, '/').split('/').pop();
+      h += '<div style="text-align:center;margin:1.5rem 0;">'
+        + '<a class="btn" href="/certs/' + esc(certFile) + '">Download Certificate PDF</a>'
+        + '</div>';
+    }
+
+    paneDoc.innerHTML = h;
+  }
+
+  /* ---------- Account pane ---------- */
+  function formatImarch(mu) {
+    if (!mu || mu === 0) return '0 IMARCH';
+    const neg = mu < 0;
+    const abs = Math.abs(mu);
+    const whole = Math.floor(abs / 10000);
+    const frac = abs % 10000;
+    const wholeStr = whole.toLocaleString('en-US');
+    const sign = neg ? '-' : '';
+    if (frac === 0) return sign + wholeStr + ' IMARCH';
+    return sign + wholeStr + '.' + String(frac).padStart(4, '0') + ' IMARCH';
+  }
+
+  function renderTransactions(txs, accountId) {
+    if (!txs || !txs.length) {
+      return '<div class="field-value" style="color:var(--c-muted);font-style:italic;padding:0.5rem 0;">No transactions yet</div>';
+    }
+    let h = '<table class="tx-table"><thead><tr>'
+      + '<th>Date</th><th>Type</th><th>Amount</th><th>Note</th>'
+      + '</tr></thead><tbody>';
+    for (const t of txs) {
+      const outgoing = t.from_account === accountId;
+      const sign = outgoing ? '-' : '+';
+      const cls  = outgoing ? 'tx-neg' : 'tx-pos';
+      const note = t.service || t.reason || t.ref || '';
+      const shortTime = String(t.timestamp || '').replace('T', ' ').replace('Z', '').slice(5, 16);
+      h += '<tr>'
+        + '<td class="mono" style="font-size:0.72rem;color:var(--c-muted);">' + esc(shortTime) + '</td>'
+        + '<td>' + esc(t.type || '') + '</td>'
+        + '<td class="' + cls + '">' + sign + esc(formatImarch(t.amount || 0)) + '</td>'
+        + '<td>' + esc(note) + '</td>'
+        + '</tr>';
+    }
+    h += '</tbody></table>';
+    return h;
+  }
+
+  /* ---------- Digital Safe: markup ---------- */
+  function safeMarkup() {
+    return ''
+      + '<div class="section-label">Digital Safe</div>'
+      + '<div class="safe-hint">'
+      + 'Encrypted files in zero-knowledge storage. File names are encrypted — '
+      + 'they appear only after you download and decrypt.'
+      + '</div>'
+      + '<div class="safe-pw-row">'
+      +   '<input type="password" class="safe-pw-input" id="safePw" placeholder="Safe password" autocomplete="off" spellcheck="false">'
+      +   '<button type="button" class="btn btn-ghost" id="safeShowPw" style="padding:8px 14px;font-size:0.8rem;">Show</button>'
+      + '</div>'
+      + '<div class="safe-actions">'
+      +   '<button type="button" class="btn" id="safeUploadBtn">Upload to Safe</button>'
+      +   '<button type="button" class="btn btn-ghost" id="safeLockBtn">Lock safe</button>'
+      +   '<input type="file" id="safeFileInput" style="display:none">'
+      + '</div>'
+      + '<div class="safe-quota">'
+      +   '<div class="safe-quota-bar"><div class="safe-quota-fill" id="safeQuotaFill"></div></div>'
+      +   '<div class="safe-quota-text" id="safeQuotaText">Loading…</div>'
+      + '</div>'
+      + '<div id="safeMsg"></div>'
+      + '<table class="safe-table">'
+      +   '<thead><tr>'
+      +     '<th>File ID</th><th>Size</th><th>Uploaded</th><th style="text-align:right;">Actions</th>'
+      +   '</tr></thead>'
+      +   '<tbody id="safeTbody"><tr><td colspan="4" class="safe-empty">Loading…</td></tr></tbody>'
+      + '</table>';
+  }
+
+  function fmtBytes(n) {
+    if (!n || n < 0) return '0 B';
+    if (n < 1024) return n + ' B';
+    if (n < 1024 * 1024) return (n / 1024).toFixed(1) + ' KB';
+    return (n / (1024 * 1024)).toFixed(2) + ' MB';
+  }
+
+  function safeMsg(text, kind) {
+    const el = document.getElementById('safeMsg');
+    if (!el) return;
+    if (!text) { el.innerHTML = ''; return; }
+    el.innerHTML = '<div class="safe-msg ' + (kind || '') + '">' + esc(text) + '</div>';
+  }
+
+  function getSafePw() {
+    const inp = document.getElementById('safePw');
+    return inp ? inp.value : '';
+  }
+
+  function initSafe() {
+    const pwInput = document.getElementById('safePw');
+    if (!pwInput) return;
+
+    const saved = sessionStorage.getItem('imarch_safe_pw');
+    if (saved) pwInput.value = saved;
+    pwInput.addEventListener('input', function () {
+      if (pwInput.value) sessionStorage.setItem('imarch_safe_pw', pwInput.value);
+      else sessionStorage.removeItem('imarch_safe_pw');
+    });
+
+    const showBtn = document.getElementById('safeShowPw');
+    showBtn.addEventListener('click', function () {
+      if (pwInput.type === 'password') {
+        pwInput.type = 'text';
+        showBtn.textContent = 'Hide';
+      } else {
+        pwInput.type = 'password';
+        showBtn.textContent = 'Show';
+      }
+    });
+
+    document.getElementById('safeLockBtn').addEventListener('click', function () {
+      sessionStorage.removeItem('imarch_safe_pw');
+      pwInput.value = '';
+      safeMsg('Safe locked. Password cleared from this session.', 'ok');
+    });
+
+    document.getElementById('safeUploadBtn').addEventListener('click', function () {
+      if (!getSafePw()) { safeMsg('Enter safe password first.', 'err'); return; }
+      document.getElementById('safeFileInput').click();
+    });
+
+    document.getElementById('safeFileInput').addEventListener('change', onSafeUpload);
+
+    refreshSafeList();
+  }
+
+  async function refreshSafeList() {
+    try {
+      const data = await window.imarchSafeApi.list();
+      renderSafeList(data || {});
+    } catch (e) {
+      safeMsg('Failed to load safe: ' + (e && e.message ? e.message : e), 'err');
+    }
+  }
+
+  function renderSafeList(data) {
+    const files = data.files || data.items || [];
+    const used  = (typeof data.used_bytes === 'number') ? data.used_bytes : 0;
+    const quota = (typeof data.quota_bytes === 'number') ? data.quota_bytes : 0;
+
+    const tbody = document.getElementById('safeTbody');
+    if (!tbody) return;
+
+    if (!files.length) {
+      tbody.innerHTML = '<tr><td colspan="4" class="safe-empty">No files yet</td></tr>';
+    } else {
+      let h = '';
+      for (const f of files) {
+        const when = String(f.uploaded_at || '').replace('T', ' ').replace('Z', '').slice(0, 16);
+        h += '<tr>'
+          + '<td class="mono" style="font-size:0.75rem;">' + esc(f.file_id) + '</td>'
+          + '<td>' + esc(fmtBytes(f.size_blob || 0)) + '</td>'
+          + '<td class="mono" style="font-size:0.72rem;color:var(--c-muted);">' + esc(when) + '</td>'
+          + '<td style="text-align:right;white-space:nowrap;">'
+          + '<button class="safe-row-btn" data-act="dl" data-id="' + esc(f.file_id) + '">Download</button> '
+          + '<button class="safe-row-btn danger" data-act="del" data-id="' + esc(f.file_id) + '">Delete</button>'
+          + '</td></tr>';
+      }
+      tbody.innerHTML = h;
+      tbody.querySelectorAll('button[data-act]').forEach(function (b) {
+        b.addEventListener('click', function () {
+          if (b.dataset.act === 'dl') onSafeDownload(b.dataset.id);
+          else onSafeDelete(b.dataset.id);
+        });
+      });
+    }
+
+    const pct = quota > 0 ? Math.min(100, (used / quota) * 100) : 0;
+    const fill = document.getElementById('safeQuotaFill');
+    const txt  = document.getElementById('safeQuotaText');
+    if (fill) fill.style.width = pct.toFixed(1) + '%';
+    if (txt) {
+      if (quota > 0) txt.textContent = fmtBytes(used) + ' / ' + fmtBytes(quota);
+      else txt.textContent = fmtBytes(used) + ' used';
+    }
+  }
+
+  async function onSafeUpload(e) {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = '';
+    if (!file) return;
+    const pw = getSafePw();
+    if (!pw) { safeMsg('Enter safe password first.', 'err'); return; }
+    if (file.size > 88 * 1024 * 1024) {
+      safeMsg('File too large. Max ~88 MB.', 'err');
+      return;
+    }
+    safeMsg('Encrypting…', 'ok');
+    try {
+      const blob = await window.imarchSafe.encryptFile(file, pw);
+      safeMsg('Uploading…', 'ok');
+      await window.imarchSafeApi.upload(blob);
+      const sz = blob && (blob.byteLength || blob.length) || 0;
+      safeMsg('Uploaded. Blob ' + fmtBytes(sz) + '.', 'ok');
+      await refreshSafeList();
+    } catch (err) {
+      safeMsg('Upload failed: ' + (err && err.message ? err.message : err), 'err');
+    }
+  }
+
+  async function onSafeDownload(id) {
+    const pw = getSafePw();
+    if (!pw) { safeMsg('Enter safe password first.', 'err'); return; }
+    safeMsg('Downloading…', 'ok');
+    try {
+      const blob = await window.imarchSafeApi.download(id);
+      safeMsg('Decrypting…', 'ok');
+      const pkg = await window.imarchSafe.decryptPackage(blob, pw);
+      const b = new Blob([pkg.data], { type: 'application/octet-stream' });
+      const url = URL.createObjectURL(b);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = pkg.name || (id + '.bin');
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(url); }, 5000);
+      safeMsg('Downloaded: ' + (pkg.name || id), 'ok');
+    } catch (err) {
+      safeMsg('Download failed (wrong password or corrupted file?): ' + (err && err.message ? err.message : err), 'err');
+    }
+  }
+
+  async function onSafeDelete(id) {
+    if (!confirm('Delete ' + id + ' permanently? This cannot be undone.')) return;
+    safeMsg('Deleting…', 'ok');
+    try {
+      await window.imarchSafeApi.del(id);
+      safeMsg('Deleted.', 'ok');
+      await refreshSafeList();
+    } catch (err) {
+      safeMsg('Delete failed: ' + (err && err.message ? err.message : err), 'err');
+    }
+  }
+
+  /* ---------- Account pane render ---------- */
+  function renderAccount(account, hash, allTxs) {
+    let h = '';
+
+    h += '<div class="card">';
+    h += '<div class="balance-box">'
+      + '<div class="balance-num">' + esc(formatImarch(account.token_balance || 0)) + '</div>'
+      + '<div class="balance-label">IMARCH tokens</div>'
+      + '</div>';
+    h += '</div>';
+
+    h += '<div class="account-actions">'
+            + '<a class="btn" href="' + esc(WHYDONATE_URL) + '" target="_blank" rel="noopener">Add tokens</a>';
+    if (account.passport_sha256) {
+      h += '<a class="btn btn-ghost" href="/certs/' + esc(account.account_id) + '_passport.pdf" download>Download Account Passport</a>';
+    }
+    h += '<a class="btn btn-ghost" href="/en/docs/consilium/">Spend in Bonus Shop</a>';
+    h += '<button class="btn btn-ghost" id="signOutBtn" style="display:none;">Sign out</button>';
+    h += '</div>';
+
+    h += '<div class="card"><div class="field-grid">';
+    h += '<div class="field-label">Account ID</div><div class="field-value mono">' + esc(account.account_id) + '</div>';
+    h += '<div class="field-label">Owner</div><div class="field-value">' + esc(account.owner_name || '—') + '</div>';
+    h += '<div class="field-label">Email</div><div class="field-value mono">' + esc(maskEmail(account.owner_email)) + '</div>';
+    h += '<div class="field-label">Certificates</div><div class="field-value">' + esc((account.certificates || []).length) + '</div>';
+    h += '<div class="field-label">Created</div><div class="field-value mono">' + esc(account.created_at || '') + '</div>';
+    h += '<div class="field-label">Updated</div><div class="field-value mono">' + esc(account.updated_at || '') + '</div>';
+    h += '</div></div>';
+
+    h += '<div class="card">';
+    h += '<div class="section-label">Transaction history</div>';
+    const myTxs = (allTxs || []).filter(function (t) {
+      return t.from_account === account.account_id || t.to_account === account.account_id;
+    }).slice(-10);
+    h += renderTransactions(myTxs, account.account_id);
+    h += '</div>';
+
+    h += '<div class="card" id="safeContainer" style="display:none;">' + safeMarkup() + '</div>';
+
+    paneAcc.innerHTML = h;
+
+    setTimeout(function () {
+      window.imarchAuth.getSession().then(function (s) {
+        if (s) {
+          var b = document.getElementById('signOutBtn');
+          if (b) {
+            b.style.display = '';
+            b.onclick = function () {
+              window.imarchAuth.signOut().then(function () { location.href = '/login/'; });
+            };
+          }
+          var c = document.getElementById('safeContainer');
+          if (c) c.style.display = '';
+          initSafe();
+        } else {
+          var c2 = document.getElementById('safeContainer');
+          if (c2) {
+            c2.style.display = '';
+            c2.innerHTML =
+              '<div class="section-label">Digital Safe</div>'
+              + '<div class="safe-locked">'
+              + 'Sign in to access your Digital Safe.'
+              + '<div style="margin-top:0.75rem;">'
+              + '<a class="btn btn-ghost" href="/login/">Sign in</a>'
+              + '</div></div>';
+          }
+        }
+      }).catch(function () {
+        var c3 = document.getElementById('safeContainer');
+        if (c3) c3.style.display = 'none';
+      });
+    }, 0);
+  }
+
+  function renderNoAccount(hash) {
+    paneAcc.innerHTML =
+      '<div class="card" style="text-align:center;padding:2rem 1.25rem;">'
+      + '<div style="font-family:Arial,sans-serif;color:var(--c-muted);">'
+      + 'This certificate is not yet linked to an IMARCH account.'
+      + '</div>'
+      + '<div class="mono" style="margin-top:0.75rem;font-size:0.7rem;color:var(--c-muted);">'
+      + esc(hash) + '</div>'
+      + '</div>';
+  }
+
+  function renderAccountLocked() {
+    paneAcc.innerHTML =
+      '<div class="card" style="text-align:center;padding:2rem 1.25rem;">'
+      + '<div style="font-family:Arial,sans-serif;color:var(--c-muted);">'
+      + 'Account details are private. Open your personal link to view them.'
+      + '</div>'
+      + '</div>';
+  }
+
+  /* ---------- Tabs ---------- */
+  function activateTab(name) {
+    for (const btn of tabsEl.querySelectorAll('.tab')) {
+      btn.classList.toggle('active', btn.dataset.tab === name);
+    }
+    paneDoc.hidden = (name !== 'document');
+    paneAcc.hidden = (name !== 'account');
+  }
+
+  tabsEl.addEventListener('click', (e) => {
+    const btn = e.target.closest('.tab');
+    if (!btn || btn.disabled) return;
+    activateTab(btn.dataset.tab);
+  });
+
+  /* ---------- Main ---------- */
+  async function main() {
+    const hash = getHashFromUrl();
+    if (!hash) {
+      renderError(paneDoc, 'No SHA-256 hash found in URL.<br>Expected: <code>/verify/&lt;64 hex chars&gt;</code>');
+      paneAcc.hidden = true;
+      return;
+    }
+    if (hash.length !== 64) {
+      renderError(paneDoc, 'Invalid SHA-256 hash (expected 64 hex chars, got ' + hash.length + ').');
+      paneAcc.hidden = true;
+      return;
+    }
+
+    paneDoc.innerHTML = '<div class="loading">Looking up <span class="mono">' + esc(hash) + '</span></div>';
+    paneAcc.innerHTML = '<div class="loading">Loading account…</div>';
+
+    let registry = { entries: [] };
+    let accounts = { accounts: [] };
+
+    try {
+      const [regRes, accRes] = await Promise.all([
+        fetch('/registry.json', { cache: 'no-cache' }),
+        fetch('/accounts.json', { cache: 'no-cache' })
+      ]);
+      if (regRes.ok) registry = await regRes.json();
+      if (accRes.ok) accounts = await accRes.json();
+    } catch (e) {
+      renderError(paneDoc, 'Verification service error: ' + esc(e.message));
+      renderError(paneAcc, 'Account service error: ' + esc(e.message));
+      return;
+    }
+
+    const entry = (registry.entries || []).find(
+      e => String(e.sha256).toLowerCase() === hash
+    );
+    const account = (accounts.accounts || []).find(
+      a => (a.certificates || []).some(c => String(c).toLowerCase() === hash)
+    );
+
+    if (entry) {
+      renderEntry(entry);
+    } else {
+      renderError(paneDoc,
+        'Document not found in the IMARCH verification registry.<br>'
+        + '<span class="mono" style="font-size:0.7rem;">' + esc(hash) + '</span>');
+    }
+
+    const key = getKeyFromUrl();
+    if (!account) {
+      renderNoAccount(hash);
+    } else if (key && key === account.account_key) {
+      renderAccount(account, hash, accounts.transactions || []);
+    } else {
+      renderAccountLocked();
+    }
+  }
+
+  main();
+})();
+</script>
+</body>
+</html>
