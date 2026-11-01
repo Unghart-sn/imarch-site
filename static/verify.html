@@ -262,7 +262,6 @@
   const paneAcc = document.getElementById('pane-account');
   const tabsEl  = document.getElementById('tabs');
 
-  /* ---------- WhuDonate endpoint ---------- */
   const WHYDONATE_URL = 'https://whydonate.com/fundraising/vis-realitatis-preserving-memory';
 
   function getHashFromUrl() {
@@ -271,12 +270,6 @@
     const p = new URLSearchParams(location.search).get('hash');
     if (p) return p.toLowerCase().replace(/[^a-f0-9]/g, '');
     return null;
-  }
-
-  function getKeyFromUrl() {
-    const k = new URLSearchParams(location.search).get('key');
-    if (!k) return null;
-    return k.trim();
   }
 
   function esc(s) {
@@ -301,7 +294,6 @@
     target.innerHTML = '<div class="error-box">' + msg + '</div>';
   }
 
-  /* ---------- Document pane ---------- */
   function renderEntry(entry) {
     const statusClass = entry.status === 'bitcoin' ? 'ok'
                       : entry.status === 'pending' ? 'warn' : 'err';
@@ -336,7 +328,6 @@
     paneDoc.innerHTML = h;
   }
 
-  /* ---------- Account pane ---------- */
   function formatImarch(mu) {
     if (!mu || mu === 0) return '0 IMARCH';
     const neg = mu < 0;
@@ -373,7 +364,6 @@
     return h;
   }
 
-  /* ---------- Digital Safe: markup ---------- */
   function safeMarkup() {
     return ''
       + '<div class="section-label">Digital Safe</div>'
@@ -569,7 +559,6 @@
     }
   }
 
-  /* ---------- Account pane render ---------- */
   function renderAccount(account, hash, allTxs) {
     let h = '';
 
@@ -597,6 +586,30 @@
     h += '<div class="field-label">Created</div><div class="field-value mono">' + esc(account.created_at || '') + '</div>';
     h += '<div class="field-label">Updated</div><div class="field-value mono">' + esc(account.updated_at || '') + '</div>';
     h += '</div></div>';
+
+    // --- ШОВ 4.2: Секция сертификатов ---
+    h += '<div class="card">';
+    h += '<div class="section-label">Your Certificates</div>';
+    if (account.certificates && account.certificates.length > 0) {
+      h += '<table class="tx-table" style="margin-top:10px;"><thead><tr>'
+        + '<th>Date</th><th>Title</th><th>Holder</th><th style="text-align:right;">Action</th>'
+        + '</tr></thead><tbody>';
+      for (const cert of account.certificates) {
+        const date = String(cert.created_at || '').slice(0, 10);
+        const url = cert.pdf_url || '#';
+        h += '<tr>'
+          + '<td class="mono" style="color:var(--c-muted);font-size:0.75rem;">' + esc(date) + '</td>'
+          + '<td>' + esc(cert.title || 'Untitled') + '</td>'
+          + '<td>' + esc(cert.holder_name || '—') + '</td>'
+          + '<td style="text-align:right;">'
+          + '<a href="' + esc(url) + '" target="_blank" class="btn" style="padding:4px 10px;font-size:0.75rem;">Download PDF</a>'
+          + '</td></tr>';
+      }
+      h += '</tbody></table>';
+    } else {
+      h += '<div class="field-value" style="color:var(--c-muted);font-style:italic;padding:0.5rem 0;">No certificates yet. You can order one at <a href="/en/certify/">/en/certify/</a>.</div>';
+    }
+    h += '</div>';
 
     h += '<div class="card">';
     h += '<div class="section-label">Transaction history</div>';
@@ -643,27 +656,6 @@
     }, 0);
   }
 
-  function renderNoAccount(hash) {
-    paneAcc.innerHTML =
-      '<div class="card" style="text-align:center;padding:2rem 1.25rem;">'
-      + '<div style="font-family:Arial,sans-serif;color:var(--c-muted);">'
-      + 'This certificate is not yet linked to an IMARCH account.'
-      + '</div>'
-      + '<div class="mono" style="margin-top:0.75rem;font-size:0.7rem;color:var(--c-muted);">'
-      + esc(hash) + '</div>'
-      + '</div>';
-  }
-
-  function renderAccountLocked() {
-    paneAcc.innerHTML =
-      '<div class="card" style="text-align:center;padding:2rem 1.25rem;">'
-      + '<div style="font-family:Arial,sans-serif;color:var(--c-muted);">'
-      + 'Account details are private. Open your personal link to view them.'
-      + '</div>'
-      + '</div>';
-  }
-
-  /* ---------- Tabs ---------- */
   function activateTab(name) {
     for (const btn of tabsEl.querySelectorAll('.tab')) {
       btn.classList.toggle('active', btn.dataset.tab === name);
@@ -678,61 +670,107 @@
     activateTab(btn.dataset.tab);
   });
 
-  /* ---------- Main ---------- */
   async function main() {
     const hash = getHashFromUrl();
-    if (!hash) {
-      renderError(paneDoc, 'No SHA-256 hash found in URL.<br>Expected: <code>/verify/&lt;64 hex chars&gt;</code>');
-      paneAcc.hidden = true;
-      return;
-    }
-    if (hash.length !== 64) {
+
+    if (hash && hash.length !== 64) {
       renderError(paneDoc, 'Invalid SHA-256 hash (expected 64 hex chars, got ' + hash.length + ').');
       paneAcc.hidden = true;
       return;
     }
 
-    paneDoc.innerHTML = '<div class="loading">Looking up <span class="mono">' + esc(hash) + '</span></div>';
+    if (hash) {
+      paneDoc.innerHTML = '<div class="loading">Looking up <span class="mono">' + esc(hash) + '</span></div>';
+    } else {
+      paneDoc.innerHTML = '<div class="card" style="text-align:center;padding:2rem 1.25rem;"><div style="font-family:Arial,sans-serif;color:var(--c-muted);">No document selected. Please check the Account tab.</div></div>';
+    }
+
     paneAcc.innerHTML = '<div class="loading">Loading account…</div>';
 
-    let registry = { entries: [] };
-    let accounts = { accounts: [] };
+    if (hash) {
+      let registry = { entries: [] };
+      try {
+        const regRes = await fetch('/registry.json', { cache: 'no-cache' });
+        if (regRes.ok) registry = await regRes.json();
+      } catch (e) {
+        renderError(paneDoc, 'Verification service error: ' + esc(e.message));
+      }
+
+      const entry = (registry.entries || []).find(
+        e => String(e.sha256).toLowerCase() === hash
+      );
+      if (entry) {
+        renderEntry(entry);
+      } else {
+        renderError(paneDoc,
+          'Document not found in the IMARCH verification registry.<br>'
+          + '<span class="mono" style="font-size:0.7rem;">' + esc(hash) + '</span>');
+      }
+    }
 
     try {
-      const [regRes, accRes] = await Promise.all([
-        fetch('/registry.json', { cache: 'no-cache' }),
-        fetch('/accounts.json', { cache: 'no-cache' })
-      ]);
-      if (regRes.ok) registry = await regRes.json();
-      if (accRes.ok) accounts = await accRes.json();
+      const session = await window.imarchAuth.getSession();
+      if (!session || !session.user) {
+        paneAcc.innerHTML =
+          '<div class="card" style="text-align:center;padding:2rem 1.25rem;">'
+          + '<div style="font-family:Arial,sans-serif;color:var(--c-muted);">'
+          + 'Please sign in to view your account.'
+          + '</div>'
+          + '<div style="margin-top:1rem;">'
+          + '<a class="btn btn-ghost" href="/login/">Sign in</a>'
+          + '</div>'
+          + '</div>';
+        return;
+      }
+
+      const uid = session.user.id;
+      const sb = window.imarchAuth.getClient();
+      const res = await sb.from('profiles')
+        .select('id,email,full_name,token_balance,is_admin,created_at')
+        .eq('id', uid)
+        .single();
+
+      if (res.error || !res.data) {
+        paneAcc.innerHTML =
+          '<div class="card" style="text-align:center;padding:2rem 1.25rem;">'
+          + '<div style="font-family:Arial,sans-serif;color:var(--c-muted);">'
+          + 'Profile not found.'
+          + '</div></div>';
+        return;
+      }
+
+      const profile = res.data;
+      
+      // --- ШОВ 4.2: Запрашиваем заказы ---
+      const ordersRes = await sb.from('orders')
+        .select('id,title,sha256,status,pdf_url,created_at,holder_name')
+        .eq('issuer_user_id', uid)
+        .eq('status', 'ready')
+        .order('created_at', { ascending: false });
+        
+      const certs = (ordersRes.data || []).map(o => ({
+        title: o.title,
+        sha256: o.sha256,
+        pdf_url: o.pdf_url,
+        created_at: o.created_at,
+        holder_name: o.holder_name
+      }));
+
+      const account = {
+        account_id: profile.id,
+        owner_name: profile.full_name || '',
+        owner_email: profile.email || '',
+        token_balance: profile.token_balance || 0,
+        is_admin: profile.is_admin === true,
+        certificates: certs,
+        created_at: profile.created_at || '',
+        updated_at: '',
+        passport_sha256: null
+      };
+
+      renderAccount(account, hash, []);
     } catch (e) {
-      renderError(paneDoc, 'Verification service error: ' + esc(e.message));
       renderError(paneAcc, 'Account service error: ' + esc(e.message));
-      return;
-    }
-
-    const entry = (registry.entries || []).find(
-      e => String(e.sha256).toLowerCase() === hash
-    );
-    const account = (accounts.accounts || []).find(
-      a => (a.certificates || []).some(c => String(c).toLowerCase() === hash)
-    );
-
-    if (entry) {
-      renderEntry(entry);
-    } else {
-      renderError(paneDoc,
-        'Document not found in the IMARCH verification registry.<br>'
-        + '<span class="mono" style="font-size:0.7rem;">' + esc(hash) + '</span>');
-    }
-
-    const key = getKeyFromUrl();
-    if (!account) {
-      renderNoAccount(hash);
-    } else if (key && key === account.account_key) {
-      renderAccount(account, hash, accounts.transactions || []);
-    } else {
-      renderAccountLocked();
     }
   }
 
