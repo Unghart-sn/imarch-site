@@ -1,6 +1,6 @@
 ﻿// Netlify Function: /.netlify/functions/cert-download
 // GET ?order_id=<uuid>&token=<hmac_hex>
-// Streams the Act-Passport PDF from R2 after HMAC verification.
+// Streams the Act-Passport PDF from R2.
 'use strict';
 
 const crypto = require('crypto');
@@ -8,7 +8,7 @@ const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Headers': 'Content-Type',
+  'Access-Control-Allow-Headers': 'Content-Type, x-admin-token',
   'Access-Control-Allow-Methods': 'GET, OPTIONS',
 };
 
@@ -63,10 +63,12 @@ exports.handler = async (event) => {
   if (!token || !/^[0-9a-f]{64}$/.test(token)) return reply(400, { ok: false, error: 'bad_token' });
 
   try {
+    
     const order = await sbGetOrder(orderId);
     if (!order) return reply(404, { ok: false, error: 'order_not_found' });
     if (order.status !== 'ready') return reply(409, { ok: false, error: 'not_ready', current: order.status });
 
+        // Проверка HMAC (защита от подделки ссылки)
     const expected = hmacToken(order.id, order.email);
     const a = Buffer.from(expected, 'hex');
     const b = Buffer.from(token, 'hex');
