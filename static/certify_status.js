@@ -5,7 +5,7 @@
 
   const params = new URLSearchParams(window.location.search);
   const orderId = params.get('order_id') || '';
-  const token = params.get('token') || params.get('hmac_token') || '';
+  const token = params.get('token') || '';
 
   const $ = function (id) { return document.getElementById(id); };
   const loadMsg = $('loadMsg');

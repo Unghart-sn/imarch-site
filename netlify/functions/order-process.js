@@ -1,4 +1,4 @@
-﻿// Netlify Function: /.netlify/functions/order-process
+// Netlify Function: /.netlify/functions/order-process
 // Dry-run order processor: RFC3161 timestamp (FreeTSA) + PDF Act-Passport + Resend email.
 // Anchor + VirusTotal disabled in this iteration (flags below).
 // Protected: requires X-Admin-Token header === GIFT_ADMIN_TOKEN.
@@ -207,13 +207,8 @@ function makePassportPDF(data) {
       const PW = 595.28, PH = 841.89;
       const INK = '#1a1a1a', ACCENT = '#8b1a1a', MUTED = '#666666', PAPER = '#f7f5ef';
 
-      const qrPayload = 'https://imarch.ltd/en/check/?hash=' + data.sha256;
-      let qrBuf = null;
-      try {
-        qrBuf = await QRCode.toBuffer(qrPayload, { type: 'png', width: 240, margin: 1 });
-      } catch (qrErr) {
-        console.warn('[PDF] QR generation failed:', qrErr && qrErr.message);
-      }
+      const qrPayload = 'https://imarch.ltd/en/certify/status/?order_id=' + data.order_id + '&token=' + data.hmac_token;
+      const qrBuf = await QRCode.toBuffer(qrPayload, { type: 'png', width: 240, margin: 1 });
 
       doc.rect(0, 0, PW, PH).fill(PAPER);
 
@@ -257,7 +252,7 @@ function makePassportPDF(data) {
 
       sectionLabel('Record');
       row('Order ID', data.order_id);
-      row('Holder', (data.holder_name || data.full_name) + ' <' + data.email + '>');
+      row('Holder', data.full_name + ' <' + data.email + '>');
       row('Document title', data.title);
       row('File name', data.filename);
       row('Size (bytes)', data.size_bytes);
@@ -268,11 +263,18 @@ function makePassportPDF(data) {
       doc.fillColor(INK).font('Courier').fontSize(8).text(String(data.sha256), KX, y, { width: PW - 2 * KX });
       y += 24;
 
-      // Issuer Timestamp вместо внешнего TSA
-      const issuedDate = data.created_at ? new Date(data.created_at).toISOString().replace('T', ' ').slice(0, 19) + ' UTC' : new Date().toISOString().replace('T', ' ').slice(0, 19) + ' UTC';
-      row('Issuer Timestamp', issuedDate);
-      doc.fillColor(MUTED).font('Helvetica').fontSize(8).text('Verified by Imarch Ledger', KX, y);
-      y += 16;
+      if (data.tsa_status === 'ok') {
+        row('RFC 3161 TSA', 'DigiCert - status ' + data.tsa_status_code);
+        doc.fillColor(MUTED).font('Helvetica').fontSize(8).text('TSA token (base64, truncated)', KX, y);
+        y += 12;
+        const tsaStr = String(data.tsa_token_b64).slice(0, 400);
+        const tsaChunked = tsaStr.match(/.{1,80}/g).join('\n') + '...';
+        doc.fillColor(INK).font('Courier').fontSize(7)
+           .text(tsaChunked, KX, y, { width: PW - 2 * KX, lineGap: 2 });
+        y += doc.heightOfString(tsaChunked, { width: PW - 2 * KX, lineGap: 2 }) + 10;
+      } else {
+        row('RFC 3161 TSA', 'skipped (' + (data.tsa_status || 'disabled') + ')');
+      }
 
       row('Anchor', ANCHOR_ENABLED ? 'pending' : 'skipped (dry-run)');
       row('VirusTotal', VT_ENABLED ? 'pending' : 'skipped (dry-run)');
@@ -283,12 +285,7 @@ function makePassportPDF(data) {
       const QR_SIZE = 110;
       const QR_X = PW - 60 - QR_SIZE - 10;
       doc.lineWidth(0.5).strokeColor(INK).rect(QR_X - 5, FY + 16, QR_SIZE + 10, QR_SIZE + 10).stroke();
-      if (qrBuf) {
-        doc.image(qrBuf, QR_X, FY + 21, { width: QR_SIZE, height: QR_SIZE });
-      } else {
-        doc.fillColor(MUTED).font('Helvetica').fontSize(8)
-           .text('QR unavailable', QR_X, FY + 55, { width: QR_SIZE, align: 'center' });
-      }
+      doc.image(qrBuf, QR_X, FY + 21, { width: QR_SIZE, height: QR_SIZE });
 
       const TEXT_W = PW - 60 - 60 - QR_SIZE - 30;
       doc.fillColor(MUTED).font('Helvetica').fontSize(8)
@@ -304,7 +301,7 @@ function makePassportPDF(data) {
          .text(qrPayload, 60, FY + 74, { width: TEXT_W, lineGap: 2 });
 
       doc.fillColor(MUTED).font('Helvetica').fontSize(7)
-         .text('Issued by imarch.ltd via Account ' + (data.issuer_user_id || 'n/a') + ' - ' + new Date().toISOString().slice(0, 10),
+         .text('Issued by imarch.ltd - ' + new Date().toISOString().slice(0, 10),
                60, PH - 60, { width: PW - 120 });
 
       doc.end();
@@ -338,8 +335,7 @@ exports.handler = async (event) => {
   const adminToken = process.env.GIFT_ADMIN_TOKEN;
   if (!adminToken) return reply(500, { ok: false, error: 'GIFT_ADMIN_TOKEN_missing' });
   const hdr = event.headers['x-admin-token'] || event.headers['X-Admin-Token'];
-  // Р’Р Р•РњР•РќРќРћ РћРўРљР›Р®Р§Р•РќРћ Р”Р›РЇ РўР•РЎРўРђ
-  // if (!hdr || hdr !== adminToken) return reply(403, { ok: false, error: 'forbidden' });
+  if (!hdr || hdr !== adminToken) return reply(403, { ok: false, error: 'forbidden' });
 
   const body = parseJsonBody(event);
   const orderId = (isTestGet
@@ -352,7 +348,7 @@ exports.handler = async (event) => {
   try {
     const order = await sbGetOrder(orderId);
     if (!order) return reply(404, { ok: false, error: 'order_not_found' });
-    if (order.status !== 'payment_pending' && order.status !== 'processing' && order.status !== 'ready' && order.status !== 'completed') {
+    if (order.status !== 'payment_pending' && order.status !== 'processing' && order.status !== 'ready') {
       return reply(409, { ok: false, error: 'bad_status', current: order.status });
     }
     if (order.status === 'ready') {
@@ -365,21 +361,22 @@ exports.handler = async (event) => {
 
     // R2 head
   console.log('[DEBUG R2] bucket=', process.env.R2_BUCKET, 'key=', order.file_key_r2, 'endpoint=', process.env.R2_ENDPOINT);
-// Проверка файла теперь через Supabase Storage (ниже)
+try {
+  const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+} catch (r2err) {
+  return reply(500, {
+    debug: 'r2_head_failed',
+    bucket: process.env.R2_BUCKET || 'MISSING',
+    key: order.file_key_r2 || 'MISSING',
+    endpoint: process.env.R2_ENDPOINT || 'MISSING',
+    errName: r2err.name || 'unknown',
+    errMessage: r2err.message || 'unknown'
+  });
+}
 
     // Download + sha check
-    // Скачиваем файл из Supabase Storage
-    const storageUrl = process.env.SUPABASE_URL + '/storage/v1/object/orders/' + order.file_key_r2;
-    const fileRes = await fetch(storageUrl, {
-      headers: {
-        'apikey': process.env.SUPABASE_SERVICE_ROLE_KEY,
-        'Authorization': 'Bearer ' + process.env.SUPABASE_SERVICE_ROLE_KEY
-      }
-    });
-    if (!fileRes.ok) {
-      throw new Error('supabase_storage_download_' + fileRes.status + ': ' + (await fileRes.text()).slice(0, 200));
-    }
-    const fileBuf = Buffer.from(await fileRes.arrayBuffer());
+    const obj = await getS3().send(new GetObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+    const fileBuf = Buffer.from(await obj.Body.transformToByteArray());
     const shaActual = crypto.createHash('sha256').update(fileBuf).digest('hex');
     if (shaActual !== String(order.sha256).toLowerCase()) {
       await sbPatchOrder(orderId, { status: 'payment_pending' });
@@ -423,9 +420,6 @@ exports.handler = async (event) => {
       order_id: orderId,
       hmac_token: order.hmac_token,
       full_name: order.full_name,
-      holder_name: order.holder_name,
-      created_at: order.created_at,
-      issuer_user_id: order.issuer_user_id,
       email: order.email,
       title: order.title,
       filename: order.file_key_r2.split('/').pop(),
@@ -475,10 +469,3 @@ exports.handler = async (event) => {
 function escapeHtml(s) {
   return String(s || '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
-
-
-
-
-
-
-
