@@ -387,10 +387,7 @@
               hmac_token: order.hmac_token
             }).then(function (confirmRes) {
               
-              // --- ФИКС ДЛЯ МОБИЛЬНЫХ БРАУЗЕРОВ ---
-              // Вместо window.location.href делаем программный клик по ссылке.
-              // Это обходит защиту Safari, которая режет URL при асинхронных редиректах.
-              showMsg('ok', 'Done. Opening status page…');
+              showMsg('ok', 'Certificate is ready! Click the button below to open it.');
               
               var finalUrl = '';
               if (confirmRes && confirmRes.status_url) {
@@ -399,14 +396,14 @@
                 finalUrl = '/en/certify/status/?order_id=' + encodeURIComponent(order.order_id) + '&token=' + encodeURIComponent(order.hmac_token);
               }
 
-              if (finalUrl) {
-                var a = document.createElement('a');
-                a.href = finalUrl;
-                a.style.display = 'none';
-                document.body.appendChild(a);
-                a.click();
+              var msgContainer = document.getElementById('formMsg');
+              if (msgContainer) {
+                msgContainer.innerHTML = '<div style="margin-top: 15px; padding: 15px; background: #eef; border: 1px solid #ccd; border-radius: 5px; text-align: center;">' +
+                  '<p style="margin-bottom: 10px; font-weight: bold;">Your document is certified!</p>' +
+                  '<a href="' + finalUrl + '" style="display: inline-block; padding: 10px 20px; background: #1E3A5F; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Open Certificate Status</a>' +
+                  '</div>';
               } else {
-                showMsg('err', 'Internal error: missing order data');
+                window.location.href = finalUrl;
               }
             });
           });
