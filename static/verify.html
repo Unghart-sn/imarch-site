@@ -258,10 +258,11 @@
 
 <script>
 (function () {
-  const paneDoc = document.getElementById('pane-document');
+    const paneDoc = document.getElementById('pane-document');
   const paneAcc = document.getElementById('pane-account');
   const tabsEl  = document.getElementById('tabs');
 
+  /* ---------- WhuDonate endpoint ---------- */
   const WHYDONATE_URL = 'https://whydonate.com/fundraising/vis-realitatis-preserving-memory';
 
   function getHashFromUrl() {
@@ -294,6 +295,7 @@
     target.innerHTML = '<div class="error-box">' + msg + '</div>';
   }
 
+  /* ---------- Document pane ---------- */
   function renderEntry(entry) {
     const statusClass = entry.status === 'bitcoin' ? 'ok'
                       : entry.status === 'pending' ? 'warn' : 'err';
@@ -328,6 +330,7 @@
     paneDoc.innerHTML = h;
   }
 
+  /* ---------- Account pane ---------- */
   function formatImarch(mu) {
     if (!mu || mu === 0) return '0 IMARCH';
     const neg = mu < 0;
@@ -364,6 +367,7 @@
     return h;
   }
 
+  /* ---------- Digital Safe: markup ---------- */
   function safeMarkup() {
     return ''
       + '<div class="section-label">Digital Safe</div>'
@@ -559,6 +563,7 @@
     }
   }
 
+  /* ---------- Account pane render ---------- */
   function renderAccount(account, hash, allTxs) {
     let h = '';
 
@@ -586,30 +591,6 @@
     h += '<div class="field-label">Created</div><div class="field-value mono">' + esc(account.created_at || '') + '</div>';
     h += '<div class="field-label">Updated</div><div class="field-value mono">' + esc(account.updated_at || '') + '</div>';
     h += '</div></div>';
-
-    // --- ШОВ 4.2: Секция сертификатов ---
-    h += '<div class="card">';
-    h += '<div class="section-label">Your Certificates</div>';
-    if (account.certificates && account.certificates.length > 0) {
-      h += '<table class="tx-table" style="margin-top:10px;"><thead><tr>'
-        + '<th>Date</th><th>Title</th><th>Holder</th><th style="text-align:right;">Action</th>'
-        + '</tr></thead><tbody>';
-      for (const cert of account.certificates) {
-        const date = String(cert.created_at || '').slice(0, 10);
-        const url = cert.pdf_url || '#';
-        h += '<tr>'
-          + '<td class="mono" style="color:var(--c-muted);font-size:0.75rem;">' + esc(date) + '</td>'
-          + '<td>' + esc(cert.title || 'Untitled') + '</td>'
-          + '<td>' + esc(cert.holder_name || '—') + '</td>'
-          + '<td style="text-align:right;">'
-          + '<a href="' + esc(url) + '" target="_blank" class="btn" style="padding:4px 10px;font-size:0.75rem;">Download PDF</a>'
-          + '</td></tr>';
-      }
-      h += '</tbody></table>';
-    } else {
-      h += '<div class="field-value" style="color:var(--c-muted);font-style:italic;padding:0.5rem 0;">No certificates yet. You can order one at <a href="/en/certify/">/en/certify/</a>.</div>';
-    }
-    h += '</div>';
 
     h += '<div class="card">';
     h += '<div class="section-label">Transaction history</div>';
@@ -656,6 +637,7 @@
     }, 0);
   }
 
+  /* ---------- Tabs ---------- */
   function activateTab(name) {
     for (const btn of tabsEl.querySelectorAll('.tab')) {
       btn.classList.toggle('active', btn.dataset.tab === name);
@@ -670,7 +652,8 @@
     activateTab(btn.dataset.tab);
   });
 
-  async function main() {
+  /* ---------- Main (Шов 4.1: профиль из Supabase) ---------- */
+    async function main() {
     const hash = getHashFromUrl();
 
     if (hash && hash.length !== 64) {
@@ -708,6 +691,8 @@
       }
     }
 
+
+    // Account-вкладка: профиль из Supabase по auth.uid()
     try {
       const session = await window.imarchAuth.getSession();
       if (!session || !session.user) {
@@ -740,29 +725,13 @@
       }
 
       const profile = res.data;
-      
-      // --- ШОВ 4.2: Запрашиваем заказы ---
-      const ordersRes = await sb.from('orders')
-        .select('id,title,sha256,status,pdf_url,created_at,holder_name')
-        .eq('issuer_user_id', uid)
-        .eq('status', 'ready')
-        .order('created_at', { ascending: false });
-        
-      const certs = (ordersRes.data || []).map(o => ({
-        title: o.title,
-        sha256: o.sha256,
-        pdf_url: o.pdf_url,
-        created_at: o.created_at,
-        holder_name: o.holder_name
-      }));
-
       const account = {
         account_id: profile.id,
         owner_name: profile.full_name || '',
         owner_email: profile.email || '',
         token_balance: profile.token_balance || 0,
         is_admin: profile.is_admin === true,
-        certificates: certs,
+        certificates: [],  // Шов 4.2 — заполним из orders
         created_at: profile.created_at || '',
         updated_at: '',
         passport_sha256: null
