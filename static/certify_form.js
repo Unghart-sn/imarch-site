@@ -7,6 +7,9 @@
 
     var MAX_BYTES = 100 * 1024 * 1024;
     var ORDER_CREATE_URL = '/.netlify/functions/order-create';
+    var PROCESS_PAYMENT_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co/functions/v1/process-payment';
+    var REDEEM_PROMO_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co/functions/v1/redeem-promo';
+    var APPLY_PILOT_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co/functions/v1/apply-pilot';
 
     var fileInput = document.getElementById('file');
     var dropzone = document.getElementById('dropzone');
@@ -21,6 +24,128 @@
     var currentHash = null;
     var hashing = false;
     var submitting = false;
+
+    // --- ФУНКЦИИ ДЛЯ МОДАЛОК ---
+    function showModal(id) {
+      var el = document.getElementById(id);
+      if (el) el.style.display = 'flex';
+    }
+    function hideModal(id) {
+      var el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    }
+    function hideAllModals() {
+      hideModal('noTokensModal');
+      hideModal('promoModal');
+      hideModal('pilotModal');
+    }
+
+    // Обработчики кнопок модалки
+    if (document.getElementById('btnCloseModal')) {
+      document.getElementById('btnCloseModal').onclick = hideAllModals;
+    }
+    
+    if (document.getElementById('btnPromo')) {
+      document.getElementById('btnPromo').onclick = function() {
+        hideModal('noTokensModal');
+        showModal('promoModal');
+      };
+    }
+    if (document.getElementById('btnClosePromo')) {
+      document.getElementById('btnClosePromo').onclick = function() {
+        hideModal('promoModal');
+        showModal('noTokensModal');
+      };
+    }
+
+    if (document.getElementById('btnPilot')) {
+      document.getElementById('btnPilot').onclick = function() {
+        hideModal('noTokensModal');
+        showModal('pilotModal');
+      };
+    }
+    if (document.getElementById('btnClosePilot')) {
+      document.getElementById('btnClosePilot').onclick = function() {
+        hideModal('pilotModal');
+        showModal('noTokensModal');
+      };
+    }
+
+    // Отправка промокода
+    if (document.getElementById('btnSubmitPromo')) {
+      document.getElementById('btnSubmitPromo').onclick = async function() {
+        var code = document.getElementById('promoInput').value.trim();
+        if (!code) return;
+        var promoMsg = document.getElementById('promoMsg');
+        promoMsg.textContent = 'Checking...';
+        promoMsg.style.color = '#666';
+
+        try {
+          var session = getSession();
+          var token = session ? session.access_token : '';
+          var res = await fetch(REDEEM_PROMO_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+            body: JSON.stringify({ code: code })
+          });
+          var data = await res.json();
+          
+          if (data.status === 'success') {
+            promoMsg.textContent = 'Success! ' + data.message;
+            promoMsg.style.color = 'green';
+            setTimeout(function() { window.location.reload(); }, 2000);
+          } else {
+            promoMsg.textContent = 'Error: ' + (data.error || 'Unknown error');
+            promoMsg.style.color = 'red';
+          }
+        } catch (e) {
+          promoMsg.textContent = 'Network error.';
+          promoMsg.style.color = 'red';
+        }
+      };
+    }
+
+    // Отправка заявки на пилот
+    if (document.getElementById('btnSubmitPilot')) {
+      document.getElementById('btnSubmitPilot').onclick = async function() {
+        var email = document.getElementById('pilotEmail').value.trim();
+        var org = document.getElementById('pilotOrg').value.trim();
+        var msg = document.getElementById('pilotMsg').value.trim();
+        if (!email) {
+          document.getElementById('pilotResultMsg').textContent = 'Email is required.';
+          document.getElementById('pilotResultMsg').style.color = 'red';
+          return;
+        }
+        
+        var resultMsg = document.getElementById('pilotResultMsg');
+        resultMsg.textContent = 'Sending...';
+        resultMsg.style.color = '#666';
+
+        try {
+          var session = getSession();
+          var token = session ? session.access_token : '';
+          var res = await fetch(APPLY_PILOT_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token },
+            body: JSON.stringify({ email: email, organization: org, message: msg })
+          });
+          var data = await res.json();
+          
+          if (data.status === 'success') {
+            resultMsg.textContent = 'Application sent! We will contact you soon.';
+            resultMsg.style.color = 'green';
+            document.getElementById('btnSubmitPilot').disabled = true;
+          } else {
+            resultMsg.textContent = 'Error: ' + (data.error || 'Unknown error');
+            resultMsg.style.color = 'red';
+          }
+        } catch (e) {
+          resultMsg.textContent = 'Network error.';
+          resultMsg.style.color = 'red';
+        }
+      };
+    }
+    // ---------------------------
 
     function showMsg(kind, text) {
       if (!msgEl) return;
@@ -49,6 +174,35 @@
       return file.arrayBuffer().then(function (ab) {
         return crypto.subtle.digest('SHA-256', ab);
       }).then(bufToHex);
+    }
+
+    function getSession() {
+      try {
+        var key = 'sb-nmiyaroisztnxenmoxzs-auth-token';
+        var raw = localStorage.getItem(key);
+        if (!raw) raw = localStorage.getItem('sb-auth-token') || localStorage.getItem('supabase.auth.token');
+        if (!raw) return null;
+        var parsed = JSON.parse(raw);
+        if (parsed && parsed.access_token) return parsed;
+        return (parsed && parsed.currentSession) || parsed || null;
+      } catch (e) { return null; }
+    }
+
+    function getAccessToken() {
+      var s = getSession();
+      return s && s.access_token ? s.access_token : null;
+    }
+
+    async function getCurrentUserId() {
+      try {
+        var session = await window.imarchAuth.getSession();
+        return session && session.user ? session.user.id : null;
+      } catch (e) { return null; }
+    }
+
+    function getHolderName() {
+      var el = document.getElementById('holderName');
+      return el && el.value ? el.value.trim() : null;
     }
 
     function handleFile(file) {
@@ -119,9 +273,12 @@
     }
 
     function postJson(url, payload) {
+      var headers = { 'Content-Type': 'application/json' };
+      var token = getAccessToken();
+      if (token) headers['Authorization'] = 'Bearer ' + token;
       return fetch(url, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: headers,
         body: JSON.stringify(payload)
       }).then(function (res) {
         return res.text().then(function (text) {
@@ -150,14 +307,14 @@
         };
         xhr.onload = function () {
           if (xhr.status >= 200 && xhr.status < 300) resolve(xhr.status);
-          else reject(new Error('upload failed: HTTP ' + xhr.status));
+          else reject(new Error('upload failed: HTTP ' + xhr.status + ' | Details: ' + xhr.responseText));
         };
         xhr.onerror = function () { reject(new Error('upload network error')); };
         xhr.send(file);
       });
     }
 
-    form.addEventListener('submit', function (e) {
+    form.addEventListener('submit', async function (e) {
       e.preventDefault();
       if (submitting) return;
       clearMsg();
@@ -172,7 +329,6 @@
       var title = (titleEl ? titleEl.value : '').trim();
       var tos = tosEl ? tosEl.checked : true;
 
-      // ПРОВЕРКА НА ЛАТИНИЦУ (добавлено)
       var latinRegex = /^[A-Za-z\s]+$/;
       if (name && !latinRegex.test(name)) {
         return showMsg('err', 'Please use only Latin letters and spaces for your name.');
@@ -186,6 +342,11 @@
       if (hashing) return showMsg('err', 'Still hashing the file, please wait.');
       if (!currentHash) return showMsg('err', 'Could not compute SHA-256 for this file.');
 
+      var userId = await getCurrentUserId();
+      if (!userId) {
+        return showMsg('err', 'Please sign in before submitting.');
+      }
+
       submitting = true;
       if (btn) btn.disabled = true;
 
@@ -195,7 +356,9 @@
         title: title,
         sha256: currentHash,
         size_bytes: currentFile.size,
-        filename: currentFile.name
+        filename: currentFile.name,
+        user_id: userId,
+        holder_name: getHolderName()
       };
 
       showMsg('ok', 'Creating order\u2026');
@@ -209,18 +372,50 @@
           return order;
         });
       }).then(function (order) {
-        showMsg('ok', 'Confirming upload\u2026');
-        return postJson('/.netlify/functions/order-confirm', {
-          order_id: order.order_id,
-          hmac_token: order.hmac_token
-        }).then(function (confirmRes) {
-          showMsg('ok', 'Upload confirmed. Redirecting to payment\u2026');
-          window.open(order.whydonate_url, '_blank');
-        });
+        showMsg('ok', 'Checking balance\u2026');
+        return postJson(PROCESS_PAYMENT_URL, { order_id: order.order_id })
+          .then(function (decision) {
+            if (decision.status === 'insufficient_tokens') {
+              showMsg('err', 'Insufficient tokens. Please choose an option.');
+              showModal('noTokensModal');
+              throw new Error('insufficient_tokens');
+            }
+
+            showMsg('ok', 'Confirming upload\u2026');
+            return postJson('/.netlify/functions/order-confirm', {
+              order_id: order.order_id,
+              hmac_token: order.hmac_token
+            }).then(function (confirmRes) {
+              
+              // --- ФИКС ДЛЯ МОБИЛЬНЫХ БРАУЗЕРОВ ---
+              // Вместо window.location.href делаем программный клик по ссылке.
+              // Это обходит защиту Safari, которая режет URL при асинхронных редиректах.
+              showMsg('ok', 'Done. Opening status page…');
+              
+              var finalUrl = '';
+              if (confirmRes && confirmRes.status_url) {
+                finalUrl = confirmRes.status_url;
+              } else if (order && order.order_id && order.hmac_token) {
+                finalUrl = '/en/certify/status/?order_id=' + encodeURIComponent(order.order_id) + '&token=' + encodeURIComponent(order.hmac_token);
+              }
+
+              if (finalUrl) {
+                var a = document.createElement('a');
+                a.href = finalUrl;
+                a.style.display = 'none';
+                document.body.appendChild(a);
+                a.click();
+              } else {
+                showMsg('err', 'Internal error: missing order data');
+              }
+            });
+          });
       }).catch(function (err) {
         submitting = false;
-        if (btn) btn.disabled = false;
-        showMsg('err', 'Error: ' + (err && err.message ? err.message : 'unknown'));
+        if (err && err.message !== 'insufficient_tokens') {
+          if (btn) btn.disabled = false;
+          showMsg('err', 'Error: ' + (err && err.message ? err.message : 'unknown'));
+        }
       });
     });
   }
