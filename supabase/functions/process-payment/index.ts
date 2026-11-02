@@ -1,4 +1,4 @@
-// supabase/functions/process-payment/index.ts
+﻿// supabase/functions/process-payment/index.ts
 import { createClient } from "npm:@supabase/supabase-js@2";
 
 const corsHeaders = {
@@ -78,10 +78,32 @@ Deno.serve(async (req) => {
         );
       }
 
-      await supabaseAdmin.from("orders").update({
+            await supabaseAdmin.from("orders").update({
         status: "completed",
         payment_method: "token",
       }).eq("id", order_id);
+
+      // fire-and-forget: запускаем генерацию паспорта (PDF + email)
+      const orderProcessUrl = Deno.env.get("ORDER_PROCESS_URL");
+      const adminToken = Deno.env.get("GIFT_ADMIN_TOKEN");
+      if (orderProcessUrl && adminToken) {
+        try {
+          console.log('DEBUG-FETCH-START', orderProcessUrl);
+          const opResp = await fetch(orderProcessUrl, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "x-admin-token": adminToken,
+            },
+            body: JSON.stringify({ order_id }),
+          });
+          console.log('DEBUG-FETCH-STATUS', opResp.status);
+          const opText = await opResp.text();
+          console.log("[order-process] status:", opResp.status, "body:", opText.slice(0, 300));
+        } catch (e) {
+          console.error("[order-process trigger] error:", e.message, "url:", orderProcessUrl);
+        }
+      }
 
       return json({ status: "completed", reason: "token" });
     }

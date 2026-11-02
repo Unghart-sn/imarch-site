@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
   'use strict';
 
   function initForm() {
@@ -193,11 +193,22 @@
       return s && s.access_token ? s.access_token : null;
     }
 
+    // АСИНХРОННАЯ ФУНКЦИЯ: ждем сессию от auth.js
     async function getCurrentUserId() {
       try {
+        if (!window.imarchAuth) {
+          console.error('imarchAuth not found on page');
+          return null;
+        }
         var session = await window.imarchAuth.getSession();
-        return session && session.user ? session.user.id : null;
-      } catch (e) { return null; }
+        if (session && session.user) {
+          return session.user.id;
+        }
+        return null;
+      } catch (e) {
+        console.error('Auth error:', e);
+        return null;
+      }
     }
 
     function getHolderName() {
@@ -342,7 +353,9 @@
       if (hashing) return showMsg('err', 'Still hashing the file, please wait.');
       if (!currentHash) return showMsg('err', 'Could not compute SHA-256 for this file.');
 
+      // ВОТ ЗДЕСЬ МЫ ЖДЕМ ОТВЕТА ОТ AUTH.JS
       var userId = await getCurrentUserId();
+      
       if (!userId) {
         return showMsg('err', 'Please sign in before submitting.');
       }
@@ -357,7 +370,7 @@
         sha256: currentHash,
         size_bytes: currentFile.size,
         filename: currentFile.name,
-        user_id: userId,
+        issuer_user_id: userId,
         holder_name: getHolderName()
       };
 

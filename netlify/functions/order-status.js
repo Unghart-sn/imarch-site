@@ -38,7 +38,7 @@ async function sbGetOrder(orderId) {
   return Array.isArray(arr) ? arr[0] : null;
 }
 
-const PUBLIC_STATUSES = new Set(['pending_upload', 'payment_pending', 'processing', 'ready', 'error']);
+const PUBLIC_STATUSES = new Set(['pending', 'pending_upload', 'payment_pending', 'processing', 'ready', 'completed', 'error']);
 
 exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: CORS, body: '' };

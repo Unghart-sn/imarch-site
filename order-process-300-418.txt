@@ -1,0 +1,119 @@
+﻿300:       doc.fillColor(INK).font('Courier').fontSize(6)
+301:          .text(qrPayload, 60, FY + 74, { width: TEXT_W, lineGap: 2 });
+302: 
+303:       doc.fillColor(MUTED).font('Helvetica').fontSize(7)
+304:          .text('Issued by imarch.ltd - ' + new Date().toISOString().slice(0, 10),
+305:                60, PH - 60, { width: PW - 120 });
+306: 
+307:       doc.end();
+308:     } catch (e) { reject(e); }
+309:   });
+310: }
+311: 
+312: // ---------- Email via Resend ----------
+313: async function sendEmail(to, subject, html, attachments) {
+314:   const key = process.env.RESEND_API_KEY;
+315:   if (!key) throw new Error('RESEND_API_KEY missing');
+316:   const res = await fetch('https://api.resend.com/emails', {
+317:     method: 'POST',
+318:     headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+319:     body: JSON.stringify({ from: RESEND_FROM, to: [to], subject, html, attachments }),
+320:   });
+321:   const text = await res.text();
+322:   if (!res.ok) throw new Error('resend_' + res.status + ': ' + text.slice(0, 300));
+323:   return JSON.parse(text);
+324: }
+325: 
+326: // ---------- Handler ----------
+327: exports.handler = async (event) => {
+328:   if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: CORS, body: '' };
+329:   const isTestGet = event.httpMethod === 'GET' &&
+330:     event.queryStringParameters &&
+331:     event.queryStringParameters.test_token === process.env.GIFT_ADMIN_TOKEN &&
+332:     event.queryStringParameters.order_id;
+333:   if (!isTestGet && event.httpMethod !== 'POST') return reply(405, { ok: false, error: 'method_not_allowed' });
+334: 
+335:   const adminToken = process.env.GIFT_ADMIN_TOKEN;
+336:   if (!adminToken) return reply(500, { ok: false, error: 'GIFT_ADMIN_TOKEN_missing' });
+337:   const hdr = event.headers['x-admin-token'] || event.headers['X-Admin-Token'];
+338:   if (!hdr || hdr !== adminToken) return reply(403, { ok: false, error: 'forbidden' });
+339: 
+340:   const body = parseJsonBody(event);
+341:   const orderId = (isTestGet
+342:     ? String(event.queryStringParameters.order_id || '').trim()
+343:     : (body && String(body.order_id || '').trim())
+344:   );
+345:   if (!orderId || !/^[0-9a-f-]{36}$/i.test(orderId)) return reply(400, { ok: false, error: 'bad_order_id' });
+346: 
+347:   const trace = [];
+348:   try {
+349:     const order = await sbGetOrder(orderId);
+350:     if (!order) return reply(404, { ok: false, error: 'order_not_found' });
+351:     if (order.status !== 'payment_pending' && order.status !== 'processing' && order.status !== 'ready') {
+352:       return reply(409, { ok: false, error: 'bad_status', current: order.status });
+353:     }
+354:     if (order.status === 'ready') {
+355:       return reply(200, { ok: true, status: 'ready', idempotent: true, pdf_url: order.pdf_url || null });
+356:     }
+357:     trace.push('order_loaded');
+358: 
+359:     await sbPatchOrder(orderId, { status: 'processing' });
+360:     trace.push('status_processing');
+361: 
+362:     // R2 head
+363:   console.log('[DEBUG R2] bucket=', process.env.R2_BUCKET, 'key=', order.file_key_r2, 'endpoint=', process.env.R2_ENDPOINT);
+364: try {
+365:   const head = await getS3().send(new HeadObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+366: } catch (r2err) {
+367:   return reply(500, {
+368:     debug: 'r2_head_failed',
+369:     bucket: process.env.R2_BUCKET || 'MISSING',
+370:     key: order.file_key_r2 || 'MISSING',
+371:     endpoint: process.env.R2_ENDPOINT || 'MISSING',
+372:     errName: r2err.name || 'unknown',
+373:     errMessage: r2err.message || 'unknown'
+374:   });
+375: }
+376: 
+377:     // Download + sha check
+378:     const obj = await getS3().send(new GetObjectCommand({ Bucket: process.env.R2_BUCKET, Key: order.file_key_r2 }));
+379:     const fileBuf = Buffer.from(await obj.Body.transformToByteArray());
+380:     const shaActual = crypto.createHash('sha256').update(fileBuf).digest('hex');
+381:     if (shaActual !== String(order.sha256).toLowerCase()) {
+382:       await sbPatchOrder(orderId, { status: 'payment_pending' });
+383:       return reply(409, { ok: false, error: 'sha_mismatch', expected: order.sha256, actual: shaActual });
+384:     }
+385:     trace.push('sha_ok');
+386: 
+387:     // VirusTotal (skipped)
+388:     const vtStatus = VT_ENABLED ? 'pending' : 'skipped';
+389:     trace.push('vt_' + vtStatus);
+390: 
+391:     // RFC3161
+392:     let tsa = { status: 'skipped', token: null, raw: null, statusCode: null };
+393:     if (RFC3161_ENABLED) {
+394:       try {
+395:         const t = await requestTimestamp(shaActual);
+396:         tsa = { status: 'ok', token: t.token, raw: t.raw, statusCode: t.status };
+397:         const b64 = t.raw.toString('base64');
+398:         const tsrKey = 'certs/' + orderId + '/timestamp.tsr';
+399:         await getS3().send(new PutObjectCommand({
+400:           Bucket: process.env.R2_BUCKET, Key: tsrKey, Body: t.raw, ContentType: 'application/timestamp-reply',
+401:         }));
+402:         await sbPatchOrder(orderId, { tsa_token: b64, tsa_status: 'ok' });
+403:         trace.push('tsa_ok size=' + t.raw.length);
+404:       } catch (e) {
+405:         tsa = { status: 'error', token: null, raw: null, statusCode: null, error: String(e && e.message || e) };
+406:         await sbPatchOrder(orderId, { tsa_status: 'error' });
+407:         trace.push('tsa_error ' + (e && e.message));
+408:       }
+409:     } else {
+410:       await sbPatchOrder(orderId, { tsa_status: 'skipped' });
+411:     }
+412: 
+413:     // Anchor (skipped)
+414:     const anchorStatus = ANCHOR_ENABLED ? 'pending' : 'skipped';
+415:     await sbPatchOrder(orderId, { anchor_status: anchorStatus, vt_status: vtStatus });
+416:     trace.push('anchor_' + anchorStatus);
+417: 
+418:     // PDF

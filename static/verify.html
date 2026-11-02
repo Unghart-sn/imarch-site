@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Verdictum Verification — IMARCH LTD</title>
+<title>My Account — IMARCH LTD</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/icon-192.png">
@@ -47,13 +47,6 @@
     background: var(--c-light); border: 1px solid var(--c-border);
     border-radius: 4px; padding: 1.25rem; margin-bottom: 1rem;
   }
-  .status-badge {
-    display: inline-block; padding: 2px 10px; border-radius: 3px;
-    font-family: Arial, sans-serif; font-size: 0.85rem; font-weight: bold;
-  }
-  .status-badge.ok   { background:#DCEFE0; color:var(--c-ok);   border:1px solid var(--c-ok); }
-  .status-badge.warn { background:#F0E0D0; color:var(--c-warn); border:1px solid var(--c-warn); }
-  .status-badge.err  { background:#F0D0D0; color:var(--c-err);  border:1px solid var(--c-err); }
   .field-grid {
     display: grid; grid-template-columns: 150px 1fr;
     gap: 6px 20px; font-family: Arial, sans-serif; font-size: 0.9rem;
@@ -88,32 +81,11 @@
     padding: 1.25rem; border-radius: 4px; text-align: center;
     font-family: Arial, sans-serif;
   }
-  .error-box code { background: rgba(0,0,0,0.06); padding: 2px 6px; border-radius: 3px; }
   .header-band {
     background: var(--c-light); border-top: 1px solid var(--c-border);
     padding: 0.6rem; text-align: center; font-family: Arial, sans-serif;
     color: var(--c-primary); font-size: 0.7rem; margin-top: 2rem;
   }
-
-  /* Tabs */
-  .tabs {
-    display: flex; gap: 0; margin: 0 0 1rem;
-    border-bottom: 2px solid var(--c-border);
-  }
-  .tab {
-    flex: 1; padding: 0.75rem 1rem; background: transparent;
-    border: none; border-bottom: 3px solid transparent;
-    font-family: Arial, sans-serif; font-size: 0.95rem; font-weight: bold;
-    color: var(--c-muted); cursor: pointer; margin-bottom: -2px;
-    transition: color 0.15s, border-color 0.15s;
-  }
-  .tab:hover { color: var(--c-primary); }
-  .tab.active {
-    color: var(--c-primary); border-bottom-color: var(--c-primary);
-  }
-  .tab[disabled] { opacity: 0.4; cursor: not-allowed; }
-
-  /* Account pane */
   .balance-box {
     text-align: center; padding: 1.5rem 1rem 1rem;
   }
@@ -149,8 +121,6 @@
     font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em;
     margin: 1rem 0 0.25rem;
   }
-
-  /* Digital Safe */
   .safe-hint {
     font-family: Arial, sans-serif; font-size: 0.8rem; color: var(--c-muted);
     margin: 0.25rem 0 0.85rem; line-height: 1.45;
@@ -234,21 +204,13 @@
     </div>
   </div>
 
-  <h2 class="title">Certificate Verification</h2>
-  <div class="subtitle">Cryptographically provable proof of priority</div>
+  <h2 class="title">My Account</h2>
+  <div class="subtitle">Your personal dashboard</div>
 
-  <div class="tabs" id="tabs">
-    <button class="tab active" data-tab="document">Document</button>
-    <button class="tab" data-tab="account">Account</button>
-  </div>
-
-  <div id="pane-document"></div>
-  <div id="pane-account" hidden></div>
+  <div id="pane-account"></div>
 
   <div class="footnote">
-    This page verifies the existence of a document at a given Bitcoin block
-    via OpenTimestamps. It does not make the document itself indestructible —
-    only the fact of its existence at that time is cryptographically provable.
+    This is your private account area. To verify a certificate, please use the link provided on the certificate itself.
   </div>
 </div>
 
@@ -258,19 +220,8 @@
 
 <script>
 (function () {
-  const paneDoc = document.getElementById('pane-document');
   const paneAcc = document.getElementById('pane-account');
-  const tabsEl  = document.getElementById('tabs');
-
   const WHYDONATE_URL = 'https://whydonate.com/fundraising/vis-realitatis-preserving-memory';
-
-  function getHashFromUrl() {
-    const m = location.pathname.match(/\/verify\/([a-f0-9]{64})/i);
-    if (m) return m[1].toLowerCase();
-    const p = new URLSearchParams(location.search).get('hash');
-    if (p) return p.toLowerCase().replace(/[^a-f0-9]/g, '');
-    return null;
-  }
 
   function esc(s) {
     return String(s).replace(/[&<>"']/g, c => ({
@@ -292,40 +243,6 @@
 
   function renderError(target, msg) {
     target.innerHTML = '<div class="error-box">' + msg + '</div>';
-  }
-
-  function renderEntry(entry) {
-    const statusClass = entry.status === 'bitcoin' ? 'ok'
-                      : entry.status === 'pending' ? 'warn' : 'err';
-    const statusLabel = entry.status === 'bitcoin'
-                      ? 'BITCOIN-ATTESTED' : String(entry.status).toUpperCase();
-    const block = entry.block_height || '';
-
-    let h = '<div class="card"><div class="field-grid">';
-    h += '<div class="field-label">Status</div><div class="field-value"><span class="status-badge ' + statusClass + '">' + esc(statusLabel) + '</span></div>';
-    h += '<div class="field-label">Document</div><div class="field-value">' + esc(entry.file) + '</div>';
-    h += '<div class="field-label">SHA-256</div><div class="field-value mono">' + esc(entry.sha256) + '</div>';
-    h += '<div class="field-label">Size</div><div class="field-value">' + esc(entry.size_bytes) + ' bytes</div>';
-    if (entry.block_height) {
-      h += '<div class="field-label">Bitcoin block</div><div class="field-value">'
-        + '<a href="https://blockstream.info/block-height/' + esc(block) + '" target="_blank" rel="noopener">'
-        + esc(block) + '</a></div>';
-    }
-    h += '<div class="field-label">Attestations</div><div class="field-value">' + esc(entry.attestation_count) + '</div>';
-    if (entry.calendars && entry.calendars.length) {
-      h += '<div class="field-label">Calendars</div><div class="field-value mono">'
-        + entry.calendars.map(esc).join('<br>') + '</div>';
-    }
-    h += '</div></div>';
-
-    if (entry.certificate) {
-      const certFile = entry.certificate.replace(/\\/g, '/').split('/').pop();
-      h += '<div style="text-align:center;margin:1.5rem 0;">'
-        + '<a class="btn" href="/certs/' + esc(certFile) + '">Download Certificate PDF</a>'
-        + '</div>';
-    }
-
-    paneDoc.innerHTML = h;
   }
 
   function formatImarch(mu) {
@@ -584,31 +501,15 @@
     h += '<div class="field-label">Email</div><div class="field-value mono">' + esc(maskEmail(account.owner_email)) + '</div>';
     h += '<div class="field-label">Certificates</div><div class="field-value">' + esc((account.certificates || []).length) + '</div>';
     h += '<div class="field-label">Created</div><div class="field-value mono">' + esc(account.created_at || '') + '</div>';
-    h += '<div class="field-label">Updated</div><div class="field-value mono">' + esc(account.updated_at || '') + '</div>';
     h += '</div></div>';
 
-    // --- ШОВ 4.2: Секция сертификатов ---
     h += '<div class="card">';
-    h += '<div class="section-label">Your Certificates</div>';
-    if (account.certificates && account.certificates.length > 0) {
-      h += '<table class="tx-table" style="margin-top:10px;"><thead><tr>'
-        + '<th>Date</th><th>Title</th><th>Holder</th><th style="text-align:right;">Action</th>'
-        + '</tr></thead><tbody>';
-      for (const cert of account.certificates) {
-        const date = String(cert.created_at || '').slice(0, 10);
-        const url = cert.pdf_url || '#';
-        h += '<tr>'
-          + '<td class="mono" style="color:var(--c-muted);font-size:0.75rem;">' + esc(date) + '</td>'
-          + '<td>' + esc(cert.title || 'Untitled') + '</td>'
-          + '<td>' + esc(cert.holder_name || '—') + '</td>'
-          + '<td style="text-align:right;">'
-          + '<a href="' + esc(url) + '" target="_blank" class="btn" style="padding:4px 10px;font-size:0.75rem;">Download PDF</a>'
-          + '</td></tr>';
-      }
-      h += '</tbody></table>';
-    } else {
-      h += '<div class="field-value" style="color:var(--c-muted);font-style:italic;padding:0.5rem 0;">No certificates yet. You can order one at <a href="/en/certify/">/en/certify/</a>.</div>';
-    }
+    h += '<div class="section-label">Certificates</div>';
+    const certCount = (account.certificates || []).length;
+    h += '<div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">';
+    h += '<div style="font-family:Arial,sans-serif; font-size:0.9rem;">You have <b>' + certCount + '</b> issued certificate' + (certCount === 1 ? '' : 's') + '.</div>';
+    h += '<a href="/certificates.html" class="btn" style="padding: 8px 16px;">My Certificates &rarr;</a>';
+    h += '</div>';
     h += '</div>';
 
     h += '<div class="card">';
@@ -656,57 +557,8 @@
     }, 0);
   }
 
-  function activateTab(name) {
-    for (const btn of tabsEl.querySelectorAll('.tab')) {
-      btn.classList.toggle('active', btn.dataset.tab === name);
-    }
-    paneDoc.hidden = (name !== 'document');
-    paneAcc.hidden = (name !== 'account');
-  }
-
-  tabsEl.addEventListener('click', (e) => {
-    const btn = e.target.closest('.tab');
-    if (!btn || btn.disabled) return;
-    activateTab(btn.dataset.tab);
-  });
-
   async function main() {
-    const hash = getHashFromUrl();
-
-    if (hash && hash.length !== 64) {
-      renderError(paneDoc, 'Invalid SHA-256 hash (expected 64 hex chars, got ' + hash.length + ').');
-      paneAcc.hidden = true;
-      return;
-    }
-
-    if (hash) {
-      paneDoc.innerHTML = '<div class="loading">Looking up <span class="mono">' + esc(hash) + '</span></div>';
-    } else {
-      paneDoc.innerHTML = '<div class="card" style="text-align:center;padding:2rem 1.25rem;"><div style="font-family:Arial,sans-serif;color:var(--c-muted);">No document selected. Please check the Account tab.</div></div>';
-    }
-
     paneAcc.innerHTML = '<div class="loading">Loading account…</div>';
-
-    if (hash) {
-      let registry = { entries: [] };
-      try {
-        const regRes = await fetch('/registry.json', { cache: 'no-cache' });
-        if (regRes.ok) registry = await regRes.json();
-      } catch (e) {
-        renderError(paneDoc, 'Verification service error: ' + esc(e.message));
-      }
-
-      const entry = (registry.entries || []).find(
-        e => String(e.sha256).toLowerCase() === hash
-      );
-      if (entry) {
-        renderEntry(entry);
-      } else {
-        renderError(paneDoc,
-          'Document not found in the IMARCH verification registry.<br>'
-          + '<span class="mono" style="font-size:0.7rem;">' + esc(hash) + '</span>');
-      }
-    }
 
     try {
       const session = await window.imarchAuth.getSession();
@@ -741,11 +593,10 @@
 
       const profile = res.data;
       
-      // --- ШОВ 4.2: Запрашиваем заказы ---
       const ordersRes = await sb.from('orders')
         .select('id,title,sha256,status,pdf_url,created_at,holder_name')
         .eq('issuer_user_id', uid)
-        .eq('status', 'ready')
+        .in('status', ['ready', 'completed'])
         .order('created_at', { ascending: false });
         
       const certs = (ordersRes.data || []).map(o => ({
@@ -764,11 +615,10 @@
         is_admin: profile.is_admin === true,
         certificates: certs,
         created_at: profile.created_at || '',
-        updated_at: '',
         passport_sha256: null
       };
 
-      renderAccount(account, hash, []);
+      renderAccount(account, null, []);
     } catch (e) {
       renderError(paneAcc, 'Account service error: ' + esc(e.message));
     }
