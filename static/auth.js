@@ -43,10 +43,40 @@
     try { localStorage.removeItem("imarch_session_version"); } catch (e) {}
   }
 
-  async function loadAccounts() {
-    var r = await fetch("/accounts.json?_=" + Date.now(), { cache: "no-store" });
-    if (!r.ok) throw new Error("accounts.json HTTP " + r.status);
-    return r.json();
+    async function loadAccounts() {
+    var c = getClient();
+    var session = await getSession();
+    if (!session || !session.user) return { accounts: [] };
+    var email = session.user.email;
+
+    var profileRes = await c.from('profiles').select('*').eq('email', email).single();
+    if (profileRes.error || !profileRes.data) {
+      console.warn('[auth] Profile not found for', email);
+      return { accounts: [] };
+    }
+    var profile = profileRes.data;
+
+    var ordersRes = await c.from('orders').select('*').eq('user_id', profile.id).order('created_at', { ascending: false });
+    var certificates = [];
+    var nameFromOrder = null;
+
+    if (ordersRes.data && ordersRes.data.length > 0) {
+       certificates = ordersRes.data.map(function(o) { return o.sha256 || o.id; }).filter(Boolean);
+       nameFromOrder = ordersRes.data[0].full_name;
+    }
+
+    var account = {
+      account_id: profile.id,
+      account_key: profile.id,
+      owner_name: profile.full_name || nameFromOrder || 'Friend',
+      owner_email: profile.email,
+      token_balance: profile.token_balance || 0, token_balance_formatted: ((profile.token_balance || 0) / 100).toFixed(2),
+      is_admin: profile.is_admin || false,
+      role: profile.role || 'user',
+      certificates: certificates,
+      created_at: profile.created_at
+    };
+    return { accounts: [account] };
   }
 
   function findAccountByEmail(data, email) {
@@ -88,6 +118,18 @@
     var expected = (account && typeof account.session_version === "number") ? account.session_version : 0;
     return String(stored) === String(expected);
   }
+
+  // Ловим токен из URL (после магик-ссылки)
+  (async function() {
+    try {
+      var c = getClient();
+      var session = await c.auth.getSession();
+      if (!session.data.session && window.location.hash) {
+        // Если в URL есть токен, Supabase SDK сам его подхватит
+        await c.auth.getSession(); 
+      }
+    } catch(e) { console.warn('Auth init error', e); }
+  })();
 
   window.imarchAuth = {
     getClient: getClient,

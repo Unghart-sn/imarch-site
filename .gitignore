@@ -28,3 +28,23 @@ hugo_build.lock
 
 # Local Netlify folder
 .netlify
+
+# Dev logs and temp
+hugo-log.txt
+*.bak
+*.bak2
+*.bak_accounts
+*.bak_balance_format
+*.bak_name_fix
+*.bak_backbtn
+*.bak_backbtn2
+*.bak_format
+*.bak_format2
+*.bak_style
+*.bak_btn
+*.bak_pkijs
+PROJECT_STATE-2.md
+
+# OS
+.DS_Store
+Thumbs.db
