@@ -78,9 +78,9 @@
       var res = await sb.from('profiles').select('token_balance').eq('id', session.user.id).single();
       if (res.data) {
         var mu = res.data.token_balance || 0;
-        var formatted = (mu / 100).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        var formatted = (mu || 0).toLocaleString('en-US');
         if (el1) el1.textContent = formatted;
-        if (el2) el2.textContent = formatted + ' IMARCH';
+        if (el2) el2.textContent = formatted + ' µIMARCH';
       }
     } catch (e) { console.error('Balance error', e); }
   }
