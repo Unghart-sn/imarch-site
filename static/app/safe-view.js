@@ -87,7 +87,7 @@
     const pw = getSafePw();
     if (!pw) { safeMsg('Enter safe password first.', 'err'); return; }
     if (file.size > 88 * 1024 * 1024) { safeMsg('File too large. Max ~88 MB.', 'err'); return; }
-    
+
     safeMsg('Encrypting...', 'ok');
     try {
       const blob = await window.imarchSafe.encryptFile(file, pw);
@@ -141,7 +141,7 @@
 
     const saved = sessionStorage.getItem('imarch_safe_pw');
     if (saved) pwInput.value = saved;
-    
+
     pwInput.addEventListener('input', function () {
       if (pwInput.value) sessionStorage.setItem('imarch_safe_pw', pwInput.value);
       else sessionStorage.removeItem('imarch_safe_pw');
@@ -187,7 +187,7 @@
       }
 
       let h = '<div class="dash-grid">';
-      
+
       h += '<div class="dash-card">';
       h += '<div class="card-header"><h3>Encryption Key</h3></div>';
       h += '<p style="font-size:13px; color:#6b7280; margin-top:0;">Your files are encrypted locally before upload. We never see your password.</p>';
@@ -211,8 +211,15 @@
       h += '<div id="safeQuotaText" style="font-size:12px; color:#6b7280;">Loading...</div>';
       h += '</div>';
 
+      // Блок с файлами + кнопка на лот
       h += '<div class="dash-card">';
-      h += '<div class="card-header"><h3>Files</h3></div>';
+      h += '<div class="card-header">';
+      h += '<h3 style="margin:0;">Files</h3>';
+      h += '</div>';
+      h += '<div style="margin-top:12px; margin-bottom:16px; display:flex; gap:8px; flex-wrap:wrap;">';
+      h += '<a href="/en/docs/consilium/cbb-0006/" class="btn-secondary" style="font-size:13px; padding:8px 16px;">Lot cbb-0006 &rarr;</a>';
+      h += '</div>';
+      
       h += '<table class="dash-table"><thead><tr>'
         + '<th>File ID</th><th>Size</th><th>Uploaded</th><th style="text-align:right;">Actions</th>'
         + '</tr></thead><tbody id="safeTbody"><tr><td colspan="4" style="text-align:center; padding:24px;">Loading...</td></tr></tbody></table>';

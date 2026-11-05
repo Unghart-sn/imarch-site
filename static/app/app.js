@@ -58,8 +58,42 @@
       });
   }
 
+  // --- ГЛОБАЛЬНЫЙ ВИДЖЕТ БАЛАНСА ---
+    // Бургер меню логика
+  var burgerBtn = document.getElementById('appBurgerBtn');
+  var sidebarContent = document.getElementById('appSidebarContent');
+  if (burgerBtn && sidebarContent) {
+    burgerBtn.addEventListener('click', function() {
+      sidebarContent.classList.toggle('is-open');
+    });
+  }
+
+  async function renderGlobalBalance() {
+    var el1 = document.getElementById('app-balance');
+    var el2 = document.getElementById('app-balance-mobile');
+    try {
+      var session = await window.imarchAuth.getSession();
+      if (!session || !session.user) return;
+      var sb = window.imarchAuth.getClient();
+      var res = await sb.from('profiles').select('token_balance').eq('id', session.user.id).single();
+      if (res.data) {
+        var mu = res.data.token_balance || 0;
+        var formatted = (mu / 100).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+        if (el1) el1.textContent = formatted;
+        if (el2) el2.textContent = formatted + ' IMARCH';
+      }
+    } catch (e) { console.error('Balance error', e); }
+  }
+
+  window.addEventListener('hashchange', function() {
+    if (sidebarContent) sidebarContent.classList.remove('is-open');
+    renderGlobalBalance();
+  });
+  window.addEventListener('DOMContentLoaded', renderGlobalBalance);
+
   function onHashChange() {
     render(getRoute());
+    renderGlobalBalance();
   }
 
   window.addEventListener('hashchange', onHashChange);

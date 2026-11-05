@@ -5,6 +5,10 @@
 'use strict';
 console.log('ORDER-PROCESS-VERSION-2026-10-21');
 const crypto = require('crypto');
+const pkijs = require('pkijs');
+const asn1js = require('asn1js');
+const { webcrypto } = require('crypto');
+pkijs.setEngine('node', new pkijs.CryptoEngine({ name: 'node', crypto: webcrypto, subtle: webcrypto.subtle }));
 const { S3Client, HeadObjectCommand, GetObjectCommand, PutObjectCommand } = require('@aws-sdk/client-s3');
 const PDFDocument = require('pdfkit');
 const QRCode = require('qrcode');
@@ -77,53 +81,22 @@ async function sbPatchOrder(orderId, patch) {
   }
 }
 
-// ---------- Minimal ASN.1 DER for RFC3161 TimeStampReq ----------
-function derLen(n) {
-  if (n < 0x80) return Buffer.from([n]);
-  const bytes = [];
-  let v = n;
-  while (v > 0) { bytes.unshift(v & 0xff); v >>= 8; }
-  return Buffer.from([0x80 | bytes.length].concat(bytes));
-}
-function derTLV(tag, value) { return Buffer.concat([Buffer.from([tag]), derLen(value.length), value]); }
-function derInt(n) {
-  let hex = n.toString(16);
-  if (hex.length % 2) hex = '0' + hex;
-  let buf = Buffer.from(hex, 'hex');
-  if (buf[0] & 0x80) buf = Buffer.concat([Buffer.from([0x00]), buf]);
-  return derTLV(0x02, buf);
-}
-function derOctet(buf) { return derTLV(0x04, buf); }
-function derNull() { return Buffer.from([0x05, 0x00]); }
-function derSeq(items) { return derTLV(0x30, Buffer.concat(items)); }
-function derOid(oidStr) {
-  const parts = oidStr.split('.').map(Number);
-  const first = parts[0] * 40 + parts[1];
-  const bytes = [first];
-  for (let i = 2; i < parts.length; i++) {
-    let v = parts[i];
-    const stack = [v & 0x7f];
-    v >>= 7;
-    while (v > 0) { stack.unshift((v & 0x7f) | 0x80); v >>= 7; }
-    bytes.push.apply(bytes, stack);
-  }
-  return derTLV(0x06, Buffer.from(bytes));
-}
-
-function buildTimeStampRequest(sha256Hex) {
-  const digest = Buffer.from(sha256Hex, 'hex');
-  const messageImprint = derSeq([
-    derSeq([derOid('2.16.840.1.101.3.4.2.1'), derNull()]), // sha256
-    derOctet(digest),
-  ]);
-  const nonce = crypto.randomBytes(8).readBigUInt64BE(0);
-  const req = derSeq([
-    derInt(1),
-    messageImprint,
-    Buffer.from([0x01, 0x01, 0xff]), // certReq: true
-    derInt(nonce),
-  ]);
-  return req;
+// ---------- RFC3161 TimeStampReq via pkijs ----------
+async function buildTimeStampRequest(sha256Hex) {
+  const hashBytes = Buffer.from(sha256Hex, 'hex');
+  const request = new pkijs.TimeStampReq({
+    version: 1,
+    messageImprint: new pkijs.MessageImprint({
+      hashAlgorithm: new pkijs.AlgorithmIdentifier({
+        algorithmId: '2.16.840.1.101.3.4.2.1',
+        algorithmParams: new asn1js.Null()
+      }),
+      hashedMessage: new asn1js.OctetString({ valueHex: hashBytes })
+    }),
+    certReq: true,
+    nonce: new asn1js.Integer({ value: crypto.randomBytes(4).readUInt32BE(0) })
+  });
+  return Buffer.from(request.toSchema().toBER(false));
 }
 
 // Minimal parse: extract PKIStatus (INTEGER) and the full TimeStampToken (SEQUENCE) from response.
@@ -157,7 +130,7 @@ function parseTimeStampResponse(buf) {
 }
 
 async function requestTimestamp(sha256Hex) {
-  const body = buildTimeStampRequest(sha256Hex);
+  const body = await buildTimeStampRequest(sha256Hex);
 
   let res;
   try {
@@ -187,6 +160,7 @@ async function requestTimestamp(sha256Hex) {
     );
   }
 
+  console.error('[TSA RAW] len=' + arr.length + ' hex=' + arr.slice(0, 200).toString('hex'));
   const parsed = parseTimeStampResponse(arr);
   if (parsed.status !== 0 && parsed.status !== 1) {
     throw new Error('tsa_status_' + parsed.status);
@@ -207,7 +181,7 @@ function makePassportPDF(data) {
       const PW = 595.28, PH = 841.89;
       const INK = '#1a1a1a', ACCENT = '#8b1a1a', MUTED = '#666666', PAPER = '#f7f5ef';
 
-      const qrPayload = 'https://imarch.ltd/en/certify/status/?order_id=' + data.order_id + '&token=' + data.hmac_token;
+      const qrPayload = 'https://imarch.ltd/check.html?hash=' + data.sha256;
       const qrBuf = await QRCode.toBuffer(qrPayload, { type: 'png', width: 240, margin: 1 });
 
       doc.rect(0, 0, PW, PH).fill(PAPER);
@@ -335,7 +309,7 @@ exports.handler = async (event) => {
   const adminToken = process.env.GIFT_ADMIN_TOKEN;
   if (!adminToken) return reply(500, { ok: false, error: 'GIFT_ADMIN_TOKEN_missing' });
   const hdr = event.headers['x-admin-token'] || event.headers['X-Admin-Token'];
-  // TEMP: skip token check for debug
+  if (hdr !== adminToken) return reply(403, { ok: false, error: 'invalid_admin_token' });
 
   const body = parseJsonBody(event);
   const orderId = (isTestGet
@@ -402,6 +376,7 @@ try {
         await sbPatchOrder(orderId, { tsa_token: b64, tsa_status: 'ok' });
         trace.push('tsa_ok size=' + t.raw.length);
       } catch (e) {
+        console.error('[TSA FAIL] url=' + TSA_URL + ' msg=' + String(e && e.message || e) + ' stack=' + (e && e.stack ? e.stack.slice(0, 500) : ''));
         tsa = { status: 'error', token: null, raw: null, statusCode: null, error: String(e && e.message || e) };
         await sbPatchOrder(orderId, { tsa_status: 'error' });
         trace.push('tsa_error ' + (e && e.message));

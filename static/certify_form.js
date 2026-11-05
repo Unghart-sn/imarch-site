@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   'use strict';
 
   function initForm() {
@@ -8,6 +8,7 @@
     var MAX_BYTES = 100 * 1024 * 1024;
     var ORDER_CREATE_URL = '/.netlify/functions/order-create';
     var PROCESS_PAYMENT_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co/functions/v1/process-payment';
+    var ORDER_TRIGGER_URL = '/.netlify/functions/order-trigger';
     var REDEEM_PROMO_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co/functions/v1/redeem-promo';
     var APPLY_PILOT_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co/functions/v1/apply-pilot';
 
@@ -400,6 +401,13 @@
               hmac_token: order.hmac_token
             }).then(function (confirmRes) {
               
+              // Запускаем генерацию PDF в фоне
+              fetch(ORDER_TRIGGER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ order_id: order.order_id, hmac_token: order.hmac_token })
+              }).catch(function(e) { console.warn('order-trigger error', e); });
+
               showMsg('ok', 'Certificate is ready! Click the button below to open it.');
               
               var finalUrl = '';

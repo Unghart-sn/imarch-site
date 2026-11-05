@@ -1,9 +1,9 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>My Account — IMARCH LTD</title>
+<title>My Account вЂ” IMARCH LTD</title>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/icon-192.png">
@@ -215,7 +215,7 @@
 </div>
 
 <div class="header-band">
-  IMARCH LTD UK &nbsp;&nbsp;·&nbsp;&nbsp; Reg. No: 16791765 &nbsp;&nbsp;·&nbsp;&nbsp; © 2026 &nbsp;&nbsp;·&nbsp;&nbsp; Oleksandr Purpurov
+  IMARCH LTD UK &nbsp;&nbsp;В·&nbsp;&nbsp; Reg. No: 16791765 &nbsp;&nbsp;В·&nbsp;&nbsp; В© 2026 &nbsp;&nbsp;В·&nbsp;&nbsp; Oleksandr Purpurov
 </div>
 
 <script>
@@ -234,10 +234,10 @@
     const parts = email.split('@');
     const local = parts[0], domain = parts[1];
     if (local.length <= 2) {
-      return local[0] + '•'.repeat(Math.max(1, local.length - 1)) + '@' + domain;
+      return local[0] + 'вЂў'.repeat(Math.max(1, local.length - 1)) + '@' + domain;
     }
     const keep = 2, tail = 1;
-    const middle = '•'.repeat(Math.max(1, local.length - keep - tail));
+    const middle = 'вЂў'.repeat(Math.max(1, local.length - keep - tail));
     return local.slice(0, keep) + middle + local.slice(-tail) + '@' + domain;
   }
 
@@ -249,12 +249,12 @@
     if (!mu || mu === 0) return '0 IMARCH';
     const neg = mu < 0;
     const abs = Math.abs(mu);
-    const whole = Math.floor(abs / 10000);
-    const frac = abs % 10000;
+    const whole = Math.floor(abs / 100);
+    const frac = abs % 100;
     const wholeStr = whole.toLocaleString('en-US');
     const sign = neg ? '-' : '';
     if (frac === 0) return sign + wholeStr + ' IMARCH';
-    return sign + wholeStr + '.' + String(frac).padStart(4, '0') + ' IMARCH';
+    return sign + wholeStr + '.' + String(frac).padStart(2, '0') + ' IMARCH';
   }
 
   function renderTransactions(txs, accountId) {
@@ -285,7 +285,7 @@
     return ''
       + '<div class="section-label">Digital Safe</div>'
       + '<div class="safe-hint">'
-      + 'Encrypted files in zero-knowledge storage. File names are encrypted — '
+      + 'Encrypted files in zero-knowledge storage. File names are encrypted вЂ” '
       + 'they appear only after you download and decrypt.'
       + '</div>'
       + '<div class="safe-pw-row">'
@@ -299,14 +299,14 @@
       + '</div>'
       + '<div class="safe-quota">'
       +   '<div class="safe-quota-bar"><div class="safe-quota-fill" id="safeQuotaFill"></div></div>'
-      +   '<div class="safe-quota-text" id="safeQuotaText">Loading…</div>'
+      +   '<div class="safe-quota-text" id="safeQuotaText">LoadingвЂ¦</div>'
       + '</div>'
       + '<div id="safeMsg"></div>'
       + '<table class="safe-table">'
       +   '<thead><tr>'
       +     '<th>File ID</th><th>Size</th><th>Uploaded</th><th style="text-align:right;">Actions</th>'
       +   '</tr></thead>'
-      +   '<tbody id="safeTbody"><tr><td colspan="4" class="safe-empty">Loading…</td></tr></tbody>'
+      +   '<tbody id="safeTbody"><tr><td colspan="4" class="safe-empty">LoadingвЂ¦</td></tr></tbody>'
       + '</table>';
   }
 
@@ -428,10 +428,10 @@
       safeMsg('File too large. Max ~88 MB.', 'err');
       return;
     }
-    safeMsg('Encrypting…', 'ok');
+    safeMsg('EncryptingвЂ¦', 'ok');
     try {
       const blob = await window.imarchSafe.encryptFile(file, pw);
-      safeMsg('Uploading…', 'ok');
+      safeMsg('UploadingвЂ¦', 'ok');
       await window.imarchSafeApi.upload(blob);
       const sz = blob && (blob.byteLength || blob.length) || 0;
       safeMsg('Uploaded. Blob ' + fmtBytes(sz) + '.', 'ok');
@@ -444,10 +444,10 @@
   async function onSafeDownload(id) {
     const pw = getSafePw();
     if (!pw) { safeMsg('Enter safe password first.', 'err'); return; }
-    safeMsg('Downloading…', 'ok');
+    safeMsg('DownloadingвЂ¦', 'ok');
     try {
       const blob = await window.imarchSafeApi.download(id);
-      safeMsg('Decrypting…', 'ok');
+      safeMsg('DecryptingвЂ¦', 'ok');
       const pkg = await window.imarchSafe.decryptPackage(blob, pw);
       const b = new Blob([pkg.data], { type: 'application/octet-stream' });
       const url = URL.createObjectURL(b);
@@ -466,7 +466,7 @@
 
   async function onSafeDelete(id) {
     if (!confirm('Delete ' + id + ' permanently? This cannot be undone.')) return;
-    safeMsg('Deleting…', 'ok');
+    safeMsg('DeletingвЂ¦', 'ok');
     try {
       await window.imarchSafeApi.del(id);
       safeMsg('Deleted.', 'ok');
@@ -497,7 +497,7 @@
 
     h += '<div class="card"><div class="field-grid">';
     h += '<div class="field-label">Account ID</div><div class="field-value mono">' + esc(account.account_id) + '</div>';
-    h += '<div class="field-label">Owner</div><div class="field-value">' + esc(account.owner_name || '—') + '</div>';
+    h += '<div class="field-label">Owner</div><div class="field-value">' + esc(account.owner_name || 'вЂ”') + '</div>';
     h += '<div class="field-label">Email</div><div class="field-value mono">' + esc(maskEmail(account.owner_email)) + '</div>';
     h += '<div class="field-label">Certificates</div><div class="field-value">' + esc((account.certificates || []).length) + '</div>';
     h += '<div class="field-label">Created</div><div class="field-value mono">' + esc(account.created_at || '') + '</div>';
@@ -558,7 +558,7 @@
   }
 
   async function main() {
-    paneAcc.innerHTML = '<div class="loading">Loading account…</div>';
+    paneAcc.innerHTML = '<div class="loading">Loading accountвЂ¦</div>';
 
     try {
       const session = await window.imarchAuth.getSession();

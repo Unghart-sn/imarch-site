@@ -41,10 +41,7 @@ body #openFormBtn{display:none!important;}
       window.imarchAuth.saveSessionVersion(account);
       ttl.textContent='Welcome, '+(account.owner_name||'friend');
       sub.textContent='Redirecting to your account\u2026';
-      var cert=window.imarchAuth.firstCertId(account);
-      var u='/verify.html?key='+encodeURIComponent(key);
-      if(cert){u='/verify.html?hash='+encodeURIComponent(String(cert).toLowerCase())+'&key='+encodeURIComponent(key);}
-      window.location.replace(u);
+      window.location.replace('/app/');
     }catch(err){
       fail(err&&err.message?err.message:'Unknown error');
     }

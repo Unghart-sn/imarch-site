@@ -1,17 +1,26 @@
 {{ define "main" }}
 <div class="app-shell">
-  <aside class="app-sidebar">
-    <div class="app-logo">
-      <a href="/">IMARCH</a>
+  <aside class="app-sidebar" id="appSidebar">
+    <div class="app-mobile-header">
+      <div class="app-logo">
+        <a href="/" style="display:flex; align-items:center; gap:8px;"><img src="/logo.png" alt="IMARCH" style="height:28px; width:auto; border-radius:50%;"> IMARCH</a>
+      </div>
+      <div class="app-mobile-balance" id="app-balance-mobile"></div>
+      <button class="app-burger" id="appBurgerBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <nav class="app-nav">
-      <a href="#/dashboard" class="app-nav-link" data-route="dashboard">My Certificates</a>
-      <a href="#/safe" class="app-nav-link" data-route="safe">Digital Safe</a>
-      <a href="#/settings" class="app-nav-link" data-route="settings">Settings</a>
-    </nav>
-    <div class="app-sidebar-footer">
-      <div class="app-balance-label">Balance</div>
-      <div class="app-balance-value" id="app-balance"> IMARCH</div>
+
+    <div class="app-sidebar-content" id="appSidebarContent">
+      <div class="app-sidebar-footer">
+        <div class="app-balance-label">Balance</div>
+        <div class="app-balance-value" id="app-balance"></div>
+      </div>
+      <nav class="app-nav">
+        <a href="#/dashboard" class="app-nav-link" data-route="dashboard">My Certificates</a>
+        <a href="#/safe" class="app-nav-link" data-route="safe">Digital Safe</a>
+        <a href="#/settings" class="app-nav-link" data-route="settings">Settings</a>
+      </nav>
     </div>
   </aside>
 

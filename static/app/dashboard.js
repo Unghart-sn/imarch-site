@@ -10,14 +10,6 @@
     }[c]));
   }
 
-  function maskEmail(email) {
-    if (!email || email.indexOf('@') < 0) return email || '';
-    const parts = email.split('@');
-    const local = parts[0], domain = parts[1];
-    if (local.length <= 2) return local[0] + ''.repeat(Math.max(1, local.length - 1)) + '@' + domain;
-    return local.slice(0, 2) + ''.repeat(Math.max(1, local.length - 3)) + local.slice(-1) + '@' + domain;
-  }
-
   function formatImarch(mu) {
     if (!mu || mu === 0) return '0 IMARCH';
     const neg = mu < 0;
@@ -85,9 +77,6 @@
 
       const profile = res.data;
       
-      const sidebarBalance = document.getElementById('app-balance');
-      if (sidebarBalance) sidebarBalance.textContent = formatImarch(profile.token_balance);
-
       const ordersRes = await sb.from('orders')
         .select('id,title,sha256,status,pdf_url,created_at,holder_name')
         .eq('issuer_user_id', uid)
@@ -126,9 +115,14 @@
 
       // 3. Certificates
       h += '<div class="dash-card">';
+      
       h += '<div class="card-header">'
         + '<h3>Recent Certificates</h3>'
-        + (certs.length > 5 ? '<a href="https://imarch.ltd/certificates.html">All certificates &rarr;</a>' : '')
+        + (certs.length > 5 ? '<a href="https://imarch.ltd/certificates.html" style="font-size:13px; color:#6b7280; text-decoration:none;">All certificates &rarr;</a>' : '')
+        + '</div>';
+
+      h += '<div style="margin-top:12px; margin-bottom:16px; display:flex; gap:8px; flex-wrap:wrap;">'
+        + '<a href="/en/docs/consilium/cbb-0005/" class="btn-primary" style="font-size:13px; padding:8px 16px;">Lot cbb-0005 &rarr;</a>'
         + '</div>';
 
       const readyCerts = certs.filter(c => c.pdf_url).slice(0, 5);
@@ -150,8 +144,7 @@
         }
         h += '</tbody></table>';
       }
-      h += '</div>';
-
+      h += '</div>'; // end certificate card
       h += '</div>'; // end dash-grid
       container.innerHTML = h;
 
