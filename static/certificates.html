@@ -8,74 +8,89 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
 <script src="/auth-config.js"></script>
 <script src="/auth.js"></script>
-<meta name="theme-color" content="#1E3A5F">
+<meta name="theme-color" content="#111827">
 <style>
   :root {
-    --c-primary:#1E3A5F; --c-light:#E3EAF2; --c-muted:#4A6A8A;
-    --c-bg:#FAF8F5; --c-border:#B0C4DE; --c-text:#1E2A3A;
-    --c-ok:#2E7D46; --c-err:#A02020;
+    --c-bg:#f3f4f6; --c-card:#ffffff; --c-text:#111827; --c-muted:#6b7280;
+    --c-border:#e5e7eb; --c-black:#111827; --c-ok:#059669; --c-err:#dc2626;
   }
   * { box-sizing: border-box; }
   body {
-    font-family: 'Times New Roman', Georgia, serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     background: var(--c-bg); color: var(--c-text);
     margin: 0; padding: 2rem 1rem 0; line-height: 1.5;
     min-height: 100vh; display: flex; flex-direction: column;
   }
-  .wrap { max-width: 880px; margin: 0 auto; flex: 1; width: 100%; }
-  .brand { text-align: center; margin-bottom: 2rem; }
-  .brand img { width: 64px; height: auto; }
-  .brand h1 { font-family: Arial, sans-serif; color: var(--c-primary); margin: 0.6rem 0 0.25rem; font-size: 1.4rem; letter-spacing: 0.05em; }
-  .brand .sub { font-family: Arial, sans-serif; color: #666; font-size: 0.75rem; line-height: 1.4; }
-  
-  h2.title { text-align: center; font-family: Arial, sans-serif; color: var(--c-primary); font-size: 1.6rem; margin: 0 0 0.25rem; }
-  .subtitle { text-align: center; font-style: italic; color: var(--c-muted); margin-bottom: 1.5rem; }
+  .wrap { max-width: 860px; margin: 0 auto; flex: 1; width: 100%; }
 
-  .card { background: var(--c-light); border: 1px solid var(--c-border); border-radius: 4px; padding: 1.25rem; margin-bottom: 1rem; }
-  
-  .tx-table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.85rem; }
-  .tx-table th { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--c-border); color: var(--c-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: bold; }
-  .tx-table td { padding: 10px 8px; border-bottom: 1px solid rgba(176,196,222,0.4); word-break: break-word; vertical-align: middle; }
-  
-  .btn { display: inline-block; padding: 8px 16px; background: var(--c-primary); color: white; text-decoration: none; border-radius: 4px; font-family: Arial, sans-serif; font-weight: bold; transition: background 0.15s; border: 1px solid var(--c-primary); cursor: pointer; font-size: 0.85rem; }
-  .btn:hover { background: #2A4A6A; text-decoration: none; }
-  .btn-ghost { background: transparent; color: var(--c-primary); margin-bottom: 1.5rem; }
-  .btn-ghost:hover { background: var(--c-light); }
-  
-  .loading { text-align: center; color: var(--c-muted); font-style: italic; padding: 2rem; }
-  .error-box { background: #F0D0D0; border: 1px solid var(--c-err); color: var(--c-err); padding: 1.25rem; border-radius: 4px; text-align: center; font-family: Arial, sans-serif; }
-  .header-band { background: var(--c-light); border-top: 1px solid var(--c-border); padding: 0.6rem; text-align: center; font-family: Arial, sans-serif; color: var(--c-primary); font-size: 0.7rem; margin-top: 2rem; }
+  .page-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 1.5rem;
+  }
+  .page-header h2 { margin: 0; font-size: 1.75rem; font-weight: 700; color: var(--c-text); letter-spacing: -0.02em; }
+  .page-header .sub { color: var(--c-muted); font-size: 0.9rem; margin-top: 4px; }
+
+  .btn {
+    display: inline-block; padding: 10px 20px; background: var(--c-black);
+    color: #fff; text-decoration: none; border-radius: 8px;
+    font-weight: 600; transition: background 0.15s; border: none;
+    cursor: pointer; font-size: 0.9rem; font-family: inherit;
+  }
+  .btn:hover { background: #374151; }
+  .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
+  .btn-ghost { background: transparent; color: var(--c-muted); border: 1px solid var(--c-border); }
+  .btn-ghost:hover { background: var(--c-border); color: var(--c-text); }
+  .btn.btn-sm.btn-download { background: #e5e7eb !important; color: #111 !important; }
+  .btn.btn-sm.btn-download:hover { background: #d1d5db !important; }
+
+  .card {
+    background: var(--c-card); border: 1px solid var(--c-border);
+    border-radius: 16px; padding: 1.5rem; margin-bottom: 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  }
+
+  .tx-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+  .tx-table th {
+    text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--c-border);
+    color: var(--c-muted); font-size: 0.75rem; text-transform: uppercase;
+    letter-spacing: 0.05em; font-weight: 600;
+  }
+  .tx-table td {
+    padding: 12px 8px; border-bottom: 1px solid var(--c-border);
+    word-break: break-word; vertical-align: middle;
+  }
+  .tx-table tr:last-child td { border-bottom: none; }
+  .mono { font-family: Consolas, Monaco, monospace; color: var(--c-muted); font-size: 0.8rem; }
+
+  .loading { text-align: center; color: var(--c-muted); padding: 2rem; }
+  .error-box {
+    background: #fef2f2; border: 1px solid var(--c-err); color: var(--c-err);
+    padding: 1rem; border-radius: 8px; text-align: center;
+  }
+  .empty { text-align: center; color: var(--c-muted); padding: 2rem; }
+
+  @media (max-width: 600px) {
+    .page-header { align-items: flex-start; }
+    .tx-table th:nth-child(3), .tx-table td:nth-child(3) { display: none; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="brand">
-    <img src="/logo.png" alt="IMARCH">
-    <h1>IMARCH LTD</h1>
-    <div class="sub">
-      Jurisdiction: England &amp; Wales, United Kingdom<br>
-      Company Registration No. 16791765
+  <div class="page-header">
+    <div>
+      <h2>My Certificates</h2>
+      <div class="sub">All your issued documents and proofs of priority</div>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <a href="/app/#/dashboard" class="btn btn-ghost btn-sm">&larr; Back to Account</a>
+      <a href="/en/certify/" class="btn">Order New Certificate</a>
     </div>
   </div>
 
-  <h2 class="title">My Certificates</h2>
-  <div class="subtitle">All your issued documents and proofs of priority</div>
-
-  <div style="text-align:left;">
-    <a href="/verify.html" class="btn btn-ghost">&larr; Back to Account</a>
-  </div>
-
   <div class="card" id="content">
-    <div class="loading">Loading your certificates…</div>
+    <div class="loading">Loading your certificates...</div>
   </div>
-
-  <div style="text-align:center; margin-top: 2rem;">
-    <a href="/en/certify/" class="btn">Order New Certificate</a>
-  </div>
-</div>
-
-<div class="header-band">
-  IMARCH LTD UK &nbsp;&nbsp;·&nbsp;&nbsp; Reg. No: 16791765 &nbsp;&nbsp;·&nbsp;&nbsp; © 2026
 </div>
 
 <script>
@@ -109,7 +124,7 @@
       const orders = res.data || [];
 
       if (orders.length === 0) {
-        contentEl.innerHTML = '<div style="text-align:center;color:var(--c-muted);font-style:italic;padding:1rem;">You have no certificates yet.</div>';
+        contentEl.innerHTML = '<div class="empty">You have no certificates yet.</div>';
         return;
       }
 
@@ -121,15 +136,15 @@
         const date = String(o.created_at || '').slice(0, 10);
         const url = o.pdf_url || '#';
         h += '<tr>'
-          + '<td class="mono" style="color:var(--c-muted);font-size:0.75rem;">' + esc(date) + '</td>'
+          + '<td class="mono">' + esc(date) + '</td>'
           + '<td>' + esc(o.title || 'Untitled') + '</td>'
           + '<td>' + esc(o.holder_name || '—') + '</td>'
           + '<td style="text-align:right;">'
-          + '<a href="' + esc(url) + '" target="_blank" class="btn">Download PDF</a>'
+          + '<a href="' + esc(url) + '" target="_blank" class="btn btn-sm" style="background:#e5e7eb !important;color:#111 !important;border:1px solid #d1d5db !important;">Download PDF</a>'
           + '</td></tr>';
       }
       h += '</tbody></table>';
-      
+
       contentEl.innerHTML = h;
 
     } catch (e) {
