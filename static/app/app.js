@@ -80,7 +80,7 @@
         var mu = res.data.token_balance || 0;
         var formatted = (mu || 0).toLocaleString('en-US');
         if (el1) el1.textContent = formatted;
-        if (el2) el2.textContent = formatted + ' µIMARCH';
+        if (el2) el2.textContent = formatted + ' µ-tokens';
       }
     } catch (e) { console.error('Balance error', e); }
   }
