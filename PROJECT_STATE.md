@@ -413,3 +413,11 @@ etlify/functions/order-process.js.
 - 🔧 **Починен `pdfkit`:** версия `0.20.2` падала в Netlify с `Cannot find module .../Helvetica.cjs` (баг сборки ESM/CJS). Откатили на `pdfkit@0.17.1` (`--save-exact`, без `^`). Коммит `73ae2f6`.
 - 🧹 **Почищен Git:** видео `static/video/*.mp4` (>100 MB каждое) удалены из истории через `git filter-repo` (GitHub блокировал пуш). Пуш `main` прошёл (`57e0db2`, затем `73ae2f6`). Production branch Netlify = `main` (не `backup-before-removing-check`).
 - ⚠️ **Осталось:** `check.html` — добавить кнопку скачивания `.ots` и честный текст («Bitcoin confirmation pending»); `ots upgrade` после подтверждения Bitcoin (1–3 часа) — отдельная Scheduled Function на будущее.
+
+### 2026-11-08 (OTS upgrade автоматизирован, подтверждено в БД)
+
+- ✅ Scheduled Function `netlify/functions/ots-upgrade.js` (`@hourly`) работает в проде.
+- ✅ Первый прогон: `pending orders: 3` → `upgraded: e7cbec75, d4331ba9`, `still pending: 69d46a04`.
+- ✅ Проверка в Supabase (SQL): `e7cbec75` = `confirmed`, `d4331ba9` = `confirmed`, `69d46a04` = `pending` (ждёт Bitcoin, норма).
+- ✅ Автоматизация закрывает ручной «выгреб»: раз в час функция сама дожимает pending → confirmed.
+- ⏳ Осталось: `check.html` — кнопка скачивания `.ots` + честный текст («Bitcoin confirmation pending» / «Verified in Bitcoin block #X»).
