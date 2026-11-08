@@ -401,3 +401,15 @@ etlify/functions/order-process.js.
 - После JS — `node --check`.
 - Секреты в чат не вставлять.
 - PowerShell: длинные строки с кавычками ломаются — заменять файлы по номерам строк (`[System.IO.File]::ReadAllLines`).
+
+### 2026-11-08 (OTS-якорение включено и работает в проде)
+
+**Главное:** OpenTimestamps-якорение (блокчейн-пруф) включено и успешно отработало на реальном заказе.
+
+- ✅ `ANCHOR_ENABLED=true` добавлен в Netlify env (All scopes).
+- ✅ `zeitstempel@^0.2.3` в `package.json` (зависимость уже была).
+- ✅ `order-process.js`: блок якорения (строки 389–410) отработал — `stampHash(shaActual)` → PutObject в R2 (`certs/<orderId>/proof.ots`) → `anchor_status='pending'`, `anchor_key` в БД.
+- ✅ Реальный заказ `69d46a04-7c8e-49f1-b301-56d9b71da202`: trace = `order_loaded → status_processing → sha_ok → vt_skipped → tsa_ok size=4640 → anchor_stamped size=357 → pdf_ok size=298035 → email_ok → status_ready`.
+- 🔧 **Починен `pdfkit`:** версия `0.20.2` падала в Netlify с `Cannot find module .../Helvetica.cjs` (баг сборки ESM/CJS). Откатили на `pdfkit@0.17.1` (`--save-exact`, без `^`). Коммит `73ae2f6`.
+- 🧹 **Почищен Git:** видео `static/video/*.mp4` (>100 MB каждое) удалены из истории через `git filter-repo` (GitHub блокировал пуш). Пуш `main` прошёл (`57e0db2`, затем `73ae2f6`). Production branch Netlify = `main` (не `backup-before-removing-check`).
+- ⚠️ **Осталось:** `check.html` — добавить кнопку скачивания `.ots` и честный текст («Bitcoin confirmation pending»); `ots upgrade` после подтверждения Bitcoin (1–3 часа) — отдельная Scheduled Function на будущее.
