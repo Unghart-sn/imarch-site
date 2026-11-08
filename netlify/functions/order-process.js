@@ -13,6 +13,7 @@ const { S3Client, HeadObjectCommand, GetObjectCommand, PutObjectCommand } = requ
 const PDFDocument = require('pdfkit');
 const QRCode = require('qrcode');
 
+const { stampHash } = require('zeitstempel');
 const CORS = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Token',
@@ -385,10 +386,28 @@ try {
       await sbPatchOrder(orderId, { tsa_status: 'skipped' });
     }
 
-    // Anchor (skipped)
-    const anchorStatus = ANCHOR_ENABLED ? 'pending' : 'skipped';
-    await sbPatchOrder(orderId, { anchor_status: anchorStatus, vt_status: vtStatus });
-    trace.push('anchor_' + anchorStatus);
+    // ---- OpenTimestamps anchor ----
+    let anchor = { status: 'skipped', ots_key: null };
+    if (ANCHOR_ENABLED) {
+      try {
+        const otsBytes = await stampHash(shaActual);
+        const otsKey = 'certs/' + orderId + '/proof.ots';
+        await getS3().send(new PutObjectCommand({
+          Bucket: process.env.R2_BUCKET, Key: otsKey, Body: otsBytes,
+          ContentType: 'application/octet-stream',
+        }));
+        anchor = { status: 'pending', ots_key: otsKey };
+        await sbPatchOrder(orderId, { anchor_status: 'pending', anchor_key: otsKey, vt_status: vtStatus });
+        trace.push('anchor_stamped size=' + otsBytes.length);
+      } catch (e) {
+        console.error('[OTS FAIL]', e);
+        anchor = { status: 'error', ots_key: null, error: String(e && e.message || e) };
+        await sbPatchOrder(orderId, { anchor_status: 'error', vt_status: vtStatus });
+        trace.push('anchor_error ' + (e && e.message));
+      }
+    } else {
+      await sbPatchOrder(orderId, { anchor_status: 'skipped', vt_status: vtStatus });
+    }
 
     // PDF
     const pdfBuf = await makePassportPDF({
