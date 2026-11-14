@@ -6,7 +6,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const REQUIRED_TOKENS = 1;
+const REQUIRED_TOKENS = 20;
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
