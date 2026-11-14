@@ -55,7 +55,7 @@ Deno.serve(async (req) => {
       return json({ error: "Order not found or not yours" }, 404);
     }
 
-    // Приоритет 1: Админ
+    // Priority 1: Admin bypass
     if (profile.is_admin === true) {
       await supabaseAdmin.from("orders").update({
         status: "completed",
@@ -65,18 +65,51 @@ Deno.serve(async (req) => {
       return json({ status: "completed", reason: "admin_bypass" });
     }
 
-    // Приоритет 2: Токен
+    // Priority 2: Tokens
     if (profile.token_balance >= REQUIRED_TOKENS) {
-      const { error: rpcError } = await supabaseAdmin.rpc("deduct_one_token", {
-        user_id: user.id,
-      });
+      const newBalance = profile.token_balance - REQUIRED_TOKENS;
+      const { error: updateError } = await supabaseAdmin
+        .from("profiles")
+        .update({ token_balance: newBalance })
+        .eq("id", user.id);
 
-      if (rpcError) {
+      if (updateError) {
         return new Response(
-          JSON.stringify({ error: "RPC_FAILED", details: rpcError }),
+          JSON.stringify({ error: "UPDATE_FAILED", details: updateError }),
           { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } }
         );
       }
+
+      // Return tokens to Treasury
+      const { data: treasuryProfile } = await supabaseAdmin
+        .from("profiles")
+        .select("id, token_balance")
+        .eq("is_treasury", true)
+        .single();
+
+      if (treasuryProfile) {
+        const newTreasuryBalance = treasuryProfile.token_balance + REQUIRED_TOKENS;
+        await supabaseAdmin
+          .from("profiles")
+          .update({ token_balance: newTreasuryBalance })
+          .eq("id", treasuryProfile.id);
+      }
+
+      // Log transactions
+      await supabaseAdmin.from("token_transactions").insert([
+        {
+          user_id: user.id,
+          amount: -REQUIRED_TOKENS,
+          type: 'spend',
+          description: 'Certificate issuance for order ' + order_id,
+        },
+        {
+          user_id: treasuryProfile?.id || user.id,
+          amount: REQUIRED_TOKENS,
+          type: 'grant',
+          description: 'Return from certificate spend (order ' + order_id + ')',
+        }
+      ]);
 
       await supabaseAdmin.from("orders").update({
         status: "completed",
@@ -86,7 +119,7 @@ Deno.serve(async (req) => {
       return json({ status: "completed", reason: "token" });
     }
 
-    // Приоритет 3: Не хватает токенов
+    // Priority 3: Insufficient tokens
     return await handleInsufficient(supabaseAdmin, order_id, REQUIRED_TOKENS, profile.token_balance);
   } catch (err) {
     return json({ error: err.message }, 500);
