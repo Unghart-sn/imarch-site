@@ -1,4 +1,4 @@
-// Netlify Function: /.netlify/functions/order-create
+﻿// Netlify Function: /.netlify/functions/order-create
 // Creates an order in Supabase and returns a presigned PUT URL for R2 inbox.
 // Anonymous (no JWT). HMAC token binds order_id+email for later status checks.
 'use strict';
@@ -107,7 +107,7 @@ function validate(body) {
   if (size_bytes > MAX_BYTES) return 'too_large';
   if (!filename) return 'bad_filename';
 
-  return { full_name, email, title, sha256, size_bytes, filename };
+  return { full_name, email, title, sha256, size_bytes, filename, issuer_user_id: (typeof body.issuer_user_id === 'string' ? body.issuer_user_id : null) };
 }
 
 exports.handler = async (event) => {
@@ -144,6 +144,7 @@ exports.handler = async (event) => {
       id: orderId,
       hmac_token: token,
       email: data.email,
+      issuer_user_id: data.issuer_user_id,
       full_name: data.full_name,
       title: data.title,
       sha256: data.sha256,

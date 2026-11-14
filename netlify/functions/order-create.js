@@ -1,4 +1,4 @@
-﻿// Netlify Function: /.netlify/functions/order-create
+// Netlify Function: /.netlify/functions/order-create
 // Creates an order in Supabase and returns a presigned PUT URL for R2 inbox.
 // Anonymous (no JWT). HMAC token binds order_id+email for later status checks.
 'use strict';
@@ -14,7 +14,7 @@ const CORS = {
 };
 const JSON_CT = { 'Content-Type': 'application/json' };
 
-const MAX_BYTES = 100 * 1024 * 1024;
+const MAX_BYTES = 5 * 1024 * 1024;
 const PRESIGN_PUT_TTL = 60 * 60;
 const PRICE_GBP = 20;
 
