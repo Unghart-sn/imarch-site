@@ -419,9 +419,10 @@
 
               var msgContainer = document.getElementById('formMsg');
               if (msgContainer) {
-                msgContainer.innerHTML = '<div style="margin-top: 15px; padding: 15px; background: #eef; border: 1px solid #ccd; border-radius: 5px; text-align: center;">' +
-                  '<p style="margin-bottom: 10px; font-weight: bold;">Your document is certified!</p>' +
-                  '<a href="' + finalUrl + '" style="display: inline-block; padding: 10px 20px; background: #1E3A5F; color: white; text-decoration: none; border-radius: 4px; font-weight: bold;">Open Certificate Status</a>' +
+                msgContainer.innerHTML = '<div style="margin-top: 15px; padding: 15px; background: #dcfce7; border: 1px solid #bbf7d0; border-radius: 8px; text-align: center;">' +
+                  '<p style="margin: 0 0 12px; font-weight: 600; color: #166534;">Your document is certified!</p>' +
+                  '<a href="' + finalUrl + '" style="display: inline-block; padding: 10px 20px; background: #0f172a; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600;">Open Certificate Status</a>' +
+                  '</div>';
                   '</div>';
               } else {
                 window.location.href = finalUrl;

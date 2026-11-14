@@ -114,6 +114,25 @@ exports.handler = async (event) => {
   if (event.httpMethod === 'OPTIONS') return { statusCode: 204, headers: CORS, body: '' };
   if (event.httpMethod !== 'POST') return reply(405, { ok: false, error: 'method_not_allowed' });
 
+  // --- Anti-spam: block datacenter IPs (ASN lookup) ---
+  const clientIp = (event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  if (clientIp && clientIp !== '127.0.0.1' && clientIp !== '::1') {
+    try {
+      const ipRes = await fetch('https://ipinfo.io/' + encodeURIComponent(clientIp) + '/json', { headers: { 'Accept': 'application/json' } });
+      if (ipRes.ok) {
+        const ipData = await ipRes.json();
+        const org = String(ipData.org || '').toLowerCase();
+        const blockedOrgs = ['amazon', 'aws', 'digitalocean', 'hetzner', 'ovh', 'google cloud', 'microsoft', 'azure', 'linode', 'vultr', 'contabo', 'oracle cloud', 'alibaba'];
+        if (blockedOrgs.some(function (b) { return org.indexOf(b) !== -1; })) {
+          console.warn('[order-create] blocked datacenter IP:', clientIp, org);
+          return reply(403, { ok: false, error: 'blocked_datacenter' });
+        }
+      }
+    } catch (e) {
+      console.warn('[order-create] ASN check failed (proceeding):', e.message);
+    }
+  }
+
   const parsed = parseJsonBody(event);
   const data = validate(parsed);
   if (typeof data === 'string') {
