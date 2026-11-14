@@ -48,3 +48,16 @@ PROJECT_STATE-2.md
 # OS
 .DS_Store
 Thumbs.db
+
+# Local test & backup files (do not commit)
+PROJECT_STATE-3.md
+_ots-new.txt
+_req-process.json
+_req.json
+git-filter-repo
+netlify/functions/*.bak-*
+test-ots.js
+test-proof.ots
+*.bak
+*.bak_btn
+*.bak_style
