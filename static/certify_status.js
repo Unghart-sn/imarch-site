@@ -1,4 +1,4 @@
-﻿// Client script for /en/certify/status/
+// Client script for /en/certify/status/
 // Reads ?order_id=&token=, calls /.netlify/functions/order-status, renders the card.
 (function () {
   'use strict';
@@ -78,7 +78,7 @@
         const backBtn = $('backToAccountBtn');
         link.href = d.pdf_url;
         if (backBtn) {
-          backBtn.href = d.account_key ? '/verify.html?key=' + encodeURIComponent(d.account_key) : '/verify.html';
+          backBtn.href = '/app/';
         }
         wrap.hidden = false;
       }

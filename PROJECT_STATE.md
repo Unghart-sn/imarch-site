@@ -421,3 +421,32 @@ etlify/functions/order-process.js.
 - ✅ Проверка в Supabase (SQL): `e7cbec75` = `confirmed`, `d4331ba9` = `confirmed`, `69d46a04` = `pending` (ждёт Bitcoin, норма).
 - ✅ Автоматизация закрывает ручной «выгреб»: раз в час функция сама дожимает pending → confirmed.
 - ⏳ Осталось: `check.html` — кнопка скачивания `.ots` + честный текст («Bitcoin confirmation pending» / «Verified in Bitcoin block #X»).
+### 2026-11-08 (Юридический контур закрыт: браузерная верификация OTS)
+
+**Главное:** Регулятор проверяет сертификат в браузере за один клик. Без Python, без установки.
+
+- RPC `verify_by_sha256` расширена: отдаёт `id, anchor_status, anchor_key` (было только title/sha256/status/created_at). Выполнено через `DROP FUNCTION` + `CREATE` в транзакции (Postgres не даёт менять return type через `CREATE OR REPLACE`).
+- Новая Netlify-функция `netlify/functions/ots-download.js`: presigned GET (5 мин) на `certs/<orderId>/proof.ots` из приватного R2. Бакет остаётся приватным, `.ots` доступен по `order_id`.
+- `static/check.html` переписан:
+  - честный тройной бейдж по `anchor_status`: `Bitcoin-confirmed` (зелёный) / `Bitcoin confirmation pending` (жёлтый) / `RFC 3161 timestamped  anchoring not started` (серый);
+  - отдельная строка `Certificate status` (показывает `status` заказа);
+  - кнопка `Download .ots proof`  `/.netlify/functions/ots-download?order_id=...`;
+  - кнопка `Verify in browser`  `zeitstempel@0.2.3` через CDN `+esm`, `verifyDigest(sha256Hex, otsBytes)`;
+  - футнот честный: pending  confirmed, RFC 3161 финален сразу, Bitcoin  после подтверждения.
+- E2E-проверка: заказ `69d46a04-7c8e-49f1-b301-56d9b71da202`, клик Verify in browser  ` Verified in Bitcoin block #975079 (Sun, 08 Nov 2026 16:45:57 GMT)`. Пруф сошёлся с SHA-256.
+- Исправлена ошибка: `verifyDigest` принимает **hex-строку**, а не `Uint8Array` (было `Digest mismatch`). Передаём `sha256Hex` напрямую.
+- Исправлена ошибка: `blockTime` в `zeitstempel` в секундах  `new Date(verified.blockTime * 1000)` (было 1970).
+
+**Что осталось (на следующую сессию):**
+1. Старые сертификаты (QR на `/en/certify/status/`)  нет кнопки `.ots`. Решить: доработать или оставить.
+2. Антиспам-эшелоны 23 (Fingerprint, PoW)  из прошлого списка, не трогали.
+3. Лимит размера файла в `order-create.js` (сертификат ~25 МБ).
+4. Рефералка, модалка оплаты, аудит токенов  из прошлого списка.
+5. Почистить legacy `order-process-v2/v3/v4`.
+
+**Правила работы (напоминание):**
+- Пользователь  не программист, команды по одной.
+- Правки только с подтверждения.
+- После JS  `node --check`.
+- Секреты в чат не вставлять.
+- PowerShell: длинные строки с кавычками ломаются  писать файлы через `[System.IO.File]::WriteAllText(...UTF8Encoding($false))`.

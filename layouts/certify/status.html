@@ -1,56 +1,122 @@
-﻿{{ define "main" }}
+{{ define "main" }}
 <style>
-.certify-wrap { max-width: 760px; margin: 0 auto; padding: 3rem 1rem 4rem; font-family: 'Times New Roman', serif; color: #1E2A3A; }
-.certify-hero { text-align: center; margin-bottom: 2.5rem; }
-.certify-hero h1 { font-family: Arial, sans-serif; color: #1E3A5F; font-size: 2rem; margin: 0 0 .75rem 0; }
-.certify-hero .lede { color: #4A6A8A; font-size: 1.05rem; line-height: 1.6; margin: 0; max-width: 640px; margin-left: auto; margin-right: auto; }
-.status-card { background: #FAF8F5; border: 1px solid #B0C4DE; border-radius: 12px; padding: 2rem; box-shadow: 0 4px 24px rgba(30,58,95,.08); }
-.status-row { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px dashed #D6DFEA; font-size: .95rem; }
-.status-row:last-child { border-bottom: none; }
-.status-row .k { font-family: Arial, sans-serif; font-weight: 600; color: #1E3A5F; flex: 0 0 40%; }
-.status-row .v { color: #1E2A3A; word-break: break-all; flex: 1 1 auto; text-align: right; font-family: Consolas, monospace; font-size: .85rem; }
-.status-pill { display: inline-block; padding: .25rem .75rem; border-radius: 999px; font-family: Arial, sans-serif; font-size: .8rem; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
-.status-pill.pending_upload { background: #E3EAF2; color: #4A6A8A; }
-.status-pill.payment_pending { background: #FFF4D6; color: #A07020; }
-.status-pill.processing { background: #D6E4F0; color: #1E3A5F; }
-.status-pill.ready { background: #D8EFDC; color: #2E7D46; }
-.status-pill.error, .status-pill.unknown { background: #F6D6D6; color: #A02020; }
-.pdf-btn { display: inline-block; margin-top: 1rem; padding: .85rem 1.25rem; background: #1E3A5F; color: #fff; text-decoration: none; border-radius: 8px; font-family: Arial, sans-serif; font-weight: 600; }
-.pdf-btn:hover { background: #152a47; }
-.form-msg { padding: .75rem 1rem; border-radius: 8px; font-family: Arial, sans-serif; font-size: .9rem; line-height: 1.4; margin-bottom: 1rem; }
-.form-msg.err { background: #FAF8F5; color: #A02020; border: 1px solid #A02020; }
-.muted { color: #4A6A8A; font-family: Arial, sans-serif; font-size: .9rem; }
+.status-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 2.5rem 1rem 4rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+  color: #0f172a;
+  line-height: 1.5;
+}
+
+/* Hero */
+.status-hero { text-align: center; margin-bottom: 2rem; }
+.status-hero h1 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 .5rem; color: #0f172a; }
+.status-hero p { color: #64748b; font-size: 1rem; margin: 0; }
+
+/* Status banner */
+.status-banner {
+  display: flex; align-items: center; gap: .75rem;
+  padding: 1rem 1.25rem; margin-bottom: 1.5rem;
+  border-radius: 12px; border: 1px solid #e2e8f0; background: #fff;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04);
+}
+.status-banner .label { font-size: .8rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #64748b; }
+.status-pill {
+  display: inline-block; padding: .3rem .8rem; border-radius: 999px;
+  font-size: .78rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+}
+.status-pill.pending_upload { background: #e2e8f0; color: #475569; }
+.status-pill.payment_pending { background: #fef3c7; color: #92400e; }
+.status-pill.processing { background: #dbeafe; color: #1e40af; }
+.status-pill.ready { background: #dcfce7; color: #166534; }
+.status-pill.error, .status-pill.unknown { background: #fee2e2; color: #991b1b; }
+
+/* Cards */
+.card {
+  background: #fff; border: 1px solid #e2e8f0; border-radius: 12px;
+  padding: 1.25rem 1.5rem; margin-bottom: 1rem;
+  box-shadow: 0 1px 2px rgba(15,23,42,.04);
+}
+.card h2 {
+  font-size: .8rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  color: #64748b; margin: 0 0 1rem;
+}
+.row {
+  display: flex; justify-content: space-between; gap: 1rem;
+  padding: .6rem 0; border-bottom: 1px solid #f1f5f9; font-size: .95rem;
+}
+.row:last-child { border-bottom: none; padding-bottom: 0; }
+.row .k { color: #475569; font-weight: 500; flex: 0 0 auto; }
+.row .v { color: #0f172a; text-align: right; word-break: break-word; }
+.row .v.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: .85rem; word-break: break-all; }
+@media (max-width: 640px) {
+  .row { flex-direction: column; gap: .2rem; }
+  .row .v { text-align: left; }
+}
+
+/* Buttons */
+.actions { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; }
+.btn-primary, .btn-secondary {
+  display: inline-block; padding: .8rem 1.25rem; border-radius: 8px;
+  font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid transparent;
+  transition: background .15s, color .15s, border-color .15s;
+}
+.btn-primary { background: #0f172a; color: #fff; }
+.btn-primary:hover { background: #1e293b; }
+.btn-secondary { background: transparent; color: #0f172a; border-color: #cbd5e1; }
+.btn-secondary:hover { background: #f8fafc; border-color: #94a3b8; }
+
+/* Messages */
+.msg { padding: .75rem 1rem; border-radius: 8px; font-size: .9rem; margin-bottom: 1rem; }
+.msg.err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.footnote { color: #64748b; font-size: .85rem; text-align: center; margin-top: 1.5rem; }
 </style>
 
-<div class="certify-wrap">
-  <header class="certify-hero">
+<div class="status-wrap">
+  <header class="status-hero">
     <h1>Certification Status</h1>
-    <p class="lede">Live status of your Act-Passport order.</p>
+    <p>Live status of your Act-Passport order.</p>
   </header>
 
-  <div id="loadMsg" class="form-msg" hidden></div>
+  <div id="loadMsg" class="msg" hidden></div>
 
-  <div id="statusCard" class="status-card" hidden>
-    <div class="status-row"><span class="k">Order status</span><span class="v"><span id="stPill" class="status-pill">...</span></span></div>
-    <div class="status-row"><span class="k">Order ID</span><span class="v" id="stOrderId">&mdash;</span></div>
-    <div class="status-row"><span class="k">Document title</span><span class="v" id="stTitle">&mdash;</span></div>
-    <div class="status-row"><span class="k">Holder</span><span class="v" id="stHolder">&mdash;</span></div>
-    <div class="status-row"><span class="k">Email</span><span class="v" id="stEmail">&mdash;</span></div>
-    <div class="status-row"><span class="k">SHA-256</span><span class="v" id="stSha">&mdash;</span></div>
-    <div class="status-row"><span class="k">Size</span><span class="v" id="stSize">&mdash;</span></div>
-    <div class="status-row"><span class="k">RFC 3161 TSA</span><span class="v" id="stTsa">&mdash;</span></div>
-    <div class="status-row"><span class="k">Anchor</span><span class="v" id="stAnchor">&mdash;</span></div>
-    <div class="status-row"><span class="k">VirusTotal</span><span class="v" id="stVt">&mdash;</span></div>
-    <div class="status-row"><span class="k">Created</span><span class="v" id="stCreated">&mdash;</span></div>
-    <div class="status-row"><span class="k">Processed</span><span class="v" id="stProcessed">&mdash;</span></div>
+  <div id="statusCard" hidden>
+    <div class="status-banner">
+      <span class="label">Order status</span>
+      <span id="stPill" class="status-pill unknown">...</span>
+    </div>
 
-    <div id="pdfWrap" hidden>
-      <a id="pdfLink" class="pdf-btn" href="#" target="_blank" rel="noopener">Download Act-Passport (PDF)</a>
-      <a id="backToAccountBtn" class="pdf-btn outline-btn" href="/verify.html" style="margin-left: 10px; background: transparent; color: var(--accent, #8b1a1a); border: 1px solid var(--accent, #8b1a1a); text-decoration: none;">Return to Account</a>
+    <div class="card">
+      <h2>Order</h2>
+      <div class="row"><span class="k">Order ID</span><span class="v mono" id="stOrderId">&mdash;</span></div>
+      <div class="row"><span class="k">Document title</span><span class="v" id="stTitle">&mdash;</span></div>
+      <div class="row"><span class="k">Holder</span><span class="v" id="stHolder">&mdash;</span></div>
+      <div class="row"><span class="k">Email</span><span class="v" id="stEmail">&mdash;</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Integrity</h2>
+      <div class="row"><span class="k">SHA-256</span><span class="v mono" id="stSha">&mdash;</span></div>
+      <div class="row"><span class="k">Size</span><span class="v" id="stSize">&mdash;</span></div>
+      <div class="row"><span class="k">RFC 3161 TSA</span><span class="v" id="stTsa">&mdash;</span></div>
+      <div class="row"><span class="k">Anchor</span><span class="v" id="stAnchor">&mdash;</span></div>
+      <div class="row"><span class="k">VirusTotal</span><span class="v" id="stVt">&mdash;</span></div>
+    </div>
+
+    <div class="card">
+      <h2>Timeline</h2>
+      <div class="row"><span class="k">Created</span><span class="v" id="stCreated">&mdash;</span></div>
+      <div class="row"><span class="k">Processed</span><span class="v" id="stProcessed">&mdash;</span></div>
+    </div>
+
+    <div id="pdfWrap" class="actions" hidden>
+      <a id="pdfLink" class="btn-primary" href="#" target="_blank" rel="noopener">Download Act-Passport (PDF)</a>
+      <a id="backToAccountBtn" class="btn-secondary" href="/verify.html">Return to Account</a>
     </div>
   </div>
 
-  <p class="muted" id="helpMsg" hidden>Keep this page link  it contains the access token for your order. Do not share it publicly.</p>
+  <p class="footnote" id="helpMsg" hidden>Keep this link  it contains the access token for your order. Do not share it publicly.</p>
 </div>
 
 <script src="/certify_status.js" defer></script>

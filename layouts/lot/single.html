@@ -68,7 +68,7 @@
 {{ $seriesTotal := .Params.series_total | default "000" }}
 {{ $seriesAvailable := .Params.series_available | default "000" }}
 {{ $licenseType := .Params.license_type | default "Collector Rights" }}
-{{ $passportURL := .Params.passport_url | default "/nodes/" }}
+{{ $passportURL := .Params.passport_url | default "/nodes/" | absURL }}
 {{ $imageWebp := .Params.image_webp | default "/img/boutique/placeholder.webp" }}
 {{ $fileHash := .Params.file_hash | default "не зафиксирован" }}
 {{ $marker := .Params.marker | default "—" }}
@@ -177,34 +177,69 @@
     <a href="/{{ $lang }}/docs/consilium/" class="node-return__link">
       {{ $tReturn }}
     </a>
+  
+  <!-- SOCIALS -->
+  <div class="node-share">
+    {{ partial "persona-socials.html" . }}
   </div>
 
 </article>
 
 <script type="text/javascript">
-function handleNodeOrderSubmit(event) {
+function showNotice(message, type) {
+  var el = document.createElement('div');
+  el.innerText = message;
+  el.style.cssText = 'position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:14px 24px;border-radius:8px;z-index:9999;font-size:14px;max-width:90%;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.4);' +
+    (type === 'success' ? 'background:#2e7d32;color:#fff;' : 'background:#c62828;color:#fff;');
+  document.body.appendChild(el);
+  setTimeout(function () { el.remove(); }, 5000);
+}
+
+async function handleNodeOrderSubmit(event) {
   event.preventDefault();
 
-  var fields = {
-    node_id:       'orderNodeId',
-    lot_number:    'orderLotNumber',
-    lot_title:     'orderLotTitle',
-    license_type:  'orderLicenseType',
-    marker:        'orderMarker',
-    file_hash:     'orderFileHash',
-    threshold_gbp: 'orderThresholdGbp',
-    passport_url:  'orderPassportUrl'
+  var btn = event.target.querySelector('button[type="submit"]');
+  var originalText = btn.innerText;
+  btn.disabled = true;
+  btn.innerText = 'Отправка...';
+
+  var payload = {
+    access_key: 'ab69a256-1644-405b-989a-71d2e3c55d72',
+    subject: 'Заявка на передачу прав: ' + document.getElementById('orderNodeId').value,
+    from_name: 'IMARCH Boutique',
+    node_id: document.getElementById('orderNodeId').value,
+    lot_number: document.getElementById('orderLotNumber').value,
+    lot_title: document.getElementById('orderLotTitle').value,
+    license_type: document.getElementById('orderLicenseType').value,
+    marker: document.getElementById('orderMarker').value,
+    file_hash: document.getElementById('orderFileHash').value,
+    threshold_gbp: document.getElementById('orderThresholdGbp').value,
+    passport_url: document.getElementById('orderPassportUrl').value,
+    contact: document.getElementById('contact').value,
+    note: document.getElementById('note').value
   };
 
-  Object.keys(fields).forEach(function (key) {
-    var el = document.getElementById(fields[key]);
-    if (el) sessionStorage.setItem('order_' + key, el.value);
-  });
+  try {
+    var resp = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
 
-  sessionStorage.setItem('order_contact', document.getElementById('contact').value);
-  sessionStorage.setItem('order_note',    document.getElementById('note').value);
+    var result = await resp.json();
 
-  window.location.href = "/{{ $lang }}/boutique/order-step-2/";
+    if (result.success) {
+      showNotice('Заявка успешно зафиксирована. Мы свяжемся с вами в ближайшее время.', 'success');
+      event.target.reset();
+    } else {
+      showNotice('Ошибка отправки. Попробуйте еще раз или свяжитесь с нами напрямую.', 'error');
+    }
+  } catch (err) {
+    showNotice('Ошибка отправки. Попробуйте еще раз или свяжитесь с нами напрямую.', 'error');
+  } finally {
+    btn.disabled = false;
+    btn.innerText = originalText;
+  }
 }
 </script>
 
