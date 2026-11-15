@@ -91,7 +91,16 @@
   });
   window.addEventListener('DOMContentLoaded', renderGlobalBalance);
 
-  function onHashChange() {
+  function sanitizeAuthHash() {
+    var h = location.hash || '';
+    if (h.indexOf('access_token=') !== -1 || h.indexOf('type=magiclink') !== -1) {
+      history.replaceState(null, '', location.pathname + '#/dashboard');
+    }
+  }
+
+  async function onHashChange() {
+    if (location.hash.indexOf('access_token=') !== -1 || location.hash.indexOf('type=magiclink') !== -1) { try { for (var i=0;i<10;i++){ var s = await window.imarchAuth.getSession(); if (s) break; await new Promise(function(r){setTimeout(r,200);}); } } catch(e){} }
+    sanitizeAuthHash();
     render(getRoute());
     renderGlobalBalance();
   }
