@@ -661,3 +661,23 @@ etlify/functions/order-process.js.
 1. Починить `ip_subnet`: в `order-create.js` использовать `cf-connecting-ip`, fallback на `x-nf-client-connection-ip`.
 2. Остальное из прошлого чек-листа: рефералка, модалка оплаты, `audit.html` — доводка, `ots-upgrade` для `audit_snapshots`, чистка legacy.
 == КОНЕЦ БЛОКА ==
+
+### 2026-11-15 (сессия: ip_subnet, legend, восстановление модалок)
+
+**Коммит `d292916`**, запушен в `main`, Netlify Production deploy прошёл (build 5.8s). Проверено на проде: все три модалки в HTML страницы `/en/certify/`.
+
+**Что сделано:**
+1. `netlify/functions/order-create.js`: `clientIp` теперь берёт `cf-connecting-ip` первым (fallback `x-nf-client-connection-ip`  `x-forwarded-for`). Раньше за Cloudflare писался edge-IP (`172.64.x.0/24`)  `device_fingerprints.ip_subnet` был бесполезен. Теперь реальный клиентский IP.
+2. `static/app/treasury-flow.js`: legend графика (`granted` / `spent`) переделана с inline-margin на `display:flex; gap:18px; align-items:center;` у контейнера и `inline-flex` у первого спана. Слипание `grantedspent` устранено.
+3. `layouts/certify/list.html`: восстановлены три модалки (`noTokensModal`, `promoModal`, `pilotModal`) с 16 id, которые искал `certify_form.js`. При редизайне 2026-11-14 HTML потерялся, остались только мёртвые вызовы `showModal()` в JS. Проверено в браузере: при `insufficient_tokens` всплывает окно с кнопками Redeem promo / Apply for pilot / Cancel, переключение между модалками работает. Бэкап: `layouts/certify/list.html.bak`.
+
+**Найдено попутно (в бэклог):**
+- `getHolderName()` в `certify_form.js` (строка 341) читает `document.getElementById('"holderName')`  а такого элемента в HTML нет. Функция всегда возвращает `null`. Либо удалить, либо добавить поле.
+- `PROJECT_STATE-n.md` (untracked, 27 КБ, cp1251-битый)  оставлен как промежуточный отчёт по решению пользователя.
+
+**Не сделано (из плана):**
+- Превентивная модалка оплаты (3 кнопки Оплатить токенами / Докупить / Служебные) ДО списания 20 µ. Это отдельная задача, не путать с восстановленной `noTokensModal` (та  после провала).
+- Реферальная программа.
+- Миграция на `sb_secret_...` в Netlify Functions (legacy `service_role` живёт до конца 2026).
+
+**Проверка в проде:** `Invoke-WebRequest https://imarch.ltd/en/certify/` содержит `noTokensModal`, `promoModal`, `pilotModal`. Цепочка заказов не тронута.
