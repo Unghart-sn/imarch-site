@@ -331,6 +331,13 @@ exports.handler = async (event) => {
     }
     trace.push('order_loaded');
 
+    // --- Anti-spam: silent shadowban ---
+    if (order.shadowbanned === true) {
+      trace.push('shadowbanned_silent');
+      console.warn('[order-process] shadowbanned order silently skipped:', orderId);
+      return reply(200, { ok: true, status: 'processing', idempotent: false });
+    }
+
     await sbPatchOrder(orderId, { status: 'processing' });
     trace.push('status_processing');
 

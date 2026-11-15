@@ -171,10 +171,59 @@
       return out;
     }
 
+        var currentFingerprint = null;
+    function computeFingerprint() {
+      if (currentFingerprint) return Promise.resolve(currentFingerprint);
+      try {
+        var parts = [];
+        parts.push(navigator.userAgent || '');
+        parts.push(navigator.language || '');
+        parts.push((navigator.languages || []).join(','));
+        parts.push(String(screen.width) + 'x' + String(screen.height) + 'x' + String(screen.colorDepth));
+        try { parts.push(String(Intl.DateTimeFormat().resolvedOptions().timeZone || '')); } catch (e) { parts.push(''); }
+        parts.push(String(navigator.hardwareConcurrency || 0));
+        parts.push(String(navigator.deviceMemory || 0));
+        parts.push(String(navigator.maxTouchPoints || 0));
+        try {
+          var c = document.createElement('canvas');
+          c.width = 200; c.height = 50;
+          var ctx = c.getContext('2d');
+          if (ctx) {
+            ctx.textBaseline = 'top';
+            ctx.font = '14px Arial';
+            ctx.fillStyle = '#f60';
+            ctx.fillRect(0, 0, 100, 30);
+            ctx.fillStyle = '#069';
+            ctx.fillText('Imarch-FP', 2, 2);
+            ctx.fillStyle = 'rgba(102,204,0,0.7)';
+            ctx.fillText('Imarch-FP', 4, 10);
+            parts.push(c.toDataURL());
+          }
+        } catch (e) { parts.push('nocanvas'); }
+        try {
+          var gl = document.createElement('canvas').getContext('webgl');
+          if (gl) {
+            var dbg = gl.getExtension('WEBGL_debug_renderer_info');
+            if (dbg) parts.push(String(gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) || ''));
+          }
+        } catch (e) { parts.push('nogl'); }
+        var s = parts.join('||');
+        return crypto.subtle.digest('SHA-256', new TextEncoder().encode(s)).then(bufToHex).then(function (hex) {
+          currentFingerprint = hex;
+          return hex;
+        });
+      } catch (e) {
+        return Promise.resolve('');
+      }
+    }
+
     function computeSha256(file) {
-      return file.arrayBuffer().then(function (ab) {
-        return crypto.subtle.digest('SHA-256', ab);
-      }).then(bufToHex);
+      return Promise.all([
+        file.arrayBuffer().then(function (ab) {
+          return crypto.subtle.digest('SHA-256', ab);
+        }).then(bufToHex),
+        computeFingerprint()
+      ]).then(function (results) { return results[0]; });
     }
 
     function getSession() {
@@ -369,6 +418,7 @@
         email: email,
         title: title,
         sha256: currentHash,
+          device_fingerprint: currentFingerprint,
         size_bytes: currentFile.size,
         filename: currentFile.name,
         issuer_user_id: userId,

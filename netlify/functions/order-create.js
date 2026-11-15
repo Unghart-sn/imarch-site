@@ -107,7 +107,33 @@ function validate(body) {
   if (size_bytes > MAX_BYTES) return 'too_large';
   if (!filename) return 'bad_filename';
 
-  return { full_name, email, title, sha256, size_bytes, filename, issuer_user_id: (typeof body.issuer_user_id === 'string' ? body.issuer_user_id : null) };
+  const device_fingerprint = (typeof body.device_fingerprint === 'string' && /^[0-9a-f]{32,128}$/i.test(body.device_fingerprint)) ? body.device_fingerprint.toLowerCase() : null;
+  return { full_name, email, title, sha256, size_bytes, filename, issuer_user_id: (typeof body.issuer_user_id === 'string' ? body.issuer_user_id : null), device_fingerprint };
+}
+
+async function checkFingerprint(fingerprint, userId, ipSubnet) {
+  if (!fingerprint) return { allowed: true, banned: false, count_24h: 0, reason: 'no_fp' };
+  try {
+    const url = process.env.SUPABASE_URL + '/rest/v1/rpc/check_fingerprint';
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': process.env.SUPABASE_SERVICE_ROLE_KEY,
+        'Authorization': 'Bearer ' + process.env.SUPABASE_SERVICE_ROLE_KEY
+      },
+      body: JSON.stringify({ p_fingerprint: fingerprint, p_user_id: userId || null, p_ip_subnet: ipSubnet || null })
+    });
+    if (!res.ok) {
+      const t = await res.text();
+      console.warn('[order-create] check_fingerprint failed:', res.status, t.slice(0, 200));
+      return { allowed: true, banned: false, count_24h: 0, reason: 'rpc_error' };
+    }
+    return await res.json();
+  } catch (e) {
+    console.warn('[order-create] check_fingerprint exception:', e.message);
+    return { allowed: true, banned: false, count_24h: 0, reason: 'exception' };
+  }
 }
 
 exports.handler = async (event) => {
@@ -142,6 +168,24 @@ exports.handler = async (event) => {
     return reply(400, { ok: false, error: data });
   }
 
+  // --- Anti-spam: fingerprint rate limit ---
+  let fpResult = { allowed: true, banned: false, count_24h: 0, reason: 'no_fp' };
+  if (data.device_fingerprint) {
+    const ipSubnet = (function (ip) {
+      if (!ip) return null;
+      const p = ip.split('.');
+      if (p.length === 4) return p[0] + '.' + p[1] + '.' + p[2] + '.0/24';
+      const c = ip.split(':');
+      if (c.length > 2) return c.slice(0, 4).join(':') + '::/64';
+      return null;
+    })(clientIp);
+    fpResult = await checkFingerprint(data.device_fingerprint, data.issuer_user_id, ipSubnet);
+    if (!fpResult.allowed) {
+      console.warn('[order-create] fingerprint rate limit:', JSON.stringify(fpResult));
+      return reply(429, { ok: false, error: 'rate_limit', retry_after: 86400 });
+    }
+  }
+
   try {
     const orderId = crypto.randomUUID();
     const token = hmacToken(orderId, data.email);
@@ -171,6 +215,8 @@ exports.handler = async (event) => {
       file_key_r2: fileKey,
       status: 'pending_upload',
       price_gbp: PRICE_GBP,
+      device_fingerprint: data.device_fingerprint,
+      shadowbanned: fpResult.banned === true,
     });
 
     return reply(200, {
