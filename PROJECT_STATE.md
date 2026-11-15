@@ -590,3 +590,36 @@ etlify/functions/order-process.js.
 6. `/audit.html`  публичная страница аудита.
 7. Антиспам-эшелоны, рефералка, модалка оплаты (долгий хвост).
 
+
+---
+
+### 2026-11-15 (продолжение: Шаги 45 закрыты, Zero-Trust аудит работает)
+
+**Шаг 4 ЗАКРЫТ: ots-upgrade для audit_snapshots.**
+- `netlify/functions/ots-upgrade.js` расширен: помимо `orders.anchor_status='pending'` теперь дожимает и `audit_snapshots.ots_status='pending'` через ту же `zeitstempel`. Ветка orders не тронута, добавлена вторая.
+- Если `upgradeProof` вернул `upgraded>0`  перезапись `.ots` в R2 + `ots_status='confirmed'`. `stillPending`  лог, ничего не меняем. `alreadyComplete`  сразу `confirmed`.
+- TODO в коде: `ots_block_height`/`ots_block_time` не заполняются (zeitstempel не отдаёт txid; обогащать отдельно через blockstream.info).
+- E2E: `netlify functions:invoke ots-upgrade --no-identity --port 8888`  `pending snapshots: 1`, `snapshot still pending: 2026-11-15`. Это норма  биткоин-блок ещё не набежал. При следующем прогоне (ночное `@daily`) снапшот перейдёт в `confirmed`.
+
+**Шаг 5 ЗАКРЫТ: публичная страница /audit.html.**
+- SQL: RPC `audit_export_transactions(limit_n integer)`  `security definer`, `set row_security = off`, `grant execute to anon, authenticated`. Возвращает всю цепочку `token_transactions` (`seq asc`) с `created_at::text` (не timestamptz)  чтобы браузер мог байт-в-байт воспроизвести `compute_row_hash`, который в Postgres использует `p_created_at::text`.
+- Файл `static/audit.html`  отдельная страница без Hugo-шаблонов, inline-JS, стиль как `certify/list.html`/`status.html`.
+- Блоки: Hard-cap плашка (`888,800/888,800` + `HARD-CAP OK`); Chain integrity (кнопка `Verify chain`  браузер тянет все транзакции, локально пересчитывает `sha256(...)` и сверяет с `prev_hash`); Export (кнопка `Download full ledger (CSV)`  11 полей для офлайн-аудита); Daily snapshots (таблица из `audit_recent_snapshots`).
+- Anon-ключ: создан **publishable key** (`sb_publishable_...`) в Supabase  Settings  API Keys  Publishable and secret. Старый legacy `anon` работает, но будет отключён в начале 2027.
+- E2E: `http://localhost:8888/audit.html`  Hard-cap зелёный, Verify chain зелёный (` Chain intact  6 transactions`), снапшот `2026-11-15` с `pending`, CSV скачивается.
+
+**Мобильная вёрстка /audit.html починена.**
+- Симптом: плашка `pending` выпирала за скруглённые углы карточки на iPhone SE (375px).
+- Фикс в `static/audit.html`: 1) CSS  `.table-wrap` с `overflow-x: auto` + `margin: 0 -16px; padding: 0 16px`, `min-width: 520px` на таблицу, `white-space: nowrap` на `.pill`; 2) HTML  обернули `<table>` в `<div class="table-wrap">`.
+-  Подводный камень PowerShell: в single-quoted here-string `` @'...`r`n...'@ `` backtick-r-n попал в файл **буквально** (4 символа вместо переноса). Поймали через `Select-String`, заменили `.Replace()` с **двойными** кавычками. На будущее: переносы в PowerShell here-string  только в двойных кавычках или `[Environment]::NewLine`.
+
+**Что осталось (next chat):**
+1. **Антиспам-эшелоны 23:**
+   - Эшелон 2  **Fingerprint**: SQL `device_fingerprints` + RPC `check_fingerprint(text)`  `{allowed, reason, count_24h}`. В `certify_form.js`  SHA-256 отпечатка (canvas+UA+timezone+lang+screen) в браузере. В `order-create.js`  проверка перед созданием заказа. Порог 5/24ч; превышение  429; `banned=true`  `shadowbanned` (заказ создаётся, но `order-process` тихо не делает PDF/письмо).
+   - Эшелон 3  **PoW**: челлендж перед `order-create` (клиент считает хэш с N нулями ~2 сек). Убивает ботов, честному юзеру невидимо.
+2. **Реферальная программа.**
+3. **Модалка оплаты** (-20 µ за сертификат вместо молчаливого списания).
+4. Косметика: слипшаяся legend `grantedspent` в `treasury-flow.js`.
+5. Миграция на `sb_secret_...` в Netlify Functions вместо legacy `service_role` (до 2027).
+
+**Состояние на конец сессии:** шаги 45 закрыты, публичный аудит работает, hard-cap держится (`Σ = 888 800`), цепочка цела, всё задеплоено на прод.

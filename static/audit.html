@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proof of Reserves — Imarch</title>
+<style>
+  :root {
+    --bg: #f7f7f5; --card: #ffffff; --ink: #0a0a0a; --muted: #6b6b6b;
+    --line: #e5e5e0; --ok: #0a7d3a; --ok-bg: #e8f5ec; --err: #b3261e; --err-bg: #fbeae8;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    --sys: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--sys); font-size: 15px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 32px 20px 80px; }
+  h1 { font-size: 28px; letter-spacing: -0.01em; margin: 0 0 6px; }
+  .lead { color: var(--muted); margin: 0 0 28px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.06em;
+    color: var(--muted); margin: 0 0 14px; font-weight: 600; }
+  .big { font-size: 32px; font-weight: 600; letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+  .mono { font-family: var(--mono); font-size: 13px; word-break: break-all; }
+  .muted { color: var(--muted); }
+  .pill { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .pill.ok { background: var(--ok-bg); color: var(--ok); }
+  .pill.err { background: var(--err-bg); color: var(--err); }
+  .pill.wait { background: #fff3cd; color: #7a5c00; }
+  .row { display: flex; gap: 24px; flex-wrap: wrap; }
+  .row > div { min-width: 140px; }
+  .label { font-size: 12px; color: var(--muted); margin-bottom: 2px; }
+  button { background: #0a0a0a; color: #fff; border: 0; border-radius: 8px;
+    padding: 10px 16px; font: inherit; font-weight: 600; cursor: pointer; }
+  button:disabled { opacity: .5; cursor: default; }
+  button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  button.ghost:hover { border-color: #bdbdb8; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+  th { font-size: 12px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; }
+  td.num { font-variant-numeric: tabular-nums; text-align: right; }
+  .status-line { margin-top: 12px; font-size: 14px; }
+  .status-line.ok { color: var(--ok); }
+  .status-line.err { color: var(--err); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) {
+    .grid2 { grid-template-columns: 1fr; }
+    .card { padding: 16px; }
+    .big { font-size: 24px; }
+    .table-wrap { margin: 0 -16px; padding: 0 16px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    table { min-width: 520px; }
+    th, td { padding: 8px 6px; font-size: 13px; }
+    .pill { white-space: nowrap; }
+  }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .pill { white-space: nowrap; }
+  .foot { color: var(--muted); font-size: 13px; margin-top: 32px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Proof of Reserves</h1>
+  <p class="lead">Immutable audit of the Imarch token economy. Verify, don’t trust.</p>
+
+  <div class="card">
+    <h2>Hard cap</h2>
+    <div class="big" id="hardcapBig">—</div>
+    <div class="muted" id="hardcapSub">Loading…</div>
+    <div class="row" style="margin-top:16px">
+      <div><div class="label">Treasury</div><div class="mono" id="capTreasury">—</div></div>
+      <div><div class="label">Users</div><div class="mono" id="capUsers">—</div></div>
+      <div><div class="label">Transactions</div><div class="mono" id="capCount">—</div></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <h2>Chain integrity</h2>
+      <button id="verifyBtn">Verify chain</button>
+      <div class="status-line" id="verifyStatus"></div>
+    </div>
+    <div class="card">
+      <h2>Export</h2>
+      <button class="ghost" id="csvBtn">Download full ledger (CSV)</button>
+      <div class="status-line muted" id="csvStatus" style="font-size:13px">Includes hash chain fields for offline verification.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Daily snapshots</h2>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th class="num">Chain length</th>
+          <th class="num">Total µ</th>
+          <th class="num">Treasury</th>
+          <th class="num">Users</th>
+          <th>OTS</th>
+        </tr>
+      </thead>
+      <tbody id="snapBody">
+        <tr><td colspan="6" class="muted">Loading…</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <p class="foot">
+    Ledger is append-only with a SHA-256 hash chain. Each day, the latest chain head is anchored to Bitcoin via OpenTimestamps
+    and stored in an immutable snapshot. An auditor can download the full ledger below and verify it offline.
+  </p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  // ⚠️ Paste the PUBLIC anon key here (NOT service_role).
+  // Supabase Dashboard → Project Settings → API → Project API keys → anon public
+  const SUPABASE_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_5z089ZNC_Nct2TYusIuzTw__2xv2zmf';
+  const HARD_CAP = 888800;
+  const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+  const $ = (id) => document.getElementById(id);
+  const fmt = (n) => (n == null ? '—' : Number(n).toLocaleString('en-US'));
+
+  async function loadSnapshots() {
+    const { data, error } = await sb.rpc('audit_recent_snapshots', { limit_n: 30 });
+    if (error) { console.error(error); $('snapBody').innerHTML = '<tr><td colspan="6" class="muted">Failed to load snapshots.</td></tr>'; return; }
+    const rows = data || [];
+    if (!rows.length) { $('snapBody').innerHTML = '<tr><td colspan="6" class="muted">No snapshots yet.</td></tr>'; return; }
+    $('snapBody').innerHTML = rows.map((s) => {
+      const ots = s.ots_status === 'confirmed'
+        ? '<span class="pill ok">confirmed</span>'
+        : s.ots_status === 'pending'
+          ? '<span class="pill wait">pending</span>'
+          : `<span class="pill err">${s.ots_status || 'unknown'}</span>`;
+      return `<tr>
+        <td class="mono">${s.snapshot_date}</td>
+        <td class="num">${fmt(s.chain_length)}</td>
+        <td class="num">${fmt(s.total_balance)}</td>
+        <td class="num">${fmt(s.treasury_balance)}</td>
+        <td class="num">${fmt(s.users_balance)}</td>
+        <td>${ots}</td>
+      </tr>`;
+    }).join('');
+    const latest = rows[0];
+    renderHardCap(latest.total_balance, latest.treasury_balance, latest.users_balance, latest.chain_length);
+  }
+
+  function renderHardCap(total, treasury, users, count) {
+    const ok = Number(total) === HARD_CAP;
+    $('hardcapBig').innerHTML = `${fmt(total)} <span class="muted" style="font-size:16px">/ ${fmt(HARD_CAP)} µ</span> ` +
+      (ok ? '<span class="pill ok">HARD-CAP OK</span>' : '<span class="pill err">HARD-CAP VIOLATION</span>');
+    $('hardcapSub').textContent = ok
+      ? 'System supply equals the mathematical maximum (latest snapshot).'
+      : 'Total in circulation differs from the hard cap. Investigate immediately.';
+    $('capTreasury').textContent = fmt(treasury);
+    $('capUsers').textContent = fmt(users);
+    $('capCount').textContent = fmt(count);
+  }
+
+  async function sha256Hex(str) {
+    const buf = new TextEncoder().encode(str);
+    const h = await crypto.subtle.digest('SHA-256', buf);
+    return Array.from(new Uint8Array(h)).map((b) => b.toString(16).padStart(2, '0')).join('');
+  }
+
+  // Must match public.compute_row_hash(...) in Postgres byte-for-byte.
+  function rowHashInput(t) {
+    const c = (v) => (v == null ? '' : String(v));
+    return [
+      c(t.id), c(t.user_id), c(t.from_user_id), c(t.amount),
+      c(t.type), c(t.description), c(t.balance_after),
+      c(t.created_at_text), c(t.prev_hash)
+    ].join('|');
+  }
+
+  async function verifyChain() {
+    const btn = $('verifyBtn'); const st = $('verifyStatus');
+    btn.disabled = true; st.className = 'status-line'; st.textContent = 'Fetching ledger…';
+    try {
+      const { data, error } = await sb.rpc('audit_export_transactions', { limit_n: 500000 });
+      if (error) throw error;
+      const rows = data || [];
+      st.textContent = `Verifying ${rows.length} transactions…`;
+      let prev = null;
+      for (let i = 0; i < rows.length; i++) {
+        const t = rows[i];
+        const expectedPrev = i === 0 ? 'GENESIS' : prev;
+        if (t.prev_hash !== expectedPrev) {
+          throw new Error(`prev_hash mismatch at seq ${t.seq} (expected ${String(expectedPrev).slice(0,12)}…, got ${String(t.prev_hash).slice(0,12)}…)`);
+        }
+        const expected = await sha256Hex(rowHashInput(t));
+        if (expected !== t.row_hash) {
+          throw new Error(`row_hash mismatch at seq ${t.seq}`);
+        }
+        prev = t.row_hash;
+      }
+      st.className = 'status-line ok';
+      st.textContent = `✓ Chain intact — ${rows.length} transactions. Head: ${String(prev).slice(0,16)}…`;
+    } catch (e) {
+      st.className = 'status-line err';
+      st.textContent = `✗ ${e.message || e}`;
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  function toCsv(rows) {
+    const cols = ['seq','id','user_id','from_user_id','amount','type','description','balance_after','created_at_text','prev_hash','row_hash'];
+    const esc = (v) => {
+      if (v == null) return '';
+      const s = String(v);
+      return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+    };
+    return cols.join(',') + '\n' + rows.map((r) => cols.map((c) => esc(r[c])).join(',')).join('\n') + '\n';
+  }
+
+  async function downloadCsv() {
+    const btn = $('csvBtn'); const st = $('csvStatus');
+    btn.disabled = true; st.textContent = 'Fetching ledger…';
+    try {
+      const { data, error } = await sb.rpc('audit_export_transactions', { limit_n: 500000 });
+      if (error) throw error;
+      const rows = data || [];
+      const blob = new Blob([toCsv(rows)], { type: 'text/csv;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = `imarch-ledger-${new Date().toISOString().slice(0,10)}.csv`;
+      document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+      st.textContent = `Downloaded ${rows.length} transactions.`;
+    } catch (e) {
+      st.textContent = `✗ ${e.message || e}`;
+    } finally {
+      btn.disabled = false;
+    }
+  }
+
+  $('verifyBtn').addEventListener('click', verifyChain);
+  $('csvBtn').addEventListener('click', downloadCsv);
+  loadSnapshots();
+</script>
+</body>
+</html>
