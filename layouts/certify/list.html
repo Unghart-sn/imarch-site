@@ -138,7 +138,43 @@
     </div>
   </section>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
+<div id="noTokensModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; border-radius:12px; padding:24px; max-width:420px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+    <h3 style="margin:0 0 12px; font-size:18px;">Not enough tokens</h3>
+    <p style="margin:0 0 20px; color:#6b7280; font-size:14px;">You need 20 micro-tokens to issue a certificate. Your current balance is insufficient.</p>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <button type="button" id="btnPromo" style="padding:10px; border:none; border-radius:8px; background:#111; color:#fff; font-size:14px; cursor:pointer;">Redeem promo code</button>
+      <button type="button" id="btnPilot" style="padding:10px; border:1px solid #d1d5db; border-radius:8px; background:#fff; color:#111; font-size:14px; cursor:pointer;">Apply for pilot</button>
+      <button type="button" id="btnCloseModal" style="padding:10px; border:none; border-radius:8px; background:transparent; color:#6b7280; font-size:14px; cursor:pointer;">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div id="promoModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; border-radius:12px; padding:24px; max-width:420px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+    <h3 style="margin:0 0 12px; font-size:18px;">Redeem promo code</h3>
+    <input type="text" id="promoInput" placeholder="Enter promo code" style="width:100%; box-sizing:border-box; padding:10px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; margin-bottom:10px;" />
+    <div id="promoMsg" style="font-size:13px; min-height:18px; margin-bottom:10px;"></div>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <button type="button" id="btnSubmitPromo" style="padding:10px; border:none; border-radius:8px; background:#111; color:#fff; font-size:14px; cursor:pointer;">Redeem</button>
+      <button type="button" id="btnClosePromo" style="padding:10px; border:none; border-radius:8px; background:transparent; color:#6b7280; font-size:14px; cursor:pointer;">Back</button>
+    </div>
+  </div>
+</div>
+
+<div id="pilotModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; border-radius:12px; padding:24px; max-width:420px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+    <h3 style="margin:0 0 12px; font-size:18px;">Apply for pilot</h3>
+    <input type="email" id="pilotEmail" placeholder="Email" style="width:100%; box-sizing:border-box; padding:10px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; margin-bottom:8px;" />
+    <input type="text" id="pilotOrg" placeholder="Organization" style="width:100%; box-sizing:border-box; padding:10px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; margin-bottom:8px;" />
+    <textarea id="pilotMsg" placeholder="Message (optional)" style="width:100%; box-sizing:border-box; padding:10px; border:1px solid #d1d5db; border-radius:8px; font-size:14px; margin-bottom:8px; min-height:60px; resize:vertical;"></textarea>
+    <div id="pilotResultMsg" style="font-size:13px; min-height:18px; margin-bottom:10px;"></div>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <button type="button" id="btnSubmitPilot" style="padding:10px; border:none; border-radius:8px; background:#111; color:#fff; font-size:14px; cursor:pointer;">Send application</button>
+      <button type="button" id="btnClosePilot" style="padding:10px; border:none; border-radius:8px; background:transparent; color:#6b7280; font-size:14px; cursor:pointer;">Back</button>
+    </div>
+  </div>
+</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
 <script src="/auth-config.js"></script>
 <script src="/auth.js"></script>
 <script src="/certify_form.js?v=2" defer></script>

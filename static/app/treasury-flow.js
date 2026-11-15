@@ -52,8 +52,8 @@
       h += '<text x="' + x(i) + '" y="' + (H-6) + '" font-size="9" fill="#9ca3af" text-anchor="middle">' + esc(lbl) + '</text>';
     });
     h += '</svg>';
-    h += '<div style="font-size:12px; color:#6b7280; margin-top:4px;">';
-    h += '<span style="margin-right:14px;"><span style="display:inline-block;width:10px;height:2px;background:#059669;vertical-align:middle;margin-right:5px;"></span>granted</span>';
+    h += '<div style="font-size:12px; color:#6b7280; margin-top:4px; display:flex; gap:18px; align-items:center;">';
+    h += '<span style="display:inline-flex; align-items:center;"><span style="display:inline-block;width:10px;height:2px;background:#059669;vertical-align:middle;margin-right:5px;"></span>granted</span>';
     h += '<span><span style="display:inline-block;width:10px;height:2px;background:#dc2626;vertical-align:middle;margin-right:5px;"></span>spent</span>';
     h += '</div>';
     return h;

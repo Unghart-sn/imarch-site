@@ -623,3 +623,41 @@ etlify/functions/order-process.js.
 5. Миграция на `sb_secret_...` в Netlify Functions вместо legacy `service_role` (до 2027).
 
 **Состояние на конец сессии:** шаги 45 закрыты, публичный аудит работает, hard-cap держится (`Σ = 888 800`), цепочка цела, всё задеплоено на прод.
+
+== НАЧАЛО БЛОКА ==
+### 2026-11-15 (Эшелоны 2–3 антиспама: fingerprint + PoW, задеплоено и проверено)
+
+**Главное:** Антиспам-защита усилена. Два эшелона на проде, оба проверены E2E.
+
+**Эшелон 2 — Device Fingerprint + Rate-limit + Shadowban:**
+- SQL: `device_fingerprints` (fingerprint, user_id, ip_subnet, created_at), RPC `check_fingerprint(p_fingerprint, p_user_id, p_ip_subnet)` → `{allowed, banned, count_24h, reason}`. Порог 5/24ч → 429; 15 за всё время → `banned=true`.
+- SQL: `orders` получила колонки `device_fingerprint text` и `shadowbanned boolean NOT NULL DEFAULT false`.
+- `static/certify_form.js`: `computeFingerprint()` собирает canvas + WebGL-renderer + UA + язык + TZ + screen + hardwareConcurrency + deviceMemory + maxTouchPoints, SHA-256 → `currentFingerprint`. Передаётся в payload как `device_fingerprint`.
+- `netlify/functions/order-create.js`: `checkFingerprint()` (fail-open при RPC-ошибке), проверка после ASN, до создания заказа; пишет `device_fingerprint` + `shadowbanned` в `orders`.
+- `netlify/functions/order-process.js`: если `order.shadowbanned === true` — тихо возвращает `200 {status:'processing'}`, PDF/письмо/`ready` не делаются. Заказ «висит» в ЛК у спамера, ресурсы CPU не тратятся.
+- Коммит `1a996b8` (3 файла, 107 insertions).
+
+**Эшелон 3 — Proof-of-Work (вариант В, без challenge-таблицы):**
+- Challenge = `<sha256_файла>:<nonce>`, target = 5 ведущих нулей hex (`00000...`).
+- `static/certify_form.js`: встроен чистый JS-SHA-256 (`sha256HexJS`, 90 строк), self-test 4/4 против `node:crypto` перед деплоем. `solvePow(fileHash)` перебирает nonce чанками 65536, уступает UI через `setTimeout(..., 0)`, каждые ~4 чанка показывает прогресс «Computing proof-of-work… NM attempts». Таймаут 1e8 попыток. `payload.pow_nonce = nonce`.
+- `netlify/functions/order-create.js`: `checkPow(sha256, nonce)` → `crypto.createHash('sha256').update(sha256 + ':' + nonce)`, проверка `startsWith('00000')`. Вызывается после fingerprint, до создания заказа. Невалидный → `400 bad_pow` (reason: missing/invalid/exception).
+- `layouts/certify/list.html`: `<script src="/certify_form.js?v=2" defer>` — cache-busting, чтобы старые браузеры подтянули новую версию с PoW.
+- Последний коммит — искать `git log --oneline | Select-String echelon`.
+
+**Порядок проверок в `order-create` (финал):** `OPTIONS → method → ASN → validate → fingerprint rate-limit → PoW → create order`. Невалидный PoW не пишет мусор в `device_fingerprints`.
+
+**E2E-проверки на проде:**
+- Без `pow_nonce` → `400 {"error":"bad_pow","reason":"missing"}` ✅
+- С правильным `pow_nonce` (5 нулей) → `200 {"ok":true,"order_id":"..."}` ✅
+- Fingerprint в `orders.device_fingerprint` и в `device_fingerprints` (после уборки = 0) ✅
+
+**Открытые замечания:**
+- ⚠️ `device_fingerprints.ip_subnet` = подсеть Cloudflare (172.64.x.0/24), а не реальный IP клиента. Причина: `x-nf-client-connection-ip` за Cloudflare возвращает edge-IP. Починка: в `order-create.js` брать `cf-connecting-ip` (Cloudflare его отдаёт). Записать в TODO.
+- ⚠️ `PROJECT_STATE-n.md` в корне — битый бэкап с кракозябрами (cp1251-декодированный UTF-8). Удалить или игнорировать.
+- 📌 `ip_subnet` как антиспам-метрика пока бесполезен (все клиенты «в Cloudflare»). Fingerprint от этого не страдает — он canvas-based.
+- 🧹 В корне оставались `_req-process.json` и `_req.json` от 06–08.11 — удалены в эту сессию.
+
+**Next steps:**
+1. Починить `ip_subnet`: в `order-create.js` использовать `cf-connecting-ip`, fallback на `x-nf-client-connection-ip`.
+2. Остальное из прошлого чек-листа: рефералка, модалка оплаты, `audit.html` — доводка, `ots-upgrade` для `audit_snapshots`, чистка legacy.
+== КОНЕЦ БЛОКА ==

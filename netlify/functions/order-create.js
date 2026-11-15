@@ -153,7 +153,7 @@ exports.handler = async (event) => {
   if (event.httpMethod !== 'POST') return reply(405, { ok: false, error: 'method_not_allowed' });
 
   // --- Anti-spam: block datacenter IPs (ASN lookup) ---
-  const clientIp = (event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'] || '').split(',')[0].trim();
+  const clientIp = (event.headers['cf-connecting-ip'] || event.headers['x-nf-client-connection-ip'] || event.headers['x-forwarded-for'] || '').split(',')[0].trim();
   if (clientIp && clientIp !== '127.0.0.1' && clientIp !== '::1') {
     try {
       const ipRes = await fetch('https://ipinfo.io/' + encodeURIComponent(clientIp) + '/json', { headers: { 'Accept': 'application/json' } });
