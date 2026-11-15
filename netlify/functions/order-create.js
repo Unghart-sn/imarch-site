@@ -108,7 +108,19 @@ function validate(body) {
   if (!filename) return 'bad_filename';
 
   const device_fingerprint = (typeof body.device_fingerprint === 'string' && /^[0-9a-f]{32,128}$/i.test(body.device_fingerprint)) ? body.device_fingerprint.toLowerCase() : null;
-  return { full_name, email, title, sha256, size_bytes, filename, issuer_user_id: (typeof body.issuer_user_id === 'string' ? body.issuer_user_id : null), device_fingerprint };
+  const pow_nonce = (typeof body.pow_nonce === 'number' && Number.isInteger(body.pow_nonce) && body.pow_nonce >= 0 && body.pow_nonce <= 100000000) ? body.pow_nonce : null;
+  return { full_name, email, title, sha256, size_bytes, filename, issuer_user_id: (typeof body.issuer_user_id === 'string' ? body.issuer_user_id : null), device_fingerprint, pow_nonce };
+}
+
+function checkPow(sha256, nonce) {
+  if (nonce === null || nonce === undefined) return { ok: false, reason: 'missing' };
+  try {
+    const h = crypto.createHash('sha256').update(String(sha256) + ':' + String(nonce)).digest('hex');
+    if (h.startsWith('00000')) return { ok: true, hash: h };
+    return { ok: false, reason: 'invalid', hash: h };
+  } catch (e) {
+    return { ok: false, reason: 'exception' };
+  }
 }
 
 async function checkFingerprint(fingerprint, userId, ipSubnet) {
@@ -184,6 +196,13 @@ exports.handler = async (event) => {
       console.warn('[order-create] fingerprint rate limit:', JSON.stringify(fpResult));
       return reply(429, { ok: false, error: 'rate_limit', retry_after: 86400 });
     }
+  }
+
+  // --- Anti-spam: proof-of-work ---
+  const powResult = checkPow(data.sha256, data.pow_nonce);
+  if (!powResult.ok) {
+    console.warn('[order-create] pow failed:', powResult.reason, 'sha=' + data.sha256.slice(0, 16), 'nonce=' + data.pow_nonce);
+    return reply(400, { ok: false, error: 'bad_pow', reason: powResult.reason });
   }
 
   try {
