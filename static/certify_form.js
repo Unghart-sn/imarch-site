@@ -338,11 +338,6 @@
       }
     }
 
-    function getHolderName() {
-      var el = document.getElementById('holderName');
-      return el && el.value ? el.value.trim() : null;
-    }
-
     function handleFile(file) {
       clearMsg();
       currentFile = null;
@@ -498,8 +493,7 @@
           device_fingerprint: currentFingerprint,
         size_bytes: currentFile.size,
         filename: currentFile.name,
-        issuer_user_id: userId,
-        holder_name: getHolderName()
+        issuer_user_id: userId
       };
 
       showMsg('ok', 'Computing proof-of-work\u2026');
