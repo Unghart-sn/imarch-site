@@ -535,3 +535,58 @@ etlify/functions/order-process.js.
 3. **Treasury Dashboard UI:** При переводе токенов в админке выбирать тип операции (обычный перевод, баунти, тест). Это нужно для прозрачной отчетности: аудитор увидит, на что ушли токены.
 
 **Следующий шаг:** При создании UI для Казначейства (завтра) сразу заложить эти поля и лимиты.
+
+### 2026-11-15 (вечер: Treasury Dashboard + Token Flow + Immutable Audit Trail + Daily OTS Snapshot)
+
+**Шаг 1 ЗАКРЫТ: Treasury Dashboard в /app/settings.**
+- SQL: `transfer_tokens` расширена (`tx_type`, `note`, лимиты faucet/reward, `from_user_id`, `balance_after`). Новые RPC: `treasury_usage()`, `recent_transactions(limit_n)`, `find_user_by_email(q)`. Таблица `treasury_limits` (faucet/reward = 20000 µ = 200 токенов/сутки).
+- UI: блок Treasury в `static/app/settings.js` (только если `is_treasury=true`): Find по email, форма Send (transfer/faucet/reward + note), лимиты на сегодня, таблица последних 20 транзакций.
+- Bug fixed: `protect_profile_sensitive_fields` блокировал `token_balance`. Решение: `set_config('app.allow_balance_change', 'on', true)` в `transfer_tokens` + guard читает этот флаг. Без флага  прямой UPDATE из браузера по-прежнему запрещён.
+- Bug fixed: `where tx_type = tx_type` в старой версии (сравнение с самим собой, лимит всегда брался из первой строки). Заменено на `treasury_limits.tx_type = v_tx_type`.
+- E2E: transfer 20 µ на `unghart@proton.me`  успешно, балансы сдвинулись, лимиты обновились.
+
+**Шаг 2 ЗАКРЫТ: Token Flow (карта динамики).**
+- SQL: `treasury_stats()` возвращает `{distribution, daily_flow (30 дней), top_holders, generated_at}`.
+- UI: `static/app/treasury-flow.js` (подключён в `settings.js` через `window.imarchTreasuryFlow.render(sb, #treasuryCard)`): hard-cap check (`Σ = 888 800 `), distribution bar, SVG-график (две линии: granted/spent), top-5 holders. Без внешних зависимостей.
+- E2E: `total=888800, treasury=888800, users=0`, единственный всплеск 14-го (40/40)  тестовый прогон.
+
+**Шаг 3 ЗАКРЫТ: Immutable Audit Trail (append-only + hash chain).**
+- SQL: `token_transactions` получила `seq bigint`, `prev_hash text`, `row_hash text`. Бэкфилл существующих. Append-only триггер (UPDATE/DELETE  `raise exception`). Hash-chain триггер на INSERT (считает `row_hash = sha256(...|prev_hash)`). Валидатор `audit_verify_chain()`  `{ok, checked, head}`.
+- E2E: `audit_verify_chain()`  `{ok: true, checked: 6, head: fbb2146c...}`. Попытка UPDATE  `ERROR: token_transactions is append-only: UPDATE not allowed` (триггер работает).
+
+**Шаг 4 (в процессе): ежедневный snapshot + OTS.**
+- SQL: `audit_snapshots` (snapshot_date unique, chain_head, chain_length, total_balance, treasury_balance, users_balance, ots_status, ots_key, ots_block_height/time). RLS: публичное чтение. RPC: `audit_recent_snapshots(limit_n)`.
+- Netlify Function: `netlify/functions/daily-audit.js`  проверяет цепочку, считает балансы, upsert в `audit_snapshots`, `stampHash(chain_head)`  PutObject в R2 (`audit/snapshots/<date>.ots`), `ots_status=pending`. Идемпотентна (skip если на сегодня уже есть и не errored).
+- `netlify.toml`: `[functions."daily-audit"] schedule = "@daily"`.
+- Задеплоено (коммит `d6b629f`), Netlify Published.
+- **Проблема:** HTTP-вызов scheduled-функции  403 (Netlify блокирует). Тестирование  через `netlify functions:invoke daily-audit --no-identity` (CLI).
+
+**Next steps (следующая сессия):**
+1. Локальный тест `daily-audit`: `netlify functions:invoke daily-audit`  проверить JSON trace, что снапшот записан, OTS `.ots` в R2.
+2. Проверка БД: `select * from audit_snapshots order by snapshot_date desc limit 3`.
+3. Расширить `ots-upgrade.js`: дожимать не только `orders.anchor_status='pending'`, но и `audit_snapshots.ots_status='pending'`  `confirmed` + `ots_block_height/time`.
+4. Шаг 5: публичная страница `/audit.html`  последние snapshots, hard-cap OK/FAIL, кнопка скачивания CSV журнала, встроенный браузерный валидатор цепочки.
+5. После шага 5  антиспам-эшелоны 2-3 (Fingerprint, PoW, Shadowban), рефералка, модалка оплаты.
+6. Косметика: слипшаяся legend `grantedspent` в графике (не хватает пробела).
+
+**Git:** коммит `d6b629f` (7 файлов, +469/14), запушен в `main`. Netlify project id `0cb34f7f-1d9d-41df-9e22-086645929b14` (effortless-monstera-0bf201).
+
+
+**2026-11-15 (сессия закрыта, шаг 4 = снапшот+OTS работает)**
+-  `audit_snapshots` за 2026-11-15 создана: `chain_length=6, total=888800, treasury=888780, users=20, ots_status=pending, ots_key=audit/snapshots/2026-11-15.ots`.
+-  `.ots`-файл успешно лёг в R2.
+-  Не сделано (следующая сессия, 10 минут): расширить `ots-upgrade.js` на `audit_snapshots.ots_status` (сейчас он дожимает только `orders.anchor_status`). Снапшот будет вечно в `pending` без этого.
+-  HTTP-вызов scheduled-функций с прода заблокирован Netlify (403). Тестирование только через `netlify dev` + `curl localhost:8888`. В проде расписание работает автоматически.
+-  `netlify dev` конфликтует с `start.ps1` за порт 1314  перед запуском гасить `Get-Process hugo | Stop-Process -Force`.
+
+**Чек-лист шагов 1-4:**
+1.  Treasury Dashboard (transfer/faucet/reward + лимиты 20000 µ/сутки).
+2.  Token Flow (hard-cap, distribution bar, 30d chart, top-5).
+3.  Immutable Audit Trail (append-only, hash chain, валидатор `audit_verify_chain`).
+4.  Daily Snapshot + OTS (snapshot работает, OTS pending  confirmed требует доработки `ots-upgrade`).
+
+**Шаги 5-7 (следующая сессия):**
+5. `ots-upgrade` для audit_snapshots.
+6. `/audit.html`  публичная страница аудита.
+7. Антиспам-эшелоны, рефералка, модалка оплаты (долгий хвост).
+
