@@ -681,3 +681,61 @@ etlify/functions/order-process.js.
 - Миграция на `sb_secret_...` в Netlify Functions (legacy `service_role` живёт до конца 2026).
 
 **Проверка в проде:** `Invoke-WebRequest https://imarch.ltd/en/certify/` содержит `noTokensModal`, `promoModal`, `pilotModal`. Цепочка заказов не тронута.
+
+
+---
+
+### 2026-11-16 (Каталог цен + превентивная модалка оплаты, Шаги A/B/C)
+
+**Главное:** Каталог цен с timelock внедрён, `process-payment` больше не хардкодит `REQUIRED_TOKENS = 20`, превентивная модалка оплаты работает на проде. Каталог — фундамент под будущие продукты (`safe_100mb` и далее).
+
+**Шаг A — Каталог цен (Supabase SQL, применено через Dashboard SQL Editor):**
+- Таблица `products` — справочник товарных позиций. Поля: `product_code` (PK), `product_name`, `description`, `billing_period` (`one_time` / `monthly` / `annual`), `active`, `created_at`.
+- Таблица `product_prices` — **версионные** цены (append-only, триггер `product_prices_no_update` блокирует UPDATE/DELETE). Поля: `price_micro`, `active_from`, `published_at`, `notes`. Изменение цены = INSERT новой строки с `active_from = now() + 48h` (Timelock из Zero-Trust).
+- Функция `get_current_price(p_product_code)` → `{product_code, price_micro, billing_period}` по `now()`. Открыта для `anon, authenticated, service_role`.
+- `orders.product_code text not null default 'certificate' references products(product_code)` — существующие заказы автоматически получили `certificate`.
+- Seed: `certificate` = 20 µ (`one_time`), `safe_100mb` = 10 µ (`monthly`).
+- RLS: обе таблицы на чтение для `anon, authenticated` (цены публичны, аудит прозрачен).
+- Файл миграции: `supabase/migrations/2026-11-16_product_catalog.sql`.
+
+**Шаг B — `process-payment` читает цену из каталога (Supabase Edge Function, задеплоено через Dashboard):**
+- Удалена константа `REQUIRED_TOKENS = 20`.
+- `order` теперь читается с `product_code` (`select id, issuer_user_id, status, product_code`).
+- Цена резолвится через `supabaseAdmin.rpc('get_current_price', { p_product_code: productCode })`. Fallback `productCode = 'certificate'` если `product_code` null.
+- Admin bypass перенесён **до** lookup цены (админ не платит, цена ему не нужна).
+- `description` в `token_transactions` собирается через `describeProduct(productCode)` → `Certificate issuance for order X` / `Digital Safe 100MB rental for order X` / `${productCode} purchase...`.
+- Ответ расширен: `{status:'completed', reason:'token', amount: required}` — фронт видит, сколько списали, без хардкода.
+- Новая ошибка: `PRICE_NOT_FOUND` (500) — если `get_current_price` вернул пустоту (отсутствующий/выключенный `product_code`).
+
+**Шаг C — Превентивная модалка оплаты (`certify_form.js` + `layouts/certify/list.html`, задеплоено на Netlify):**
+- HTML: `confirmSpendModal` — 4 id (`spendProductName`, `spendPrice`, `spendBalance`, `spendAfter`) + 3 кнопки (`btnConfirmSpend`, `btnTopupTokens`, `btnCancelSpend`). Стиль как у `noTokensModal`.
+- JS: перед вызовом `process-payment` форма через `window.imarchAuth.getClient()` параллельно читает `get_current_price('certificate')` и `profiles.token_balance`. Показывает модалку с ценой / балансом / «after payment».
+- **Оплата запускается только по клику «Pay with tokens».** Cancel = отказ без списания (заказ остаётся `pending_upload`).
+- Fail-open: если RPC или чтение профиля упали — `pre-check failed, falling back to legacy flow`, оплата идёт старым путём (без модалки, как раньше). Это защита от «сломали RPC — сломали выдачу сертификатов».
+- `hideAllModals()` расширена `hideModal('confirmSpendModal')`.
+- Cache-busting: `certify_form.js?v=2` в `list.html` (форс-обновление у старых браузеров).
+
+**Коммиты (в `main`, запушены в GitHub):**
+- `13ffb16` — Step C (модалка + HTML).
+- `d5506e5` — Step B (`process-payment/index.ts`) + миграция `supabase/migrations/`.
+
+**Проверено E2E на проде:** модалка всплывает, цифры (`balance`, `after`) правильные, Pay списывает, цепочка `order-create → upload → process-payment → order-confirm → order-trigger` доходит до «Certificate is ready!».
+
+**Архитектурный выигрыш:**
+- Добавить новый продукт = INSERT в `products` + INSERT в `product_prices`. Ноль правок кода.
+- Изменить цену = INSERT в `product_prices` с `active_from = now() + 48h`. 48 часов аудиторы видят изменение в публичном `/audit.html` (когда цены туда выведем — TODO).
+- Аудит `token_transactions` теперь различает `certificate` / `safe_100mb` по `description`. Категоризация по `tx_type` — отдельная задача.
+
+**Хвосты (в бэклог):**
+- `_modal.html`, `_new_block.js` — временные файлы, удалены после склейки (не в git).
+- `supabase/functions/process-payment/index.ts.bak` — оказался в git с прошлой сессии. Оставить как историю или вычистить + `.gitignore` — решить отдельно.
+- `PROJECT_STATE-n.md` — битый cp1251-бэкап, оставлен по решению пользователя.
+- Тимлок-цены пока **не выводятся** на `/audit.html` (публичный аудит) — TODO на следующую сессию: вывести `product_prices` + `active_from` в публичный отчёт, чтобы Timelock был проверяемым.
+- `btnTopupTokens` пока показывает `alert('Top-up flow coming soon...')` — реальный top-up (покупка µ за фиат) — отдельная задача.
+- Категоризация `token_transactions.tx_type` (`spend` / `grant` / `reward` / `faucet`) — из концепции Bounty/faucet, ещё не внедрена.
+
+**Следующая сессия (план):**
+1. Вывести `product_prices` + Timelock в `/audit.html` (публичная проверка цен).
+2. Реальная модалка top-up (хотя бы заглушка со ссылкой на Treasury).
+3. Антиспам: остальные эшелоны из roadmap (fingerprint уже есть, PoW уже есть — что там ещё?).
+4. Рефералка, категоризация `tx_type`, чистка `.bak`.
