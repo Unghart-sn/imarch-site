@@ -174,7 +174,25 @@
       <button type="button" id="btnClosePilot" style="padding:10px; border:none; border-radius:8px; background:transparent; color:#6b7280; font-size:14px; cursor:pointer;">Back</button>
     </div>
   </div>
-</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
+</div>
+<div id="confirmSpendModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.5); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:#fff; border-radius:12px; padding:24px; max-width:420px; width:90%; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+    <h3 style="margin:0 0 12px; font-size:18px;">Confirm payment</h3>
+    <p style="margin:0 0 8px; color:#6b7280; font-size:14px;">
+      This will issue one <strong id="spendProductName">certificate</strong> and deduct
+      <strong id="spendPrice">20</strong> micro-tokens from your balance.
+    </p>
+    <p style="margin:0 0 20px; color:#9ca3af; font-size:13px;">
+      Current balance: <span id="spendBalance">0</span> &micro; &middot; after payment: <span id="spendAfter">0</span> &micro;
+    </p>
+    <div style="display:flex; flex-direction:column; gap:8px;">
+      <button type="button" id="btnConfirmSpend" style="padding:10px; border:none; border-radius:8px; background:#111; color:#fff; font-size:14px; cursor:pointer;">Pay with tokens</button>
+      <button type="button" id="btnTopupTokens" style="padding:10px; border:1px solid #d1d5db; border-radius:8px; background:#fff; color:#111; font-size:14px; cursor:pointer;">Top up tokens</button>
+      <button type="button" id="btnCancelSpend" style="padding:10px; border:none; border-radius:8px; background:transparent; color:#6b7280; font-size:14px; cursor:pointer;">Cancel</button>
+    </div>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
 <script src="/auth-config.js"></script>
 <script src="/auth.js"></script>
 <script src="/certify_form.js?v=2" defer></script>

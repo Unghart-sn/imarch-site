@@ -39,6 +39,7 @@
       hideModal('noTokensModal');
       hideModal('promoModal');
       hideModal('pilotModal');
+      hideModal('confirmSpendModal');
     }
 
     // Обработчики кнопок модалки
@@ -511,49 +512,84 @@
           return order;
         });
       }).then(function (order) {
-        showMsg('ok', 'Checking balance\u2026');
-        return postJson(PROCESS_PAYMENT_URL, { order_id: order.order_id })
-          .then(function (decision) {
-            if (decision.status === 'insufficient_tokens') {
-              showMsg('err', 'Insufficient tokens. Please choose an option.');
-              showModal('noTokensModal');
-              throw new Error('insufficient_tokens');
+        // PRE-CHECK: show confirmation modal before token deduction
+        return (function (orderToPay) {
+          return new Promise(function (resolve, reject) {
+            var sb = (window.imarchAuth && window.imarchAuth.getClient) ? window.imarchAuth.getClient() : null;
+            var done = false;
+            function finish() { if (done) return; done = true; resolve(doPay()); }
+            function bail() { if (done) return; done = true; reject(new Error('cancelled_by_user')); }
+
+            function doPay() {
+              showMsg('ok', 'Checking balance…');
+              return postJson(PROCESS_PAYMENT_URL, { order_id: orderToPay.order_id })
+                .then(function (decision) {
+                  if (decision.status === 'insufficient_tokens') {
+                    showMsg('err', 'Insufficient tokens. Please choose an option.');
+                    showModal('noTokensModal');
+                    throw new Error('insufficient_tokens');
+                  }
+                  showMsg('ok', 'Confirming upload…');
+                  return postJson('/.netlify/functions/order-confirm', {
+                    order_id: orderToPay.order_id,
+                    hmac_token: orderToPay.hmac_token
+                  }).then(function (confirmRes) {
+                    fetch(ORDER_TRIGGER_URL, {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({ order_id: orderToPay.order_id, hmac_token: orderToPay.hmac_token })
+                    }).catch(function (e) { console.warn('order-trigger error', e); });
+
+                    showMsg('ok', 'Certificate is ready! Click the button below to open it.');
+
+                    var finalUrl = '';
+                    if (confirmRes && confirmRes.status_url) {
+                      finalUrl = confirmRes.status_url;
+                    } else if (orderToPay && orderToPay.order_id && orderToPay.hmac_token) {
+                      finalUrl = '/en/certify/status/?order_id=' + encodeURIComponent(orderToPay.order_id) + '&token=' + encodeURIComponent(orderToPay.hmac_token);
+                    }
+
+                    var msgContainer = document.getElementById('formMsg');
+                    if (msgContainer) {
+                      msgContainer.innerHTML = '<div style="margin-top: 15px; padding: 15px; background: #dcfce7; border: 1px solid #bbf7d0; border-radius: 8px; text-align: center;">' +
+                        '<p style="margin: 0 0 12px; font-weight: 600; color: #166534;">Your document is certified!</p>' +
+                        '<a href="' + finalUrl + '" style="display: inline-block; padding: 10px 20px; background: #0f172a; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600;">Open Certificate Status</a>' +
+                        '</div>';
+                    } else {
+                      window.location.href = finalUrl;
+                    }
+                  });
+                });
             }
 
-            showMsg('ok', 'Confirming upload\u2026');
-            return postJson('/.netlify/functions/order-confirm', {
-              order_id: order.order_id,
-              hmac_token: order.hmac_token
-            }).then(function (confirmRes) {
-              
-              // Запускаем генерацию PDF в фоне
-              fetch(ORDER_TRIGGER_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ order_id: order.order_id, hmac_token: order.hmac_token })
-              }).catch(function(e) { console.warn('order-trigger error', e); });
+            if (!sb) { return finish(); }
 
-              showMsg('ok', 'Certificate is ready! Click the button below to open it.');
-              
-              var finalUrl = '';
-              if (confirmRes && confirmRes.status_url) {
-                finalUrl = confirmRes.status_url;
-              } else if (order && order.order_id && order.hmac_token) {
-                finalUrl = '/en/certify/status/?order_id=' + encodeURIComponent(order.order_id) + '&token=' + encodeURIComponent(order.hmac_token);
-              }
+            Promise.all([
+              sb.rpc('get_current_price', { p_product_code: 'certificate' }),
+              sb.from('profiles').select('token_balance').eq('id', userId).single()
+            ]).then(function (results) {
+              var priceRow = (results[0] && results[0].data && results[0].data[0]) || { price_micro: 20, product_code: 'certificate' };
+              var balance = (results[1] && results[1].data && results[1].data.token_balance) || 0;
+              var price = priceRow.price_micro;
 
-              var msgContainer = document.getElementById('formMsg');
-              if (msgContainer) {
-                msgContainer.innerHTML = '<div style="margin-top: 15px; padding: 15px; background: #dcfce7; border: 1px solid #bbf7d0; border-radius: 8px; text-align: center;">' +
-                  '<p style="margin: 0 0 12px; font-weight: 600; color: #166534;">Your document is certified!</p>' +
-                  '<a href="' + finalUrl + '" style="display: inline-block; padding: 10px 20px; background: #0f172a; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600;">Open Certificate Status</a>' +
-                  '</div>';
-                  '</div>';
-              } else {
-                window.location.href = finalUrl;
-              }
+              document.getElementById('spendProductName').textContent = priceRow.product_code;
+              document.getElementById('spendPrice').textContent = price;
+              document.getElementById('spendBalance').textContent = balance;
+              document.getElementById('spendAfter').textContent = (balance - price);
+
+              document.getElementById('btnConfirmSpend').onclick = function () { hideModal('confirmSpendModal'); finish(); };
+              document.getElementById('btnCancelSpend').onclick = function () { hideModal('confirmSpendModal'); bail(); };
+              document.getElementById('btnTopupTokens').onclick = function () {
+                alert('Top-up flow coming soon. Please use a promo code or contact Treasury for now.');
+              };
+
+              showModal('confirmSpendModal');
+            }).catch(function (err) {
+              console.warn('pre-check failed, falling back to legacy flow', err);
+              finish();
             });
           });
+        })(order);
       }).catch(function (err) {
         submitting = false;
         if (err && err.message !== 'insufficient_tokens') {
