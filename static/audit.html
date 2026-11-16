@@ -107,7 +107,29 @@
     </div>
   </div>
 
-  <p class="foot">
+    <div class="card">
+    <h2>Price catalog (Timelock)</h2>
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th class="num">Price</th>
+          <th>Period</th>
+          <th>Effective from</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="priceBody">
+        <tr><td colspan="5" class="muted">Loading...</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="muted" style="font-size:13px;margin-top:12px">
+      Price changes are published with a 48-hour timelock. Scheduled rows take effect at the date shown.
+    </div>
+  </div>
+<p class="foot">
     Ledger is append-only with a SHA-256 hash chain. Each day, the latest chain head is anchored to Bitcoin via OpenTimestamps
     and stored in an immutable snapshot. An auditor can download the full ledger below and verify it offline.
   </p>
@@ -239,9 +261,73 @@
     }
   }
 
+  async function loadPrices() {
+    const [pricesRes, productsRes] = await Promise.all([
+      sb.from('product_prices')
+        .select('product_code,price_micro,active_from,published_at,notes')
+        .order('product_code', { ascending: true })
+        .order('active_from', { ascending: false }),
+      sb.from('products').select('product_code,product_name,billing_period')
+    ]);
+    if (pricesRes.error) {
+      console.error(pricesRes.error);
+      $('priceBody').innerHTML = '<tr><td colspan="5" class="muted">Failed to load price catalog.</td></tr>';
+      return;
+    }
+    const prices = pricesRes.data || [];
+    if (!prices.length) {
+      $('priceBody').innerHTML = '<tr><td colspan="5" class="muted">No prices yet.</td></tr>';
+      return;
+    }
+    const metaByCode = {};
+    for (const p of (productsRes.data || [])) metaByCode[p.product_code] = p;
+    const now = Date.now();
+    const byProduct = {};
+    for (const p of prices) {
+      if (!byProduct[p.product_code]) byProduct[p.product_code] = { current: null, scheduled: null };
+      const ts = new Date(p.active_from).getTime();
+      if (ts <= now) {
+        const cur = byProduct[p.product_code].current;
+        if (!cur || new Date(cur.active_from).getTime() < ts) byProduct[p.product_code].current = p;
+      } else {
+        const sch = byProduct[p.product_code].scheduled;
+        if (!sch || new Date(sch.active_from).getTime() > ts) byProduct[p.product_code].scheduled = p;
+      }
+    }
+    const fmtDate = (s) => {
+      const d = new Date(s);
+      if (isNaN(d.getTime())) return String(s);
+      return d.toISOString().slice(0, 16).replace('T', ' ') + ' UTC';
+    };
+    const out = [];
+    for (const code of Object.keys(byProduct).sort()) {
+      const cur = byProduct[code].current;
+      const sch = byProduct[code].scheduled;
+      const meta = metaByCode[code] || {};
+      const name = meta.product_name || code;
+      const period = meta.billing_period || '';
+      const rowHtml = (p, kind) => {
+        const pill = kind === 'current'
+          ? '<span class="pill ok">active</span>'
+          : '<span class="pill wait">scheduled</span>';
+        const note = p.notes ? '<div class="muted" style="font-size:12px">' + p.notes + '</div>' : '';
+        return '<tr>'
+          + '<td>' + name + '<div class="muted mono" style="font-size:12px">' + code + '</div></td>'
+          + '<td class="num">' + fmt(p.price_micro) + ' &micro;' + note + '</td>'
+          + '<td>' + period + '</td>'
+          + '<td class="mono">' + fmtDate(p.active_from) + '</td>'
+          + '<td>' + pill + '</td>'
+          + '</tr>';
+      };
+      if (cur) out.push(rowHtml(cur, 'current'));
+      if (sch) out.push(rowHtml(sch, 'scheduled'));
+    }
+    $('priceBody').innerHTML = out.join('') || '<tr><td colspan="5" class="muted">No active prices.</td></tr>';
+  }
   $('verifyBtn').addEventListener('click', verifyChain);
   $('csvBtn').addEventListener('click', downloadCsv);
   loadSnapshots();
+  loadPrices();
 </script>
 </body>
 </html>
