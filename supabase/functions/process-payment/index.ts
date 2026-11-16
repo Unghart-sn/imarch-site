@@ -6,8 +6,6 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const REQUIRED_TOKENS = 20;
-
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response("ok", { headers: corsHeaders });
@@ -47,7 +45,7 @@ Deno.serve(async (req) => {
 
     const { data: order, error: orderError } = await supabaseAdmin
       .from("orders")
-      .select("id, issuer_user_id, status")
+      .select("id, issuer_user_id, status, product_code")
       .eq("id", order_id)
       .single();
 
@@ -55,7 +53,7 @@ Deno.serve(async (req) => {
       return json({ error: "Order not found or not yours" }, 404);
     }
 
-    // Priority 1: Admin bypass
+    // Priority 1: Admin bypass (before price lookup — admin pays nothing)
     if (profile.is_admin === true) {
       await supabaseAdmin.from("orders").update({
         status: "completed",
@@ -65,9 +63,26 @@ Deno.serve(async (req) => {
       return json({ status: "completed", reason: "admin_bypass" });
     }
 
+    // Resolve price from catalog (Step B: no hardcoded price)
+    const productCode = order.product_code ?? "certificate";
+    const { data: priceRows, error: priceError } = await supabaseAdmin
+      .rpc("get_current_price", { p_product_code: productCode });
+
+    if (priceError || !priceRows || priceRows.length === 0) {
+      return json({
+        error: "PRICE_NOT_FOUND",
+        product_code: productCode,
+        details: priceError?.message ?? null,
+      }, 500);
+    }
+
+    const price = priceRows[0];
+    const required = price.price_micro;
+    const labels = describeProduct(price.product_code);
+
     // Priority 2: Tokens
-    if (profile.token_balance >= REQUIRED_TOKENS) {
-      const newBalance = profile.token_balance - REQUIRED_TOKENS;
+    if (profile.token_balance >= required) {
+      const newBalance = profile.token_balance - required;
       const { error: updateError } = await supabaseAdmin
         .from("profiles")
         .update({ token_balance: newBalance })
@@ -88,7 +103,7 @@ Deno.serve(async (req) => {
         .single();
 
       if (treasuryProfile) {
-        const newTreasuryBalance = treasuryProfile.token_balance + REQUIRED_TOKENS;
+        const newTreasuryBalance = treasuryProfile.token_balance + required;
         await supabaseAdmin
           .from("profiles")
           .update({ token_balance: newTreasuryBalance })
@@ -99,16 +114,16 @@ Deno.serve(async (req) => {
       await supabaseAdmin.from("token_transactions").insert([
         {
           user_id: user.id,
-          amount: -REQUIRED_TOKENS,
-          type: 'spend',
-          description: 'Certificate issuance for order ' + order_id,
+          amount: -required,
+          type: "spend",
+          description: labels.spend(order_id),
         },
         {
           user_id: treasuryProfile?.id || user.id,
-          amount: REQUIRED_TOKENS,
-          type: 'grant',
-          description: 'Return from certificate spend (order ' + order_id + ')',
-        }
+          amount: required,
+          type: "grant",
+          description: labels.return(order_id),
+        },
       ]);
 
       await supabaseAdmin.from("orders").update({
@@ -116,17 +131,42 @@ Deno.serve(async (req) => {
         payment_method: "token",
       }).eq("id", order_id);
 
-      return json({ status: "completed", reason: "token" });
+      return json({ status: "completed", reason: "token", amount: required });
     }
 
     // Priority 3: Insufficient tokens
-    return await handleInsufficient(supabaseAdmin, order_id, REQUIRED_TOKENS, profile.token_balance);
+    return await handleInsufficient(supabaseAdmin, order_id, required, profile.token_balance);
   } catch (err) {
     return json({ error: err.message }, 500);
   }
 });
 
-async function handleInsufficient(supabaseAdmin: any, order_id: string, required: number, current: number) {
+function describeProduct(productCode: string) {
+  switch (productCode) {
+    case "certificate":
+      return {
+        spend: (id: string) => `Certificate issuance for order ${id}`,
+        return: (id: string) => `Return from certificate spend (order ${id})`,
+      };
+    case "safe_100mb":
+      return {
+        spend: (id: string) => `Digital Safe 100MB rental for order ${id}`,
+        return: (id: string) => `Return from safe rental (order ${id})`,
+      };
+    default:
+      return {
+        spend: (id: string) => `${productCode} purchase for order ${id}`,
+        return: (id: string) => `Return from ${productCode} spend (order ${id})`,
+      };
+  }
+}
+
+async function handleInsufficient(
+  supabaseAdmin: any,
+  order_id: string,
+  required: number,
+  current: number
+) {
   await supabaseAdmin.from("orders").update({
     payment_method: "whydonate",
     status: "pending_upload",
