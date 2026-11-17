@@ -3,6 +3,17 @@
 (function () {
   "use strict";
 
+  // --- Referral Trap ---
+  try {
+    var urlParams = new URLSearchParams(window.location.search);
+    var refId = urlParams.get('ref');
+    if (refId) {
+      localStorage.setItem('imarch_ref', refId);
+      console.log('[auth] Referral captured:', refId);
+    }
+  } catch (e) { console.warn('[auth] Referral capture failed', e); }
+  // ---------------------
+
   var cfg = window.IMARCH_AUTH || {};
   var client = null;
 
