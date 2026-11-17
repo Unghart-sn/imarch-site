@@ -61,3 +61,10 @@ test-proof.ots
 *.bak
 *.bak_btn
 *.bak_style
+
+# Backups
+*.bak
+*.bak_*
+*.bak-*
+*.bak2
+*.bak3
