@@ -42,10 +42,19 @@
     return (s && s.user) ? s.user.email : null;
   }
 
-  async function sendLoginLink(email, redirectTo) {
+    async function sendLoginLink(email, redirectTo) {
     var c = getClient();
-    var opts = { email: email };
-    if (redirectTo) opts.options = { emailRedirectTo: redirectTo };
+    var opts = { email: email, options: {} };
+    if (redirectTo) opts.options.emailRedirectTo = redirectTo;
+
+    try {
+      var refId = localStorage.getItem('imarch_ref');
+      if (refId) {
+        opts.options.data = { referred_by: refId };
+        console.log('[auth] Sending magic link with referral:', refId);
+      }
+    } catch (e) { console.warn('[auth] Referral injection failed', e); }
+
     return c.auth.signInWithOtp(opts);
   }
 
