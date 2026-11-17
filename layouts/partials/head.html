@@ -119,7 +119,7 @@
 {{- if or (eq $authType "login") (eq $authType "auth") }}
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
   <script src="{{ "auth-config.js" | absURL }}"></script>
-  <script src="{{ "auth.js" | absURL }}"></script>
+  <script src="{{ "auth.js" | absURL }}?v=3"></script>
 {{- end }}
 
 {{- if not hugo.IsServer -}}
