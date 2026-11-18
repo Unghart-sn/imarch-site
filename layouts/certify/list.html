@@ -1,4 +1,4 @@
-{{ define "main" }}
+﻿{{ define "main" }}
 <style>
 .certify-wrap {
   max-width: 860px; margin: 0 auto; padding: 2.5rem 1rem 4rem;
@@ -188,6 +188,7 @@
     <div style="display:flex; flex-direction:column; gap:8px;">
       <button type="button" id="btnConfirmSpend" style="padding:10px; border:none; border-radius:8px; background:#111; color:#fff; font-size:14px; cursor:pointer;">Pay with tokens</button>
       <button type="button" id="btnTopupTokens" style="padding:10px; border:1px solid #d1d5db; border-radius:8px; background:#fff; color:#111; font-size:14px; cursor:pointer;">Top up tokens</button>
+      <button type="button" id="btnGrantSpend" style="padding:10px; border:1px solid #d1d5db; border-radius:8px; background:#fff; color:#111; font-size:14px; cursor:pointer;">Request service grant</button>
       <button type="button" id="btnCancelSpend" style="padding:10px; border:none; border-radius:8px; background:transparent; color:#6b7280; font-size:14px; cursor:pointer;">Cancel</button>
     </div>
   </div>
@@ -196,5 +197,5 @@
 <script src="/auth-config.js"></script>
 <script src="/auth.js?v=3"></script>
 <script src="/app/topup-modal.js?v=3"></script>
-<script src="/certify_form.js?v=4" defer></script>
+<script src="/certify_form.js?v=5" defer></script>
 {{ end }}

@@ -1,9 +1,9 @@
-(function () {
+﻿(function () {
   'use strict';
 
   function initForm() {
 
-    // ПЕРЕХВАТ КНОПКИ "Top Up" В ПРОФИЛЕ: открывает нашу модалку вместо прямого перехода на WhyDonate
+    // РџР•Р Р•РҐР’РђРў РљРќРћРџРљР "Top Up" Р’ РџР РћР¤РР›Р•: РѕС‚РєСЂС‹РІР°РµС‚ РЅР°С€Сѓ РјРѕРґР°Р»РєСѓ РІРјРµСЃС‚Рѕ РїСЂСЏРјРѕРіРѕ РїРµСЂРµС…РѕРґР° РЅР° WhyDonate
     document.querySelectorAll('a, button').forEach(function(el) {
       if (el.textContent && el.textContent.trim() === 'Top Up') {
         el.addEventListener('click', function(e) {
@@ -17,7 +17,7 @@
     var MAX_BYTES = 100 * 1024 * 1024;
     var ORDER_CREATE_URL = '/.netlify/functions/order-create';
     var TOPUP_REQUEST_URL = '/.netlify/functions/topup-request';
-    // ... далее идет остальной код твоей функции initForm ...
+    // ... РґР°Р»РµРµ РёРґРµС‚ РѕСЃС‚Р°Р»СЊРЅРѕР№ РєРѕРґ С‚РІРѕРµР№ С„СѓРЅРєС†РёРё initForm ...
 
     var style = document.createElement('style');
     style.textContent = [
@@ -121,7 +121,7 @@
     var submitting = false;
     var currentIntentId = null;
 
-    // --- ФУНКЦИИ ДЛЯ МОДАЛОК ---
+    // --- Р¤РЈРќРљР¦РР Р”Р›РЇ РњРћР”РђР›РћРљ ---
     function showModal(id) {
       var el = document.getElementById(id);
       if (el) el.style.display = 'flex';
@@ -165,7 +165,7 @@
       }
     }
 
-    // --- ЛОГИКА МОДАЛКИ TOP-UP & DIGITAL SAFE ---
+    // --- Р›РћР“РРљРђ РњРћР”РђР›РљР TOP-UP & DIGITAL SAFE ---
     async function openTopupSafeModal(defaultTab) {
       hideAllModals();
       showModal('topupSafeModal');
@@ -195,7 +195,7 @@
       var sb = (window.imarchAuth && window.imarchAuth.getClient) ? window.imarchAuth.getClient() : null;
       if (!userId || !sb) {
         balEl.textContent = 'Sign in required';
-        stEl.textContent = '—';
+        stEl.textContent = 'вЂ”';
         actBtn.disabled = true;
         return;
       }
@@ -228,7 +228,7 @@
       t.onclick = function () { switchTsTab(t.getAttribute('data-tab')); };
     });
 
-    // Выбор номинала 10 / 20 / 50 / 100
+    // Р’С‹Р±РѕСЂ РЅРѕРјРёРЅР°Р»Р° 10 / 20 / 50 / 100
     document.querySelectorAll('#topupSafeModal .ts-amt').forEach(function (b) {
       b.onclick = function () {
         document.querySelectorAll('#topupSafeModal .ts-amt').forEach(function (x) { x.classList.remove('active'); });
@@ -243,7 +243,7 @@
       document.getElementById('tsIntentResult').style.display = 'none';
     };
 
-    // Генерация референс-кода и заявки в Supabase
+    // Р“РµРЅРµСЂР°С†РёСЏ СЂРµС„РµСЂРµРЅСЃ-РєРѕРґР° Рё Р·Р°СЏРІРєРё РІ Supabase
     document.getElementById('tsCreateIntentBtn').onclick = async function () {
       var amt = parseInt(document.getElementById('tsCustomAmount').value, 10);
       var msg = document.getElementById('tsTopupMsg');
@@ -315,7 +315,7 @@
       }
     };
 
-    // Активация Цифрового сейфа со внутреннего баланса (10 µ)
+    // РђРєС‚РёРІР°С†РёСЏ Р¦РёС„СЂРѕРІРѕРіРѕ СЃРµР№С„Р° СЃРѕ РІРЅСѓС‚СЂРµРЅРЅРµРіРѕ Р±Р°Р»Р°РЅСЃР° (10 Вµ)
     document.getElementById('tsActivateSafeBtn').onclick = async function () {
       var sb = (window.imarchAuth && window.imarchAuth.getClient) ? window.imarchAuth.getClient() : null;
       var msg = document.getElementById('tsSafeMsg');
@@ -344,7 +344,7 @@
       switchTsTab('topup');
     };
 
-    // Подключаем кнопку пополнения в noTokensModal, если она есть
+    // РџРѕРґРєР»СЋС‡Р°РµРј РєРЅРѕРїРєСѓ РїРѕРїРѕР»РЅРµРЅРёСЏ РІ noTokensModal, РµСЃР»Рё РѕРЅР° РµСЃС‚СЊ
     var noTokensModalEl = document.getElementById('noTokensModal');
     if (noTokensModalEl && !document.getElementById('btnOpenTopupFromEmpty')) {
       var topupQuickBtn = document.createElement('button');
@@ -357,7 +357,7 @@
       targetBox.appendChild(topupQuickBtn);
     }
 
-    // Обработчики стандартных кнопок модалки
+    // РћР±СЂР°Р±РѕС‚С‡РёРєРё СЃС‚Р°РЅРґР°СЂС‚РЅС‹С… РєРЅРѕРїРѕРє РјРѕРґР°Р»РєРё
     if (document.getElementById('btnCloseModal')) {
       document.getElementById('btnCloseModal').onclick = hideAllModals;
     }
@@ -386,7 +386,7 @@
       };
     }
 
-    // Отправка промокода
+    // РћС‚РїСЂР°РІРєР° РїСЂРѕРјРѕРєРѕРґР°
     if (document.getElementById('btnSubmitPromo')) {
       document.getElementById('btnSubmitPromo').onclick = async function () {
         var code = document.getElementById('promoInput').value.trim();
@@ -420,7 +420,7 @@
       };
     }
 
-    // Отправка заявки на пилот
+    // РћС‚РїСЂР°РІРєР° Р·Р°СЏРІРєРё РЅР° РїРёР»РѕС‚
     if (document.getElementById('btnSubmitPilot')) {
       document.getElementById('btnSubmitPilot').onclick = async function () {
         var email = document.getElementById('pilotEmail').value.trim();
@@ -857,6 +857,10 @@
               document.getElementById('btnTopupTokens').onclick = function () {
                 openTopupSafeModal('topup');
               };
+              var btnGrantSpend = document.getElementById('btnGrantSpend');
+              if (btnGrantSpend) {
+                btnGrantSpend.onclick = function () { hideAllModals(); showModal('pilotModal'); };
+              }
 
               showModal('confirmSpendModal');
             }).catch(function (err) {
