@@ -68,3 +68,5 @@ test-proof.ots
 *.bak-*
 *.bak2
 *.bak3
+
+.env*
