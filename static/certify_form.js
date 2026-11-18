@@ -2,11 +2,105 @@
   'use strict';
 
   function initForm() {
-    var form = document.getElementById('certifyForm');
-    if (!form) return;
 
+    // ПЕРЕХВАТ КНОПКИ "Top Up" В ПРОФИЛЕ: открывает нашу модалку вместо прямого перехода на WhyDonate
+    document.querySelectorAll('a, button').forEach(function(el) {
+      if (el.textContent && el.textContent.trim() === 'Top Up') {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          openTopupSafeModal('topup');
+        });
+      }
+    });
+
+    var form = document.getElementById('certifyForm');
     var MAX_BYTES = 100 * 1024 * 1024;
     var ORDER_CREATE_URL = '/.netlify/functions/order-create';
+    var TOPUP_REQUEST_URL = '/.netlify/functions/topup-request';
+    // ... далее идет остальной код твоей функции initForm ...
+
+    var style = document.createElement('style');
+    style.textContent = [
+      '#topupSafeModal { display:none; position:fixed; inset:0; background:rgba(15,23,42,0.72); z-index:99999; align-items:center; justify-content:center; padding:16px; font-family:inherit; }',
+      '#topupSafeModal .ts-card { background:#fff; color:#0f172a; width:100%; max-width:480px; border-radius:12px; padding:24px; box-shadow:0 20px 40px rgba(0,0,0,0.28); position:relative; }',
+      '#topupSafeModal .ts-close { position:absolute; top:14px; right:16px; background:none; border:none; font-size:22px; cursor:pointer; color:#64748b; }',
+      '#topupSafeModal .ts-tabs { display:flex; gap:8px; margin-bottom:18px; border-bottom:1px solid #e2e8f0; padding-bottom:10px; }',
+      '#topupSafeModal .ts-tab { flex:1; padding:9px 12px; border:1px solid #cbd5e1; background:#f8fafc; border-radius:8px; font-weight:600; cursor:pointer; font-size:13px; color:#334155; }',
+      '#topupSafeModal .ts-tab.active { background:#0f172a; color:#fff; border-color:#0f172a; }',
+      '#topupSafeModal .ts-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:8px; margin:12px 0; }',
+      '#topupSafeModal .ts-amt { padding:10px 6px; border:1px solid #cbd5e1; border-radius:8px; background:#fff; font-weight:700; cursor:pointer; text-align:center; font-size:14px; }',
+      '#topupSafeModal .ts-amt.active { border-color:#0f172a; background:#f1f5f9; box-shadow:inset 0 0 0 1px #0f172a; }',
+      '#topupSafeModal .ts-input { width:100%; padding:10px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:14px; margin-top:6px; box-sizing:border-box; }',
+      '#topupSafeModal .ts-btn-primary { width:100%; padding:12px; background:#0f172a; color:#fff; border:none; border-radius:8px; font-weight:600; font-size:14px; cursor:pointer; margin-top:14px; }',
+      '#topupSafeModal .ts-btn-primary:disabled { opacity:0.6; cursor:not-allowed; }',
+      '#topupSafeModal .ts-btn-whydonate { display:block; text-align:center; width:100%; padding:12px; background:#059669; color:#fff; text-decoration:none; border-radius:8px; font-weight:700; font-size:14px; margin-top:12px; box-sizing:border-box; }',
+      '#topupSafeModal .ts-box { background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:12px; margin-top:12px; font-size:13px; line-height:1.45; }',
+      '#topupSafeModal .ts-ref { font-family:monospace; font-size:16px; font-weight:700; background:#e2e8f0; padding:4px 8px; border-radius:4px; letter-spacing:1px; }'
+    ].join('\n');
+    document.head.appendChild(style);
+
+    var modal = document.createElement('div');
+    modal.id = 'topupSafeModal';
+    modal.innerHTML = [
+      '<div class="ts-card">',
+      '  <button type="button" class="ts-close" id="tsCloseBtn">&times;</button>',
+      '  <h3 style="margin:0 0 4px; font-size:19px;">Protocol 8888 Treasury &amp; Safe</h3>',
+      '  <p style="margin:0 0 14px; font-size:12px; color:#64748b;">1 &micro; = &pound;1 GBP &bull; 1 Full Token = &pound;100 GBP</p>',
+      '  <div class="ts-tabs">',
+      '    <button type="button" class="ts-tab active" data-tab="topup">Top-Up Balance (&micro;)</button>',
+      '    <button type="button" class="ts-tab" data-tab="safe">Digital Safe (100 MB)</button>',
+      '  </div>',
+      '  <!-- TAB 1: TOP-UP -->',
+      '  <div id="tsPaneTopup">',
+      '    <div style="font-size:13px; color:#334155;">Select contribution amount (GBP &rarr; &micro;):</div>',
+      '    <div class="ts-grid">',
+      '      <button type="button" class="ts-amt active" data-val="10">&pound;10<br><span style="font-weight:400;font-size:11px;">10 &micro;</span></button>',
+      '      <button type="button" class="ts-amt" data-val="20">&pound;20<br><span style="font-weight:400;font-size:11px;">20 &micro;</span></button>',
+      '      <button type="button" class="ts-amt" data-val="50">&pound;50<br><span style="font-weight:400;font-size:11px;">50 &micro;</span></button>',
+      '      <button type="button" class="ts-amt" data-val="100">&pound;100<br><span style="font-weight:400;font-size:11px;">1 Token</span></button>',
+      '    </div>',
+      '    <label style="font-size:12px; color:#475569; display:block; margin-top:8px;">Or enter custom amount (&pound; GBP):</label>',
+      '    <input type="number" id="tsCustomAmount" class="ts-input" min="1" step="1" value="10" placeholder="Enter GBP amount">',
+      '    <button type="button" id="tsCreateIntentBtn" class="ts-btn-primary">Generate WhyDonate Reference</button>',
+      '    <div id="tsIntentResult" style="display:none;" class="ts-box">',
+      '      <div>1. Copy your personal reference code: <span id="tsRefCode" class="ts-ref">VR-0000</span> <button type="button" id="tsCopyRefBtn" style="margin-left:6px;padding:3px 8px;font-size:11px;cursor:pointer;">Copy</button></div>',
+      '      <div style="margin-top:8px;">2. Complete your <strong>&pound;<span id="tsConfirmGbp">10</span></strong> contribution on WhyDonate and paste the code into the message/comment field.</div>',
+      '      <a id="tsWhyDonateLink" href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" target="_blank" rel="noopener" class="ts-btn-whydonate">Proceed to WhyDonate (&pound;<span id="tsBtnGbp">10</span>) &rarr;</a>',
+      '      <button type="button" id="tsMarkPaidBtn" class="ts-btn-primary" style="background:#334155;margin-top:8px;">I have completed the contribution</button>',
+      '    </div>',
+      '    <div id="tsTopupMsg" style="margin-top:10px;font-size:13px;"></div>',
+      '  </div>',
+      '  <!-- TAB 2: DIGITAL SAFE -->',
+      '  <div id="tsPaneSafe" style="display:none;">',
+      '    <div class="ts-box" style="margin-top:0;">',
+      '      <div style="font-weight:700; font-size:15px; margin-bottom:4px;">Digital Safe (<code>safe_100mb</code>)</div>',
+      '      <div style="color:#475569;">Encrypted 100 MB sovereign vault for certified artifacts and RFC 3161 timestamps.</div>',
+      '      <div style="margin-top:10px; padding-top:10px; border-top:1px solid #e2e8f0; display:flex; justify-content:space-between;">',
+      '        <span>Subscription tariff:</span><strong>10 &micro; / month (&pound;10)</strong>',
+      '      </div>',
+      '      <div style="margin-top:6px; display:flex; justify-content:space-between;">',
+      '        <span>Your current balance:</span><strong id="tsSafeBalance">Loading...</strong>',
+      '      </div>',
+      '      <div style="margin-top:6px; display:flex; justify-content:space-between;">',
+      '        <span>Safe status:</span><strong id="tsSafeStatus">Checking...</strong>',
+      '      </div>',
+      '    </div>',
+      '    <button type="button" id="tsActivateSafeBtn" class="ts-btn-primary">Activate / Extend 30 Days (10 &micro;)</button>',
+      '    <button type="button" id="tsSafeTopupFallbackBtn" class="ts-btn-whydonate" style="display:none; border:none; cursor:pointer;">Insufficient &micro; &mdash; Top-Up &pound;10 via WhyDonate</button>',
+      '    <div id="tsSafeMsg" style="margin-top:10px;font-size:13px;"></div>',
+      '  </div>',
+      '</div>'
+    ].join('\n');
+
+    document.body.appendChild(modal);
+  }
+
+  function initForm() {
+    
+    var form = document.getElementById('certifyForm');
+    var MAX_BYTES = 100 * 1024 * 1024;
+    var ORDER_CREATE_URL = '/.netlify/functions/order-create';
+    var TOPUP_REQUEST_URL = '/.netlify/functions/topup-request';
     var PROCESS_PAYMENT_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co/functions/v1/process-payment';
     var ORDER_TRIGGER_URL = '/.netlify/functions/order-trigger';
     var REDEEM_PROMO_URL = 'https://nmiyaroisztnxenmoxzs.supabase.co/functions/v1/redeem-promo';
@@ -25,6 +119,7 @@
     var currentHash = null;
     var hashing = false;
     var submitting = false;
+    var currentIntentId = null;
 
     // --- ФУНКЦИИ ДЛЯ МОДАЛОК ---
     function showModal(id) {
@@ -40,34 +135,252 @@
       hideModal('promoModal');
       hideModal('pilotModal');
       hideModal('confirmSpendModal');
+      hideModal('topupSafeModal');
     }
 
-    // Обработчики кнопок модалки
+    function getSession() {
+      try {
+        var key = 'sb-nmiyaroisztnxenmoxzs-auth-token';
+        var raw = localStorage.getItem(key);
+        if (!raw) raw = localStorage.getItem('sb-auth-token') || localStorage.getItem('supabase.auth.token');
+        if (!raw) return null;
+        var parsed = JSON.parse(raw);
+        if (parsed && parsed.access_token) return parsed;
+        return (parsed && parsed.currentSession) || parsed || null;
+      } catch (e) { return null; }
+    }
+
+    function getAccessToken() {
+      var s = getSession();
+      return s && s.access_token ? s.access_token : null;
+    }
+
+    async function getCurrentUserId() {
+      try {
+        if (!window.imarchAuth) return null;
+        var session = await window.imarchAuth.getSession();
+        return (session && session.user) ? session.user.id : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    // --- ЛОГИКА МОДАЛКИ TOP-UP & DIGITAL SAFE ---
+    async function openTopupSafeModal(defaultTab) {
+      hideAllModals();
+      showModal('topupSafeModal');
+      switchTsTab(defaultTab || 'topup');
+      await refreshSafeTabState();
+    }
+    window.openTopupSafeModal = openTopupSafeModal;
+
+    function switchTsTab(tab) {
+      var tabs = document.querySelectorAll('#topupSafeModal .ts-tab');
+      tabs.forEach(function (t) {
+        t.classList.toggle('active', t.getAttribute('data-tab') === tab);
+      });
+      document.getElementById('tsPaneTopup').style.display = (tab === 'topup') ? 'block' : 'none';
+      document.getElementById('tsPaneSafe').style.display = (tab === 'safe') ? 'block' : 'none';
+    }
+
+    async function refreshSafeTabState() {
+      var balEl = document.getElementById('tsSafeBalance');
+      var stEl = document.getElementById('tsSafeStatus');
+      var actBtn = document.getElementById('tsActivateSafeBtn');
+      var fbBtn = document.getElementById('tsSafeTopupFallbackBtn');
+      var msg = document.getElementById('tsSafeMsg');
+      msg.textContent = '';
+
+      var userId = await getCurrentUserId();
+      var sb = (window.imarchAuth && window.imarchAuth.getClient) ? window.imarchAuth.getClient() : null;
+      if (!userId || !sb) {
+        balEl.textContent = 'Sign in required';
+        stEl.textContent = '—';
+        actBtn.disabled = true;
+        return;
+      }
+
+      try {
+        var res = await sb.from('profiles').select('token_balance, safe_until').eq('id', userId).single();
+        var balance = (res.data && res.data.token_balance) || 0;
+        var safeUntil = res.data && res.data.safe_until ? new Date(res.data.safe_until) : null;
+        var isActive = safeUntil && safeUntil > new Date();
+
+        balEl.textContent = balance + ' \u00B5 (\u00A3' + balance + ')';
+        stEl.textContent = isActive ? ('Active until ' + safeUntil.toLocaleDateString()) : 'Inactive';
+        stEl.style.color = isActive ? '#059669' : '#dc2626';
+
+        if (balance >= 10) {
+          actBtn.style.display = 'block';
+          actBtn.disabled = false;
+          fbBtn.style.display = 'none';
+        } else {
+          actBtn.style.display = 'none';
+          fbBtn.style.display = 'block';
+        }
+      } catch (e) {
+        balEl.textContent = 'Error loading';
+      }
+    }
+
+    document.getElementById('tsCloseBtn').onclick = function () { hideModal('topupSafeModal'); };
+    document.querySelectorAll('#topupSafeModal .ts-tab').forEach(function (t) {
+      t.onclick = function () { switchTsTab(t.getAttribute('data-tab')); };
+    });
+
+    // Выбор номинала 10 / 20 / 50 / 100
+    document.querySelectorAll('#topupSafeModal .ts-amt').forEach(function (b) {
+      b.onclick = function () {
+        document.querySelectorAll('#topupSafeModal .ts-amt').forEach(function (x) { x.classList.remove('active'); });
+        b.classList.add('active');
+        document.getElementById('tsCustomAmount').value = b.getAttribute('data-val');
+        document.getElementById('tsIntentResult').style.display = 'none';
+      };
+    });
+
+    document.getElementById('tsCustomAmount').oninput = function () {
+      document.querySelectorAll('#topupSafeModal .ts-amt').forEach(function (x) { x.classList.remove('active'); });
+      document.getElementById('tsIntentResult').style.display = 'none';
+    };
+
+    // Генерация референс-кода и заявки в Supabase
+    document.getElementById('tsCreateIntentBtn').onclick = async function () {
+      var amt = parseInt(document.getElementById('tsCustomAmount').value, 10);
+      var msg = document.getElementById('tsTopupMsg');
+      if (!amt || amt < 1) {
+        msg.textContent = 'Please enter a valid GBP amount (minimum \u00A31).';
+        msg.style.color = '#dc2626';
+        return;
+      }
+
+      var userId = await getCurrentUserId();
+      if (!userId) {
+        msg.textContent = 'Please sign in first.';
+        msg.style.color = '#dc2626';
+        return;
+      }
+
+      var createBtn = document.getElementById('tsCreateIntentBtn');
+      createBtn.disabled = true;
+      msg.textContent = 'Creating contribution reference...';
+      msg.style.color = '#475569';
+
+      try {
+        var res = await postJson(TOPUP_REQUEST_URL, {
+          action: 'create',
+          user_id: userId,
+          amount_gbp: amt,
+          purpose: 'topup'
+        });
+
+        currentIntentId = res.intent_id;
+        document.getElementById('tsRefCode').textContent = res.ref_code;
+        document.getElementById('tsConfirmGbp').textContent = amt;
+        document.getElementById('tsBtnGbp').textContent = amt;
+        document.getElementById('tsIntentResult').style.display = 'block';
+        msg.textContent = '';
+      } catch (e) {
+        msg.textContent = 'Error: ' + e.message;
+        msg.style.color = '#dc2626';
+      } finally {
+        createBtn.disabled = false;
+      }
+    };
+
+    document.getElementById('tsCopyRefBtn').onclick = function () {
+      var code = document.getElementById('tsRefCode').textContent;
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(code);
+        document.getElementById('tsCopyRefBtn').textContent = 'Copied!';
+        setTimeout(function () { document.getElementById('tsCopyRefBtn').textContent = 'Copy'; }, 1500);
+      }
+    };
+
+    document.getElementById('tsMarkPaidBtn').onclick = async function () {
+      if (!currentIntentId) return;
+      var msg = document.getElementById('tsTopupMsg');
+      var markBtn = document.getElementById('tsMarkPaidBtn');
+      markBtn.disabled = true;
+      try {
+        await postJson(TOPUP_REQUEST_URL, {
+          action: 'mark_paid',
+          intent_id: currentIntentId
+        });
+        msg.textContent = 'Thank you! Your contribution is queued for verification. Microtokens (\u00B5) will appear on your balance shortly.';
+        msg.style.color = '#059669';
+      } catch (e) {
+        msg.textContent = 'Error: ' + e.message;
+        msg.style.color = '#dc2626';
+        markBtn.disabled = false;
+      }
+    };
+
+    // Активация Цифрового сейфа со внутреннего баланса (10 µ)
+    document.getElementById('tsActivateSafeBtn').onclick = async function () {
+      var sb = (window.imarchAuth && window.imarchAuth.getClient) ? window.imarchAuth.getClient() : null;
+      var msg = document.getElementById('tsSafeMsg');
+      var actBtn = document.getElementById('tsActivateSafeBtn');
+      if (!sb) return;
+
+      actBtn.disabled = true;
+      msg.textContent = 'Activating Digital Safe...';
+      msg.style.color = '#475569';
+
+      try {
+        var rpcRes = await sb.rpc('activate_digital_safe');
+        if (rpcRes.error) throw new Error(rpcRes.error.message);
+        msg.textContent = 'Digital Safe activated for 30 days (-10 \u00B5)!';
+        msg.style.color = '#059669';
+        await refreshSafeTabState();
+      } catch (e) {
+        msg.textContent = 'Error: ' + e.message;
+        msg.style.color = '#dc2626';
+        actBtn.disabled = false;
+      }
+    };
+
+    document.getElementById('tsSafeTopupFallbackBtn').onclick = function () {
+      document.getElementById('tsCustomAmount').value = '10';
+      switchTsTab('topup');
+    };
+
+    // Подключаем кнопку пополнения в noTokensModal, если она есть
+    var noTokensModalEl = document.getElementById('noTokensModal');
+    if (noTokensModalEl && !document.getElementById('btnOpenTopupFromEmpty')) {
+      var topupQuickBtn = document.createElement('button');
+      topupQuickBtn.type = 'button';
+      topupQuickBtn.id = 'btnOpenTopupFromEmpty';
+      topupQuickBtn.textContent = 'Top-Up Balance / Digital Safe (WhyDonate)';
+      topupQuickBtn.style.cssText = 'display:block;width:100%;padding:10px 16px;margin-top:10px;background:#059669;color:#fff;border:none;border-radius:8px;font-weight:600;cursor:pointer;';
+      topupQuickBtn.onclick = function () { openTopupSafeModal('topup'); };
+      var targetBox = noTokensModalEl.querySelector('.modal-content, div > div') || noTokensModalEl;
+      targetBox.appendChild(topupQuickBtn);
+    }
+
+    // Обработчики стандартных кнопок модалки
     if (document.getElementById('btnCloseModal')) {
       document.getElementById('btnCloseModal').onclick = hideAllModals;
     }
-    
     if (document.getElementById('btnPromo')) {
-      document.getElementById('btnPromo').onclick = function() {
+      document.getElementById('btnPromo').onclick = function () {
         hideModal('noTokensModal');
         showModal('promoModal');
       };
     }
     if (document.getElementById('btnClosePromo')) {
-      document.getElementById('btnClosePromo').onclick = function() {
+      document.getElementById('btnClosePromo').onclick = function () {
         hideModal('promoModal');
         showModal('noTokensModal');
       };
     }
-
     if (document.getElementById('btnPilot')) {
-      document.getElementById('btnPilot').onclick = function() {
+      document.getElementById('btnPilot').onclick = function () {
         hideModal('noTokensModal');
         showModal('pilotModal');
       };
     }
     if (document.getElementById('btnClosePilot')) {
-      document.getElementById('btnClosePilot').onclick = function() {
+      document.getElementById('btnClosePilot').onclick = function () {
         hideModal('pilotModal');
         showModal('noTokensModal');
       };
@@ -75,7 +388,7 @@
 
     // Отправка промокода
     if (document.getElementById('btnSubmitPromo')) {
-      document.getElementById('btnSubmitPromo').onclick = async function() {
+      document.getElementById('btnSubmitPromo').onclick = async function () {
         var code = document.getElementById('promoInput').value.trim();
         if (!code) return;
         var promoMsg = document.getElementById('promoMsg');
@@ -91,11 +404,11 @@
             body: JSON.stringify({ code: code })
           });
           var data = await res.json();
-          
+
           if (data.status === 'success') {
             promoMsg.textContent = 'Success! ' + data.message;
             promoMsg.style.color = 'green';
-            setTimeout(function() { window.location.reload(); }, 2000);
+            setTimeout(function () { window.location.reload(); }, 2000);
           } else {
             promoMsg.textContent = 'Error: ' + (data.error || 'Unknown error');
             promoMsg.style.color = 'red';
@@ -109,7 +422,7 @@
 
     // Отправка заявки на пилот
     if (document.getElementById('btnSubmitPilot')) {
-      document.getElementById('btnSubmitPilot').onclick = async function() {
+      document.getElementById('btnSubmitPilot').onclick = async function () {
         var email = document.getElementById('pilotEmail').value.trim();
         var org = document.getElementById('pilotOrg').value.trim();
         var msg = document.getElementById('pilotMsg').value.trim();
@@ -118,7 +431,7 @@
           document.getElementById('pilotResultMsg').style.color = 'red';
           return;
         }
-        
+
         var resultMsg = document.getElementById('pilotResultMsg');
         resultMsg.textContent = 'Sending...';
         resultMsg.style.color = '#666';
@@ -132,7 +445,7 @@
             body: JSON.stringify({ email: email, organization: org, message: msg })
           });
           var data = await res.json();
-          
+
           if (data.status === 'success') {
             resultMsg.textContent = 'Application sent! We will contact you soon.';
             resultMsg.style.color = 'green';
@@ -147,7 +460,8 @@
         }
       };
     }
-    // ---------------------------
+
+    if (!form) return;
 
     function showMsg(kind, text) {
       if (!msgEl) return;
@@ -172,7 +486,6 @@
       return out;
     }
 
-    // --- PoW: pure-JS SHA-256 (hex output) ---
     function sha256HexJS(input) {
       function rrot(x, n) { return (x >>> n) | (x << (32 - n)); }
       var K = [
@@ -249,7 +562,7 @@
       });
     }
 
-        var currentFingerprint = null;
+    var currentFingerprint = null;
     function computeFingerprint() {
       if (currentFingerprint) return Promise.resolve(currentFingerprint);
       try {
@@ -302,41 +615,6 @@
         }).then(bufToHex),
         computeFingerprint()
       ]).then(function (results) { return results[0]; });
-    }
-
-    function getSession() {
-      try {
-        var key = 'sb-nmiyaroisztnxenmoxzs-auth-token';
-        var raw = localStorage.getItem(key);
-        if (!raw) raw = localStorage.getItem('sb-auth-token') || localStorage.getItem('supabase.auth.token');
-        if (!raw) return null;
-        var parsed = JSON.parse(raw);
-        if (parsed && parsed.access_token) return parsed;
-        return (parsed && parsed.currentSession) || parsed || null;
-      } catch (e) { return null; }
-    }
-
-    function getAccessToken() {
-      var s = getSession();
-      return s && s.access_token ? s.access_token : null;
-    }
-
-    // АСИНХРОННАЯ ФУНКЦИЯ: ждем сессию от auth.js
-    async function getCurrentUserId() {
-      try {
-        if (!window.imarchAuth) {
-          console.error('imarchAuth not found on page');
-          return null;
-        }
-        var session = await window.imarchAuth.getSession();
-        if (session && session.user) {
-          return session.user.id;
-        }
-        return null;
-      } catch (e) {
-        console.error('Auth error:', e);
-        return null;
-      }
     }
 
     function handleFile(file) {
@@ -476,9 +754,7 @@
       if (hashing) return showMsg('err', 'Still hashing the file, please wait.');
       if (!currentHash) return showMsg('err', 'Could not compute SHA-256 for this file.');
 
-      // ВОТ ЗДЕСЬ МЫ ЖДЕМ ОТВЕТА ОТ AUTH.JS
       var userId = await getCurrentUserId();
-      
       if (!userId) {
         return showMsg('err', 'Please sign in before submitting.');
       }
@@ -491,7 +767,7 @@
         email: email,
         title: title,
         sha256: currentHash,
-          device_fingerprint: currentFingerprint,
+        device_fingerprint: currentFingerprint,
         size_bytes: currentFile.size,
         filename: currentFile.name,
         issuer_user_id: userId
@@ -512,7 +788,6 @@
           return order;
         });
       }).then(function (order) {
-        // PRE-CHECK: show confirmation modal before token deduction
         return (function (orderToPay) {
           return new Promise(function (resolve, reject) {
             var sb = (window.imarchAuth && window.imarchAuth.getClient) ? window.imarchAuth.getClient() : null;
@@ -521,7 +796,7 @@
             function bail() { if (done) return; done = true; reject(new Error('cancelled_by_user')); }
 
             function doPay() {
-              showMsg('ok', 'Checking balance…');
+              showMsg('ok', 'Checking balance\u2026');
               return postJson(PROCESS_PAYMENT_URL, { order_id: orderToPay.order_id })
                 .then(function (decision) {
                   if (decision.status === 'insufficient_tokens') {
@@ -529,7 +804,7 @@
                     showModal('noTokensModal');
                     throw new Error('insufficient_tokens');
                   }
-                  showMsg('ok', 'Confirming upload…');
+                  showMsg('ok', 'Confirming upload\u2026');
                   return postJson('/.netlify/functions/order-confirm', {
                     order_id: orderToPay.order_id,
                     hmac_token: orderToPay.hmac_token
@@ -580,7 +855,7 @@
               document.getElementById('btnConfirmSpend').onclick = function () { hideModal('confirmSpendModal'); finish(); };
               document.getElementById('btnCancelSpend').onclick = function () { hideModal('confirmSpendModal'); bail(); };
               document.getElementById('btnTopupTokens').onclick = function () {
-                alert('Top-up flow coming soon. Please use a promo code or contact Treasury for now.');
+                openTopupSafeModal('topup');
               };
 
               showModal('confirmSpendModal');

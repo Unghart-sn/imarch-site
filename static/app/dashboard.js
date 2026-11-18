@@ -92,7 +92,7 @@
         + '<div class="amount">' + esc((profile.token_balance || 0).toLocaleString('en-US')) + '</div>'
         + '<div class="currency">µ-tokens</div>'
         + '<div class="dash-actions">'
-        + '<a class="btn-primary" href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" target="_blank">Top Up</a>'
+        + '<a class="btn-primary" href="#" data-action="topup">Top Up</a>'
         + '<a class="btn-secondary" href="/en/docs/consilium/">Bonus Shop</a>'
         + '</div>'
         + '</div>';
