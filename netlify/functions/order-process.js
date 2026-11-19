@@ -1,4 +1,4 @@
-﻿// Netlify Function: /.netlify/functions/order-process
+// Netlify Function: /.netlify/functions/order-process
 // Dry-run order processor: RFC3161 timestamp (FreeTSA) + PDF Act-Passport + Resend email.
 // Anchor + VirusTotal disabled in this iteration (flags below).
 // Protected: requires X-Admin-Token header === GIFT_ADMIN_TOKEN.
@@ -274,6 +274,11 @@ function makePassportPDF(data) {
          .text('VERIFY ONLINE', 60, FY + 60, { characterSpacing: 1.2 });
       doc.fillColor(INK).font('Courier').fontSize(6)
          .text(qrPayload, 60, FY + 74, { width: TEXT_W, lineGap: 2 });
+      if (data.is_trial === true) {
+        doc.lineWidth(0.7).strokeColor(ACCENT).rect(60, FY + 100, 200, 16).stroke();
+        doc.fillColor(ACCENT).font('Helvetica-Bold').fontSize(7)
+           .text('ISSUED AS TRIAL (promo allocation)', 65, FY + 105, { characterSpacing: 0.6 });
+      }
 
       doc.fillColor(MUTED).font('Helvetica').fontSize(7)
          .text('Issued by imarch.ltd - ' + new Date().toISOString().slice(0, 10),
@@ -429,6 +434,8 @@ try {
       tsa_status: tsa.status,
       tsa_status_code: tsa.statusCode,
       tsa_token_b64: tsa.raw ? tsa.raw.toString('base64') : '',
+      is_trial: order.is_trial === true,
+      payment_method: order.payment_method || null,
     });
     const pdfKey = 'certs/' + orderId + '/passport.pdf';
     await getS3().send(new PutObjectCommand({

@@ -862,3 +862,43 @@ if (-not $okMarker -or $mojibake) {
   Write-Host "OK: паспорт дописан"
   Write-Host "LINES: $((Get-Content -LiteralPath $ps).Count)"
 }
+---
+
+### 2026-11-19 (Промо-экономика: Шаги 2-4.1, Сейф v2, verify v2)
+
+**Инвариант:** сумма = 888 800 держится при любом трафике. ledger=0, drift=0, chain ok, tx_count=14.
+
+**Закрытые дыры (Шаг 2):**
+- ledger_sum был -20, сумма профилей 888 820 (потолок пробит). ref5: Казнa списала, получателю не записали. ref1: 20 без проводки.
+- protect_profile_sensitive_fields был fail-open (NULL-роль отключала проверки). Исправлено coalesce(auth.role(),'').
+- is_treasury не защищён - любой мог стать Казной и опустошить её.
+- Два конфликтующих CHECK на type - reward/faucet/refund/adjustment не вставлялись. Сведены в один (10 типов).
+- token_tx_hash_chain без блокировки - возможен форк. Добавлены pg_advisory_xact_lock(8888001) + UNIQUE(seq).
+
+**ADJUST-2B (seq 12-14):** три корректирующие проводки, история не правилась. ref1 и ref5 - алиасы одного ящика chronosolexandr@gmail.com, 20 выданы вручную до журнала, обеспечены Казной.
+
+**Модель промо (вариант A - оборотный фонд):** выдача Казнa -20 / юзер promo +20; трата promo -20 / Казнa +20. promo_pool.cap_micro=8888. Промо НЕ оплачивает Digital Safe.
+
+**Объекты БД:** profiles.promo_balance, orders.is_trial, orders.token_cost, referral_rewards (pending/confirmed/cancelled, UNIQUE(referred_id), guard self/treasury), promo_pool, token_transactions.wallet. Функции: signup_apply, grant_promo, spend_promo, finalize_payment, audit_invariants.
+
+**3C:** finalize_payment - атомарная оплата (цена из каталога, Trial один раз, реферал только по реальной оплате). process-payment - тонкая обёртка.
+**3C-3:** certify_form.js читает promo_balance, метит Trial, разбирает 200+status и 400+error, шлёт Bearer. list.html v=6.
+**4.1:** daily-audit суммирует token_balance + promo_balance.
+
+**Сейф v2:** найдены 2 реальные поломки - Сейф не работал (fail-closed триггер) и сжигал токены (supply падал, аудит краснел). Теперь цена из каталога, возврат в Казну, search_path, anon отозван, промо не тратится. Selftest зелёный.
+**verify_by_sha256 v2:** + is_trial, payment_method, token_cost (DROP+CREATE). check.html пока не использует.
+
+**Уроки:** FOUND сбрасывается в новом DO-блоке (нужен GET DIAGNOSTICS); auth.role() NULL = внутренний контекст, anon = отказ; set_config тоже транзакционен; .NET File использует свой CWD (Resolve-Path); в тестах сидировать балансы только с проводками; SQL - в SQL Editor, PowerShell - в консоль.
+
+**Открытые задачи:**
+1. PDF: метка "Issued as TRIAL (promo allocation) . Verify: imarch.ltd/check.html" рядом с QR. Нужен is_trial в выборке orders + проброс в makePassportPDF.
+2. check.html: строка "Issued as: Trial (promo)" (данные уже есть).
+3. E2E: ?ref= - регистрация - promo 20 - Trial - реальная оплата - referral confirmed. Ни разу не прогонялся живьём.
+4. UI кабинет: показать promo_balance отдельно (юзер видит 0 и думает, что бонуса нет).
+5. UI: активация Сейфа показывает "activated!" при ok:false (v2 возвращает JSON). Добавить проверку rpcRes.data.ok.
+6. UI: признак "Trial уже использован" в окне оплаты.
+7. аудит: wallet в audit_export_transactions и CSV.
+8. бэклог: локальный process-payment/index.ts устарел, синхронизировать с прод.
+9. бэклог: потолок реферальных выплат (сейчас без лимита, идут из общего баланса Казны).
+10. бэклог: WhyDonate не реализован - реферальные награды подтверждаются только вручную.
+11. чистка: vt_hunt.txt, PROJECT_STATE-n.md, *.bak-*.
