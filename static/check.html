@@ -113,6 +113,7 @@
     h += '<div class="meta-grid">';
     h += '<div class="meta-item"><label>Blockchain proof</label><span>' + anchorBadge(entry.anchor_status) + '</span></div>';
     h += '<div class="meta-item"><label>Certificate status</label><span class="mono">' + esc(entry.status || '—') + '</span></div>';
+    if (entry.is_trial === true) { h += '<div class="meta-item"><label>Issued as</label><span><span class="status-badge warn">Trial (promo allocation)</span></span></div>'; }
     h += '</div>';
 
     h += '<div class="meta-grid" style="margin-top:16px;">';
