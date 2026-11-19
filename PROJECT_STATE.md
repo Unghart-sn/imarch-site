@@ -767,3 +767,98 @@ etlify/functions/order-process.js.
 - **Инфраструктура базы данных:**
   - Окончательно закрыт вопрос с хэш-цепочкой: исправлен `search_path` (добавлена схема `extensions` для функции `digest`), благодаря чему SHA-256 хеширование транзакций отрабатывает без сбоев на уровне БД.
 - **Статус системы:** Регистрация, антиспам-фильтрация одноразовых почт и реферальный бонусный цикл работают в штатном режиме.
+
+### 2026-11-20 (НОВОЕ ТЗ: Управляемая эмиссия и база починена)
+
+**Главное:** База данных полностью починена. Регистрация работает, роли (`observer`), `search_path` для `digest` исправлены. Модалка `apply-pilot` на фронтенде починена (проверяет HTTP-статус, а не строгий JSON).
+
+**🚨 АРХИТЕКТУРНОЕ РЕШЕНИЕ: OPEN ACCESS WITH CONTROLLED INCENTIVE EMISSION**
+Переходим от простой раздачи токенов к управляемой модели. Это защитит экономику от спамеров и создаст правильные стимулы.
+
+**ТЗ на реализацию (Следующий спринт):**
+1. **Промо-баланс:** В `profiles` добавить колонку `promo_balance` (отдельно от `token_balance`). Ввести `Treasury Promo Cap`.
+2. **Trial-сертификаты:** Промо-токены (до 20 µ) можно тратить только на выпуск одного Trial/Sandbox сертификата.
+3. **Криптография Trial:** Trial-сертификат использует то же ядро (RFC 3161). В PDF добавляется метка `TRIAL / PROMO-ISSUED`.
+4. **Безопасность:** Trial не активирует Digital Safe 100MB и не считается коммерческим.
+5. **Разделение балансов:** Основной `balance` — только обеспеченные µ. Промо-токены не смешиваются с реальными.
+6. **Рефералка с PENDING:** Награда 20 µ создается как `PENDING` и переходит в `CONFIRMED` только после первой *реальной* оплаты приглашенного.
+7. **Исчерпание пула:** Если промо-пул пуст, регистрация открыта, но промо-токены не начисляются.
+8. **Аудит:** Все изменения (промо, PENDING/CONFIRMED) должны фиксироваться в `token_transactions` новыми типами операций.
+
+**Чек-лист закрытых задач (сессия 19-20 ноября):**
+- ✅ Роли в `profiles` (только `observer`, `active_node`).
+- ✅ Ошибка `digest(text, unknown)` в триггере хэш-цепочки (добавлен `search_path = public, extensions`).
+- ✅ Ошибка 500 при регистрации (`handle_new_user` переписан, обход защиты баланса работает).
+- ✅ Реферальный ловец `?ref=` в `auth.js` (сохранение в `localStorage` и передача в Supabase).
+- ✅ Ошибка `Unknown error` в модалке `apply-pilot` (фронт смотрит на `res.ok`).
+- ⚠️ **Осталось:** Письма от `apply-pilot` на почту не приходят (Supabase Edge Function не видит Resend или нет ключа).
+
+**Очередь задач на ближайшие дни:**
+1. **[СРОЧНО]** Переезд на Chatbox + прямой API DeepSeek (чтобы не ловить лимиты).
+2. **[БАГ]** Проверить `RESEND_API_KEY` в секретах Edge-функции `apply-pilot` (почему не шлет письма).
+3. **[ТЕСТ]** Реальный тест текущей рефералки (зарегистрировать нового юзера по ссылке).
+4. **[ФИЧА]** Реализовать ТЗ "Controlled Incentive Emission" (промо-баланс, Trial, PENDING).
+
+$ErrorActionPreference='Stop'
+$ps = (Resolve-Path "PROJECT_STATE.md").Path
+Copy-Item $ps "PROJECT_STATE.md.bak-1119" -Force
+Write-Host "BACKUP: PROJECT_STATE.md.bak-1119"
+
+$block = @'
+
+---
+
+### 2026-11-19 (Промо-экономика: Шаги 2–4.1 закрыты, единый хардкап)
+
+**Главное:** внедрён управляемый промо-контур (Controlled Incentive Emission): промо-токены как оборотный фонд Казны, рефералка с отложенной выплатой, атомарная оплата. Инвариант сумма = 888 800 держится при любом трафике.
+
+**Закрытые дыры (Шаг 2):**
+- ledger_sum = -20, сумма профилей = 888 820 (потолок пробит на +20). Причины: ref5 — Казнa списала 20, получателю не записали; ref1 — 20 без единой проводки.
+- protect_profile_sensitive_fields был fail-open: `if auth.role() <> 'service_role'` — NULL-роль отключала все проверки. Исправлено на `coalesce(auth.role(),'')`.
+- is_treasury не был защищён вообще: любой с правом UPDATE мог стать Казной и опустошить её. Теперь защищён.
+- Два конфликтующих CHECK на type (пересечение = только grant/spend) — reward/faucet/refund/adjustment физически не вставлялись. Сведены в один на 10 типов.
+- token_tx_hash_chain без блокировки — возможен форк цепочки. Добавлены pg_advisory_xact_lock(8888001) и UNIQUE(seq).
+
+**ADJUST-2B (seq 12–14):** три корректирующие проводки, история не правилась. ref1 и ref5 — алиасы одного ящика chronosolexandr@gmail.com, 20 выданы вручную до введения журнала, обеспечены Казной. Итог: ledger_sum=0, сумма=888800, drift=0 по всем счетам.
+
+**Модель промо (утверждена, вариант A):**
+- выдача: Казнa token_balance -20 — юзер promo_balance +20 (обе стороны в журнале, wallet='main'/'promo')
+- трата: promo -20 — Казнa +20 (оборотный фонд, не сжигается)
+- promo_pool.cap_micro = 8888 — накопительный лимит; кончился — регистрация ок, промо 0
+
+**Новые объекты БД:** profiles.promo_balance, orders.is_trial, orders.token_cost, referral_rewards (pending/confirmed/cancelled, UNIQUE(referred_id), guard self/treasury), promo_pool, token_transactions.wallet + индекс. Функции: signup_apply, grant_promo, spend_promo, finalize_payment, audit_invariants.
+
+**Шаг 3C:** finalize_payment — единая атомарная точка оплаты (цена из каталога, выбор кошелька, Trial только один раз, реферал подтверждается только реальной оплатой). process-payment стал тонкой обёрткой. Два сквозных selftest зелёные.
+
+**Шаг 3C-3 (фронт):** certify_form.js читает promo_balance, показывает оба кошелька, метит Trial certificate (promo), разбирает оба формата отказа (200+status и 400+error), передаёт Authorization Bearer. list.html — v=6. Коммиты 2a84c24, 981e740.
+
+**Шаг 4.1:** daily-audit.js суммирует token_balance + promo_balance — снапшот и OTS-якорь больше не занижают supply. audit.html читает готовый total_balance из снапшота, правка не нужна.
+
+**Проверено на проде:** live_invariants=888800, main_sum=888800, promo_sum=0, refundable=888800, chain ok, drift 0.
+
+**Уроки (не терять):**
+- FOUND в PL/pgSQL сбрасывается при входе в новый DO-блок — проверять через GET DIAGNOSTICS row_count внутри того же блока.
+- auth.role() возвращает NULL без JWT. Три контекста: NULL = внутренний/доверенный, service_role = сервер, anon = отказ. Различать обязательно.
+- set_config(..., false) тоже транзакционен — ROLLBACK его съедает.
+- PowerShell: System.IO.File использует свой CWD — передавать (Resolve-Path ...).Path.
+- Обязательны: node --check, dry-run с самооткатом, проверка якорей перед патчем.
+
+**Отложено (не блокеры):** wallet в audit_export_transactions/CSV; кабинет с promo_balance; признак «Trial использован»; метка TRIAL / PROMO-ISSUED в PDF; авто-refresh JWT; E2E-прогон ref — pending — оплата — confirmed.
+'@
+
+$old = [System.IO.File]::ReadAllText($ps, [System.Text.Encoding]::UTF8)
+[System.IO.File]::WriteAllText($ps, $old + $block, (New-Object System.Text.UTF8Encoding($false)))
+
+# проверка кодировки
+$chk = [System.IO.File]::ReadAllText($ps, [System.Text.Encoding]::UTF8)
+$okMarker = $chk.Contains('Промо-экономика')
+$mojibake = [regex]::IsMatch($chk, 'Р[РћСѓС‚Рё]')
+Write-Host "marker_ok=$okMarker mojibake=$mojibake"
+
+if (-not $okMarker -or $mojibake) {
+  Copy-Item "PROJECT_STATE.md.bak-1119" $ps -Force
+  Write-Host "!!! ENCODING BROKEN — RESTORED FROM BACKUP !!!"
+} else {
+  Write-Host "OK: паспорт дописан"
+  Write-Host "LINES: $((Get-Content -LiteralPath $ps).Count)"
+}
