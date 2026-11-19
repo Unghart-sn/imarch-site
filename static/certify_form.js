@@ -797,11 +797,34 @@
             function finish() { if (done) return; done = true; resolve(doPay()); }
             function bail() { if (done) return; done = true; reject(new Error('cancelled_by_user')); }
 
+            function callProcessPayment(orderId) {
+              var tok = getAccessToken();
+              var headers = { 'Content-Type': 'application/json' };
+              if (tok) headers['Authorization'] = 'Bearer ' + tok;
+              return fetch(PROCESS_PAYMENT_URL, {
+                method: 'POST',
+                headers: headers,
+                body: JSON.stringify({ order_id: orderId })
+              }).then(function (res) {
+                return res.json().catch(function () { return {}; }).then(function (body) {
+                  return { http: res.status, body: body || {} };
+                });
+              });
+            }
+
             function doPay() {
               showMsg('ok', 'Checking balance\u2026');
-              return postJson(PROCESS_PAYMENT_URL, { order_id: orderToPay.order_id })
-                .then(function (decision) {
-                  if (decision.status === 'insufficient_tokens') {
+              return callProcessPayment(orderToPay.order_id)
+                .then(function (r) {
+                  var b = r.body || {};
+                  var code = b.error || (b.status === 'error' ? b.reason : null);
+                  if (r.http >= 400 || b.status === 'insufficient_tokens' || code === 'insufficient_tokens') {
+                    if (r.http === 401 || r.http === 403 || code === 'not_authorized' || code === 'unauthorized') {
+                      throw new Error('session_expired');
+                    }
+                    if (code && code !== 'insufficient_tokens') {
+                      throw new Error(code);
+                    }
                     showMsg('err', 'Insufficient tokens. Please choose an option.');
                     showModal('noTokensModal');
                     throw new Error('insufficient_tokens');
@@ -843,16 +866,20 @@
 
             Promise.all([
               sb.rpc('get_current_price', { p_product_code: 'certificate' }),
-              sb.from('profiles').select('token_balance').eq('id', userId).single()
+              sb.from('profiles').select('token_balance, promo_balance').eq('id', userId).single()
             ]).then(function (results) {
               var priceRow = (results[0] && results[0].data && results[0].data[0]) || { price_micro: 20, product_code: 'certificate' };
-              var balance = (results[1] && results[1].data && results[1].data.token_balance) || 0;
+              var _row = (results[1] && results[1].data) || {};
+              var balance = _row.token_balance || 0;
+              var promoBal = _row.promo_balance || 0;
               var price = priceRow.price_micro;
+              var usePromo = promoBal >= price;
+              var available = usePromo ? promoBal : balance;
 
-              document.getElementById('spendProductName').textContent = priceRow.product_code;
+              document.getElementById('spendProductName').textContent = usePromo ? 'Trial certificate (promo)' : priceRow.product_code;
               document.getElementById('spendPrice').textContent = price;
-              document.getElementById('spendBalance').textContent = balance;
-              document.getElementById('spendAfter').textContent = (balance - price);
+              document.getElementById('spendBalance').textContent = usePromo ? (promoBal + ' promo / ' + balance + ' main') : balance;
+              document.getElementById('spendAfter').textContent = (available - price);
 
               document.getElementById('btnConfirmSpend').onclick = function () { hideModal('confirmSpendModal'); finish(); };
               document.getElementById('btnCancelSpend').onclick = function () { hideModal('confirmSpendModal'); bail(); };
