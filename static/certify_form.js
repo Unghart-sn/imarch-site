@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   'use strict';
 
   function initForm() {
@@ -404,8 +404,9 @@
             body: JSON.stringify({ code: code })
           });
           var data = await res.json();
+          console.log('[Pilot] API Response:', data);
 
-          if (data.status === 'success') {
+          if (res.ok) {
             promoMsg.textContent = 'Success! ' + data.message;
             promoMsg.style.color = 'green';
             setTimeout(function () { window.location.reload(); }, 2000);
@@ -445,13 +446,14 @@
             body: JSON.stringify({ email: email, organization: org, message: msg })
           });
           var data = await res.json();
+          console.log('[Pilot] API Response:', data);
 
-          if (data.status === 'success') {
+          if (res.ok) {
             resultMsg.textContent = 'Application sent! We will contact you soon.';
             resultMsg.style.color = 'green';
             document.getElementById('btnSubmitPilot').disabled = true;
           } else {
-            resultMsg.textContent = 'Error: ' + (data.error || 'Unknown error');
+            resultMsg.textContent = 'Error: ' + (data.error || data.message || 'Server error');
             resultMsg.style.color = 'red';
           }
         } catch (e) {
