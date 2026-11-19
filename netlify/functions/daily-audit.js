@@ -66,14 +66,14 @@ exports.handler = async (event) => {
     trace.push('chain_ok checked=' + chain.checked);
 
     // 3. Считаем балансы
-    const profRes = await sb.from('profiles').select('is_treasury, token_balance');
+    const profRes = await sb.from('profiles').select('is_treasury, token_balance, promo_balance');
     if (profRes.error) {
       trace.push('profiles_failed ' + profRes.error.message);
       return { statusCode: 500, body: JSON.stringify({ ok: false, trace }) };
     }
     let total = 0, treasury = 0, users = 0;
     (profRes.data || []).forEach(function (p) {
-      const b = p.token_balance || 0;
+      const b = (p.token_balance || 0) + (p.promo_balance || 0);
       total += b;
       if (p.is_treasury) treasury += b; else users += b;
     });
