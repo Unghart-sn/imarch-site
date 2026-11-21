@@ -136,7 +136,7 @@ heroImage: "/images/verdictum/0027-1.jpg"
           <li>Участие в консорциумных, пилотных и партнёрских программах</li>
         </ul>
       </div>
-      <form class="lp-form" id="lp-collegium-form" data-endpoint="/api/collegium" action="mailto:info@imarch.ltd" method="post" novalidate>
+      <form class="lp-form" id="lp-collegium-form" data-endpoint="/.netlify/functions/collegium" action="mailto:info@imarch.ltd" method="post" novalidate>
         <div class="lp-field">
           <label for="lp-email">Рабочая почта</label>
           <input id="lp-email" name="email" type="email" required autocomplete="email" placeholder="name@organisation.org">
