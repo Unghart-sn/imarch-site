@@ -533,3 +533,14 @@ body main:has(> .lp) {
 .lp .lp-hero-copy .lp-kick { margin-bottom: 22px; }
 .lp .lp-card p.lp-card-d { margin: 0; }
 .lp .lp-card--track p.lp-card-d { margin: 0 0 18px; }
+/* === hero v2: quote + CCS cards === */
+.lp p.lp-quote {
+  margin: 22px 0 0; padding-left: 16px;
+  border-left: 2px solid var(--lp-bronze);
+  font-style: italic; color: #6a5a4a;
+  font-size: .98rem; line-height: 1.55; max-width: 52ch;
+}
+.lp .lp-hero-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 26px; }
+.lp .lp-hero-cards .lp-card { padding: 18px; }
+.lp .lp-hero-cards .lp-card-d { font-size: .86rem; line-height: 1.5; }
+@media (max-width: 860px) { .lp .lp-hero-cards { grid-template-columns: 1fr; } }

@@ -13,13 +13,13 @@ hideTitle: true
     <div class="lp-inner lp-hero-grid">
       <div class="lp-hero-copy">
         <div class="lp-kick">IMARCH LTD<span>·</span>Company No. 16791765<span>·</span>Англия и Уэльс</div>
-        <h1 class="lp-h1">Инфраструктура проверяемого происхождения и статуса</h1>
-        <p class="lp-lead">Единая архитектура IMARCH LTD, института RDIAR, консорциума PLATAN+ и программы «Безусловное Право» на базе Chronicle OS и публикационного контура VERDICTUM.</p>
+        <h1 class="lp-h1">Инфраструктура для устойчивых проектов</h1>
+        <p class="lp-lead">IMARCH Githronical | Chronicle OS 8888  это система, которая помогает превращать идеи и действия в устойчивые проекты и работающие сообщества.</p><p class="lp-quote">Мы создаём среду, где роли, решения и взаимодействия не теряются, а становятся частью общей истории развития.</p>
         <div class="lp-cta-row">
           <a class="lp-btn lp-btn--primary" href="https://youtu.be/j0_QksHtN3Q" target="_blank" rel="noopener noreferrer">Смотреть презентацию</a>
           <a class="lp-btn lp-btn--ghost" href="#collegium">Коллегиум · для организаций</a>
         </div>
-        <div class="lp-registry">
+        <div class="lp-hero-cards"><div class="lp-card"><div class="lp-card-d">Функциональной оболочкой Chronicle OS 8888 является ключевой коммуникационный модуль Chronicle Communication System (CCS), действующий под корпоративным флагом IMARCH LTD UK.</div></div><div class="lp-card"><div class="lp-card-d">CCS  это больше, чем инструмент. Это среда, в которой проекты обретают законченную форму и способность последовательно воплощать своё предназначение.</div></div></div><div class="lp-registry">
           <span>IMARCH LTD</span>
           <span>Company No. 16791765</span>
           <span>RDIAR</span>
