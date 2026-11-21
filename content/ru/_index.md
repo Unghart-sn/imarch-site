@@ -199,10 +199,8 @@ hideTitle: true
         <p class="lp-footer-d"><a href="https://imarch.ltd">imarch.ltd</a></p>
       </div>
     </div>
-    <div class="lp-inner lp-footer-bottom">
-      © 2026 IMARCH LTD. Все права защищены.
-    </div>
   </div>
+{{< persona-socials >}}
 </div>
 <script>
 (function () {
