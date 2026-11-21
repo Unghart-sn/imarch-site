@@ -544,3 +544,16 @@ body main:has(> .lp) {
 .lp .lp-hero-cards .lp-card { padding: 18px; }
 .lp .lp-hero-cards .lp-card-d { font-size: .86rem; line-height: 1.5; }
 @media (max-width: 860px) { .lp .lp-hero-cards { grid-template-columns: 1fr; } }
+/* === mobile hero rhythm: air between stacked hero children === */
+.lp .lp-hero-copy > * + * { margin-top: 18px; }
+.lp .lp-hero-copy > .lp-cta-row { margin-top: 26px; }
+.lp .lp-hero-copy > .lp-registry { margin-top: 28px; }
+.lp .lp-hero-copy > .lp-hero-cards { margin-top: 28px; }
+
+@media (max-width: 860px) {
+  .lp .lp-hero-cards { gap: 16px; margin-top: 28px; }
+  .lp .lp-hero-cards .lp-card { padding: 20px 18px; }
+  .lp .lp-hero-cards .lp-card + .lp-card { margin-top: 0; }
+  .lp p.lp-quote { margin-top: 20px; padding-left: 14px; }
+  .lp .lp-cta-row { gap: 12px; }
+}
