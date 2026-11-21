@@ -5,10 +5,8 @@ translationKey: "home-landing"
 description: "Единая архитектура IMARCH LTD, института RDIAR, консорциума PLATAN+ и программы «Безусловное Право» на базе Chronicle OS и публикационного контура VERDICTUM."
 videoUrl: "https://youtu.be/j0_QksHtN3Q"
 heroImage: "/images/verdictum/0027-1.jpg"
+hideTitle: true
 ---
-{{ define "main" }}
-{{ $video := .Params.videoUrl | default "#" }}
-{{ $img := .Params.heroImage | default "/images/banners/0030-1.jpg" }}
 <div class="lp">
 
   <!-- ================= 1 · ПЕРВЫЙ ЭКРАН ================= -->
@@ -19,7 +17,7 @@ heroImage: "/images/verdictum/0027-1.jpg"
         <h1 class="lp-h1">Инфраструктура проверяемого происхождения и статуса</h1>
         <p class="lp-lead">Единая архитектура IMARCH LTD, института RDIAR, консорциума PLATAN+ и программы «Безусловное Право» на базе Chronicle OS и публикационного контура VERDICTUM.</p>
         <div class="lp-cta-row">
-          <a class="lp-btn lp-btn--primary" href="{{ $video }}" target="_blank" rel="noopener noreferrer">Смотреть презентацию</a>
+          <a class="lp-btn lp-btn--primary" href="https://youtu.be/j0_QksHtN3Q" target="_blank" rel="noopener noreferrer">Смотреть презентацию</a>
           <a class="lp-btn lp-btn--ghost" href="#collegium">Коллегиум · для организаций</a>
         </div>
         <div class="lp-registry">
@@ -31,8 +29,8 @@ heroImage: "/images/verdictum/0027-1.jpg"
         </div>
       </div>
       <div class="lp-hero-media">
-        <a class="lp-video" href="{{ $video }}" target="_blank" rel="noopener noreferrer" aria-label="Смотреть презентацию">
-          <img src="{{ $img }}" alt="Презентация экосистемы IMARCH LTD, института RDIAR и консорциума PLATAN+">
+        <a class="lp-video" href="https://youtu.be/j0_QksHtN3Q" target="_blank" rel="noopener noreferrer" aria-label="Смотреть презентацию">
+          <img src="/images/verdictum/0027-1.jpg" alt="Презентация экосистемы IMARCH LTD, института RDIAR и консорциума PLATAN+">
           <span class="lp-video-play" aria-hidden="true">▶</span>
           <span class="lp-video-cap">Презентация · 10 слайдов · 7 минут</span>
         </a>
@@ -165,7 +163,7 @@ heroImage: "/images/verdictum/0027-1.jpg"
         <h2 class="lp-h2">Проверяемая база</h2>
       </div>
       <div class="lp-proof">
-        <a class="lp-proof-card" href="{{ $video }}" target="_blank" rel="noopener noreferrer">
+        <a class="lp-proof-card" href="https://youtu.be/j0_QksHtN3Q" target="_blank" rel="noopener noreferrer">
           <div class="lp-proof-t">🎬 Презентация экосистемы</div>
           <div class="lp-proof-d">10 слайдов, озвучка, публикация. Русская редакция; английская в работе.</div>
         </a>
@@ -266,4 +264,3 @@ heroImage: "/images/verdictum/0027-1.jpg"
   });
 })();
 </script>
-{{ end }}

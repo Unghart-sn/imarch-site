@@ -1,7 +1,7 @@
 {{ define "main" }}
   <main>
     <div class="section-content">
-      <h1>{{ .Title }}</h1>
+      {{ if not .Params.hideTitle }}<h1>{{ .Title }}</h1>{{ end }}
       {{ .Content }}
     </div>
   </main>
