@@ -524,3 +524,12 @@ body main:has(> .lp) {
 @media (prefers-reduced-motion: reduce) {
   .lp * { transition: none !important; animation: none !important; }
 }
+/* === spacing fix: .lp p (0,1,1) beats .lp-lead (0,1,0)  raise specificity === */
+.lp p.lp-lead { margin: 26px 0 0; }
+.lp p.lp-sub  { margin: 18px 0 0; }
+.lp h1.lp-h1  { margin: 0 0 6px; }
+.lp h2.lp-h2  { margin: 0; }
+.lp .lp-head .lp-kick { margin-bottom: 22px; }
+.lp .lp-hero-copy .lp-kick { margin-bottom: 22px; }
+.lp .lp-card p.lp-card-d { margin: 0; }
+.lp .lp-card--track p.lp-card-d { margin: 0 0 18px; }
