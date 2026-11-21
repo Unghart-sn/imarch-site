@@ -8,7 +8,6 @@ heroImage: "/images/verdictum/0027-1.jpg"
 hideTitle: true
 ---
 <div class="lp">
-
   <!-- ================= 1 · ПЕРВЫЙ ЭКРАН ================= -->
   <section class="lp-hero">
     <div class="lp-inner lp-hero-grid">
@@ -37,7 +36,6 @@ hideTitle: true
       </div>
     </div>
   </section>
-
   <!-- ================= 2 · АРХИТЕКТУРА ================= -->
   <section class="lp-section" id="architecture">
     <div class="lp-inner">
@@ -73,7 +71,6 @@ hideTitle: true
       </div>
     </div>
   </section>
-
   <!-- ================= 3 · НАПРАВЛЕНИЯ ================= -->
   <section class="lp-section lp-section--alt" id="tracks">
     <div class="lp-inner">
@@ -82,7 +79,6 @@ hideTitle: true
         <h2 class="lp-h2">Направления и контуры экосистемы</h2>
         <p class="lp-sub">От нормативно-архитектурных программ и научных изданий до реновации, мультимедийного продакшена и B2B-взаимодействия.</p>
       </div>
-
       <a class="lp-program" href="/ru/verdictum/">
         <div class="lp-program-body">
           <div class="lp-card-n">Программа · консорциум</div>
@@ -91,7 +87,6 @@ hideTitle: true
         </div>
         <div class="lp-program-go">Подробнее о программе →</div>
       </a>
-
       <div class="lp-tracks">
         <a class="lp-card lp-card--track" href="/ru/verdictum/">
           <div class="lp-card-n">Направление 1</div>
@@ -120,7 +115,6 @@ hideTitle: true
       </div>
     </div>
   </section>
-
   <!-- ================= 4 · КОЛЛЕГИУМ ================= -->
   <section class="lp-collegium" id="collegium">
     <div class="lp-inner lp-collegium-grid">
@@ -154,7 +148,6 @@ hideTitle: true
       </form>
     </div>
   </section>
-
   <!-- ================= 5 · ДОКАЗАТЕЛЬСТВА ================= -->
   <section class="lp-section" id="proof">
     <div class="lp-inner">
@@ -182,7 +175,6 @@ hideTitle: true
       </div>
     </div>
   </section>
-
   <!-- ================= 6 · ПОДВАЛ ================= -->
   <div class="lp-footer" role="contentinfo">
     <div class="lp-inner lp-footer-grid">
@@ -211,9 +203,7 @@ hideTitle: true
       © 2026 IMARCH LTD. Все права защищены.
     </div>
   </div>
-
 </div>
-
 <script>
 (function () {
   var form = document.getElementById('lp-collegium-form');
@@ -221,19 +211,15 @@ hideTitle: true
   var status = document.getElementById('lp-form-status');
   var btn = form.querySelector('button[type="submit"]');
   var endpoint = form.getAttribute('data-endpoint') || '';
-
   function say(msg, cls) {
     status.textContent = msg;
     status.className = 'lp-form-status ' + (cls || '');
   }
-
   form.addEventListener('submit', function (e) {
     e.preventDefault();
     if (!form.reportValidity()) return;
-
     var payload = {};
     new FormData(form).forEach(function (v, k) { payload[k] = v; });
-
     if (!endpoint) {
       var body = 'Организация: ' + (payload.org || '—') +
                  '\nПочта: ' + payload.email +
@@ -243,10 +229,8 @@ hideTitle: true
         '&body=' + encodeURIComponent(body);
       return;
     }
-
     btn.disabled = true;
     say('Отправляем…', 'is-pending');
-
     fetch(endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
