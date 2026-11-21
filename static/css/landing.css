@@ -557,3 +557,12 @@ body main:has(> .lp) {
   .lp p.lp-quote { margin-top: 20px; padding-left: 14px; }
   .lp .lp-cta-row { gap: 12px; }
 }
+/* === section head rhythm: kick -> h2 -> sub, all breakpoints === */
+.lp .lp-head > * + * { margin-top: 20px !important; }
+.lp .lp-head > .lp-h2 { margin-top: 8px !important; line-height: 1.22; }
+@media (max-width: 860px) {
+  .lp .lp-head > * + * { margin-top: 18px !important; }
+  .lp .lp-head > .lp-h2 { margin-top: 6px !important; }
+  .lp .lp-head > .lp-kick { margin-bottom: 0 !important; }
+  .lp .lp-head { margin-bottom: 34px !important; }
+}
