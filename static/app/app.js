@@ -5,7 +5,8 @@
   var ROUTES = {
     dashboard: { title: 'My Certificates', fragment: '/fragments/dashboard.html' },
     safe:      { title: 'Digital Safe',    fragment: '/fragments/safe.html' },
-    settings:  { title: 'Settings',        fragment: '/fragments/settings.html' }
+      settings:  { title: 'Settings',       fragment: '/fragments/settings.html' },
+  assets:    { title: 'Asset Registry', fragment: '/fragments/assets.html' }
   };
   var DEFAULT_ROUTE = 'dashboard';
 
@@ -49,6 +50,8 @@
           window.imarchSafeApp.init();
         } else if (route === 'settings' && window.imarchSettings) {
           window.imarchSettings.init();
+        } else if (route === 'assets' && window.imarchAssets) {
+          window.imarchAssets.init();
         }
       })
       .catch(function (err) {

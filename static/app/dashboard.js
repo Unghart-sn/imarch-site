@@ -1,47 +1,54 @@
-// IMARCH App - Dashboard Module
+// IMARCH App — Dashboard = Command Bridge (navigator first)
 (function () {
   'use strict';
 
-  const paneAcc = () => document.getElementById('app-content');
-
   function esc(s) {
-    return String(s).replace(/[&<>"']/g, c => ({
-      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-    }[c]));
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c];
+    });
   }
 
-  function formatImarch(mu) {
-    if (!mu || mu === 0) return '0 IMARCH';
-    const neg = mu < 0;
-    const abs = Math.abs(mu);
-    const whole = Math.floor(abs / 100);
-    const frac = abs % 100;
-    const wholeStr = whole.toLocaleString('en-US');
-    const sign = neg ? '-' : '';
-    if (frac === 0) return sign + wholeStr + ' IMARCH';
-    return sign + wholeStr + '.' + String(frac).padStart(2, '0') + ' IMARCH';
+  // 100 µ = 1 IMARCH
+  function fmtImarch(mu) {
+    mu = Number(mu) || 0;
+    var neg = mu < 0, abs = Math.abs(mu);
+    var whole = Math.floor(abs / 100), frac = abs % 100;
+    var s = whole.toLocaleString('en-US');
+    if (frac) s += '.' + String(frac).padStart(2, '0');
+    return (neg ? '-' : '') + s + ' IMARCH';
   }
+  function fmtMu(mu) { return (Number(mu) || 0).toLocaleString('en-US') + ' µ'; }
+
+  var L = {
+    memo:      '/ru/docs/collegium/investment-memorandum/',
+    memoFull:  '/ru/docs/collegium/investment-memorandum-2/',
+    certForm:  '/en/certify/',
+    assets:    '#/assets',
+    audit:     '/audit.html',
+    consilium: '/en/docs/consilium/',
+    collegium: '/en/docs/collegium/',
+    check:     '/check.html'
+  };
 
   function renderLoginForm(container) {
-    container.innerHTML = '<div class="dash-card" style="max-width: 400px; margin: 0 auto; text-align: center;">'
-      + '<h3 style="margin-top:0; margin-bottom:16px;">Sign In</h3>'
-      + '<input type="email" id="loginEmail" placeholder="your@email.com" style="padding:12px; width:100%; margin-bottom:16px; border:1px solid #e5e7eb; border-radius:8px; font-family:inherit;">'
+    container.innerHTML = '<div class="dash-card" style="max-width:400px;margin:0 auto;text-align:center;">'
+      + '<h3 style="margin-top:0;margin-bottom:16px;">Sign In</h3>'
+      + '<input type="email" id="loginEmail" placeholder="your@email.com" style="padding:12px;width:100%;margin-bottom:16px;border:1px solid #e5e7eb;border-radius:8px;font-family:inherit;">'
       + '<button id="loginBtn" class="btn-primary" style="width:100%;">Send Magic Link</button>'
-      + '<div id="loginMsg" style="margin-top:16px; font-size:13px;"></div>'
-      + '</div>';
+      + '<div id="loginMsg" style="margin-top:16px;font-size:13px;"></div></div>';
 
-    const btn = document.getElementById('loginBtn');
-    const input = document.getElementById('loginEmail');
-    const msg = document.getElementById('loginMsg');
+    var btn = document.getElementById('loginBtn');
+    var input = document.getElementById('loginEmail');
+    var msg = document.getElementById('loginMsg');
 
-    btn.onclick = async function() {
-      const email = input.value.trim();
+    btn.onclick = async function () {
+      var email = input.value.trim();
       if (!email) { msg.innerHTML = '<span style="color:#dc2626;">Please enter your email</span>'; return; }
       msg.innerHTML = 'Sending...';
       try {
-        const redirectUrl = window.location.origin + '/app/';
-        const { error } = await window.imarchAuth.sendLoginLink(email, redirectUrl);
-        if (error) throw error;
+        var redirectUrl = window.location.origin + '/app/';
+        var r = await window.imarchAuth.sendLoginLink(email, redirectUrl);
+        if (r && r.error) throw r.error;
         msg.innerHTML = '<span style="color:#059669;">Link sent to ' + esc(email) + '. Check your inbox.</span>';
       } catch (e) {
         msg.innerHTML = '<span style="color:#dc2626;">Error: ' + esc(e.message) + '</span>';
@@ -49,105 +56,141 @@
     };
   }
 
-  async function init() {
-    const container = paneAcc();
-    if (!container) return;
+  // 1. ECOSYSTEM NAVIGATOR — first thing a person sees
+  function navigatorBlock() {
+    var contours = [
+      { tag: 'Scientific', title: 'Research contour',
+        text: 'Protocols, monographs, consilium lots and the passport of the method.',
+        links: [ { href: L.collegium, label: 'Collegium &amp; method' }, { href: L.consilium, label: 'Consilium lots' } ] },
+      { tag: 'Expert', title: 'Expert &amp; certification',
+        text: 'SHA-256 + RFC 3161 timestamped certificates, independent verification.',
+        links: [ { href: L.certForm, label: 'Issue a certificate' }, { href: L.check, label: 'Public verification' } ] },
+      { tag: 'Investment', title: 'Participation &amp; assets',
+        text: 'Participation units secured by the product and expert infrastructure of the 10 contours.',
+        links: [ { href: L.memo, label: 'Investment memorandum (RU)' }, { href: L.assets, label: 'Asset registry' } ] }
+    ];
 
+    var h = '<div class="dash-card nav-widget">'
+      + '<div class="nav-widget-head">'
+      + '<h3>IMARCH ecosystem</h3>'
+      + '<p>Choose the contour you are working in. All products stay one click apart.</p>'
+      + '</div><div class="nav-widget-grid">';
+
+    contours.forEach(function (c) {
+      h += '<div class="nav-tile">'
+        + '<div class="nav-tile-tag">' + c.tag + '</div>'
+        + '<div class="nav-tile-title">' + c.title + '</div>'
+        + '<p class="nav-tile-text">' + esc(c.text) + '</p>'
+        + '<div class="nav-tile-links">'
+        + c.links.map(function (l) { return '<a href="' + esc(l.href) + '">' + l.label + ' &rarr;</a>'; }).join('')
+        + '</div></div>';
+    });
+
+    h += '</div>'
+      + '<div class="nav-widget-cta">'
+      + '<a class="btn-primary" href="' + esc(L.memo) + '">Investment memorandum &rarr;</a>'
+      + '<a class="btn-secondary" href="' + esc(L.memoFull) + '">Full text (RU) &rarr;</a>'
+      + '</div>'
+      + '<p class="nav-widget-note">Units are not a promise of income. They are secured by access to products, publications, consulting and chronological priority of the Founding Circle.</p>'
+      + '</div>';
+    return h;
+  }
+
+  // 2. PARTICIPATION STATUS — the person sees themselves as donor-investor
+  function statusBlock(profile, promo) {
+    var mu = Number(profile.token_balance) || 0;
+    var level = mu >= 1000 ? 'Founding Circle' : (mu >= 100 ? 'Participant' : 'Observer');
+
+    return '<div class="dash-card">'
+      + '<div class="card-header"><h3>Participation</h3>'
+      + '<span class="status-pill">' + esc(level) + '</span></div>'
+      + '<div class="status-row">'
+      + '<div class="status-cell"><label>Entered as</label><span>' + esc(profile.full_name || 'Account holder') + '</span></div>'
+      + '<div class="status-cell"><label>Member since</label><span>' + esc(String(profile.created_at).slice(0, 10)) + '</span></div>'
+      + '<div class="status-cell"><label>Entry basis</label><span>1 : 1 (units)</span></div>'
+      + '</div>'
+      + '<div class="balance-inline">'
+      + '<div><div class="balance-inline-amount">' + esc(fmtImarch(mu)) + '</div>'
+      + '<div class="balance-inline-sub">balance &middot; ' + esc(fmtMu(mu)) + '</div></div>'
+      + '<div><div class="balance-inline-amount">' + esc(fmtImarch(promo)) + '</div>'
+      + '<div class="balance-inline-sub">promo (trial certificate only)</div></div>'
+      + '</div>'
+      + '<div class="dash-actions" style="justify-content:flex-start;margin-top:20px;">'
+      + '<a class="btn-primary" href="' + esc(L.assets) + '">Open asset registry &rarr;</a>'
+      + '<a class="btn-secondary" href="' + esc(L.memo) + '">Memorandum</a>'
+      + '</div>'
+      + '<p class="status-note">Status is provisional until the Founding Circle registry is published. Units and balances are visible in the <a href="' + esc(L.audit) + '">public audit</a>.</p>'
+      + '</div>';
+  }
+
+  // 3. CERTIFICATES — compact, details moved to the registry
+  function certificatesBlock(certs) {
+    var ready = (certs || []).filter(function (c) { return c.pdf_url; }).slice(0, 3);
+
+    var h = '<div class="dash-card">'
+      + '<div class="card-header"><h3>Certificates</h3>'
+      + '<a href="' + esc(L.assets) + '" class="link-quiet">All certificates &rarr;</a></div>'
+      + '<div class="dash-actions" style="justify-content:flex-start;margin:12px 0 18px;">'
+      + '<a class="btn-primary" href="' + esc(L.certForm) + '">Issue certificate</a>'
+      + '<a class="btn-secondary" href="' + esc(L.consilium) + '">Consilium lots</a>'
+      + '</div>';
+
+    if (!ready.length) {
+      h += '<div class="empty-state">No certificates issued yet.</div>';
+    } else {
+      h += '<div class="table-wrap"><table class="dash-table"><thead><tr><th>Date</th><th>Name</th><th style="text-align:right;">PDF</th></tr></thead><tbody>';
+      ready.forEach(function (c) {
+        var d = String(c.created_at || '').slice(0, 10);
+        var name = c.title || c.holder_name || ('Certificate #' + String(c.id).slice(0, 6));
+        h += '<tr><td class="cert-date">' + esc(d) + '</td><td class="cert-name">' + esc(name) + '</td>'
+          + '<td style="text-align:right;"><a href="' + esc(c.pdf_url) + '" target="_blank" rel="noopener" class="btn-download">PDF</a></td></tr>';
+      });
+      h += '</tbody></table></div>';
+    }
+
+    return h + '<p class="status-note">Full record, hashes and verification links are in the <a href="' + esc(L.assets) + '">asset registry</a>.</p></div>';
+  }
+
+  async function init() {
+    var container = document.getElementById('app-content');
+    if (!container) return;
     container.innerHTML = '<div class="app-loading">Loading account...</div>';
 
     try {
-      const session = await window.imarchAuth.getSession();
-      if (!session || !session.user) {
-        renderLoginForm(container);
-        return;
-      }
+      var session = await window.imarchAuth.getSession();
+      if (!session || !session.user) { renderLoginForm(container); return; }
 
-      const uid = session.user.id;
-      const sb = window.imarchAuth.getClient();
-      
-      const res = await sb.from('profiles')
+      var uid = session.user.id;
+      var sb = window.imarchAuth.getClient();
+
+      var res = await sb.from('profiles')
         .select('id,email,full_name,token_balance,is_admin,created_at')
-        .eq('id', uid)
-        .single();
-
+        .eq('id', uid).single();
       if (res.error || !res.data) {
         container.innerHTML = '<div class="app-error">Profile not found.</div>';
         return;
       }
+      var profile = res.data;
 
-      const profile = res.data;
-      
-      const ordersRes = await sb.from('orders')
+      var promo = 0;
+      try {
+        var pr = await sb.from('profiles').select('promo_balance').eq('id', uid).single();
+        if (pr && pr.data && pr.data.promo_balance != null) promo = pr.data.promo_balance;
+      } catch (e) { promo = 0; }
+
+      var ordersRes = await sb.from('orders')
         .select('id,title,sha256,status,pdf_url,created_at,holder_name')
         .eq('issuer_user_id', uid)
         .in('status', ['ready', 'completed'])
         .order('created_at', { ascending: false });
-        
-      const certs = ordersRes.data || [];
 
-      let h = '<div class="dash-grid">';
+      var certs = (ordersRes && ordersRes.data) || [];
 
-      // 1. Balance
-      h += '<div class="dash-card balance-widget">'
-        + '<div class="amount">' + esc((profile.token_balance || 0).toLocaleString('en-US')) + '</div>'
-        + '<div class="currency">µ-tokens</div>'
-        + '<div class="dash-actions">'
-        + '<a class="btn-primary" href="#" data-action="topup">Top Up</a>'
-        + '<a class="btn-secondary" href="/en/docs/consilium/">Bonus Shop</a>'
-        + '</div>'
+      container.innerHTML = '<div class="dash-grid">'
+        + navigatorBlock()
+        + statusBlock(profile, promo)
+        + certificatesBlock(certs)
         + '</div>';
-
-      // 2. Profile
-      const initial = profile.email ? profile.email[0].toUpperCase() : '?';
-      h += '<div class="dash-card">'
-        + '<div class="profile-info">'
-        + '<div class="avatar">' + initial + '</div>'
-        + '<div class="profile-details">'
-        + '<h3>' + esc(profile.full_name || 'Account Holder') + '</h3>'
-        + '<p>' + esc(profile.email) + '</p>'
-        + '</div>'
-        + '</div>'
-        + '<div class="meta-grid">'
-        + '<div class="meta-item"><label>Account ID</label><span>' + esc(profile.id.split('-')[0]) + '...</span></div>'
-        + '<div class="meta-item"><label>Registered</label><span>' + esc(String(profile.created_at).slice(0, 10)) + '</span></div>'
-        + '</div>'
-        + '</div>';
-
-      // 3. Certificates
-      h += '<div class="dash-card">';
-      
-      h += '<div class="card-header">'
-        + '<h3>Recent Certificates</h3>'
-        + (certs.length > 5 ? '<a href="https://imarch.ltd/certificates.html" style="font-size:13px; color:#6b7280; text-decoration:none;">All certificates &rarr;</a>' : '')
-        + '</div>';
-
-      h += '<div style="margin-top:12px; margin-bottom:16px; display:flex; gap:8px; flex-wrap:wrap;">'
-        + '<a href="/en/docs/consilium/cbb-0005/" class="btn-primary" style="font-size:13px; padding:8px 16px;">Lot cbb-0005 &rarr;</a>'
-        + '</div>';
-
-      const readyCerts = certs.filter(c => c.pdf_url).slice(0, 5);
-      
-      if (!readyCerts.length) {
-        h += '<div class="empty-state">No certificates issued yet.</div>';
-      } else {
-        h += '<table class="dash-table"><thead><tr>'
-          + '<th>Date</th><th>Name</th><th style="text-align:right;">Download</th>'
-          + '</tr></thead><tbody>';
-        for (const c of readyCerts) {
-          const shortTime = String(c.created_at || '').replace('T', ' ').slice(0, 10);
-          const certName = c.title || c.holder_name || ('Certificate #' + c.id.slice(0,6));
-          h += '<tr>'
-            + '<td class="cert-date">' + esc(shortTime) + '</td>'
-            + '<td class="cert-name">' + esc(certName) + '</td>'
-            + '<td style="text-align:right;"><a href="' + esc(c.pdf_url) + '" target="_blank" class="btn-download">PDF</a></td>'
-            + '</tr>';
-        }
-        h += '</tbody></table>';
-      }
-      h += '</div>'; // end certificate card
-      h += '</div>'; // end dash-grid
-      container.innerHTML = h;
-
     } catch (e) {
       console.error(e);
       container.innerHTML = '<div class="app-error">Error loading data: ' + esc(e.message) + '</div>';

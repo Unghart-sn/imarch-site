@@ -105,3 +105,120 @@ body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Ro
   .app-mobile-header .app-logo a { font-size: 16px; gap: 6px; }
   .app-mobile-header .app-logo img { height: 24px; }
 }
+/* === IMARCH Widget-Navigator === */
+.nav-widget { padding: 28px; }
+.nav-widget-head h3 { margin: 0 0 6px; font-size: 20px; }
+.nav-widget-head p { margin: 0 0 20px; color: #6b7280; font-size: 14px; line-height: 1.5; }
+
+.nav-widget-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.nav-tile {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .15s, box-shadow .15s;
+}
+.nav-tile:hover { border-color: #111827; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+
+.nav-tile-tag {
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin-bottom: 6px;
+}
+.nav-tile-title { font-weight: 600; font-size: 15px; margin-bottom: 8px; color: #111827; }
+.nav-tile-text { font-size: 13px; color: #6b7280; line-height: 1.5; margin: 0 0 14px; flex: 1; }
+.nav-tile-links { display: flex; flex-direction: column; gap: 6px; }
+.nav-tile-links a { font-size: 13px; color: #111827; text-decoration: none; border-bottom: 1px solid transparent; }
+.nav-tile-links a:hover { border-bottom-color: #111827; }
+
+.nav-widget-cta { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+.nav-widget-note { margin: 16px 0 0; font-size: 12px; color: #9ca3af; line-height: 1.5; }
+
+/* === Status / informer === */
+.card-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.card-header h3 { margin: 0; }
+
+.status-pill {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  letter-spacing: .02em;
+}
+.pill-trial { background: #f3f4f6; color: #374151; }
+
+.status-row { display: flex; gap: 28px; flex-wrap: wrap; margin-top: 16px; }
+.status-cell { display: flex; flex-direction: column; gap: 4px; }
+.status-cell label { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: #9ca3af; }
+.status-cell span { font-size: 14px; color: #111827; }
+
+.balance-inline { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 20px; padding-top: 18px; border-top: 1px solid #e5e7eb; }
+.balance-inline-amount { font-size: 22px; font-weight: 600; color: #111827; letter-spacing: -.01em; }
+.balance-inline-sub { font-size: 12px; color: #9ca3af; margin-top: 2px; }
+
+.status-note { font-size: 12px; color: #9ca3af; line-height: 1.6; margin: 16px 0 0; }
+.status-note a { color: #111827; }
+.link-quiet { font-size: 12px; color: #6b7280; text-decoration: none; }
+.link-quiet:hover { color: #111827; }
+
+/* === Tables === */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.cert-hash { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: #6b7280; }
+.btn-ghost {
+  font-size: 12px;
+  padding: 4px 10px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  color: #374151;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-ghost:hover { border-color: #111827; color: #111827; }
+
+/* === Floating account return widget === */
+.imarch-account-chip {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 9000;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: #111827;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: 0 6px 24px rgba(0,0,0,.22);
+  transition: transform .15s, box-shadow .15s;
+}
+.imarch-account-chip:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.28); }
+.imarch-account-chip.is-visible { display: inline-flex; }
+
+/* === Responsive === */
+@media (max-width: 900px) {
+  .nav-widget-grid { grid-template-columns: 1fr; }
+  .nav-widget { padding: 20px; }
+  .balance-inline { gap: 20px; }
+  .status-row { gap: 18px; }
+}
+
+@media (max-width: 600px) {
+  .nav-widget-cta { flex-direction: column; }
+  .nav-widget-cta a { text-align: center; width: 100%; }
+  .balance-inline-amount { font-size: 19px; }
+  .imarch-account-chip { right: 12px; bottom: 12px; padding: 9px 14px; font-size: 12px; }
+}
