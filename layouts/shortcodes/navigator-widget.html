@@ -1,0 +1,500 @@
+{{/*
+  IMARCH Chronicle OS — Navigator Widget (2 аккордеона + живой API-агент через Cloudflare Worker)
+  Параметры:
+    badge      — бейдж сверху
+    title      — заголовок карточки
+    subtitle   — подзаголовок
+    sci_url    — ссылка на статью в научном журнале Chronicle OS (опционально)
+    exp_url    — ссылка на статью в экспертном журнале Verdictum (опционально)
+    api_url    — URL Cloudflare Worker (по умолчанию https://imarch-navigator.chronosolexandr.workers.dev)
+*/}}
+{{- $badge := .Get "badge" | default "✦ НАВИГАТОР ПУБЛИКАЦИЙ И ЭКОСИСТЕМЫ" -}}
+{{- $title := .Get "title" | default "CHRONICLE OS NAVIGATOR" -}}
+{{- $subtitle := .Get "subtitle" | default "Материалы страницы в рецензируемых контурах и точка входа агента" -}}
+{{- $sciUrl := .Get "sci_url" | default "" -}}
+{{- $expUrl := .Get "exp_url" | default "" -}}
+{{- $apiUrl := .Get "api_url" | default "https://imarch-navigator.chronosolexandr.workers.dev" -}}
+{{- $pageTitle := .Page.Title | default "" -}}
+{{- $uid := printf "imarch-nw-%d" .Ordinal -}}
+
+<style>
+    .{{ $uid }}-card {
+        background: #fdfaf5;
+        border-radius: 24px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid #e0d6c8;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        transition: all 0.2s ease;
+        display: block;
+        clear: both;
+    }
+    .{{ $uid }}-card:hover {
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .{{ $uid }}-badge {
+        display: inline-block;
+        background: #b18b56;
+        padding: 0.25rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    .{{ $uid }}-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #1f2b1c;
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.5px;
+        text-align: center;
+    }
+    .{{ $uid }}-subtitle {
+        font-size: 1rem;
+        color: #4a5a6a;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #e8e0d4;
+        padding-bottom: 1rem;
+        text-align: center;
+        font-style: italic;
+    }
+
+    .{{ $uid }}-acc-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1.5rem 0 0.5rem;
+    }
+    .{{ $uid }}-acc-btn {
+        background: #ffffff;
+        border: 1px solid #d8ccb8;
+        color: #1f2b1c;
+        padding: 11px 24px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s ease;
+        min-width: 210px;
+        justify-content: center;
+    }
+    .{{ $uid }}-acc-btn:hover,
+    .{{ $uid }}-acc-btn[aria-expanded="true"] {
+        background: #b18b56;
+        border-color: #b18b56;
+        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(177, 139, 86, 0.25);
+    }
+    .{{ $uid }}-acc-arrow {
+        font-size: 0.65rem;
+        transition: transform 0.2s ease;
+        display: inline-block;
+    }
+    .{{ $uid }}-acc-btn[aria-expanded="true"] .{{ $uid }}-acc-arrow {
+        transform: rotate(180deg);
+    }
+
+    .{{ $uid }}-panel {
+        display: none;
+        margin-top: 1rem;
+        background: #ffffff;
+        border: 1px solid #e8e0d4;
+        border-radius: 16px;
+        padding: 1.2rem 1.4rem;
+        color: #1f2b1c;
+        font-size: 0.92rem;
+        line-height: 1.55;
+    }
+    .{{ $uid }}-panel.open {
+        display: block;
+    }
+    .{{ $uid }}-panel-label {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #b18b56;
+        margin-bottom: 0.45rem;
+    }
+    .{{ $uid }}-panel p {
+        margin: 0;
+    }
+    .{{ $uid }}-panel-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 0.85rem;
+        background: #b18b56;
+        color: #ffffff;
+        text-decoration: none;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.82rem;
+        font-weight: 700;
+        transition: all 0.2s ease;
+    }
+    .{{ $uid }}-panel-link:hover {
+        background: #9a7a4a;
+        color: #ffffff;
+    }
+
+    .{{ $uid }}-agent-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid #e8e0d4;
+    }
+    .{{ $uid }}-btn-agent {
+        background: #2c3622;
+        border: 2px solid #2c3622;
+        padding: 12px 28px;
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        color: #ffffff;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 220px;
+        transition: all 0.2s ease;
+    }
+    .{{ $uid }}-btn-agent:hover {
+        background: #1f2b1c;
+        border-color: #1f2b1c;
+        transform: scale(1.02);
+        box-shadow: 0 4px 15px rgba(44, 54, 34, 0.28);
+    }
+
+    .{{ $uid }}-chat-box {
+        display: none;
+        width: 100%;
+        max-width: 720px;
+        margin-top: 1rem;
+        background: #ffffff;
+        border: 1px solid #e0d6c8;
+        border-radius: 16px;
+        padding: 1.1rem;
+        text-align: left;
+    }
+    .{{ $uid }}-chat-box.open {
+        display: block;
+    }
+    .{{ $uid }}-messages {
+        max-height: 360px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        margin-bottom: 0.9rem;
+        padding-right: 4px;
+    }
+    .{{ $uid }}-msg {
+        padding: 0.75rem 0.95rem;
+        border-radius: 12px;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+    .{{ $uid }}-msg-assistant {
+        background: #f9f6ef;
+        border: 1px solid #e8e0d4;
+        color: #1f2b1c;
+    }
+    .{{ $uid }}-msg-assistant a {
+        color: #8c6632;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+    .{{ $uid }}-msg-assistant a:hover {
+        color: #2c3622;
+    }
+    .{{ $uid }}-msg-user {
+        background: #2c3622;
+        color: #ffffff;
+        align-self: flex-end;
+        max-width: 85%;
+    }
+    .{{ $uid }}-msg-error {
+        background: #fff3f2;
+        border: 1px solid #e5b5b0;
+        color: #7a1f19;
+    }
+    .{{ $uid }}-form {
+        display: flex;
+        gap: 0.6rem;
+        align-items: flex-end;
+    }
+    .{{ $uid }}-input {
+        flex: 1;
+        min-height: 44px;
+        max-height: 120px;
+        padding: 0.65rem 0.9rem;
+        border: 1px solid #d8ccb8;
+        border-radius: 12px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        color: #1f2b1c;
+        resize: vertical;
+    }
+    .{{ $uid }}-input:focus {
+        outline: none;
+        border-color: #b18b56;
+    }
+    .{{ $uid }}-send {
+        background: #b18b56;
+        border: none;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 0.88rem;
+        padding: 0 20px;
+        height: 44px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+        flex-shrink: 0;
+    }
+    .{{ $uid }}-send:hover:not(:disabled) {
+        background: #9a7a4a;
+    }
+    .{{ $uid }}-send:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    @media (max-width: 640px) {
+        .{{ $uid }}-card { padding: 1.2rem; margin: 1.2rem 0; }
+        .{{ $uid }}-title { font-size: 1.3rem; }
+        .{{ $uid }}-subtitle { font-size: 0.85rem; }
+        .{{ $uid }}-acc-btn,
+        .{{ $uid }}-btn-agent {
+            width: 100%;
+            min-width: 100%;
+        }
+        .{{ $uid }}-form {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .{{ $uid }}-send {
+            width: 100%;
+        }
+    }
+</style>
+
+<div class="{{ $uid }}-card" id="{{ $uid }}-root">
+    <div style="text-align: center;">
+        <span class="{{ $uid }}-badge">{{ $badge }}</span>
+        <div class="{{ $uid }}-title">{{ $title }}</div>
+        <div class="{{ $uid }}-subtitle">{{ $subtitle }}</div>
+    </div>
+
+    <div class="{{ $uid }}-acc-row">
+        <button type="button"
+                class="{{ $uid }}-acc-btn"
+                id="{{ $uid }}-btn-sci"
+                aria-expanded="false"
+                aria-controls="{{ $uid }}-panel-sci">
+            <span>Chronicle OS</span>
+            <span class="{{ $uid }}-acc-arrow">▼</span>
+        </button>
+
+        <button type="button"
+                class="{{ $uid }}-acc-btn"
+                id="{{ $uid }}-btn-exp"
+                aria-expanded="false"
+                aria-controls="{{ $uid }}-panel-exp">
+            <span>Verdictum</span>
+            <span class="{{ $uid }}-acc-arrow">▼</span>
+        </button>
+    </div>
+
+    <div class="{{ $uid }}-panel" id="{{ $uid }}-panel-sci">
+        <div class="{{ $uid }}-panel-label">Chronicle OS · Научный контур</div>
+        <p>Это публикация содержания страницы в формате статьи научного международного рецензируемого журнала.</p>
+        {{ with $sciUrl }}
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="{{ $uid }}-panel-link">Открыть публикацию →</a>
+        {{ end }}
+    </div>
+
+    <div class="{{ $uid }}-panel" id="{{ $uid }}-panel-exp">
+        <div class="{{ $uid }}-panel-label">Verdictum · Экспертный контур</div>
+        <p>Это публикация содержания страницы в формате статьи экспертного рецензируемого журнала.</p>
+        {{ with $expUrl }}
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="{{ $uid }}-panel-link">Открыть публикацию →</a>
+        {{ end }}
+    </div>
+
+    <div class="{{ $uid }}-agent-wrap">
+        <button type="button" class="{{ $uid }}-btn-agent" id="{{ $uid }}-btn-agent" aria-expanded="false">
+            <span>🤖 Агент-Навигатор</span>
+        </button>
+
+        <div class="{{ $uid }}-chat-box" id="{{ $uid }}-chat-box">
+            <div class="{{ $uid }}-messages" id="{{ $uid }}-messages"></div>
+            <form class="{{ $uid }}-form" id="{{ $uid }}-form">
+                <textarea class="{{ $uid }}-input"
+                          id="{{ $uid }}-input"
+                          rows="1"
+                          placeholder="Введите вопрос или номер маршрута (1–5)..."></textarea>
+                <button type="submit" class="{{ $uid }}-send" id="{{ $uid }}-send">Отправить</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const API_URL = "{{ $apiUrl }}";
+    const PAGE_CTX = {
+        page_title: {{ $pageTitle | jsonify }},
+        sci_url: {{ $sciUrl | jsonify }},
+        exp_url: {{ $expUrl | jsonify }}
+    };
+
+    const WELCOME_TEXT =
+        'Приветствую вас от имени администрации компании IMARCH LTD. Я — официальный Агент-Навигатор экосистемы IMARCH Chronicle OS. Моя задача — обеспечить ваш точный транзит по контурам нашей инфраструктуры и материалам презентационной монографии.\n\n' +
+        'Пожалуйста, выберите цель вашего визита, чтобы я мог мгновенно проложить оптимальный маршрут:\n\n' +
+        '1. Ознакомиться с общей структурой, философией и логикой Chronicle OS.\n' +
+        '2. Подать статью или монографию в наш научный рецензируемый журнал.\n' +
+        '3. Перейти в Инвестиционный контур консорциума PLATAN+, проверить баланс токенов L1 или подать заявку на Buyback.\n' +
+        '4. Пройти экспресс-тест (Дополнительная опция для верификации вашего персонального маршрута развития в экосистеме).\n' +
+        '5. Запросить информацию по конкретному Тому институциональной документации (Vol. I–V) или VD-0009.';
+
+    const btnSci = document.getElementById('{{ $uid }}-btn-sci');
+    const panelSci = document.getElementById('{{ $uid }}-panel-sci');
+    const btnExp = document.getElementById('{{ $uid }}-btn-exp');
+    const panelExp = document.getElementById('{{ $uid }}-panel-exp');
+    const btnAgent = document.getElementById('{{ $uid }}-btn-agent');
+    const chatBox = document.getElementById('{{ $uid }}-chat-box');
+    const messagesEl = document.getElementById('{{ $uid }}-messages');
+    const formEl = document.getElementById('{{ $uid }}-form');
+    const inputEl = document.getElementById('{{ $uid }}-input');
+    const sendBtn = document.getElementById('{{ $uid }}-send');
+
+    const history = [];
+    let greeted = false;
+    let busy = false;
+
+    function toggleAcc(btn, panel) {
+        if (!btn || !panel) return;
+        const isOpen = panel.classList.contains('open');
+        panel.classList.toggle('open', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
+    }
+
+    if (btnSci) btnSci.addEventListener('click', function() { toggleAcc(btnSci, panelSci); });
+    if (btnExp) btnExp.addEventListener('click', function() { toggleAcc(btnExp, panelExp); });
+
+    function escapeHtml(str) {
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
+    }
+
+    function formatAssistantHtml(rawText) {
+        const escaped = escapeHtml(rawText || '');
+        const withLinks = escaped.replace(
+            /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+            '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
+        );
+        return withLinks.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    }
+
+    function appendMessage(role, text) {
+        if (!messagesEl) return;
+        const div = document.createElement('div');
+        div.className = '{{ $uid }}-msg ' + (
+            role === 'user'
+                ? '{{ $uid }}-msg-user'
+                : role === 'error'
+                    ? '{{ $uid }}-msg-error'
+                    : '{{ $uid }}-msg-assistant'
+        );
+        if (role === 'assistant') {
+            div.innerHTML = formatAssistantHtml(text);
+        } else {
+            div.textContent = text;
+        }
+        messagesEl.appendChild(div);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    if (btnAgent && chatBox) {
+        btnAgent.addEventListener('click', function() {
+            const isOpen = chatBox.classList.contains('open');
+            chatBox.classList.toggle('open', !isOpen);
+            btnAgent.setAttribute('aria-expanded', String(!isOpen));
+            if (!isOpen && !greeted) {
+                greeted = true;
+                history.push({ role: 'assistant', content: WELCOME_TEXT });
+                appendMessage('assistant', WELCOME_TEXT);
+            }
+            if (!isOpen && inputEl) {
+                setTimeout(function() { inputEl.focus(); }, 50);
+            }
+        });
+    }
+
+    async function sendMessage(text) {
+        if (busy || !text) return;
+        busy = true;
+        if (sendBtn) sendBtn.disabled = true;
+
+        history.push({ role: 'user', content: text });
+        appendMessage('user', text);
+        if (inputEl) inputEl.value = '';
+
+        try {
+            const resp = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    messages: history,
+                    context: PAGE_CTX
+                })
+            });
+            const data = await resp.json();
+            if (!resp.ok || !data.reply) {
+                throw new Error(data.error || ('HTTP ' + resp.status));
+            }
+            history.push({ role: 'assistant', content: data.reply });
+            appendMessage('assistant', data.reply);
+        } catch (err) {
+            appendMessage('error', 'Ошибка связи с навигатором: ' + (err && err.message ? err.message : 'неизвестная ошибка'));
+        } finally {
+            busy = false;
+            if (sendBtn) sendBtn.disabled = false;
+            if (inputEl) inputEl.focus();
+        }
+    }
+
+    if (formEl && inputEl) {
+        formEl.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const text = inputEl.value.trim();
+            if (text) sendMessage(text);
+        });
+
+        inputEl.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                const text = inputEl.value.trim();
+                if (text) sendMessage(text);
+            }
+        });
+    }
+})();
+</script>

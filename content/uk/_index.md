@@ -2,6 +2,7 @@
 title: "IMARCH CHRONICLE OS International Journal"
 description: "Офіційні препринти, суверенні монографії та правові акти Глобального Консорціуму Суверенних Офіс-Сайтів на базі Універсальної Формології."
 type: "section"
+translationKey: "githronical-home"
 layout: list
 css: ["css/ungchart.css"]
 

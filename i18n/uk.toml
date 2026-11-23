@@ -1,0 +1,183 @@
+[[translation]]
+id = "dateFormat"
+translation = "2 January 2006"
+
+[[translation]]
+id = "shortdateFormat"
+translation = "2 Jan 2006 15:04:05"
+
+[[translation]]
+id = "postedOnDate"
+translation = "Опубліковано {{ . }}"
+
+[[translation]]
+id = "lastModified"
+translation = "(Остання зміна {{ . }})"
+
+[[translation]]
+id = "translationsLabel"
+translation = "Інші мови: "
+
+[[translation]]
+id = "translationsSeparator"
+translation = ", "
+
+[[translation]]
+id = "readMore"
+translation = "Читати далі"
+
+[[translation]]
+id = "olderPosts"
+translation = "Старіші"
+
+[[translation]]
+id = "newerPosts"
+translation = "Новіші"
+
+[[translation]]
+id = "previousPost"
+translation = "Попередня"
+
+[[translation]]
+id = "nextPost"
+translation = "Наступна"
+
+[[translation]]
+id = "readTime"
+translation = "хвилин"
+
+[[translation]]
+id = "words"
+translation = "слів"
+
+[[translation]]
+id = "pageNotFound"
+translation = "Ой! Сторінку не знайдено. (Помилка 404)"
+
+[[translation]]
+id = "poweredBy"
+translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Тема <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> на основі <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+
+[[translation]]
+id = "toggleNavigation"
+translation = "Перемкнути навігацію"
+
+[[translation]]
+id = "languageSwitcherLabel"
+translation = "Мова"
+
+[[translation]]
+id = "gcseLabelShort"
+translation = "Пошук"
+
+[[translation]]
+id = "gcseLabelLong"
+translation = "Пошук {{ .Site.Title }}"
+
+[[translation]]
+id = "gcseClose"
+translation = "Закрити"
+
+[[translation]]
+id = "noComment"
+translation = "Немає коментарів"
+
+[[translation]]
+id = "oneComment"
+translation = "коментар"
+
+[[translation]]
+id = "moreComment"
+translation = "коментарів"
+
+[[translation]]
+id = "useMarkdown"
+translation = "Можна використовувати синтаксис Markdown"
+
+[[translation]]
+id = "yourName"
+translation = "Ваше імʼя"
+
+[[translation]]
+id = "yourEmail"
+translation = "Ваш email"
+
+[[translation]]
+id = "yourWebsite"
+translation = "Ваш сайт"
+
+[[translation]]
+id = "show"
+translation = "Показати"
+
+[[translation]]
+id = "comments"
+translation = "коментарі"
+
+[[translation]]
+id = "seeAlso"
+translation = "Дивіться також"
+
+[[translation]]
+id = "hub_eyebrow"
+translation = "Публікаційні контури сторінки"
+
+[[translation]]
+id = "hub_sci_label"
+translation = "Chronicle OS"
+
+[[translation]]
+id = "hub_sci_kind"
+translation = "Науковий журнал"
+
+[[translation]]
+id = "hub_sci_text"
+translation = "Ознайомтеся зі змістом сторінки у форматі публікації в нашому міжнародному рецензованому науковому журналі."
+
+[[translation]]
+id = "hub_exp_label"
+translation = "VERDICTUM"
+
+[[translation]]
+id = "hub_exp_kind"
+translation = "Експертний журнал"
+
+[[translation]]
+id = "hub_exp_text"
+translation = "Ознайомтеся зі змістом сторінки у форматі публікації в нашому міжнародному рецензованому експертному журналі."
+
+[[translation]]
+id = "hub_open"
+translation = "Відкрити публікацію"
+
+[[translation]]
+id = "hub_pending"
+translation = "Публікація готується до випуску"
+
+[[translation]]
+id = "hub_cta_title"
+translation = "CHRONICLE OS NAVIGATOR"
+
+[[translation]]
+id = "hub_cta_sub"
+translation = "Ваш персональний гід-навігатор екосистемою IMARCH"
+
+[[translation]]
+id = "hub_cta_desc"
+translation = "Поставте запитання, пройдіть експрес-діагностику або запитайте маршрутизацію за 5 Томами документації, Монографією та Інвестиційною екосистемою."
+
+[[translation]]
+id = "hub_cta_button"
+translation = "Відкрити навігатор"
+
+[[translation]]
+id = "hub_stub_title"
+translation = "Навігатор готується до запуску"
+
+[[translation]]
+id = "hub_stub_text"
+translation = "Інтеграція з ІІ-агентом завершується. Нижче — попередній режим: маршрутизація за контурами та експрес-діагностика стануть доступними в найближчому оновленні."
+
+[[translation]]
+id = "hub_stub_badge"
+translation = "У підготовці"

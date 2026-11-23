@@ -1,10 +1,10 @@
 [[translation]]
 id = "dateFormat"
-translation = "2 января 2006"
+translation = "2 January 2006"
 
 [[translation]]
 id = "shortdateFormat"
-translation = "2 янв 2006 15:04:05"
+translation = "2 Jan 2006 15:04:05"
 
 [[translation]]
 id = "postedOnDate"
@@ -28,19 +28,19 @@ translation = "Читать далее"
 
 [[translation]]
 id = "olderPosts"
-translation = "Ранее"
+translation = "Старые"
 
 [[translation]]
 id = "newerPosts"
-translation = "Позже"
+translation = "Новые"
 
 [[translation]]
 id = "previousPost"
-translation = "Предыдущий"
+translation = "Предыдущая"
 
 [[translation]]
 id = "nextPost"
-translation = "Следующий"
+translation = "Следующая"
 
 [[translation]]
 id = "readTime"
@@ -56,7 +56,7 @@ translation = "Увы! Страница не найдена. (Ошибка 404)"
 
 [[translation]]
 id = "poweredBy"
-translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Тема <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> основана на <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> &nbsp;&bull;&nbsp; Тема <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> на основе <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
 
 [[translation]]
 id = "toggleNavigation"
@@ -72,7 +72,7 @@ translation = "Поиск"
 
 [[translation]]
 id = "gcseLabelLong"
-translation = "Поиск по {{ .Site.Title }}"
+translation = "Поиск {{ .Site.Title }}"
 
 [[translation]]
 id = "gcseClose"
@@ -88,7 +88,7 @@ translation = "комментарий"
 
 [[translation]]
 id = "moreComment"
-translation = "комментарии"
+translation = "комментариев"
 
 [[translation]]
 id = "useMarkdown"
@@ -112,12 +112,72 @@ translation = "Показать"
 
 [[translation]]
 id = "comments"
-translation = "Комментарии"
+translation = "комментарии"
 
 [[translation]]
 id = "seeAlso"
 translation = "Смотрите также"
 
+[[translation]]
+id = "hub_eyebrow"
+translation = "Публикационные контуры страницы"
 
+[[translation]]
+id = "hub_sci_label"
+translation = "Chronicle OS"
 
+[[translation]]
+id = "hub_sci_kind"
+translation = "Научный журнал"
 
+[[translation]]
+id = "hub_sci_text"
+translation = "Ознакомьтесь с содержанием страницы в формате публикации в нашем международном рецензируемом научном журнале."
+
+[[translation]]
+id = "hub_exp_label"
+translation = "VERDICTUM"
+
+[[translation]]
+id = "hub_exp_kind"
+translation = "Экспертный журнал"
+
+[[translation]]
+id = "hub_exp_text"
+translation = "Ознакомьтесь с содержанием страницы в формате публикации в нашем международном рецензируемом экспертном журнале."
+
+[[translation]]
+id = "hub_open"
+translation = "Открыть публикацию"
+
+[[translation]]
+id = "hub_pending"
+translation = "Публикация готовится к выпуску"
+
+[[translation]]
+id = "hub_cta_title"
+translation = "CHRONICLE OS NAVIGATOR"
+
+[[translation]]
+id = "hub_cta_sub"
+translation = "Ваш персональный гид-навигатор по экосистеме IMARCH"
+
+[[translation]]
+id = "hub_cta_desc"
+translation = "Задайте вопрос, пройдите экспресс-диагностику или запросите маршрутизацию по 5 Томам документации, Монографии и Инвестиционной экосистеме."
+
+[[translation]]
+id = "hub_cta_button"
+translation = "Открыть навигатор"
+
+[[translation]]
+id = "hub_stub_title"
+translation = "Навигатор готовится к запуску"
+
+[[translation]]
+id = "hub_stub_text"
+translation = "Интеграция с ИИ-агентом завершается. Ниже — предварительный режим: маршрутизация по контурам и экспресс-диагностика станут доступны в ближайшем обновлении."
+
+[[translation]]
+id = "hub_stub_badge"
+translation = "В подготовке"

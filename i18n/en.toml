@@ -1,122 +1,63 @@
 [[translation]]
-id = "dateFormat"
-translation = "January 2, 2006"
+id = "hub_eyebrow"
+translation = "Publication channels of this page"
 
 [[translation]]
-id = "shortdateFormat"
-translation = "Jan 2, 2006 15:04:05"
+id = "hub_sci_label"
+translation = "Chronicle OS"
 
 [[translation]]
-id = "postedOnDate"
-translation = "Posted on {{ . }}"
+id = "hub_sci_kind"
+translation = "Scientific journal"
 
 [[translation]]
-id = "lastModified"
-translation = "(Last modified on {{ . }})"
+id = "hub_sci_text"
+translation = "Review this page in its published form in our international peer-reviewed scientific journal."
 
 [[translation]]
-id = "translationsLabel"
-translation = "Other languages: "
+id = "hub_exp_label"
+translation = "VERDICTUM"
 
 [[translation]]
-id = "translationsSeparator"
-translation = ", "
+id = "hub_exp_kind"
+translation = "Expert journal"
 
 [[translation]]
-id = "readMore"
-translation = "Read more"
+id = "hub_exp_text"
+translation = "Review this page in its published form in our international peer-reviewed expert journal."
 
 [[translation]]
-id = "olderPosts"
-translation = "Older"
+id = "hub_open"
+translation = "Open publication"
 
 [[translation]]
-id = "newerPosts"
-translation = "Newer"
+id = "hub_pending"
+translation = "Publication is being prepared"
 
 [[translation]]
-id = "previousPost"
-translation = "Previous"
+id = "hub_cta_title"
+translation = "CHRONICLE OS NAVIGATOR"
 
 [[translation]]
-id = "nextPost"
-translation = "Next"
+id = "hub_cta_sub"
+translation = "Your personal guide across the IMARCH ecosystem"
 
 [[translation]]
-id = "readTime"
-translation = "minutes"
+id = "hub_cta_desc"
+translation = "Ask a question, take the express diagnostic, or request routing across 5 Volumes of documentation, the Monograph and the Investment ecosystem."
 
 [[translation]]
-id = "words"
-translation = "words"
+id = "hub_cta_button"
+translation = "Open navigator"
 
 [[translation]]
-id = "pageNotFound"
-translation = "Oops! Page not found. (Error 404)"
+id = "hub_stub_title"
+translation = "Navigator is preparing for launch"
 
 [[translation]]
-id = "poweredBy"
-translation = '<a href="https://gohugo.io">Hugo v{{ .Site.Hugo.Version }}</a> powered &nbsp;&bull;&nbsp; Theme <a href="https://github.com/halogenica/beautifulhugo">Beautiful Hugo</a> derived from <a href="https://deanattali.com/beautiful-jekyll/">Beautiful Jekyll</a>'
+id = "hub_stub_text"
+translation = "AI-agent integration is being finalised. Routing and express diagnostics will become available in the next update."
 
 [[translation]]
-id = "toggleNavigation"
-translation = "Toggle navigation"
-
-[[translation]]
-id = "languageSwitcherLabel"
-translation = "Language"
-
-[[translation]]
-id = "gcseLabelShort"
-translation = "Search"
-
-[[translation]]
-id = "gcseLabelLong"
-translation = "Search {{ .Site.Title }}"
-
-[[translation]]
-id = "gcseClose"
-translation = "Close"
-
-[[translation]]
-id = "noComment"
-translation = "No comments"
-
-[[translation]]
-id = "oneComment"
-translation = "comment"
-
-[[translation]]
-id = "moreComment"
-translation = "comments"
-
-[[translation]]
-id = "useMarkdown"
-translation = "You can use Markdown syntax"
-
-[[translation]]
-id = "yourName"
-translation = "Your name"
-
-[[translation]]
-id = "yourEmail"
-translation = "Your email"
-
-[[translation]]
-id = "yourWebsite"
-translation = "Your website"
-
-[[translation]]
-id = "show"
-translation = "Show"
-
-[[translation]]
-id = "comments"
-translation = "comments"
-
-[[translation]]
-id = "seeAlso"
-translation = "See also"
-
-
-
+id = "hub_stub_badge"
+translation = "In preparation"

@@ -1,0 +1,21 @@
+{{ $src := .Get "src" }}
+{{ $poster := .Get "poster" }}
+{{ $title := .Get "title" | default "Presentation" }}
+{{ $class := .Get "class" | default "r2-video-wrap" }}
+
+<figure class="{{ $class }}">
+  <video
+    controls
+    preload="metadata"
+    playsinline
+    {{ with $poster }}poster="{{ . }}"{{ end }}
+    style="width: 100%; max-width: 100%; height: auto; display: block; border-radius: 8px;"
+  >
+    <source src="{{ $src }}" type="video/webm">
+    Ваш браузер не поддерживает воспроизведение видео в формате WebM.
+    <a href="{{ $src }}" target="_blank" rel="noopener noreferrer">Открыть видео напрямую</a>
+  </video>
+  {{ with .Get "caption" }}
+    <figcaption>{{ . }}</figcaption>
+  {{ end }}
+</figure>

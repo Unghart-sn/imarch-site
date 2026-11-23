@@ -32,6 +32,14 @@ description: "Систематизированный реестр информа
 
 {{< verdictum/navigator >}}
 
+<!-- ===== БАННЕРНАЯ КАРТОЧКА: BASE ISSUE VERDICTUM ===== -->
+<div class="custom-card-banner verdictum-banner">
+  <span class="banner-emoji">📚</span>
+  <div class="banner-title">БАЗОВЫЙ ВЫПУСК ЖУРНАЛА VERDICTUM</div>
+  <div class="banner-sub">Полный корпус институциональных документов: манифесты, доктрины, протоколы, тома Documentation System, монографии и стандарты — 23 публикации в едином контуре верификации</div>
+  <a href="/ru/verdictum/vr-0024/" class="banner-btn">ОТКРЫТЬ СОДЕРЖАНИЕ →</a>
+</div>
+
 🧭 Используйте быстрые фильтры для переключения между официальной доктриной, экспертными статьями контрибьюторов и верифицированными документами инвест-программ.
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>

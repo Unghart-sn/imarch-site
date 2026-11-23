@@ -1,0 +1,407 @@
+{{/*
+  IMARCH Chronicle OS — Navigator Card (API Agent Edition)
+  Визуальный ключ карточки навигатора + встроенный API-диалог для главной страницы.
+  Параметры:
+    api_url       — URL вашего API-прокси/эндпоинта (например, https://api.imarch.ltd/v1/navigator)
+    model         — идентификатор модели/агента (по умолчанию "imarch-navigator")
+    badge         — бейдж сверху
+    title         — заголовок карточки
+    subtitle      — подзаголовок
+    article_url   — приоритетный адрес статьи/материала
+    article_title — название приоритетного материала
+*/}}
+{{- $apiUrl := .Get "api_url" | default "/api/navigator" -}}
+{{- $model := .Get "model" | default "imarch-navigator" -}}
+{{- $badge := .Get "badge" | default "✦ ГЕНЕРАЛЬНЫЙ ИНСТИТУЦИОНАЛЬНЫЙ ПОРТАЛ" -}}
+{{- $title := .Get "title" | default "CHRONICLE OS NAVIGATOR" -}}
+{{- $subtitle := .Get "subtitle" | default "Интерактивный гид-навигатор по экосистеме IMARCH" -}}
+{{- $articleUrl := .Get "article_url" | default "https://imarch.ltd/" -}}
+{{- $articleTitle := .Get "article_title" | default "Материалы экосистемы IMARCH" -}}
+{{- $uid := printf "imarch-api-nav-%d" .Ordinal -}}
+
+<style>
+    .{{ $uid }}-card {
+        background: #fdfaf5;
+        border-radius: 24px;
+        padding: 2rem;
+        margin: 2rem 0;
+        border: 1px solid #e0d6c8;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        transition: all 0.2s ease;
+        display: block;
+        clear: both;
+    }
+    .{{ $uid }}-card:hover {
+        box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .{{ $uid }}-badge {
+        display: inline-block;
+        background: #b18b56;
+        padding: 0.25rem 1.2rem;
+        border-radius: 50px;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        text-transform: uppercase;
+        margin-bottom: 1rem;
+    }
+    .{{ $uid }}-title {
+        font-size: 1.8rem;
+        font-weight: 800;
+        color: #1f2b1c;
+        margin-bottom: 0.25rem;
+        letter-spacing: -0.5px;
+        text-align: center;
+    }
+    .{{ $uid }}-subtitle {
+        font-size: 1rem;
+        color: #4a5a6a;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #e8e0d4;
+        padding-bottom: 1rem;
+        text-align: center;
+        font-style: italic;
+    }
+    .{{ $uid }}-desc {
+        text-align: center;
+        font-size: 0.88rem;
+        color: #4a5a6a;
+        line-height: 1.55;
+        max-width: 720px;
+        margin: 0 auto 1.5rem;
+    }
+    .{{ $uid }}-chat-box {
+        background: #ffffff;
+        border: 1px solid #e8e0d4;
+        border-radius: 18px;
+        padding: 1.2rem;
+        margin: 1rem 0 1.25rem;
+    }
+    .{{ $uid }}-messages {
+        max-height: 380px;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        padding-right: 0.25rem;
+    }
+    .{{ $uid }}-msg {
+        padding: 0.85rem 1.1rem;
+        border-radius: 16px;
+        font-size: 0.9rem;
+        line-height: 1.55;
+        white-space: pre-line;
+        word-break: break-word;
+    }
+    .{{ $uid }}-msg-agent {
+        background: #f9f6ef;
+        border: 1px solid #e8e0d4;
+        color: #1f2b1c;
+        align-self: flex-start;
+        max-width: 92%;
+    }
+    .{{ $uid }}-msg-user {
+        background: #2c3622;
+        color: #ffffff;
+        align-self: flex-end;
+        max-width: 85%;
+    }
+    .{{ $uid }}-msg-error {
+        background: #fff5f5;
+        border: 1px solid #e5b8b8;
+        color: #7a1f1f;
+        align-self: stretch;
+        font-size: 0.82rem;
+    }
+    .{{ $uid }}-controls {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem;
+        align-items: stretch;
+    }
+    .{{ $uid }}-input {
+        flex: 1;
+        border: 1px solid #d8ccb8;
+        border-radius: 16px;
+        padding: 0.75rem 1rem;
+        font-size: 0.92rem;
+        color: #1f2b1c;
+        background: #fdfaf5;
+        resize: vertical;
+        min-height: 48px;
+        max-height: 140px;
+        font-family: inherit;
+    }
+    .{{ $uid }}-input:focus {
+        outline: none;
+        border-color: #b18b56;
+        background: #ffffff;
+    }
+    .{{ $uid }}-btn-send {
+        background: #b18b56;
+        border: none;
+        padding: 0 24px;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+    }
+    .{{ $uid }}-btn-send:hover:not(:disabled) {
+        background: #9a7a4a;
+        box-shadow: 0 4px 15px rgba(177, 139, 86, 0.3);
+    }
+    .{{ $uid }}-btn-send:disabled {
+        opacity: 0.55;
+        cursor: not-allowed;
+    }
+    .{{ $uid }}-footer-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 0.75rem;
+    }
+    .{{ $uid }}-btn-reset {
+        background: #2c3622;
+        border: 2px solid #2c3622;
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #ffffff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    .{{ $uid }}-btn-reset:hover {
+        background: #1f2b1c;
+        border-color: #1f2b1c;
+    }
+    .{{ $uid }}-legal {
+        margin-top: 1.5rem;
+        border-top: 1px solid #e8e0d4;
+        padding-top: 1rem;
+    }
+    .{{ $uid }}-legal-summary {
+        cursor: pointer;
+        color: #6a7a7a;
+        font-size: 0.75rem;
+        text-align: center;
+        display: block;
+        user-select: none;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+    }
+    .{{ $uid }}-legal-summary:hover { color: #1f2b1c; }
+    .{{ $uid }}-legal-content {
+        display: none;
+        background: #ffffff;
+        border-radius: 16px;
+        padding: 1.2rem;
+        margin-top: 1rem;
+        font-size: 0.8rem;
+        color: #1f2b1c;
+        line-height: 1.5;
+        border: 1px solid #e8e0d4;
+    }
+    .{{ $uid }}-legal-content.show { display: block; }
+    .{{ $uid }}-legal-content a { color: #b18b56; text-decoration: underline; }
+
+    @media (max-width: 640px) {
+        .{{ $uid }}-card { padding: 1.2rem; margin: 1.2rem 0; }
+        .{{ $uid }}-title { font-size: 1.3rem; }
+        .{{ $uid }}-subtitle { font-size: 0.85rem; }
+        .{{ $uid }}-controls { flex-direction: column; }
+        .{{ $uid }}-btn-send { width: 100%; padding: 11px 20px; }
+        .{{ $uid }}-msg-agent, .{{ $uid }}-msg-user { max-width: 100%; }
+    }
+</style>
+
+<div class="{{ $uid }}-card"
+     id="{{ $uid }}-root"
+     data-api-url="{{ $apiUrl }}"
+     data-model="{{ $model }}"
+     data-article-url="{{ $articleUrl }}"
+     data-article-title="{{ $articleTitle }}">
+
+    <div style="text-align: center;">
+        <span class="{{ $uid }}-badge">{{ $badge }}</span>
+        <div class="{{ $uid }}-title">{{ $title }}</div>
+        <div class="{{ $uid }}-subtitle">{{ $subtitle }}</div>
+        <p class="{{ $uid }}-desc">
+            Диалог с агентом по API на базе протокола навигации IMARCH Chronicle OS. Укажите цель визита, задайте вопрос по материалу или пройдите экспресс-тест.
+        </p>
+    </div>
+
+    <div class="{{ $uid }}-chat-box">
+        <div class="{{ $uid }}-messages" id="{{ $uid }}-messages" aria-live="polite"></div>
+
+        <form class="{{ $uid }}-controls" id="{{ $uid }}-form">
+            <textarea
+                class="{{ $uid }}-input"
+                id="{{ $uid }}-input"
+                rows="1"
+                placeholder="Введите номер маршрута (1–5), ответ на тест или вопрос..."
+                required
+            ></textarea>
+            <button type="submit" class="{{ $uid }}-btn-send" id="{{ $uid }}-send">Отправить</button>
+        </form>
+
+        <div class="{{ $uid }}-footer-actions">
+            <button type="button" class="{{ $uid }}-btn-reset" id="{{ $uid }}-reset">↺ Новый диалог</button>
+        </div>
+    </div>
+
+    <div class="{{ $uid }}-legal">
+        <div class="{{ $uid }}-legal-summary" id="{{ $uid }}-legal-toggle">
+            ⚖️ INSTITUTIONAL GOVERNANCE &amp; PROTOCOL SECURITY — открыть данные
+        </div>
+        <div class="{{ $uid }}-legal-content" id="{{ $uid }}-legal-content">
+            <p><strong>GOVERNANCE NOTICE (CHRONICLE OS NAVIGATOR API)</strong></p>
+            <p>Интерфейс работает в контуре <strong>IMARCH LTD</strong> (Company No. 16791765, Англия и Уэльс) и подчиняется рамке <strong>ED-FRM-2026-001</strong>[cite: 1].</p>
+            <p>Регламент агента опирается на <strong>IMARCH PS-002 / RN-0019</strong> и вердикт <a href="https://imarch.sbs/ru/verdictum/vd-0009-chronicle_os_documentation_system_20260721/" target="_blank" rel="noopener noreferrer">VD-0009 Chronicle OS Documentation System</a>[cite: 1]. Фокусный материал: <a href="{{ $articleUrl }}" target="_blank" rel="noopener noreferrer">{{ $articleTitle }}</a>.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const root = document.getElementById('{{ $uid }}-root');
+    if (!root) return;
+
+    const API_URL = root.getAttribute('data-api-url');
+    const MODEL = root.getAttribute('data-model');
+    const ARTICLE_URL = root.getAttribute('data-article-url');
+    const ARTICLE_TITLE = root.getAttribute('data-article-title');
+
+    const messagesEl = document.getElementById('{{ $uid }}-messages');
+    const formEl = document.getElementById('{{ $uid }}-form');
+    const inputEl = document.getElementById('{{ $uid }}-input');
+    const sendBtn = document.getElementById('{{ $uid }}-send');
+    const resetBtn = document.getElementById('{{ $uid }}-reset');
+    const legalToggle = document.getElementById('{{ $uid }}-legal-toggle');
+    const legalContent = document.getElementById('{{ $uid }}-legal-content');
+
+    const SYSTEM_PROMPT = [
+        'Ты — официальный Агент-Навигатор экосистемы IMARCH Chronicle OS.',
+        'Приоритетный материал текущей страницы: "' + ARTICLE_TITLE + '" (' + ARTICLE_URL + ').',
+        'Тон: строгий, академичный, взвешенный и конструктивный, без маркетинговых штампов.',
+        'Правила:',
+        '1. Не выдавай большой блок ссылок в первом ответе — только по запросу, после экспресс-теста или при прямом вопросе.',
+        '2. При выборе опции 4 или запросе теста проведи экспресс-диагностику из 5 вопросов и определи профиль: Научное развитие / Финансовая архитектура / Философская глубина.',
+        '3. Не отправляй авторов, инвесторов или доноров в /ru/profile/office/. Не выдумывай внешние домены.',
+        '4. Если данных нет в контуре, отвечай: "Данные за пределами суверенного предела экосистемы".'
+    ].join('\n');
+
+    const WELCOME_TEXT = [
+        'Приветствую вас от имени администрации компании IMARCH LTD. Я — официальный Агент-Навигатор экосистемы IMARCH Chronicle OS.',
+        'Приоритетный материал: «' + ARTICLE_TITLE + '» (' + ARTICLE_URL + ').',
+        '',
+        'Выберите цель визита:',
+        '1. Ознакомиться с общей структурой, философией и логикой Chronicle OS.',
+        '2. Подать статью или монографию в наш научный рецензируемый журнал.',
+        '3. Перейти в Инвестиционный контур консорциума PLATAN+, проверить баланс токенов L1 или подать заявку на Buyback.',
+        '4. Пройти экспресс-тест для верификации персонального маршрута развития в экосистеме.',
+        '5. Запросить информацию по конкретному Тому документации (Vol. I–V) или VD-0009.'
+    ].join('\n');
+
+    let history = [];
+
+    function appendMessage(role, text) {
+        const div = document.createElement('div');
+        div.className = '{{ $uid }}-msg ' + (
+            role === 'user' ? '{{ $uid }}-msg-user' :
+            role === 'error' ? '{{ $uid }}-msg-error' :
+            '{{ $uid }}-msg-agent'
+        );
+        div.textContent = text;
+        messagesEl.appendChild(div);
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function initChat() {
+        history = [];
+        messagesEl.innerHTML = '';
+        appendMessage('agent', WELCOME_TEXT);
+    }
+
+    async function askAgent(userText) {
+        history.push({ role: 'user', content: userText });
+        appendMessage('user', userText);
+        sendBtn.disabled = true;
+
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    model: MODEL,
+                    system: SYSTEM_PROMPT,
+                    context: {
+                        article_url: ARTICLE_URL,
+                        article_title: ARTICLE_TITLE
+                    },
+                    messages: history
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('HTTP ' + response.status);
+            }
+
+            const data = await response.json();
+            const reply = data.reply || data.message || (data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content) || '';
+
+            if (!reply) {
+                throw new Error('Пустой ответ от API');
+            }
+
+            history.push({ role: 'assistant', content: reply });
+            appendMessage('agent', reply);
+        } catch (err) {
+            history.pop();
+            appendMessage(
+                'error',
+                'Не удалось получить ответ от API-агента (' + API_URL + '): ' + err.message + '. Проверьте доступность эндпоинта и настройки CORS.'
+            );
+        } finally {
+            sendBtn.disabled = false;
+            inputEl.focus();
+        }
+    }
+
+    formEl.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const text = inputEl.value.trim();
+        if (!text || sendBtn.disabled) return;
+        inputEl.value = '';
+        askAgent(text);
+    });
+
+    inputEl.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            formEl.dispatchEvent(new Event('submit'));
+        }
+    });
+
+    resetBtn.addEventListener('click', initChat);
+
+    if (legalToggle && legalContent) {
+        legalToggle.addEventListener('click', function() {
+            const isVisible = legalContent.classList.contains('show');
+            legalContent.classList.toggle('show');
+            legalToggle.textContent = isVisible
+                ? '⚖️ INSTITUTIONAL GOVERNANCE & PROTOCOL SECURITY — открыть данные'
+                : '⚖️ INSTITUTIONAL GOVERNANCE & PROTOCOL SECURITY — скрыть';
+        });
+    }
+
+    initChat();
+})();
+</script>

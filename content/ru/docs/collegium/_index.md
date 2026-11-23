@@ -13,9 +13,9 @@ css: ["css/ungchart.css"]
 
 #### IMARCH-Архитектура корпоративного суверенитета B2B { .fade-in-up }
 
-{{< steel_button link="/ru/profile/vis-realitatis/donor/" text="Гайд-меню" >}}
+##### IMARCH LTD · Company No. 16791765 · Англия и Уэльс
 
-{{< steel_button link="https://t.me/imarch_chronical_bot" text="Присоединиться" >}}
+{{< steel_button link="/ru/" text=Презентация" >}}
 
 В эпоху тотальной зависимости от централизованных ИИ-платформ крупный бизнес, финтех и госсектор сталкиваются с критической уязвимостью: потерей суверенитета данных, галлюцинациями публичных моделей и размытием корпоративного ноу-хау. 
 
@@ -23,7 +23,10 @@ IMARCH Enterprise предоставляет СЕО-директорам и то
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
 
-{{< copilot-navigator-card >}}
+{{< navigator-widget
+  api_url="https://imarch-navigator.chronosolexandr.workers.dev"
+  exp_url="/ru/verdictum/vr-0028/"
+>}}
 
 <section class="tags-list"> <button onclick="location.href='/en/b2b/'">🌐 Enterprise Home</button> <button onclick="location.href='/en/tags/ceo/'">👔 CEO Options</button> <button onclick="location.href='/en/tags/governance/'">⚖️ Governance</button> <button onclick="location.href='/en/tags/tokens/'">🪙 Tokens</button> </section>
 
@@ -72,11 +75,7 @@ IMARCH Enterprise — это инструмент удержания сувер�
 
 Полная техническая документация и закрытые кейсы интеграции ядра предоставляются исключительно после верификации профиля СЕО через Telegram-диспетчер.
 
-{{< morebutton target="https://t.me/imarch_dispatcher_bot" text="VERIFY CEO PROFILE" >}}
-
 {{< vis-concept-paper-link >}}
-
-</details>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" /> </div>
 
@@ -161,6 +160,10 @@ function smartToggle(container) {
 Проектный статус: формирование базового ядра и реестра участников
 
 {{< steel_button link="/ru/profile/vis-realitatis/donor/" text="СТАТЬ СООСНОВАТЕЛЕМ" >}}
+
+</details>
+
+<div style="width: 100%; text-align: center; margin: 3rem 0;"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" /> </div>
 
 &nbsp;
 

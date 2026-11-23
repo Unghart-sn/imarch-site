@@ -38,7 +38,10 @@ description: "Архитектура суверенной стоимости. И
   <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
 </div>
 
-{{< copilot-navigator-card >}}
+{{< navigator-widget
+  api_url="https://imarch-navigator.chronosolexandr.workers.dev"
+  exp_url="/ru/verdictum/vr-00-NN/"
+>}}
 
 &nbsp;
 
@@ -255,6 +258,12 @@ description: "Архитектура суверенной стоимости. И
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
   <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
 </div>
+
+{{< account-gate >}}
+
+&nbsp; 
+
+{{< persona-socials >}}
 
 <!-- ============================================================ -->
 <!-- ==================== СТИЛИ (как в питч-деке) =============== -->

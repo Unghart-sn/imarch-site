@@ -1,0 +1,156 @@
+{{/*
+  IMARCH Chronicle OS — Account Gate (Блок входа и регистрации аккаунта)
+  Параметры:
+    badge        — бейдж сверху
+    title        — заголовок блока
+    subtitle     — описание возможностей (артефакты, консалтинг, сертификат TSA)
+    login_url    — ссылка на страницу входа (по умолчанию /ru/login/)
+    register_url — ссылка на страницу регистрации (по умолчанию /ru/register/)
+    bonus_text   — текст бейджа с бонусом
+*/}}
+{{- $badge := .Get "badge" | default "✦ СУВЕРЕННЫЙ ДОСТУП К ЭКОСИСТЕМЕ" -}}
+{{- $title := .Get "title" | default "ВАШ АККАУНТ" -}}
+{{- $subtitle := .Get "subtitle" | default "Регистарция аккаунта для приобретения, прецизионного учёта и защищённого хранения цифровых артефактов, научных публикаций и услуг консорциума PLATAN+." -}}
+{{- $bonusText := .Get "bonus_text" | default "Бонус при регистрации: криптографический сертификат временной метки (RFC 3161 TSA) для фиксации вашего первого документа." -}}
+{{- $loginUrl := .Get "login_url" | default "/login/" -}}
+{{- $registerUrl := .Get "register_url" | default "/login/" -}}
+{{- $uid := printf "imarch-ag-%d" .Ordinal -}}
+
+<style>
+    .{{ $uid }}-box {
+        background: #fdfaf5;
+        border: 1px solid #e0d6c8;
+        border-radius: 20px;
+        padding: 1.75rem 2rem;
+        margin: 1.5rem 0 2rem;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+        text-align: center;
+        clear: both;
+    }
+    .{{ $uid }}-badge {
+        display: inline-block;
+        background: #2c3622;
+        color: #ffffff;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        padding: 0.25rem 1.1rem;
+        border-radius: 50px;
+        margin-bottom: 0.85rem;
+    }
+    .{{ $uid }}-title {
+        font-size: 1.45rem;
+        font-weight: 800;
+        color: #1f2b1c;
+        margin-bottom: 0.5rem;
+        letter-spacing: -0.3px;
+    }
+    .{{ $uid }}-text {
+        font-size: 0.95rem;
+        color: #3a4638;
+        line-height: 1.55;
+        max-width: 680px;
+        margin: 0 auto 1rem;
+    }
+    .{{ $uid }}-bonus {
+        display: inline-block;
+        background: #f4ece0;
+        border: 1px dashed #b18b56;
+        color: #5c4321;
+        font-size: 0.85rem;
+        font-weight: 600;
+        padding: 0.6rem 1.1rem;
+        border-radius: 12px;
+        margin-bottom: 1.35rem;
+        line-height: 1.45;
+    }
+    .{{ $uid }}-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.85rem;
+    }
+    .{{ $uid }}-btn-primary {
+        background: #b18b56;
+        border: 2px solid #b18b56;
+        color: #ffffff !important;
+        text-decoration: none !important;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 12px 26px;
+        border-radius: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 220px;
+        transition: all 0.2s ease;
+    }
+    .{{ $uid }}-btn-primary:hover {
+        background: #9a7a4a;
+        border-color: #9a7a4a;
+        box-shadow: 0 4px 14px rgba(177, 139, 86, 0.3);
+        transform: translateY(-1px);
+    }
+    .{{ $uid }}-btn-secondary {
+        background: #ffffff;
+        border: 2px solid #2c3622;
+        color: #2c3622 !important;
+        text-decoration: none !important;
+        font-weight: 700;
+        font-size: 0.92rem;
+        padding: 12px 26px;
+        border-radius: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 190px;
+        transition: all 0.2s ease;
+    }
+    .{{ $uid }}-btn-secondary:hover {
+        background: #2c3622;
+        color: #ffffff !important;
+        transform: translateY(-1px);
+    }
+
+    @media (max-width: 640px) {
+        .{{ $uid }}-box {
+            padding: 1.35rem 1.1rem;
+            margin: 1.2rem 0;
+        }
+        .{{ $uid }}-title {
+            font-size: 1.2rem;
+        }
+        .{{ $uid }}-text {
+            font-size: 0.88rem;
+        }
+        .{{ $uid }}-bonus {
+            font-size: 0.82rem;
+            text-align: left;
+        }
+        .{{ $uid }}-btn-primary,
+        .{{ $uid }}-btn-secondary {
+            width: 100%;
+            min-width: 100%;
+        }
+    }
+</style>
+
+<div class="{{ $uid }}-box">
+    <span class="{{ $uid }}-badge">{{ $badge }}</span>
+    <div class="{{ $uid }}-title">{{ $title }}</div>
+    <p class="{{ $uid }}-text">{{ $subtitle }}</p>
+    
+    {{ with $bonusText }}
+    <div>
+        <span class="{{ $uid }}-bonus">🎁 {{ . }}</span>
+    </div>
+    {{ end }}
+
+    <div class="{{ $uid }}-actions">
+        <a href="{{ $registerUrl }}" class="{{ $uid }}-btn-primary">Создать аккаунт →</a>
+        <a href="{{ $loginUrl }}" class="{{ $uid }}-btn-secondary">Войти в кабинет</a>
+    </div>
+</div>
