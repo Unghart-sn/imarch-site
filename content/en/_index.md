@@ -1,568 +1,317 @@
 ---
-title: "IMARCH CHRONICLE OS International Journal"
-description: "Official preprints, sovereign monographs and legal acts of the Global Consortium of Sovereign Office-Sites based on Universal Formology."
+title: "IMARCH GITHRONICAL · CHRONICLE OS 8888"
 type: "section"
+translationKey: "githronical-home"
 layout: list
-css: ["css/ungchart.css"]
-
-# --- ARMOR VEST FOR SOCIAL NETWORKS (OPEN GRAPH & TWITTER CARDS) ---
-images: ["images/banners/0030-1.jpg"]
-meta_title: "Chronicle OS | International Scientific Capital Management Platform"
-meta_description: "Chronicle OS — an international scientific capital management platform. We help researchers, universities and expert communities maintain discovery priority, protect intellectual property and develop knowledge within a unified next-generation digital ecosystem."
-
-# Specific parameters for Beautiful Hugo
-share:
-  facebook: true
-  linkedin: true
-  twitter: true
+css: ["css/ungchart.css", "css/imarch-cards.css"]
+images: ["/images/verdictum/0027-1.jpg"]
+image: "/images/verdictum/0027-1.jpg"
+og_image: "/images/verdictum/0027-1.jpg"
+meta_title: "IMARCH GITHRONICAL — Infrastructure of verifiable origin and status"
+twitter_card: "summary_large_image"
 ---
 
 {{< square-image 
-     src="/images/banners/0030-1.jpg" 
-     alt="Chronicle OS Journal"
+     src="/images/verdictum/0000-1.webp" 
+     alt="Verdictum International Jornal"
      class="fade-in-up" >}}
 
-#### International Peer-Reviewed Interdisciplinary Scientific Journal
-**ISSN (Online):** Pending (Application Stage)  
-**Publisher:** IMARCH LTD (United Kingdom Company Reg: 16791765)  
-**Frequency:** Continuous Publication / Quarterly Volume Formation  
-**Publication Languages:** English
 
-<div style="width: 100%; text-align: center; margin: 2rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" />
+### Infrastructure for resilient projects { .fade-in-up }
+
+##### IMARCH LTD · Company No. 16791765 · England and Wales
+
+---
+
+{{< steel_button link="#presentation" text="Presentation" >}}
+
+---
+
+<div class="imarch-spec fade-in-up">
+  <div class="imarch-spec-row">
+    <div class="imarch-spec-label">Operator</div>
+    <div class="imarch-spec-value">IMARCH LTD (Company No. 16791765, England and Wales)</div>
+  </div>
+  <div class="imarch-spec-row">
+    <div class="imarch-spec-label">Infrastructure circuit</div>
+    <div class="imarch-spec-value">Chronicle OS 8888 · Chronicle Communication System (CCS)</div>
+  </div>
+  <div class="imarch-spec-row">
+    <div class="imarch-spec-label">Expertise and partnership</div>
+    <div class="imarch-spec-value">RDIAR Institute · PLATAN+ Consortium · VERDICTUM</div>
+  </div>
+  <div class="imarch-spec-row">
+    <div class="imarch-spec-label">Legal regime</div>
+    <div class="imarch-spec-value">Applicable law, information protection and trade secret regimes · CC BY-NC-ND 4.0 licence</div>
+  </div>
 </div>
 
-{{< chronicle-posts-accordion-full-en >}}
+<div class="imarch-devis fade-in-up">Motto: “Ideas and actions — into resilient projects and working communities”</div>
 
-<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
-</div>
-
-Motto: "Forma Universalis et Systemata Mutabilia" (Universal Formology and Mutable Systems)
+---
 
 &nbsp;
 
-{{< copilot-navigator-card-en >}}
+<div id="presentation"></div>
+
+{{< r2video
+  src="https://pub-8199817aef874bd5bbc783fefd2f38c7.r2.dev/present-1.webm"
+  poster="/images/26-08-31-umss-pres-10.jpg"
+>}}
+
+{{< navigator-widget
+  api_url="https://imarch-navigator.chronosolexandr.workers.dev"
+  exp_url="/ru/verdictum/vr-0028/"
+>}}
+
+---
+
+**IMARCH Githronical | Chronicle OS 8888** — a system that turns ideas and actions into resilient projects and working communities. The functional shell is the **Chronicle Communication System (CCS)**, operating under the corporate flag of **IMARCH LTD UK**. CCS is the environment in which projects acquire a finished form and the capacity to consistently fulfil their purpose.
 
 <section class="tags-list" style="margin-top:30px;">
-    <button onclick="location.href='/en/profile/chronicle-os-journal/'">📊 Editorial Board</button>
-    <button onclick="location.href='/en/profile/chronicle-os-journal/expert-reviewer-network/'">🧑‍⚖️ Reviewers</button>
-    <button onclick="location.href='/en/profile/chronicle-os-journal/public/'">✍️ Authors</button>
-    <button onclick="location.href='/en/profile/chronicle-os-journal/institutional/'">🏛️ Universities</button>
-    <button onclick="location.href='/en/profile/chronicle-os-journal/media-partnership/'">📰 Press</button>
-<button onclick="location.href='/en/profile/chronicle-os-journal/cos-umss-pres/'">📰 Presentation Node</button>
+    <button onclick="location.href='#presentation'">📰 Presentation</button>
+    <button onclick="location.href='#architecture'">🏛️ Architecture</button>
+    <button onclick="location.href='#program'">📚 Programme</button>
+    <button onclick="location.href='#collegium-contact'">🤝 Collegium</button>
+    <button onclick="location.href='#verified-base'">📊 Verifiable base</button>
+    <button onclick="location.href='#contacts'">✍️ Contacts</button>
 </section>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
+  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" />
 </div>
 
-{{< steel_button link="https://t.me/imarch_chronical_bot" text="Join Telegram" >}}
-
-This publication is the official verified registry and distributed knowledge base within the doctrine of Complex Sociosystems Risk Management. It records immutable protocols for the stabilization of sovereign subjects, deconstruction of legal conflicts and protection of institutional memory. Each publication is an element of the operational contour of the IMARCH ecosystem, deployed in accordance with UK Trade Secrets Regulations.
+<div id="architecture"></div>
 
 &nbsp;
 
 {{< square-image 
-     src="/images/banners/0030.png" 
-     alt="Council — a scene of institutional thinking and recognition"
+     src="/images/verdictum/0002-frame.jpeg" 
+     alt="Project architecture — four circuits of the ecosystem"
      class="fade-in-up" >}}
 
-#### ABOUT THE PLATFORM { .fade-in-up }
+#### Project Architecture { .fade-in-up }
 
-CHRONICLE OS is the technological core of the full-cycle research and production enterprise IMARCH Githronical, serving as the infrastructure foundation of the international institutional consortium PLATAN+.
+This architecture provides for the separation of the legal, expert, consortium and applied circuits of activity, which ensures transparency of interaction with partners, grantors, investors and clients.
 
-<details>
-  <summary>Operational Model🔻</summary>
+{{% details "System framework" %}}
 
-**Platform Objective:** 
+{{< square-image 
+     src="/images/verdictum/0003.webp" 
+     alt="Verdictum International Jornal"
+     class="fade-in-up" >}}
 
-> To create a reproducible, verifiable and scalable model for the preventive renovation of humans and complex systems.
+The functional shell of the system is the **Chronicle Communication System (CCS)**, operating under the corporate flag of **IMARCH LTD UK**. CCS is the environment in which projects acquire a finished form and the capacity to consistently fulfil their purpose.
 
-{{< steel_button link="/en/profile/chronicle-os-journal/scientometrics/" text="Role in IMARCH Githronical" >}} 
+<div class="imarch-grid imarch-grid--cols-2">
 
-The activities of the **Chronicle OS** platform are coordinated by **IMARCH LTD (United Kingdom)** and are conducted in accordance with corporate and publishing standards.
-
-{{< company-details-card >}}
-
-🏛️ INTERNATIONAL INSTITUTIONAL CONTOUR PLATAN+
-
-A new architecture for knowledge management, scientific collaboration and capitalization of intellectual assets.
-
-The modern digital environment remains fragmented. To publish research, confirm authorship, store data, protect intellectual rights and interact with the scientific community, researchers and organizations are forced to use numerous independent platforms.
-
-PLATAN+ offers a different approach: integrating functions into a single institutional contour based on Chronicle OS, ensuring process transparency, digital sovereignty and long-term data sustainability.
-
-Three fundamental levels of the ecosystem:
-
-I. Integrated scientometric contour (SHA-256 Hash Locking, Crossref/ORCID/Zenodo compatibility)  
-II. Social-applied polygon (Personnel training, socialization, qualification renovation)  
-III. Intellectual property as a service (Capitalization of know-how under UK Trade Secrets Regulations 2018)
-
-⚖️ **Legal Status:**  
-The PLATAN+ architecture and Chronicle OS standards are protected by a system of registered know-how acts and the internal registry of IMARCH LTD (UK Reg 16791765).
-
-#### Operational Model and APC
-
-The journal is founded on the principles of:
-- editorial independence;
-- procedural transparency;
-- digital document fixation (SHA-256);
-- copyright protection;
-- double-blind peer review.
-
-The journal operates under the Open Access model. To cover infrastructure costs (verification, depository, plagiarism check, peer review), a single non-refundable organizational fee (APC) of **£150** per manuscript is established. Payment of APC does not guarantee publication.
-
-<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
-</div>
-
-#### Methodological Foundation & One Health
-
-The *Chronicle OS* research model is focused on interdisciplinary analysis of complex systems:
-- biomedical and social risks;
-- digital and critical infrastructure (UMSS/Dual-Use);
-- institutional resilience (Resilience Studies).
-
-The approach aligns with the principles of interdisciplinary coordination of **One Health Systems Engineering** and the scientific legacy of Prof. M.G. Shcherban.
-
-<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
-</div>
-
-#### Editorial Board
-
-**Chief Editor:**  
-**O. Purpruv**  
-**Role:** Founder & Chairman of the Editorial Board, IMARCH LTD.  
-**Section:** Universal Formology, Cryptographic IP‑Registry & Global Safety Systems.  
-**Assoc. Prof. A. Bezrodna, PhD (Biology) (Kharkiv, Ukraine)**  
-**Role:** Editorial Board Member / Head of the Section of Biological Chemistry, Medical Chemistry, Bioorganic Chemistry, and Genetics  
-
-**Assoc. Prof. Yuliya Snurnikova, PhD (Philology) (Krakow, Poland)**  
-**Role:** Editorial Board Member  
-**Section:** Philology, Practical Rhetoric, Journalism, Media Criticism, Internet Communication, Strategic Coaching, Art and Social Therapy
- 
-<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
-</div>
-
-#### Honorary Members & Foundational Heritage
-
-* **Prof. Mykola G. Shcherban, MD, PhD (In Memoriam)**
-  * *Founding Academician of Environmental Health & Water Safety Science.*
-  * The legacy of Professor M.G. Shcherban forms the fundamental basis of the Section of Biomedical and Environmental Safety.
-
-{{< project-hub >}}
-
-</details>
-
-<details>
-  <summary>Peer Review Policy🔻</summary>
-
-The *Chronicle OS* Journal employs a transparent **double-blind peer review** system.
-
-#### REVIEW REGULATIONS AND STAGES
-
-1. **Registration and Fixation:** The manuscript is assigned an ID and a cryptographic **SHA-256 hash lock**. A Pre-publication Card is published on the website.
-2. **Initial Screening:** Check by the Editor-in-Chief for compliance with the journal's scope and COPE ethics.
-3. **Expert Evaluation:** The anonymized text is sent to 2 independent reviewers. Duration up to 6 weeks.
-4. **Verdicts:** *Accepted* (Publication), *Revision* (Revision required), *Rejected* (Rejected without APC refund, transferred to closed archive).
-5. **Finality:** The decision of the Editorial Board is final.
-
-{{< morebutton target="https://github.com/Imperium-Silentii/formological-consulting/tree/main" text="CLASSIFIED ENTRY" >}}
-
-</details>
-
-<details>
-  <summary>Publication Ethics🔻</summary>
-
-The International Journal **Chronicle OS** adheres to the principles of the Committee on Publication Ethics (COPE).
-
-{{< vis-concept-paper-link >}}
-
-#### Authors' Warranties & APC Policy (£150)
-* Originality of materials and absence of plagiarism.
-* APC payment covers costs for independent peer review, SHA-256 sealing and archival deposit at IMARCH LTD.
-
-{{< chronicle-os-intro >}}
-
-### ✍️ Editorial Contacts
-
-Publication requests, protocol pre-registration or University Node deployment inquiries should be directed to the official secretariat:
-
-**Email:** [info@imarch.sbs](mailto:info@imarch.sbs)
-
-<div align="center">
-  <a href="mailto:info@imarch.sbs">
-    <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
-  </a>
-</div>
-
-</details>
-
-<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
-</div>
-
-<style>
-/* ===== UPDATED STYLES WITH ANIMATIONS ===== */
-
-/* Appearance animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Gentle pulse animation for banners */
-@keyframes gentlePulse {
-    0%, 100% {
-        box-shadow: 0 4px 20px rgba(139, 115, 85, 0.08);
-    }
-    50% {
-        box-shadow: 0 8px 35px rgba(139, 115, 85, 0.18);
-    }
-}
-
-/* Shimmer animation for buttons */
-@keyframes shimmer {
-    0% {
-        background-position: -200% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
-}
-
-/* Floating emoji animation */
-@keyframes floatEmoji {
-    0%, 100% {
-        transform: translateY(0) scale(1);
-    }
-    50% {
-        transform: translateY(-8px) scale(1.05);
-    }
-}
-
-/* ===== CARDS (THIN BORDER) ===== */
-.custom-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem 0;
-}
-
-.custom-card {
-    background: #fdfaf5;
-    border: 1px solid #ddd0c0; /* 👈 THINNER AND LIGHTER */
-    border-radius: 16px; /* 👈 SOFTER */
-    padding: 1.5rem;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    animation: fadeInUp 0.6s ease both;
-}
-
-/* Delays for cards */
-.custom-card:nth-child(1) { animation-delay: 0.05s; }
-.custom-card:nth-child(2) { animation-delay: 0.10s; }
-.custom-card:nth-child(3) { animation-delay: 0.15s; }
-.custom-card:nth-child(4) { animation-delay: 0.20s; }
-.custom-card:nth-child(5) { animation-delay: 0.25s; }
-.custom-card:nth-child(6) { animation-delay: 0.30s; }
-
-.custom-card:hover {
-    transform: translateY(-5px);
-    border-color: #b18b56;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-.custom-emoji {
-    font-size: 2.2rem;
-    margin-bottom: 0.75rem;
-    display: inline-block;
-    animation: floatEmoji 3s ease-in-out infinite;
-    transition: transform 0.3s ease;
-}
-
-.custom-card:hover .custom-emoji {
-    animation: floatEmoji 1.5s ease-in-out infinite;
-}
-
-.custom-title {
-    font-weight: 800;
-    font-size: 1.05rem;
-    color: #2c2416;
-    margin-bottom: 0.5rem;
-    border-left: 3px solid #b18b56;
-    padding-left: 0.75rem;
-    transition: border-color 0.3s ease;
-}
-
-.custom-card:hover .custom-title {
-    border-left-color: #8b6b4a;
-}
-
-.custom-desc {
-    font-size: 0.9rem;
-    line-height: 1.4;
-    color: #4a3a2a;
-    margin-bottom: 1rem;
-}
-
-.custom-tag {
-    display: inline-block;
-    font-size: 0.65rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: #8b7355;
-    background: rgba(139,115,85,0.1);
-    padding: 0.25rem 0.75rem;
-    border-radius: 30px;
-    margin-top: 0.5rem;
-    transition: all 0.3s ease;
-}
-
-.custom-card:hover .custom-tag {
-    background: rgba(139,115,85,0.18);
-    color: #6a553a;
-}
-
-/* ===== BANNERS (THIN BORDER + ANIMATION) ===== */
-.custom-card-banner {
-    background: linear-gradient(145deg, #f8f3ec, #eee8df);
-    border: 1.5px solid #c0b09a; /* 👈 THINNER */
-    border-radius: 20px; /* 👈 SOFTER */
-    padding: 2rem;
-    margin: 2.5rem 0;
-    text-align: center;
-    animation: fadeInUp 0.7s ease both;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Hidden decorative gradient */
-.custom-card-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(177, 139, 86, 0.03), transparent 60%);
-    pointer-events: none;
-    z-index: 0;
-}
-
-.custom-card-banner > * {
-    position: relative;
-    z-index: 1;
-}
-
-.custom-card-banner:hover {
-    border-color: #b18b56;
-    box-shadow: 0 8px 35px rgba(139, 115, 85, 0.12);
-    transform: translateY(-2px);
-}
-
-/* University banner (blue) */
-.custom-card-banner[style*="border-color: #4a6b82"]:hover {
-    border-color: #4a6b82;
-    box-shadow: 0 8px 35px rgba(74, 107, 130, 0.15);
-}
-
-.custom-card-banner .banner-emoji {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 0.5rem;
-    animation: floatEmoji 3.5s ease-in-out infinite;
-    transition: transform 0.3s ease;
-}
-
-.custom-card-banner:hover .banner-emoji {
-    animation: floatEmoji 1.5s ease-in-out infinite;
-}
-
-.custom-card-banner .banner-title {
-    font-size: 1.6rem;
-    font-weight: 800;
-    color: #2c2416;
-    transition: color 0.3s ease;
-}
-
-.custom-card-banner:hover .banner-title {
-    color: #1a1208;
-}
-
-.custom-card-banner .banner-sub {
-    font-size: 1rem;
-    color: #4a3a2a;
-    margin-bottom: 1.25rem;
-    line-height: 1.5;
-}
-
-.custom-card-banner .banner-btn {
-    display: inline-block;
-    background: #b18b56;
-    color: #fff;
-    font-weight: 700;
-    padding: 0.75rem 2.5rem;
-    border-radius: 40px;
-    text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Shine on button hover */
-.custom-card-banner .banner-btn::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        45deg,
-        transparent 40%,
-        rgba(255,255,255,0.15) 50%,
-        transparent 60%
-    );
-    background-size: 200% 200%;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-}
-
-.custom-card-banner .banner-btn:hover::after {
-    opacity: 1;
-    animation: shimmer 1.2s ease infinite;
-}
-
-.custom-card-banner .banner-btn:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 20px rgba(177, 139, 86, 0.3);
-}
-
-/* Blue button for university banner */
-.custom-card-banner[style*="border-color: #4a6b82"] .banner-btn {
-    background: #345266;
-}
-
-.custom-card-banner[style*="border-color: #4a6b82"] .banner-btn:hover {
-    box-shadow: 0 6px 20px rgba(52, 82, 102, 0.35);
-}
-
-/* ===== DECORATIVE DIVIDER ===== */
-.fade-in-up {
-    animation: fadeInUp 0.7s ease both;
-}
-
-</style>
-
-<!-- ===== BANNER CARD: UNIVERSITY CHRONICLE NODE (FOR UNIVERSITIES AND UMSS) ===== -->
-<div class="custom-card-banner" style="border-color: #4a6b82; background: linear-gradient(145deg, #f0f5f8, #e2ebf0);">
-  <span class="banner-emoji">🏛️</span>
-  <div class="banner-title" style="color: #1c3344;">UNIVERSITY CHRONICLE NODE PROGRAM</div>
-  <div class="banner-sub">Deployment of sovereign publishing and depository nodes for universities and research centers based on the COSDS standard</div>
-  <a href="/en/profile/chronicle-os-journal/institutional/" class="banner-btn" style="background: #345266;">DEPLOY NODE →</a>
-</div>
-
-#### 🏛️ CHRONICLE OS DOCUMENTATION SYSTEM (2026)
-
-The official general corpus of standards, institutional doctrines and applied regulations of the IMARCH ecosystem.
-
-<!-- ===== BANNER CARD: GENERAL ASSEMBLY VD-0009 ===== -->
-<div class="custom-card-banner">
-  <span class="banner-emoji">📜</span>
-  <div class="banner-title">CHRONICLE OS DOCUMENTATION SYSTEM</div>
-  <div class="banner-sub">General corpus of standards, institutional doctrines and applied regulations of the IMARCH ecosystem</div>
-  <a href="/en/verdictum/vd-0009-chronicle_os_documentation_system_20260721/" class="banner-btn">GENERAL ASSEMBLY</a>
-</div>
-
-<div style="width: 100%; text-align: center; margin: 2rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" />
-</div>
-
-### CHRONICLE OS STRUCTURE (VOLUMES I–V)
-
-<div class="custom-cards">
-
-  <!-- Volume I -->
-  <div class="custom-card">
-    <div class="custom-emoji">📖</div>
-    <div class="custom-title">Volume I — Architectural and Conceptual Foundation</div>
-    <div class="custom-desc">
-      <p>System philosophy, publishing node architecture, basic definitions, principles of institutional autonomy and the scientific knowledge lifecycle model.</p>
-      <p><strong>Key question:</strong> <em>"Why is the system structured this way?"</em></p>
-    </div>
-    <a href="/en/verdictum/vd-0007-rn-0037-1/" class="custom-tag" style="text-decoration: none;">Read Volume I →</a>
+  <div class="imarch-card">
+    <div class="imarch-card-num">01</div>
+    <div class="imarch-card-title">Legal circuit — IMARCH LTD</div>
+    <div class="imarch-card-text">Company No. 16791765, England and Wales. Corporate and legal shell.</div>
   </div>
 
-  <!-- Volume II -->
-  <div class="custom-card">
-    <div class="custom-emoji">📋</div>
-    <div class="custom-title">Volume II — Organizational and Regulatory System</div>
-    <div class="custom-desc">
-      <p>Editorial structure, official powers, editorial policy, Publication Ethics, expert peer review, regulatory framework.</p>
-      <p><strong>Key question:</strong> <em>"Who does what and on what basis?"</em></p>
-    </div>
-    <a href="/en/verdictum/vd-0007-rn-0037-2/" class="custom-tag" style="text-decoration: none;">Read Volume II →</a>
+  <div class="imarch-card">
+    <div class="imarch-card-num">02</div>
+    <div class="imarch-card-title">Expertise — RDIAR Institute</div>
+    <div class="imarch-card-text"><em>Risk Deconstruction &amp; Institutional Action Recording</em>. Deconstruction of risks and recording of actions.</div>
   </div>
 
-  <!-- Volume III -->
-  <div class="custom-card">
-    <div class="custom-emoji">⚙️</div>
-    <div class="custom-title">Volume III — Functional Operational System</div>
-    <div class="custom-desc">
-      <p>Manuscript submission, editorial cycle, publication process, post-publication support, SHA-256 archiving, auditing and node operation.</p>
-      <p><strong>Key question:</strong> <em>"How exactly does the publishing system work on a daily basis?"</em></p>
-    </div>
-    <a href="/en/verdictum/vd-0007-rn-0037-3/" class="custom-tag" style="text-decoration: none;">Read Volume III →</a>
+  <div class="imarch-card">
+    <div class="imarch-card-num">03</div>
+    <div class="imarch-card-title">Partnership — PLATAN+ Consortium</div>
+    <div class="imarch-card-text">Partnership platform for delivering the Unconditional Law programme.</div>
   </div>
 
-  <!-- Volume IV -->
-  <div class="custom-card">
-    <div class="custom-emoji">🛠️</div>
-    <div class="custom-title">Volume IV — Applied and Licensing-Procedural Contour</div>
-    <div class="custom-desc">
-      <p>Registry of executive regulations, legal licenses, supply chain verification forms, institutional interaction protocols.</p>
-      <p><strong>Ensures:</strong> Grant transparency, compliance protection and readiness for international and defense codification.</p>
-    </div>
-    <a href="/en/verdictum/vd-0007-rn-0037-4/" class="custom-tag" style="text-decoration: none;">Explore Licensing Contour →</a>
+  <div class="imarch-card">
+    <div class="imarch-card-num">04</div>
+    <div class="imarch-card-title">Technology — Chronicle OS · VERDICTUM</div>
+    <div class="imarch-card-text">Operational framework, registry recording and publication circuit.</div>
   </div>
 
-  <!-- Volume V -->
-  <div class="custom-card">
-    <div class="custom-emoji">🌐</div>
-    <div class="custom-title">Volume V — Integration & Institutional Expansion</div>
-    <div class="custom-desc">
-      <p>Interoperability standards, cross-node communication protocols, institutional partnership frameworks, global registry synchronization and sovereign office-site federation.</p>
-      <p><strong>Enables:</strong> Seamless integration with external institutional systems, cross-border verification and scalable knowledge federation.</p>
-    </div>
-    <a href="/en/verdictum/vd-0007-rn-0037-5/" class="custom-tag" style="text-decoration: none;">Explore Volume V →</a>
-  </div>
-
-</div>
-
-<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
-  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
 </div>
 
 &nbsp;
 
-<!-- Video block Actor-8888 -->
-<div class="pixel-perfect-square" onclick="smartToggle(this)" style="position: relative; width: 100%; aspect-ratio: 1 / 1; overflow: hidden; border-radius: 8px; cursor: pointer; background: #000; margin-bottom: 20px;">
-  <video class="q-hub-video" autoplay muted loop playsinline preload="auto" poster="/images/banners/001.jpg" style="position: absolute; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: cover; transform: translate(-50%, -50%);">
+{{< square-image 
+     src="/images/verdictum/0003-program.jpeg" 
+     alt="Ecosystem programme — stages of ascent"
+     class="fade-in-up" >}}
+
+<div id="program"></div>
+
+#### Ecosystem Programme { .fade-in-up }
+
+From academic publications and normative-architectural programmes to the renovation of properties, multimedia production and professional partnerships.
+
+The **Unconditional Law** programme and the **PLATAN+** consortium provide architectural expertise, recording of states and coordination of participants, forming a circuit of institutional resilience amid the growing complexity of the digital environment.
+
+{{< steel_button link="/ru/verdictum/" text="Learn more →" >}}
+
+
+{{% /details %}}
+
+
+{{% details "Ecosystem tracks" %}}
+
+{{< square-image 
+     src="/images/verdictum/0004-directions.jpeg" 
+     alt="Four tracks of the ecosystem"
+     class="fade-in-up" >}}
+
+From the creation and publication of knowledge to practical implementation, multimedia packaging and support of results. Each track addresses its own task while remaining part of a single institutional circuit.
+
+<div class="imarch-grid imarch-grid--cols-2">
+
+  <div class="imarch-card">
+    <div class="imarch-card-title">Track 1 — Two peer reviewed journals</div>
+    <div class="imarch-card-text">Regular academic and expert publication, peer review, identification and long-term recording of results. Including the VERDICTUM circuit.</div>
+    <a class="imarch-card-link" href="/ru/verdictum/">Go to the journals →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-title">Track 2 — Centre for renovation and social adaptation</div>
+    <div class="imarch-card-text">An applied circuit of restoration, adaptation and socio-expert practice, tied to a single logic of recording and development.</div>
+    <a class="imarch-card-link" href="/ru/docs/ludus/">Open the track →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-title">Track 3 — Multimedia packaging and production</div>
+    <div class="imarch-card-text">Typesetting and print, visuals and presentations, media formats, sound and music support of the expert circuit.</div>
+    <a class="imarch-card-link" href="/ru/profile/purpurov-studio/">View the formats →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-title">Track 4 — Bonus boutique</div>
+    <div class="imarch-card-text">Limited, collector and registry formats, artefacts and passports within a single verification standard.</div>
+    <a class="imarch-card-link" href="/ru/boutique/">Go to the boutique →</a>
+  </div>
+
+</div>
+
+<div id="collegium-contact"></div>
+
+&nbsp;
+
+{{< square-image 
+     src="/images/verdictum/0005-collegium.jpeg" 
+     alt="Collegium — the circle of institutional partners"
+     class="fade-in-up" >}}
+
+#### Collegium — for organisations, institutions and partners { .fade-in-up }
+
+A space for professional dialogue, expert exchange and the formation of joint initiatives in science, education, healthcare and community development.
+
+<div class="imarch-grid">
+
+  <div class="imarch-card imarch-card--plain">
+    <div class="imarch-card-text">Connection to the infrastructure of nodes, publication and archival circuits on the Chronicle OS base</div>
+  </div>
+
+  <div class="imarch-card imarch-card--plain">
+    <div class="imarch-card-text">Multimedia packaging and turnkey publishing solutions</div>
+  </div>
+
+  <div class="imarch-card imarch-card--plain">
+    <div class="imarch-card-text">Participation in consortium, pilot and partnership programmes</div>
+  </div>
+
+</div>
+
+{{< steel_button link="#contacts" text="Proceed →" >}}
+
+{{% /details %}}
+
+<div id="verified-base"></div>
+
+{{% details "Evidence base" %}}
+
+{{< square-image 
+     src="/images/verdictum/0006-evidence.jpeg" 
+     alt="Evidence base and registers"
+     class="fade-in-up" >}}
+
+Documents, presentations, publications and registers that form the evidence base of the ecosystem and ensure the verifiability of its projects, decisions and results.
+
+<div class="imarch-grid imarch-grid--cols-2">
+
+  <div class="imarch-card">
+    <div class="imarch-card-title">Ecosystem presentation</div>
+    <div class="imarch-card-text">10 slides (7 minutes), narration, publication.</div>
+    <a class="imarch-card-link" href="https://youtu.be/j0_QksHtN3Q" target="_blank" rel="noopener">Watch the presentation →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-title">VERDICTUM · Volume 1, No. 1</div>
+    <div class="imarch-card-text">Base issue, September 2026. Peer review, identification, archival recording.</div>
+    <a class="imarch-card-link" href="/ru/verdictum/">Open VERDICTUM →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-title">Official register</div>
+    <div class="imarch-card-text">Documents, declarations and the regulatory base of the institution.</div>
+    <a class="imarch-card-link" href="/ru/profile/office/">Open the register →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-title">Legal circuit</div>
+    <div class="imarch-card-text">IMARCH LTD, Company No. 16791765, England and Wales. CC BY-NC-ND 4.0 licence.</div>
+  </div>
+
+</div>
+
+{{< vis-concept-paper-link >}}
+
+<div id="contacts"></div>
+
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
+  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
+</div>
+
+<div class="pixel-perfect-square" onclick="smartToggle(this)" style="
+    position: relative; 
+    width: 100%; 
+    aspect-ratio: 1 / 1; 
+    overflow: hidden; 
+    border-radius: 8px; 
+    cursor: pointer;
+    background: #000;
+    margin-bottom: 20px;">
+    
+  <video 
+    class="q-hub-video"
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    preload="auto"
+    poster="/images/banners/001.jpg"
+    style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: translate(-50%, -50%);">
     <source src="/video/Actor-8888.mp4" type="video/mp4">
   </video>
-  <div class="sound-label" style="position: absolute; top: 15px; right: 15px; padding: 5px 10px; background: rgba(139, 115, 85, 0.8); color: white; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; border-radius: 4px; opacity: 0; transition: opacity 0.3s ease; pointer-events: none; z-index: 10;">
+
+  <div class="sound-label" style="
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      padding: 5px 10px;
+      background: rgba(139, 115, 85, 0.8);
+      color: white;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 10;">
       Audio Active
   </div>
 </div>
@@ -583,10 +332,64 @@ function smartToggle(container) {
 }
 </script>
 
-#### Project Status VIS REALITATIS™ { .fade-in-up }
+#### VIS REALITATIS™ project status { .fade-in-up }
 
-The VIS REALITATIS™ renovation and social adaptation center for veterans project is a core production project of IMARCH LTD (UK Reg 16791765), implemented within the institutional infrastructure of the Chronicle OS Documentation System.
+The VIS REALITATIS™ centre for the renovation and social adaptation of veterans is the base production project of IMARCH LTD (United Kingdom), implemented within the broader institutional infrastructure of the Chronicle OS Documentation System.
 
-{{< steel_button link="/en/profile/vis-realitatis/donor/" text="BECOME A CO-FOUNDER" >}}
+At the current stage the base core of the system and the first register of co-founders and participants are being formed.
 
-&nbsp;
+Inclusion and determination of co-founder rank is based on an expert and/or financial contribution to the development of the project, under the guarantees of IMARCH LTD (UK).
+
+Company registration number: 16791765
+Institutional infrastructure: Chronicle OS Documentation System
+Project status: formation of the base core and the register of participants
+
+{{< steel_button link="/ru/profile/vis-realitatis/donor/" text="BECOME A CO-FOUNDER" >}}
+
+&nbsp; 
+
+### ✍️ Contacts and Collegium
+
+For matters of connecting to the Chronicle OS infrastructure, publication, participation in programmes and partnership, please contact us directly:
+
+**Email:** [info@imarch.ltd](mailto:info@imarch.ltd)  
+**Portal:** [imarch.ltd](https://imarch.ltd)
+
+<div align="center">
+  <a href="mailto:info@imarch.ltd">
+    <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
+  </a>
+</div>
+
+{{% /details %}}
+
+{{< account-gate >}}
+
+&nbsp; 
+
+{{< persona-socials >}}
+
+<script>
+(function () {
+  function openAncestors(el) {
+    var node = el;
+    while (node && node !== document.body) {
+      if (node.tagName === 'DETAILS' && !node.open) node.open = true;
+      if (node.classList &&
+          (node.classList.contains('accordion-closed') || node.classList.contains('is-collapsed'))) {
+        node.classList.remove('accordion-closed');
+        node.classList.remove('is-collapsed');
+      }
+      node = node.parentElement;
+    }
+  }
+  window.addEventListener('hashchange', function () {
+    var hash = window.location.hash;
+    if (!hash || hash.length < 2) return;
+    var target = document.getElementById(hash.slice(1));
+    if (!target) return;
+    openAncestors(target);
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
