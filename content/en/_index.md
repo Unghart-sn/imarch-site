@@ -146,7 +146,7 @@ From academic publications and normative-architectural programmes to the renovat
 
 The **Unconditional Law** programme and the **PLATAN+** consortium provide architectural expertise, recording of states and coordination of participants, forming a circuit of institutional resilience amid the growing complexity of the digital environment.
 
-{{< steel_button link="/ru/verdictum/" text="Learn more →" >}}
+{{< steel_button link="/en/verdictum/" text="Learn more →" >}}
 
 
 {{% /details %}}
@@ -166,13 +166,13 @@ From the creation and publication of knowledge to practical implementation, mult
   <div class="imarch-card">
     <div class="imarch-card-title">Track 1 — Two peer reviewed journals</div>
     <div class="imarch-card-text">Regular academic and expert publication, peer review, identification and long-term recording of results. Including the VERDICTUM circuit.</div>
-    <a class="imarch-card-link" href="/ru/verdictum/">Go to the journals →</a>
+    <a class="imarch-card-link" href="/en/verdictum/">Go to the journals →</a>
   </div>
 
   <div class="imarch-card">
     <div class="imarch-card-title">Track 2 — Centre for renovation and social adaptation</div>
     <div class="imarch-card-text">An applied circuit of restoration, adaptation and socio-expert practice, tied to a single logic of recording and development.</div>
-    <a class="imarch-card-link" href="/ru/docs/ludus/">Open the track →</a>
+    <a class="imarch-card-link" href="/en/docs/ludus/">Open the track →</a>
   </div>
 
   <div class="imarch-card">
@@ -244,13 +244,13 @@ Documents, presentations, publications and registers that form the evidence base
   <div class="imarch-card">
     <div class="imarch-card-title">VERDICTUM · Volume 1, No. 1</div>
     <div class="imarch-card-text">Base issue, September 2026. Peer review, identification, archival recording.</div>
-    <a class="imarch-card-link" href="/ru/verdictum/">Open VERDICTUM →</a>
+    <a class="imarch-card-link" href="/en/verdictum/">Open VERDICTUM →</a>
   </div>
 
   <div class="imarch-card">
     <div class="imarch-card-title">Official register</div>
     <div class="imarch-card-text">Documents, declarations and the regulatory base of the institution.</div>
-    <a class="imarch-card-link" href="/ru/profile/office/">Open the register →</a>
+    <a class="imarch-card-link" href="/en/profile/office/">Open the register →</a>
   </div>
 
   <div class="imarch-card">
@@ -344,7 +344,7 @@ Company registration number: 16791765
 Institutional infrastructure: Chronicle OS Documentation System
 Project status: formation of the base core and the register of participants
 
-{{< steel_button link="/ru/profile/vis-realitatis/donor/" text="BECOME A CO-FOUNDER" >}}
+{{< steel_button link="/en/profile/vis-realitatis/donor/" text="BECOME A CO-FOUNDER" >}}
 
 &nbsp; 
 

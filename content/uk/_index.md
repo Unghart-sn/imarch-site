@@ -146,7 +146,7 @@ twitter_card: "summary_large_image"
 
 Програма **«Безумовне Право»** і консорціум **PLATAN+** забезпечують архітектурну експертизу, фіксацію станів і координацію учасників, формуючи контур інституційної стійкості в умовах зростаючої складності цифрового середовища.
 
-{{< steel_button link="/ru/verdictum/" text="Докладніше →" >}}
+{{< steel_button link="/uk/verdictum/" text="Докладніше →" >}}
 
 
 {{% /details %}}
@@ -166,13 +166,13 @@ twitter_card: "summary_large_image"
   <div class="imarch-card">
     <div class="imarch-card-title">Напрям 1 — Два рецензовані журнали</div>
     <div class="imarch-card-text">Регулярна наукова та експертна публікація, рецензування, ідентифікація та довгострокова фіксація результатів. Включно з контуром VERDICTUM.</div>
-    <a class="imarch-card-link" href="/ru/verdictum/">Перейти до журналів →</a>
+    <a class="imarch-card-link" href="/uk/verdictum/">Перейти до журналів →</a>
   </div>
 
   <div class="imarch-card">
     <div class="imarch-card-title">Напрям 2 — Центр реновації та соціальної адаптації</div>
     <div class="imarch-card-text">Прикладний контур відновлення, адаптації та соціо-експертної практики, пов'язаний з єдиною логікою фіксації та розвитку.</div>
-    <a class="imarch-card-link" href="/ru/docs/ludus/">Відкрити напрям →</a>
+    <a class="imarch-card-link" href="/uk/docs/ludus/">Відкрити напрям →</a>
   </div>
 
   <div class="imarch-card">
@@ -244,13 +244,13 @@ twitter_card: "summary_large_image"
   <div class="imarch-card">
     <div class="imarch-card-title">VERDICTUM · Том 1, № 1</div>
     <div class="imarch-card-text">Базовий випуск, вересень 2026. Рецензування, ідентифікація, архівна фіксація.</div>
-    <a class="imarch-card-link" href="/ru/verdictum/">Відкрити VERDICTUM →</a>
+    <a class="imarch-card-link" href="/uk/verdictum/">Відкрити VERDICTUM →</a>
   </div>
 
   <div class="imarch-card">
     <div class="imarch-card-title">Офіційний реєстр</div>
     <div class="imarch-card-text">Документи, декларації та нормативна база інституції.</div>
-    <a class="imarch-card-link" href="/ru/profile/office/">Відкрити реєстр →</a>
+    <a class="imarch-card-link" href="/uk/profile/office/">Відкрити реєстр →</a>
   </div>
 
   <div class="imarch-card">
@@ -344,7 +344,7 @@ function smartToggle(container) {
 Інституційна інфраструктура: Chronicle OS Documentation System
 Проєктний статус: формування базового ядра і реєстру учасників
 
-{{< steel_button link="/ru/profile/vis-realitatis/donor/" text="СТАТИ СПІВЗАСНОВНИКОМ" >}}
+{{< steel_button link="/uk/profile/vis-realitatis/donor/" text="СТАТИ СПІВЗАСНОВНИКОМ" >}}
 
 &nbsp; 
 
