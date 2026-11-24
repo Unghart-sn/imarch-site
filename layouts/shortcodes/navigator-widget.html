@@ -8,7 +8,7 @@
     exp_url    — ссылка на статью в экспертном журнале Verdictum (опционально)
     api_url    — URL Cloudflare Worker (по умолчанию https://imarch-navigator.chronosolexandr.workers.dev)
 */}}
-{{- $badge := .Get "badge" | default "✦ НАВИГАТОР ПУБЛИКАЦИЙ И ЭКОСИСТЕМЫ" -}}
+{{- $badge := .Get "badge" | default "✦ НАВИГАТОР ЭКОСИСТЕМЫ" -}}
 {{- $title := .Get "title" | default "CHRONICLE OS NAVIGATOR" -}}
 {{- $subtitle := .Get "subtitle" | default "Материалы страницы в рецензируемых контурах и точка входа агента" -}}
 {{- $sciUrl := .Get "sci_url" | default "" -}}
@@ -337,7 +337,7 @@
 
     <div class="{{ $uid }}-agent-wrap">
         <button type="button" class="{{ $uid }}-btn-agent" id="{{ $uid }}-btn-agent" aria-expanded="false">
-            <span>🤖 Агент-Навигатор</span>
+            <span>🤖 ВАШИ ВОПРОСЫ</span>
         </button>
 
         <div class="{{ $uid }}-chat-box" id="{{ $uid }}-chat-box">

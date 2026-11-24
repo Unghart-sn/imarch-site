@@ -52,10 +52,12 @@ twitter_card: "summary_large_image"
 
 &nbsp;
 
-{{< square-image 
-     src="/images/verdictum/0003.webp" 
-     alt="Verdictum International Jornal"
-     class="fade-in-up" >}}
+<div id="presentation"></div>
+
+{{< r2video
+  src="https://pub-8199817aef874bd5bbc783fefd2f38c7.r2.dev/present-1.webm"
+  poster="/images/26-08-31-umss-pres-10.jpg"
+>}}
 
 {{< navigator-widget
   api_url="https://imarch-navigator.chronosolexandr.workers.dev"
@@ -94,12 +96,10 @@ twitter_card: "summary_large_image"
 
 {{% details "Каркас системы" %}}
 
-<div id="presentation"></div>
-
-{{< r2video
-  src="https://pub-8199817aef874bd5bbc783fefd2f38c7.r2.dev/present-1.webm"
-  poster="/images/26-08-31-umss-pres-10.jpg"
->}}
+{{< square-image 
+     src="/images/verdictum/0003.webp" 
+     alt="Verdictum International Jornal"
+     class="fade-in-up" >}}
 
 Функциональная оболочка системы **Chronicle Communication System (CCS)**, действующая под корпоративным флагом **IMARCH LTD UK**. CCS — среда, в которой проекты обретают законченную форму и способность последовательно воплощать своё предназначение.
 
