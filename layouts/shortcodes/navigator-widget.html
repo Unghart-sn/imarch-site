@@ -409,6 +409,7 @@
         </div>
     </div>
 </div>
+<div id="{{ $uid }}-welcome" hidden style="display:none">{{ $c.welcome }}</div>
 
 <script>
 (function() {
@@ -421,7 +422,7 @@
         login_url: {{ $loginUrl | jsonify }},
         onboarding_url: {{ $onbUrl | jsonify }}
     };
-
+    const WELCOME_TEXT = ((document.getElementById('{{ $uid }}-welcome') || {}).textContent || '').split(String.fromCharCode(92,110)).join(String.fromCharCode(10)).trim();
     const WELCOME_TEXT = {{ $c.welcome | jsonify }}.split(String.fromCharCode(92,110)).join(String.fromCharCode(10));
     const ERROR_PREFIX = {{ $c.error_prefix | jsonify }};
 
