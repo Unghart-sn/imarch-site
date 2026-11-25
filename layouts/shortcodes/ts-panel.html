@@ -1,0 +1,11 @@
+{{- $title := .Get "title" -}}
+{{- $meta := .Get "meta" -}}
+<div class="ts-panel fade-in-up">
+  {{- with $title }}
+  <div class="ts-panel-title">{{ . | markdownify }}</div>
+  {{- end }}
+  {{- with $meta }}
+  <div class="ts-panel-meta">{{ . | markdownify }}</div>
+  {{- end }}
+  <div class="ts-panel-body">{{ .Inner | markdownify }}</div>
+</div>
