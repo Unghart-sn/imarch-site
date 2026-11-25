@@ -1,20 +1,77 @@
 {{/*
   IMARCH Chronicle OS — Navigator Widget (2 аккордеона + живой API-агент через Cloudflare Worker)
+  Мультиязычный: тексты берутся по языку сайта. Новый язык = одна запись в $L.
   Параметры:
-    badge      — бейдж сверху
-    title      — заголовок карточки
-    subtitle   — подзаголовок
-    sci_url    — ссылка на статью в научном журнале Chronicle OS (опционально)
-    exp_url    — ссылка на статью в экспертном журнале Verdictum (опционально)
-    api_url    — URL Cloudflare Worker (по умолчанию https://imarch-navigator.chronosolexandr.workers.dev)
+    badge, title, subtitle — переопределение текстов
+    sci_url, exp_url       — ссылки на публикации (опционально)
+    api_url                — URL Cloudflare Worker
+    onboarding_url         — пошаговый гид (по умолчанию профиль своего языка)
+    login_url              — вход в кабинет (по умолчанию /login/)
 */}}
-{{- $badge := .Get "badge" | default "✦ НАВИГАТОР ЭКОСИСТЕМЫ" -}}
-{{- $title := .Get "title" | default "CHRONICLE OS NAVIGATOR" -}}
-{{- $subtitle := .Get "subtitle" | default "Материалы страницы в рецензируемых контурах и точка входа агента" -}}
-{{- $sciUrl := .Get "sci_url" | default "" -}}
-{{- $expUrl := .Get "exp_url" | default "" -}}
-{{- $apiUrl := .Get "api_url" | default "https://imarch-navigator.chronosolexandr.workers.dev" -}}
-{{- $pageTitle := .Page.Title | default "" -}}
+{{- $lang := .Site.Language.Lang -}}
+
+{{- $L := dict
+  "ru" (dict
+    "badge"        "✦ НАВИГАТОР ЭКОСИСТЕМЫ"
+    "title"        "CHRONICLE OS NAVIGATOR"
+    "subtitle"     "Материалы страницы в рецензируемых контурах и точка входа агента"
+    "sci_label"    "Chronicle OS · Научный контур"
+    "sci_text"     "Это публикация содержания страницы в формате статьи научного международного рецензируемого журнала."
+    "exp_label"    "Verdictum · Экспертный контур"
+    "exp_text"     "Это публикация содержания страницы в формате статьи экспертного рецензируемого журнала."
+    "open_link"    "Открыть публикацию →"
+    "agent_btn"    "🤖 ВАШИ ВОПРОСЫ"
+    "placeholder"  "Введите вопрос или номер маршрута (1–5)..."
+    "send"         "Отправить"
+    "error_prefix" "Ошибка связи с навигатором: "
+    "onboarding"   "/ru/profile/ccs/profile/"
+    "welcome"      "Приветствую вас от имени администрации компании IMARCH LTD. Я — официальный Агент-Навигатор экосистемы IMARCH Chronicle OS. Моя задача — обеспечить ваш точный транзит по контурам нашей инфраструктуры и материалам презентационной монографии.\n\nПожалуйста, выберите цель вашего визита, чтобы я мог мгновенно проложить оптимальный маршрут:\n\n1. Ознакомиться с общей структурой, философией и логикой Chronicle OS.\n2. Подать статью или монографию в наш научный рецензируемый журнал.\n3. Перейти в Инвестиционный контур консорциума PLATAN+, проверить баланс токенов L1 или подать заявку на Buyback.\n4. Пройти экспресс-тест (дополнительная опция для верификации вашего персонального маршрута развития в экосистеме).\n5. Запросить информацию по конкретному Тому институциональной документации (Vol. I–V) или VD-0009.\n\nЕсли вы хотите сначала понять логику кабинета: [Как устроен аккаунт и с чего начать за 3 минуты](/ru/profile/ccs/profile/)\nГотовы войти: [Войти в личный кабинет](/login/) — регистрация 30 секунд по email и одноразовому 6-значному коду из письма."
+  )
+  "uk" (dict
+    "badge"        "✦ НАВІГАТОР ЕКОСИСТЕМИ"
+    "title"        "CHRONICLE OS NAVIGATOR"
+    "subtitle"     "Матеріали сторінки в рецензованих контурах і точка входу агента"
+    "sci_label"    "Chronicle OS · Науковий контур"
+    "sci_text"     "Це публікація змісту сторінки у форматі статті наукового міжнародного рецензованого журналу."
+    "exp_label"    "Verdictum · Експертний контур"
+    "exp_text"     "Це публікація змісту сторінки у форматі статті експертного рецензованого журналу."
+    "open_link"    "Відкрити публікацію →"
+    "agent_btn"    "🤖 ВАШІ ЗАПИТАННЯ"
+    "placeholder"  "Введіть запитання або номер маршруту (1–5)..."
+    "send"         "Надіслати"
+    "error_prefix" "Помилка зв'язку з навігатором: "
+    "onboarding"   "/uk/profile/ccs/profile/"
+    "welcome"      "Вітаю вас від імені адміністрації компанії IMARCH LTD. Я — офіційний Агент-Навігатор екосистеми IMARCH Chronicle OS. Моє завдання — забезпечити ваш точний транзит контурами нашої інфраструктури та матеріалами презентаційної монографії.\n\nБудь ласка, оберіть мету вашого візиту, щоб я міг миттєво прокласти оптимальний маршрут:\n\n1. Ознайомитися із загальною структурою, філософією та логікою Chronicle OS.\n2. Подати статтю або монографію до нашого наукового рецензованого журналу.\n3. Перейти в Інвестиційний контур консорціуму PLATAN+, перевірити баланс токенів L1 або подати заявку на Buyback.\n4. Пройти експрес-тест (додаткова опція для верифікації вашого персонального маршруту розвитку в екосистемі).\n5. Запросити інформацію щодо конкретного Тому інституційної документації (Vol. I–V) або VD-0009.\n\nЯкщо ви хочете спершу зрозуміти логіку кабінету: [Як влаштований акаунт і з чого почати за 3 хвилини](/uk/profile/ccs/profile/)\nГотові увійти: [Увійти до особистого кабінету](/login/) — реєстрація 30 секунд за email та одноразовим 6-значним кодом із листа."
+  )
+  "en" (dict
+    "badge"        "✦ ECOSYSTEM NAVIGATOR"
+    "title"        "CHRONICLE OS NAVIGATOR"
+    "subtitle"     "Page materials in peer-reviewed circuits and the agent entry point"
+    "sci_label"    "Chronicle OS · Academic circuit"
+    "sci_text"     "This is a publication of the page content in the format of an international peer-reviewed academic journal article."
+    "exp_label"    "Verdictum · Expert circuit"
+    "exp_text"     "This is a publication of the page content in the format of an expert peer-reviewed journal article."
+    "open_link"    "Open the publication →"
+    "agent_btn"    "🤖 YOUR QUESTIONS"
+    "placeholder"  "Enter your question or a route number (1–5)..."
+    "send"         "Send"
+    "error_prefix" "Navigator connection error: "
+    "onboarding"   "/en/profile/ccs/profile/"
+    "welcome"      "Greetings on behalf of the administration of IMARCH LTD. I am the official Navigator Agent of the IMARCH Chronicle OS ecosystem. My task is to ensure your precise transit through the circuits of our infrastructure and the materials of the presentation monograph.\n\nPlease select the purpose of your visit so I can map the optimal route instantly:\n\n1. Review the overall structure, philosophy and logic of Chronicle OS.\n2. Submit an article or monograph to our peer-reviewed academic journal.\n3. Enter the Investment circuit of the PLATAN+ consortium, check your L1 token balance or apply for Buyback.\n4. Take the express test (an additional option to verify your personal development route in the ecosystem).\n5. Request information on a specific Volume of institutional documentation (Vol. I–V) or VD-0009.\n\nIf you want to understand the cabinet logic first: [How your account works and how to start in 3 minutes](/en/profile/ccs/profile/)\nReady to enter: [Sign in to the personal cabinet](/login/) — registration takes 30 seconds via email and a one-time 6-digit code from the email."
+  )
+-}}
+
+{{- $c := or (index $L $lang) (index $L "en") -}}
+
+{{- $badge      := .Get "badge"    | default $c.badge -}}
+{{- $title      := .Get "title"    | default $c.title -}}
+{{- $subtitle   := .Get "subtitle" | default $c.subtitle -}}
+{{- $sciUrl     := .Get "sci_url"  | default "" -}}
+{{- $expUrl     := .Get "exp_url"  | default "" -}}
+{{- $apiUrl     := .Get "api_url"  | default "https://imarch-navigator.chronosolexandr.workers.dev" -}}
+{{- $onbUrl     := .Get "onboarding_url" | default $c.onboarding -}}
+{{- $loginUrl   := .Get "login_url"      | default "/login/" -}}
+{{- $pageTitle  := .Page.Title | default "" -}}
 {{- $uid := printf "imarch-nw-%d" .Ordinal -}}
 
 <style>
@@ -320,24 +377,24 @@
     </div>
 
     <div class="{{ $uid }}-panel" id="{{ $uid }}-panel-sci">
-        <div class="{{ $uid }}-panel-label">Chronicle OS · Научный контур</div>
-        <p>Это публикация содержания страницы в формате статьи научного международного рецензируемого журнала.</p>
+        <div class="{{ $uid }}-panel-label">{{ $c.sci_label }}</div>
+        <p>{{ $c.sci_text }}</p>
         {{ with $sciUrl }}
-            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="{{ $uid }}-panel-link">Открыть публикацию →</a>
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="{{ $uid }}-panel-link">{{ $c.open_link }}</a>
         {{ end }}
     </div>
 
     <div class="{{ $uid }}-panel" id="{{ $uid }}-panel-exp">
-        <div class="{{ $uid }}-panel-label">Verdictum · Экспертный контур</div>
-        <p>Это публикация содержания страницы в формате статьи экспертного рецензируемого журнала.</p>
+        <div class="{{ $uid }}-panel-label">{{ $c.exp_label }}</div>
+        <p>{{ $c.exp_text }}</p>
         {{ with $expUrl }}
-            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="{{ $uid }}-panel-link">Открыть публикацию →</a>
+            <a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="{{ $uid }}-panel-link">{{ $c.open_link }}</a>
         {{ end }}
     </div>
 
     <div class="{{ $uid }}-agent-wrap">
         <button type="button" class="{{ $uid }}-btn-agent" id="{{ $uid }}-btn-agent" aria-expanded="false">
-            <span>🤖 ВАШИ ВОПРОСЫ</span>
+            <span>{{ $c.agent_btn }}</span>
         </button>
 
         <div class="{{ $uid }}-chat-box" id="{{ $uid }}-chat-box">
@@ -346,8 +403,8 @@
                 <textarea class="{{ $uid }}-input"
                           id="{{ $uid }}-input"
                           rows="1"
-                          placeholder="Введите вопрос или номер маршрута (1–5)..."></textarea>
-                <button type="submit" class="{{ $uid }}-send" id="{{ $uid }}-send">Отправить</button>
+                          placeholder="{{ $c.placeholder }}"></textarea>
+                <button type="submit" class="{{ $uid }}-send" id="{{ $uid }}-send">{{ $c.send }}</button>
             </form>
         </div>
     </div>
@@ -357,19 +414,16 @@
 (function() {
     const API_URL = "{{ $apiUrl }}";
     const PAGE_CTX = {
+        lang: {{ $lang | jsonify }},
         page_title: {{ $pageTitle | jsonify }},
         sci_url: {{ $sciUrl | jsonify }},
-        exp_url: {{ $expUrl | jsonify }}
+        exp_url: {{ $expUrl | jsonify }},
+        login_url: {{ $loginUrl | jsonify }},
+        onboarding_url: {{ $onbUrl | jsonify }}
     };
 
-    const WELCOME_TEXT =
-        'Приветствую вас от имени администрации компании IMARCH LTD. Я — официальный Агент-Навигатор экосистемы IMARCH Chronicle OS. Моя задача — обеспечить ваш точный транзит по контурам нашей инфраструктуры и материалам презентационной монографии.\n\n' +
-        'Пожалуйста, выберите цель вашего визита, чтобы я мог мгновенно проложить оптимальный маршрут:\n\n' +
-        '1. Ознакомиться с общей структурой, философией и логикой Chronicle OS.\n' +
-        '2. Подать статью или монографию в наш научный рецензируемый журнал.\n' +
-        '3. Перейти в Инвестиционный контур консорциума PLATAN+, проверить баланс токенов L1 или подать заявку на Buyback.\n' +
-        '4. Пройти экспресс-тест (Дополнительная опция для верификации вашего персонального маршрута развития в экосистеме).\n' +
-        '5. Запросить информацию по конкретному Тому институциональной документации (Vol. I–V) или VD-0009.';
+    const WELCOME_TEXT = {{ $c.welcome | jsonify }};
+    const ERROR_PREFIX = {{ $c.error_prefix | jsonify }};
 
     const btnSci = document.getElementById('{{ $uid }}-btn-sci');
     const panelSci = document.getElementById('{{ $uid }}-panel-sci');
@@ -404,10 +458,12 @@
             .replace(/"/g, '&quot;');
     }
 
+    /* Ссылки в ответах агента: абсолютные (https://) И относительные (/login/).
+       Без этого «паровозик» с /login/ и /ru/profile/... не был бы кликабельным. */
     function formatAssistantHtml(rawText) {
         const escaped = escapeHtml(rawText || '');
         const withLinks = escaped.replace(
-            /\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)/g,
+            /\[([^\]]+)\]\(((?:https?:\/\/|\/)[^\s)]*)\)/g,
             '<a href="$2" target="_blank" rel="noopener noreferrer">$1</a>'
         );
         return withLinks.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
@@ -473,7 +529,7 @@
             history.push({ role: 'assistant', content: data.reply });
             appendMessage('assistant', data.reply);
         } catch (err) {
-            appendMessage('error', 'Ошибка связи с навигатором: ' + (err && err.message ? err.message : 'неизвестная ошибка'));
+            appendMessage('error', ERROR_PREFIX + (err && err.message ? err.message : '—'));
         } finally {
             busy = false;
             if (sendBtn) sendBtn.disabled = false;
