@@ -423,7 +423,6 @@
         onboarding_url: {{ $onbUrl | jsonify }}
     };
     const WELCOME_TEXT = ((document.getElementById('{{ $uid }}-welcome') || {}).textContent || '').split(String.fromCharCode(92,110)).join(String.fromCharCode(10)).trim();
-    const WELCOME_TEXT = {{ $c.welcome | jsonify }}.split(String.fromCharCode(92,110)).join(String.fromCharCode(10));
     const ERROR_PREFIX = {{ $c.error_prefix | jsonify }};
 
     const btnSci = document.getElementById('{{ $uid }}-btn-sci');
