@@ -1,19 +1,69 @@
 {{/*
   IMARCH Chronicle OS — Account Gate (Блок входа и регистрации аккаунта)
-  Параметры:
-    badge        — бейдж сверху
-    title        — заголовок блока
-    subtitle     — описание возможностей (артефакты, консалтинг, сертификат TSA)
-    login_url    — ссылка на страницу входа (по умолчанию /ru/login/)
-    register_url — ссылка на страницу регистрации (по умолчанию /ru/register/)
-    bonus_text   — текст бейджа с бонусом
+
+  Мультиязычный: тексты выбираются по языку сайта автоматически.
+  Добавление нового языка = одна запись в карте $L ниже.
+
+  ВАЖНО: форма входа одна для всех языков — /login/ (content/la/login.md, type: login).
+  Поэтому login_url и register_url НЕ имеют языкового префикса.
+
+  Параметры (все опциональны, перекрывают языковые значения):
+    badge         — бейдж сверху
+    title         — заголовок блока
+    subtitle      — описание возможностей
+    bonus_text    — текст бейджа с бонусом
+    login_url     — ссылка на страницу входа (по умолчанию /login/)
+    register_url  — ссылка на страницу регистрации (по умолчанию /login/)
+    details_url   — ссылка на страницу «зачем нужен аккаунт»
+    details_text  — текст этой ссылки
+    details       — "0" чтобы скрыть ссылку на подробности
 */}}
-{{- $badge := .Get "badge" | default "✦ СУВЕРЕННЫЙ ДОСТУП К ЭКОСИСТЕМЕ" -}}
-{{- $title := .Get "title" | default "ВАШ АККАУНТ" -}}
-{{- $subtitle := .Get "subtitle" | default "Регистарция аккаунта для приобретения, прецизионного учёта и защищённого хранения цифровых артефактов, научных публикаций и услуг консорциума PLATAN+." -}}
-{{- $bonusText := .Get "bonus_text" | default "Бонус при регистрации: криптографический сертификат временной метки (RFC 3161 TSA) для фиксации вашего первого документа." -}}
-{{- $loginUrl := .Get "login_url" | default "/login/" -}}
+{{- $lang := .Site.Language.Lang -}}
+
+{{- $L := dict
+  "ru" (dict
+    "badge"        "✦ СУВЕРЕННЫЙ ДОСТУП К ЭКОСИСТЕМЕ"
+    "title"        "ВАШ АККАУНТ"
+    "subtitle"     "Регистрация аккаунта для приобретения, прецизионного учёта и защищённого хранения цифровых артефактов, научных публикаций и услуг консорциума PLATAN+."
+    "bonus"        "Бонус при регистрации: криптографический сертификат временной метки (RFC 3161 TSA) для фиксации вашего первого документа."
+    "btn_register" "Создать аккаунт →"
+    "btn_login"    "Войти в кабинет"
+    "details"      "Зачем вам нужен аккаунт →"
+    "details_url"  "/ru/profile/ccs/profile/"
+  )
+  "uk" (dict
+    "badge"        "✦ СУВЕРЕННИЙ ДОСТУП ДО ЕКОСИСТЕМИ"
+    "title"        "ВАШ АКАУНТ"
+    "subtitle"     "Реєстрація акаунта для придбання, прецизійного обліку й захищеного зберігання цифрових артефактів, наукових публікацій і послуг консорціуму PLATAN+."
+    "bonus"        "Бонус при реєстрації: криптографічний сертифікат часової позначки (RFC 3161 TSA) для фіксації вашого першого документа."
+    "btn_register" "Створити акаунт →"
+    "btn_login"    "Увійти до кабінету"
+    "details"      "Навіщо вам потрібен акаунт →"
+    "details_url"  "/uk/profile/ccs/profile/"
+  )
+  "en" (dict
+    "badge"        "✦ SOVEREIGN ACCESS TO THE ECOSYSTEM"
+    "title"        "YOUR ACCOUNT"
+    "subtitle"     "Account registration for acquiring, precisely tracking and securely storing digital artefacts, academic publications and PLATAN+ consortium services."
+    "bonus"        "Registration bonus: a cryptographic timestamp certificate (RFC 3161 TSA) to record your first document."
+    "btn_register" "Create an account →"
+    "btn_login"    "Sign in to the cabinet"
+    "details"      "Why you need an account →"
+    "details_url"  "/en/profile/ccs/profile/"
+  )
+-}}
+
+{{- $c := or (index $L $lang) (index $L "en") -}}
+
+{{- $badge       := .Get "badge"        | default $c.badge -}}
+{{- $title       := .Get "title"        | default $c.title -}}
+{{- $subtitle    := .Get "subtitle"     | default $c.subtitle -}}
+{{- $bonusText   := .Get "bonus_text"   | default $c.bonus -}}
+{{- $loginUrl    := .Get "login_url"    | default "/login/" -}}
 {{- $registerUrl := .Get "register_url" | default "/login/" -}}
+{{- $detailsUrl  := .Get "details_url"  | default $c.details_url -}}
+{{- $detailsText := .Get "details_text" | default $c.details -}}
+{{- $showDetails := ne (.Get "details") "0" -}}
 {{- $uid := printf "imarch-ag-%d" .Ordinal -}}
 
 <style>
@@ -114,6 +164,22 @@
         color: #ffffff !important;
         transform: translateY(-1px);
     }
+    .{{ $uid }}-details {
+        margin-top: 1.1rem;
+        font-size: 0.82rem;
+        line-height: 1.4;
+    }
+    .{{ $uid }}-details a {
+        color: #8a7a63;
+        text-decoration: none;
+        border-bottom: 1px solid rgba(138, 122, 99, 0.35);
+        padding-bottom: 1px;
+        transition: color 0.2s ease, border-color 0.2s ease;
+    }
+    .{{ $uid }}-details a:hover {
+        color: #5c4321;
+        border-color: #b18b56;
+    }
 
     @media (max-width: 640px) {
         .{{ $uid }}-box {
@@ -135,6 +201,9 @@
             width: 100%;
             min-width: 100%;
         }
+        .{{ $uid }}-details {
+            font-size: 0.8rem;
+        }
     }
 </style>
 
@@ -150,7 +219,13 @@
     {{ end }}
 
     <div class="{{ $uid }}-actions">
-        <a href="{{ $registerUrl }}" class="{{ $uid }}-btn-primary">Создать аккаунт →</a>
-        <a href="{{ $loginUrl }}" class="{{ $uid }}-btn-secondary">Войти в кабинет</a>
+        <a href="{{ $registerUrl }}" class="{{ $uid }}-btn-primary">{{ $c.btn_register }}</a>
+        <a href="{{ $loginUrl }}" class="{{ $uid }}-btn-secondary">{{ $c.btn_login }}</a>
     </div>
+
+    {{ if and $showDetails $detailsUrl $detailsText }}
+    <div class="{{ $uid }}-details">
+        <a href="{{ $detailsUrl }}">{{ $detailsText }}</a>
+    </div>
+    {{ end }}
 </div>

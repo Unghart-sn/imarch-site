@@ -64,6 +64,11 @@ description: "Пошаговый гид по личному кабинету: в
 }
 </style>
 
+{{< square-image 
+     src="/images/verdictum/0003.webp" 
+     alt="Verdictum International Jornal"
+     class="fade-in-up" >}}
+
 ##### IMARCH LTD · Company No. 16791765 · Англия и Уэльс
 
 ---

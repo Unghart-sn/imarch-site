@@ -64,6 +64,11 @@ description: "A step-by-step guide to your personal cabinet: sign-in by code, ac
 }
 </style>
 
+{{< square-image 
+     src="/images/verdictum/0003.webp" 
+     alt="Verdictum International Jornal"
+     class="fade-in-up" >}}
+
 ##### IMARCH LTD · Company No. 16791765 · England and Wales
 
 ---

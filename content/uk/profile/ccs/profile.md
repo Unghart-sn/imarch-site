@@ -64,6 +64,11 @@ description: "Покроковий гід особистим кабінетом:
 }
 </style>
 
+{{< square-image 
+     src="/images/verdictum/0003.webp" 
+     alt="Verdictum International Jornal"
+     class="fade-in-up" >}}
+
 ##### IMARCH LTD · Company No. 16791765 · Англія та Уельс
 
 ---
