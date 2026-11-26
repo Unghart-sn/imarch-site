@@ -201,7 +201,7 @@
       }
 
       try {
-        var res = await sb.from('profiles').select('token_balance, safe_until').eq('id', userId).single();
+    var res = await sb.from('profiles').select('token_balance, safe_until').eq('id', userId).single();
         var balance = (res.data && res.data.token_balance) || 0;
         var safeUntil = res.data && res.data.safe_until ? new Date(res.data.safe_until) : null;
         var isActive = safeUntil && safeUntil > new Date();
@@ -866,17 +866,17 @@
 
             Promise.all([
               sb.rpc('get_current_price', { p_product_code: 'certificate' }),
-              sb.from('profiles').select('token_balance, promo_balance').eq('id', userId).single()
+              sb.from('profiles').select('token_balance, promo_balance').eq('id', userId).single(), sb.from('orders').select('id').eq('issuer_user_id', userId).eq('is_trial', true).limit(1)
             ]).then(function (results) {
               var priceRow = (results[0] && results[0].data && results[0].data[0]) || { price_micro: 20, product_code: 'certificate' };
               var _row = (results[1] && results[1].data) || {};
               var balance = _row.token_balance || 0;
               var promoBal = _row.promo_balance || 0;
               var price = priceRow.price_micro;
-              var usePromo = promoBal >= price;
+    var trialRows = (results[2] && results[2].data) || []; var trialUsed = trialRows.length > 0; var usePromo = promoBal >= price && !trialUsed;
               var available = usePromo ? promoBal : balance;
 
-              document.getElementById('spendProductName').textContent = usePromo ? 'Trial certificate (promo)' : priceRow.product_code;
+        document.getElementById('spendProductName').textContent = usePromo ? 'Trial certificate (promo)' : (trialUsed ? priceRow.product_code + ' - trial already used' : priceRow.product_code);
               document.getElementById('spendPrice').textContent = price;
               document.getElementById('spendBalance').textContent = usePromo ? (promoBal + ' promo / ' + balance + ' main') : balance;
               document.getElementById('spendAfter').textContent = (available - price);
