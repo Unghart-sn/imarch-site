@@ -7,7 +7,7 @@ layout: "single"
      src="/images/banners/0015.png" 
      alt="Консилиум сцена институционального мышления и признания" >}}
 
-{{< morebutton target="https://imarch.sbs/ru/vis-realitatis-center/" text="О ПРОЕКТЕ" >}}
+{{< morebutton target="https://imarch.ltd/ru/vis-realitatis-center/" text="О ПРОЕКТЕ" >}}
 </div>
 
 {{< vis-concept-paper-link >}}
@@ -119,7 +119,7 @@ layout: "single"
 
 Профиль это **кто ты в системе**.
 
-{{< morebutton target="https://imarch.sbs/ru/unghart/" text="ДЕМО ПРОФИЛЯ" >}}
+{{< morebutton target="https://imarch.ltd/ru/unghart/" text="ДЕМО ПРОФИЛЯ" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -217,7 +217,7 @@ layout: "single"
 
 Сценическая маска это **как ты действуешь и проявляешься**.
 
-{{< morebutton target="https://unghart.imarch.sbs/ru/" text="ДЕМО САЙТ-МАСКИ" >}}
+{{< morebutton target="https://unghart.imarch.ltd/ru/" text="ДЕМО САЙТ-МАСКИ" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -243,7 +243,7 @@ layout: "single"
 
 Офис‑сайт эксперта это пространство, **где вы действуете как официальное представительство своей профессиональной роли в Интернете**, будь то предприниматель, учёный, художник, писатель, музыкант или консультант. Здесь личная экспертиза становится институциональной формой.
 
-{{< morebutton target="https://imarch.sbs/ru/director/" text="ОФИС-САЙТ ЭКСПЕРТА" >}}
+{{< morebutton target="https://imarch.ltd/ru/director/" text="ОФИС-САЙТ ЭКСПЕРТА" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -343,7 +343,7 @@ layout: "single"
 
 Консорциумный офис-сайт это пространство, **где твы действуете как официальное представительство в Интернете**, будь то организация, компания, институция.  
 
-{{< morebutton target="https://imarch.sbs/ru/imarch-ltd/" text="ОФИС-САЙТ КОМПАНИИ" >}}
+{{< morebutton target="https://imarch.ltd/ru/imarch-ltd/" text="ОФИС-САЙТ КОМПАНИИ" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -633,7 +633,7 @@ layout: "single"
 
 ## 📞 Остались вопросы?
 
-Пишите на [info@imarch.sbs](mailto:inf@imarch.sbs)
+Пишите на [info@imarch.ltd](mailto:inf@imarch.ltd)
 
 *Последнее обновление: {{< current_date >}}*
 

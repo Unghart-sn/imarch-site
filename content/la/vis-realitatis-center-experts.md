@@ -22,7 +22,7 @@ Structura evolvitur ut spatium ubi actus fit eventus, et experientia formam acci
 IMARCH evolvitur ut ambitus formatus per interactionem participantium et eorum contributiones. Movemur ad formam institutionalem sustinendam quae praxes extra circulos breves conservare potest.
 
 <div style="text-align: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Contributor%20registration%20request&body=Name:%20%0ASpecialisation:%20%0ALink%20to%20publications:%20%0AWhy%20are%20you%20interested%20in%20the%20journal:" text="✉️ SCRIBE NOBIS PRO REGISTRATIONE" margin="1rem 0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Contributor%20registration%20request&body=Name:%20%0ASpecialisation:%20%0ALink%20to%20publications:%20%0AWhy%20are%20you%20interested%20in%20the%20journal:" text="✉️ SCRIBE NOBIS PRO REGISTRATIONE" margin="1rem 0" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
@@ -251,6 +251,6 @@ Si hic appropinquatio resonat cum praxi tua, potes inchoare dialogum.
 {{< hvost >}}
 
 <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Contributor%20registration%20request&body=Name:%20%0ASpecialisation:%20%0ALink%20to%20publications:%20%0AWhy%20are%20you%20interested%20in%20the%20journal:" text="✉️ SCRIBE NOBIS PRO REGISTRATIONE" margin="0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Contributor%20registration%20request&body=Name:%20%0ASpecialisation:%20%0ALink%20to%20publications:%20%0AWhy%20are%20you%20interested%20in%20the%20journal:" text="✉️ SCRIBE NOBIS PRO REGISTRATIONE" margin="0" >}}
 
 {{< persona-socials >}}

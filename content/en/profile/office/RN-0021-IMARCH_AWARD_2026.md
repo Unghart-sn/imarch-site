@@ -164,12 +164,12 @@ London, United Kingdom
 &nbsp;
 
 **IMARCH LTD Awards Registry and Recipient Roll**  
-imarch.sbs/en/profile/pilot/registry/
+imarch.ltd/en/profile/pilot/registry/
 
 &nbsp;
 
 © 2026 IMARCH LTD. All rights reserved.  
-Official registry: imarch.sbs | Contact: director@imarch.sbs  
+Official registry: imarch.ltd | Contact: info@imarch.ltd  
 Document ID: IMARCH-AWARD-2026-0001 | Version: 1.0 | Date: June 2026  
 This document may be reproduced in full for distribution among partner institutions and research communities.  
 When citing, reference the full monograph: **DOI 10.5281/zenodo.20611942**

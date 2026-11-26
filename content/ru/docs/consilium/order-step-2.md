@@ -19,7 +19,7 @@ description: "Второй этап заявки на передачу прав 
 
 Пожалуйста, проверьте данные, скопируйте их и отправьте письмо:
 
-*   **Куда отправлять:** `orders@imarch.sbs`
+*   **Куда отправлять:** `info@imarch.ltd`
 *   **Тема письма:** `Заявка на передачу прав: [NODE ID]`
 
 <!-- БЛОК С ПРОТОКОЛОМ -->
@@ -73,7 +73,7 @@ description: "Второй этап заявки на передачу прав 
 </p>
 
 <div align="center">
-  <a id="orderMailtoLink" href="mailto:orders@imarch.sbs">
+  <a id="orderMailtoLink" href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('orderMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Заявка на передачу прав: ' + nodeId);
-    mailtoLink.setAttribute('href', 'mailto:orders@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:info@imarch.ltd?subject=' + subject);
   }
 });
 

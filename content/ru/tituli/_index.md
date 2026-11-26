@@ -166,7 +166,7 @@ th {
 {{< social-block-1 >}}
 
 <div class="email-icon-container">
-  <a href="mailto:admin@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img src="/images/ikons/silver/email.png" alt="Email icon" class="email-icon" />
   </a>
 </div>

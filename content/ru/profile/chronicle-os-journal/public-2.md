@@ -20,7 +20,7 @@ description: "Второй этап подачи статьи: криптогр�
 
 1. **Скопировать официальный протокол** депонирования ниже.
 2. **Внести целевой регистрационный взнос £50** на поддержку инфраструктуры рецензирования.
-3. **Отправить копию протокола** и файлы публикации на наш официальный почтовый шлюз `info@imarch.sbs`.
+3. **Отправить копию протокола** и файлы публикации на наш официальный почтовый шлюз `info@imarch.ltd`.
 
 Приоритетное размещение и рецензирование вашей статьи является гарантированным бонусом (Reward / Perk) для доноров и меценатов, поддерживающих развитие некоммерческой инфраструктуры IMARCH Chronicle OS.
 
@@ -74,7 +74,7 @@ description: "Второй этап подачи статьи: криптогр�
 
 <!-- ИКОНКА ПОЧТЫ -->
 <div align="center" style="margin-top: 0.5rem;">
-  <a id="authMailtoLink" href="mailto:info@imarch.sbs">
+  <a id="authMailtoLink" href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('authMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Протокол депонирования статьи: ' + name);
-    mailtoLink.setAttribute('href', 'mailto:info@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:info@imarch.ltd?subject=' + subject);
   }
 });
 

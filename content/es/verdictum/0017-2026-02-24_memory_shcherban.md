@@ -39,12 +39,12 @@ La memoria en la institución se expresa no solo mediante la preservación del n
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
   <p><em>IMARCH LTD UK • Departamento de Desarrollo Organizacional</em></p>
-  <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
   <p><em>2026.02.24 • VERDICTUM • Serie: Declaraciones Oficiales</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/0017_%20%20verdiktum.pdf">Publicación y Archivo</a> (ES)</p>
 </div>
 
-Las solicitudes externas se aceptan únicamente con una firma digital confirmada enviada a: **`secretariat@imarch.sbs`**
+Las solicitudes externas se aceptan únicamente con una firma digital confirmada enviada a: **`secretariat@imarch.ltd`**
 
 **CONFIRMACIÓN DE AUTENTICIDAD:**  
 La autenticidad de esta publicación está validada por el valor hash del documento original:

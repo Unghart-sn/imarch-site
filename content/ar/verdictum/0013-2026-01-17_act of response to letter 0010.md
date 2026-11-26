@@ -23,15 +23,15 @@ translationKey: "scene-blog-0013"
 
 &nbsp;
 <div style="text-align:right; max-width:800px; margin:0 auto; direction: rtl;">
-  <p><em><a href="https://imarch.sbs/ar/imarch-ltd-uk/">IMARCH LTD UK</a> • قسم التطوير التنظيمي</em></p>
-  <p>البريد الإلكتروني: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-  <p><em>2026.01.17، <a href="https://imarch.sbs/ar/verdictum/">VERDICTUM</a> • سلسلة: المراسلات</em></p>
+  <p><em><a href="https://imarch.ltd/ar/imarch-ltd-uk/">IMARCH LTD UK</a> • قسم التطوير التنظيمي</em></p>
+  <p>البريد الإلكتروني: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+  <p><em>2026.01.17، <a href="https://imarch.ltd/ar/verdictum/">VERDICTUM</a> • سلسلة: المراسلات</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/discussions/5#discussion-9336007">النشر والأرشفة</a> (LAT)</p>
 </div>
 
 **الوصول إلى النص الكامل:**  
 النص الكامل للرسالة متاح لأعضاء مجموعة المبادرة "Vis Realitatis" من خلال القنوات الداخلية الرسمية.  
-يتم قبول الطلبات الخارجية بتوقيع إلكتروني مؤكد يتم إرساله إلى: **`secretariat@imarch.sbs`**
+يتم قبول الطلبات الخارجية بتوقيع إلكتروني مؤكد يتم إرساله إلى: **`secretariat@imarch.ltd`**
 
 **التحقق من الأصالة:**  
 تم التحقق من أصالة هذا المنشور من خلال قيمة التجزئة للوثيقة الأصلية:

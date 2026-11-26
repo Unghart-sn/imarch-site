@@ -2027,7 +2027,7 @@ ll provisions set forth in Books I and II take effect upon public fixation and a
 
 <details>
   <summary>▾</summary>
-  <p><em>2025.10.02, <a href="https://imarch.sbs/en/constitutio/">CONSTITUTION</a></em></p>
+  <p><em>2025.10.02, <a href="https://imarch.ltd/en/constitutio/">CONSTITUTION</a></em></p>
   <p><em>IMARCH Administration</em></p>
 
   [const-en-01.pdf](https://github.com/Imperium-Silentii/Arhivum/blob/main/const-001/const-en-01.pdf) | `A3E504F6F8057BB50DEBBB58C97F1DB08D059C7CB3BCFAE471EC5B26FB9958B7`

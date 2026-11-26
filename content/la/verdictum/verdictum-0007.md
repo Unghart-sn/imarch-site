@@ -125,12 +125,12 @@ translationKey: "scene-blog-0007"
 </div>
 
 **ORDO ACCEDENDI AD TEXTVM INTEGRVM:**
-Textus integralis documentī praebetur membris Coetus Inceptoris «Vis Realitatis» per canales officiales internos. Externa postulatio ex electronicā inscriptione verificatā ad: **`secretariat@imarch.sbs`**
+Textus integralis documentī praebetur membris Coetus Inceptoris «Vis Realitatis» per canales officiales internos. Externa postulatio ex electronicā inscriptione verificatā ad: **`secretariat@imarch.ltd`**
 
 ---
 
 **PROCEDURE FOR ACCESSING THE FULL TEXT:**
-The complete text of the document is provided to members of the Initiative Group «Vis Realitatis» through official internal channels. External requests from verified electronic inscription to: **`secretariat@imarch.sbs`**
+The complete text of the document is provided to members of the Initiative Group «Vis Realitatis» through official internal channels. External requests from verified electronic inscription to: **`secretariat@imarch.ltd`**
 
 &nbsp;
 
@@ -153,10 +153,10 @@ The complete text of the document is provided to members of the Initiative Group
       padding-left: 0 !important;
       display: block !important;
   ">
-    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/en/verdictum/verdictum-0003/">IMARCH LTD UK</a> • Department of Organizational Development</em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;">Electronicā inscriptione: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.sbs/la/verdictum/">VERDICT</a> • Series: Internal Organizational Affairs</em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/imarch.sbs-la-verdictum-verdictum-0007.pdf">verdictum-0007-la.pdf</a> (LAT/ENG)</p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/en/verdictum/verdictum-0003/">IMARCH LTD UK</a> • Department of Organizational Development</em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;">Electronicā inscriptione: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.ltd/la/verdictum/">VERDICT</a> • Series: Internal Organizational Affairs</em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/imarch.ltd-la-verdictum-verdictum-0007.pdf">verdictum-0007-la.pdf</a> (LAT/ENG)</p>
   </div>
 </div>
 

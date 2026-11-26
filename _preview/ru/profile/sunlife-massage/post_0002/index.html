@@ -1,0 +1,2591 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+    <title>Базовый модуль Self-Regulation Protocol “Harmonia” - Imarchia</title>
+
+  <meta name="description" content="
+  
+    
+  
+  
+
+
+
+
+Мы запускаем сборку базового методического модуля Self-Regulation Protocol “Harmonia” в рамках пилотного модуля проекта Vis Realitatis, пространства для первых сооснователей, где реальность обретает форму.
+Присоединяйтесь к первому кругу сооснователей и станьте частью институционального основания.
+
+  
+  
+    
+      
+        📌
+        Разделы проекта Vis Realitatis
+      
+      ▼
+    
+
+    
+      
+        
+        
+          🏠
+          Главная Проекта
+          Возврат на главную страницу проекта Vis Realitatis
+          
+            На главную
+          
+        
+
+        
+        
+          01
+          📋
+          Исполнительное резюме
+          Краткое изложение проекта, его целей и предполагаемых результатов
+          
+            Подробнее →
+          
+        
+
+        
+        
+          02
+          🎯
+          Проблема ветеранов с ПТСР
+          Исследование текущей ситуации и вызовов, с которыми сталкиваются ветераны" />
+  <meta name="author" content="IMARCH LTD UK" />
+
+
+  <link href="https://imarch.ltd/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+<meta name="generator" content="Hugo 0.148.2"><link rel="alternate" href="https://imarch.ltd/ru/index.xml" type="application/rss+xml" title="Имархия" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://imarch.ltd/css/main.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/custom-v2.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/ungchart.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" />
+  <link rel="stylesheet" href="https://imarch.ltd/css/syntax.css" />
+
+<link rel="stylesheet" href="https://imarch.ltd/css/codeblock.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" crossorigin="anonymous" />
+
+
+
+
+
+<link rel="stylesheet" href="/css/landing.css?v=3" />
+
+        <link rel="stylesheet" href="/css/style.css">
+
+    
+    <style>
+      html, body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
+      body {
+        display: block !important;
+        flex-flow: initial !important;
+        padding-top: 80px !important;
+      }
+      main {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+      footer {
+        position: static !important;
+        margin-top: 3rem !important;
+        display: block !important;
+        width: 100% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://imarch.ltd/ru/">Имархия</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Игра" href="/ru/docs/ludus/">Игра</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Архив" href="/ru/docs/archivum/">Архив</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Коллегия" href="/ru/docs/collegium/">Коллегия</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Совет" href="/ru/docs/consilium/">Совет</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Вердикт" href="/ru/verdictum/">Вердикт</a>
+            </li>
+          
+        
+
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0"></a>
+              <div class="navlinks-children">
+                
+                  
+                  <a href="https://imarch.ltd/sunlife-massage/post2/">Latina</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/ar/sunlife-massage/post2/">العربية</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/zh/sunlife-massage/post2/">中文</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/en/profile/sunlife-massage/post2/">English</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/fr/sunlife-massage/post2/">Français</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/es/sunlife-massage/post2/">Español</a>
+                  
+                
+              </div>
+            </li>
+          
+        
+
+        
+        <li>
+          <a href="/login/" title="Sign in">Sign in</a>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Имархия" href="https://imarch.ltd/ru/">
+            <img class="avatar-img" src="https://imarch.ltd/images/logo.png" alt="Имархия" />
+          </a>
+        </div>
+      </div>
+    
+  </div>
+</nav>
+
+
+
+
+    <main>
+      
+<main>
+  <div class="section-content">
+    
+    
+    <h1>Базовый модуль Self-Regulation Protocol “Harmonia”</h1>
+    
+    
+    
+    <div class="article-date">
+      📅 1 October 2025
+    </div>
+    
+    
+    
+    
+    <div class="article-translations">
+      <span>🌐 :</span>
+      
+      <a href="https://imarch.ltd/sunlife-massage/post2/" class="translation-link">Latina</a>
+      
+      <a href="https://imarch.ltd/ar/sunlife-massage/post2/" class="translation-link">العربية</a>
+      
+      <a href="https://imarch.ltd/zh/sunlife-massage/post2/" class="translation-link">中文</a>
+      
+      <a href="https://imarch.ltd/en/profile/sunlife-massage/post2/" class="translation-link">English</a>
+      
+      <a href="https://imarch.ltd/fr/sunlife-massage/post2/" class="translation-link">Français</a>
+      
+      <a href="https://imarch.ltd/es/sunlife-massage/post2/" class="translation-link">Español</a>
+      
+    </div>
+    
+    
+    
+    <figure class="banner">
+  <div class="banner-image">
+    <img src="/images/banners/0019.png" alt="Consilium Scene of Institutional Thinking and Recognition" class="">
+  </div>
+  
+</figure>
+
+
+<hr>
+<p>Мы запускаем сборку базового методического модуля Self-Regulation Protocol “Harmonia” в рамках <strong>пилотного модуля проекта Vis Realitatis</strong>, пространства для первых сооснователей, где реальность обретает форму.</p>
+<p>Присоединяйтесь к первому кругу сооснователей и станьте частью институционального основания.</p>
+<div class="vis-project-sections">
+  
+  <details class="vis-accordion">
+    <summary class="accordion-header">
+      <div class="header-content">
+        <span class="accordion-icon">📌</span>
+        <span class="accordion-title">Разделы проекта Vis Realitatis</span>
+      </div>
+      <span class="accordion-arrow">▼</span>
+    </summary>
+
+    <div class="accordion-content">
+      <div class="sections-grid">
+        
+        <div class="section-card">
+          <div class="section-icon">🏠</div>
+          <h3 class="section-title">Главная Проекта</h3>
+          <p class="section-description">Возврат на главную страницу проекта Vis Realitatis</p>
+          <div class="section-buttons">
+            <a href="https://imarch.ltd/ru/vis-realitatis-center/" class="btn btn-primary">На главную</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">01</div>
+          <div class="section-icon">📋</div>
+          <h3 class="section-title">Исполнительное резюме</h3>
+          <p class="section-description">Краткое изложение проекта, его целей и предполагаемых результатов</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/executive-summary/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">02</div>
+          <div class="section-icon">🎯</div>
+          <h3 class="section-title">Проблема ветеранов с ПТСР</h3>
+          <p class="section-description">Исследование текущей ситуации и вызовов, с которыми сталкиваются ветераны</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/problem-veterans/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">03</div>
+          <div class="section-icon">✨</div>
+          <h3 class="section-title">Решение: SunLife-Massage</h3>
+          <p class="section-description">Инновационная методика реабилитации через системный массаж и интеграцию</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/solution-sunlife-massage/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">04</div>
+          <div class="section-icon">🎯</div>
+          <h3 class="section-title">Цели и задачи проекта</h3>
+          <p class="section-description">Стратегические цели, тактические задачи и ожидаемые результаты</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/objectives-goals/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">05</div>
+          <div class="section-icon">📈</div>
+          <h3 class="section-title">Этапы развития</h3>
+          <p class="section-description">Дорожная карта реализации проекта от пилота до масштабирования</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/roadmap-development/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">06</div>
+          <div class="section-icon">👥</div>
+          <h3 class="section-title">Экспертный совет</h3>
+          <p class="section-description">Профессиональное сообщество, курирующее методику и её развитие</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/presidium/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">07</div>
+          <div class="section-icon">👤</div>
+          <h3 class="section-title">Автор метода</h3>
+          <p class="section-description">Создатель методологии SunLife-Massage и его профессиональный путь</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/presidium/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">08</div>
+          <div class="section-icon">💰</div>
+          <h3 class="section-title">Финансовая модель</h3>
+          <p class="section-description">Экономическое обоснование, источники финансирования и рентабельность</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/finance-model/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">09</div>
+          <div class="section-icon">🎯</div>
+          <h3 class="section-title">Финансовые цели</h3>
+          <p class="section-description">Целевые показатели финансирования и распределение средств по этапам проекта</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/fundraising-goals/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">10</div>
+          <div class="section-icon">💰</div>
+          <h3 class="section-title">Этап сбора средств 1</h3>
+          <p class="section-description">Первоначальный этап финансирования для запуска пилотной программы</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/fundraising-stage-1/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">11</div>
+          <div class="section-icon">🤝</div>
+          <h3 class="section-title">Форматы участия</h3>
+          <p class="section-description">Различные способы вовлечения в проект: от волонтерства до инвестирования</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/participation-formats/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">12</div>
+          <div class="section-icon">❓</div>
+          <h3 class="section-title">FAQ для доноров</h3>
+          <p class="section-description">Ответы на частые вопросы от потенциальных инвесторов и спонсоров</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/faq-donors/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">13</div>
+          <div class="section-icon">🔄</div>
+          <h3 class="section-title">Что дальше?</h3>
+          <p class="section-description">Следующие шаги проекта после достижения первоначальных целей</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/what-next/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">14</div>
+          <div class="section-icon">🔒</div>
+          <h3 class="section-title">Блок доверия</h3>
+          <p class="section-description">Механизмы обеспечения прозрачности и подотчетности в проекте</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/trust-block/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">15</div>
+          <div class="section-icon">🌍</div>
+          <h3 class="section-title">Социальный эффект</h3>
+          <p class="section-description">Влияние проекта на общество и качество жизни целевых групп</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/social-impact/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card">
+          <div class="section-number">16</div>
+          <div class="section-icon">💻</div>
+          <h3 class="section-title">Архитектура и софт</h3>
+          <p class="section-description">Техническая инфраструктура и программное обеспечение проекта</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/ecosystem-trust/" class="btn btn-primary">Подробнее →</a>
+          </div>
+        </div>
+
+        
+        <div class="section-card highlight">
+          <div class="section-number">17</div>
+          <div class="section-icon">🚀</div>
+          <h3 class="section-title">Участие</h3>
+          <p class="section-description">Возможности для участия в проекте: волонтёрство, инвестиции, партнёрство</p>
+          <div class="section-buttons">
+            <a href="/ru/posts/participation-formats/" class="btn btn-primary">Участвовать →</a>
+          </div>
+        </div>
+
+        
+
+      </div>
+    </div>
+  </details>
+</div>
+
+<style>
+ 
+.vis-project-sections {
+  width: 100%;
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 20px;
+}
+
+ 
+.vis-accordion {
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.5) inset;
+  overflow: hidden;
+  transition: all .4s cubic-bezier(.175,.885,.32,1.275);
+}
+.accordion-header { padding: 2.5rem 3rem; display:flex; align-items:center; justify-content:space-between; cursor:pointer; background: linear-gradient(135deg,#f7fafc 0%,#fff 100%); border-bottom:1px solid #e2e8f0; }
+.accordion-header::-webkit-details-marker { display:none; }
+.header-content { display:flex; align-items:center; gap:1.5rem; }
+.accordion-title { font-size:1.8rem; font-weight:700; color:#1a365d; }
+
+ 
+.accordion-content { padding:3rem; background: linear-gradient(135deg,#fafcff 0%,#fff 100%); }
+.sections-grid { display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap:2.5rem; }
+
+ 
+.section-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  border: 1px solid #e2e8f0;
+  position: relative;
+  overflow: hidden;
+  transition: all .4s cubic-bezier(.175,.885,.32,1.275);
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+.section-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); border-color:#cbd5e0; }
+.section-number { position:absolute; top:2rem; right:2rem; font-size:4rem; font-weight:900; color: rgba(26,54,93,0.05); font-family:'Georgia', serif; }
+.section-icon { font-size:3.5rem; margin-bottom:1.5rem; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1)); }
+.section-title { font-size:1.5rem; font-weight:700; color:#1a365d; margin-bottom:1rem; line-height:1.3; flex-grow:1; }
+.section-description { font-size:1rem; color:#4a5568; line-height:1.6; margin-bottom:2rem; flex-grow:2; }
+
+ 
+ 
+.section-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: auto;
+  width: 100%;
+  align-items: stretch;
+}
+
+ 
+.btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;                
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  text-align: center;
+  transition: all .18s ease;
+  color: inherit;
+  white-space: normal;        
+  word-break: normal;         
+  overflow-wrap: anywhere;    
+  hyphens: none;              
+  min-width: 0;               
+}
+
+ 
+.btn-primary {
+  background: linear-gradient(135deg,#4299e1 0%,#667eea 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 15px rgba(66,153,225,0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(66,153,225,0.4); }
+
+ 
+@media (max-width: 420px) {
+  .btn { font-size: 0.95rem; padding: 0.75rem 1rem; }
+}
+
+ 
+.section-card.highlight .btn {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+ 
+@media (max-width: 768px) {
+  .accordion-header { padding: 2rem; }
+  .accordion-title { font-size: 1.5rem; }
+  .accordion-content { padding: 2rem; }
+  .sections-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .section-card { padding: 2rem; }
+  .btn { padding: 0.8rem 1rem; }
+}
+@media (max-width: 480px) {
+  .section-card { padding: 1.5rem; }
+  .btn { padding: 0.7rem 1rem; font-size: 0.95rem; }
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+  
+  <style>
+    .concept-paper-block {
+      background: #fff9f0;
+      border: 1px solid #e5d5b0;
+      border-radius: 24px;
+      padding: 1.8rem;
+      margin: 2.5rem 0;
+      text-align: center;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .concept-paper-block:hover {
+      background: #fffcf5;
+      border-color: #d4c090;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.04);
+    }
+    .concept-paper-description {
+      color: #4a3a2a;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 0.8rem 0;
+      text-align: center;
+    }
+    .concept-paper-description--bottom {
+      margin-top: 1.2rem;
+      margin-bottom: 0;
+      text-align: center;
+    }
+    .concept-paper-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .concept-paper-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+      border: 1px solid #8b95a0;
+      border-radius: 12px;
+      padding: 0.7rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #1a1c1e;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .concept-paper-button:hover {
+      transform: translateY(-1px);
+      background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .concept-paper-button.secondary {
+      background: transparent;
+      color: #4a3a2a;
+      border: 1px solid #c0a070;
+    }
+    .concept-paper-button.secondary:hover {
+      background: rgba(192, 160, 112, 0.1);
+      border-color: #8b7355;
+    }
+    .concept-paper-format {
+      font-size: 0.8rem;
+      font-weight: normal;
+    }
+    .concept-paper-meta {
+      margin-top: 0.6rem;
+      font-size: 0.85rem;
+      color: #8b7355;
+      text-align: center;
+    }
+    .concept-paper-links {
+      margin-top: 0.8rem;
+      font-size: 0.85rem;
+      color: #8b7355;
+      text-align: center;
+    }
+    .concept-paper-links a {
+      color: #8b7355;
+      text-decoration: none;
+      border-bottom: 1px dotted #d4c090;
+    }
+    .concept-paper-links a:hover {
+      border-bottom-color: #8b7355;
+      color: #5c4a2e;
+    }
+    @media (max-width: 768px) {
+      .concept-paper-block {
+        padding: 1.2rem;
+        margin: 1.5rem 0;
+      }
+      .concept-paper-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+      }
+      .concept-paper-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+
+
+<div class="concept-paper-block">
+  <p class="concept-paper-description">
+    Официальная методология и правовая рамка проекта <strong>IMARCH | Chronicle OS</strong> фиксируют архитектуру функционально-когнитивного контура превентивной реновации.
+  </p>
+
+  <p class="concept-paper-description">
+    Развертывание экосистемы и верификация данных осуществляются международной платформой <strong>Chronicle OS Journal</strong> на базе концепции многомерной институциональной устойчивости (DSA) и открытого рецензирования.
+  </p>
+
+  <div class="concept-paper-actions">
+    <a href="/ru/docs/archivum/rn-0001-imarch-whitepaper-8888-2026/" class="concept-paper-button">
+      📄 Открыть методологию и White Paper <span class="concept-paper-format">(PDF / Markdown)</span>
+    </a>
+    <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="concept-paper-button secondary">
+      🤝 Поддержать гуманитарный трек исследований на WhyDonate
+    </a>
+  </div>
+
+  <p class="concept-paper-description concept-paper-description--bottom">
+    Практическая апробация модели проходит в рамках некоммерческого гуманитарного трека <strong>Vis Realitatis</strong> (комплексная безмедикаментозная реабилитация ветеранов) с фиксацией результатов в криптографическом архиве Archivum.
+  </p>
+
+  <div class="concept-paper-meta">
+    Отчёты, архив решений и хешированные препринты публикуются в Archivum по мере развития проекта.
+  </div>
+
+  <div class="concept-paper-links">
+    Если вы эксперт, хотите поддержать проект или получить доступ к редакционной платформе, откройте
+    <a href="/ru/vis-realitatis-center-experts/">вход эксперта →</a>
+  </div>
+</div>
+<h1 id="-онлайнкурс-самомассажа-лица">🌿 Онлайн‑курс самомассажа лица</h1>
+<h3 id="-гармония">🕊️ Гармония</h3>
+<p>Практический курс восстановления ресурса и психоэмоционального равновесия.</p>
+<p>Это не косметическая процедура и не мотивационный тренинг.<br>
+Это регулярная практика работы с мягкими тканями головы и лица, направленная на восстановление нормального крово‑лимфатического обмена и регуляцию эмоционального состояния.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="imarch-funding-light" id="funding-light-805b727eeb">
+
+  <div class="funding-header">
+    <h2>Поддержка пилота Vis Realitatis</h2>
+    <p class="subtitle">Вы поддерживаете не «сбор денег ради сбора».</p>
+    <p class="subtitle-smaller">
+      Вы входите в первый круг запуска, где каждый вклад фиксируется в хронике,
+      а результат упаковывается в воспроизводимый протокол.
+    </p>
+  </div>
+
+  <div class="funding-actions">
+    <a class="funding-btn primary" 
+       href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      Поддержать на WhyDonate
+    </a>
+    
+    <a class="funding-btn secondary" href="/ru/profile/vis-realitatis/">О проекте</a>
+    
+    
+    <a class="funding-btn secondary" href="/ru/verdictum/">Отчеты и архив</a>
+    
+  </div>
+
+  <div class="funding-meta">
+    Цель пилота: <strong>8000 GBP</strong><br>
+    Формат: онлайн, индивидуальное прохождение, общее поле обсуждения, фиксация результатов и отчётность.
+  </div>
+
+  <div class="funding-grid">
+
+    
+    <div class="funding-card">
+      <div class="card-icon">💎</div>
+      <h3>Донор</h3>
+      <p class="card-description">
+        Вклад идёт в запуск, организацию, инфраструктуру, оплату экспертного контура и подготовку отчетности.
+      </p>
+      <div class="card-features">
+        <span class="feature">Статус участника первого круга</span>
+        <span class="feature">Фиксация вклада как акта</span>
+        <span class="feature">Цель: 8000 GBP</span>
+      </div>
+      <a class="funding-btn primary card-btn" 
+         href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        💎 Поддержать проект
+      </a>
+    </div>
+
+    
+    <div class="funding-card">
+      <div class="card-icon">🧑‍🔬</div>
+      <h3>Эксперт</h3>
+      <p class="card-description">
+        Вы даёте рецензию на модули пилота, подтверждаете корректность методологии и логики протоколов.
+      </p>
+      <div class="card-features">
+        <span class="feature">Экспертное заключение как артефакт</span>
+        <span class="feature">Указание роли и участия</span>
+        <span class="feature">Верификация методологии</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="/ru/vis-realitatis-center-experts/" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        🧑‍🔬 Присоединиться как эксперт
+      </a>
+    </div>
+
+    
+    <div class="funding-card">
+      <div class="card-icon">🤝</div>
+      <h3>Партнёр</h3>
+      <p class="card-description">
+        Подключаете площадку, аудиторию, организацию, медиа, институт или иные ресурсы.
+      </p>
+      <div class="card-features">
+        <span class="feature">Совместный модуль / событие</span>
+        <span class="feature">Прозрачная фиксация</span>
+        <span class="feature">Интеграция в хронику</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="mailto:info@imarch.ltd?subject=Partnership%20Vis%20Realitatis">
+        📩 Связаться с командой
+      </a>
+    </div>
+
+    
+    <div class="funding-card">
+      <div class="card-icon">🚀</div>
+      <h3>Участник пилота</h3>
+      <p class="card-description">
+        Проходите пилотный практический контур, помогаете собрать материал для методички, улучшений, кейсов.
+      </p>
+      <div class="card-features">
+        <span class="feature">Ваш опыт становится частью базы</span>
+        <span class="feature">Обратная связь для улучшений</span>
+        <span class="feature">Участие в отчётах</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="mailto:info@imarch.ltd?subject=Participation%20in%20the%20Vis%20Realitatis%20pilot">
+        🚀 Участвовать в пилоте
+      </a>
+    </div>
+
+  </div>
+
+  <div class="funding-note">
+    <p>Ключевой принцип простой. Мы не просим «поверить на слово». Мы фиксируем действия, роли, решения, вклад и результат так, чтобы это переживало людей и обстоятельства.</p>
+  </div>
+
+  <div class="funding-footer">
+    <p class="disclaimer">💡 Все средства идут на развитие пилота. Ежемесячные отчёты публикуются в открытом доступе.</p>
+  </div>
+
+</div>
+
+<style>
+ 
+#funding-light-805b727eeb {
+  all: initial;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: all 0.25s ease;
+}
+
+#funding-light-805b727eeb * {
+  box-sizing: border-box;
+}
+
+ 
+#funding-light-805b727eeb .funding-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#funding-light-805b727eeb .funding-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2c2416;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+#funding-light-805b727eeb .subtitle {
+  font-size: 1.1rem;
+  color: #4a3a2a;
+  margin-bottom: 0.5rem;
+}
+#funding-light-805b727eeb .subtitle-smaller {
+  font-size: 0.95rem;
+  color: #6a5a48;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+ 
+#funding-light-805b727eeb .funding-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+#funding-light-805b727eeb .funding-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+#funding-light-805b727eeb .funding-btn.primary {
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border-color: #8b95a0;
+  color: #1a1c1e;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#funding-light-805b727eeb .funding-btn.primary:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+#funding-light-805b727eeb .funding-btn.secondary {
+  background: transparent;
+  border-color: #8b95a0;
+  color: #1a1c1e;
+}
+#funding-light-805b727eeb .funding-btn.secondary:hover {
+  background: rgba(139, 115, 85, 0.1);
+  border-color: #c0a070;
+  transform: scale(1.02);
+}
+
+ 
+#funding-light-805b727eeb .funding-meta {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  color: #4a3a2a;
+  line-height: 1.4;
+  background: #f8f4f0;
+  padding: 0.8rem;
+  border-radius: 12px;
+}
+#funding-light-805b727eeb .funding-meta strong {
+  color: #8b7355;
+  font-weight: 800;
+}
+
+ 
+#funding-light-805b727eeb .funding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+#funding-light-805b727eeb .funding-card {
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+#funding-light-805b727eeb .funding-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+#funding-light-805b727eeb .card-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+#funding-light-805b727eeb .funding-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border-left: none;
+}
+#funding-light-805b727eeb .card-description {
+  font-size: 0.85rem;
+  color: #6a5a48;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+#funding-light-805b727eeb .card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+#funding-light-805b727eeb .feature {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  padding: 0.4rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #4a3a2a;
+}
+#funding-light-805b727eeb .card-btn {
+  width: 100%;
+  margin-top: auto;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+#funding-light-805b727eeb .funding-note {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #6a5a48;
+  font-style: italic;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#funding-light-805b727eeb .funding-footer {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e0d6c8;
+}
+#funding-light-805b727eeb .disclaimer {
+  color: #6a5a48;
+  font-size: 0.85rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+ 
+@media (max-width: 768px) {
+  #funding-light-805b727eeb {
+    padding: 1.5rem;
+  }
+  #funding-light-805b727eeb .funding-header h2 {
+    font-size: 1.5rem;
+  }
+  #funding-light-805b727eeb .funding-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  #funding-light-805b727eeb .funding-btn {
+    width: auto;
+    min-width: 200px;
+  }
+}
+@media (max-width: 640px) {
+  #funding-light-805b727eeb .funding-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+<div style="width: 100%; text-align: center; margin: 3rem 0;">
+  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
+</div>
+<p> </p>
+<h2 id="-зачем-это-нужно">🎯 Зачем это нужно</h2>
+<p>Современная нагрузка на психику и тело стала постоянной:</p>
+<ul>
+<li>💻 длительная работа за компьютером</li>
+<li>⚡ хроническое напряжение</li>
+<li>🌙 недостаток сна</li>
+<li>😰 стрессовые ситуации</li>
+</ul>
+<p>Все это отражается на состоянии нервной системы, лица и общего самочувствия.<br>
+Самомассаж лица позволяет мягко восстановить баланс.</p>
+<p>Практика помогает:</p>
+<ul>
+<li>🌿 снять напряжение мягких тканей головы</li>
+<li>💧 улучшить крово‑лимфатическое обращение</li>
+<li>🧘 снизить уровень психоэмоционального напряжения</li>
+<li>🔎 восстановить ясность восприятия и концентрацию</li>
+</ul>
+<p>Эстетический эффект омоложения — побочный результат терапии, но именно он часто становится первым заметным признаком изменений.</p>
+<hr>
+<h2 id="-для-кого-этот-курс">👥 Для кого этот курс</h2>
+<p>Курс рассчитан на три уровня практики:</p>
+<ul>
+<li>👤 <strong>Для себя</strong> чтобы научиться восстанавливать ресурс и управлять состоянием</li>
+<li>🏡 <strong>Для семьи</strong> чтобы помогать близким после нагрузок и стрессов на базе полученных заний и навыков</li>
+<li>🎓 <strong>Для специалистов</strong> чтобы освоить базовый протокол метода <em>Sunlife‑Massage</em></li>
+</ul>
+<hr>
+<h2 id="-что-представляет-собой-практика">🧩 Что представляет собой практика</h2>
+<p>Самомассаж лица это регулярная тренировочная процедура.<br>
+Эффективность зависит от дозировки и регулярности выполнения.</p>
+<p>Полный цикл состоит из <strong>6 последовательных курсов</strong>, каждый из которых прорабатывает разные зоны мягких тканей головы и лица.<br>
+Один курс включает <strong>12 сеансов практики</strong>.</p>
+<p>📌 Рекомендуемая нагрузка:</p>
+<ul>
+<li>около <strong>3 часов практики в неделю</strong></li>
+<li><strong>2–3 сеанса в неделю</strong></li>
+</ul>
+<p>Минимально допустимая практика около <strong>30 минут в неделю</strong>.<br>
+Даже при минимальной дозировке человек ощущает изменения, но максимальный результат достигается при регулярной полной практике.</p>
+<hr>
+<h2 id="-положение-тела-и-техника-выполнения">🧍 Положение тела и техника выполнения</h2>
+<p>Практика может выполняться в разных положениях:</p>
+<ul>
+<li>🧍 стоя (полная форма, включающая мышцы лица и систему координации тела)</li>
+<li>🪑 сидя</li>
+<li>🛏️ лёжа</li>
+<li>⏱️ короткие сеансы во время перерывов в работе</li>
+</ul>
+<p>Даже пять минут практики могут существенно снизить уровень эмоциольного напряжения.</p>
+<hr>
+<h2 id="-подготовка-к-практике">👐 Подготовка к практике</h2>
+<p>Перед началом сеанса рекомендуется:</p>
+<ul>
+<li>🚿 вымыть руки</li>
+<li>🧴 использовать увлажняющий крем по типу кожи</li>
+<li>🤲 провести короткую разминку рук</li>
+</ul>
+<p>Подготовка рук включает упражнения для улучшения кровообращения и чувствительности ладоней это важный этап, так как качество работы зависит от тактильного восприятия.</p>
+<hr>
+<h2 id="-последовательность-проработки">🔄 Последовательность проработки</h2>
+<p>Практика строится по принципу движения от общего к частному.<br>
+Основные зоны воздействия:</p>
+<ul>
+<li>шейно‑воротниковая зона</li>
+<li>волосистая часть головы-ушные раковины</li>
+<li>лоб</li>
+<li>маска лица</li>
+<li>область под подбородком</li>
+</ul>
+<p>Каждый сеанс сочетает движения тела, дыхание и работу рук.<br>
+Главное понимание принципа воздействия и дозировки, а не механическая последовательность.</p>
+<hr>
+<h2 id="-формат-прохождения-курса">💻 Формат прохождения курса</h2>
+<p>Курс проходит в онлайн‑формате, достаточно смартфона.<br>
+Каждый сеанс сопровождается практическим заданием.</p>
+<p>Участник выполняет практические упражнения самостоятельно под демонстрацию иснтруктора и фиксирует результат:</p>
+<ul>
+<li>📷 фото до сеанса</li>
+<li>📷 фото после сеанса</li>
+<li>📝 краткий комментарий о состоянии</li>
+</ul>
+<h2 id="это-помогает-увидеть-реальные-изменения-и-корректировать-практику">Это помогает увидеть реальные изменения и корректировать практику.</h2>
+<h2 id="-сопровождение-участников">👩‍🏫 Сопровождение участников</h2>
+<p>Практика проходит в небольших группах.</p>
+<p>Инструктор ежедневно просматривает отчёты и отвечает на вопросы.<br>
+При необходимости записываются дополнительные поясняющие видео.</p>
+<p>Такой формат позволяет каждому двигаться в своём темпе и получать поддержку.</p>
+<hr>
+<h2 id="-исследовательский-модуль">🔬 Исследовательский модуль</h2>
+<p>Курс является частью пилотной программы <strong>Vis Realitatis</strong>.<br>
+Формируется база наблюдений для научного анализа:</p>
+<ul>
+<li>фиксация динамики состояния</li>
+<li>анализ субъективных ощущений</li>
+<li>подготовка материалов для публикаций в нуакометричекой литературе</li>
+</ul>
+<p>Таким образом практика становится не только обучением, но и исследовательским процессом доказательной медицины под руководством д.м.н. Алексея Калмыкова при участии к.бл.н. Анастасии Бессмертной</p>
+<hr>
+<h2 id="-что-получает-участник">🎁 Что получает участник</h2>
+<ul>
+<li>доступ ко всем материалам программы</li>
+<li>пошаговые видео‑инструкции</li>
+<li>сопровождение инструктора</li>
+<li>доступ к группе обсуждения</li>
+<li>возможность участвовать в формировании исследовательской базы</li>
+</ul>
+<hr>
+<h2 id="-как-это-связано-с-imarch">🧭 Как это связано с IMARCH</h2>
+<p>Каждый сеанс практики рассматривается как отдельный акт.<br>
+Эти акты фиксируются и становятся частью общей хроники проекта.<br>
+Так формируется база наблюдений, на которой строится <strong>Chronicle Communication System</strong>.</p>
+<p>Практика становится не только личным опытом, но и вкладом в развитие системы.</p>
+<hr>
+<h2 id="-участие-в-пилоте">🚀 Участие в пилоте</h2>
+<p>Курс это часть первого этапа пилотной программы.<br>
+Участники могут участвовать в проекте в разных ролях:</p>
+<ul>
+<li>👤 <strong>Участник курса</strong> проходит программу и участвует в наблюдении</li>
+<li>💎 <strong>Донор</strong>  поддерживает запуск пилота и развитие инфраструктуры</li>
+<li>🧑‍🔬 <strong>Эксперт</strong> участвует в анализе результатов и подготовке научных материалов</li>
+</ul>
+<hr>
+<h2 id="-поддержка-проекта">💡 Поддержка проекта</h2>
+<p>Запуск пилота требует методической базы, технической инфраструктуры и исследовательского сопровождения.<br>
+🎯 Цель первого этапа: <strong>8,000 GBP</strong></p>
+<p>Средства направляются на:</p>
+<ul>
+<li>💻 развитие CCS</li>
+<li>📚 подготовку методических материалов</li>
+<li>🏗️ организацию пилотной программы</li>
+<li>🔬 экспертную и исследовательскую работу</li>
+</ul>
+<hr>
+<h2 id="-присоединиться">🔘 Присоединиться</h2>
+<p>Вы можете:</p>
+<ul>
+<li>🚀 пройти курс после его финальной сборки и упаковки</li>
+<li>💎 поддержать пилотную программу</li>
+<li>🧑‍🔬 присоединиться как эксперт</li>
+</ul>
+<p>Каждый вклад фиксируется как акт участия в хронике проекта.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="imarch-funding-light" id="funding-light-5e673a8781">
+
+  <div class="funding-header">
+    <h2>Поддержка пилота Vis Realitatis</h2>
+    <p class="subtitle">Вы поддерживаете не «сбор денег ради сбора».</p>
+    <p class="subtitle-smaller">
+      Вы входите в первый круг запуска, где каждый вклад фиксируется в хронике,
+      а результат упаковывается в воспроизводимый протокол.
+    </p>
+  </div>
+
+  <div class="funding-actions">
+    <a class="funding-btn primary" 
+       href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" 
+       target="_blank" 
+       rel="noopener noreferrer">
+      Поддержать на WhyDonate
+    </a>
+    
+    <a class="funding-btn secondary" href="/ru/profile/vis-realitatis/">О проекте</a>
+    
+    
+    <a class="funding-btn secondary" href="/ru/verdictum/">Отчеты и архив</a>
+    
+  </div>
+
+  <div class="funding-meta">
+    Цель пилота: <strong>8000 GBP</strong><br>
+    Формат: онлайн, индивидуальное прохождение, общее поле обсуждения, фиксация результатов и отчётность.
+  </div>
+
+  <div class="funding-grid">
+
+    
+    <div class="funding-card">
+      <div class="card-icon">💎</div>
+      <h3>Донор</h3>
+      <p class="card-description">
+        Вклад идёт в запуск, организацию, инфраструктуру, оплату экспертного контура и подготовку отчетности.
+      </p>
+      <div class="card-features">
+        <span class="feature">Статус участника первого круга</span>
+        <span class="feature">Фиксация вклада как акта</span>
+        <span class="feature">Цель: 8000 GBP</span>
+      </div>
+      <a class="funding-btn primary card-btn" 
+         href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        💎 Поддержать проект
+      </a>
+    </div>
+
+    
+    <div class="funding-card">
+      <div class="card-icon">🧑‍🔬</div>
+      <h3>Эксперт</h3>
+      <p class="card-description">
+        Вы даёте рецензию на модули пилота, подтверждаете корректность методологии и логики протоколов.
+      </p>
+      <div class="card-features">
+        <span class="feature">Экспертное заключение как артефакт</span>
+        <span class="feature">Указание роли и участия</span>
+        <span class="feature">Верификация методологии</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="/ru/vis-realitatis-center-experts/" 
+         target="_blank" 
+         rel="noopener noreferrer">
+        🧑‍🔬 Присоединиться как эксперт
+      </a>
+    </div>
+
+    
+    <div class="funding-card">
+      <div class="card-icon">🤝</div>
+      <h3>Партнёр</h3>
+      <p class="card-description">
+        Подключаете площадку, аудиторию, организацию, медиа, институт или иные ресурсы.
+      </p>
+      <div class="card-features">
+        <span class="feature">Совместный модуль / событие</span>
+        <span class="feature">Прозрачная фиксация</span>
+        <span class="feature">Интеграция в хронику</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="mailto:info@imarch.ltd?subject=Partnership%20Vis%20Realitatis">
+        📩 Связаться с командой
+      </a>
+    </div>
+
+    
+    <div class="funding-card">
+      <div class="card-icon">🚀</div>
+      <h3>Участник пилота</h3>
+      <p class="card-description">
+        Проходите пилотный практический контур, помогаете собрать материал для методички, улучшений, кейсов.
+      </p>
+      <div class="card-features">
+        <span class="feature">Ваш опыт становится частью базы</span>
+        <span class="feature">Обратная связь для улучшений</span>
+        <span class="feature">Участие в отчётах</span>
+      </div>
+      <a class="funding-btn secondary card-btn" 
+         href="mailto:info@imarch.ltd?subject=Participation%20in%20the%20Vis%20Realitatis%20pilot">
+        🚀 Участвовать в пилоте
+      </a>
+    </div>
+
+  </div>
+
+  <div class="funding-note">
+    <p>Ключевой принцип простой. Мы не просим «поверить на слово». Мы фиксируем действия, роли, решения, вклад и результат так, чтобы это переживало людей и обстоятельства.</p>
+  </div>
+
+  <div class="funding-footer">
+    <p class="disclaimer">💡 Все средства идут на развитие пилота. Ежемесячные отчёты публикуются в открытом доступе.</p>
+  </div>
+
+</div>
+
+<style>
+ 
+#funding-light-5e673a8781 {
+  all: initial;
+  display: block;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 2rem 0;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  transition: all 0.25s ease;
+}
+
+#funding-light-5e673a8781 * {
+  box-sizing: border-box;
+}
+
+ 
+#funding-light-5e673a8781 .funding-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#funding-light-5e673a8781 .funding-header h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #2c2416;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+#funding-light-5e673a8781 .subtitle {
+  font-size: 1.1rem;
+  color: #4a3a2a;
+  margin-bottom: 0.5rem;
+}
+#funding-light-5e673a8781 .subtitle-smaller {
+  font-size: 0.95rem;
+  color: #6a5a48;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+ 
+#funding-light-5e673a8781 .funding-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+#funding-light-5e673a8781 .funding-btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+#funding-light-5e673a8781 .funding-btn.primary {
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border-color: #8b95a0;
+  color: #1a1c1e;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#funding-light-5e673a8781 .funding-btn.primary:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+#funding-light-5e673a8781 .funding-btn.secondary {
+  background: transparent;
+  border-color: #8b95a0;
+  color: #1a1c1e;
+}
+#funding-light-5e673a8781 .funding-btn.secondary:hover {
+  background: rgba(139, 115, 85, 0.1);
+  border-color: #c0a070;
+  transform: scale(1.02);
+}
+
+ 
+#funding-light-5e673a8781 .funding-meta {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  color: #4a3a2a;
+  line-height: 1.4;
+  background: #f8f4f0;
+  padding: 0.8rem;
+  border-radius: 12px;
+}
+#funding-light-5e673a8781 .funding-meta strong {
+  color: #8b7355;
+  font-weight: 800;
+}
+
+ 
+#funding-light-5e673a8781 .funding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+#funding-light-5e673a8781 .funding-card {
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.2s ease;
+}
+#funding-light-5e673a8781 .funding-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+#funding-light-5e673a8781 .card-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+#funding-light-5e673a8781 .funding-card h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  border-left: none;
+}
+#funding-light-5e673a8781 .card-description {
+  font-size: 0.85rem;
+  color: #6a5a48;
+  text-align: center;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+#funding-light-5e673a8781 .card-features {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+#funding-light-5e673a8781 .feature {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  padding: 0.4rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #4a3a2a;
+}
+#funding-light-5e673a8781 .card-btn {
+  width: 100%;
+  margin-top: auto;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+}
+#funding-light-5e673a8781 .funding-note {
+  text-align: center;
+  margin: 1.5rem 0;
+  font-size: 0.9rem;
+  color: #6a5a48;
+  font-style: italic;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#funding-light-5e673a8781 .funding-footer {
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e0d6c8;
+}
+#funding-light-5e673a8781 .disclaimer {
+  color: #6a5a48;
+  font-size: 0.85rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+ 
+@media (max-width: 768px) {
+  #funding-light-5e673a8781 {
+    padding: 1.5rem;
+  }
+  #funding-light-5e673a8781 .funding-header h2 {
+    font-size: 1.5rem;
+  }
+  #funding-light-5e673a8781 .funding-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  #funding-light-5e673a8781 .funding-btn {
+    width: auto;
+    min-width: 200px;
+  }
+}
+@media (max-width: 640px) {
+  #funding-light-5e673a8781 .funding-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+<div style="width: 100%; text-align: center; margin: 3rem 0;">
+  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
+</div>
+<p> </p>
+<style>
+ 
+.bonus-block {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    box-sizing: border-box;
+    
+    --primary: #0c1120;
+    --secondary: #1a1f3a;
+    --text: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --accent: #9333ea;
+    
+    background: linear-gradient(155deg, var(--primary) 0%, var(--secondary) 100%);
+    color: var(--text);
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    margin: 3rem 0;
+    width: 100%;
+    position: relative;
+    -webkit-text-size-adjust: 100%;
+}
+
+ 
+.bonus-block .funding-header {
+    text-align: center;
+    margin-bottom: 5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bonus-block h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    text-align: center;
+}
+
+.bonus-block .subtitle {
+    font-size: 1.3rem;
+    color: var(--text);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.bonus-block .subtitle-smaller {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+ 
+.bonus-block .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding-top: 2rem;
+}
+
+ 
+.bonus-block .bonus-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+ 
+.bonus-card-1 {
+    --card-accent: #9333ea;
+}
+.bonus-card-2 {
+    --card-accent: #3b82f6;
+}
+.bonus-card-3 {
+    --card-accent: #10b981;
+}
+.bonus-card-4 {
+    --card-accent: #ec4899;
+}
+
+.bonus-block .bonus-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--card-accent);
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--card-accent) 40%, transparent);
+}
+
+.bonus-block .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    filter: drop-shadow(0 0 8px var(--card-accent));
+    text-align: center;
+}
+
+.bonus-block h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+.bonus-block .card-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+    text-align: center;
+}
+
+ 
+.bonus-block .card-btn {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin-top: auto;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.bonus-block .card-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+    border-color: var(--accent);
+}
+
+ 
+.bonus-block .footer-button-section {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.bonus-block .footer-button-section p:first-child {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.bonus-block .footer-btn {
+    display: inline-block;
+    padding: 1rem 3rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    min-width: 260px;
+    cursor: pointer;
+}
+
+.bonus-block .footer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+    border-color: var(--accent);
+}
+
+.bonus-block .footer-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 1.5rem auto 0;
+    text-align: center;
+}
+
+ 
+@media (max-width: 768px) {
+    .bonus-block {
+        padding: 2rem 1.5rem;
+    }
+    .bonus-block .funding-header {
+        margin-bottom: 4rem;
+    }
+    .bonus-block h2 {
+        font-size: 2rem;
+    }
+    .bonus-block .subtitle {
+        font-size: 1.2rem;
+    }
+    .bonus-block .subtitle-smaller {
+        font-size: 1rem;
+    }
+    .bonus-block .bonus-grid {
+        grid-template-columns: 1fr;
+        padding-top: 1.5rem;
+        gap: 1.5rem;
+    }
+    .bonus-block .bonus-card {
+        padding: 2rem;
+    }
+    .bonus-block .footer-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .bonus-block {
+        padding: 1.5rem 1rem;
+    }
+    .bonus-block .funding-header {
+        margin-bottom: 3rem;
+    }
+    .bonus-block h2 {
+        font-size: 1.75rem;
+    }
+    .bonus-block .subtitle {
+        font-size: 1.1rem;
+    }
+    .bonus-block .subtitle-smaller {
+        font-size: 0.95rem;
+    }
+    .bonus-block .bonus-grid {
+        padding-top: 1rem;
+    }
+    .bonus-block .bonus-card {
+        padding: 1.5rem;
+    }
+    .bonus-block h3 {
+        font-size: 1.3rem;
+    }
+    .bonus-block .card-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .bonus-block .card-btn {
+        font-size: 1rem;
+        padding: 0.875rem;
+    }
+    .bonus-block .footer-btn {
+        font-size: 1rem;
+        padding: 0.875rem 2rem;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 360px) {
+    .bonus-block {
+        padding: 1rem 0.75rem;
+    }
+    .bonus-block .funding-header {
+        margin-bottom: 2.5rem;
+    }
+    .bonus-block h2 {
+        font-size: 1.5rem;
+    }
+    .bonus-block .subtitle {
+        font-size: 1rem;
+    }
+    .bonus-block .subtitle-smaller {
+        font-size: 0.85rem;
+    }
+    .bonus-block .bonus-card {
+        padding: 1.25rem;
+    }
+    .bonus-block h3 {
+        font-size: 1.2rem;
+    }
+}
+
+ 
+@media (prefers-reduced-motion: reduce) {
+    .bonus-block * {
+        transition: none !important;
+    }
+    .bonus-block .bonus-card:hover,
+    .bonus-block .card-btn:hover,
+    .bonus-block .footer-btn:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+}
+</style>
+
+<div class="bonus-block">
+    <div class="funding-header">
+        <h2>Бонусы для доноров Проекта</h2>
+        <p class="subtitle">Каждый вклад помогает строить будущее институционализации</p>
+        <p class="subtitle-smaller">Станьте частью проекта, который меняет правила игры для цифровых сообществ.</p>
+    </div>
+
+    <div class="bonus-grid">
+        
+        <div class="bonus-card bonus-card-1">
+            <div class="card-icon">💼</div>
+            <h3>Я предприниматель или специалист</h3>
+            <p class="card-description">Нужен цифровой офис, порядок в документах, видимость в сети и поддержка работы.</p>
+            <a href="/ru/posts/business-bonus/" class="card-btn">Подробнее</a>
+        </div>
+
+        
+        <div class="bonus-card bonus-card-2">
+            <div class="card-icon">💡</div>
+            <h3>У меня есть идея или проект</h3>
+            <p class="card-description">Нужна упаковка миссии, структура реализации, поддержка команды и выход на сбор средств.</p>
+            <a href="/ru/posts/mission-bonus/" class="card-btn">Подробнее</a>
+        </div>
+
+        
+        <div class="bonus-card bonus-card-3">
+            <div class="card-icon">🎓</div>
+            <h3>Я эксперт</h3>
+            <p class="card-description">Нужен офис эксперта, участие в контуре консорциума, публикации и прозрачная фиксация вклада.</p>
+            <a href="/ru/posts/expert-bonus/" class="card-btn">Подробнее</a>
+        </div>
+
+        
+        <div class="bonus-card bonus-card-4">
+            <div class="card-icon">🏢</div>
+            <h3>Я представляю организацию</h3>
+            <p class="card-description">Нужна инфраструктура офисов, почта, роли, архив и сопровождение внедрения.</p>
+            <a href="/ru/posts/organisation-bonus/" class="card-btn">Подробнее</a>
+        </div>
+    </div>
+
+    
+    <div class="footer-button-section">
+        <p><b>Поддержать развитие Chronicle OS</b></p>
+        <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="footer-btn">Перейти на WeyDonate</a>
+        <p class="footer-note">Доступ к инструментам выдаётся по мере готовности. Вы выбираете удобный формат участия.</p>
+    </div>
+</div>
+<div style="width: 100%; text-align: center; margin: 3rem 0;">
+  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
+</div>
+<p> </p>
+
+
+
+<div class="inst-block-light">
+  <div class="inst-header">
+    <div class="inst-icon">🏛️</div>
+    <h2>Это институциональный проект</h2>
+    <p class="inst-subtitle">Ваша поддержка — это вклад в принципиально новую модель цифровых сообществ</p>
+  </div>
+
+  <div class="inst-grid">
+    
+    <div class="inst-card">
+      <div class="inst-card-icon">📜</div>
+      <h3>Конституция</h3>
+      <p>Чёткие правила игры, прописанные в открытых документах. Никаких скрытых условий.</p>
+      <div class="inst-card-btn">
+        <a href="/ru/constitutio/" class="inst-btn">Подробнее</a>
+      </div>
+    </div>
+    
+    <div class="inst-card">
+      <div class="inst-card-icon">⚖️</div>
+      <h3>Правовая прозрачность</h3>
+      <p>Все документы UK LTD открыты для проверки. Регулярные аудиты и отчёты.</p>
+      <div class="inst-card-btn">
+        <a href="/ru/imarch-ltd/" class="inst-btn">Подробнее</a>
+      </div>
+    </div>
+    
+    <div class="inst-card">
+      <div class="inst-card-icon">🤝</div>
+      <h3>Сообщество решает</h3>
+      <p>Крупные решения принимаются через голосования активных участников.</p>
+      <div class="inst-card-btn">
+        <a href="#" class="inst-btn">Подробнее</a>
+      </div>
+    </div>
+    
+    <div class="inst-card">
+      <div class="inst-card-icon">🌱</div>
+      <h3>Устойчивое развитие</h3>
+      <p>10% всех поступлений идёт в резервный фонд на 6 месяцев работы.</p>
+      <div class="inst-card-btn">
+        <a href="#" class="inst-btn">Подробнее</a>
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="inst-docs">
+    <h3>Подробнее о Проекте</h3>
+    <div class="inst-docs-list">
+      <a href="/ru/ccs/" class="inst-doc-link">
+        <span class="inst-doc-icon">📄</span>
+        <span>Зачем вам Chronicle OS</span>
+      </a>
+      <a href="/ru/docs/collegium/" class="inst-doc-link">
+        <span class="inst-doc-icon">📄</span>
+        <span>Задачи консорциума Platan+</span>
+      </a>
+      <a href="/ru/verdictum/" class="inst-doc-link">
+        <span class="inst-doc-icon">📄</span>
+        <span>Официальный информационный орган</span>
+      </a>
+    </div>
+  </div>
+
+  
+  <div class="inst-cta">
+    <p class="inst-cta-text">
+      <strong>Это больше чем ваша поддержка.</strong><br>
+      Это ваше участие в создании прецедента устойчивых, прозрачных и самоуправляемых сообществ со всеми институциональными атрибутами и инструментами реализации.
+    </p>
+    <div class="inst-cta-buttons">
+      <a href="https://signal.me/#eu/PbAVxdbX1Wja23fxRdV7bkiUTDlDJinAEFfZMFNAe2r8D9fuHABBoLydBN62ZK5N" class="inst-btn-large">💬 Обсудить участие в Проекте</a>
+    </div>
+  </div>
+</div>
+
+<style>
+ 
+.inst-block-light {
+  background: linear-gradient(135deg, #fffcf7, #fef7ef);
+  border: 1px solid #e8dac8;
+  border-radius: 28px;
+  padding: 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+}
+.inst-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.inst-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.inst-header h2 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #2c2416;
+  margin: 0 0 0.5rem;
+}
+.inst-subtitle {
+  font-size: 1rem;
+  color: #6a5a48;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.inst-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.inst-card {
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+.inst-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.inst-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+.inst-card h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2c2416;
+  margin: 0 0 0.5rem;
+}
+.inst-card p {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #6a5a48;
+  margin: 0 0 1.2rem;
+  flex-grow: 1;
+}
+.inst-card-btn {
+  margin-top: auto;
+}
+.inst-btn {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: 0.2s;
+}
+.inst-btn:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+}
+.inst-docs {
+  background: #fdf8f2;
+  border: 1px solid #e8dac8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+.inst-docs h3 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #2c2416;
+  text-align: center;
+  margin: 0 0 1rem;
+}
+.inst-docs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.inst-doc-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.7rem 1rem;
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 14px;
+  text-decoration: none;
+  color: #2c2416;
+  transition: all 0.2s ease;
+}
+.inst-doc-link:hover {
+  border-color: #c0a070;
+  transform: translateX(5px);
+  background: #fefaf5;
+}
+.inst-doc-icon {
+  font-size: 1.2rem;
+}
+.inst-doc-link span:last-child {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.inst-cta {
+  text-align: center;
+  background: #ffffff;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 2rem;
+}
+.inst-cta-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4a3a2a;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+.inst-cta-text strong {
+  color: #2c2416;
+}
+.inst-cta-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.inst-btn-large {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.7rem 1.8rem;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.inst-btn-large:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+@media (max-width: 768px) {
+  .inst-block-light {
+    padding: 1.5rem;
+  }
+  .inst-header h2 {
+    font-size: 1.5rem;
+  }
+  .inst-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .inst-btn-large {
+    width: 100%;
+    text-align: center;
+  }
+}
+@media (max-width: 480px) {
+  .inst-header h2 {
+    font-size: 1.3rem;
+  }
+  .inst-subtitle {
+    font-size: 0.85rem;
+  }
+  .inst-docs h3 {
+    font-size: 1.1rem;
+  }
+  .inst-doc-link span:last-child {
+    font-size: 0.8rem;
+  }
+  .inst-cta-text {
+    font-size: 0.9rem;
+  }
+}
+</style>
+<div style="width: 100%; text-align: center; margin: 3rem 0;">
+  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
+</div>
+<p> </p>
+<details>
+  <summary>Post Scriptum🔻</summary>
+<div style="max-width:800px; margin:0 auto; text-align:left; padding:0 1.5rem;">
+  <p><em><a href="https://imarch.ltd/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/ru/director/">Oleksandr Purpurov</a></em></p>
+  <p>Электронная почта: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  
+  
+
+
+
+
+<div class="concept-paper-block">
+  <p class="concept-paper-description">
+    Официальная методология и правовая рамка проекта <strong>IMARCH | Chronicle OS</strong> фиксируют архитектуру функционально-когнитивного контура превентивной реновации.
+  </p>
+
+  <p class="concept-paper-description">
+    Развертывание экосистемы и верификация данных осуществляются международной платформой <strong>Chronicle OS Journal</strong> на базе концепции многомерной институциональной устойчивости (DSA) и открытого рецензирования.
+  </p>
+
+  <div class="concept-paper-actions">
+    <a href="/ru/docs/archivum/rn-0001-imarch-whitepaper-8888-2026/" class="concept-paper-button">
+      📄 Открыть методологию и White Paper <span class="concept-paper-format">(PDF / Markdown)</span>
+    </a>
+    <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="concept-paper-button secondary">
+      🤝 Поддержать гуманитарный трек исследований на WhyDonate
+    </a>
+  </div>
+
+  <p class="concept-paper-description concept-paper-description--bottom">
+    Практическая апробация модели проходит в рамках некоммерческого гуманитарного трека <strong>Vis Realitatis</strong> (комплексная безмедикаментозная реабилитация ветеранов) с фиксацией результатов в криптографическом архиве Archivum.
+  </p>
+
+  <div class="concept-paper-meta">
+    Отчёты, архив решений и хешированные препринты публикуются в Archivum по мере развития проекта.
+  </div>
+
+  <div class="concept-paper-links">
+    Если вы эксперт, хотите поддержать проект или получить доступ к редакционной платформе, откройте
+    <a href="/ru/vis-realitatis-center-experts/">вход эксперта →</a>
+  </div>
+</div>
+<div style="max-width:800px; margin:0 auto; text-align:left; padding:0 1.5rem;">ВЕРИФИКАЦИЯ ОРИГИНАЛА:
+Подлинность публикации текста документа подтверждается значением хеш-суммы оригинального документа на латыни, указанной ниже:
+</div>
+<div class="hash-container">
+  <details>
+    <summary class="hash-summary">
+      <span>КРИПТОГРАФИЧЕСКАЯ СИГНАТУРА (SHA-256)</span>
+      <span class="hash-arrow">🔻</span>
+    </summary>
+    <div class="hash-body">
+      <pre class="hash-pre">
+bf0ed23095fdfb3417c06bae90b739742d4d29bdd0b17b6f2fda147d9247f762
+      </pre>
+      <div class="hash-footer">
+        <span>✓ Документ фиксирован • 64 символа</span>
+        <button class="hash-copy"
+          onclick="navigator.clipboard.writeText('bf0ed23095fdfb3417c06bae90b739742d4d29bdd0b17b6f2fda147d9247f762')">
+          Скопировать
+        </button>
+      </div>
+    </div>
+  </details>
+</div>
+<p> </p>
+<div class="imarch-contacts-card">
+
+  
+  <div class="imarch-section-title">Subscribe</div>
+
+  <div class="imarch-icon-grid-3">
+    <a href="https://github.com/Imperium-Silentii/IMARCH-CCS-8888" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/git.png" alt="GitHub">
+    </a>
+    <a href="https://x.com/SunLife_Massage" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/x.png" alt="X">
+    </a>
+    <a href="https://t.me/+4ce1gtKVQ0E0NDIy" target="_blank">
+    <img class="imarch-icon" src="/images/ikons/bronze/tg.png" alt="Telegram">
+    </a>
+    <a href="https://medium.com/@imarch" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/med.png" alt="Medium">
+    </a>
+    <a href="https://www.instagram.com/reel/DJ93bvjtWRW/" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/inst.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/share/g/1QAMGUUP5W/" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/fb.png" alt="Facebook">
+    </a>
+  </div>
+
+  <hr class="imarch-contacts-divider"/>
+
+  
+  <div class="imarch-section-title">Share</div>
+
+  <div class="imarch-icon-grid-3">
+    <a href="https://x.com/share?url=https%3a%2f%2fimarch.ltd%2fru%2fprofile%2fsunlife-massage%2fpost_0002%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/x.png" alt="X Share">
+    </a>
+    <a href="https://api.whatsapp.com/send?text=%d0%91%d0%b0%d0%b7%d0%be%d0%b2%d1%8b%d0%b9%20%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c%20Self-Regulation%20Protocol%20%e2%80%9cHarmonia%e2%80%9d%20https%3a%2f%2fimarch.ltd%2fru%2fprofile%2fsunlife-massage%2fpost_0002%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/wa.png" alt="WhatsApp Share">
+    </a>
+    <a href="https://t.me/share/url?url=https%3a%2f%2fimarch.ltd%2fru%2fprofile%2fsunlife-massage%2fpost_0002%2f&text=%d0%91%d0%b0%d0%b7%d0%be%d0%b2%d1%8b%d0%b9%20%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8c%20Self-Regulation%20Protocol%20%e2%80%9cHarmonia%e2%80%9d" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/tg.png" alt="Telegram Share">
+    </a>
+    <a href="https://medium.com/share?url=https%3a%2f%2fimarch.ltd%2fru%2fprofile%2fsunlife-massage%2fpost_0002%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/med.png" alt="Medium Share">
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fimarch.ltd%2fru%2fprofile%2fsunlife-massage%2fpost_0002%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/lin.png" alt="LinkedIn Share">
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fimarch.ltd%2fru%2fprofile%2fsunlife-massage%2fpost_0002%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/fb.png" alt="Facebook Share">
+    </a>
+  </div>
+
+  <hr class="imarch-contacts-divider"/>
+
+</div>
+
+</details>
+    
+    
+    
+    
+    
+  </div>
+</main>
+
+<style>
+ 
+.article-date {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+ 
+.article-translations {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+  border-left: 3px solid #9333ea;
+  font-size: 0.9rem;
+}
+
+.article-translations span {
+  color: #475569;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.translation-link {
+  color: #7c3aed;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.translation-link:hover {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+ 
+@media (max-width: 768px) {
+  .article-translations {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .article-translations span {
+    margin-bottom: 0.25rem;
+  }
+  
+  .translation-link {
+    align-self: flex-start;
+  }
+}
+</style>
+
+    </main>
+
+    <footer>
+  <div class="container">
+    
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        <ul class="list-inline text-center footer-links">
+          
+
+          
+        </ul>
+
+        <p class="credits copyright text-muted">
+          
+            <a href="https://imarch.ltd/ru/">Имархия</a>
+            &nbsp;&bull;&nbsp;
+          
+
+          <a href="https://imarch.ltd/en/imarch-ltd/">IMARCH LTD UK</a>
+          &nbsp;&bull;&nbsp; Reg. No: 16791765
+          &nbsp;&bull;&nbsp; <a href="/audit.html" style="font-weight: 600;">Protocol 8888 Audit</a>
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+          &nbsp;&bull;&nbsp;
+          Oleksandr Purpurov
+        </p>
+
+        <p class="credits text-muted" style="font-style: italic; margin-top: 8px; opacity: 0.85; text-align: center;">
+          Chronicle OS is an official operational interface for Complex Sociosystems Risk Management (CSRM).
+        </p>
+
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script src="https://imarch.ltd/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" crossorigin="anonymous"></script><script src="https://imarch.ltd/js/load-photoswipe.js"></script>
+
+<script src="https://imarch.ltd/parallax.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".imarch-module details").forEach(details => {
+    const content = details.querySelector(".accordion-content");
+    if (!content) return;
+
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        setTimeout(() => { content.style.maxHeight = "0px"; }, 20);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll('.fade-in-up');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+    
+    <button id="openFormBtn" class="floating-btn">✉</button>
+
+    
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <span id="closeFormBtn" class="close">&times;</span>
+        <iframe src="https://forms.zohopublic.eu/adminima1/form/CustomerSupportRequestForm/formperma/AbFihH-NR7Iv2BufnOGTiWrfaRud1bW9-SeWL9aBc4Q"
+                frameborder="0"
+                style="width:100%; height:500px; border:none;">
+        </iframe>
+      </div>
+    </div>
+
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const openBtn = document.getElementById('openFormBtn');
+  const modal = document.getElementById('formModal');
+  const closeBtn = document.getElementById('closeFormBtn');
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+});
+</script>
+
+
+
+<script src="/js/account-return-widget.js?v=1" defer></script>

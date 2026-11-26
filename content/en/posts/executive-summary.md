@@ -68,7 +68,7 @@ The **Vis Realitatis** project creates a sustainable system of psycho-emotional 
 
 We combine modern body practices, social technologies, digital transparency, and training to restore people's sense of control, reduce stress levels, and form a living mutual aid community.
 
-{{< morebutton target="https://imarch.sbs/en/sunlife-massage/" text="ABOUT THE METHOD" >}}
+{{< morebutton target="https://imarch.ltd/en/sunlife-massage/" text="ABOUT THE METHOD" >}}
 
 ---
 

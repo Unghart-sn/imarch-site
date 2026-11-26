@@ -1741,7 +1741,7 @@ _将公民身份形式化为主动行动的形式，并将个体形式与制度�
 
 <details>
   <summary>▾</summary>
-  <p><em>2025.10.02，<a href="https://imarch.sbs/zh/constitutio/">宪法</a></em></p>
+  <p><em>2025.10.02，<a href="https://imarch.ltd/zh/constitutio/">宪法</a></em></p>
   <p><em>IMARCH 管理机构</em></p>
 
   [const-zn-01.pdf](https://github.com/Imperium-Silentii/Arhivum/blob/main/const-001/const-zn-01.pdf) | `79184E27B88EBAC56B29EC051706CAC7D4109289E615803C95696DBF8A0B039D`

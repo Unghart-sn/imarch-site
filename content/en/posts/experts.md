@@ -258,7 +258,7 @@ presidium:
 **Brief:** Developer of the practical massage methodology and training programs; responsible for the clinical part of the methodology and instructor preparation.  
 **Project tasks:** adaptation of the method to veterans' needs, development of training materials, quality control of practice.
 
-{{< morebutton target="https://imarch.sbs/ru/director/" text="Digital Office" >}}
+{{< morebutton target="https://imarch.ltd/ru/director/" text="Digital Office" >}}
 </div>
 
 {{< blog-articles-section-min-vis-en >}}

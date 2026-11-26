@@ -21,9 +21,9 @@ translationKey: "scene-blog-001"
 <details>
   <summary>🔻</summary>
 
-📜 护照链接: [IMARCH Passport 001 (ZH)](https://imarch.sbs/zh/tituli/testimonium-civitatis-unghart/)
+📜 护照链接: [IMARCH Passport 001 (ZH)](https://imarch.ltd/zh/tituli/testimonium-civitatis-unghart/)
 
-<p><em>2025.10.02，<a href="https://imarch.sbs/zh/verdictum/">判决</a></em></p>
+<p><em>2025.10.02，<a href="https://imarch.ltd/zh/verdictum/">判决</a></em></p>
 <p><em>伊马尔希行政机构</em></p>
 
 | 🇨🇳 中文 | [verdictum-zh-0001.pdf](https://github.com/Imperium-Silentii/Verdictum/blob/main/0001/verdictum-zh-0001.pdf) | `447C287BFD90EE38BF462FE0A51E25C60CC4E61616354B8A392CA15E5A2B62EA` |
@@ -31,7 +31,7 @@ translationKey: "scene-blog-001"
 <hr style="margin: 1em 0;">
 <div class="share-buttons">
   <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-       data-a2a-url="https://imarch.sbs/zh/verdictum/verdictum-001/"
+       data-a2a-url="https://imarch.ltd/zh/verdictum/verdictum-001/"
        data-a2a-title="判决：见证">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>

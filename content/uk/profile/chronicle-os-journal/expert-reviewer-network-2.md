@@ -21,7 +21,7 @@ description: "IMARCH CHRONICLE OS: міжнародна наукометричн
 
 Будь ласка, **скопіюйте вміст анкети кнопкою нижче**, або виділіть текст вручну, заповніть його вашими даними та надішліть листа:
 
-*   **Куди надсилати:** `info@imarch.sbs`
+*   **Куди надсилати:** `info@imarch.ltd`
 *   **Тема листа:** `Рецензент [Ваше ПІБ]`
 
 <!-- БЛОК З АНКЕТОЮ (КОД) -->
@@ -67,7 +67,7 @@ description: "IMARCH CHRONICLE OS: міжнародна наукометричн
 </div>
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

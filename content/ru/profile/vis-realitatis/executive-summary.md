@@ -55,7 +55,7 @@ translationKey: "vis-realitatis-000-2"
 
 Мы объединяем современные телесные практики, социальные технологии, цифровую прозрачность и обучение, чтобы вернуть людям чувство контроля, снизить уровень стресса и сформировать живое сообщество взаимопомощи.
 
-{{< morebutton target="https://imarch.sbs/ru/sunlife-massage/" text="О МЕТОДЕ" >}}
+{{< morebutton target="https://imarch.ltd/ru/sunlife-massage/" text="О МЕТОДЕ" >}}
 
 ---
 
@@ -195,8 +195,8 @@ translationKey: "vis-realitatis-000-2"
   <summary>Post Scriptum🔻</summary>
 
 <div style="max-width:800px; margin:0 auto; text-align:left; padding:0 1.5rem;">
-  <p><em><a href="https://imarch.sbs/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/ru/director/">Oleksandr Purpurov</a></em></p>
-  <p>Электронная почта: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p><em><a href="https://imarch.ltd/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/ru/director/">Oleksandr Purpurov</a></em></p>
+  <p>Электронная почта: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
 </div>
 
 {{< vis-concept-paper-link >}}

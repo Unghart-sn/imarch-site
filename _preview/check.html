@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Document Verification — IMARCH LTD</title>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="stylesheet" href="/app/app.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
+<script src="/auth-config.js"></script>
+<script src="/auth.js"></script>
+<style>
+  /* Локальные добавки поверх app.css — только бейджи и мелочи под check.html */
+  .check-wrap { max-width: 800px; margin: 0 auto; width: 100%; }
+  .check-topbar { padding: 24px 32px; background: #fff; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; gap: 12px; }
+  .check-topbar img { height: 28px; width: auto; border-radius: 50%; }
+  .check-topbar h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: 0.02em; color: #111827; }
+  .check-subtitle { font-style: italic; color: #6b7280; margin: 0 0 24px; font-size: 14px; }
+
+  .status-badge { display: inline-block; padding: 4px 12px; border-radius: 8px; font-size: 13px; font-weight: 600; letter-spacing: 0.01em; }
+  .status-badge.ok   { background:#dcfce7; color:#166534; border:1px solid #86efac; }
+  .status-badge.warn { background:#fef3c7; color:#92400e; border:1px solid #fcd34d; }
+  .status-badge.gray { background:#f3f4f6; color:#374151; border:1px solid #e5e7eb; }
+
+  .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 13px; word-break: break-all; }
+
+  .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .btn-secondary[disabled] { opacity: 0.6; cursor: wait; }
+
+  .verify-result { margin-top: 12px; padding: 12px 16px; border-radius: 10px; font-size: 14px; display: none; }
+  .verify-result.ok   { display:block; background:#dcfce7; color:#166534; border:1px solid #86efac; }
+  .verify-result.warn { display:block; background:#fef3c7; color:#92400e; border:1px solid #fcd34d; }
+  .verify-result.err  { display:block; background:#fee2e2; color:#991b1b; border:1px solid #fca5a5; }
+
+  .hint { font-size: 12px; color: #6b7280; margin-top: 6px; }
+
+  .check-loading { text-align: center; color: #6b7280; font-style: italic; padding: 32px; }
+  .check-error { background: #fee2e2; border: 1px solid #fca5a5; color: #991b1b; padding: 20px; border-radius: 12px; text-align: center; }
+
+  .check-footer { padding: 24px 32px; border-top: 1px solid #e5e7eb; background: #fff; color: #6b7280; font-size: 12px; text-align: center; line-height: 1.6; }
+  .check-footer .legal { color: #9ca3af; margin-top: 8px; }
+
+  @media (max-width: 768px) {
+    .check-topbar { padding: 16px; }
+    .check-footer { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="check-wrap">
+  <div class="check-topbar">
+    <img src="/logo.png" alt="IMARCH">
+    <h1>IMARCH LTD — Certificate Verification</h1>
+  </div>
+
+  <div class="app-content">
+    <div class="dash-grid">
+      <div>
+        <p class="check-subtitle">Cryptographically provable proof of priority</p>
+      </div>
+
+      <div id="pane-document"></div>
+    </div>
+  </div>
+
+  <div class="check-footer">
+    This page verifies the existence of a document at a given point in time.
+    An RFC&nbsp;3161 timestamp is final once issued. Bitcoin anchoring via OpenTimestamps is
+    shown as <em>pending</em> until a Bitcoin block confirms it; only then is the Bitcoin
+    attestation final. Verification does not make the document itself indestructible —
+    only the fact of its existence at that time is cryptographically provable.
+    <div class="legal">
+      IMARCH LTD UK &nbsp;·&nbsp; Jurisdiction: England &amp; Wales &nbsp;·&nbsp; Reg. No 16791765 &nbsp;·&nbsp; © 2026 Oleksandr Purpurov
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const paneDoc = document.getElementById('pane-document');
+  const OTS_DOWNLOAD_URL = '/.netlify/functions/ots-download?order_id=';
+
+  function getHashFromUrl() {
+    const m = location.pathname.match(/\/verify\/([a-f0-9]{64})/i);
+    if (m) return m[1].toLowerCase();
+    const p = new URLSearchParams(location.search).get('hash');
+    if (p) return p.toLowerCase().replace(/[^a-f0-9]/g, '');
+    return null;
+  }
+
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function renderError(target, msg) { target.innerHTML = '<div class="check-error">' + msg + '</div>'; }
+
+  function anchorBadge(anchorStatus) {
+    const s = String(anchorStatus || '').toLowerCase();
+    if (s === 'confirmed') return '<span class="status-badge ok">Bitcoin-confirmed</span>';
+    if (s === 'pending')   return '<span class="status-badge warn">Bitcoin confirmation pending</span>';
+    return '<span class="status-badge gray">RFC 3161 timestamped · anchoring not started</span>';
+  }
+
+  function renderEntry(entry) {
+    const anchorStatus = String(entry.anchor_status || '').toLowerCase();
+    const hasOts = !!entry.anchor_key;
+    const otsHref = entry.id ? (OTS_DOWNLOAD_URL + encodeURIComponent(entry.id)) : '';
+
+    let h = '<div class="dash-card">';
+    h += '<div class="card-header"><h3>Verification result</h3></div>';
+
+    h += '<div class="meta-grid">';
+    h += '<div class="meta-item"><label>Blockchain proof</label><span>' + anchorBadge(entry.anchor_status) + '</span></div>';
+    h += '<div class="meta-item"><label>Certificate status</label><span class="mono">' + esc(entry.status || '—') + '</span></div>';
+    if (entry.is_trial === true) { h += '<div class="meta-item"><label>Issued as</label><span><span class="status-badge warn">Trial (promo allocation)</span></span></div>'; }
+    h += '</div>';
+
+    h += '<div class="meta-grid" style="margin-top:16px;">';
+    h += '<div class="meta-item" style="flex:1 1 100%;"><label>Document</label><span>' + esc(entry.title || 'Document') + '</span></div>';
+    h += '</div>';
+
+    h += '<div class="meta-grid" style="margin-top:16px;">';
+    h += '<div class="meta-item" style="flex:1 1 100%;"><label>SHA-256</label><span class="mono">' + esc(entry.sha256) + '</span></div>';
+    h += '</div>';
+
+    if (hasOts && otsHref) {
+      h += '<div class="meta-grid" style="margin-top:16px;">';
+      h += '<div class="meta-item" style="flex:1 1 100%;"><label>OpenTimestamps</label>';
+      h += '<div class="btn-row">';
+      h += '<a class="btn-primary" href="' + esc(otsHref) + '" rel="noopener">Download .ots proof</a>';
+      h += '<button type="button" class="btn-secondary" id="btn-verify-ots" data-order-id="' + esc(entry.id) + '" data-sha256="' + esc(entry.sha256) + '">Verify in browser</button>';
+      h += '</div>';
+      h += '<div class="verify-result" id="verify-result"></div>';
+      h += (anchorStatus === 'pending'
+        ? '<div class="hint">Proof is partial until Bitcoin confirms it.</div>'
+        : '<div class="hint">Bitcoin-attested. The .ots file verifies against your PDF\'s SHA-256.</div>');
+      h += '</div></div>';
+    }
+
+    h += '</div>';
+    paneDoc.innerHTML = h;
+  }
+
+  async function main() {
+    const hash = getHashFromUrl();
+    if (!hash || hash.length !== 64) {
+      renderError(paneDoc, 'Invalid SHA-256 hash.');
+      return;
+    }
+
+    paneDoc.innerHTML = '<div class="check-loading">Looking up <span class="mono">' + esc(hash) + '</span></div>';
+
+    try {
+      const sb = window.imarchAuth.getClient();
+      const { data, error } = await sb.rpc('verify_by_sha256', { p_hash: hash });
+
+      if (error) throw error;
+
+      if (data && data.length > 0) {
+        renderEntry(data[0]);
+        window.dispatchEvent(new CustomEvent('imarch:entry-ready'));
+      } else {
+        renderError(paneDoc, 'Document not found in the IMARCH registry.');
+      }
+    } catch (e) {
+      renderError(paneDoc, 'Verification service error: ' + esc(e.message));
+    }
+  }
+
+  main();
+})();
+</script>
+
+<script type="module">
+import { verifyDigest } from 'https://cdn.jsdelivr.net/npm/zeitstempel@0.2.3/+esm';
+
+function showResult(kind, html) {
+  const el = document.getElementById('verify-result');
+  if (!el) return;
+  el.className = 'verify-result ' + kind;
+  el.innerHTML = html;
+}
+
+async function verifyOts(orderId, sha256Hex) {
+  const btn = document.getElementById('btn-verify-ots');
+  if (btn) { btn.disabled = true; btn.textContent = 'Verifying…'; }
+  showResult('warn', 'Fetching .ots proof and checking against Bitcoin…');
+
+  try {
+    const url = '/.netlify/functions/ots-download?order_id=' + encodeURIComponent(orderId);
+    const resp = await fetch(url, { redirect: 'follow' });
+    if (!resp.ok) throw new Error('download failed: HTTP ' + resp.status);
+    const otsBytes = new Uint8Array(await resp.arrayBuffer());
+
+    const results = await verifyDigest(sha256Hex, otsBytes);
+
+    if (!Array.isArray(results) || results.length === 0) {
+      showResult('err', 'Verification returned no results.');
+      return;
+    }
+
+    const verified = results.find(r => r && r.status === 'verified');
+    if (verified) {
+      const h = verified.height ? (' block <strong>#' + verified.height + '</strong>') : ' a Bitcoin block';
+      const t = verified.blockTime ? (' (' + new Date(verified.blockTime * 1000).toUTCString() + ')') : '';
+      showResult('ok', '✅ Verified in Bitcoin' + h + t + '. The proof matches the SHA-256 shown above.');
+      return;
+    }
+
+    showResult('warn', '⏳ Pending — Bitcoin confirmation not yet available. The .ots proof is valid but has not been upgraded to a Bitcoin block yet.');
+  } catch (e) {
+    showResult('err', 'Verification failed: ' + (e && e.message ? e.message : e));
+  } finally {
+    if (btn) { btn.disabled = false; btn.textContent = 'Verify in browser'; }
+  }
+}
+
+function bind() {
+  const btn = document.getElementById('btn-verify-ots');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    verifyOts(btn.getAttribute('data-order-id'), btn.getAttribute('data-sha256'));
+  });
+}
+
+window.addEventListener('imarch:entry-ready', bind);
+document.addEventListener('DOMContentLoaded', bind);
+</script>
+</body>
+</html>

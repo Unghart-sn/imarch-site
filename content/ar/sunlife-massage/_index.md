@@ -78,10 +78,10 @@ Sunlife‑Massage® هي علامة تجارية مسجلة.
 >**سياسة الخصوصية لشركة IMARCH LTD**  
 نحن لا نجمع البيانات الشخصية للزوار ولا نستخدم معلومات الاتصال لإرسال النشرات البريدية.  
 لا يتم نقل أي معلومات إلى أطراف ثالثة.  
-إذا كان لديك طلب رسمي بخصوص التكييف المنهجي للطريقة لمؤسستك أو مشروعك، يرجى إرساله إلى عنواننا الرسمي info@imarch.sbs.
+إذا كان لديك طلب رسمي بخصوص التكييف المنهجي للطريقة لمؤسستك أو مشروعك، يرجى إرساله إلى عنواننا الرسمي info@imarch.ltd.
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

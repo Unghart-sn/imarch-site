@@ -124,7 +124,7 @@ weight: 2
 </div>
 
 **ПОРЯДОК ДОСТУПА К ПОЛНОМУ ТЕКСТУ:**
-Полный текст документа предоставляется участникам инициативной группы «Vis Realitatis» через официальные внутренние каналы. Внешние запросы с верифицированной электронной подписью направлять на: **`secretariat@imarch.sbs`**
+Полный текст документа предоставляется участникам инициативной группы «Vis Realitatis» через официальные внутренние каналы. Внешние запросы с верифицированной электронной подписью направлять на: **`secretariat@imarch.ltd`**
 
 &nbsp;
 
@@ -147,10 +147,10 @@ weight: 2
       padding-left: 0 !important;
       display: block !important;
   ">
-    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/en/verdictum/verdictum-0003/">IMARCH LTD UK</a> • Департамент организационного развития</em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;">Электронная почта: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.sbs/la/verdictum/">VERDICT</a> • Серия: Внутренние организационные вопросы</em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/imarch.sbs-la-verdictum-verdictum-0007.pdf">verdictum-0007-la.pdf</a> (LAT/ENG)</p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/en/verdictum/verdictum-0003/">IMARCH LTD UK</a> • Департамент организационного развития</em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;">Электронная почта: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.ltd/la/verdictum/">VERDICT</a> • Серия: Внутренние организационные вопросы</em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/imarch.ltd-la-verdictum-verdictum-0007.pdf">verdictum-0007-la.pdf</a> (LAT/ENG)</p>
   </div>
 </div>
 

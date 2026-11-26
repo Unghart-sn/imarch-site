@@ -23,15 +23,15 @@ translationKey: "scene-blog-0015"
 
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
-  <p><em><a href="https://imarch.sbs/zh/imarch-ltd-uk/">IMARCH LTD UK</a> • 组织发展部</em></p>
-  <p>电子邮件：<a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-  <p><em>2026.01.17, <a href="https://imarch.sbs/zh/verdictum/">VERDICTUM</a> • 系列：通信</em></p>
+  <p><em><a href="https://imarch.ltd/zh/imarch-ltd-uk/">IMARCH LTD UK</a> • 组织发展部</em></p>
+  <p>电子邮件：<a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+  <p><em>2026.01.17, <a href="https://imarch.ltd/zh/verdictum/">VERDICTUM</a> • 系列：通信</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/discussions/6#discussioncomment-15533230">发布与归档</a> (LAT)</p>
 </div>
 
 **访问全文：**  
 信件的全文可通过官方内部渠道供“Vis Realitatis”倡议小组成员使用。  
-外部请求需提供经过验证的电子签名发送至：**`secretariat@imarch.sbs`**
+外部请求需提供经过验证的电子签名发送至：**`secretariat@imarch.ltd`**
 
 **真实性验证：**  
 本发布的真实性已通过原始文档的哈希值验证：

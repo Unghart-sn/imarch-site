@@ -17,7 +17,7 @@ css: ["css/ungchart.css"]
 {{< morebutton target="/ru/unghart/" text="🔔 订阅" >}}
 </div>
 
-{{< morebutton target="https://unghart.imarch.sbs/ru/" text="🌐 个人网站" >}}
+{{< morebutton target="https://unghart.imarch.ltd/ru/" text="🌐 个人网站" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">

@@ -38,7 +38,7 @@ After donating, you can request bonus access to the tools as the functionality b
   
 <div><link href="https://plugin.whydonate.com/wdplugin-style.css" rel="stylesheet" type="text/css"><div id="share-widget-vis-realitatis-preserving-memory" class="share-widget" data-slug="vis-realitatis-preserving-memory" data-lang="en" data-box-shadow="4" data-primary-color="#32BF55" data-secondary-color="#2E2C96" data-font-family="Roboto" data-button-radius="27" data-card="show" data-form_mode="donation-form+image"></div><script src="https://plugin.whydonate.com/wp_styling.js" type="text/javascript"></script></div> 
 
-Contact for participation and bonuses: admin@imarch.sbs
+Contact for participation and bonuses: info@imarch.ltd
 
 **Note on bonuses**
   
@@ -412,7 +412,7 @@ The project starts with veterans, but creates a universal template adaptable for
 
 ---
 
-**Project operator contact:** admin@imarch.sbs  
+**Project operator contact:** info@imarch.ltd  
 **Legal operator:** IMARCH LTD UK  
 Public entry: <a href="/en/vis-realitatis-center/">Vis Realitatis</a> 
 
@@ -428,7 +428,7 @@ Public entry: <a href="/en/vis-realitatis-center/">Vis Realitatis</a>
   <!-- Core information -->
   <div style="text-align: left; max-width: 800px; margin: 0 auto; padding: 0 1.5rem;">
     <p><em><a href="/en/imarch-ltd-uk/">IMARCH LTD</a></em></p>
-    <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+    <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
     <p><em>2026.01.06, <a href="/ru/vis-realitatis-center/">landing-version</a></em></p>
     <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/archive/2026-01-06-VisRealitatis_Concept_paper.pdf">2026-01-06-VisRealitatis_Concept_paper.pdf</a></p>
     <p style="font-size: 0.9em; color: #666;"><em>Note: The cryptographic hash value shows SHA-256 of the original Latin document</em></p>

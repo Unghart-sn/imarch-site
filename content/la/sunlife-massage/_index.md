@@ -78,10 +78,10 @@ Si nondum habes accessum verificatum, mitte petitionem officialem ad electroniam
 >**Politica secreti IMARCH LTD**  
 Notas personales visitatorum non colligimus nec informationem contactus ad missivis utimur.  
 Nullae notitiae ad tertias partes traduntur.  
-Si habes petitionem officialem de adaptatione methodologica Methodi pro organizatione vel projecto tuo, mitte eam ad nostrum electroniam officialem info@imarch.sbs.
+Si habes petitionem officialem de adaptatione methodologica Methodi pro organizatione vel projecto tuo, mitte eam ad nostrum electroniam officialem info@imarch.ltd.
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

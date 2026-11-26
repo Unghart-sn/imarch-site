@@ -48,7 +48,7 @@ The monograph establishes the methodological, economic, and architectural founda
 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin: 1.5rem 0;">
   <a href="https://doi.org/10.5281/zenodo.20611942" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #1f2b1c; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; text-align: center;">📄 Get the Monograph (DOI / PDF)</a>
   
-  <a href="https://imarch.sbs" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #1f2b1c; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; text-align: center;">🏛️ Official Website</a>
+  <a href="https://imarch.ltd" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #1f2b1c; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; text-align: center;">🏛️ Official Website</a>
 </div>
 
 &nbsp;
@@ -56,17 +56,17 @@ The monograph establishes the methodological, economic, and architectural founda
 #### Download PDF { .fade-in-up }
 
 <div style="display: flex; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/press/PR_IMARCH_ChronicleOS_20260612_EN.pdf" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #b18b56; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">📄 Download Press Release (PDF)</a>
+  <a href="https://imarch.ltd/press/PR_IMARCH_ChronicleOS_20260612_EN.pdf" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #b18b56; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">📄 Download Press Release (PDF)</a>
 </div>
 
-*If the link does not work, request a copy at [director@imarch.sbs](mailto:director@imarch.sbs)*
+*If the link does not work, request a copy at [info@imarch.ltd](mailto:info@imarch.ltd)*
 
 &nbsp;
 
 #### Media and Partnership Enquiries { .fade-in-up }
 
-📧 **Email**: [director@imarch.sbs](mailto:director@imarch.sbs)
-🌐 **Website**: [https://imarch.sbs](https://imarch.sbs)
+📧 **Email**: [info@imarch.ltd](mailto:info@imarch.ltd)
+🌐 **Website**: [https://imarch.ltd](https://imarch.ltd)
 
 Press inquiries and partnership proposals are welcome.
 
@@ -88,8 +88,8 @@ Press inquiries and partnership proposals are welcome.
 
 #### Join the Partnership with IMARCH LTD { .fade-in-up }
 
-Write to us: **media@imarch.sbs**
+Write to us: **media@imarch.ltd**
 
 We will send you a detailed memorandum and examples of token contracts.
 
-{{< steel_button link="mailto:media@imarch.sbs" text="📧 Become a Partner" margin="1rem 0" >}}
+{{< steel_button link="mailto:media@imarch.ltd" text="📧 Become a Partner" margin="1rem 0" >}}

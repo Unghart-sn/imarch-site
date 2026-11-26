@@ -71,7 +71,7 @@ class="fade-in-up" >}}
 <details> <summary>Оформити замовлення 🔻</summary>
 Для придбання ліцензій, токенів або бронювання турів перезавантаження — надішліть запит, підписаний КЕП, на офіційну адресу або зверніться до диспетчера.
 
-<div align="center"> <a href="mailto:info@imarch.sbs"> <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email"> </a> </div>
+<div align="center"> <a href="mailto:info@imarch.ltd"> <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email"> </a> </div>
 </details>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" /> </div>

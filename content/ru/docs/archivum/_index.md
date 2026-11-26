@@ -72,9 +72,9 @@ class="fade-in-up" >}}
   <p>Мы не осуществляем сбор персональных данных посетителей без их прямого запроса или участия в процессах проекта.</p>
   <p>Полученная информация используется исключительно в рамках взаимодействия и не передаётся третьим лицам, за исключением случаев, предусмотренных применимым законодательством.</p>
   <p>По вопросам методической адаптации и сотрудничества вы можете направить официальный запрос на адрес:</p>
-  <p><strong>info@imarch.sbs</strong></p>
+  <p><strong>info@imarch.ltd</strong></p>
   <div align="center">
-    <a href="mailto:info@imarch.sbs">
+    <a href="mailto:info@imarch.ltd">
       <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
     </a>
   </div>

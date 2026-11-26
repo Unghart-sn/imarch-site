@@ -333,7 +333,7 @@ III. الملكية الفكرية كخدمة
 **سياسة الخصوصية:** نحن لا نجمع البيانات الشخصية للزوار، ولا نستخدم معلومات الاتصال للرسائل الجماعية، ولا نشارك المعلومات مع أطراف ثالثة.
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

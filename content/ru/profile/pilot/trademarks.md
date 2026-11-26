@@ -49,4 +49,4 @@ IMARCH LTD UK настоящим подтверждает полную юрид�
 - [Реестр интеллектуальной собственности IMARCH](/ru/profile/pilot/ip-registry/)
 - [Пилот Vis Realitatis V.01™](/ru/profile/pilot/)
 
-{{< morebutton target="https://imarch.sbs/documents/IMARCH_IP_REGISTRY_IP-R-0888-2026_OFFICIAL.pdf" text="📥 Скачать полный реестр PDF" >}}
+{{< morebutton target="https://imarch.ltd/documents/IMARCH_IP_REGISTRY_IP-R-0888-2026_OFFICIAL.pdf" text="📥 Скачать полный реестр PDF" >}}

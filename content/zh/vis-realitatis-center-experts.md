@@ -22,7 +22,7 @@ IMARCH Githronical | Chronicle OS 是一个制度环境，在这里实践知识�
 IMARCH 发展为一个由参与者的互动和贡献塑造的环境。我们正朝着一个能够超越短期周期保护实践的可持续制度形式迈进。
 
 <div style="text-align: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=贡献者注册申请&body=姓名:%20%0A专业领域:%20%0A出版物链接:%20%0A为什么对期刊感兴趣:" text="✉️ 写信给我们注册" margin="1rem 0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=贡献者注册申请&body=姓名:%20%0A专业领域:%20%0A出版物链接:%20%0A为什么对期刊感兴趣:" text="✉️ 写信给我们注册" margin="1rem 0" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">

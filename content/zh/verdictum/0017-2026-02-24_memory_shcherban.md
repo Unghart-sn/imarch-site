@@ -39,12 +39,12 @@ N.G. 谢尔班的名字永远铭刻在 Vis Realitatis 的编年史中，作为�
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
   <p><em>IMARCH LTD UK • 组织发展部</em></p>
-  <p>电子邮件: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p>电子邮件: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
   <p><em>2026.02.24 • VERDICTUM • 系列: 官方声明</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/0017_%20%20verdiktum.pdf">发布与归档</a> (ZH)</p>
 </div>
 
-外部请求仅在确认的数字签名发送至以下地址时接受: **`secretariat@imarch.sbs`**
+外部请求仅在确认的数字签名发送至以下地址时接受: **`secretariat@imarch.ltd`**
 
 **真实性确认:**  
 此出版物的真实性通过原始文件的哈希值验证:

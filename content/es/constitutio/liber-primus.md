@@ -1880,7 +1880,7 @@ Todas las disposiciones fijadas en los Libros I y II entran en vigor desde el mo
 
 <details>
   <summary>▾</summary>
-  <p><em>2025.10.02, <a href="https://imarch.sbs/es/constitutio/">CONSTITUCIÓN</a></em></p>
+  <p><em>2025.10.02, <a href="https://imarch.ltd/es/constitutio/">CONSTITUCIÓN</a></em></p>
   <p><em>Administración de IMARCH</em></p>
 
   [const-es-01.pdf](https://github.com/Imperium-Silentii/Arhivum/blob/main/const-001/const-es-01.pdf) | `A118450641EE2250F6E07EB526277CEDD83F58D0D23047A3BF97D549659F674D`

@@ -56,7 +56,7 @@ The **Vis Realitatis** project creates a sustainable system of psycho‑emotiona
 
 We bring together modern somatic practices, social technologies, digital transparency and training to restore people’s sense of control, reduce stress levels and form a living mutual‑aid community.
 
-{{< morebutton target="https://imarch.sbs/en/sunlife-massage/" text="ABOUT THE METHOD" >}}
+{{< morebutton target="https://imarch.ltd/en/sunlife-massage/" text="ABOUT THE METHOD" >}}
 
 ---
 
@@ -196,8 +196,8 @@ Video presentations are created using Notebook LM tools based on the original ma
   <summary>Post Scriptum🔻</summary>
 
 <div style="max-width:800px; margin:0 auto; text-align:left; padding:0 1.5rem;">
-  <p><em><a href="https://imarch.sbs/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/en/director/">Oleksandr Purpurov</a></em></p>
-  <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p><em><a href="https://imarch.ltd/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/en/director/">Oleksandr Purpurov</a></em></p>
+  <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
 </div>
 
 {{< vis-concept-paper-link-en >}}

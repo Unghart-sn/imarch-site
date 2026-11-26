@@ -367,7 +367,7 @@ Chronicle OS لا يحل محل الهياكل القانونية. إنه يخل
   <div style="text-align: right !important; max-width: 800px; margin: 0 auto; padding-right: 0 !important; padding-left: 0 !important;">
     <div style="text-align: right !important; margin-right: 0 !important; padding-right: 0 !important; display: block !important;">
       <p style="text-align: right !important; margin-right: 0 !important;"><em><a href="/en/imarch-ltd-uk/">IMARCH LTD</a></em></p>
-      <p style="text-align: right !important; margin-right: 0 !important;">البريد الإلكتروني: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+      <p style="text-align: right !important; margin-right: 0 !important;">البريد الإلكتروني: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
       <p style="text-align: right !important; margin-right: 0 !important;"><em>2026.01.06, <a href="/ru/vis-realitatis-center/">landing-version</a></em></p>
       <p style="text-align: right !important; margin-right: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/archive/2026-01-06-VisRealitatis_Concept_paper.pdf">2026-01-06-VisRealitatis_Concept_paper.pdf</a></p>
       <p style="text-align: right !important; margin-right: 0 !important; font-size: 0.9em; color: #666;"><em>ملاحظة: تظهر قيمة التجزئة المشفرة SHA-256 للوثيقة اللاتينية الأصلية</em></p>

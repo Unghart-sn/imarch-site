@@ -20,7 +20,7 @@ description: "Другий етап подання статті: криптог�
 
 1. **Скопіювати офіційний протокол** депонування нижче.
 2. **Внести цільовий реєстраційний внесок £50** на підтримку інфраструктури рецензування.
-3. **Надіслати копію протоколу** та файли публікації на наш офіційний поштовий шлюз `info@imarch.sbs`.
+3. **Надіслати копію протоколу** та файли публікації на наш офіційний поштовий шлюз `info@imarch.ltd`.
 
 Пріоритетне розміщення та рецензування вашої статті є гарантованим бонусом (Reward / Perk) для донорів та меценатів, які підтримують розвиток некомерційної інфраструктури IMARCH Chronicle OS.
 
@@ -74,7 +74,7 @@ description: "Другий етап подання статті: криптог�
 
 <!-- ІКОНКА ПОШТИ -->
 <div align="center" style="margin-top: 0.5rem;">
-  <a id="authMailtoLink" href="mailto:info@imarch.sbs">
+  <a id="authMailtoLink" href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('authMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Протокол депонування статті: ' + name);
-    mailtoLink.setAttribute('href', 'mailto:info@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:info@imarch.ltd?subject=' + subject);
   }
 });
 

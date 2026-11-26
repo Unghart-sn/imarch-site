@@ -78,10 +78,10 @@ Si vous n'avez pas encore d'accès vérifié, veuillez envoyer une demande offic
 >**Politique de confidentialité d'IMARCH LTD**  
 Nous ne collectons pas les données personnelles des visiteurs et n'utilisons pas les informations de contact pour des mailings.  
 Aucune information n'est transmise à des tiers.  
-Si vous avez une demande officielle concernant l'adaptation méthodologique de la Méthode pour votre organisation ou projet, veuillez l'envoyer à notre adresse officielle info@imarch.sbs.
+Si vous avez une demande officielle concernant l'adaptation méthodologique de la Méthode pour votre organisation ou projet, veuillez l'envoyer à notre adresse officielle info@imarch.ltd.
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

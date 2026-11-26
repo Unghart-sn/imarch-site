@@ -19,7 +19,7 @@ description: "Второй этап институциональной заяв�
 
 Пожалуйста, проверьте данные, скопируйте их и отправьте письмо:
 
-*   **Куда отправлять:** `partners@imarch.sbs`
+*   **Куда отправлять:** `partners@imarch.ltd`
 *   **Тема письма:** `Институциональная заявка: [Название организации]`
 
 <!-- БЛОК С АНКЕТОЙ (КОД) -->
@@ -64,7 +64,7 @@ description: "Второй этап институциональной заяв�
 </p>
 
 <div align="center">
-  <a id="instMailtoLink" href="mailto:partners@imarch.sbs">
+  <a id="instMailtoLink" href="mailto:partners@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('instMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Институциональная заявка: ' + name);
-    mailtoLink.setAttribute('href', 'mailto:partners@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:partners@imarch.ltd?subject=' + subject);
   }
 });
 

@@ -78,10 +78,10 @@ Si aún no tiene acceso verificado, envíe una solicitud oficial al correo elect
 >**Política de privacidad de IMARCH LTD**  
 No recopilamos datos personales de los visitantes ni utilizamos la información de contacto para envíos masivos.  
 Ninguna información se transmite a terceros.  
-Si tiene una solicitud oficial sobre la adaptación metodológica del Método para su organización o proyecto, envíela a nuestra dirección oficial info@imarch.sbs.
+Si tiene una solicitud oficial sobre la adaptación metodológica del Método para su organización o proyecto, envíela a nuestra dirección oficial info@imarch.ltd.
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

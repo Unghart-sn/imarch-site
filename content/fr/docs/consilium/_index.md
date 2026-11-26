@@ -66,7 +66,7 @@ Pour participer, il faut :
 
 Pour soumettre votre demande :
 
-1. Consultez la **[Constitution IMARCH](https://imarch.sbs/fr/constitutio/)**  
+1. Consultez la **[Constitution IMARCH](https://imarch.ltd/fr/constitutio/)**  
 2. Accédez au formulaire de demande :  
    **[📝 Demander la citoyenneté](...)**  
 3. Indiquez le nom scénique, GitHub, titre, objectif de participation  

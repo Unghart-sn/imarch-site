@@ -17,7 +17,7 @@ Bienvenido a mi escena personal. Aquí reúno inspiración, comparto pensamiento
 {{< morebutton target="/ru/unghart/" text="🔔 SUSCRIBIRSE" >}}
 </div>
 
-{{< morebutton target="https://unghart.imarch.sbs/ru/" text="🌐 SITIO PERSONAL" >}}
+{{< morebutton target="https://unghart.imarch.ltd/ru/" text="🌐 SITIO PERSONAL" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">

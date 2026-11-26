@@ -249,7 +249,7 @@ description: "Архитектурная иерархия институцион
   </p>
   <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
     <a href="/ru/tags/documents/" style="display: inline-block; background: #2c3622; color: #ffffff; padding: 0.7rem 2rem; border-radius: 40px; text-decoration: none; font-weight: 600; border: 2px solid #2c3622; transition: all 0.2s ease;">📄 Полный реестр</a>
-    <a href="mailto:legal@imarch.sbs?subject=Запрос%20в%20реестр%20документов" style="display: inline-block; background: transparent; color: #2c3622; padding: 0.7rem 2rem; border-radius: 40px; text-decoration: none; font-weight: 600; border: 2px solid #2c3622; transition: all 0.2s ease;">🤝 Связаться с реестром</a>
+    <a href="mailto:legal@imarch.ltd?subject=Запрос%20в%20реестр%20документов" style="display: inline-block; background: transparent; color: #2c3622; padding: 0.7rem 2rem; border-radius: 40px; text-decoration: none; font-weight: 600; border: 2px solid #2c3622; transition: all 0.2s ease;">🤝 Связаться с реестром</a>
   </div>
 </div>
 

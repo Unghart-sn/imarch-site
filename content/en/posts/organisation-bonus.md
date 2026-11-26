@@ -9,7 +9,7 @@ layout: single
 
 The project **IMARCH Githronical | Chronicle OS**, based on the program for forming a renovation center for veterans Vis Realitatis, creates an operational environment for collective activity.
 
-{{< morebutton target="https://imarch.sbs/en/vis-realitatis-center/" text="ABOUT THE PROJECT" >}}
+{{< morebutton target="https://imarch.ltd/en/vis-realitatis-center/" text="ABOUT THE PROJECT" >}}
 </div>
 
 {{< vis-concept-paper-link-en >}}
@@ -65,7 +65,7 @@ This is the institutional layer of an official node of collective activity, incl
 
 The organization office-website is a space **where collective initiative becomes an institutional form**, and the team's activity receives transparent and official representation on the Internet.
 
-{{< morebutton target="https://imarch.sbs/en/ccs/" text="LEARN MORE ABOUT THE OFFICE SITE" >}}
+{{< morebutton target="https://imarch.ltd/en/ccs/" text="LEARN MORE ABOUT THE OFFICE SITE" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -338,7 +338,7 @@ Every dollar goes toward building infrastructure that will enable thousands of c
 
 ## 📞 Still have questions?
 
-Write to [info@imarch.sbs](mailto:info@imarch.sbs)
+Write to [info@imarch.ltd](mailto:info@imarch.ltd)
 
 *Last updated: {{< current_date >}}*
 

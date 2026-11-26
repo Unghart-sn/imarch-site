@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+    <title>Решение 2-1: Стандарт для описания миссий и ролей - Imarchia</title>
+
+  <meta name="description" content="Единый язык (Формология) для сборки команд. Все участники понимают правила, роли и цели с первого дня." />
+  <meta name="author" content="IMARCH LTD UK" />
+
+
+  <link href="https://imarch.ltd/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+<meta name="generator" content="Hugo 0.148.2"><link rel="alternate" href="https://imarch.ltd/ar/index.xml" type="application/rss+xml" title="إمارتشيا" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://imarch.ltd/css/main.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/custom-v2.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/ungchart.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" />
+  <link rel="stylesheet" href="https://imarch.ltd/css/syntax.css" />
+
+<link rel="stylesheet" href="https://imarch.ltd/css/codeblock.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" crossorigin="anonymous" />
+
+
+
+
+
+<link rel="stylesheet" href="/css/landing.css?v=3" />
+
+        <link rel="stylesheet" href="/css/style.css">
+
+    
+    <style>
+      html, body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
+      body {
+        display: block !important;
+        flex-flow: initial !important;
+        padding-top: 80px !important;
+      }
+      main {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+      footer {
+        position: static !important;
+        margin-top: 3rem !important;
+        display: block !important;
+        width: 100% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://imarch.ltd/ar/">إمارتشيا</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="اللعبة" href="/ar/docs/ludus/">اللعبة</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="الأرشيف" href="/ar/docs/archivum/">الأرشيف</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="الكلية" href="/ar/docs/collegium/">الكلية</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="المجلس" href="/ar/docs/consilium/">المجلس</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="الحكم" href="/ar/verdictum/">الحكم</a>
+            </li>
+          
+        
+
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0"></a>
+              <div class="navlinks-children">
+                
+                  
+                  <a href="https://imarch.ltd/posts/mission-role-standard-ru/">Latina</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/posts/trust-and-inheritance-protocols/">Latina</a>
+                  
+                
+                  
+                
+                  
+                  <a href="https://imarch.ltd/zh/posts/mission-role-standard-ru/">中文</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/zh/posts/trust-and-inheritance-protocols/">中文</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/fr/posts/mission-role-standard-ru/">Français</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/fr/posts/trust-and-inheritance-protocols/">Français</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/ru/posts/mission-role-standard-ru/">Русский</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/ru/posts/trust-and-inheritance-protocols/">Русский</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/es/posts/mission-role-standard-ru/">Español</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/es/posts/trust-and-inheritance-protocols/">Español</a>
+                  
+                
+              </div>
+            </li>
+          
+        
+
+        
+        <li>
+          <a href="/login/" title="Sign in">Sign in</a>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="إمارتشيا" href="https://imarch.ltd/ar/">
+            <img class="avatar-img" src="https://imarch.ltd/images/logo.png" alt="إمارتشيا" />
+          </a>
+        </div>
+      </div>
+    
+  </div>
+</nav>
+
+
+
+
+    <main>
+      
+<main>
+  <div class="section-content">
+    
+    
+    <h1>Решение 2-1: Стандарт для описания миссий и ролей</h1>
+    
+    
+    
+    <div class="article-date">
+      📅 16 November 2023
+    </div>
+    
+    
+    
+    
+    <div class="article-translations">
+      <span>🌐 :</span>
+      
+      <a href="https://imarch.ltd/posts/mission-role-standard-ru/" class="translation-link">Latina</a>
+      
+      <a href="https://imarch.ltd/posts/trust-and-inheritance-protocols/" class="translation-link">Latina</a>
+      
+      <a href="https://imarch.ltd/ar/posts/trust-and-inheritance-protocols/" class="translation-link">العربية</a>
+      
+      <a href="https://imarch.ltd/zh/posts/mission-role-standard-ru/" class="translation-link">中文</a>
+      
+      <a href="https://imarch.ltd/zh/posts/trust-and-inheritance-protocols/" class="translation-link">中文</a>
+      
+      <a href="https://imarch.ltd/fr/posts/mission-role-standard-ru/" class="translation-link">Français</a>
+      
+      <a href="https://imarch.ltd/fr/posts/trust-and-inheritance-protocols/" class="translation-link">Français</a>
+      
+      <a href="https://imarch.ltd/ru/posts/mission-role-standard-ru/" class="translation-link">Русский</a>
+      
+      <a href="https://imarch.ltd/ru/posts/trust-and-inheritance-protocols/" class="translation-link">Русский</a>
+      
+      <a href="https://imarch.ltd/es/posts/mission-role-standard-ru/" class="translation-link">Español</a>
+      
+      <a href="https://imarch.ltd/es/posts/trust-and-inheritance-protocols/" class="translation-link">Español</a>
+      
+    </div>
+    
+    
+    
+    <div class="blog-button-icon" style="
+    font-size: 4.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(138, 43, 226, 0.7), 0 0 40px rgba(138, 43, 226, 0.4);
+    animation: brainPulse 1.5s ease-in-out infinite, synapseFlash 0.8s ease-in-out infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+">
+    🧠
+</div>
+<style>
+@keyframes brainPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
+}
+@keyframes synapseFlash {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+</style>
+<blockquote>
+<p>У программистов есть Git — единый стандарт для совместной работы над кодом. У них нет споров «чей код главнее» или «как объединить изменения». Есть протокол — и все ему следуют.</p></blockquote>
+<p><strong>У социальных проектов такого языка не было. До сих пор.</strong></p>
+<h2 id="представляем-формологию">Представляем Формологию</h2>
+<p><strong>Формология</strong> — это единый язык описания:</p>
+<ul>
+<li>Миссий</li>
+<li>Ролей</li>
+<li>Полномочий</li>
+<li>Взаимодействий</li>
+</ul>
+<p><strong>Как музыкальные ноты.</strong> По ним можно сыграть любую мелодию, и любой музыкант поймёт, что играть.</p>
+<h2 id="три-уровня-языка">Три уровня языка</h2>
+<h3 id="1-миссионный-уровень">1. <strong>Миссионный уровень</strong></h3>
+<ul>
+<li><strong>Цель:</strong> Зачем мы существуем?</li>
+<li><strong>Принципы:</strong> По каким правилам действуем?</li>
+<li><strong>Метрики:</strong> Как измеряем успех?</li>
+</ul>
+<p><strong>Пример:</strong> «Обучать digital-навыкам подростков из глубинки. Принцип: практика важнее теории. Метрика: 1000 обученных за год.»</p>
+<h3 id="2-ролевой-уровень">2. <strong>Ролевой уровень</strong></h3>
+<ul>
+<li><strong>Мандат:</strong> Что может решать эта роль?</li>
+<li><strong>Ответственность:</strong> За что отвечает?</li>
+<li><strong>Взаимодействие:</strong> С кем взаимодействует?</li>
+</ul>
+<p><strong>Пример:</strong> «Роль: Методист. Мандат: выбирать учебные материалы. Ответственность: качество обучения. Взаимодействие: с преподавателями и учениками.»</p>
+<h3 id="3-протокольный-уровень">3. <strong>Протокольный уровень</strong></h3>
+<ul>
+<li><strong>Как принимаются решения?</strong></li>
+<li><strong>Как разрешаются конфликты?</strong></li>
+<li><strong>Как меняются правила?</strong></li>
+</ul>
+<p><strong>Пример:</strong> «Решение о бюджете: голосование основателей 75%. Конфликт: медиация через стандартный протокол.»</p>
+<h2 id="что-это-даёт">Что это даёт?</h2>
+<h3 id="для-основателей">Для основателей:</h3>
+<ul>
+<li><strong>Ясность:</strong> Все правила прописаны</li>
+<li><strong>Контроль:</strong> Процессы предсказуемы</li>
+<li><strong>Масштабирование:</strong> Новые люди быстро входят в курс</li>
+</ul>
+<h3 id="для-команды">Для команды:</h3>
+<ul>
+<li><strong>Понятность:</strong> Знаю свои границы и возможности</li>
+<li><strong>Безопасность:</strong> Защищён от произвола</li>
+<li><strong>Развитие:</strong> Чёткий карьерный путь</li>
+</ul>
+<h3 id="для-проекта">Для проекта:</h3>
+<ul>
+<li><strong>Устойчивость:</strong> Не зависит от конкретных людей</li>
+<li><strong>Эффективность:</strong> Меньше времени на выяснение отношений</li>
+<li><strong>Привлекательность:</strong> Прозрачность привлекает лучших</li>
+</ul>
+<h2 id="как-выглядит-на-практике">Как выглядит на практике?</h2>
+<p><strong>До:</strong> «Вася, займись там маркетингом. Маша, ты у нас за финансы.»</p>
+<p><strong>После:</strong></p>
+<p>РОЛЬ: Маркетолог<br>
+МАНДАТ:</p>
+<ul>
+<li>Разрабатывать контент-план</li>
+<li>Запускать рекламу до 1000£/мес</li>
+<li>Анализировать метрики охвата</li>
+</ul>
+<p>ОТВЕТСТВЕННОСТЬ:</p>
+<ul>
+<li>Привлечение 100 лидов/мес</li>
+<li>Конверсия сайта 3%+</li>
+</ul>
+<p>ВЗАИМОДЕЙСТВИЕ:</p>
+<ul>
+<li>Согласование бюджета с Финансистом</li>
+<li>Получение контента от Методиста</li>
+</ul>
+<p><strong>Разница как между устной договорённостью и юридическим контрактом.</strong></p>
+<h2 id="почему-это-прорыв">Почему это прорыв?</h2>
+<ol>
+<li><strong>Универсальность:</strong> Один язык для любых проектов</li>
+<li><strong>Прозрачность:</strong> Все видят все правила</li>
+<li><strong>Автоматизация:</strong> Можно строить на его основе софт</li>
+<li><strong>Наследование:</strong> Новые лидеры понимают систему за час</li>
+</ol>
+<h2 id="кто-уже-использует">Кто уже использует?</h2>
+<ul>
+<li>Образовательные проекты — для описания ролей преподавателей</li>
+<li>Экологические инициативы — для координации волонтёров</li>
+<li>Социальные стартапы — для привлечения инвесторов (они любят структуру!)</li>
+</ul>
+<p><strong>Они перестали «договариваться на словах». Они работают по протоколу.</strong></p>
+<hr>
+<p><strong>Следующий шаг:</strong> Получите базовый набор шаблонов Формологии для вашего проекта.</p>
+
+    
+    
+    
+    
+      
+    
+    
+  </div>
+</main>
+
+<style>
+ 
+.article-date {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+ 
+.article-translations {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+  border-left: 3px solid #9333ea;
+  font-size: 0.9rem;
+}
+
+.article-translations span {
+  color: #475569;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.translation-link {
+  color: #7c3aed;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.translation-link:hover {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+ 
+@media (max-width: 768px) {
+  .article-translations {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .article-translations span {
+    margin-bottom: 0.25rem;
+  }
+  
+  .translation-link {
+    align-self: flex-start;
+  }
+}
+</style>
+
+    </main>
+
+    <footer>
+  <div class="container">
+    
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        <ul class="list-inline text-center footer-links">
+          
+
+          
+        </ul>
+
+        <p class="credits copyright text-muted">
+          
+            <a href="https://imarch.ltd/ar/">إمارتشيا</a>
+            &nbsp;&bull;&nbsp;
+          
+
+          <a href="https://imarch.ltd/en/imarch-ltd/">IMARCH LTD UK</a>
+          &nbsp;&bull;&nbsp; Reg. No: 16791765
+          &nbsp;&bull;&nbsp; <a href="/audit.html" style="font-weight: 600;">Protocol 8888 Audit</a>
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+          &nbsp;&bull;&nbsp;
+          Oleksandr Purpurov
+        </p>
+
+        <p class="credits text-muted" style="font-style: italic; margin-top: 8px; opacity: 0.85; text-align: center;">
+          Chronicle OS is an official operational interface for Complex Sociosystems Risk Management (CSRM).
+        </p>
+
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script src="https://imarch.ltd/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" crossorigin="anonymous"></script><script src="https://imarch.ltd/js/load-photoswipe.js"></script>
+
+<script src="https://imarch.ltd/parallax.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".imarch-module details").forEach(details => {
+    const content = details.querySelector(".accordion-content");
+    if (!content) return;
+
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        setTimeout(() => { content.style.maxHeight = "0px"; }, 20);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll('.fade-in-up');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+    
+    <button id="openFormBtn" class="floating-btn">✉</button>
+
+    
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <span id="closeFormBtn" class="close">&times;</span>
+        <iframe src="https://forms.zohopublic.eu/adminima1/form/CustomerSupportRequestForm/formperma/AbFihH-NR7Iv2BufnOGTiWrfaRud1bW9-SeWL9aBc4Q"
+                frameborder="0"
+                style="width:100%; height:500px; border:none;">
+        </iframe>
+      </div>
+    </div>
+
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const openBtn = document.getElementById('openFormBtn');
+  const modal = document.getElementById('formModal');
+  const closeBtn = document.getElementById('closeFormBtn');
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+});
+</script>
+
+
+
+<script src="/js/account-return-widget.js?v=1" defer></script>

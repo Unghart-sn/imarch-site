@@ -70,7 +70,7 @@ draft: false                # опубликовано
 1.  **Юридическое оформление:** Разработка Устава АНО с детальным прописанием видов деятельности: «научные исследования и разработки», «образование дополнительное», «деятельность в области здравоохранения», «социальные услуги».
 2.  **Формирование управляющих органов:** Создание Наблюдательного совета с включением авторитетных экспертов в области медицины, психологии, социальной работы и образования.
 3.  **Разработка «дорожной карты»:** Детальный план на первые 24 месяца с этапами: регистрация, создание пилотных программ, запуск первого исследовательского проекта, подготовка и лицензирование образовательных программ.
-4.  **Регистрация домена и товарных знаков:** Закрепление цифрового присутствия (`visrealitatis.imarch.sbs`) и прав на бренд «Энергия Реальности» / «Vis Realitatis».
+4.  **Регистрация домена и товарных знаков:** Закрепление цифрового присутствия (`visrealitatis.imarch.ltd`) и прав на бренд «Энергия Реальности» / «Vis Realitatis».
 
 **Регистрация собственной АНО — это не расход, а СТРАТЕГИЧЕСКАЯ ИНВЕСТИЦИЯ в создание защищённого, управляемого и масштабируемого инструмента для реализации миссии по глубокому обновлению человеческого потенциала.**
 
@@ -86,7 +86,7 @@ draft: false                # опубликовано
 ---
 
 *Vis Realitatis – Сила Реальности*  
-**Официальный портал проекта:** [visrealitatis.imarch.sbs](https://visrealitatis.imarch.sbs)
+**Официальный портал проекта:** [visrealitatis.imarch.ltd](https://visrealitatis.imarch.ltd)
 
 Олександр Пурпуров
 Основатель и директор,
@@ -113,9 +113,9 @@ Imarch LTD UK
       padding-left: 0 !important;
       display: block !important;
   ">
-    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/ru/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;">Электронная почта: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.sbs/ru/verdictum/verdictum-0006/">ВЕРДИКТ</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/ru/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;">Электронная почта: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.ltd/ru/verdictum/verdictum-0006/">ВЕРДИКТ</a></em></p>
     <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/proposals/memorandum-ano-vis-realitatis-2025-12-10.pdf">memorandum-ano-vis-realitatis-2025-12-10-la.pdf</a></p>
     <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>Примечание: В значении криптографического хеша указан SHA-256 оригинального документа на латыни</em></p>
   </div>

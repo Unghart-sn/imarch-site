@@ -472,7 +472,7 @@ draft: false
 
 ## 📞 Остались вопросы?
 
-Пишите на [info@imarch.sbs](mailto:inf@imarch.sbs)
+Пишите на [info@imarch.ltd](mailto:inf@imarch.ltd)
 
 *Последнее обновление: {{< current_date >}}*
 

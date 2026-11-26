@@ -2027,7 +2027,7 @@ Omnia statuta in Libris I et II descripta vim habent a momento fixationis public
 
 <details>
   <summary>▾</summary>
-  <p><em>2025.10.02, <a href="https://imarch.sbs/la/constitutio/">CONSTITUTIO</a></em></p>
+  <p><em>2025.10.02, <a href="https://imarch.ltd/la/constitutio/">CONSTITUTIO</a></em></p>
   <p><em>Administratio IMARCH</em></p>
 
   [const-la-01.pdf](https://github.com/Imperium-Silentii/Arhivum/blob/main/const-001/const-la-01.pdf) | `D2B929BB43241C6DBB8395FC40F4117EC84F0D5AE83B1582E3239FC92FCD0B05`

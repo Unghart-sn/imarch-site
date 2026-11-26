@@ -19,7 +19,7 @@ description: "Второй этап регистрации экспертног�
 
 Пожалуйста, проверьте данные, скопируйте их и отправьте письмо:
 
-*   **Куда отправлять:** `info@imarch.sbs`
+*   **Куда отправлять:** `info@imarch.ltd`
 *   **Тема письма:** `Заявка рецензента: [Ваше ФИО]`
 
 <!-- БЛОК С АНКЕТОЙ (КОД) -->
@@ -69,7 +69,7 @@ description: "Второй этап регистрации экспертног�
 </p>
 
 <div align="center">
-  <a id="revMailtoLink" href="mailto:info@imarch.sbs">
+  <a id="revMailtoLink" href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('revMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Заявка рецензента: ' + name);
-    mailtoLink.setAttribute('href', 'mailto:info@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:info@imarch.ltd?subject=' + subject);
   }
 });
 

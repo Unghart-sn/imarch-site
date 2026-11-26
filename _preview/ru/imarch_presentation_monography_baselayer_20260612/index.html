@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+    <title>Архитектура суверенной науки и мультиагентной оркестровки цифровых экосистем - Imarchia</title>
+
+  <meta name="description" content="Презентационная монография IMARCH LTD. Базовый слой институционального каркаса Chronicle OS. Философия, архитектура и дорожная карта экосистемы." />
+  <meta name="author" content="IMARCH LTD UK" />
+
+
+  <link href="https://imarch.ltd/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+<meta name="generator" content="Hugo 0.148.2"><link rel="alternate" href="https://imarch.ltd/ru/index.xml" type="application/rss+xml" title="Имархия" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://imarch.ltd/css/main.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/custom-v2.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/ungchart.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" />
+  <link rel="stylesheet" href="https://imarch.ltd/css/syntax.css" />
+
+<link rel="stylesheet" href="https://imarch.ltd/css/codeblock.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" crossorigin="anonymous" />
+
+
+
+
+
+<link rel="stylesheet" href="/css/landing.css?v=3" />
+
+        <link rel="stylesheet" href="/css/style.css">
+
+    
+    <style>
+      html, body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
+      body {
+        display: block !important;
+        flex-flow: initial !important;
+        padding-top: 80px !important;
+      }
+      main {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+      footer {
+        position: static !important;
+        margin-top: 3rem !important;
+        display: block !important;
+        width: 100% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://imarch.ltd/ru/">Имархия</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Игра" href="/ru/docs/ludus/">Игра</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Архив" href="/ru/docs/archivum/">Архив</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Коллегия" href="/ru/docs/collegium/">Коллегия</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Совет" href="/ru/docs/consilium/">Совет</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Вердикт" href="/ru/verdictum/">Вердикт</a>
+            </li>
+          
+        
+
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0"></a>
+              <div class="navlinks-children">
+                
+                  
+                  <a href="https://imarch.ltd/en/imarch_presentation_monography_baselayer_20260612/">English</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/uk/imarch_presentation_monography_baselayer_20260612/">Українська</a>
+                  
+                
+              </div>
+            </li>
+          
+        
+
+        
+        <li>
+          <a href="/login/" title="Sign in">Sign in</a>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Имархия" href="https://imarch.ltd/ru/">
+            <img class="avatar-img" src="https://imarch.ltd/images/logo.png" alt="Имархия" />
+          </a>
+        </div>
+      </div>
+    
+  </div>
+</nav>
+
+
+
+
+    <main>
+      
+<main>
+  <div class="section-content">
+    
+    
+    <h1>Архитектура суверенной науки и мультиагентной оркестровки цифровых экосистем</h1>
+    
+    
+    
+    <div class="article-date">
+      📅 12 June 2026
+    </div>
+    
+    
+    
+    
+    <div class="article-translations">
+      <span>🌐 :</span>
+      
+      <a href="https://imarch.ltd/en/imarch_presentation_monography_baselayer_20260612/" class="translation-link">English</a>
+      
+      <a href="https://imarch.ltd/uk/imarch_presentation_monography_baselayer_20260612/" class="translation-link">Українська</a>
+      
+    </div>
+    
+    
+    
+    <div style="text-align: center; margin-bottom: 2rem;">
+  <p style="font-size: 1.2rem; font-style: italic; color: #4a5a6a;">Презентационная монография</p>
+  <p style="font-size: 1rem;">Базовый слой институционального каркаса IMARCH</p>
+  <p style="margin-top: 1rem;"><strong>Олександр Пурпуров</strong><br>Управляющий директор (CEO) & Chief Systems Architect, IMARCH LTD</p>
+  <p style="font-size: 0.85rem; color: #6a5c45;">Лондон, Великобритания — 12 июня 2026 года</p>
+</div>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 2rem 0;">
+  <a href="#contents" class="btn-monography">📖 ОГЛАВЛЕНИЕ</a>
+  <a href="/documents/IMARCH_Presentation_Monography_BaseLayer_20260612_RU.pdf" class="btn-monography">📄 СКАЧАТЬ PDF</a>
+  <a href="https://doi.org/10.5281/zenodo.20611942" class="btn-monography">🔗 DOI 10.5281/zenodo.20611942</a>
+</div>
+<hr style="margin: 2rem 0;">
+<h2 id="contents">Содержание</h2>
+<ol>
+<li><a href="/ru/imarch_presentation_monography_baselayer_20260612/#chapter-1">Введение</a></li>
+<li><a href="/ru/imarch_presentation_monography_baselayer_20260612/#chapter-2">Chronicle OS Journal</a></li>
+<li><a href="/ru/imarch_presentation_monography_baselayer_20260612/#chapter-3">Vis Realitatis Pilot</a></li>
+<li><a href="/ru/imarch_presentation_monography_baselayer_20260612/#chapter-4">CCS Software</a></li>
+<li><a href="/ru/imarch_presentation_monography_baselayer_20260612/#chapter-5">Документы и акты</a></li>
+<li><a href="/ru/imarch_presentation_monography_baselayer_20260612/#chapter-6">Институциональная рамка</a></li>
+<li><a href="/ru/imarch_presentation_monography_baselayer_20260612/#chapter-7">Заключение</a></li>
+</ol>
+<p> </p>
+<h4 id="chapter-1">Глава 1. Введение</h4>
+<p>IMARCH LTD — это институция нового типа, рожденная на пересечении науки, цифровой архитектуры и символических пространств. В эпоху, когда традиционные академические системы теряют доверие, а глобальные инфраструктуры оказываются перегружены, мы предлагаем иной путь: экосистему, которая соединяет исследователей, университеты и независимые инициативы в единую сеть, основанную на принципах прозрачности, криптографической фиксации авторства и институциональной памяти.</p>
+<p>IMARCH не является ни классическим издательством, ни технологическим провайдером. Мы создаём пространство, где наука становится частью суверенной цифровой экосистемы, а институциональные акты превращаются в бронежилет легитимности. Каждый документ, каждая публикация и каждый акт фиксируются в живой системе Chronicle OS — ядре нашей институции, которое обеспечивает непрерывность и защиту интеллектуального капитала.</p>
+<p>Наша философия проста: знания не должны растворяться в бюрократических лабиринтах или теряться в потоках информации. Они должны быть закреплены в устойчивой архитектуре, доступной для проверки, воспроизведения и развития. Именно поэтому IMARCH строит phygital-модель — соединение бумажного манифеста и цифрового двойника. Бумага фиксирует ДНК институции, а цифра раскрывает её динамику и масштабируемость.</p>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+  <a href="https://imarch.ltd/ru/ccs/" class="btn-small">🔗 Перейти на страницу CCS →</a>
+</div>
+<p> </p>
+<h4 id="chapter-2">Глава 2. Chronicle OS Journal</h4>
+<p>Chronicle OS Journal является центральным наукометрическим ядром экосистемы IMARCH. Он не просто выполняет функцию академического издания, но становится институциональным интерфейсом, через который фиксируются стратегические концепции, акты и результаты исследований. Журнал превращается в точку сборки интеллектуального капитала, обеспечивая легитимность и международное признание.</p>
+<p>В условиях, когда традиционные журналы перегружены бюрократией и коммерческими барьерами, Chronicle OS Journal предлагает альтернативу: прозрачную систему публикаций, встроенную в цифровую архитектуру IMARCH. Каждая статья, каждый акт и каждый документ не только публикуются, но и закрепляются в криптографическом реестре, что гарантирует авторство и защищает от манипуляций.</p>
+<p>Журнал выполняет три ключевые функции. Во-первых, он обеспечивает академическую легитимацию проектов IMARCH через рецензирование и публикации. Во-вторых, он формирует базу знаний, которая становится основой для международных партнёрств и грантовых программ. В-третьих, он интегрируется с цифровыми протоколами Scientometrics 2.0, позволяя отслеживать влияние и динамику исследований в режиме реального времени.</p>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+  <a href="https://imarch.ltd/ru/" class="btn-small">🔗 Читать журнал →</a>
+</div>
+<p> </p>
+<h4 id="chapter-3">Глава 3. Vis Realitatis Pilot</h4>
+<p>Vis Realitatis — это практический хаб экосистемы IMARCH, созданный для того, чтобы демонстрировать работу архитектуры в реальном времени. Если Chronicle OS Journal фиксирует интеллектуальный капитал, а CCS Software обеспечивает цифровой движок, то Vis Realitatis становится «мускулом» институции, показывающим её прикладную силу.</p>
+<p>Основная задача пилота — моделирование сценариев и симуляция процессов, которые отражают динамику мультиагентной оркестрации. В условиях, когда традиционные академические проекты ограничиваются теорией, Vis Realitatis выводит экосистему в практическую плоскость. Здесь создаются кейсы, которые демонстрируют устойчивость IMARCH к внешним вызовам и способность адаптироваться к изменяющимся условиям.</p>
+<p>Vis Realitatis интегрируется с образовательными и исследовательскими инициативами, превращаясь в площадку для совместной работы студентов, преподавателей и независимых исследователей. Он служит лабораторией, где проверяются новые модели взаимодействия, тестируются цифровые протоколы и отрабатываются сценарии международного сотрудничества.</p>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+  <a href="https://imarch.ltd/ru/profile/pilot/" class="btn-small">🔗 Изучить пилот Vis Realitatis →</a>
+</div>
+<p> </p>
+<h4 id="chapter-4">Глава 4. CCS Software</h4>
+<p>CCS (Core Conductor Software) — это цифровой движок экосистемы IMARCH, обеспечивающий автоматизацию процессов, генерацию документов и институционализацию всей архитектуры. Если Chronicle OS Journal фиксирует интеллектуальный капитал, а Vis Realitatis демонстрирует практическую силу, то CCS становится технологическим сердцем, которое поддерживает непрерывность и управляемость экосистемы.</p>
+<p>Основная задача CCS — превратить сложные институциональные процессы в управляемые и воспроизводимые цифровые контуры. В условиях, когда традиционные системы документооборота перегружены бюрократией и не обеспечивают прозрачности, CCS предлагает иной подход: гибкую платформу, где каждый акт, меморандум или исследование фиксируется в едином реестре и доступен для проверки.</p>
+<p>Функционал CCS включает три ключевых направления. Во-первых, это создание институциональных актов и реестров, которые становятся юридическим бронежилетом IMARCH. Во-вторых, интеграция с журналом и хабом, обеспечивающая единую архитектуру, где публикации, кейсы и документы связаны между собой. В-третьих, использование шаблонов для презентаций и публикаций, позволяющее участникам быстро генерировать материалы без потери качества и легитимности.</p>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+  <a href="https://imarch.ltd/ru/profile/ccs/" class="btn-small">🔗 Открыть CCS →</a>
+</div>
+<p> </p>
+<h4 id="chapter-5">Глава 5. Документы и акты</h4>
+<p>Документы и акты IMARCH — это фундамент институциональной легитимности. Они формируют юридический бронежилет, который защищает интеллектуальную собственность, закрепляет партнёрства и обеспечивает прозрачность процессов. В условиях, когда доверие к цифровым системам и международным соглашениям постоянно подвергается испытаниям, именно документы становятся гарантом устойчивости.</p>
+<p>Ключевым элементом является Акт ноу-хау RN-0015, фиксирующий внутреннюю разработку IMARCH. Этот документ не только защищает интеллектуальную собственность, но и демонстрирует способность институции создавать уникальные технологические решения. Он служит примером того, как идеи превращаются в юридически закреплённые активы.</p>
+<p>Не менее важен Меморандум с UMSS RN-0014, который закрепляет международное партнёрство. Этот акт показывает, что IMARCH выходит за пределы локальной инициативы и становится частью глобальной сети. Меморандум обеспечивает институциональную поддержку и открывает доступ к международным грантам и донорским программам.</p>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+  <a href="https://imarch.ltd/ru/profile/office/" class="btn-small">🔗 Реестр официальных документов →</a>
+</div>
+<p> </p>
+<h4 id="chapter-6">Глава 6. Институциональная рамка</h4>
+<p>Институциональная рамка IMARCH — это символическая архитектура, которая задаёт идентичность и устойчивость всей экосистемы. Если Chronicle OS Journal фиксирует знания, Vis Realitatis демонстрирует практику, а CCS Software обеспечивает технологический движок, то институциональная рамка становится философским и организационным каркасом, удерживающим систему в целостности.</p>
+<p>Ключевым элементом рамки является Конституция IMARCH, состоящая из двух томов. Она не публикуется целиком в печатных изданиях, но доступна через цифровой интерфейс. Конституция определяет философию суверенных рамок безопасности, задаёт правила участия и формирует пространство доверия. Это не статичный документ, а живая система, которая развивается вместе с экосистемой.</p>
+<p>Особое значение имеет Протокол 8888, который выполняет роль механизма безопасности и онбординга. Он обеспечивает ритуализированное включение новых участников, фиксирует их институциональные роли и гарантирует соблюдение правил. Протокол превращает процесс присоединения в символический акт, укрепляющий идентичность IMARCH.</p>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+  <a href="https://imarch.ltd/ru/constitutio/" class="btn-small">🔗 Конституция Имархии →</a>
+</div>
+<p> </p>
+<h4 id="chapter-7">Глава 7. Заключение</h4>
+<p>Заключение монографии фиксирует стратегическую дорожную карту развития экосистемы IMARCH. Если предыдущие главы раскрывали философию, ядро, практику, технологический движок и институциональную рамку, то заключение показывает, куда движется институция и какие горизонты открываются перед ней.</p>
+<p>Первое направление — международные гранты и донорские программы. IMARCH позиционирует себя как глобальная платформа, способная объединять исследователей и университеты разных стран. Участие в грантовых инициативах становится не только источником финансирования, но и механизмом интеграции в мировое научное сообщество.</p>
+<p>Второе направление — расширение партнёрств и экспансия в новые регионы. Меморандум с UMSS RN-0014 показал, что IMARCH способен закреплять международские связи. В будущем такие партнёрства будут множиться, формируя сеть институций, объединённых общей философией и цифровой архитектурой.</p>
+<p>Третье направление — масштабирование через phygital-модель. Бумажный манифест фиксирует ДНК институции, а цифровой двойник раскрывает её динамику. Эта модель позволяет IMARCH одновременно быть устойчивым и гибким, соединяя традицию и инновацию.</p>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
+  <a href="https://imarch.ltd/ru/docs/collegium/" class="btn-small">🔗 Дорожная карта и партнёрства →</a>
+</div>
+<p> </p>
+<hr style="margin: 2rem 0;">
+<h4 class="fade-in-up" id="материалы-проекта">Материалы проекта</h4>
+<ul>
+<li>📄 <strong>Презентационная монография (PDF)</strong>: <a href="/docs/presentation-monography.pdf">Скачать</a></li>
+<li>🏛️ <strong>Официальный сайт</strong>: <a href="https://imarch.ltd">https://imarch.ltd</a></li>
+<li>🔗 <strong>DOI полной монографии</strong>: <a href="https://doi.org/10.5281/zenodo.20611942">10.5281/zenodo.20611942</a></li>
+</ul>
+<div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 2rem 0;">
+  <a href="/ru/monography/" class="btn-monography">📚 ВСЕ ПУБЛИКАЦИИ</a>
+  <a href="/ru/profile/office/" class="btn-monography">📋 РЕЕСТР ДОКУМЕНТОВ</a>
+</div>
+<hr style="margin: 2rem 0;">
+<p style="text-align: center; font-size: 0.85rem; color: #6a5c45;">
+  © 2026 IMARCH LTD. Все права защищены.<br>
+  Презентационная монография — базовый слой институционального каркаса IMARCH.<br>
+  При цитировании ссылка на DOI: 10.5281/zenodo.20611942
+</p>
+<style>
+.monography-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+.btn-monography {
+  display: inline-block;
+  background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+  border: 1px solid #8b95a0;
+  border-radius: 50px;
+  padding: 0.75rem 1.8rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #1a1c1e;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.btn-monography:hover {
+  transform: scale(1.02);
+  background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+}
+.btn-small {
+  display: inline-block;
+  background: transparent;
+  border: 1px solid #b18b56;
+  border-radius: 50px;
+  padding: 0.5rem 1.2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #b18b56;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.btn-small:hover {
+  background: #b18b56;
+  color: #fff;
+}
+</style>
+    
+    
+    
+    
+    
+  </div>
+</main>
+
+<style>
+ 
+.article-date {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+ 
+.article-translations {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+  border-left: 3px solid #9333ea;
+  font-size: 0.9rem;
+}
+
+.article-translations span {
+  color: #475569;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.translation-link {
+  color: #7c3aed;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.translation-link:hover {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+ 
+@media (max-width: 768px) {
+  .article-translations {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .article-translations span {
+    margin-bottom: 0.25rem;
+  }
+  
+  .translation-link {
+    align-self: flex-start;
+  }
+}
+</style>
+
+    </main>
+
+    <footer>
+  <div class="container">
+    
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        <ul class="list-inline text-center footer-links">
+          
+
+          
+        </ul>
+
+        <p class="credits copyright text-muted">
+          
+            <a href="https://imarch.ltd/ru/">Имархия</a>
+            &nbsp;&bull;&nbsp;
+          
+
+          <a href="https://imarch.ltd/en/imarch-ltd/">IMARCH LTD UK</a>
+          &nbsp;&bull;&nbsp; Reg. No: 16791765
+          &nbsp;&bull;&nbsp; <a href="/audit.html" style="font-weight: 600;">Protocol 8888 Audit</a>
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+          &nbsp;&bull;&nbsp;
+          Oleksandr Purpurov
+        </p>
+
+        <p class="credits text-muted" style="font-style: italic; margin-top: 8px; opacity: 0.85; text-align: center;">
+          Chronicle OS is an official operational interface for Complex Sociosystems Risk Management (CSRM).
+        </p>
+
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script src="https://imarch.ltd/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" crossorigin="anonymous"></script><script src="https://imarch.ltd/js/load-photoswipe.js"></script>
+
+<script src="https://imarch.ltd/parallax.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".imarch-module details").forEach(details => {
+    const content = details.querySelector(".accordion-content");
+    if (!content) return;
+
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        setTimeout(() => { content.style.maxHeight = "0px"; }, 20);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll('.fade-in-up');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+    
+    <button id="openFormBtn" class="floating-btn">✉</button>
+
+    
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <span id="closeFormBtn" class="close">&times;</span>
+        <iframe src="https://forms.zohopublic.eu/adminima1/form/CustomerSupportRequestForm/formperma/AbFihH-NR7Iv2BufnOGTiWrfaRud1bW9-SeWL9aBc4Q"
+                frameborder="0"
+                style="width:100%; height:500px; border:none;">
+        </iframe>
+      </div>
+    </div>
+
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const openBtn = document.getElementById('openFormBtn');
+  const modal = document.getElementById('formModal');
+  const closeBtn = document.getElementById('closeFormBtn');
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+});
+</script>
+
+
+
+<script src="/js/account-return-widget.js?v=1" defer></script>

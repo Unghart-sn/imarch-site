@@ -44,8 +44,8 @@ Company Number: 16791765
 Incorporated: 17 October 2025  
 Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom  
 SIC Codes: 72190, 72200, 85590  
-Website: [www.imarch.sbs](https://www.imarch.sbs)  
-Email: admin@imarch.sbs
+Website: [www.imarch.ltd](https://www.imarch.ltd)  
+Email: info@imarch.ltd
 
 **Veritatis Silentis CIC**  
 To be registered with Companies House UK  

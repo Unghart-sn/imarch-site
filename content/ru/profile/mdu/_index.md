@@ -131,10 +131,10 @@ Marketing Development of Universe это стратегическая рамка
 
 Никакие сведения не передаются третьим лицам.
 
-Если у вас есть официальный запрос по методической адапации Метода для вашей организации или проекта, пожалуйста, направьте письмо на наш официальный адрес info@imarch.sbs
+Если у вас есть официальный запрос по методической адапации Метода для вашей организации или проекта, пожалуйста, направьте письмо на наш официальный адрес info@imarch.ltd
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

@@ -22,7 +22,7 @@ La estructura se desarrolla como un espacio donde la acción se convierte en eve
 IMARCH evoluciona como un entorno moldeado por la interacción de los participantes y sus contribuciones. Nos movemos hacia una forma institucional sostenible capaz de preservar las prácticas más allá de los ciclos a corto plazo.
 
 <div style="text-align: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Solicitud%20de%20registro%20de%20colaborador&body=Nombre:%20%0AEspecialización:%20%0AEnlace%20a%20publicaciones:%20%0APor%20qué%20le%20interesa%20la%20revista:" text="✉️ ESCRIBANOS PARA REGISTRARSE" margin="1rem 0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Solicitud%20de%20registro%20de%20colaborador&body=Nombre:%20%0AEspecialización:%20%0AEnlace%20a%20publicaciones:%20%0APor%20qué%20le%20interesa%20la%20revista:" text="✉️ ESCRIBANOS PARA REGISTRARSE" margin="1rem 0" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
@@ -251,6 +251,6 @@ Si este enfoque resuena con su práctica, puede iniciar un diálogo.
 {{< hvost >}}
 
 <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Solicitud%20de%20registro%20de%20colaborador&body=Nombre:%20%0AEspecialización:%20%0AEnlace%20a%20publicaciones:%20%0APor%20qué%20le%20interesa%20la%20revista:" text="✉️ ESCRIBANOS PARA REGISTRARSE" margin="0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Solicitud%20de%20registro%20de%20colaborador&body=Nombre:%20%0AEspecialización:%20%0AEnlace%20a%20publicaciones:%20%0APor%20qué%20le%20interesa%20la%20revista:" text="✉️ ESCRIBANOS PARA REGISTRARSE" margin="0" >}}
 
 {{< persona-socials >}}

@@ -21,9 +21,9 @@ Unghart gratulamur pro ingressu in iurisdictionem civilizationis IMARCH et optam
 <details>
   <summary>🔻</summary>
 
-📜 Testimonium: [IMARCH Passport 001 (LA)](https://imarch.sbs/la/tituli/testimonium-civitatis-unghart/)
+📜 Testimonium: [IMARCH Passport 001 (LA)](https://imarch.ltd/la/tituli/testimonium-civitatis-unghart/)
 
-<p><em>2025.10.02, <a href="https://imarch.sbs/la/verdictum/">VEREDICTUM</a></em></p>
+<p><em>2025.10.02, <a href="https://imarch.ltd/la/verdictum/">VEREDICTUM</a></em></p>
 <p><em>Administratio Imarchiae</em></p>
 
 | 🇻🇦 Latin | [verdictum-la-0001.pdf](https://github.com/Imperium-Silentii/Verdictum/blob/main/0001/verdictum-la-0001.pdf) | `14195B62738B51AD36703DAA31EA631D2DE823E4DC5E7A904D39D45DB521F66A` |
@@ -31,7 +31,7 @@ Unghart gratulamur pro ingressu in iurisdictionem civilizationis IMARCH et optam
 <hr style="margin: 1em 0;">
 <div class="share-buttons">
   <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-       data-a2a-url="https://imarch.sbs/la/verdictum/verdictum-001/"
+       data-a2a-url="https://imarch.ltd/la/verdictum/verdictum-001/"
        data-a2a-title="Veredictum: Testimonium">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>

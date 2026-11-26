@@ -78,10 +78,10 @@ Sunlife‑Massage® 完整按摩协议方法是一种品牌健康技术，融合
 >**IMARCH LTD 隐私政策**  
 我们不收集访客的个人数据，也不使用联系信息进行邮件群发。  
 任何信息均不会传递给第三方。  
-如果您有关于为您的组织或项目进行方法适应性调整的正式请求，请发送至我们的官方邮箱 info@imarch.sbs。
+如果您有关于为您的组织或项目进行方法适应性调整的正式请求，请发送至我们的官方邮箱 info@imarch.ltd。
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

@@ -1,4 +1,4 @@
-﻿---
+---
 title: "支持 Vis Realitatis — 进入 8888 协议第一圈"
 description: "资助中心、Sunlife-Massage® 试点、公共记录和可复制协议，每笔贡献均可追溯。"
 categories: ["捐赠者"]
@@ -213,8 +213,8 @@ translationKey: "vis-realitatis-donor"
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
   <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="action-button">🤝 成为捐赠者</a>
   <a href="/zh/vis-realitatis-center-experts/" class="action-button">🧑‍🔬 作为专家加入</a>
-  <a href="mailto:info@imarch.sbs?subject=Vis%20Realitatis%20合作" class="action-button">🏛️ 成为合作伙伴</a>
-  <a href="mailto:info@imarch.sbs?subject=参与%20Vis%20Realitatis%20试点" class="action-button">📋 参与试点</a>
+  <a href="mailto:info@imarch.ltd?subject=Vis%20Realitatis%20合作" class="action-button">🏛️ 成为合作伙伴</a>
+  <a href="mailto:info@imarch.ltd?subject=参与%20Vis%20Realitatis%20试点" class="action-button">📋 参与试点</a>
 </div>
 
 <style>

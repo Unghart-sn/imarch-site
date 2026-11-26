@@ -110,7 +110,7 @@ Haec est scaena, ubi pactum fit actus fidei, modulus unitas incrementi, et syste
 ---
 
 *Vis Realitatis – Energia Realitatis*  
-**Portale officiale projecti:** [visrealitatis.imarch.sbs](https://visrealitatis.imarch.sbs)
+**Portale officiale projecti:** [visrealitatis.imarch.ltd](https://visrealitatis.imarch.ltd)
 
 Oleksandr Purpurov  
 Conditor et Director,  
@@ -222,7 +222,7 @@ This is a stage where a contract becomes an act of trust, a module a unit of gro
 ---
 
 *Vis Realitatis – The Force of Reality*  
-**Official project portal:** [visrealitatis.imarch.sbs](https://visrealitatis.imarch.sbs)
+**Official project portal:** [visrealitatis.imarch.ltd](https://visrealitatis.imarch.ltd)
 
 Oleksandr Purpurov  
 Founder and Director,  
@@ -336,7 +336,7 @@ Imarch LTD UK
 ---
 
 *Vis Realitatis – Енергія Реальності*  
-**Офіційний портал проєкту:** [visrealitatis.imarch.sbs](https://visrealitatis.imarch.sbs)
+**Офіційний портал проєкту:** [visrealitatis.imarch.ltd](https://visrealitatis.imarch.ltd)
 
 Олександр Пурпуров  
 Засновник і директор,  
@@ -349,9 +349,9 @@ Imarch LTD UK
 
 <div style="text-align: left !important; max-width: 800px; margin: 0 auto; padding-left: 0 !important; padding-right: 0 !important;">
   <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;">
-    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/ru/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.sbs/ru/verdictum/0008/">VERDICT</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/ru/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.ltd/ru/verdictum/0008/">VERDICT</a></em></p>
     <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/proposals/memorandum-ano-vis-realitatis-2025-12-22.pdf">memorandum-ano-vis-realitatis-2025-12-22-la.pdf</a></p>
     <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>Note: The cryptographic hash value shows SHA-256 of the original Latin document</em></p>
   </div>

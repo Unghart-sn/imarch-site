@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>imarch safe test</title>
+<style>
+body{font-family:Arial,sans-serif;padding:40px;max-width:820px;margin:auto;color:#1E2A3A}
+h1{color:#1E3A5F}
+button{font:inherit;padding:8px 14px;margin:4px 6px 4px 0;border:1px solid #B0C4DE;background:#E3EAF2;color:#1E3A5F;border-radius:6px;cursor:pointer}
+button:disabled{opacity:.5;cursor:not-allowed}
+input[type=password],input[type=file]{font:inherit;padding:6px 8px;margin:4px 0;border:1px solid #B0C4DE;border-radius:6px}
+pre{background:#E3EAF2;padding:12px;border-radius:6px;overflow-x:auto;font-size:13px;line-height:1.5;max-height:420px}
+.row{margin:10px 0}
+.warn{color:#A66A2E;font-size:.9rem}
+.ok{color:#2E7D46}.err{color:#A02020}
+</style></head><body>
+<h1>imarch safe — test bench v2</h1>
+<p class="warn">Digital Safe end-to-end. Requires an active sign-in.</p>
+
+<div class="row">
+  <label>Safe password: <input type="password" id="pw" placeholder="password"></label>
+</div>
+
+<div class="row">
+  <label>File: <input type="file" id="file"></label>
+  <button id="btnUpload" onclick="uploadFlow()">Encrypt &amp; Upload</button>
+</div>
+
+<div class="row">
+  <button id="btnList" onclick="listFlow()">List my files</button>
+  <button id="btnWhoami" onclick="whoamiFlow()">Whoami</button>
+</div>
+
+<div class="row">
+  <label>File ID to download: <input type="text" id="fid" placeholder="sf_..." size="24"></label>
+  <button id="btnDl" onclick="downloadFlow()">Download &amp; Decrypt</button>
+  <button id="btnDel" onclick="deleteFlow()">Delete</button>
+</div>
+
+<h3>Log</h3>
+<pre id="log">Ready.</pre>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.58.0/dist/umd/supabase.min.js"></script>
+<script src="auth-config.js"></script>
+<script src="auth.js"></script>
+<script src="safe.js"></script>
+<script src="safe-api.js"></script>
+<script>
+function log(kind, msg) {
+  var el = document.getElementById('log');
+  var tag = kind === 'ok' ? '[OK]' : kind === 'err' ? '[ERR]' : '[..]';
+  var cls = kind === 'ok' ? 'ok' : kind === 'err' ? 'err' : '';
+  var line = document.createElement('div');
+  line.className = cls;
+  line.textContent = tag + ' ' + msg;
+  el.appendChild(line);
+  el.scrollTop = el.scrollHeight;
+}
+function clearLog(){document.getElementById('log').innerHTML='';}
+function pw(){return document.getElementById('pw').value;}
+function setBusy(b){['btnUpload','btnList','btnWhoami','btnDl','btnDel'].forEach(function(id){document.getElementById(id).disabled=b;});}
+
+async function whoamiFlow(){
+  clearLog(); setBusy(true);
+  try{
+    var r = await window.imarchSafeApi.whoami();
+    log('ok','whoami: sub=' + r.sub);
+  }catch(e){log('err','whoami: '+e.message);}
+  setBusy(false);
+}
+
+async function listFlow(){
+  clearLog(); setBusy(true);
+  try{
+    var r = await window.imarchSafeApi.list();
+    log('ok','files: '+r.files.length+', used: '+r.used_bytes+' / '+r.quota_bytes+' bytes');
+    r.files.forEach(function(f){
+      log('','  '+f.file_id+'  size='+f.size_blob+'  sha='+f.sha256_blob.slice(0,12)+'...  '+f.uploaded_at);
+    });
+  }catch(e){log('err','list: '+e.message);}
+  setBusy(false);
+}
+
+async function uploadFlow(){
+  clearLog(); 
+  var f = document.getElementById('file').files[0];
+  if(!f){log('err','choose a file first');return;}
+  if(!pw()){log('err','set safe password');return;}
+  setBusy(true);
+  try{
+    log('','reading file: '+f.name+' ('+f.size+' bytes)');
+    var enc = await window.imarchSafe.encryptFile(f, pw());
+    log('ok','encrypted -> '+enc.length+' bytes (IMS1)');
+    var r = await window.imarchSafeApi.upload(enc);
+    log('ok','uploaded: file_id='+r.file_id+' sha='+r.sha256.slice(0,12)+'... dedup='+!!r.dedup);
+    log('ok','used now: '+r.used_bytes+' / '+r.quota_bytes+' bytes');
+    document.getElementById('fid').value = r.file_id;
+  }catch(e){log('err','upload: '+e.message);}
+  setBusy(false);
+}
+
+async function downloadFlow(){
+  clearLog();
+  var id = document.getElementById('fid').value.trim();
+  if(!id){log('err','enter file_id');return;}
+  if(!pw()){log('err','set safe password');return;}
+  setBusy(true);
+  try{
+    log('','fetching blob '+id+'...');
+    var bytes = await window.imarchSafeApi.download(id);
+    log('ok','blob -> '+bytes.length+' bytes');
+    var plain = await window.imarchSafe.decryptPackage(bytes, pw());
+    log('ok','decrypted name: '+plain.name+'  size: '+plain.data.length);
+    var blob = new Blob([plain.data], {type:'application/octet-stream'});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url; a.download = plain.name;
+    document.body.appendChild(a); a.click();
+    document.body.removeChild(a);
+    setTimeout(function(){URL.revokeObjectURL(url);}, 3000);
+    log('ok','download triggered');
+  }catch(e){log('err','download: '+e.message);}
+  setBusy(false);
+}
+
+async function deleteFlow(){
+  clearLog();
+  var id = document.getElementById('fid').value.trim();
+  if(!id){log('err','enter file_id');return;}
+  setBusy(true);
+  try{
+    var r = await window.imarchSafeApi.del(id);
+    log('ok','deleted '+r.file_id+'; used now: '+r.used_bytes+' bytes');
+  }catch(e){log('err','delete: '+e.message);}
+  setBusy(false);
+}
+</script>
+</body></html>

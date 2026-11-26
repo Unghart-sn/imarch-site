@@ -70,7 +70,7 @@ It is an authorial **therapeutic-preventive protocol for full processing of all 
 
 The method works from the first session and can be passed "hand to hand," becoming a foundation for practice at home and in the family.
 
-{{< morebutton target="https://imarch.sbs/en/sunlife-massage/" text="ABOUT THE METHOD" >}}
+{{< morebutton target="https://imarch.ltd/en/sunlife-massage/" text="ABOUT THE METHOD" >}}
 
 ---
 

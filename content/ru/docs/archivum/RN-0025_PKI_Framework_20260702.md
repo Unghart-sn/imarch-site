@@ -422,7 +422,7 @@ IMARCH LTD, Лондон, Великобритания
 #### РЕКВИЗИТЫ ДОКУМЕНТА
 
 **© 2026 IMARCH LTD.** Все права защищены.  
-Официальный реестр: imarch.sbs | Контакт: director@imarch.sbs  
+Официальный реестр: imarch.ltd | Контакт: info@imarch.ltd  
 Идентификатор документа: PKI-F-2026 | Версия: 1.0 | Дата: 2 июля 2026  
 Лицензия: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)  
 При цитировании ссылайтесь на полную монографию: DOI 10.5281/zenodo.20611942

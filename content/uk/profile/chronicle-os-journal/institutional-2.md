@@ -20,7 +20,7 @@ description: "Другий етап інституційної заявки Chro
 
 Будь ласка, перевірте дані, скопіюйте їх і надішліть листа:
 
-*   **Куди надсилати:** `partners@imarch.sbs`
+*   **Куди надсилати:** `partners@imarch.ltd`
 *   **Тема листа:** `Інституційна заявка: [Назва організації]`
 
 <!-- БЛОК З АНКЕТОЮ -->
@@ -65,7 +65,7 @@ description: "Другий етап інституційної заявки Chro
 </p>
 
 <div align="center">
-  <a id="instMailtoLink" href="mailto:partners@imarch.sbs">
+  <a id="instMailtoLink" href="mailto:partners@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('instMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Інституційна заявка: ' + name);
-    mailtoLink.setAttribute('href', 'mailto:partners@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:partners@imarch.ltd?subject=' + subject);
   }
 });
 

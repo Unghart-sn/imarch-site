@@ -129,7 +129,7 @@ You upload two files of your article in PDF or Word format:
 
 At the very moment the files are uploaded, our system computes their unique digital fingerprints — **SHA-256 hashes**.
 
-* We publish a card of your article on the open international pre-print showcase `imarch.sbs`.
+* We publish a card of your article on the open international pre-print showcase `imarch.ltd`.
 
 * **Your name is hidden from everyone.** But the English abstract and hashes of your files are publicly available.
 

@@ -20,7 +20,7 @@ To complete the verification procedure and transmit the data to the registrar of
 
 Please review the data, copy it and send an email:
 
-*   **Send to:** `partners@imarch.sbs`
+*   **Send to:** `partners@imarch.ltd`
 *   **Email subject:** `Institutional Application: [Organisation Name]`
 
 <!-- PROTOCOL BLOCK -->
@@ -65,7 +65,7 @@ Protocol generation date: <span id="lblInstDate">Loading...</span>
 </p>
 
 <div align="center">
-  <a id="instMailtoLink" href="mailto:partners@imarch.sbs">
+  <a id="instMailtoLink" href="mailto:partners@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -132,7 +132,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('instMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Institutional Application: ' + name);
-    mailtoLink.setAttribute('href', 'mailto:partners@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:partners@imarch.ltd?subject=' + subject);
   }
 });
 

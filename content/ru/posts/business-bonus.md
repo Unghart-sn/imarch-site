@@ -9,7 +9,7 @@ layout: single
 
 Проект **IMARCH Githronical | Chronicle OS** на базе программы формирования реновационного центра для ветеранов Vis Realitatis  создаёт операционную среду для коллективной деятельности. 
 
-{{< morebutton target="https://imarch.sbs/ru/vis-realitatis-center/" text="О ПРОЕКТЕ" >}}
+{{< morebutton target="https://imarch.ltd/ru/vis-realitatis-center/" text="О ПРОЕКТЕ" >}}
 </div>
 
 {{< vis-concept-paper-link >}}
@@ -72,7 +72,7 @@ layout: single
 
 Офис‑сайт предпринимателя это пространство, **где вы действуете как официальное представительство своей компании и деловой роли в Интернете**. Здесь личная инициатива становится институциональной формой бизнеса.  
 
-{{< morebutton target="https://imarch.sbs/ru/ccs/" text="ПОДРОБНЕЕ ОБ ОФИС-САЙТЕ" >}}
+{{< morebutton target="https://imarch.ltd/ru/ccs/" text="ПОДРОБНЕЕ ОБ ОФИС-САЙТЕ" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -345,7 +345,7 @@ layout: single
 
 ## 📞 Остались вопросы?
 
-Пишите на [info@imarch.sbs](mailto:inf@imarch.sbs)
+Пишите на [info@imarch.ltd](mailto:inf@imarch.ltd)
 
 *Последнее обновление: {{< current_date >}}*
 

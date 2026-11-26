@@ -39,12 +39,12 @@ La mémoire dans l’institution s’exprime non seulement par la préservation 
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
   <p><em>IMARCH LTD UK • Département du Développement Organisationnel</em></p>
-  <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
   <p><em>2026.02.24 • VERDICTUM • Série: Déclarations Officielles</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/0017_%20%20verdiktum.pdf">Publication et Archivage</a> (FR)</p>
 </div>
 
-Les demandes externes sont acceptées uniquement avec une signature numérique confirmée envoyée à: **`secretariat@imarch.sbs`**
+Les demandes externes sont acceptées uniquement avec une signature numérique confirmée envoyée à: **`secretariat@imarch.ltd`**
 
 **CONFIRMATION D’AUTHENTICITÉ:**  
 L’authenticité de cette publication est validée par la valeur de hachage du document original:

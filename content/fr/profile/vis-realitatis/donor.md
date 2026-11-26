@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Soutenir Vis Realitatis — premier cercle du Protocole 8888"
 description: "Financement du centre, du pilote Sunlife-Massage®, de la chronique publique et du protocole de reproduction avec traçabilité de chaque contribution."
 categories: ["donateurs"]
@@ -213,8 +213,8 @@ Chaque don reçoit un **hachage unique** et est publié dans l’archive GitHub 
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
   <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="action-button">🤝 Devenir donateur</a>
   <a href="/fr/vis-realitatis-center-experts/" class="action-button">🧑‍🔬 Rejoindre comme expert</a>
-  <a href="mailto:info@imarch.sbs?subject=Partenariat%20Vis%20Realitatis" class="action-button">🏛️ Devenir partenaire</a>
-  <a href="mailto:info@imarch.sbs?subject=Participation%20au%20pilote%20Vis%20Realitatis" class="action-button">📋 Participer au pilote</a>
+  <a href="mailto:info@imarch.ltd?subject=Partenariat%20Vis%20Realitatis" class="action-button">🏛️ Devenir partenaire</a>
+  <a href="mailto:info@imarch.ltd?subject=Participation%20au%20pilote%20Vis%20Realitatis" class="action-button">📋 Participer au pilote</a>
 </div>
 
 <style>

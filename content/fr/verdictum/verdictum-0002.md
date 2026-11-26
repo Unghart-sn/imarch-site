@@ -22,9 +22,9 @@ Que la scène constitutionnelle devienne un pilier pour les futurs titres, déci
 <details>
   <summary>🔻</summary>
 
-📜 Constitution disponible : [Document Constitutionnel IMARCH (FR)](https://imarch.sbs/fr/constitutio/)
+📜 Constitution disponible : [Document Constitutionnel IMARCH (FR)](https://imarch.ltd/fr/constitutio/)
 
-<p><em>2025.10.02, <a href="https://imarch.sbs/fr/verdictum/">VERDICT</a></em></p>
+<p><em>2025.10.02, <a href="https://imarch.ltd/fr/verdictum/">VERDICT</a></em></p>
 <p><em>Administration d’IMARCH</em></p>
 
 - [verdictum-0002-fr.pdf](https://github.com/Imperium-Silentii/Verdictum/blob/main/0002/verdictum-0002-fr.pdf)  
@@ -34,7 +34,7 @@ Que la scène constitutionnelle devienne un pilier pour les futurs titres, déci
 
 <div class="share-buttons">
   <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-       data-a2a-url="https://imarch.sbs/fr/verdictum/verdictum-001/"
+       data-a2a-url="https://imarch.ltd/fr/verdictum/verdictum-001/"
        data-a2a-title="Constitution : Ratification">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>

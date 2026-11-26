@@ -193,10 +193,10 @@ We do not collect personal data of visitors and do not use contact information f
 
 No information is shared with third parties.
 
-If you have an official request regarding methodological adaptation of the Method for your organisation or project, please send a letter to our official address: info@imarch.sbs
+If you have an official request regarding methodological adaptation of the Method for your organisation or project, please send a letter to our official address: info@imarch.ltd
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -293,7 +293,7 @@ If you have an official request regarding methodological adaptation of the Metho
 
 Each record in this tracker is directly linked to a protected immutable archive. Access to the full texts of documents and verification of authorship at the review stage is limited and provided exclusively to official regulators and designated specialised reviewers.
 
-Official Intellectual Property Registry: imarch.sbs/ip-registry
+Official Intellectual Property Registry: imarch.ltd/ip-registry
 
 © 2026 IMARCH LTD. All rights reserved. London, United Kingdom.
 

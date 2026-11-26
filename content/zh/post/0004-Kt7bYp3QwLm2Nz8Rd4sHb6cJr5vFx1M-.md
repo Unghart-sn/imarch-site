@@ -367,7 +367,7 @@ IMARCH 中的每个项目都被视为一个独立的有机体，拥有自身的�
   <div style="text-align: left !important; max-width: 800px; margin: 0 auto; padding-left: 0 !important; padding-right: 0 !important;">
     <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;">
       <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="/en/imarch-ltd-uk/">IMARCH LTD</a></em></p>
-      <p style="text-align: left !important; margin-left: 0 !important;">电子邮件: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+      <p style="text-align: left !important; margin-left: 0 !important;">电子邮件: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
       <p style="text-align: left !important; margin-left: 0 !important;"><em>2026.01.06, <a href="/ru/vis-realitatis-center/">landing-version</a></em></p>
       <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/archive/2026-01-06-VisRealitatis_Concept_paper.pdf">2026-01-06-VisRealitatis_Concept_paper.pdf</a></p>
       <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>注：加密哈希值显示原始拉丁文文档的 SHA-256</em></p>

@@ -21,7 +21,7 @@ To eliminate failures in automatic email gateways and to reliably align your app
 
 Please **copy the contents of the form using the button below**, or select and copy the text manually, fill it in with your data, and send the email:
 
-*   **Send to:** `info@imarch.sbs`
+*   **Send to:** `info@imarch.ltd`
 *   **Subject line:** `Reviewer [Your Full Name]`
 
 <!-- FORM BLOCK (CODE) -->
@@ -67,7 +67,7 @@ Date of completion: [Enter date]
 </div>
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

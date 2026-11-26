@@ -59,7 +59,7 @@ Company Number: 16791765
 Incorporated: 17 October 2025  
 Jurisdiction: England and Wales  
 Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom  
-[Legal Record](https://imarch.sbs/en/verdictum/verdictum-0003/)
+[Legal Record](https://imarch.ltd/en/verdictum/verdictum-0003/)
 
 **Name protection:**  
 All titular names (Unghart, Collegium, Formology, Gankharmant) are the intellectual property of IMARCH LTD (UK). The use of these terms in any jurisdiction is governed by this Codex.
@@ -78,7 +78,7 @@ All titular names (Unghart, Collegium, Formology, Gankharmant) are the intellect
 ---
 
 🏛️ Formological Seal and License
-Author: 📜 <a href="https://imarch.sbs/tituli/testimonium-civitatis-unghart/" target="_blank" rel="noopener noreferrer">
+Author: 📜 <a href="https://imarch.ltd/tituli/testimonium-civitatis-unghart/" target="_blank" rel="noopener noreferrer">
   Unghart-sn
 </a>
 
@@ -3484,7 +3484,7 @@ every work is an act of Discernment.
 
 <!-- Insert into the appropriate place in the HTML document -->
 <div class="email-icon-container">
-  <a href="mailto:admin@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img src="/images/ikons/silver/email.svg" alt="Email icon" class="email-icon" />
   </a>
 </div>

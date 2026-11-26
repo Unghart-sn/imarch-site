@@ -48,7 +48,7 @@ Oleksandr Purpurov 为 IMARCH LTD UK 的创始人兼首席执行官。该机构�
 
 {{< vis-concept-paper-link >}}
 
-{{< morebutton target="https://imarch.sbs/zh/imarch-ltd/" text="IMARCH LTD 官方网站" >}}
+{{< morebutton target="https://imarch.ltd/zh/imarch-ltd/" text="IMARCH LTD 官方网站" >}}
 </div>
 
 &nbsp;
@@ -77,7 +77,7 @@ Oleksandr Purpurov 为 IMARCH LTD UK 的创始人兼首席执行官。该机构�
 >如需向公司首席执行官提交正式函件，请使用官方邮箱地址。
 
 <div align="center">
-  <a href="mailto:director@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

@@ -544,7 +544,7 @@ IMARCH создаёт модульную среду, где любое дейс�
 
 IMARCH LTD зарегистрирована в Великобритании (Company No. 16791765). Документы, подписанные уполномоченными лицами, признаются на территории Украины без апостиля при предъявлении в рамках договорных отношений (ст. 44‑45 Закона Украины «О международном частном праве»).
 
-Финальная версия настоящей Белой книги защищена SHA‑256 хешем, который публикуется на `imarch.sbs/ip-registry`.
+Финальная версия настоящей Белой книги защищена SHA‑256 хешем, который публикуется на `imarch.ltd/ip-registry`.
 
 ---
 
@@ -552,7 +552,7 @@ IMARCH LTD зарегистрирована в Великобритании (Com
 
 **IMARCH LTD**  
 128 City Road, London, EC1V 2NX, United Kingdom  
-Email: admin@imarch.sbs  
+Email: info@imarch.ltd  
 Company No. 16791765  
 
 **Онлайн‑архив:** [github.com/Imperium-Silentii/IMARCH-CCS-8888](https://github.com/Imperium-Silentii/IMARCH-CCS-8888)

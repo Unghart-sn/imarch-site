@@ -472,7 +472,7 @@ Every dollar goes towards building infrastructure that will enable thousands of 
 
 ## 📞 Still have questions?
 
-Write to [info@imarch.sbs](mailto:info@imarch.sbs)
+Write to [info@imarch.ltd](mailto:info@imarch.ltd)
 
 *Last updated: {{< current_date >}}*
 
@@ -551,8 +551,8 @@ Video presentations are created using Notebook LM tools based on the original ma
   <summary>Post Scriptum🔻</summary>
 
 <div style="max-width:800px; margin:0 auto; text-align:left; padding:0 1.5rem;">
-  <p><em><a href="https://imarch.sbs/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/en/director/">Oleksandr Purpurov</a></em></p>
-  <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p><em><a href="https://imarch.ltd/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/en/director/">Oleksandr Purpurov</a></em></p>
+  <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
 </div>
 
 {{< vis-concept-paper-link-en >}}

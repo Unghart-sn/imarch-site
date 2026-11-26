@@ -21,9 +21,9 @@ translationKey: "scene-blog-001"
 <details>
   <summary>🔻</summary>
 
-📜 الجواز متاح: [IMARCH Passport 001 (AR)](https://imarch.sbs/ar/tituli/testimonium-civitatis-unghart/)
+📜 الجواز متاح: [IMARCH Passport 001 (AR)](https://imarch.ltd/ar/tituli/testimonium-civitatis-unghart/)
 
-<p><em>2025.10.02، <a href="https://imarch.sbs/ar/verdictum/">الحكم</a></em></p>
+<p><em>2025.10.02، <a href="https://imarch.ltd/ar/verdictum/">الحكم</a></em></p>
 <p><em>إدارة إيمارش</em></p>
 
 | 🇸🇦 العربية | [verdictum-ar-0001.pdf](https://github.com/Imperium-Silentii/Verdictum/blob/main/0001/verdictum-ar-0001.pdf) | `A5CCDC9A2B6576002C9FAF142F2FED3E7A1BC2ED55FE2306EA4A4818268BDA64` |
@@ -31,7 +31,7 @@ translationKey: "scene-blog-001"
 <hr style="margin: 1em 0;">
 <div class="share-buttons">
   <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-       data-a2a-url="https://imarch.sbs/ar/verdictum/verdictum-001/"
+       data-a2a-url="https://imarch.ltd/ar/verdictum/verdictum-001/"
        data-a2a-title="الحكم: شهادة">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>

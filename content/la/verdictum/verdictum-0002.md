@@ -22,9 +22,9 @@ Scena constitutionis sit columna titulis futuris, decisionibus, actibusque recog
 <details>
   <summary>🔻</summary>
 
-📜 Constitutio praesto est: [Documentum Constitutionis IMARCH (LA)](https://imarch.sbs/la/constitutio/)
+📜 Constitutio praesto est: [Documentum Constitutionis IMARCH (LA)](https://imarch.ltd/la/constitutio/)
 
-<p><em>2025.10.02, <a href="https://imarch.sbs/la/verdictum/">VERDICTUM</a></em></p>
+<p><em>2025.10.02, <a href="https://imarch.ltd/la/verdictum/">VERDICTUM</a></em></p>
 <p><em>Administratio IMARCH</em></p>
 
 - [verdictum-0002-la.pdf](https://github.com/Imperium-Silentii/Verdictum/blob/main/0002/verdictum-0002-la.pdf)  
@@ -34,7 +34,7 @@ Scena constitutionis sit columna titulis futuris, decisionibus, actibusque recog
 
 <div class="share-buttons">
   <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-       data-a2a-url="https://imarch.sbs/la/verdictum/verdictum-001/"
+       data-a2a-url="https://imarch.ltd/la/verdictum/verdictum-001/"
        data-a2a-title="Constitutio: Ratificatio">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>

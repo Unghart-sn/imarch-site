@@ -1,0 +1,121 @@
+/* 🎖️ Баннер Конституции и других сцен */
+.constitution-banner img,
+.passport-banner img,
+.banner img {
+  max-height: 400px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* 🎙️ Тизер */
+.teaser {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* 🏛️ Заголовок секции */
+.section-title {
+  text-align: center;
+  font-size: 1.6em;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: #4b2e2e;
+  font-weight: 600;
+}
+
+/* 🎯 Обёртка для кнопок */
+.button-wrapper,
+.magic-button-wrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+/* 🍫 Кнопка действия */
+.magic-button,
+.morebutton {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #4b2e2e;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 6px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.magic-button:hover,
+.morebutton:hover {
+  background-color: #6b3e3e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+/* 🪶 Мягкая кнопка */
+.soft-button {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background-color: #f0f0f0;
+  color: #4b2e2e;
+  font-weight: 500;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.soft-button:hover {
+  background-color: #e0e0e0;
+}
+
+.scene-break {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #999;
+  margin: 2rem 0;
+}
+
+.scene-gap {
+  margin-top: 2.5rem;
+}
+
+code {
+  background-color: #f9f9f9; /* светло-серый */
+  color: #333;               /* тёмно-серый текст */
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.social-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 0.5rem;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+.social-icon:hover {
+  filter: grayscale(0%);
+}
+
+.parallax-banner {
+  position: relative;
+  height: 600px;
+  overflow: hidden;
+}
+.parallax-banner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+

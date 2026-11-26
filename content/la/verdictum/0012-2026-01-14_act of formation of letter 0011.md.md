@@ -24,15 +24,15 @@ translationKey: "scene-blog-0012"
 
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
-  <p><em><a href="https://imarch.sbs/la/imarch-ltd-uk/">IMARCH LTD UK</a> • Dicasterium Progressus Ordinativi</em></p>
-  <p>Epistula electronica: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-  <p><em>2026.01.14, <a href="https://imarch.sbs/la/verdictum/">VERDICTUM</a> • Series: Epistularum Commercium</em></p>
+  <p><em><a href="https://imarch.ltd/la/imarch-ltd-uk/">IMARCH LTD UK</a> • Dicasterium Progressus Ordinativi</em></p>
+  <p>Epistula electronica: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+  <p><em>2026.01.14, <a href="https://imarch.ltd/la/verdictum/">VERDICTUM</a> • Series: Epistularum Commercium</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/discussions/6#discussion-9339767">Editio et Archivatio</a> (LAT)</p>
 </div>
 
 **ACCESSUS AD TEXTUM INTEGRUM:**  
 Textus integer litterarum praesto est membris coetus initiationis «Vis Realitatis» per canales internos officiales.  
-Rogationes externae recipiuntur cum subscriptione electronica confirmata ad: **`secretariat@imarch.sbs`**
+Rogationes externae recipiuntur cum subscriptione electronica confirmata ad: **`secretariat@imarch.ltd`**
 
 **CONFIRMATIO AUTHENTICITATIS:**  
 Authenticitas editionis confirmatur valore hash documenti Latini originalis:

@@ -45,7 +45,7 @@ IMARCH не є ні класичним видавництвом, ні техно
 Наша філософія проста: знання не повинні розчинятися в бюрократичних лабіринтах або губитися в потоках інформації. Вони мають бути закріплені в стійкій архітектурі, доступній для перевірки, відтворення та розвитку. Саме тому IMARCH будує phygital-модель — поєднання паперового маніфесту та цифрового двійника. Папір фіксує ДНК інституції, а цифра розкриває її динаміку та масштабованість.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/uk/ccs/" class="btn-small">🔗 Перейти на сторінку CCS →</a>
+  <a href="https://imarch.ltd/uk/ccs/" class="btn-small">🔗 Перейти на сторінку CCS →</a>
 </div>
 
 ---
@@ -59,7 +59,7 @@ Chronicle OS Journal є центральним наукометричним яд
 Журнал виконує три ключові функції. По-перше, він забезпечує академічну легітимацію проєктів IMARCH через рецензування та публікації. По-друге, він формує базу знань, яка стає основою для міжнародних партнерств та грантових програм. По-третє, він інтегрується з цифровими протоколами Scientometrics 2.0, дозволяючи відстежувати вплив та динаміку досліджень у режимі реального часу.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/uk/" class="btn-small">🔗 Читати журнал →</a>
+  <a href="https://imarch.ltd/uk/" class="btn-small">🔗 Читати журнал →</a>
 </div>
 
 ---
@@ -73,7 +73,7 @@ Vis Realitatis — це практичний хаб екосистеми IMARCH,
 Vis Realitatis інтегрується з освітніми та дослідницькими ініціативами, перетворюючись на майданчик для спільної роботи студентів, викладачів та незалежних дослідників. Він слугує лабораторією, де перевіряються нові моделі взаємодії, тестуються цифрові протоколи та відпрацьовуються сценарії міжнародної співпраці.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/uk/profile/pilot/" class="btn-small">🔗 Дослідити пілот Vis Realitatis →</a>
+  <a href="https://imarch.ltd/uk/profile/pilot/" class="btn-small">🔗 Дослідити пілот Vis Realitatis →</a>
 </div>
 
 ---
@@ -87,7 +87,7 @@ CCS (Core Conductor Software) — це цифровий двигун екоси�
 Функціонал CCS включає три ключові напрями. По-перше, створення інституційних актів та реєстрів, які стають юридичним бронежилетом IMARCH. По-друге, інтеграція з журналом та хабом, що забезпечує єдину архітектуру, де публікації, кейси та документи пов'язані між собою. По-третє, використання шаблонів для презентацій та публікацій, що дозволяє учасникам швидко генерувати матеріали без втрати якості та легітимності.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/uk/profile/ccs/" class="btn-small">🔗 Відкрити CCS →</a>
+  <a href="https://imarch.ltd/uk/profile/ccs/" class="btn-small">🔗 Відкрити CCS →</a>
 </div>
 
 ---
@@ -101,7 +101,7 @@ CCS (Core Conductor Software) — це цифровий двигун екоси�
 Не менш важливим є Меморандум з UMSS RN-0014, який закріплює міжнародне партнерство. Цей акт показує, що IMARCH виходить за межі локальної ініціативи та стає частиною глобальної мережі. Меморандум забезпечує інституційну підтримку та відкриває доступ до міжнародних грантів та донорських програм.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/uk/profile/office/" class="btn-small">🔗 Реєстр офіційних документів →</a>
+  <a href="https://imarch.ltd/uk/profile/office/" class="btn-small">🔗 Реєстр офіційних документів →</a>
 </div>
 
 ---
@@ -115,7 +115,7 @@ CCS (Core Conductor Software) — це цифровий двигун екоси�
 Особливого значення набуває Протокол 8888, який виконує роль механізму безпеки та онбордингу. Він забезпечує ритуалізоване включення нових учасників, фіксує їхні інституційні ролі та гарантує дотримання правил. Протокол перетворює процес приєднання на символічний акт, що зміцнює ідентичність IMARCH.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/uk/constitutio/" class="btn-small">🔗 Конституція Імархії →</a>
+  <a href="https://imarch.ltd/uk/constitutio/" class="btn-small">🔗 Конституція Імархії →</a>
 </div>
 
 ---
@@ -131,7 +131,7 @@ CCS (Core Conductor Software) — це цифровий двигун екоси�
 Третій напрям — масштабування через phygital-модель. Паперовий маніфест фіксує ДНК інституції, а цифровий двійник розкриває її динаміку. Ця модель дозволяє IMARCH одночасно бути стійким та гнучким, поєднуючи традицію та інновацію.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/uk/docs/collegium/" class="btn-small">🔗 Дорожня карта та партнерства →</a>
+  <a href="https://imarch.ltd/uk/docs/collegium/" class="btn-small">🔗 Дорожня карта та партнерства →</a>
 </div>
 
 ---
@@ -141,7 +141,7 @@ CCS (Core Conductor Software) — це цифровий двигун екоси�
 ## Матеріали проєкту
 
 - 📄 **Презентаційна монографія (PDF)**: [Завантажити](/documents/IMARCH_Presentation_Monography_BaseLayer_20260612_UK.pdf)
-- 🏛️ **Офіційний сайт**: [https://imarch.sbs](https://imarch.sbs)
+- 🏛️ **Офіційний сайт**: [https://imarch.ltd](https://imarch.ltd)
 - 🔗 **DOI повної монографії**: [10.5281/zenodo.20611942](https://doi.org/10.5281/zenodo.20611942)
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 2rem 0;">

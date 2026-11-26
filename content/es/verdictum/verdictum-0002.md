@@ -22,9 +22,9 @@ Que la escena constitucional sea pilar de futuros títulos, decisiones y actos d
 <details>
   <summary>🔻</summary>
 
-📜 Constitución disponible: [Documento Constitucional IMARCH (ES)](https://imarch.sbs/es/constitucio/)
+📜 Constitución disponible: [Documento Constitucional IMARCH (ES)](https://imarch.ltd/es/constitucio/)
 
-<p><em>2025.10.02, <a href="https://imarch.sbs/es/verdictum/">VEREDICTO</a></em></p>
+<p><em>2025.10.02, <a href="https://imarch.ltd/es/verdictum/">VEREDICTO</a></em></p>
 <p><em>Administración de IMARCH</em></p>
 
 - [verdictum-0002-es.pdf](https://github.com/Imperium-Silentii/Verdictum/blob/main/0002/verdictum-0002-es.pdf)  
@@ -34,7 +34,7 @@ Que la escena constitucional sea pilar de futuros títulos, decisiones y actos d
 
 <div class="share-buttons">
   <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-       data-a2a-url="https://imarch.sbs/es/verdictum/verdictum-001/"
+       data-a2a-url="https://imarch.ltd/es/verdictum/verdictum-001/"
        data-a2a-title="Constitución: Ratificación">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>

@@ -120,7 +120,7 @@ Volume II (Codex Structurae): Institutional architecture and CIC (Community Inte
 
 The integrity of the system is ensured by SHA-256 hashing of the original English-language documents. Documents signed by authorised persons are recognised in Ukraine without apostille when presented within contractual relations (Articles 44-45 of the Law of Ukraine «On Private International Law»).
 
-The final hash of this White Paper is published at: imarch.sbs/ip-registry.
+The final hash of this White Paper is published at: imarch.ltd/ip-registry.
 
 &nbsp;
 
@@ -128,7 +128,7 @@ The final hash of this White Paper is published at: imarch.sbs/ip-registry.
 
 **IMARCH LTD**  
 128 City Road, London, EC1V 2NX, United Kingdom  
-Email: admin@imarch.sbs  
+Email: info@imarch.ltd  
 Company No. 16791765  
 
 {{< project-hub >}}

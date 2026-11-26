@@ -367,7 +367,7 @@ description: "Полный текст монографии по архитект
 
 **© 2026 IMARCH LTD. All rights reserved.**
 
-**Official Registry:** [imarch.sbs](https://imarch.sbs)
+**Official Registry:** [imarch.ltd](https://imarch.ltd)
 
 &nbsp;
 

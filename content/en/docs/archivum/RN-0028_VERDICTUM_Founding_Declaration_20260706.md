@@ -306,7 +306,7 @@ IMARCH LTD, London, United Kingdom
 ## DOCUMENT DETAILS
 
 **© 2026 IMARCH LTD.** All rights reserved.  
-Official registry: imarch.sbs | Contact: director@imarch.sbs  
+Official registry: imarch.ltd | Contact: info@imarch.ltd  
 Document ID: VR-DECL-2026-001 | Version: 1.0 | Date: 06 July 2026  
 This is the Founding Constitutional Document of VERDICTUM — an independent international institutional registry.  
 When citing, reference the full monograph: DOI 10.5281/zenodo.20611942

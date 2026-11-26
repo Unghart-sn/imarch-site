@@ -48,7 +48,7 @@ Oleksandr Purpurov est le fondateur et Directeur Général d’IMARCH LTD UK, un
 
 {{< vis-concept-paper-link >}}
 
-{{< morebutton target="https://imarch.sbs/ru/imarch-ltd/" text="SITE IMARCH LTD" >}}
+{{< morebutton target="https://imarch.ltd/ru/imarch-ltd/" text="SITE IMARCH LTD" >}}
 </div>
 
 &nbsp;
@@ -77,7 +77,7 @@ Oleksandr Purpurov est le fondateur et Directeur Général d’IMARCH LTD UK, un
 >Pour toute demande officielle adressée au Directeur Général, merci d’utiliser l’adresse électronique officielle.
 
 <div align="center">
-  <a href="mailto:director@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

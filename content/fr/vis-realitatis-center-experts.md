@@ -22,7 +22,7 @@ La structure se développe comme un espace où l’action devient événement, e
 IMARCH évolue comme un environnement façonné par l’interaction des participants et leurs contributions. Nous nous dirigeons vers une forme institutionnelle durable capable de préserver les pratiques au‑delà des cycles à court terme.
 
 <div style="text-align: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Demande%20d%27inscription%20contributeur&body=Nom:%20%0ASpécialisation:%20%0ALien%20vers%20les%20publications:%20%0APourquoi%20la%20revue%20vous%20intéresse:" text="✉️ ÉCRIVEZ‑NOUS POUR VOUS INSCRIRE" margin="1rem 0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Demande%20d%27inscription%20contributeur&body=Nom:%20%0ASpécialisation:%20%0ALien%20vers%20les%20publications:%20%0APourquoi%20la%20revue%20vous%20intéresse:" text="✉️ ÉCRIVEZ‑NOUS POUR VOUS INSCRIRE" margin="1rem 0" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
@@ -251,6 +251,6 @@ Si cette approche résonne avec votre pratique, vous pouvez initier un dialogue.
 {{< hvost >}}
 
 <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Demande%20d%27inscription%20contributeur&body=Nom:%20%0ASpécialisation:%20%0ALien%20vers%20les%20publications:%20%0APourquoi%20la%20revue%20vous%20intéresse:" text="✉️ ÉCRIVEZ‑NOUS POUR VOUS INSCRIRE" margin="0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Demande%20d%27inscription%20contributeur&body=Nom:%20%0ASpécialisation:%20%0ALien%20vers%20les%20publications:%20%0APourquoi%20la%20revue%20vous%20intéresse:" text="✉️ ÉCRIVEZ‑NOUS POUR VOUS INSCRIRE" margin="0" >}}
 
 {{< persona-socials >}}

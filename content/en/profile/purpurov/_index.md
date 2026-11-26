@@ -60,7 +60,7 @@ We design infrastructure that puts everything in its place, from documents to vi
 
 {{< vis-concept-paper-link >}}
 
-{{< morebutton target="https://imarch.sbs/ru/imarch-ltd/" text="IMARCH LTD SITE" >}}
+{{< morebutton target="https://imarch.ltd/ru/imarch-ltd/" text="IMARCH LTD SITE" >}}
 </div>
 
 &nbsp;
@@ -88,7 +88,7 @@ No information is transferred to third parties.
 If you have an official request to the Managing Director, please send an email to the official address.
 
 <div align="center">
-  <a href="mailto:director@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

@@ -20,7 +20,7 @@ To transfer the "Blind Vector" to the Double-Blind peer review circuit and activ
 
 1. **Copy the official deposition protocol** below.
 2. **Make a targeted registration contribution of £50** to support the review infrastructure.
-3. **Send a copy of the protocol** and publication files to our official email gateway `info@imarch.sbs`.
+3. **Send a copy of the protocol** and publication files to our official email gateway `info@imarch.ltd`.
 
 Priority placement and peer review of your article is a guaranteed bonus (Reward / Perk) for donors and patrons supporting the development of the IMARCH Chronicle OS non-commercial infrastructure.
 
@@ -74,7 +74,7 @@ Deposition Date: <span id="lblAuthDate">Loading...</span>
 
 <!-- EMAIL ICON -->
 <div align="center" style="margin-top: 0.5rem;">
-  <a id="authMailtoLink" href="mailto:info@imarch.sbs">
+  <a id="authMailtoLink" href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('authMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Article deposition protocol: ' + name);
-    mailtoLink.setAttribute('href', 'mailto:info@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:info@imarch.ltd?subject=' + subject);
   }
 });
 

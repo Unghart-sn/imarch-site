@@ -72,7 +72,7 @@ Haec est unica forma organizatoria, quae:
 1.  **Explicatio Iuridica:** Explicatio Statuti ANO cum descriptione detaliata generum activitatum: "investigationes et explicationes scientificae", "educatio additionalis", "activitas in campo sanitatis", "servitia socialia".
 2.  **Formatio Organorum Gubernationis:** Creatio Consilii Observatorii cum inclusione peritorum auctoritate in campo medicinae, psychologiae, operis socialis et educationis.
 3.  **Explicatio "Cartae Viae":** Consilium detaliata per primos 24 menses cum gradibus: registratio, creatio programmatum pilotorum, initium primi propositi investigationis, praeparatio et licentia programmatum educationalium.
-4.  **Registratio Domini et Signorum Commercialium:** Fixatio praesentiae digitalis (`visrealitatis.imarch.sbs`) et iurium in marcum «Энергия Реальности» / «Vis Realitatis».
+4.  **Registratio Domini et Signorum Commercialium:** Fixatio praesentiae digitalis (`visrealitatis.imarch.ltd`) et iurium in marcum «Энергия Реальности» / «Vis Realitatis».
 
 **Registratio ANO propriae non est impensa, sed INVESTITIO STRATEGICA in creationem instrumenti protecti, gubernati et scalabilis ad implendam missionem renovationis profundae potentiae humanae.**
 
@@ -135,13 +135,13 @@ It is the only legal form that:
 1.  **Legal Formation:** Draft the ANO Charter with explicitly defined activities: "scientific R&D," "additional professional education," "social services," "activities in healthcare."
 2.  **Governance Structure:** Form a prestigious Supervisory Board comprising leading experts in somatic practices, psychology, social work, and veteran affairs.
 3.  **Strategic Roadmap:** Develop a detailed 24-month operational plan covering pilot programs, first research initiatives, and curriculum accreditation.
-4.  **Brand Securement:** Officially register the domain (`visrealitatis.imarch.sbs`) and initiate trademark registration for "Energy of Reality" / "Vis Realitatis."
+4.  **Brand Securement:** Officially register the domain (`visrealitatis.imarch.ltd`) and initiate trademark registration for "Energy of Reality" / "Vis Realitatis."
 
 **Establishing an independent ANO is not an expense—it is a strategic investment in building a resilient, scalable, and legally protected vehicle for a mission of profound human transformation.**
 
 ---
 *Vis Realitatis – The Power of Reality*  
-**Official Project Portal:** [visrealitatis.imarch.sbs](https://visrealitatis.imarch.sbs)
+**Official Project Portal:** [visrealitatis.imarch.ltd](https://visrealitatis.imarch.ltd)
 
 
 Oleksander Purpurov
@@ -169,9 +169,9 @@ Imarch LTD UK
       padding-left: 0 !important;
       display: block !important;
   ">
-    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/en/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;">Electronicā inscriptione: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.sbs/la/verdictum/verdictum-0006/">VERDICT</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/en/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;">Electronicā inscriptione: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.ltd/la/verdictum/verdictum-0006/">VERDICT</a></em></p>
     <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/proposals/memorandum-ano-vis-realitatis-2025-10-01-lat.pdf">memorandum-ano-vis-realitatis-2025-10-01-lat.pdf</a></p>
   </div>
 </div>

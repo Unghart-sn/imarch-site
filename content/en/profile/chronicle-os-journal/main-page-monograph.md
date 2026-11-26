@@ -130,7 +130,7 @@ Deployment of sovereign publishing and depository nodes for universities and res
 
 Publication requests, protocol pre-registration or University Node deployment inquiries should be directed to the official secretariat:
 
-**Email:** [info@imarch.sbs](mailto:info@imarch.sbs)
+**Email:** [info@imarch.ltd](mailto:info@imarch.ltd)
 
 ---
 

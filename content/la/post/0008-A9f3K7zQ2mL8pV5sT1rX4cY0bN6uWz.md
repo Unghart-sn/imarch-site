@@ -27,25 +27,25 @@ Rogamus ut contenta cognoscas et tuam positionem praeviam declares:
 
 1. **Protocolum colloquiorum praeviorum IMARCH LTD UK et Organizationis "Filii Belli"** (cellula 27 regionis Sevcenkivsci in urbe Charcoviensi):
 
-https://imarch.sbs/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/
+https://imarch.ltd/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/
 
 2. **Manifestum centri renovationis et adaptationis Vis Realitatis:**
 
-https://imarch.sbs/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/
+https://imarch.ltd/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/
 
 **Pro contextu generali etiam praesto est presentatio publica projecti:**
 
 - Pagina introductoria pro micro-donatoribus: 
 
-https://imarch.sbs/la/vis-realitatis-center/
+https://imarch.ltd/la/vis-realitatis-center/
 
 - Textus compilationis presentationis: 
 
-https://imarch.sbs/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/
+https://imarch.ltd/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/
 
 - Exemplum Memorandī de Mutuā Intellectū:
 
-[https://imarch.sbs/la/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/](https://imarch.sbs/la/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/)
+[https://imarch.ltd/la/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/](https://imarch.ltd/la/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/)
 
 
 ### 🔗 Catena logica documentorum
@@ -157,9 +157,9 @@ Pone eas in epistula responsiva tua.
 **Cum observantia,**  
 Turma projecti **Vis Realitatis**  
 
-https://imarch.sbs/  
+https://imarch.ltd/  
 
-admin@imarch.sbs  
+info@imarch.ltd  
 
 *Primus in mundo campus apertus systematis operativi socialis*
 
@@ -185,23 +185,23 @@ We ask you to review the contents and express your preliminary position:
 
 1. **Protocol of preliminary negotiations between IMARCH LTD UK and the Public Organization "Children of War"** (unit 27 of Shevchenkivskyi district, harkiv):
 
-https://imarch.sbs/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/
+https://imarch.ltd/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/
 
 2. **Manifesto of the Vis Realitatis renovation and adaptation center:**
 
-https://imarch.sbs/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/
+https://imarch.ltd/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/
 
 **For general context, a public project presentation is also available:**
 
 - Landing page for micro-donors: 
-https://imarch.sbs/la/vis-realitatis-center/
+https://imarch.ltd/la/vis-realitatis-center/
 
 - Compiled presentation text: 
-https://imarch.sbs/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/
+https://imarch.ltd/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/
 
 - Template Memorandum of Understanding:
 
-[https://imarch.sbs/la/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/](https://imarch.sbs/en/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/)
+[https://imarch.ltd/la/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/](https://imarch.ltd/en/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/)
 
 
 ### 🔗 Logical chain of documents
@@ -313,9 +313,9 @@ Please ask them in your reply email.
 **Sincerely,**  
 The **Vis Realitatis** Project Team  
 
-https://imarch.sbs/  
+https://imarch.ltd/  
 
-admin@imarch.sbs  
+info@imarch.ltd  
 
 *The world's first open testing ground for a social operating system*
 
@@ -341,25 +341,25 @@ admin@imarch.sbs
 
 1. **Протокол попередніх переговорів IMARCH LTD UK та ГО «Діти війни»** (комірка 27 Шевченківського району м. Харкова):
 
-https://imarch.sbs/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/
+https://imarch.ltd/la/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/
 
 2. **Маніфест центру реновації та адаптації Vis Realitatis:**
 
-https://imarch.sbs/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/
+https://imarch.ltd/la/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/
 
 **Для загального контексту також доступна публічна презентація проєкту:**
 
 - Лендінг для мікродонаторів: 
 
-https://imarch.sbs/la/vis-realitatis-center/
+https://imarch.ltd/la/vis-realitatis-center/
 
 - Компільований текст презентації: 
 
-https://imarch.sbs/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/
+https://imarch.ltd/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/
 
 - Шаблон меморандуму про взаєморозуміння:
 
-[https://imarch.sbs/la/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/](https://imarch.sbs/uk/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/)
+[https://imarch.ltd/la/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/](https://imarch.ltd/uk/post/0009-a1b2c3d4e5f6g7h8i9j0k1l2m3n4op/)
 
 
 ### 🔗 Логічний ланцюг документів
@@ -471,9 +471,9 @@ https://imarch.sbs/la/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/
 **З повагою,**  
 Команда проєкту **Vis Realitatis**  
 
-https://imarch.sbs/  
+https://imarch.ltd/  
 
-admin@imarch.sbs  
+info@imarch.ltd  
 
 *Перший у світі відкритий полігон соціальної операційної системи*
 
@@ -489,7 +489,7 @@ admin@imarch.sbs
   <div style="text-align: left !important; max-width: 800px; margin: 0 auto; padding-left: 0 !important; padding-right: 0 !important;">
     <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;">
       <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="/en/imarch-ltd-uk/">IMARCH LTD</a></em></p>
-      <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+      <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
       <p style="text-align: left !important; margin-left: 0 !important;"><em>2026.01.06, <a href="/la/vis-realitatis-center/">landing-version</a></em></p>
       <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/archive/2026-01-06-VisRealitatis_Concept_paper.pdf">2026-01-06-VisRealitatis_Concept_paper.pdf</a></p>
       <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>Note: The cryptographic hash value shows SHA-256 of the original Latin document</em></p>

@@ -48,7 +48,7 @@ IMARCH LTD представляє Chronicle OS: монографію, дослі
 <div style="display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin: 1.5rem 0;">
   <a href="https://doi.org/10.5281/zenodo.20611942" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #1f2b1c; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; text-align: center;">📄 Отримати монографію (DOI / PDF)</a>
   
-  <a href="https://imarch.sbs" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #1f2b1c; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; text-align: center;">🏛️ Офіційний сайт</a>
+  <a href="https://imarch.ltd" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #1f2b1c; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s; text-align: center;">🏛️ Офіційний сайт</a>
 </div>
 
 &nbsp;
@@ -56,17 +56,17 @@ IMARCH LTD представляє Chronicle OS: монографію, дослі
 #### Завантажити PDF { .fade-in-up }
 
 <div style="display: flex; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/press/PR_IMARCH_ChronicleOS_20260612_UA.pdf" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #b18b56; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">📄 Завантажити прес-реліз (PDF)</a>
+  <a href="https://imarch.ltd/press/PR_IMARCH_ChronicleOS_20260612_UA.pdf" target="_blank" rel="noopener noreferrer" style="display: inline-block; background: #b18b56; color: white; padding: 10px 24px; border-radius: 40px; text-decoration: none; font-weight: 600; font-size: 0.85rem; transition: all 0.2s;">📄 Завантажити прес-реліз (PDF)</a>
 </div>
 
-*Якщо посилання не працює, запитайте копію за адресою [director@imarch.sbs](mailto:director@imarch.sbs)*
+*Якщо посилання не працює, запитайте копію за адресою [info@imarch.ltd](mailto:info@imarch.ltd)*
 
 &nbsp;
 
 #### Контакти для преси та партнерства { .fade-in-up }
 
-📧 **Email**: [director@imarch.sbs](mailto:director@imarch.sbs)
-🌐 **Сайт**: [https://imarch.sbs](https://imarch.sbs)
+📧 **Email**: [info@imarch.ltd](mailto:info@imarch.ltd)
+🌐 **Сайт**: [https://imarch.ltd](https://imarch.ltd)
 
 Запити від преси та пропозиції щодо партнерства вітаються.
 
@@ -88,8 +88,8 @@ IMARCH LTD представляє Chronicle OS: монографію, дослі
 
 #### Приєднуйтесь до партнерства з IMARCH LTD { .fade-in-up }
 
-Напишіть нам: **media@imarch.sbs**
+Напишіть нам: **media@imarch.ltd**
 
 Ми надішлемо детальний меморандум та приклади токен-контрактів.
 
-{{< steel_button link="mailto:media@imarch.sbs" text="📧 Стати партнером" margin="1rem 0" >}}
+{{< steel_button link="mailto:media@imarch.ltd" text="📧 Стати партнером" margin="1rem 0" >}}

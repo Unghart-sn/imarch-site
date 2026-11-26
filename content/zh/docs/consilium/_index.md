@@ -67,7 +67,7 @@ layout: list
 
 申请流程：
 
-1. 阅读 **[IMARCH宪章](https://imarch.sbs/zh/constitutio/)**  
+1. 阅读 **[IMARCH宪章](https://imarch.ltd/zh/constitutio/)**  
 2. 前往申请表单：  
    **[📝 申请公民身份](...)**  
 3. 提交舞台名称、GitHub、头衔、参与目的  

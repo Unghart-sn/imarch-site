@@ -62,9 +62,9 @@ css: ["css/ungchart.css"]
   <p>Ми не здійснюємо збір персональних даних відвідувачів без їх прямого запиту або участі в процесах проєкту.</p>
   <p>Отримана інформація використовується виключно в рамках взаємодії та не передається третім особам, за винятком випадків, передбачених чинним законодавством.</p>
   <p>З питань методичної адаптації та співробітництва ви можете надіслати офіційний запит на адресу:</p>
-  <p><strong>info@imarch.sbs</strong></p>
+  <p><strong>info@imarch.ltd</strong></p>
   <div align="center">
-    <a href="mailto:info@imarch.sbs">
+    <a href="mailto:info@imarch.ltd">
       <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
     </a>
   </div>

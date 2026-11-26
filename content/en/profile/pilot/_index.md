@@ -381,9 +381,9 @@ function controlFilmVideo() {
   <p>We do not collect personal data from visitors without their direct request or participation in the project's processes.</p>
   <p>The information received is used exclusively within the framework of interaction and is not transferred to third parties, except as provided by applicable law.</p>
   <p>For methodological adaptation and cooperation enquiries, please send an official request to:</p>
-  <p><strong>info@imarch.sbs</strong></p>
+  <p><strong>info@imarch.ltd</strong></p>
   <div align="center">
-    <a href="mailto:info@imarch.sbs">
+    <a href="mailto:info@imarch.ltd">
       <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
     </a>
   </div>

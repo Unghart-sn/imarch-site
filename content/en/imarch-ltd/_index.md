@@ -335,11 +335,11 @@ Our core product is Vis Realitatis and related services.
 <details>
   <summary>Products</summary>
   <div class="accordion-content">
-    <a href="https://imarch.sbs/en/vis-realitatis-center/" class="soft-button">📂 Vis Realitatis: core project</a>
-    <a href="https://imarch.sbs/en/" class="soft-button">📂 IMARCH Githronical: Software</a>
-    <a href="https://imarch.sbs/en/docs/ludus/" class="soft-button">📂 Antipandora Mission: Game‑based Learning</a>
-    <a href="https://imarch.sbs/en/docs/collegium/" class="soft-button">📂 Consortium PLATAN+: Research Projects</a>
-   <a href="https://imarch.sbs/en/docs/consilium/" class="soft-button">📂 Consilium: consortium forum-exchange</a>
+    <a href="https://imarch.ltd/en/vis-realitatis-center/" class="soft-button">📂 Vis Realitatis: core project</a>
+    <a href="https://imarch.ltd/en/" class="soft-button">📂 IMARCH Githronical: Software</a>
+    <a href="https://imarch.ltd/en/docs/ludus/" class="soft-button">📂 Antipandora Mission: Game‑based Learning</a>
+    <a href="https://imarch.ltd/en/docs/collegium/" class="soft-button">📂 Consortium PLATAN+: Research Projects</a>
+   <a href="https://imarch.ltd/en/docs/consilium/" class="soft-button">📂 Consilium: consortium forum-exchange</a>
     <a href="#" class="soft-button">📂 Individual Сonsultations</a>
   </div>
 </details>

@@ -59,7 +59,7 @@ Company Number: 16791765
 Incorporated: 17 October 2025  
 Jurisdiction: England and Wales  
 Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom  
-[Legal Record](https://imarch.sbs/en/verdictum/verdictum-0003/)
+[Legal Record](https://imarch.ltd/en/verdictum/verdictum-0003/)
 
 **Защита нейминга:**  
 Все титульные наименования (Унгхарт, Коллегиум, Формология, Ганхармант) являются интеллектуальной собственностью IMARCH LTD (UK). Использование данных терминов в любых юрисдикциях регулируется данным Кодексом.
@@ -78,7 +78,7 @@ Registered Office: 128 City Road, London, EC1V 2NX, United Kingdom
 ---
 
 🏛️ Формологическая Печать и Лицензия
-Автор: 📜 <a href="https://imarch.sbs/ru/tituli/testimonium-civitatis-unghart/" target="_blank" rel="noopener noreferrer">
+Автор: 📜 <a href="https://imarch.ltd/ru/tituli/testimonium-civitatis-unghart/" target="_blank" rel="noopener noreferrer">
   Unghart-sn
 </a>
 
@@ -3486,7 +3486,7 @@ Scena Personae это работа, открытая для:
 
 <!-- Вставь в нужное место HTML-документа -->
 <div class="email-icon-container">
-  <a href="mailto:admin@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img src="/images/ikons/silver/email.svg" alt="Email icon" class="email-icon" />
   </a>
 </div>

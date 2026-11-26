@@ -67,7 +67,7 @@ Ad participandum necesse est:
 
 Ad petendum:
 
-1. Perlege **[Constitutionem IMARCH](https://imarch.sbs/la/constitutio/)**  
+1. Perlege **[Constitutionem IMARCH](https://imarch.ltd/la/constitutio/)**  
 2. Accede ad formulam petitionis:  
    **[📝 Petere Civitatem](...)**  
 3. Indica nomen scaenicum, GitHub, titulum, finem participationis  

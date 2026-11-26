@@ -20,7 +20,7 @@ To complete the verification procedure and transmit the data to the Archivist of
 
 Please review the data, copy it and send an email:
 
-*   **Send to:** `orders@imarch.sbs`
+*   **Send to:** `info@imarch.ltd`
 *   **Email subject:** `Rights Transfer Application: [NODE ID]`
 
 <!-- PROTOCOL BLOCK -->
@@ -74,7 +74,7 @@ Protocol generation date: <span id="lblOrderDate">Loading...</span>
 </p>
 
 <div align="center">
-  <a id="orderMailtoLink" href="mailto:orders@imarch.sbs">
+  <a id="orderMailtoLink" href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('orderMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Rights Transfer Application: ' + nodeId);
-    mailtoLink.setAttribute('href', 'mailto:orders@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:info@imarch.ltd?subject=' + subject);
   }
 });
 

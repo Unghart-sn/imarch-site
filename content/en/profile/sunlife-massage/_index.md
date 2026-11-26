@@ -117,10 +117,10 @@ We do not collect personal data of visitors and do not use contact information f
 
 No information is shared with third parties.
 
-If you have an official inquiry regarding methodological adaptation of the Method for your organisation or project, please send an email to our official address info@imarch.sbs
+If you have an official inquiry regarding methodological adaptation of the Method for your organisation or project, please send an email to our official address info@imarch.ltd
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

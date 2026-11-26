@@ -81,10 +81,10 @@ Sunlife‑Massage® это зарегистрированная торговая
 >**Политика конфиденциальности Imarch Ltd**  
 Мы не собираем персональные данные посетителей и не используем контактную информацию для рассылок.
 Никакие сведения не передаются третьим лицам.
-Если у вас есть официальный запрос по методической адапации Метода для вашей организации или проекта, пожалуйста, направьте письмо на наш официальный адрес info@imarch.sbs
+Если у вас есть официальный запрос по методической адапации Метода для вашей организации или проекта, пожалуйста, направьте письмо на наш официальный адрес info@imarch.ltd
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -435,7 +435,7 @@ details[open] summary {
 <details>
   <summary>Стратегия Vis Realitatis</summary>
   <div class="accordion-content">
-    <a href="https://imarch.sbs/ru/sunlife-massage/post1/" class="soft-button">🪙 СПЕЦИФИКА РЕАЛИЗАЦИИ</a>
+    <a href="https://imarch.ltd/ru/sunlife-massage/post1/" class="soft-button">🪙 СПЕЦИФИКА РЕАЛИЗАЦИИ</a>
     <a href="#" class="soft-button">🪙 ГИЛЬДИЯ ДОНОРОВ</a>
     <a href="#" class="soft-button">🪙 ГИЛЬДИЯ ВЕТЕРАНОВ</a>
     <a href="#" class="soft-button">🪙 ГИЛЬДИЯ ЮНИОРОВ</a>

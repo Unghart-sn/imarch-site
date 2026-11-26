@@ -67,7 +67,7 @@ layout: list
 
 لتقديم طلبك:
 
-1. اطلع على **[دستور IMARCH](https://imarch.sbs/ar/constitutio/)**  
+1. اطلع على **[دستور IMARCH](https://imarch.ltd/ar/constitutio/)**  
 2. انتقل إلى نموذج التقديم:  
    **[📝 تقديم طلب الحصول على الجنسية](...)**  
 3. أدخل الاسم المسرحي، GitHub، اللقب، هدف المشاركة  

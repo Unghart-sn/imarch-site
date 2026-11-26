@@ -128,12 +128,12 @@ f5bed445448cbbc15589d676d4c9e6b539c17b7e84fa3e2c8818016fc81fdea2
 
 
 **ORDO ACCEDENDI AD TEXTVM INTEGRVM:**
-Textus integralis documentī praebetur postulatione officialī ex electronicā inscriptione verificatā corporativā vel academicā ad: **`requests@imarch.sbs`**
+Textus integralis documentī praebetur postulatione officialī ex electronicā inscriptione verificatā corporativā vel academicā ad: **`requests@imarch.ltd`**
 
 ---
 
 **PROCEDURE FOR ACCESSING THE FULL TEXT:**
-The complete text of the document is provided upon official request from a verified corporate or academic electronic inscription to: **`requests@imarch.sbs`**
+The complete text of the document is provided upon official request from a verified corporate or academic electronic inscription to: **`requests@imarch.ltd`**
 
 &nbsp;
 
@@ -156,9 +156,9 @@ The complete text of the document is provided upon official request from a verif
       padding-left: 0 !important;
       display: block !important;
   ">
-    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/en/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;">Electronicā inscriptione: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.sbs/la/verdictum/">VERDICT</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/en/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;">Electronicā inscriptione: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.ltd/la/verdictum/">VERDICT</a></em></p>
     <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/imarch-sbs-la-verdictum-0006.pdf">verdictum-0006-la.pdf</a></p>
   </div>
 </div>

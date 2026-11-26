@@ -22,7 +22,7 @@ The structure develops as a space where action becomes an event, and experience 
 IMARCH evolves as an environment shaped through the interaction of participants and their contributions. We are moving towards a sustainable institutional form capable of preserving practices beyond short‑term cycles.
 
 <div style="text-align: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Contributor%20registration%20request&body=Name:%20%0ASpecialisation:%20%0ALink%20to%20publications:%20%0AWhy%20are%20you%20interested%20in%20the%20journal:" text="✉️ WRITE TO US FOR REGISTRATION" margin="1rem 0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Contributor%20registration%20request&body=Name:%20%0ASpecialisation:%20%0ALink%20to%20publications:%20%0AWhy%20are%20you%20interested%20in%20the%20journal:" text="✉️ WRITE TO US FOR REGISTRATION" margin="1rem 0" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
@@ -251,6 +251,6 @@ If this approach resonates with your practice, you can initiate a dialogue.
 {{< hvost >}}
 
 <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Contributor%20registration%20request&body=Name:%20%0ASpecialisation:%20%0ALink%20to%20publications:%20%0AWhy%20are%20you%20interested%20in%20the%20journal:" text="✉️ WRITE TO US FOR REGISTRATION" margin="0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Contributor%20registration%20request&body=Name:%20%0ASpecialisation:%20%0ALink%20to%20publications:%20%0AWhy%20are%20you%20interested%20in%20the%20journal:" text="✉️ WRITE TO US FOR REGISTRATION" margin="0" >}}
 
 {{< persona-socials >}}

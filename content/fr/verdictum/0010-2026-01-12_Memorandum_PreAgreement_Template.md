@@ -21,15 +21,15 @@ Cette publication en atteste l'existence et assure la transparence du processus.
 
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
-  <p><em><a href="https://imarch.sbs/fr/imarch-ltd-uk/">IMARCH LTD UK</a> • Département du développement organisationnel</em></p>
-  <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-  <p><em>2026.01.12, <a href="https://imarch.sbs/fr/verdictum/">VERDICTUM</a> • Série: Correspondance</em></p>
+  <p><em><a href="https://imarch.ltd/fr/imarch-ltd-uk/">IMARCH LTD UK</a> • Département du développement organisationnel</em></p>
+  <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+  <p><em>2026.01.12, <a href="https://imarch.ltd/fr/verdictum/">VERDICTUM</a> • Série: Correspondance</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/discussions/4#discussion-9326275">Publication et Archivage</a> (LAT)</p>
 </div>
 
 **ACCÈS AU TEXTE COMPLET:**  
 Le texte complet du modèle est disponible aux membres de «Vis Realitatis».  
-Les demandes externes nécessitent une signature électronique confirmée: **`secretariat@imarch.sbs`**
+Les demandes externes nécessitent une signature électronique confirmée: **`secretariat@imarch.ltd`**
 
 **CONFIRMATION D’AUTHENTICITÉ:**  
 L’authenticité est confirmée par la valeur de hachage du document latin original:

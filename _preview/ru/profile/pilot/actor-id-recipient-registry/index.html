@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+    <title>Ноу-хау: Actor ID и Реестр реципиентов - Imarchia</title>
+
+  <meta name="description" content="
+  
+    
+  
+  
+
+
+
+📄 Документ реестра IMARCH
+Название: Actor ID и Реестр реципиентов
+Тип ИС: Проприетарная реестровая архитектура / Институциональный механизм
+Дата фиксации: 18 апреля 2026
+Первое применение: Декрет №0001, IMARCH LTD UK, апрель 2026
+Статус: Действующий — институциональная запись
+
+Описание
+Actor ID — уникальный идентификатор участника системы Chronicle OS, привязанный к сумме его актов (действий), а не к статическому профилю.
+Реестр реципиентов — институциональный реестр лиц, получивших наградные знаки IMARCH (ордена, медали, памятные знаки). Реестр фиксирует уровень награды (октава резонанса 1–4), связанные права (доля в прибыли, наследование, доступ) и формат публикации." />
+  <meta name="author" content="IMARCH LTD UK" />
+
+
+  <link href="https://imarch.ltd/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+<meta name="generator" content="Hugo 0.148.2"><link rel="alternate" href="https://imarch.ltd/ru/index.xml" type="application/rss+xml" title="Имархия" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://imarch.ltd/css/main.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/custom-v2.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/ungchart.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" />
+  <link rel="stylesheet" href="https://imarch.ltd/css/syntax.css" />
+
+<link rel="stylesheet" href="https://imarch.ltd/css/codeblock.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" crossorigin="anonymous" />
+
+
+
+
+
+<link rel="stylesheet" href="/css/landing.css?v=3" />
+
+        <link rel="stylesheet" href="/css/style.css">
+
+    
+    <style>
+      html, body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
+      body {
+        display: block !important;
+        flex-flow: initial !important;
+        padding-top: 80px !important;
+      }
+      main {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+      footer {
+        position: static !important;
+        margin-top: 3rem !important;
+        display: block !important;
+        width: 100% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://imarch.ltd/ru/">Имархия</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Игра" href="/ru/docs/ludus/">Игра</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Архив" href="/ru/docs/archivum/">Архив</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Коллегия" href="/ru/docs/collegium/">Коллегия</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Совет" href="/ru/docs/consilium/">Совет</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Вердикт" href="/ru/verdictum/">Вердикт</a>
+            </li>
+          
+        
+
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0"></a>
+              <div class="navlinks-children">
+                
+              </div>
+            </li>
+          
+        
+
+        
+        <li>
+          <a href="/login/" title="Sign in">Sign in</a>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Имархия" href="https://imarch.ltd/ru/">
+            <img class="avatar-img" src="https://imarch.ltd/images/logo.png" alt="Имархия" />
+          </a>
+        </div>
+      </div>
+    
+  </div>
+</nav>
+
+
+
+
+    <main>
+      
+<main>
+  <div class="section-content">
+    
+    
+    <h1>Ноу-хау: Actor ID и Реестр реципиентов</h1>
+    
+    
+    
+    <div class="article-date">
+      📅 19 April 2026
+    </div>
+    
+    
+    
+    
+    
+    
+    <figure class="banner">
+  <div class="banner-image">
+    <img src="/images/banners/008.jpg" alt="Actor ID Registry" class="fade-in-up">
+  </div>
+  
+</figure>
+
+
+<h4 class="fade-in-up" id="-документ-реестра-imarch">📄 Документ реестра IMARCH</h4>
+<p><strong>Название:</strong> Actor ID и Реестр реципиентов<br>
+<strong>Тип ИС:</strong> Проприетарная реестровая архитектура / Институциональный механизм<br>
+<strong>Дата фиксации:</strong> 18 апреля 2026<br>
+<strong>Первое применение:</strong> Декрет №0001, IMARCH LTD UK, апрель 2026<br>
+<strong>Статус:</strong> Действующий — институциональная запись</p>
+<hr>
+<h3 id="описание">Описание</h3>
+<p><strong>Actor ID</strong> — уникальный идентификатор участника системы Chronicle OS, привязанный к сумме его актов (действий), а не к статическому профилю.</p>
+<p><strong>Реестр реципиентов</strong> — институциональный реестр лиц, получивших наградные знаки IMARCH (ордена, медали, памятные знаки). Реестр фиксирует уровень награды (октава резонанса 1–4), связанные права (доля в прибыли, наследование, доступ) и формат публикации.</p>
+<p><strong>Форматы публикации для реципиентов:</strong></p>
+<div class="custom-cards">
+  <!-- Public -->
+  <div class="custom-card">
+    <div class="custom-emoji">🌍</div>
+    <div class="custom-title">Public</div>
+    <div class="custom-desc">Полное имя и детали награды появляются в открытом реестре.</div>
+    <div class="custom-tag">открытый реестр</div>
+  </div>
+  <!-- Alias -->
+  <div class="custom-card">
+    <div class="custom-emoji">🎭</div>
+    <div class="custom-title">Alias</div>
+    <div class="custom-desc">Сценическое имя или позывной вместо юридического имени.</div>
+    <div class="custom-tag">псевдоним</div>
+  </div>
+  <!-- Ghost -->
+  <div class="custom-card">
+    <div class="custom-emoji">👻</div>
+    <div class="custom-title">Ghost</div>
+    <div class="custom-desc">Полная анонимность; верификация доступна по индивидуальному запросу через закрытый репозиторий.</div>
+    <div class="custom-tag">анонимно</div>
+  </div>
+</div>
+<style>
+.custom-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+.custom-card {
+  background: #fdfaf5;
+  border: 1px solid #e0d6c8;
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.2s ease;
+}
+.custom-card:hover {
+  transform: translateY(-3px);
+  border-color: #c0a070;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.custom-emoji {
+  font-size: 2.2rem;
+  margin-bottom: 0.75rem;
+}
+.custom-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #2c2416;
+  margin-bottom: 0.5rem;
+  border-left: 3px solid #8b7355;
+  padding-left: 0.75rem;
+}
+.custom-desc {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #6a5a48;
+  margin-bottom: 1rem;
+}
+.custom-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #8b7355;
+  background: rgba(139, 115, 85, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: 30px;
+  margin-top: 0.5rem;
+}
+@media (max-width: 640px) {
+  .custom-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+</style>
+<p><strong>Ключевая инновация — наследование по праву миссии:</strong><br>
+Реципиент может передать права и блага, связанные с его институциональным статусом, другому лицу (наследнику миссии). Это превращает статическую награду в живой институциональный капитал, способный к преемственности за пределами жизни оригинального реципиента.</p>
+<hr>
+<h3 id="файл-документа">Файл документа</h3>
+<p>📄 <a href="/documents/IMARCH_IP_REGISTRY_IP-R-0888-2026_OFFICIAL.pdf">Скачать PDF (английский)</a><br>
+<strong>SHA-256 хеш основного документа:</strong></p>
+
+
+
+<div style="max-width:800px; margin:0 auto; text-align:left; padding:0 1.5rem; box-sizing:border-box;">
+  <strong>VERIFICATION OF THE ORIGINAL:</strong><br>
+  The authenticity of this document's publication is confirmed by the hash value of the original english document provided below:
+</div>
+
+<div class="hash-container" style="max-width:100%; box-sizing:border-box; margin-top:0.5rem;">
+  <details style="width:100%;">
+    <summary style="cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; padding:0.5rem; background:#f8f9fa; border-radius:4px;">
+      <span>CRYPTOGRAPHIC SIGNATURE (SHA-256)</span>
+      <span class="hash-arrow">▼</span>
+    </summary>
+    <div style="margin-top:0.5rem; padding:0.5rem; background:#fff; border:1px solid #dee2e6; border-radius:4px;">
+      
+      <pre style="white-space: pre-wrap; word-break: break-all; background:#f1f3f5; padding:1rem; border-radius:4px; margin:0; overflow-x:auto;">c818b6662403748e4a34f16fab2fb16f7c63e5cd2117e369e05e64990422f43e</pre>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.5rem; font-size:0.9rem;">
+        <span>✓ Document fixed • 64 characters</span>
+        
+        <button onclick="navigator.clipboard.writeText(&#34;\&#34;c818b6662403748e4a34f16fab2fb16f7c63e5cd2117e369e05e64990422f43e\&#34;&#34;)" style="padding:0.25rem 0.75rem; background:#f1f3f5; color:#2c3e50; border:1px solid #b0b0b0; border-radius:4px; cursor:pointer; font-weight:500;">
+          Copy
+        </button>
+      </div>
+    </div>
+  </details>
+</div>
+<hr>
+<h3 id="верификация">Верификация</h3>
+<p>Инструкция по верификации приведена на <a href="/ru/profile/pilot/ip-registry/">главной странице реестра</a>.</p>
+<hr>
+<h3 id="связанные-документы">Связанные документы</h3>
+<ul>
+<li><a href="/ru/profile/pilot/ip-registry/">Реестр интеллектуальной собственности IMARCH</a></li>
+<li><a href="/ru/profile/pilot/">Пилот Vis Realitatis V.01™</a></li>
+</ul>
+<div style="text-align: center; margin-top: 1.2rem;">
+  
+  
+    <a href="https://imarch.ltd/documents/IMARCH_IP_REGISTRY_IP-R-0888-2026_OFFICIAL.pdf" style="
+      display: inline-block;
+      font-size: 1.3rem;
+      padding: 0.8rem 1.6rem;
+      background-color: #cccccc;
+      color: #333;
+      text-transform: uppercase;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 0.6rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'"
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+      📥 Скачать полный реестр PDF
+    </a>
+  
+</div>
+
+
+
+    
+    
+    
+    
+    
+  </div>
+</main>
+
+<style>
+ 
+.article-date {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+ 
+.article-translations {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+  border-left: 3px solid #9333ea;
+  font-size: 0.9rem;
+}
+
+.article-translations span {
+  color: #475569;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.translation-link {
+  color: #7c3aed;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.translation-link:hover {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+ 
+@media (max-width: 768px) {
+  .article-translations {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .article-translations span {
+    margin-bottom: 0.25rem;
+  }
+  
+  .translation-link {
+    align-self: flex-start;
+  }
+}
+</style>
+
+    </main>
+
+    <footer>
+  <div class="container">
+    
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        <ul class="list-inline text-center footer-links">
+          
+
+          
+        </ul>
+
+        <p class="credits copyright text-muted">
+          
+            <a href="https://imarch.ltd/ru/">Имархия</a>
+            &nbsp;&bull;&nbsp;
+          
+
+          <a href="https://imarch.ltd/en/imarch-ltd/">IMARCH LTD UK</a>
+          &nbsp;&bull;&nbsp; Reg. No: 16791765
+          &nbsp;&bull;&nbsp; <a href="/audit.html" style="font-weight: 600;">Protocol 8888 Audit</a>
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+          &nbsp;&bull;&nbsp;
+          Oleksandr Purpurov
+        </p>
+
+        <p class="credits text-muted" style="font-style: italic; margin-top: 8px; opacity: 0.85; text-align: center;">
+          Chronicle OS is an official operational interface for Complex Sociosystems Risk Management (CSRM).
+        </p>
+
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script src="https://imarch.ltd/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" crossorigin="anonymous"></script><script src="https://imarch.ltd/js/load-photoswipe.js"></script>
+
+<script src="https://imarch.ltd/parallax.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".imarch-module details").forEach(details => {
+    const content = details.querySelector(".accordion-content");
+    if (!content) return;
+
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        setTimeout(() => { content.style.maxHeight = "0px"; }, 20);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll('.fade-in-up');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+    
+    <button id="openFormBtn" class="floating-btn">✉</button>
+
+    
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <span id="closeFormBtn" class="close">&times;</span>
+        <iframe src="https://forms.zohopublic.eu/adminima1/form/CustomerSupportRequestForm/formperma/AbFihH-NR7Iv2BufnOGTiWrfaRud1bW9-SeWL9aBc4Q"
+                frameborder="0"
+                style="width:100%; height:500px; border:none;">
+        </iframe>
+      </div>
+    </div>
+
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const openBtn = document.getElementById('openFormBtn');
+  const modal = document.getElementById('formModal');
+  const closeBtn = document.getElementById('closeFormBtn');
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+});
+</script>
+
+
+
+<script src="/js/account-return-widget.js?v=1" defer></script>

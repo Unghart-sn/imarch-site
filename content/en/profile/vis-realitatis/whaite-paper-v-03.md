@@ -78,7 +78,7 @@ Thus, the Registry exists in real time: its integrity and the order of changes a
 
 IMARCH LTD is registered in the United Kingdom (Company No. 16791765). Documents signed by authorised persons are recognised in Ukraine without apostille when presented within contractual relations (Articles 44‑45 of the Law of Ukraine “On Private International Law”).
 
-The final version of this White Paper is secured with a SHA‑256 hash published at `imarch.sbs/ip-registry`.
+The final version of this White Paper is secured with a SHA‑256 hash published at `imarch.ltd/ip-registry`.
 
 ---
 
@@ -86,7 +86,7 @@ The final version of this White Paper is secured with a SHA‑256 hash published
 
 **IMARCH LTD**  
 128 City Road, London, EC1V 2NX, United Kingdom  
-Email: admin@imarch.sbs  
+Email: info@imarch.ltd  
 Company No. 16791765  
 
 **Online archive:** [github.com/Imperium-Silentii/IMARCH-CCS-8888](https://github.com/Imperium-Silentii/IMARCH-CCS-8888)

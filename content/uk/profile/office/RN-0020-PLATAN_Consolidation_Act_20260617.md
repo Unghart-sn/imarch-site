@@ -452,14 +452,14 @@
                 <div id="qrcode" class="qr-placeholder"></div>
                 <div class="qr-caption">
                     🔗 IMARCH LTD Awards Registry and Recipient Roll<br>
-                    <a href="https://imarch.sbs/en/profile/pilot/registry/">imarch.sbs/profile/chronicle-os-journal/institutional/</a>
+                    <a href="https://imarch.ltd/en/profile/pilot/registry/">imarch.ltd/profile/chronicle-os-journal/institutional/</a>
                 </div>
             </div>
         </div>
 
         <div class="footer-note">
             <p>© 2026 IMARCH LTD. All rights reserved.</p>
-            <p>Official registry: <a href="https://imarch.sbs">imarch.sbs</a> | Contact: <a href="mailto:director@imarch.sbs">director@imarch.sbs</a></p>
+            <p>Official registry: <a href="https://imarch.ltd">imarch.ltd</a> | Contact: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
             <p>Document ID: IMARCH-AWARD-2026-0001 | Version: 1.0 | Date: June 2026</p>
             <p>This document may be reproduced in full for distribution among partner institutions and research communities.</p>
             <p>When citing, reference the full monograph: DOI 10.5281/zenodo.20611942</p>
@@ -470,7 +470,7 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         new QRCode(document.getElementById("qrcode"), {
-            text: "https://imarch.sbs/profile/chronicle-os-journal/institutional/",
+            text: "https://imarch.ltd/profile/chronicle-os-journal/institutional/",
             width: 100,
             height: 100,
             colorDark: "#000000",

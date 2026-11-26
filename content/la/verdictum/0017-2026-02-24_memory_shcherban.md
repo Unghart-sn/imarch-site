@@ -63,12 +63,12 @@ Memory in the institution is expressed not only by preserving the name but also 
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
   <p><em>IMARCH LTD UK • Department of Organizational Development</em></p>
-  <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
   <p><em>2026.02.24 • VERDICTUM • Series: Official Statements</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/0017_%20%20verdiktum.pdf">Publication and Archiving</a> (EN)</p>
 </div>
 
-External requests are accepted only with a confirmed digital signature sent to: **`secretariat@imarch.sbs`**
+External requests are accepted only with a confirmed digital signature sent to: **`secretariat@imarch.ltd`**
 
 **AUTHENTICITY CONFIRMATION:**  
 The authenticity of this publication is validated by the hash value of the original document:

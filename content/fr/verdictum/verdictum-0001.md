@@ -21,9 +21,9 @@ Nous félicitons Unghart pour son entrée dans la juridiction civilisationnelle 
 <details>
   <summary>🔻</summary>
 
-📜 Passeport disponible : [IMARCH Passport 001 (FR)](https://imarch.sbs/fr/tituli/testimonium-civitatis-unghart/)
+📜 Passeport disponible : [IMARCH Passport 001 (FR)](https://imarch.ltd/fr/tituli/testimonium-civitatis-unghart/)
 
-<p><em>2025.10.02, <a href="https://imarch.sbs/fr/verdictum/">VERDICT</a></em></p>
+<p><em>2025.10.02, <a href="https://imarch.ltd/fr/verdictum/">VERDICT</a></em></p>
 <p><em>Administration d’Imarch</em></p>
 
 | 🇫🇷 Français | [verdictum-fr-0001.pdf](https://github.com/Imperium-Silentii/Verdictum/blob/main/0001/verdictum-fr-0001.pdf) | `EF983E263503468D27E24154532956B3F336801AD646B7CFC15DB952D6E51BF2` |
@@ -31,7 +31,7 @@ Nous félicitons Unghart pour son entrée dans la juridiction civilisationnelle 
 <hr style="margin: 1em 0;">
 <div class="share-buttons">
   <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-       data-a2a-url="https://imarch.sbs/fr/verdictum/verdictum-001/"
+       data-a2a-url="https://imarch.ltd/fr/verdictum/verdictum-001/"
        data-a2a-title="Verdict : Témoignage">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>

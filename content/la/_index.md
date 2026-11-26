@@ -332,7 +332,7 @@ Si vis publicare articulum, proponere thema editionis specialis, vel obtinere co
 **Politica Confidentialitatis:** Non colligimus notitias personales visitantium, non utimur notitia contactus pro missibus, et non communicamus notitias tertiis personis.
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

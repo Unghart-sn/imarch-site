@@ -7,7 +7,7 @@ layout: "single"
      src="/images/banners/0015.png" 
      alt="Consilium Scene of Institutional Thinking and Recognition" >}}
 
-{{< morebutton target="https://imarch.sbs/en/vis-realitatis-center/" text="ABOUT THE PROJECT" >}}
+{{< morebutton target="https://imarch.ltd/en/vis-realitatis-center/" text="ABOUT THE PROJECT" >}}
 </div>
 
 {{< vis-concept-paper-link-en >}}
@@ -119,7 +119,7 @@ This is the basic level of presence, the social layer.
 
 A profile is **who you are in the system**.
 
-{{< morebutton target="https://imarch.sbs/en/unghart/" text="PROFILE DEMO" >}}
+{{< morebutton target="https://imarch.ltd/en/unghart/" text="PROFILE DEMO" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -217,7 +217,7 @@ This is a personal or project tool. Separation of the expert component from the 
 
 A stage mask is **how you act and manifest**.
 
-{{< morebutton target="https://unghart.imarch.sbs/en/" text="SITE-MASK DEMO" >}}
+{{< morebutton target="https://unghart.imarch.ltd/en/" text="SITE-MASK DEMO" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -317,7 +317,7 @@ This is the institutional layer of an official validated activity node, includin
 
 A consortium site is the space **where you act as an official representation on the Internet**, be it an organization, company, institution. Or even if you are one person or a small team: entrepreneur, scientist, artist, writer, poet, composer, musician, creative personality, expert.
 
-{{< morebutton target="https://imarch.sbs//en/imarch-ltd/" text="CONSORTIUM-SITE DEMO" >}}
+{{< morebutton target="https://imarch.ltd//en/imarch-ltd/" text="CONSORTIUM-SITE DEMO" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -604,7 +604,7 @@ Every dollar goes towards building infrastructure that will allow thousands of c
 
 ## 📞 Still have questions?
 
-Write to [info@imarch.sbs](mailto:info@imarch.sbs)
+Write to [info@imarch.ltd](mailto:info@imarch.ltd)
 
 *Last update: {{< current_date >}}*
 

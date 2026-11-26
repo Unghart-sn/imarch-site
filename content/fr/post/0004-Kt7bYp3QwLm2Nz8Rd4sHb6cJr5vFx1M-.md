@@ -367,7 +367,7 @@ Le projet commence par le soutien aux vétérans, mais crée un modèle universe
   <div style="text-align: left !important; max-width: 800px; margin: 0 auto; padding-left: 0 !important; padding-right: 0 !important;">
     <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;">
       <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="/en/imarch-ltd-uk/">IMARCH LTD</a></em></p>
-      <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+      <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
       <p style="text-align: left !important; margin-left: 0 !important;"><em>2026.01.06, <a href="/ru/vis-realitatis-center/">landing-version</a></em></p>
       <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/archive/2026-01-06-VisRealitatis_Concept_paper.pdf">2026-01-06-VisRealitatis_Concept_paper.pdf</a></p>
       <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>Note : La valeur de hachage cryptographique montre le SHA-256 du document latin original</em></p>

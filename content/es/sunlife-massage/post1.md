@@ -39,13 +39,13 @@ Please include the purpose of your inquiry when submitting your request.
 <details>
   <summary>Post Scriptum🔻</summary>
 
-[Sunlife‑Massage®](https://imarch.sbs/en/sunlife-massage/) — a registered trademark under the management of IMARCH LTD, London.
+[Sunlife‑Massage®](https://imarch.ltd/en/sunlife-massage/) — a registered trademark under the management of IMARCH LTD, London.
 
 ---
 
 <div style="text-align:left; max-width:800px; margin:0 auto;">
-  <p><em><a href="https://imarch.sbs/en/imarch-ltd-uk/">IMARCH LTD UK</a> • Administration</em></p>
-  <p>Электронная почта: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p><em><a href="https://imarch.ltd/en/imarch-ltd-uk/">IMARCH LTD UK</a> • Administration</em></p>
+  <p>Электронная почта: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/legal/ltd-registration/2025-10-19-company-details.pdf">2025-12-22_imarch-manifest-0001_v1.pdf</a> (LAT/ENG)</p>
 </div>
 

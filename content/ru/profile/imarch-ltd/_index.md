@@ -57,7 +57,7 @@ class="fade-in-up" >}}
   **Политика конфиденциальности Imarch Ltd**  
   Мы не собираем персональные данные...  
   <div align="center">
-    <a href="mailto:info@imarch.sbs">
+    <a href="mailto:info@imarch.ltd">
       <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
     </a>
   </div>

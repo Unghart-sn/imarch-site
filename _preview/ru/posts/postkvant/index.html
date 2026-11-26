@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+    <title>Архитектура доверия Imarch - Imarchia</title>
+
+  <meta name="description" content="Объяснение структуры профиля и системы субдоменов: как и почему это устроено в рамках единой платформы." />
+  <meta name="author" content="IMARCH LTD UK" />
+
+
+  <link href="https://imarch.ltd/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+<meta name="generator" content="Hugo 0.148.2"><link rel="alternate" href="https://imarch.ltd/ru/index.xml" type="application/rss+xml" title="Имархия" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://imarch.ltd/css/main.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/custom-v2.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/ungchart.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" />
+  <link rel="stylesheet" href="https://imarch.ltd/css/syntax.css" />
+
+<link rel="stylesheet" href="https://imarch.ltd/css/codeblock.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" crossorigin="anonymous" />
+
+
+
+
+
+<link rel="stylesheet" href="/css/landing.css?v=3" />
+
+        <link rel="stylesheet" href="/css/style.css">
+
+    
+    <style>
+      html, body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
+      body {
+        display: block !important;
+        flex-flow: initial !important;
+        padding-top: 80px !important;
+      }
+      main {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+      footer {
+        position: static !important;
+        margin-top: 3rem !important;
+        display: block !important;
+        width: 100% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://imarch.ltd/ru/">Имархия</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Игра" href="/ru/docs/ludus/">Игра</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Архив" href="/ru/docs/archivum/">Архив</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Коллегия" href="/ru/docs/collegium/">Коллегия</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Совет" href="/ru/docs/consilium/">Совет</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Вердикт" href="/ru/verdictum/">Вердикт</a>
+            </li>
+          
+        
+
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0"></a>
+              <div class="navlinks-children">
+                
+                  
+                  <a href="https://imarch.ltd/posts/postkvant/">Latina</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/ar/posts/postkvant/">العربية</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/zh/posts/postkvant/">中文</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/en/posts/postkvant/">English</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/fr/posts/postkvant/">Français</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/es/posts/postkvant/">Español</a>
+                  
+                
+              </div>
+            </li>
+          
+        
+
+        
+        <li>
+          <a href="/login/" title="Sign in">Sign in</a>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Имархия" href="https://imarch.ltd/ru/">
+            <img class="avatar-img" src="https://imarch.ltd/images/logo.png" alt="Имархия" />
+          </a>
+        </div>
+      </div>
+    
+  </div>
+</nav>
+
+
+
+
+    <main>
+      
+<main>
+  <div class="section-content">
+    
+    
+    <h1>Архитектура доверия Imarch</h1>
+    
+    
+    
+    <div class="article-date">
+      📅 29 December 2025
+    </div>
+    
+    
+    
+    
+    <div class="article-translations">
+      <span>🌐 :</span>
+      
+      <a href="https://imarch.ltd/posts/postkvant/" class="translation-link">Latina</a>
+      
+      <a href="https://imarch.ltd/ar/posts/postkvant/" class="translation-link">العربية</a>
+      
+      <a href="https://imarch.ltd/zh/posts/postkvant/" class="translation-link">中文</a>
+      
+      <a href="https://imarch.ltd/en/posts/postkvant/" class="translation-link">English</a>
+      
+      <a href="https://imarch.ltd/fr/posts/postkvant/" class="translation-link">Français</a>
+      
+      <a href="https://imarch.ltd/es/posts/postkvant/" class="translation-link">Español</a>
+      
+    </div>
+    
+    
+    
+    <div class="blog-button-icon" style="
+    font-size: 3.8rem;
+    margin-bottom: 1.2rem;
+    text-shadow: 
+        0 0 15px rgba(44, 120, 115, 0.6),
+        0 0 25px rgba(44, 120, 115, 0.4),
+        0 0 35px rgba(44, 120, 115, 0.3);
+    animation: glowPulse 2s ease-in-out infinite alternate;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    line-height: 1;
+">
+    <span style="
+        display: inline-block;
+        animation: emojiBounce 3s ease-in-out infinite;
+    ">🏛️</span>
+    <span style="
+        display: inline-block;
+        animation: emojiBounce 3s ease-in-out infinite 0.5s;
+    ">🧱</span>
+    <span style="
+        display: inline-block;
+        animation: emojiBounce 3s ease-in-out infinite 1s;
+    ">🔐</span>
+</div>
+<style>
+@keyframes glowPulse {
+    0% {
+        text-shadow: 
+            0 0 15px rgba(44, 120, 115, 0.6),
+            0 0 25px rgba(44, 120, 115, 0.4),
+            0 0 35px rgba(44, 120, 115, 0.3);
+        transform: scale(1);
+    }
+    100% {
+        text-shadow: 
+            0 0 20px rgba(44, 120, 115, 0.8),
+            0 0 30px rgba(44, 120, 115, 0.6),
+            0 0 40px rgba(44, 120, 115, 0.4);
+        transform: scale(1.05);
+    }
+}
+
+@keyframes emojiBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-8px) rotate(-5deg);
+    }
+    50% {
+        transform: translateY(0) rotate(0deg);
+    }
+    75% {
+        transform: translateY(-4px) rotate(5deg);
+    }
+}
+
+.blog-button-card:hover .blog-button-icon span {
+    animation: rockAndRoll 0.5s ease-in-out;
+}
+
+@keyframes rockAndRoll {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-15deg) scale(1.1); }
+    75% { transform: rotate(15deg) scale(1.1); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+</style>
+<h2 id="личный-профиль-субдоменная-маска-и-постквантовая-подпись-как-основа-цифровой-субъектности">Личный профиль, субдоменная маска и постквантовая подпись как основа цифровой субъектности</h2>
+
+
+
+
+
+
+<div class="yt-card" data-yt-id="aLNwkPVm1xA" data-yt-autoplay="0" data-yt-start="0" role="region" aria-label="Видео о гуманитарном исходном коде">
+  <button class="yt-card__btn" type="button" aria-label="Воспроизвести видео: Видео о гуманитарном исходном коде">
+    <span class="yt-card__thumb" style="background-image:url('https://i.ytimg.com/vi/aLNwkPVm1xA/hqdefault.jpg')" aria-hidden="true"></span>
+    <svg class="yt-card__play" viewBox="0 0 68 48" width="68" height="48" aria-hidden="true" focusable="false">
+      <path d="M66.52 7.03a8 8 0 0 0-5.64-5.64C56.6 0 34 0 34 0s-22.6 0-26.88 1.39a8 8 0 0 0-5.64 5.64C0 11.3 0 24 0 24s0 12.7 1.48 16.97a8 8 0 0 0 5.64 5.64C11.4 48 34 48 34 48s22.6 0 26.88-1.39a8 8 0 0 0 5.64-5.64C68 36.7 68 24 68 24s0-12.7-1.48-16.97z" fill="#f00"/>
+      <path d="M45 24 27 14v20z" fill="#fff"/>
+    </svg>
+  </button>
+
+  
+    <p class="yt-card__caption">Видео о гуманитарном исходном коде</p>
+  
+
+  <noscript>
+    <div class="yt-card__noscript">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/aLNwkPVm1xA?rel=0&modestbranding=1&autoplay=0&start=0"
+        title="Видео о гуманитарном исходном коде"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        loading="lazy"></iframe>
+    </div>
+  </noscript>
+</div>
+
+<style>
+.yt-card {
+  margin: 2rem 0;
+  border-radius: 12px;
+  background: #f3f4f6;  
+  box-shadow: 0 8px 24px rgba(18, 24, 32, 0.06);
+  padding: 0.6rem;
+  display: block;
+  max-width: 100%;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.yt-card__btn {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+ 
+.yt-card__thumb {
+  display: block;
+  width: 100%;
+  padding-top: 56.25%;  
+  background-size: cover;        
+  background-position: center;   
+  background-repeat: no-repeat;
+  border-radius: 8px;
+  background-color: #e9ecef;     
+  overflow: hidden;
+}
+
+ 
+.yt-card__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 48px;
+  opacity: 0.95;
+  transition: transform .18s ease, opacity .18s ease;
+  pointer-events: none;
+}
+.yt-card__btn:hover .yt-card__play { transform: translate(-50%, -50%) scale(1.06); opacity: 1; }
+
+.yt-card__caption {
+  text-align: center;
+  font-size: 0.92rem;
+  color: #555;
+  margin: 0.6rem 0 0;
+  padding: 0 0.5rem;
+}
+
+ 
+.yt-card__noscript iframe {
+  width: 100%;
+  height: 360px;
+  border: 0;
+  border-radius: 8px;
+}
+
+ 
+@media (max-width: 768px) {
+  .yt-card { margin: 1.2rem 0; border-radius: 10px; padding: 0.4rem; }
+  .yt-card__play { width: 56px; height: 40px; }
+}
+
+.vis-project-sections {
+  max-width: 100%;  
+  margin: 4rem 0;  
+  padding: 0;  
+}
+
+ 
+body {
+  margin: 0;
+  padding: 0;
+  background: white;  
+}
+</style>
+
+<script>
+(function () {
+  
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest && e.target.closest('.yt-card__btn');
+    if (!btn) return;
+    var card = btn.closest('.yt-card');
+    if (!card) return;
+
+    var id = card.getAttribute('data-yt-id');
+    var autoplay = card.getAttribute('data-yt-autoplay') || '0';
+    var start = card.getAttribute('data-yt-start') || '0';
+
+    var src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(id) +
+              '?rel=0&modestbranding=1&autoplay=' + encodeURIComponent(autoplay) +
+              '&start=' + encodeURIComponent(start);
+
+    var wrapper = document.createElement('div');
+    wrapper.style.position = 'relative';
+    wrapper.style.paddingBottom = '56.25%';
+    wrapper.style.height = '0';
+    wrapper.style.overflow = 'hidden';
+    wrapper.style.borderRadius = '8px';
+
+    var iframe = document.createElement('iframe');
+    iframe.src = src;
+    iframe.title = card.getAttribute('aria-label') || 'YouTube video';
+    iframe.setAttribute('frameborder','0');
+    iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
+    iframe.setAttribute('allowfullscreen','');
+    iframe.loading = 'lazy';
+    iframe.style.position = 'absolute';
+    iframe.style.top = '0';
+    iframe.style.left = '0';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+
+    wrapper.appendChild(iframe);
+
+    
+    var btnEl = card.querySelector('.yt-card__btn');
+    if (btnEl) btnEl.replaceWith(wrapper);
+  });
+
+  
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      var active = document.activeElement;
+      if (active && active.classList && active.classList.contains('yt-card__btn')) {
+        active.click();
+        e.preventDefault();
+      }
+    }
+  });
+})();
+</script>
+
+<p>В мире социальных сетей человек перестал быть субъектом.<br>
+Он стал потоком контента, который исчезает в общем шуме. Посты тонут в новостной ленте, авторство размывается, репосты не имеют юридической силы, а система доверия строится на лайках, скорости внимания и алгоритмах.</p>
+<p>Платформа <strong>imarch.ltd</strong> создавалась как альтернатива всей этой «пустой игре в коммуникацию».<br>
+Не как ещё одна соцсеть, а как <strong>институциональная архитектура доверия</strong>, где:</p>
+<ul>
+<li>каждый акт имеет форму,</li>
+<li>каждый субъект имеет маску,</li>
+<li>каждый пост имеет подпись,</li>
+<li>каждый репост становится актом цитирования.</li>
+</ul>
+<p>Это не попытка «улучшить Facebook».<br>
+Это шаг в сторону: от развлечения к ответственным цифровым действиям.</p>
+<hr>
+<h2 id="почему-мир-нуждается-в-архитектуре-доверия">Почему мир нуждается в архитектуре доверия</h2>
+<p>Современная цифровая среда страдает от трёх фундаментальных проблем:</p>
+<h3 id="потеря-авторства">Потеря авторства</h3>
+<p>Невозможно доказать, кто опубликовал текст первым.<br>
+Легко удалять, копировать, подделывать.</p>
+<h3 id="отсутствие-верифицируемости">Отсутствие верифицируемости</h3>
+<p>Лайк или репост ничего не подтверждают.<br>
+Это не акт признания, не документ, не доказательство.</p>
+<h3 id="крах-web2доверия">Крах Web2‑доверия</h3>
+<p>Централизованные платформы владеют алгоритмами, данными, контекстами.</p>
+<p>А значит, владеют <strong>информацией</strong>.</p>
+<p>Пользователь здесь лишь &ldquo;пассажир общественного транспорта&rdquo;.</p>
+<hr>
+<h2 id="концепция-imarch-субъектность-через-сценическую-маску">Концепция Imarch: субъектность через сценическую маску</h2>
+<p>В Imarch субъект это <strong>маска</strong>, обладающая:</p>
+<ul>
+<li>цифровым офисом (субдоменным сайтом и почтой)</li>
+<li>подписью</li>
+<li>историей документов</li>
+<li>актами верификации</li>
+<li>репутацией</li>
+<li>кругом доверия</li>
+</ul>
+<p>Маска  это не безликий ник.<br>
+Это <strong>цифровая форма</strong>, признанная системой.</p>
+<p>Так же как в классических институтах:<br>
+титул → ответственность → право публиковать → право подписывать акты.</p>
+<hr>
+<h2 id="субдоменный-сайт-маски-место-рождения-оригинала">Субдоменный сайт маски: место рождения оригинала</h2>
+<p>Каждая маска получает свой адрес:</p>
+<p>maskname.imarch.ltd</p>
+<p>Здесь публикуются <strong>оригиналы</strong>: статьи, акты, меморандумы, заявления.</p>
+<p>У каждого оригинала есть:</p>
+<ul>
+<li>открытый ключ</li>
+<li>постквантовая подпись (CRYSTALS‑Dilithium)</li>
+<li>хэш-код верификации содержания</li>
+<li>ссылка на верификатор</li>
+</ul>
+<p>Любой читатель может проверить: кем подписано, когда опубликовано, изменялся ли текст.</p>
+<p>👉 Это превращает цифровой документ в <strong>акт</strong>, а не в пост.</p>
+<hr>
+<h2 id="личный-профиль-цитадель-доверия">Личный профиль: Цитадель Доверия</h2>
+<p>Информационная лента пользователя в Imarch — это <strong>не блог</strong>, а «Цитадель Доверия».</p>
+<p>Здесь:</p>
+<ul>
+<li>отображаются репосты → акты цитирования</li>
+<li>видны связи → круги доверия</li>
+<li>фиксируется участие в системе</li>
+<li>собирается репутационный след</li>
+</ul>
+<p>Профильэто интерфейс, но не субъект.</p>
+<p>Субъект это верифицируемая сценическая маска.</p>
+<hr>
+<h2 id="постквантовая-подпись-crystalsdilithium">Постквантовая подпись (CRYSTALS‑Dilithium)</h2>
+<p>Обычная криптография умрёт после появления массовых квантовых компьютеров.</p>
+<p>RSA и ECC будут взламываться за минуты.</p>
+<p>Поэтому Imarch использует <strong>постквантовый стандарт</strong>, принятый NIST:</p>
+<h3 id="crystalsdilithium">CRYSTALS‑Dilithium</h3>
+<p>Он обеспечивает:</p>
+<ul>
+<li>устойчивость к квантовому взлому</li>
+<li>долгосрочное хранение документов</li>
+<li>проверяемость на десятки лет вперёд</li>
+</ul>
+<p>Подпись хранится:</p>
+<ul>
+<li>на субдомене</li>
+<li>в профиле</li>
+<li>в системной базе верификаций</li>
+<li>в QR‑актах</li>
+</ul>
+<p>👉 Это защита вашего цифрового <strong>будуюшего</strong>.</p>
+<hr>
+<h2 id="схема-цитирования-репост-как-акт-признания">Схема цитирования: репост как акт признания</h2>
+<p>В Web2 репост — это просто пересылка.</p>
+<p>В imarch.ltd — это акт признания:</p>
+<ol>
+<li>Маска публикует оригинал</li>
+<li>Пользователь цитирует его в своём профиле</li>
+<li>Цитирование подписывается</li>
+<li>Система фиксирует «кто кого признал»</li>
+</ol>
+<p>Это:</p>
+<ul>
+<li>документ</li>
+<li>цифровой след</li>
+<li>репутационный акт</li>
+<li>связь между двумя субъектами</li>
+</ul>
+<p>Фактически это <strong>&ldquo;мини‑научная&rdquo; система цитирования</strong>, адаптированная под социальную среду.</p>
+<hr>
+<h2 id="геймификация-доверия-и-реферализация">Геймификация доверия и реферализация</h2>
+<p>Система строит:</p>
+<ul>
+<li><strong>Счётчики доверия</strong> — сколько раз твои публикации процитировали.</li>
+<li><strong>Реферальные круги</strong> — кого ты привёл в систему.</li>
+<li><strong>Уровни субъектности</strong> — Новичок → Активатор → Оператор → Участник → Субъект доверия.</li>
+</ul>
+<p>Эти механизмы работают не как игрушки, а как <strong>инструменты роста цифровой репутации</strong>.</p>
+<hr>
+<h2 id="чем-imarch-отличается-от-facebook">Чем Imarch отличается от Facebook</h2>
+<p>Facebook — это:</p>
+<ul>
+<li>контентный шум</li>
+<li>алгоритмы</li>
+<li>исчезающие посты</li>
+<li>отсутствие автора</li>
+<li>невозможность доказательства происхождения</li>
+</ul>
+<p>Imarch — это:</p>
+<ul>
+<li>субъект → маска</li>
+<li>оригинал → подпись</li>
+<li>репост → акт признания</li>
+<li>профиль → витрина доверия</li>
+<li>система → архитектура документированных действий</li>
+</ul>
+<h3 id="метафоры">Метафоры</h3>
+<ul>
+<li>Игрушечная касса vs бухгалтерский аппарат</li>
+<li>Пластиковый меч vs боевое оружие на учёте</li>
+<li>«Набор врача» для детей vs настоящая операционная</li>
+<li>Холст по номерам vs картина художника</li>
+<li>Надпись на заборе vs нотариально заверенный документ</li>
+<li>Конструктор Lego vs архитектурный проект</li>
+</ul>
+<p>👉 Одна модель это шум. Вторая это структура.</p>
+<hr>
+<h2 id="платформа-где-каждый-становится-субъектом">Платформа, где каждый становится субъектом</h2>
+<p>Личный профиль и субдоменный сайт маски — это:</p>
+<ul>
+<li>субъектность</li>
+<li>цифровое авторство</li>
+<li>доказуемость происхождения</li>
+<li>сеть доверия</li>
+<li>система репутации</li>
+<li>постквантовая подпись</li>
+</ul>
+<p><strong>Imarch это переход от игры к институту, от шума к структуре, от пользователя к субъекту.</strong></p>
+<hr>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гуманитарный Исходный Код | IMARCH</title>
+    <style>
+         
+        .landing-block {
+            font-family: 'Georgia', serif;
+            line-height: 1.7;
+            color: #333;
+            background-color: #fdfdfd;
+            margin: 0 auto;
+            padding: 0 20px;
+            max-width: 800px;
+            box-sizing: border-box;
+        }
+
+         
+        .landing-block h1,
+        .landing-block h2,
+        .landing-block h3 {
+            font-family: 'Georgia', serif;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-top: 0;
+        }
+
+        .landing-block h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #222;
+            border-bottom: 3px solid #5a5a5a;
+            padding-bottom: 20px;
+        }
+
+        .landing-block h2 {
+            font-size: 2.2rem;
+            color: #333;
+            margin-bottom: 1.8rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .landing-block h2:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 80px;
+            height: 3px;
+            background: #5a5a5a;
+        }
+
+        .landing-block h3 {
+            font-size: 1.6rem;
+            color: #444;
+            margin-bottom: 1.2rem;
+        }
+
+        .landing-block h4 {
+            font-size: 1.3rem;
+            color: #555;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+         
+        .landing-block p {
+            margin-bottom: 1.5rem;
+            font-size: 1.15rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+         
+        .landing-block .section-card {
+            background: #f8f8f8;
+            border-radius: 8px;
+            padding: 40px;
+            margin: 50px 0;
+            border: 1px solid #eaeaea;
+        }
+
+         
+        .landing-block .three-columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .landing-block .column {
+            background: white;
+            padding: 30px 25px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .landing-block .column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .landing-block .column-icon {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+         
+        .landing-block .four-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .landing-block .principle-card {
+            background: white;
+            padding: 30px;
+            border-radius: 6px;
+             
+            border: 1px solid #eaeaea;
+            border-left: 4px solid #5a5a5a;
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .landing-block .principle-card:hover {
+            border-left-color: #333;
+            border-color: #ccc;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .landing-block .principle-icon {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+         
+        .landing-block .highlight-box {
+            background: #f0f0f0;
+            border-left: 4px solid #777;
+            padding: 30px;
+            margin: 40px 0;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .landing-block .highlight-box strong {
+            color: #333;
+        }
+
+         
+        .landing-block .cta-button {
+            display: inline-block;
+            background: #5a5a5a;
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 1px solid #4a4a4a;
+            font-family: 'Georgia', serif;
+        }
+
+        .landing-block .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .landing-block .button-center {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+         
+        .landing-block .formula {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #333;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            border: 2px dashed #e0e0e0;
+            margin: 40px 0;
+        }
+
+         
+        .landing-block .landing-footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #eee;
+            margin-top: 60px;
+        }
+
+         
+        @media (max-width: 850px) {
+            .landing-block .three-columns {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .landing-block .four-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .landing-block {
+                padding: 0 15px;
+            }
+            
+            .landing-block .section-card {
+                padding: 30px 20px;
+                margin: 30px 0;
+            }
+            
+            .landing-block h1 {
+                font-size: 2.2rem;
+                padding-bottom: 15px;
+            }
+            
+            .landing-block h2 {
+                font-size: 1.8rem;
+                padding-bottom: 12px;
+                margin-bottom: 1.5rem;
+            }
+            
+            .landing-block h2:after {
+                width: 60px;
+            }
+            
+            .landing-block h3 {
+                font-size: 1.4rem;
+            }
+            
+            .landing-block h4 {
+                font-size: 1.2rem;
+            }
+            
+            .landing-block p {
+                font-size: 1.1rem;
+            }
+            
+             
+            .landing-block .column,
+            .landing-block .principle-card {
+                padding: 25px 20px;
+            }
+            
+            .landing-block .column-icon,
+            .landing-block .principle-icon {
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+            }
+            
+            .landing-block .highlight-box {
+                padding: 25px 20px;
+                font-size: 1.15rem;
+                margin: 30px 0;
+            }
+            
+            .landing-block .formula {
+                font-size: 1.3rem;
+                padding: 20px;
+                margin: 30px 0;
+            }
+            
+            .landing-block .cta-button {
+                padding: 12px 25px;
+                font-size: 1rem;
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            
+            .landing-block .button-center {
+                margin: 30px 0;
+            }
+        }
+        
+         
+        @media (max-width: 400px) {
+            .landing-block h1 {
+                font-size: 1.9rem;
+            }
+            
+            .landing-block h2 {
+                font-size: 1.6rem;
+            }
+            
+            .landing-block .section-card {
+                padding: 25px 15px;
+            }
+            
+            .landing-block .column,
+            .landing-block .principle-card {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="landing-block">
+        
+        <div class="section-card" id="start">
+            <h2>Ваша формула создания ценности</h2>
+            
+            <div class="formula">
+                ВЗАИМОДЕЙСТВИЕ + ОБЕТ + ХРОНИКА = ЦЕННОСТЬ
+            </div>
+            
+            <p>Это не просто слова, это операционная система для гуманитарного предприятия. Где каждый элемент усиливает другой в замкнутом цикле созидания. Превратите ваше движение в увлекательный и устойчивый проект!</p>
+            
+            <div class="button-center">
+                <a href="https://github.com/Imperium-Silentii/universal-formology-incubator/blob/main/README.RU.md" class="cta-button">Присоединиться к экосистеме →</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+  <div style="text-align:left; max-width:800px; margin:0 auto;">
+    <p><em>Сценическое гражданство</em> — ключевая функция платформы imarch.ltd.</p>
+    <p>Каждый участник получает <strong>сценическое имя</strong> и <strong>маску</strong>, которые выступают как юридически верифицируемая личность.</p>
+    <p>Это решение обеспечивает <strong>защиту авторских прав</strong> и признание субъектности в публичной деятельности.</p>
+    <p>При этом сохраняется <strong>инкогнито в бытовой жизни</strong>: маска отделяет частное от профессионального.</p>
+    <p>Такое разделение является <strong>обязательным условием</strong>, исключающим любые попытки буллинга, дискриминации или давления на личность.</p>
+    <p>Каждый акт публикации и цитирования подтверждается <strong>постквантовой подписью</strong>, что делает систему доверия прозрачной и защищённой.</p>
+  </div>
+  <div style="background:linear-gradient(145deg,#fefefe,#f5f0eb); border-radius:12px; padding:1.75em; margin:2em auto; max-width:700px; box-shadow:0 4px 20px rgba(75,46,46,0.08),0 0 0 1px rgba(75,46,46,0.05) inset;">
+    <p style="font-size:0.9em; color:#2c1810; font-style:italic;">
+      Таким образом, «сценическое гражданство» — это не игра, а архитектура доверия:  
+      личность защищена, авторство признано, а социальная среда очищена от буллинга и дискриминации.
+    </p>
+  </div>
+</details>
+<details>
+  <summary>Post Scriptum 🔻</summary>
+<div style="text-align: left !important; max-width: 800px; margin: 0 auto; padding-left: 0 !important; padding-right: 0 !important;"> <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;"> <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/ru/verdictum/verdictum-0003/">IMARCH LTD</a></em></p> <p style="text-align: left !important; margin-left: 0 !important;">Электронная почта: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p> <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.22, <a href="https://imarch.ltd/ru/verdictum/0008/">ВЕРДИКТ</a></em></p> <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/proposals/memorandum-ano-vis-realitatis-2025-12-22.pdf">memorandum-ano-vis-realitatis-2025-12-10-la.pdf</a></p> <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>Примечание: В значении криптографического хеша указан SHA-256 оригинального документа на латыни</em></p> </div> </div><div style="background: linear-gradient(145deg, #fefefe, #f5f0eb); border: none; border-radius: 12px; padding: 1.75em; margin: 2em auto; max-width: 700px; box-shadow: 0 4px 20px rgba(75, 46, 46, 0.08), 0 0 0 1px rgba(75, 46, 46, 0.05) inset;"> <details> <summary style="font-weight: 700; font-size: 1.25em; cursor: pointer; color: #2c1810; padding: 0.75em 1em; background: #fff; border-radius: 8px; border: 1px solid #e8dcd3; box-shadow: 0 2px 8px rgba(75, 46, 46, 0.05); display: flex; align-items: center; justify-content: space-between; list-style: none;"> <span>КРИПТОГРАФИЧЕСКАЯ ПОДПИСЬ (SHA-256 оригинального латинского документа)</span> <span style="font-size: 0.9em; color: #8b7355;">🔻</span> </summary> <div style="margin-top: 1.75em;"> <pre style="background: #f8f4f0; padding: 1.25em; border-radius: 8px; overflow-x: auto; margin: 0; font-family: 'Courier New', 'Cascadia Code', monospace; font-size: 0.95em; line-height: 1.6; border: 1px solid #e8dcd3; color: #2c1810; white-space: pre-wrap; word-break: break-all;"> a75d7fee40a786701890a67465efbc5fafac5d5ba60bdea7db8b1402b342e85e </pre> <div style="margin-top: 1em; display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #8b7355;"> <span>✓ Хеш оригинала на латыни • 64 символа</span> <button onclick="navigator.clipboard.writeText('a75d7fee40a786701890a67465efbc5fafac5d5ba60bdea7db8b1402b342e85e')" style="background: transparent; color: #8b7355; border: 1px solid #d4c4b8; padding: 0.4em 1em; border-radius: 6px; font-size: 0.9em; cursor: pointer;" onmouseover="this.style.backgroundColor='#f5f0eb'; this.style.borderColor='#8b7355';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#d4c4b8';"> Копировать </button> </div> <p style="font-size: 0.85em; color: #8b7355; margin-top: 1em; font-style: italic;"> *Данный SHA-256 соответствует оригинальному документу на латыни. Русская версия является его официальным переводом и валидируется по этому хешу. </p> </div> </details> </div> </details>
+
+    
+    
+    
+    
+      
+    
+    
+  </div>
+</main>
+
+<style>
+ 
+.article-date {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+ 
+.article-translations {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+  border-left: 3px solid #9333ea;
+  font-size: 0.9rem;
+}
+
+.article-translations span {
+  color: #475569;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.translation-link {
+  color: #7c3aed;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.translation-link:hover {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+ 
+@media (max-width: 768px) {
+  .article-translations {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .article-translations span {
+    margin-bottom: 0.25rem;
+  }
+  
+  .translation-link {
+    align-self: flex-start;
+  }
+}
+</style>
+
+    </main>
+
+    <footer>
+  <div class="container">
+    
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        <ul class="list-inline text-center footer-links">
+          
+
+          
+        </ul>
+
+        <p class="credits copyright text-muted">
+          
+            <a href="https://imarch.ltd/ru/">Имархия</a>
+            &nbsp;&bull;&nbsp;
+          
+
+          <a href="https://imarch.ltd/en/imarch-ltd/">IMARCH LTD UK</a>
+          &nbsp;&bull;&nbsp; Reg. No: 16791765
+          &nbsp;&bull;&nbsp; <a href="/audit.html" style="font-weight: 600;">Protocol 8888 Audit</a>
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+          &nbsp;&bull;&nbsp;
+          Oleksandr Purpurov
+        </p>
+
+        <p class="credits text-muted" style="font-style: italic; margin-top: 8px; opacity: 0.85; text-align: center;">
+          Chronicle OS is an official operational interface for Complex Sociosystems Risk Management (CSRM).
+        </p>
+
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script src="https://imarch.ltd/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" crossorigin="anonymous"></script><script src="https://imarch.ltd/js/load-photoswipe.js"></script>
+
+<script src="https://imarch.ltd/parallax.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".imarch-module details").forEach(details => {
+    const content = details.querySelector(".accordion-content");
+    if (!content) return;
+
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        setTimeout(() => { content.style.maxHeight = "0px"; }, 20);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll('.fade-in-up');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+    
+    <button id="openFormBtn" class="floating-btn">✉</button>
+
+    
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <span id="closeFormBtn" class="close">&times;</span>
+        <iframe src="https://forms.zohopublic.eu/adminima1/form/CustomerSupportRequestForm/formperma/AbFihH-NR7Iv2BufnOGTiWrfaRud1bW9-SeWL9aBc4Q"
+                frameborder="0"
+                style="width:100%; height:500px; border:none;">
+        </iframe>
+      </div>
+    </div>
+
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const openBtn = document.getElementById('openFormBtn');
+  const modal = document.getElementById('formModal');
+  const closeBtn = document.getElementById('closeFormBtn');
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+});
+</script>
+
+
+
+<script src="/js/account-return-widget.js?v=1" defer></script>

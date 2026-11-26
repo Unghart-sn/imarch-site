@@ -99,7 +99,7 @@ draft: false
 In mundo retium socialium homo subiectum esse desiit.  
 Factus est fluxus contenti qui in tumultu communi evanescit. Postes in cursus nuntiorum submerguntur, auctoritas obscuratur, retransmissiones vim iuridicam non habent, et systema fidei super favores, celeritatem attentionis et algorithmos aedificatur.
 
-Plattaforma **imarch.sbs** creata est ut alternatio totius huius "inaniae ludus communicationis".  
+Plattaforma **imarch.ltd** creata est ut alternatio totius huius "inaniae ludus communicationis".  
 Non ut alia retis socialis, sed ut **architectura institutionalis fidei**, ubi:
 
 - omnis actus formam habet,  
@@ -159,7 +159,7 @@ titulus → responsabilitas → ius publicandi → ius actus subscribendi.
 
 Quaelibet larva suam inscriptionem accipit:
 
-**maskname.imarch.sbs**
+**maskname.imarch.ltd**
 
 Hic publicantur **originalia**: articuli, acta, memoranda, declarationes.  
 
@@ -224,7 +224,7 @@ Subscriptio servatur:
 
 In Web2 retransmissio — simplex est transmissio.  
 
-In imarch.sbs — actus agnitionis est:
+In imarch.ltd — actus agnitionis est:
 
 1. Larva originale publicat  
 2. Utens illud in suo profilium citat  
@@ -326,7 +326,7 @@ Profilium personale et situs subdominis larvae — sunt:
 In the world of social networks, a person has ceased to be a subject.  
 They have become a stream of content that disappears in the general noise. Posts drown in news feeds, authorship is blurred, reposts have no legal force, and the trust system is built on likes, attention speed, and algorithms.
 
-The **imarch.sbs** platform was created as an alternative to this entire "empty game of communication."  
+The **imarch.ltd** platform was created as an alternative to this entire "empty game of communication."  
 Not as another social network, but as an **institutional architecture of trust**, where:
 
 - every act has a form  
@@ -386,7 +386,7 @@ title → responsibility → right to publish → right to sign acts.
 
 Each mask receives its address:
 
-**maskname.imarch.sbs**
+**maskname.imarch.ltd**
 
 Here **originals** are published: articles, acts, memoranda, statements.  
 
@@ -451,7 +451,7 @@ The signature is stored:
 
 In Web2, a repost is simply a forward.  
 
-In imarch.sbs, it is an act of recognition:
+In imarch.ltd, it is an act of recognition:
 
 1. A mask publishes an original  
 2. A user cites it in their profile  
@@ -534,7 +534,7 @@ Personal profile and subdomain site of the mask are:
 ---
 
 <div style="text-align:left; max-width:800px; margin:0 auto;">
-  <p><em>Scenic Citizenship</em> — a key function of the imarch.sbs platform.</p>
+  <p><em>Scenic Citizenship</em> — a key function of the imarch.ltd platform.</p>
   <p>Each participant receives a <strong>scenic name</strong> and a <strong>mask</strong>, which act as a legally verifiable identity.</p>
   <p>This solution provides <strong>protection of copyright</strong> and recognition of subjectivity in public activities.</p>
   <p>At the same time, <strong>anonymity in private life</strong> is preserved: the mask separates the private from the professional.</p>
@@ -554,7 +554,7 @@ Personal profile and subdomain site of the mask are:
 
   <div style="text-align:left; max-width:800px; margin:0 auto;">
     <p><em>IMARCH LTD UK</em></p>
-    <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+    <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
     <p><em>2025.12.29</em></p>
     <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/proposals/postkvant-2025-12-29-la.pdf">postkvant-2025-12-29-la.pdf</a></p>
     <p style="font-size:0.9em; color:#666;">

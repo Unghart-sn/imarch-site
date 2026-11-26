@@ -130,7 +130,7 @@ Editorial Board Member / Section: Philology, Practical Rhetoric, Journalism, Med
 
 Запросы на публикацию, предрегистрацию протоколов или развертывание University Node направляйте в официальный секретариат:
 
-**Email:** [info@imarch.sbs](mailto:info@imarch.sbs)
+**Email:** [info@imarch.ltd](mailto:info@imarch.ltd)
 
 ---
 

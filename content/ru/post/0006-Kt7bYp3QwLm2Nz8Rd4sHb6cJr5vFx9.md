@@ -12,23 +12,23 @@
 
 1) **Протокол предварительных переговоров IMARCH LTD UK и ВО "Дети Войны"** (ячейка 27 Шевченковского района г. Харькова): 
 
-[https://imarch.sbs/ru/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/](https://imarch.sbs/ru/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/ "https://imarch.sbs/ru/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/")
+[https://imarch.ltd/ru/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/](https://imarch.ltd/ru/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/ "https://imarch.ltd/ru/post/0002-7f8e42c19a3d0b56e741f2c8a935d1f2/")
 
 
 2) **Манифест центра реновации и адаптации Vis Realitatis**: 
 
-[https://imarch.sbs/ru/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/](https://imarch.sbs/ru/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/ "https://imarch.sbs/ru/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/")
+[https://imarch.ltd/ru/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/](https://imarch.ltd/ru/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/ "https://imarch.ltd/ru/post/0001-vrx9azq7tnlm2pyd4whb8cjr6vfs0kx-/")
 
 
 **Для общего контекста также доступна публичная презентация проекта:** 
  
 - Лендинг для микродоноров: 
 
-[https://imarch.sbs/ru/vis-realitatis-center/](https://imarch.sbs/ru/vis-realitatis-center/ "https://imarch.sbs/ru/vis-realitatis-center/")
+[https://imarch.ltd/ru/vis-realitatis-center/](https://imarch.ltd/ru/vis-realitatis-center/ "https://imarch.ltd/ru/vis-realitatis-center/")
   
 - Компилированный текст презентации:
 
-[https://imarch.sbs/ru/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/](https://imarch.sbs/ru/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/ "https://imarch.sbs/ru/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/")
+[https://imarch.ltd/ru/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/](https://imarch.ltd/ru/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/ "https://imarch.ltd/ru/post/0004-kt7byp3qwlm2nz8rd4shb6cjr5vfx1m-/")
 
 ---
 
@@ -159,9 +159,9 @@
 С уважением,  
 Команда проекта **Vis Realitatis**
   
-[https://imarch.sbs/](https://imarch.sbs/ "https://imarch.sbs/")
+[https://imarch.ltd/](https://imarch.ltd/ "https://imarch.ltd/")
  
-admin@imarch.sbs
+info@imarch.ltd
 
 *Первый в мире открытый полигон социальной операционной системы*
 

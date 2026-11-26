@@ -10,7 +10,7 @@ translationKey: "scene-unghart-0003"
 <img src="/images/persona/005-6.png" alt="Картинка-обложка первого поста" />
 </div> 
 
-{{< morebutton target="https://unghart.imarch.sbs/ru/" text="🌐 ЛИЧНЫЙ САЙТ" >}}
+{{< morebutton target="https://unghart.imarch.ltd/ru/" text="🌐 ЛИЧНЫЙ САЙТ" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">

@@ -22,7 +22,7 @@ IMARCH Githronical | Chronocal OS это институциональная ср
 IMARCH развивается как среда, формирующаяся через взаимодействие участников и их вклад. Мы движемся к созданию устойчивой институциональной формы, способной сохранять практики вне краткосрочных циклов.
 
 <div style="text-align: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Заявка%20на%20регистрацию%20контрибьютора&body=Имя:%20%0AСпециализация:%20%0AСсылка%20на%20публикации:%20%0AЧем%20интересен%20журнал:" text="✉️ НАПИСАТЬ НАМ ДЛЯ РЕГИСТРАЦИИ" margin="1rem 0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Заявка%20на%20регистрацию%20контрибьютора&body=Имя:%20%0AСпециализация:%20%0AСсылка%20на%20публикации:%20%0AЧем%20интересен%20журнал:" text="✉️ НАПИСАТЬ НАМ ДЛЯ РЕГИСТРАЦИИ" margin="1rem 0" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
@@ -269,7 +269,7 @@ IMARCH Githronical | Chronicle OS создаётся как среда, спос
 {{< hvost >}}
 
 <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=Заявка%20на%20регистрацию%20контрибьютора&body=Имя:%20%0AСпециализация:%20%0AСсылка%20на%20публикации:%20%0AЧем%20интересен%20журнал:" text="✉️ НАПИСАТЬ НАМ ДЛЯ РЕГИСТРАЦИИ" margin="0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=Заявка%20на%20регистрацию%20контрибьютора&body=Имя:%20%0AСпециализация:%20%0AСсылка%20на%20публикации:%20%0AЧем%20интересен%20журнал:" text="✉️ НАПИСАТЬ НАМ ДЛЯ РЕГИСТРАЦИИ" margin="0" >}}
 
 {{< persona-socials >}}
   

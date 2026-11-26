@@ -64,7 +64,7 @@ draft: false
 
 Метод работает с первого сеанса и может быть передан «из рук в руки», становясь основой для практики дома и в семье.
 
-{{< morebutton target="https://imarch.sbs/ru/sunlife-massage/" text="О МЕТОДЕ" >}}
+{{< morebutton target="https://imarch.ltd/ru/sunlife-massage/" text="О МЕТОДЕ" >}}
 
 ---
 

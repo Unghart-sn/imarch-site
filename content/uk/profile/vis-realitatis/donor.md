@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Підтримати Vis Realitatis — перший контур Protocol 8888"
 description: "Фінансування центру, пілоту Sunlife-Massage®, публічної хроніки та протоколу відтворення з фіксацією кожного внеску."
 categories: ["donors"]
@@ -213,8 +213,8 @@ translationKey: "vis-realitatis-donor"
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
   <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="action-button">🤝 Стати донором</a>
   <a href="/uk/vis-realitatis-center-experts/" class="action-button">🧑‍🔬 Долучитися як експерт</a>
-  <a href="mailto:info@imarch.sbs?subject=Партнерство%20Vis%20Realitatis" class="action-button">🏛️ Стати партнером</a>
-  <a href="mailto:info@imarch.sbs?subject=Участь%20в%20пілоті%20Vis%20Realitatis" class="action-button">📋 Участь у пілоті</a>
+  <a href="mailto:info@imarch.ltd?subject=Партнерство%20Vis%20Realitatis" class="action-button">🏛️ Стати партнером</a>
+  <a href="mailto:info@imarch.ltd?subject=Участь%20в%20пілоті%20Vis%20Realitatis" class="action-button">📋 Участь у пілоті</a>
 </div>
 
 <style>

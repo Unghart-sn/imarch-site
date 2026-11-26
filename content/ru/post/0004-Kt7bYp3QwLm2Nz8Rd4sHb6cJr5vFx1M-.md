@@ -38,7 +38,7 @@ IMARCH Githronical | Chronicle OS не является благотворите
   
 <div><link href="https://plugin.whydonate.com/wdplugin-style.css" rel="stylesheet" type="text/css"><div id="share-widget-vis-realitatis-preserving-memory" class="share-widget" data-slug="vis-realitatis-preserving-memory" data-lang="en" data-box-shadow="4" data-primary-color="#32BF55" data-secondary-color="#2E2C96" data-font-family="Roboto" data-button-radius="27" data-card="show" data-form_mode="donation-form+image"></div><script src="https://plugin.whydonate.com/wp_styling.js" type="text/javascript"></script></div> 
 
-Контакт по вопросам участия и бонусов: admin@imarch.sbs
+Контакт по вопросам участия и бонусов: info@imarch.ltd
 
 **Примечание о бонусах**
   
@@ -453,7 +453,7 @@ IMARCH Githronical | Chronicle OS это не продукт и не серви�
 
 ---
 
-**Контакт оператора проекта:** admin@imarch.sbs  
+**Контакт оператора проекта:** info@imarch.ltd  
 **Юридический оператор:** IMARCH LTD UK  
 Публичный вход: <a href="/ru/vis-realitatis-center/">Vis Realitatis</a> 
 
@@ -469,7 +469,7 @@ IMARCH Githronical | Chronicle OS это не продукт и не серви�
   <!-- Основная информация -->
   <div style="text-align: left; max-width: 800px; margin: 0 auto; padding: 0 1.5rem;">
     <p><em><a href="/en/imarch-ltd-uk/">IMARCH LTD</a></em></p>
-    <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+    <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
     <p><em>2026.01.06, <a href="/ru/vis-realitatis-center/">landing-version</a></em></p>
     <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/archive/2026-01-06-VisRealitatis_Concept_paper.pdf">2026-01-06-VisRealitatis_Concept_paper.pdf</a></p>
     <p style="font-size: 0.9em; color: #666;"><em>Note: The cryptographic hash value shows SHA-256 of the original Latin document</em></p>

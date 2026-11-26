@@ -20,7 +20,7 @@ description: "Второй этап: криптографическая фикс
 
 1. **Скопировать официальный протокол** депонирования ниже.
 2. **Внести добровольный взнос** на поддержку TFM Engine (сумма зависит от выбранного тарифа).
-3. **Отправить копию протокола и файлы** на наш официальный почтовый шлюз `info@imarch.sbs`.
+3. **Отправить копию протокола и файлы** на наш официальный почтовый шлюз `info@imarch.ltd`.
 
 В благодарность за поддержку инфраструктуры мы выполняем вёрстку вашей монографии с гарантированным качеством и в установленный срок.
 
@@ -71,7 +71,7 @@ description: "Второй этап: криптографическая фикс
 </p>
 
 <div align="center" style="margin-top: 0.5rem;">
-  <a id="monoMailtoLink" href="mailto:info@imarch.sbs">
+  <a id="monoMailtoLink" href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>
@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var mailtoLink = document.getElementById('monoMailtoLink');
   if (mailtoLink) {
     var subject = encodeURIComponent('Вёрстка монографии: ' + title + ' (' + name + ')');
-    mailtoLink.setAttribute('href', 'mailto:info@imarch.sbs?subject=' + subject);
+    mailtoLink.setAttribute('href', 'mailto:info@imarch.ltd?subject=' + subject);
   }
 });
 

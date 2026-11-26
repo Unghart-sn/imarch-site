@@ -48,7 +48,7 @@ Oleksandr Purpurov est conditor et director IMARCH LTD UK, societatis investigat
 
 {{< vis-concept-paper-link >}}
 
-{{< morebutton target="https://imarch.sbs/ru/imarch-ltd/" text="SITUS IMARCH LTD" >}}
+{{< morebutton target="https://imarch.ltd/ru/imarch-ltd/" text="SITUS IMARCH LTD" >}}
 </div>
 
 &nbsp;
@@ -77,7 +77,7 @@ Oleksandr Purpurov est conditor et director IMARCH LTD UK, societatis investigat
 >Si habes petitionem officialem ad Directorem Societatis, quaeso mitte epistulam ad eius inscriptionem officialem.
 
 <div align="center">
-  <a href="mailto:director@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

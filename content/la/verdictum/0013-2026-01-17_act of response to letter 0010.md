@@ -23,15 +23,15 @@ translationKey: "scene-blog-0013"
 
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
-  <p><em><a href="https://imarch.sbs/la/imarch-ltd-uk/">IMARCH LTD UK</a> • Departmentum Developmenti Organizativi</em></p>
-  <p>Epistula electronica: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-  <p><em>2026.01.17, <a href="https://imarch.sbs/la/verdictum/">VERDICTUM</a> • Series: Epistularum</em></p>
+  <p><em><a href="https://imarch.ltd/la/imarch-ltd-uk/">IMARCH LTD UK</a> • Departmentum Developmenti Organizativi</em></p>
+  <p>Epistula electronica: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+  <p><em>2026.01.17, <a href="https://imarch.ltd/la/verdictum/">VERDICTUM</a> • Series: Epistularum</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/discussions/5#discussion-9336007">Publicatio et Archivatio</a> (LAT)</p>
 </div>
 
 **ACCESSUS AD TEXTUM INTEGRUM:**  
 Textus integralis epistulae membris coetus initiativi «Vis Realitatis» per canales internos officiales patet.  
-Petitiones externae cum subscriptione electronica confirmata ad: **`secretariat@imarch.sbs`** acceptantur.
+Petitiones externae cum subscriptione electronica confirmata ad: **`secretariat@imarch.ltd`** acceptantur.
 
 **CONFIRMATIO AUTHENTICITATIS:**  
 Authenticitas huius publicationis per valorem hashi documenti originalis confirmatur:

@@ -3,7 +3,7 @@ title: "КОНСИЛИУМ"
 type: "section"
 translationKey: "bonus-boutique"
 layout: list
-css: ["css/ungchart.css"]
+css: ["css/ungchart.css", "css/imarch-cards.css"]
 ---
 
 {{< square-image
@@ -13,18 +13,54 @@ class="fade-in-up" >}}
 
 #### Бонус-бутик { .fade-in-up }
 
+##### IMARCH LTD · Company No. 16791765 · Англия и Уэльс
+
 Добро пожаловать в Бонус-Бутик, инженерное пространство готовых решений, модульных кастомизаций и экосистемных артефактов IMARCH. Здесь фундаментальная наука Chronicle OS материализуется в конкретные инструменты для вашего бизнеса и жизни.
-
-
-<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
 
 {{< steel_button link="/ru/docs/consilium/public-offer/" text="Оффер" >}}
 
-{{< steel_button link="https://t.me/imarch_chronical_bot" text="Следить за новыми активами" >}}
+---
+
+{{< steel_button link="#presentation" text="Презентация" >}}
+
+---
+
+<div class="imarch-spec fade-in-up">
+  <div class="imarch-spec-row">
+    <div class="imarch-spec-label">Оператор</div>
+    <div class="imarch-spec-value">IMARCH LTD (Company No. 16791765, Англия и Уэльс)</div>
+  </div>
+  <div class="imarch-spec-row">
+    <div class="imarch-spec-label">Инфраструктурный контур</div>
+    <div class="imarch-spec-value">Chronicle OS 8888 · Chronicle Communication System (CCS)</div>
+  </div>
+  <div class="imarch-spec-row">
+    <div class="imarch-spec-label">Экспертиза и партнёрство</div>
+    <div class="imarch-spec-value">Институт RDIAR · Консорциум PLATAN+ · VERDICTUM</div>
+  </div>
+  <div class="imarch-spec-row">
+    <div class="imarch-spec-label">Правовой режим</div>
+    <div class="imarch-spec-value">Действующее право, режимы защиты информации и коммерческой тайны · Лицензия CC BY-NC-ND 4.0</div>
+  </div>
+</div>
+
+<div class="imarch-devis fade-in-up">Девиз: «Идеи и действия — в устойчивые проекты и работающие сообщества»</div>
+
+---
 
 &nbsp;
 
-{{< copilot-navigator-card >}}
+<div id="presentation"></div>
+
+{{< r2video
+  src="https://pub-8199817aef874bd5bbc783fefd2f38c7.r2.dev/present-1.webm"
+  poster="/images/26-08-31-umss-pres-10.jpg"
+>}}
+
+{{< navigator-widget
+  api_url="https://imarch-navigator.chronosolexandr.workers.dev"
+  exp_url="/ru/verdictum/vr-0028/"
+>}}
 
 ---
 
@@ -45,6 +81,40 @@ Hic stilus est standardum visualis sui iuris IMARCH LTD UK.</div>
 <section class="tags-list"> <button onclick="location.href='/en/boutique/'">🌐 Boutique Home</button> <button onclick="location.href='/en/tags/widgets/'">🧩 Widgets</button> <button onclick="location.href='/en/tags/tours/'">🌲 Experience</button> <button onclick="location.href='/en/tags/artifacts/'">💎 Artefacts</button> </section>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+
+<div class="imarch-grid imarch-grid--cols-2">
+
+  <div class="imarch-card">
+    <div class="imarch-card-num">01</div>
+    <div class="imarch-card-title">Токены и инвестиционный контур</div>
+    <div class="imarch-card-text">Инвестиционный меморандум IMARCH LTD, структура участия и условия приобретения токенов экосистемы.</div>
+    <a class="imarch-card-link" href="/ru/docs/collegium/investment-memorandum/">Открыть меморандум →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-num">02</div>
+    <div class="imarch-card-title">Сертификат метки времени</div>
+    <div class="imarch-card-text">Криптографическая фиксация авторского приоритета и провенанса документов по стандарту RFC 3161.</div>
+    <a class="imarch-card-link" href="/ru/docs/consilium/cbb-0002/">Оформить сертификат →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-num">03</div>
+    <div class="imarch-card-title">Цифровой сейф · Digital Vault</div>
+    <div class="imarch-card-text">Защищённое облачное хранилище эталонных файлов с привязкой к реестру верификации (база 100 МБ + расширение).</div>
+    <a class="imarch-card-link" href="/ru/docs/consilium/cbb-0006/">Открыть сейф →</a>
+  </div>
+
+  <div class="imarch-card">
+    <div class="imarch-card-num">04</div>
+    <div class="imarch-card-title">Видео-аудиопрезентация · PASSPORT-PACK</div>
+    <div class="imarch-card-text">Сборка институциональной презентации и озвучки на базе формального технического паспорта объекта.</div>
+    <a class="imarch-card-link" href="/ru/docs/consilium/cbb-0003/">Заказать презентацию →</a>
+  </div>
+
+</div>
+
+&nbsp;
 
 {{< square-image
 src="/images/banners/Bonus-2.webp" 
@@ -84,12 +154,7 @@ class="fade-in-up" >}}
 <details> <summary>Оформить заказ 🔻</summary>
 Для приобретения лицензий, токенов или бронирования туров перезагрузки, отправьте запрос, подписанный КЭП, на наш официальный адрес или свяжитесь с диспетчером.
 
-<div align="center"> <a href="mailto:info@imarch.sbs"> <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email"> </a> </div>
-</details>
-
-<div style="width: 100%; text-align: center; margin: 3rem 0;"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" /> </div>
-
-&nbsp;
+<div align="center"> <a href="mailto:info@imarch.ltd"> <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email"> </a> </div>
 
 <div class="pixel-perfect-square" onclick="smartToggle(this)" style="
     position: relative; 
@@ -170,6 +235,13 @@ function smartToggle(container) {
 Проектный статус: формирование базового ядра и реестра участников
 
 {{< steel_button link="/ru/profile/vis-realitatis/donor/" text="СТАТЬ СООСНОВАТЕЛЕМ" >}}
+
+</details>
+
+
+&nbsp;
+
+<div style="width: 100%; text-align: center; margin: 3rem 0;"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" /> </div>
 
 &nbsp;
 

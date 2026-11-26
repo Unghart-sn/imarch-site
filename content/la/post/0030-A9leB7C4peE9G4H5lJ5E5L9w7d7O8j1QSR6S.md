@@ -22,24 +22,24 @@ document_id: "imarch-2026-03-14-letter-to-anastasia"
 
 Tibi exhibeo propositionem praecipuarum directionum propositi **Vis Realitatis** in praeviis colloquiis de participatione Tua in hoc proposito tamquam perita:
 
-[Vis Realitatis] (https://imarch.sbs/ru/vis-realitatis/) (https://imarch.sbs/ru/vis-realitatis/)
+[Vis Realitatis] (https://imarch.ltd/ru/vis-realitatis/) (https://imarch.ltd/ru/vis-realitatis/)
 Hoc est propositum fundamentale, quod nunc ad veteranos adaptatur. Sed potest abstrahi et cuilibet coetui destinato accommodari. Modus presentationis et stylus introductionum tantum mutantur.
 
-[Sunlife Massage] (https://imarch.sbs/ru/sunlife-massage/) (https://imarch.sbs/ru/sunlife-massage/)
+[Sunlife Massage] (https://imarch.ltd/ru/sunlife-massage/) (https://imarch.ltd/ru/sunlife-massage/)
 Hic est primus subpropositus — methodus auto-regulationis (unctio). Optimum esset protocollum plenum componere, sed initio saltem cursum basalem protocolli generalis auto-unctionis faciei.
 
-[Consilium Morphologicum] (https://imarch.sbs/ru/fc/) (https://imarch.sbs/ru/fc/)
+[Consilium Morphologicum] (https://imarch.ltd/ru/fc/) (https://imarch.ltd/ru/fc/)
 Subpropositus "Consilium Morphologicum" — nucleus philosophicus pro systemate operativo CCS, sine quo ipsum programmatura inutile est.
 
-[CCS] (https://imarch.sbs/ru/ccs/) (https://imarch.sbs/ru/ccs/)
+[CCS] (https://imarch.ltd/ru/ccs/) (https://imarch.ltd/ru/ccs/)
 Situs officialis de CCS. Informatio initialis ibi adest; propositionem secundum normas colligere est res technica. Pro unoquoque subproposito, necnon pro proposito fundamentali, fortasse parva amplificatio quoad video-praesentationem necessaria est.
 
-[Articulus pro donatoribus] (https://imarch.sbs/ru/director/post_0014/) (https://imarch.sbs/ru/director/post_0014/)
+[Articulus pro donatoribus] (https://imarch.ltd/ru/director/post_0014/) (https://imarch.ltd/ru/director/post_0014/)
 Primus articulus in infundibulo pro donatoribus, ex quo multa materia pro mundo externo formatur.
 
 Consilium Morphologicum et CCS pertinent ad quaestionem renovationis socialis et adaptationis, augendae efficaciae personalis, binae et collectivae. Hoc respondet directioni UF UCC OBIH.
 
-[Codex Structurae] (https://imarch.sbs/ru/constitutio/codex-structurae/) (https://imarch.sbs/ru/constitutio/codex-structurae/)
+[Codex Structurae] (https://imarch.ltd/ru/constitutio/codex-structurae/) (https://imarch.ltd/ru/constitutio/codex-structurae/)
 Hic describuntur praecipuae disciplinae directiones.
 
 ---
@@ -59,7 +59,7 @@ Tales situs (sine backendo) in evolutione sunt pro UTS (Unio Touristica et Sport
 
 Situs officialis structurationem relationum contractualium inter participes propositi praebet easque donatoribus et investoribus perspicuas reddit. Hoc auget casus attrahendi pecunias et structuram CCS in actione demonstrat.
 
-[Formula litterarum concordantiae intentionum](https://imarch.sbs/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian) (https://imarch.sbs/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian)
+[Formula litterarum concordantiae intentionum](https://imarch.ltd/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian) (https://imarch.ltd/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian)
 Primus articulus catenae trium litterarum, quae terminatur subscriptione formae electronicae memorandum de cooperatione.
 
 ---
@@ -136,7 +136,7 @@ Domina Nastasia Igorevna, quaeso ut contentum formulae cognoscas et responsum de
 Hic erit noster primus gradus practicus ad magnum opus, quod, Deo dante, in futuro nos exspectat.
 Opto Tibi vires et successus, necnon diem pulchrum! In contactu maneo! Non valedico!
 
-[Exemplum situs officialis periti](https://imarch.sbs/ru/director/) (https://imarch.sbs/ru/director/)
+[Exemplum situs officialis periti](https://imarch.ltd/ru/director/) (https://imarch.ltd/ru/director/)
 Documentatio officialis in forma semi-aperta sub codice adresse locatur. Talis accessus validitatem iuridicam et privatim custodit. Situs officialis suum subdominium et electronicam habet, quod permittit relationes remote formalizare et catenam validationis pro donatoribus et investoribus conservare.
 
 ---
@@ -156,25 +156,25 @@ Please find below the presentation of the main directions of the **Vis Realitati
 
 **Core Project and Sub-projects:**
 
-*   **[Vis Realitatis](https://imarch.sbs/ru/vis-realitatis/)** (https://imarch.sbs/ru/vis-realitatis/)
+*   **[Vis Realitatis](https://imarch.ltd/ru/vis-realitatis/)** (https://imarch.ltd/ru/vis-realitatis/)
     This is the foundational project currently being adapted for veterans. However, its core concept is abstractable and suitable for any target audience (TA). Only the delivery and stylistic approach of the introductory materials require adjustment.
 
-*   **[Sunlife Massage](https://imarch.sbs/ru/sunlife-massage/)** (https://imarch.sbs/ru/sunlife-massage/)
+*   **[Sunlife Massage](https://imarch.ltd/ru/sunlife-massage/)** (https://imarch.ltd/ru/sunlife-massage/)
     This is the first sub-project — a self-regulation method (massage). The ideal scenario is to package the full protocol; however, as an initial step, a basic course covering the general facial self-massage protocol is proposed.
 
-*   **[Morphological Consulting](https://imarch.sbs/ru/fc/)** (https://imarch.sbs/ru/fc/)
+*   **[Morphological Consulting](https://imarch.ltd/ru/fc/)** (https://imarch.ltd/ru/fc/)
     Sub-project on Morphological Consulting. This constitutes the philosophical core for the CCS operating system, without which the software itself is rendered ineffective.
 
-*   **[CCS](https://imarch.sbs/ru/ccs/)** (https://imarch.sbs/ru/ccs/)
+*   **[CCS](https://imarch.ltd/ru/ccs/)** (https://imarch.ltd/ru/ccs/)
     The official office-site for CCS. The initial information is available; compiling a presentation in accordance with standard requirements is a technical matter. For each sub-project, as well as the base project, minor upgrades in terms of video presentations may be considered.
 
-*   **[Article for Donors](https://imarch.sbs/ru/director/post_0014/)** (https://imarch.sbs/ru/director/post_0014/)
+*   **[Article for Donors](https://imarch.ltd/ru/director/post_0014/)** (https://imarch.ltd/ru/director/post_0014/)
     This is the first article in the donor funnel, from which a substantial body of external-facing content is being developed.
 
 **Conceptual Framework:**
 Morphological Consulting and CCS directly address the issues of social renovation and adaptation, as well as enhancing personal, couple, and collective effectiveness. This aligns with the directives of the UF UCC OBJD.
 
-*   **[Codex Structurae](https://imarch.sbs/ru/constitutio/codex-structurae/)** (https://imarch.sbs/ru/constitutio/codex-structurae/)
+*   **[Codex Structurae](https://imarch.ltd/ru/constitutio/codex-structurae/)** (https://imarch.ltd/ru/constitutio/codex-structurae/)
     This document outlines the primary disciplinary directions.
 
 ---
@@ -197,7 +197,7 @@ Such websites (currently without backend functionality) are under development fo
 
 The office-site ensures the structurization of contractual relations among project participants and makes these relations transparent for donors and investors. This increases the chances of attracting funds and demonstrates the CCS structure in operation.
 
-*   **[Template for the Letter of Intent](https://imarch.sbs/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian)** (https://imarch.sbs/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian)
+*   **[Template for the Letter of Intent](https://imarch.ltd/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian)** (https://imarch.ltd/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian)
     This is the first item in a three-letter chain, concluding with the signing of an electronic form of a Memorandum of Understanding (MoU).
 
 ---
@@ -276,7 +276,7 @@ Anastasiia Ihorivna, I kindly ask you to review the content of this template and
 This will be our first practical step toward the significant work that lies ahead.
 I wish you strength, success, and a wonderful day! I remain available. Not goodbye!
 
-*   **[Example of an Expert's Office-Site](https://imarch.sbs/ru/director/)** (https://imarch.sbs/ru/director/)
+*   **[Example of an Expert's Office-Site](https://imarch.ltd/ru/director/)** (https://imarch.ltd/ru/director/)
 
 Official documentation is stored in a semi-public manner under a code address. This approach maintains legal validity and privacy. The office-site has its own subdomain and email, allowing for the remote formalization of relations and maintaining a validation chain for donors and investors.
 
@@ -294,24 +294,24 @@ Sincerely,
 
 Представляю до Вашої уваги презентацію основних напрямів проєкту **Vis Realitatis** в рамках попередніх переговорів щодо Вашої участі в проєкті як експертки:
 
-[Vis Realitatis](https://imarch.sbs/ru/vis-realitatis/) (https://imarch.sbs/ru/vis-realitatis/)
+[Vis Realitatis](https://imarch.ltd/ru/vis-realitatis/) (https://imarch.ltd/ru/vis-realitatis/)
 Це базовий проєкт, який опрацьовується стосовно ветеранів. Але його можна абстрагувати, і він підходить для будь-якої ЦА. Змінюється лише подача та стилістика вступних матеріалів.
 
-[Sunlife Massage](https://imarch.sbs/ru/sunlife-massage/) (https://imarch.sbs/ru/sunlife-massage/)
+[Sunlife Massage](https://imarch.ltd/ru/sunlife-massage/) (https://imarch.ltd/ru/sunlife-massage/)
 Це перший субпроєкт — метод саморегуляції (масаж). В ідеалі потрібно упакувати повний протокол, але для початку хоча б базовий курс загального протоколу самомасажу обличчя.
 
-[Формологічний консалтинг](https://imarch.sbs/ru/fc/) (https://imarch.sbs/ru/fc/)
+[Формологічний консалтинг](https://imarch.ltd/ru/fc/) (https://imarch.ltd/ru/fc/)
 Субпроєкт із Формологічного Консалтингу — філософське ядро для операційної системи CCS, без якого сам по собі софт є непотрібним.
 
-[CCS](https://imarch.sbs/ru/ccs/) (https://imarch.sbs/ru/ccs/)
+[CCS](https://imarch.ltd/ru/ccs/) (https://imarch.ltd/ru/ccs/)
 Офіс-сайт із CCS. Стартова інформація там присутня, зібрати презентацію згідно зі стандартами — питання техніки. По кожному із субпроєктів, а також базовий проєкт, можливо, варто трохи апгрейдити в плані відеопрезентації.
 
-[Стаття для донорів](https://imarch.sbs/ru/director/post_0014/) (https://imarch.sbs/ru/director/post_0014/)
+[Стаття для донорів](https://imarch.ltd/ru/director/post_0014/) (https://imarch.ltd/ru/director/post_0014/)
 Перша стаття воронки для донорів, із неї формується ціла пачка контенту для зовнішнього світу.
 
 Формологічний консалтинг і CCS — це якраз до питання соціальної реновації та адаптації, підвищення особистої, парної та колективної ефективності. Це відповідає напряму УФ УСС ОБЖД.
 
-[Codex Structurae](https://imarch.sbs/ru/constitutio/codex-structurae/) (https://imarch.sbs/ru/constitutio/codex-structurae/)
+[Codex Structurae](https://imarch.ltd/ru/constitutio/codex-structurae/) (https://imarch.ltd/ru/constitutio/codex-structurae/)
 Тут описані основні напрями дисципліни.
 
 ---
@@ -331,7 +331,7 @@ Sincerely,
 
 Сайт-офіс забезпечує структуризацію договірних відносин учасників проєкту та робить їх прозорими для донорів та інвесторів. Це підвищує шанси залучення коштів і демонструє структуру CCS в дії.
 
-[Шаблон листа узгодження намірів](https://imarch.sbs/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian) (https://imarch.sbs/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian)
+[Шаблон листа узгодження намірів](https://imarch.ltd/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian) (https://imarch.ltd/la/post/0008-a9f3k7zq2ml8pv5st1rx4cy0bn6uwz/#ukrainian)
 Перший пункт ланцюжка з трьох листів, що завершується підписанням електронної форми меморандуму про співпрацю.
 
 ---
@@ -408,7 +408,7 @@ Sincerely,
 Це буде наш перший практичний крок до великої роботи, яка, дасть Бог, попереду.
 Бажаю Вам сил і успіхів, а також чудового дня! На зв'язку! Не прощаюсь!
 
-[Приклад офіс-сайту експерта](https://imarch.sbs/ru/director/) (https://imarch.sbs/ru/director/)
+[Приклад офіс-сайту експерта](https://imarch.ltd/ru/director/) (https://imarch.ltd/ru/director/)
 Офіційна документація розташовується в напіввідкритому вигляді під кодовою адресою. Такий підхід зберігає юридичну валідність та приватність. Сайт-офіс має свій субдомен і пошту, що дозволяє дистанційно оформлювати відносини та зберігати ланцюжок валідації для донорів та інвесторів.
 
 ---
@@ -431,10 +431,10 @@ Sincerely,
         <em><a href="/en/imarch-ltd-uk/">IMARCH LTD</a></em>
       </p>
       <p style="text-align: left !important; margin-left: 0 !important;">
-        Email: <a href="mailto:legal@imarch.sbs">legal@imarch.sbs</a>
+        Email: <a href="mailto:legal@imarch.ltd">legal@imarch.ltd</a>
       </p>
       <p style="text-align: left !important; margin-left: 0 !important;">
-        <em>2026.03.14, <a href="https://imarch.sbs/en/verdictum/0009/">VERDICTUM</a></em>
+        <em>2026.03.14, <a href="https://imarch.ltd/en/verdictum/0009/">VERDICTUM</a></em>
       </p>
       <p style="text-align: left !important; margin-left: 0 !important;">
          PDF document: <a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/correspondence/imarch-2026-03-14-letter-to-anastasia.pdf">imarch-2026-03-14-letter-to-anastasia.pdf</a>

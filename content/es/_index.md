@@ -322,7 +322,7 @@ Si desea publicar un artículo, proponer un número especial u obtener asesorami
 **Política de confidencialidad:** No recopilamos datos personales de los visitantes, no utilizamos la información de contacto para enviar correos no deseados ni compartimos información con terceros.
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

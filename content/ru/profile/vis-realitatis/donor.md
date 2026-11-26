@@ -214,8 +214,8 @@ translationKey: "vis-realitatis-donor"
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
   <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="action-button">🤝 Стать донором</a>
   <a href="/ru/vis-realitatis-center-experts/" class="action-button">🧑‍🔬 Присоединиться как эксперт</a>
-  <a href="mailto:info@imarch.sbs?subject=Партнёрство%20Vis%20Realitatis" class="action-button">🏛️ Стать партнёром</a>
-  <a href="mailto:info@imarch.sbs?subject=Участие%20в%20пилоте%20Vis%20Realitatis" class="action-button">📋 Участвовать в пилоте</a>
+  <a href="mailto:info@imarch.ltd?subject=Партнёрство%20Vis%20Realitatis" class="action-button">🏛️ Стать партнёром</a>
+  <a href="mailto:info@imarch.ltd?subject=Участие%20в%20пилоте%20Vis%20Realitatis" class="action-button">📋 Участвовать в пилоте</a>
 </div>
 
 <style>

@@ -48,11 +48,11 @@ document_id: "LETTER-IMARCH-FOP-MOU-OFFER-2026-01-28-ML"
       </tr>
       <tr>
         <td>Contact</td>
-        <td>legal@imarch.sbs</td>
+        <td>legal@imarch.ltd</td>
       </tr>
       <tr>
         <td>Website</td>
-        <td>https://imarch.sbs</td>
+        <td>https://imarch.ltd</td>
       </tr>
       <tr>
         <td>Public Profile</td>
@@ -96,14 +96,14 @@ Per praesentem epistulam, IMARCH LTD UK (hinc **Societas**) ad FOP PURPUROV O.V.
 
 **I. CONTEXTUS**
 Partes iam Protocollum Praeviorum Colloquiorum (Document ID: `PROTOCOL-IMARCH-FOP-2026-01-26-ML`) confecerunt, quod fundamentum operationale statuit. Ut hoc fundamentum in planum strategiae et longioris cooperationis evolvatur, Societas Memoranda Intentionum (hinc **Memoranda**) elaboravit et publicavit:
-→ **Memoranda Intentionum:** [https://imarch.sbs/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/](https://imarch.sbs/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/)
+→ **Memoranda Intentionum:** [https://imarch.ltd/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/](https://imarch.ltd/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/)
 
 **II. PROPOSITUM OFFERTAE**
 Hoc epistula est **offerta officialis** Societatis. Societas per hanc FOP proponit suum **plenum et irrevocabile consensum** cum omnibus praeceptis et principiis in supra dicto Memoranda Intentionum contentis exprimere.
 
 **III. MODUS ACCEPTATIONIS**
 Consensus FOP cum Memoranda per hunc modum exprimi et validari debet:
-1.  FOP epistulam responsivam ex suo email officiali (`admin@fop-purpurov-ov.imarch.sbs`) ad Societatem (`legal@imarch.sbs`) mittat.
+1.  FOP epistulam responsivam ex suo email officiali (`admin@fop-purpurov-ov.imarch.ltd`) ad Societatem (`legal@imarch.ltd`) mittat.
 2.  In epistula responsiva, FOP clare confirmet se:
     *   Hanc epistulam (offertam) acceptasse;
     *   Omnia praecepta **Memoranda Intentionum** plene agnovisse et iis consentire;
@@ -119,7 +119,7 @@ _Director,_
 **Oleksandr Purpurov**
 
 ---
-**Contactus:** legal@imarch.sbs
+**Contactus:** legal@imarch.ltd
 
 **[→ ENGLISH VERSION](#en) | [→ УКРАЇНСЬКА ВЕРСІЯ](#uk)**
 
@@ -138,14 +138,14 @@ Through this letter, IMARCH LTD UK (hereinafter the **Company**) addresses FOP P
 
 **I. CONTEXT**
 The Parties have already concluded a Protocol of Preliminary Negotiations (Document ID: `PROTOCOL-IMARCH-FOP-2026-01-26-ML`), which established the operational foundation. To evolve this foundation into a strategic and longer-term cooperation plane, the Company has elaborated and published a Memorandum of Understanding (hereinafter the **MoU**):
-→ **Memorandum of Understanding:** [https://imarch.sbs/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/](https://imarch.sbs/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/)
+→ **Memorandum of Understanding:** [https://imarch.ltd/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/](https://imarch.ltd/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/)
 
 **II. PURPOSE OF THE OFFER**
 This letter is the Company's **official offer**. Through it, the Company proposes that the FOP express its **full and irrevocable agreement** with all the provisions and principles contained in the aforementioned Memorandum of Understanding.
 
 **III. METHOD OF ACCEPTANCE**
 The FOP's agreement with the MoU must be expressed and validated in the following manner:
-1.  The FOP shall send a response letter from its official email (`admin@fop-purpurov-ov.imarch.sbs`) to the Company (`legal@imarch.sbs`).
+1.  The FOP shall send a response letter from its official email (`admin@fop-purpurov-ov.imarch.ltd`) to the Company (`legal@imarch.ltd`).
 2.  In the response letter, the FOP must clearly confirm that it:
     *   Has accepted this letter (the offer);
     *   Fully acknowledges and agrees to all provisions of the **Memorandum of Understanding**;
@@ -161,7 +161,7 @@ _Director,_
 **Oleksandr Purpurov**
 
 ---
-**Contact:** legal@imarch.sbs
+**Contact:** legal@imarch.ltd
 
 **[← LATINA VERSIO](#la) | [→ УКРАЇНСЬКА ВЕРСІЯ](#uk)**
 
@@ -180,14 +180,14 @@ _Director,_
 
 **I. КОНТЕКСТ**
 Сторони вже уклали Протокол попередніх переговорів (ID документу: `PROTOCOL-IMARCH-FOP-2026-01-26-ML`), що встановив операційну основу. Для розвитку цієї основи у стратегічну та довгострокову площину співпраці, Компанія розробила та опублікувала Меморандум про наміри (надалі – **Меморандум**):
-→ **Меморандум про наміри:** [https://imarch.sbs/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/](https://imarch.sbs/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/)
+→ **Меморандум про наміри:** [https://imarch.ltd/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/](https://imarch.ltd/la/post/0024-c1l2c3d4e5f1g7h8i9j0k1l2m4n4op/)
 
 **II. МЕТА ПРОПОЗИЦІЇ (ОФЕРТИ)**
 Цей лист є **офіційною офертою** Компанії. Ним Компанія пропонує ФОП висловити свою **повну та безвідкличну згоду** з усіма положеннями та принципами, що містяться у вищезгаданому Меморандумі про наміри.
 
 **III. СПОСІБ АКЦЕПТУ**
 Згода ФОП з Меморандумом має бути висловлена та підтверджена таким чином:
-1.  ФОП надсилає лист-відповідь зі своєї офіційної електронної пошти (`admin@fop-purpurov-ov.imarch.sbs`) на адресу Компанії (`legal@imarch.sbs`).
+1.  ФОП надсилає лист-відповідь зі своєї офіційної електронної пошти (`admin@fop-purpurov-ov.imarch.ltd`) на адресу Компанії (`legal@imarch.ltd`).
 2.  У листі-відповіді ФОП має чітко підтвердити, що він:
     *   Прийняв цей лист (оферту);
     *   Повністю визнає та погоджується з усіма положеннями **Меморандуму про наміри**;
@@ -203,7 +203,7 @@ _Директор,_
 **Олександр Пурпуров**
 
 ---
-**Контакт:** legal@imarch.sbs
+**Контакт:** legal@imarch.ltd
 
 **[← LATINA VERSIO](#la) | [← ENGLISH VERSION](#en)**
 
@@ -225,8 +225,8 @@ Formologia Universalis • Archiva digitalia • Sub signo Vis Realitatis
 
   <div style="text-align: left !important; max-width: 800px; margin: 0 auto; padding-left: 0 !important; padding-right: 0 !important;">
     <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;">
-      <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/uk/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
-      <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:legal@imarch.sbs">legal@imarch.sbs</a></p>
+      <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/uk/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
+      <p style="text-align: left !important; margin-left: 0 !important;">Email: <a href="mailto:legal@imarch.ltd">legal@imarch.ltd</a></p>
       <p style="text-align: left !important; margin-left: 0 !important;"><em>2026.01.27, Contractus de Receptione et Usu Finali Pecuniarum v1.0</em></p>
       <p style="text-align: left !important; margin-left: 0 !important;">Basis: PROTOCOL-IMARCH-FOP-2026-01-26-ML</p>
     </div>

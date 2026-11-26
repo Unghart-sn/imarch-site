@@ -23,15 +23,15 @@ translationKey: "scene-blog-0013"
 
 &nbsp;
 <div style="text-align:left; max-width:800px; margin:0 auto;">
-  <p><em><a href="https://imarch.sbs/fr/imarch-ltd-uk/">IMARCH LTD UK</a> • Département du développement organisationnel</em></p>
-  <p>Courriel : <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-  <p><em>2026.01.17, <a href="https://imarch.sbs/fr/verdictum/">VERDICTUM</a> • Série : Correspondance</em></p>
+  <p><em><a href="https://imarch.ltd/fr/imarch-ltd-uk/">IMARCH LTD UK</a> • Département du développement organisationnel</em></p>
+  <p>Courriel : <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+  <p><em>2026.01.17, <a href="https://imarch.ltd/fr/verdictum/">VERDICTUM</a> • Série : Correspondance</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/discussions/5#discussion-9336007">Publication et Archivage</a> (LAT)</p>
 </div>
 
 **ACCÈS AU TEXTE INTÉGRAL :**  
 Le texte intégral de la lettre est accessible aux membres du groupe d'initiative « Vis Realitatis » par les canaux internes officiels.  
-Les demandes externes sont acceptées avec une signature électronique confirmée envoyée à : **`secretariat@imarch.sbs`**
+Les demandes externes sont acceptées avec une signature électronique confirmée envoyée à : **`secretariat@imarch.ltd`**
 
 **VÉRIFICATION DE L'AUTHENTICITÉ :**  
 L'authenticité de cette publication est vérifiée par la valeur de hachage du document original :

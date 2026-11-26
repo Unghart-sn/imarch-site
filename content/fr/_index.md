@@ -334,7 +334,7 @@ Si vous souhaitez publier un article, proposer un numéro spécial ou obtenir de
 **Politique de confidentialité :** Nous ne collectons pas les données personnelles des visiteurs, n’utilisons pas leurs coordonnées pour des envois de courrier indésirable et ne partageons aucune information avec des tiers.
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

@@ -1,0 +1,3661 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    
+
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+
+
+    <title>VR-0010 - Imarchia</title>
+
+  <meta name="description" content="Функциональный пакет развёртывания (FDP) определяет комплекс эксплуатационной документации, необходимой для развёртывания и ввода в эксплуатацию Университетского Хроникального Узла, создавая институциональный издательский узел в экосистеме Chronicle OS." />
+  <meta name="author" content="IMARCH LTD UK" />
+
+
+  <link href="https://imarch.ltd/images/favicon.ico" rel="icon" type="image/x-icon" />
+
+<meta name="generator" content="Hugo 0.148.2"><link rel="alternate" href="https://imarch.ltd/ru/index.xml" type="application/rss+xml" title="Имархия" />
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.6.0/css/all.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://imarch.ltd/css/main.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/custom-v2.css" />
+
+
+<link rel="stylesheet" href="https://imarch.ltd/css/ungchart.css" />
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+
+
+
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700&display=swap" />
+  <link rel="stylesheet" href="https://imarch.ltd/css/syntax.css" />
+
+<link rel="stylesheet" href="https://imarch.ltd/css/codeblock.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/default-skin/default-skin.min.css" crossorigin="anonymous" />
+
+
+
+
+
+<link rel="stylesheet" href="/css/landing.css?v=3" />
+
+        <link rel="stylesheet" href="/css/style.css">
+
+    
+    <style>
+      html, body {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+        overflow-y: auto !important;
+      }
+      body {
+        display: block !important;
+        flex-flow: initial !important;
+        padding-top: 80px !important;
+      }
+      main {
+        max-width: 900px !important;
+        margin: 0 auto !important;
+        padding: 2rem 1rem !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        display: block !important;
+      }
+      footer {
+        position: static !important;
+        margin-top: 3rem !important;
+        display: block !important;
+        width: 100% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="https://imarch.ltd/ru/">Имархия</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        
+          
+            <li>
+              <a title="Игра" href="/ru/docs/ludus/">Игра</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Архив" href="/ru/docs/archivum/">Архив</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Коллегия" href="/ru/docs/collegium/">Коллегия</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Совет" href="/ru/docs/consilium/">Совет</a>
+            </li>
+          
+        
+          
+            <li>
+              <a title="Вердикт" href="/ru/verdictum/">Вердикт</a>
+            </li>
+          
+        
+
+        
+          
+            <li class="navlinks-container">
+              <a class="navlinks-parent" role="button" tabindex="0"></a>
+              <div class="navlinks-children">
+                
+                  
+                  <a href="https://imarch.ltd/en/verdictum/vr-0010/">English</a>
+                  
+                
+                  
+                  <a href="https://imarch.ltd/uk/verdictum/vr-0010/">Українська</a>
+                  
+                
+              </div>
+            </li>
+          
+        
+
+        
+        <li>
+          <a href="/login/" title="Sign in">Sign in</a>
+        </li>
+      </ul>
+    </div>
+
+    
+      <div class="avatar-container">
+        <div class="avatar-img-border">
+          <a title="Имархия" href="https://imarch.ltd/ru/">
+            <img class="avatar-img" src="https://imarch.ltd/images/logo.png" alt="Имархия" />
+          </a>
+        </div>
+      </div>
+    
+  </div>
+</nav>
+
+
+
+
+    <main>
+      
+<main>
+  <div class="section-content">
+    
+    
+    <h1>VR-0010</h1>
+    
+    
+    
+    <div class="article-date">
+      📅 27 July 2026
+    </div>
+    
+    
+    
+    
+    <div class="article-translations">
+      <span>🌐 :</span>
+      
+      <a href="https://imarch.ltd/en/verdictum/vr-0010/" class="translation-link">English</a>
+      
+      <a href="https://imarch.ltd/uk/verdictum/vr-0010/" class="translation-link">Українська</a>
+      
+    </div>
+    
+    
+    
+    <h3 class="fade-in-up" id="функциональный-пакет-развёртывания">ФУНКЦИОНАЛЬНЫЙ ПАКЕТ РАЗВЁРТЫВАНИЯ</h3>
+<figure class="banner">
+  <div class="banner-image">
+    <img src="/images/verdictum/0010.webp" alt="VR-0010 — Functional Deployment Package (Volume IV)" class="fade-in-up">
+  </div>
+  
+</figure>
+
+
+<h4 id="комплект-развёртывания-university-chronicle-node">КОМПЛЕКТ РАЗВЁРТЫВАНИЯ UNIVERSITY CHRONICLE NODE</h4>
+<h4 id="мастер-проект--версия-10">Мастер-проект — Версия 1.0</h4>
+<hr>
+<div class="mobile-card">
+
+
+
+  
+  <style>
+     
+    .dc-card {
+      background: #fdfaf5;
+      border: 1px solid #e0d6c8;
+      border-radius: 20px;
+      padding: 1.5rem;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 1.5rem;
+      box-sizing: border-box;
+    }
+    .dc-card:hover {
+      transform: translateY(-3px);
+      border-color: #c0a070;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    }
+    .dc-emoji { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .dc-title {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: #2c2416;
+      margin-bottom: 0.5rem;
+      border-left: 3px solid #8b7355;
+      padding-left: 0.75rem;
+      word-wrap: break-word;
+    }
+    .dc-desc {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #4a3a2a;
+      margin-bottom: 1rem;
+      word-wrap: break-word;
+    }
+    .dc-links { margin: 0.5rem 0; }
+    .dc-button {
+      display: inline-block;
+      background: linear-gradient(145deg, #e2e6eb, #c8ccd0, #a8afb8);
+      border: 1px solid #8b95a0;
+      border-radius: 50px;
+      padding: 0.4rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #1a1c1e;
+      text-decoration: none;
+      transition: 0.2s;
+      margin-right: 0.5rem;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .dc-button:hover {
+      transform: scale(1.02);
+      background: linear-gradient(145deg, #eceff2, #d6dadf, #b8bfc6);
+    }
+    .dc-hash-block {
+      background: #f0ede8;
+      border-radius: 12px;
+      padding: 0.5rem;
+      margin: 0.75rem 0;
+      font-size: 0.7rem;
+      word-break: break-all;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .dc-hash {
+      font-family: monospace;
+      font-size: 0.7rem;
+      color: #4a3a2a;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      word-break: break-all;
+    }
+    .dc-hash-copy {
+      background: transparent;
+      border: 1px solid #8b7355;
+      border-radius: 6px;
+      padding: 0.2rem 0.6rem;
+      font-size: 0.65rem;
+      cursor: pointer;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .dc-hash-copy:hover { background: rgba(139,115,85,0.1); }
+    .dc-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #8b7355;
+      background: rgba(139, 115, 85, 0.1);
+      padding: 0.25rem 0.75rem;
+      border-radius: 30px;
+      margin-top: 0.5rem;
+      align-self: flex-start;
+      word-break: keep-all;
+    }
+
+     
+    @media (max-width: 640px) {
+      .dc-button { 
+        width: 100%; 
+        text-align: center; 
+        margin: 0.3rem 0; 
+        white-space: normal;
+      }
+      .dc-links { 
+        display: flex; 
+        flex-direction: column; 
+        width: 100%;
+      }
+      .dc-card {
+        padding: 1rem;
+      }
+      .dc-title {
+        font-size: 1rem;
+      }
+      .dc-desc {
+        font-size: 0.85rem;
+      }
+      .dc-hash {
+        display: block;
+        margin-bottom: 0.3rem;
+      }
+      .dc-hash-copy {
+        display: inline-block;
+        margin-left: 0;
+      }
+    }
+  </style>
+
+
+
+<div class="dc-card" style="width:100% !important; max-width:100% !important; min-width:0 !important; box-sizing:border-box !important;">
+  <div class="dc-emoji">📦</div>
+  <div class="dc-title">Аннотация</div>
+  <div class="dc-desc">Функциональный пакет развёртывания (FDP) предоставляет полный набор эксплуатационной документации, необходимой для развёртывания и ввода в эксплуатацию Университетского Хроникального Узла как институционального издательского узла в рамках Документационной Системы Chronicle OS. Пакет структурирован по функциональным группам, охватывающим институциональный вход, управление, редакционные операции, рецензирование, издательские операции, метаданные, инфраструктуру, обеспечение качества и приёмку. Он включает шаблоны официальных приглашений, протоколов о намерениях, меморандумов о взаимопонимании, партнёрских соглашений, уставов для редакционных органов и детальные протоколы для всего жизненного цикла публикации — от приёма рукописей через рецензирование, производство, официальную публикацию, пост-публикационную поддержку и долгосрочное архивное сохранение. Развёртывание следует последовательному процессу от установления институционального взаимодействия до публикации первого официального выпуска, обеспечивая полную операционную способность при сохранении институционального суверенитета и редакционной независимости.</div>
+  
+  
+  <div class="dc-links" style="display:flex; flex-direction:column; width:100%; gap:0.5rem; margin:0.5rem 0;">
+    
+      <a href="https://github.com/Imperium-Silentii/verdictum-registry/tree/main/VR-0011" class="dc-button" style="width:100%; white-space:normal; text-align:center; margin:0; padding:0.5rem 0.8rem; box-sizing:border-box;" target="_blank">💬 ORIGINAL (GitHub Archive)</a>
+    
+    
+  </div>
+
+  <div class="dc-hash-block">
+    
+      <code class="dc-hash">SHA-256: 5d5ecbf16ebcf009c88034c4dad62571b54845f63164861de4afb9adc5f33b9b</code>
+      <button class="dc-hash-copy" onclick="navigator.clipboard.writeText('5d5ecbf16ebcf009c88034c4dad62571b54845f63164861de4afb9adc5f33b9b')">📋 Copy</button>
+    
+    
+  </div>
+  <div class="dc-tag">VR-0009-VR-0010-RN-0037-4</div>
+</div>
+</div>
+<hr>
+
+
+
+
+
+
+
+
+
+<style>
+    .v-decl-card { background: #fdfaf5; border-radius: 24px; padding: 2.5rem; margin: 2rem 0; border: 1px solid #e0d6c8; box-shadow: 0 4px 20px rgba(0,0,0,0.06); font-family: 'Georgia', 'Times New Roman', serif; }
+    .v-badge { display: inline-block; background: #b18b56; padding: 0.3rem 1.4rem; border-radius: 50px; font-size: 0.65rem; font-weight: 700; color: #ffffff; text-transform: uppercase; margin-bottom: 1.2rem; letter-spacing: 1px; }
+    .v-title { font-size: 1.9rem; font-weight: 800; color: #2c2416; margin-bottom: 0.5rem; letter-spacing: -0.5px; text-align: center; }
+    .v-desc { font-size: 0.95rem; color: #4a3a2a; margin-bottom: 2rem; text-align: center; line-height: 1.6; max-width: 680px; margin-left: auto; margin-right: auto; }
+    .v-buttons { display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin: 1.5rem 0; }
+    .btn-main { background: #b18b56; color: #fff; padding: 14px 32px; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; transition: 0.2s; min-width: 260px; font-size: 0.95rem; box-shadow: 0 2px 10px rgba(177,139,86,0.2); font-family: 'Georgia', 'Times New Roman', serif; }
+    .btn-main:hover { background: #9a7a4a; transform: scale(1.01); }
+    .btn-sec { background: #2c3622; color: #fff; padding: 14px 32px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.2s; min-width: 260px; text-align: center; font-size: 0.95rem; display: inline-block; font-family: 'Georgia', 'Times New Roman', serif; }
+    .btn-sec:hover { background: #1f2b1c; transform: scale(1.01); }
+
+    .v-accordion { margin: 1.2rem 0; }
+    .v-accordion-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; background: #f9f6ef; padding: 1rem 1.5rem; border-radius: 16px; border: 1px solid #e8e0d4; font-weight: 700; color: #1f2b1c; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; transition: all 0.2s; font-family: 'Georgia', 'Times New Roman', serif; user-select: none; }
+    .v-accordion-header:hover { background: #f0ebe0; }
+    .v-accordion-icon { transition: transform 0.2s; color: #b18b56; font-size: 0.7rem; }
+    .v-accordion-icon.open { transform: rotate(180deg); }
+    .v-accordion-content { display: none; margin-top: 12px; background: #ffffff; border-radius: 16px; padding: 1.5rem; border: 1px solid #e8e0d4; font-family: 'Georgia', 'Times New Roman', serif; }
+    .v-accordion-content.open { display: block; }
+
+    .v-step { display: flex; align-items: flex-start; gap: 0.8rem; margin-bottom: 0.8rem; flex-wrap: wrap; }
+    .v-step:last-child { margin-bottom: 0; }
+    .v-step-num { width: 28px; height: 28px; background: #ece4d5; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.75rem; color: #1f2b1c; flex-shrink: 0; }
+    .v-step-text { flex: 1; color: #1f2b1c; font-size: 0.9rem; }
+    .v-step-text strong { color: #1f2b1c; font-weight: 700; }
+    .v-examples { background: #f9f6ef; border-radius: 12px; padding: 0.8rem 1rem; margin-top: 0.8rem; border: 1px solid #e8e0d4; }
+    .v-examples p { margin: 0 0 4px 0; font-size: 0.8rem; font-weight: 600; color: #1f2b1c; }
+    .v-examples ul { margin: 0; padding-left: 1.2rem; font-size: 0.75rem; color: #4a5a6a; }
+    .v-examples li { margin-bottom: 2px; }
+
+    .v-pub-section { margin: 1rem 0 0.5rem; font-weight: 700; color: #1f2b1c; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; font-family: 'Georgia', 'Times New Roman', serif; border-bottom: 1px solid #e0d6c8; padding-bottom: 0.3rem; }
+    .v-pub-section:first-child { margin-top: 0; }
+    .v-publications-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.6rem 1.2rem; margin-bottom: 0.5rem; }
+    .v-publications-grid a { color: #b18b56; text-decoration: none; font-size: 0.8rem; font-family: 'Georgia', 'Times New Roman', serif; padding: 0.3rem 0; display: block; border-bottom: 1px solid transparent; transition: border-color 0.2s; line-height: 1.4; }
+    .v-publications-grid a:hover { border-bottom-color: #b18b56; color: #8a6d42; }
+    .v-publications-grid .doc-id { font-weight: 700; color: #2c2416; margin-right: 0.4rem; }
+    .v-publications-grid .doc-title { color: #4a3a2a; font-size: 0.75rem; }
+
+    @media (max-width: 640px) {
+        .v-decl-card { padding: 1.5rem; }
+        .v-title { font-size: 1.4rem; }
+        .btn-main, .btn-sec { width: 100%; min-width: 100%; }
+        .v-publications-grid { grid-template-columns: 1fr; }
+        .v-publications-grid a { font-size: 0.75rem; }
+        .v-step-text { font-size: 0.8rem; }
+        .v-accordion-header { font-size: 0.7rem; padding: 0.8rem 1rem; }
+        .v-accordion-content { padding: 1rem; }
+    }
+
+    .v-legal { margin-top: 2.5rem; border-top: 1px solid #e8e0d4; padding-top: 1.2rem; font-size: 0.75rem; color: #6a7a7a; }
+    .v-legal-content { display: none; margin-top: 12px; line-height: 1.6; color: #2c2416; background: #ffffff; padding: 1.2rem; border-radius: 16px; border: 1px solid #e8e0d4; }
+    .v-legal-content a { color: #b18b56; }
+    .v-toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%); background: #1f2b1c; color: #fff; padding: 12px 28px; border-radius: 40px; font-size: 0.85rem; z-index: 9999; box-shadow: 0 4px 20px rgba(0,0,0,0.2); font-weight: 600; font-family: 'Georgia', 'Times New Roman', serif; }
+</style>
+
+<div class="v-decl-card">
+    <div style="text-align: center;">
+        <span class="v-badge">✦ ИНСТИТУЦИОНАЛЬНЫЙ НАВИГАТОР PKI</span>
+        <div class="v-title">VERDICTUM DECLARATION NAVIGATOR</div>
+        <p class="v-desc">Интерактивный диспетчер-проводник по материалам журнала VERDICTUM (Акт RN-0028). Скопируйте ключ для запуска Навигатора и получите индивидуальную предварительную консультацию.</p>
+    </div>
+
+    <div class="v-accordion">
+        <div class="v-accordion-header" data-acc-toggle="instruction">
+            <span>✦ КАК ПОЛЬЗОВАТЬСЯ НАВИГАТОРОМ</span>
+            <span class="v-accordion-icon" data-acc-icon="instruction">▼</span>
+        </div>
+        <div class="v-accordion-content" data-acc-content="instruction">
+            <div class="v-step"><span class="v-step-num">1</span><span class="v-step-text">Нажмите <strong>«Скопировать ключ навигатора»</strong> — система подготовит персональный ключ для вашего Навигатора.</span></div>
+            <div class="v-step"><span class="v-step-num">2</span><span class="v-step-text">Нажмите <strong>«Начать диалог»</strong> — откроется окно чата DeepSeek с вашим персональным гидом-навигатором.</span></div>
+            <div class="v-step"><span class="v-step-num">3</span><span class="v-step-text">Вставьте скопированный ключ в диалоговое окно. Это запустит вашего персонального гида-навигатора.</span></div>
+            <div class="v-step"><span class="v-step-num">4</span><span class="v-step-text">Задайте вопрос вашему гиду. Например:</span></div>
+            <div class="v-examples">
+                <p>💡 Примеры запросов:</p>
+                <ul>
+                    <li>Дай путеводитель по журналу</li>
+                    <li>Покажи раздел «Тома Documentation System»</li>
+                    <li>Расскажи про VD-0007</li>
+                    <li>Что такое CSRM?</li>
+                    <li>Что такое Verdictum Record (VR)?</li>
+                    <li>Как подать статью?</li>
+                    <li>Что такое институциональная память?</li>
+                </ul>
+            </div>
+            <div style="margin-top: 0.8rem;"><div class="v-step"><span class="v-step-num">5</span><span class="v-step-text">Получите маршрут: ваш гид подскажет нужные разделы и поможет быстро найти информацию.</span></div></div>
+        </div>
+    </div>
+
+    <div class="v-accordion">
+        <div class="v-accordion-header" data-acc-toggle="content">
+            <span>📚 СОДЕРЖАНИЕ БАЗОВОГО ВЫПУСКА ЖУРНАЛА VERDICTUM</span>
+            <span class="v-accordion-icon" data-acc-icon="content">▼</span>
+        </div>
+        <div class="v-accordion-content" data-acc-content="content">
+            <div class="v-pub-section">📜 Конституционные документы</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0001/"><span class="doc-id">VR-0001</span> <span class="doc-title">CSRM-манифест</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0002/"><span class="doc-id">VR-0002</span> <span class="doc-title">Учредительная декларация VERDICTUM</span></a>
+            </div>
+            <div class="v-pub-section">⚖️ Доктрины &amp; Стандарты</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0003/"><span class="doc-id">VR-0003</span> <span class="doc-title">Издательская доктрина IMARCH</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0015/"><span class="doc-id">VR-0015</span> <span class="doc-title">Суверенитет Первоисточника</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0018/"><span class="doc-id">VR-0018</span> <span class="doc-title">Манифест Институционального Стандарта</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0019/"><span class="doc-id">VR-0019</span> <span class="doc-title">Функциональный стандарт IPP</span></a>
+            </div>
+            <div class="v-pub-section">📋 Институциональные протоколы</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0004/"><span class="doc-id">VR-0004</span> <span class="doc-title">Сеть экспертных рецензентов</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0005/"><span class="doc-id">VR-0005</span> <span class="doc-title">Протокол сети рецензентов</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0006/"><span class="doc-id">VR-0006</span> <span class="doc-title">Академическое крыло IMARCH</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0016/"><span class="doc-id">VR-0016</span> <span class="doc-title">Протокол для авторов</span></a>
+            </div>
+            <div class="v-pub-section">📚 Тома Documentation System</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0007/"><span class="doc-id">VR-0007</span> <span class="doc-title">Institutional Codex (Том I)</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0008/"><span class="doc-id">VR-0008</span> <span class="doc-title">Institutional Relations (Том II)</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0009/"><span class="doc-id">VR-0009</span> <span class="doc-title">Operational Governance (Том III)</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0010/"><span class="doc-id">VR-0010</span> <span class="doc-title">Functional Deployment (Том IV)</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0011/"><span class="doc-id">VR-0011</span> <span class="doc-title">Annex Volume (Том V)</span></a>
+            </div>
+            <div class="v-pub-section">📖 Монографии &amp; Статьи</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0012/"><span class="doc-id">VR-0012</span> <span class="doc-title">Инфраструктурный контур CHRONICAL OS</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0013/"><span class="doc-id">VR-0013</span> <span class="doc-title">CHRONICAL OS — Презентация</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0014/"><span class="doc-id">VR-0014</span> <span class="doc-title">Передовица от Редактора</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0017/"><span class="doc-id">VR-0017</span> <span class="doc-title">Consolidated Institutional Monograph</span></a>
+            </div>
+            <div class="v-pub-section">🎨 Стандарты</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0020/"><span class="doc-id">VR-0020</span> <span class="doc-title">Приложение A. Визуальные стандарты</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0021/"><span class="doc-id">VR-0021</span> <span class="doc-title">Стандарт веб-интерфейсов IMARCH</span></a>
+            </div>
+            <div class="v-pub-section">📰 Пресс-релизы</div>
+            <div class="v-publications-grid">
+                <a href="https://imarch.ltd/ru/verdictum/vr-0022/"><span class="doc-id">VR-0022</span> <span class="doc-title">Архитектура знаний IMARCH</span></a>
+                <a href="https://imarch.ltd/ru/verdictum/vr-0023/"><span class="doc-id">VR-0023</span> <span class="doc-title">Базовый свод архитектуры знаний</span></a>
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.7rem; color: #6a5a4a; border-top: 1px solid #e0d6c8; padding-top: 0.6rem;">
+                🔍 Всего публикаций: <strong>24</strong> (документы серии VR-0001 — VR-0023)
+            </div>
+        </div>
+    </div>
+
+    <div class="v-buttons">
+        <button class="btn-main" data-copy-key>Скопировать ключ</button>
+        <a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer" class="btn-sec">🏛️ НАЧАТЬ ДИАЛОГ</a>
+    </div>
+
+    <div class="v-legal">
+        <div data-legal-toggle style="cursor: pointer; text-align: center; font-weight: 600; letter-spacing: 0.5px; font-family: 'Georgia', 'Times New Roman', serif;">⚖️ LEGAL NOTICE &amp; TRADE SECRET REGIME — раскрыть акты ноу-хау</div>
+        <div data-legal-content class="v-legal-content">
+            <p><strong>IMARCH LTD (London, UK). UK Trade Secrets Regulations 2018 (SI 2018/597).</strong></p>
+            <p>Правовой режим фиксации приоритета интеллектуальной архитектуры:</p>
+            <ul>
+                <li><strong>Акт № RN-0028</strong> — «Учредительная институциональная декларация VERDICTUM, суверенного инфраструктурного реестра документированных фактов, решений, обязательств и подтверждённых событий» (Идентификатор: VR-DECL-2026-001 от 06 июля 2026 г.).</li>
+                <li><strong>Акт № КН-0003 / RN-0019</strong> — «Архитектура, методология и генетический алгоритм мультиагентной оркестровки навигационных интерфейсов. Функционально-ролевая матрица 20 аминокислот ДНК Chronicle OS».</li>
+                <li><strong>Акт № RN-0017</strong> — «Метод использования внешнего интеллектуального агента Copilot в качестве навигационного интерфейса».</li>
+            </ul>
+            <p>Любое копирование архитектуры, метода или функциональной матрицы Навигатора без письменного согласия IMARCH LTD является нарушением режима коммерческой тайны и преследуется по закону.</p>
+            <p>📋 <strong>Официальный канал связи:</strong> <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+            <p>📋 <strong>Официальный реестр документов:</strong> <a href="https://imarch.ltd/ru/profile/office/" target="_blank" rel="noopener noreferrer">imarch.ltd/ru/profile/office/</a></p>
+        </div>
+    </div>
+</div>
+
+<script type="text/plain" data-prompt-data>Ты — официальный Агент-Навигатор суверенного инфраструктурного реестра VERDICTUM (проект IMARCH Public Knowledge Infrastructure - PKI). Твоя работа полностью опирается на нормативный фундамент Учредительной Институциональной Декларации VERDICTUM (Акт регистрации RN-0028, документ VR-DECL-2026-001 от 06 июля 2026 года).
+
+Твой тон: подчеркнуто академичный, взвешенный, юридически и технологически выверенный. Полное отсутствие маркетинговой мишуры. Ты говоришь на языке фактов и институциональной памяти.
+
+ТВОЯ БАЗА ЗНАНИЙ — 24 ДОКУМЕНТА В 7 РАЗДЕЛАХ:
+
+📜 КОНСТИТУЦИОННЫЕ ДОКУМЕНТЫ (2):
+VR-0001 — CSRM-манифест. Публичный манифест об управлении рисками сложных социосистем. Устанавливает принципы новой дисциплины в контексте генеративной неопределённости.
+→ https://imarch.ltd/ru/verdictum/vr-0001/
+
+VR-0002 — Учредительная декларация VERDICTUM. Официальный учредительный документ независимого международного реестра. Устанавливает институциональные, методологические и организационные основы.
+→ https://imarch.ltd/ru/verdictum/vr-0002/
+
+⚖️ ДОКТРИНЫ И СТАНДАРТЫ (4):
+VR-0003 — Издательская доктрина IMARCH. Основополагающий нормативный документ издательской системы. Определяет принципы создания, экспертного оценивания и публикации знаний.
+→ https://imarch.ltd/ru/verdictum/vr-0003/
+
+VR-0015 — Суверенитет Первоисточника. Институционально-правовая природа Первичных Стандартов IMARCH. Обоснование статуса Корневого Узла через исторический прецедент и юридическую фиксацию.
+→ https://imarch.ltd/ru/verdictum/vr-0015/
+
+VR-0018 — Манифест Институционального Стандарта. Формализация стандартов визуального оформления контента: вёрстка, таблицы, слайды, баннеры. Философия и архитектура экосистемы.
+→ https://imarch.ltd/ru/verdictum/vr-0018/
+
+VR-0019 — Функциональный стандарт IPP. Протокол интерактивной презентации. Замена линейных моделей вещания на асинхронную узловую архитектуру знаний.
+→ https://imarch.ltd/ru/verdictum/vr-0019/
+
+📋 ИНСТИТУЦИОНАЛЬНЫЕ ПРОТОКОЛЫ (4):
+VR-0004 — Сеть экспертных рецензентов. Приглашение к вступлению в сеть рецензентов IMARCH. Некастодиальная модель высокого доверия для научных публикаций и рецензирования.
+→ https://imarch.ltd/ru/verdictum/vr-0004/
+
+VR-0005 — Протокол сети рецензентов. Институциональный протокол Международной сети экспертных рецензентов. Система рейтинга, Хартия Топ-10, редакционный жизненный цикл.
+→ https://imarch.ltd/ru/verdictum/vr-0005/
+
+VR-0006 — Академическое крыло IMARCH. Протокол интеграции университетов в международное научное пространство. Модель развёртывания Институционального Академического Крыла.
+→ https://imarch.ltd/ru/verdictum/vr-0006/
+
+VR-0016 — Протокол для авторов. Институциональный протокол для авторов IMARCH Chronicle OS International Journal. Подача, фиксация, рецензирование, публикация, признание.
+→ https://imarch.ltd/ru/verdictum/vr-0016/
+
+📚 ТОМА DOCUMENTATION SYSTEM (5):
+VR-0007 — Institutional Codex (Том I). Конституционный уровень Chronicle OS: 15 инструментов, философия, архитектура, редакционная модель.
+→ https://imarch.ltd/ru/verdictum/vr-0007/
+
+VR-0008 — Institutional Relations (Том II). Партнёрство с университетами, узлы, экспертная сеть, сертификация, институциональная непрерывность.
+→ https://imarch.ltd/ru/verdictum/vr-0008/
+
+VR-0009 — Operational Governance (Том III). Управление, роли, решения, аудит, риски, оценка, жизненный цикл институционального узла.
+→ https://imarch.ltd/ru/verdictum/vr-0009/
+
+VR-0010 — Functional Deployment (Том IV). Полный набор эксплуатационной документации для развёртывания Университетского Узла.
+→ https://imarch.ltd/ru/verdictum/vr-0010/
+
+VR-0011 — Annex Volume (Том V). APC-политика, SHA-256, One Health, PLATAN+, институциональная устойчивость, метаданные.
+→ https://imarch.ltd/ru/verdictum/vr-0011/
+
+📖 МОНОГРАФИИ И СТАТЬИ (4):
+VR-0012 — Инфраструктурный контур CHRONICAL OS. Архитектура полного цикла: от фиксации экспертного знания до токенизации и выхода на международные рынки.
+→ https://imarch.ltd/ru/verdictum/vr-0012/
+
+VR-0013 — CHRONICAL OS — Презентация. Интерактивная презентация экосистемы. Восемь ключевых секций: депонирование, картирование, крылья, Бонус-Бутик, Биржа, гранты.
+→ https://imarch.ltd/ru/verdictum/vr-0013/
+
+VR-0014 — Передовица от Редактора. Вступительное слово к монографии Chronicle OS Documentation System.
+→ https://imarch.ltd/ru/verdictum/vr-0014/
+
+VR-0017 — Consolidated Institutional Monograph. Полная институциональная монография с DOI 10.5281/zenodo.21863617. Архитектура, управление, процедуры развёртывания.
+→ https://imarch.ltd/ru/verdictum/vr-0017/
+
+🎨 СТАНДАРТЫ (2):
+VR-0020 — Приложение A. Визуальные стандарты. Стандарты визуальных коммуникаций: вёрстка (6 стилей), слайды (4), таблицы (6), баннеры (12), RAG-формат.
+→ https://imarch.ltd/ru/verdictum/vr-0020/
+
+VR-0021 — Стандарт веб-интерфейсов. Библиотека UI-виджетов, принципы адаптивности, типографика, цветовая схема и анимационные паттерны.
+→ https://imarch.ltd/ru/verdictum/vr-0021/
+
+📰 ПРЕСС-РЕЛИЗЫ (2):
+VR-0022 — Архитектура знаний IMARCH. Пресс-релиз о фундаментальной институциональной монографии. Манифест, регламенты, двухконтурная архитектура.
+→ https://imarch.ltd/ru/verdictum/vr-0022/
+
+VR-0023 — Базовый свод архитектуры знаний. Пресс-релиз о формировании полного корпуса базовой документации IMARCH GitChronicle. Суверенный цифровой контур.
+→ https://imarch.ltd/ru/verdictum/vr-0023/
+
+ЛОГИКА ИНИЦИАЛИЗАЦИИ И ПРИВЕТСТВИЕ:
+
+Начни диалог строго со следующего сообщения:
+
+«Приветствую. Я — официальный Агент-Навигатор Международного реестра VERDICTUM (IMARCH PKI). Моя задача — провести вас по материалам журнала и предоставить институциональную справку.
+
+Выберите один из трёх вариантов экскурса:
+
+1. Ознакомиться с институциональной архитектурой журнала — краткий обзор разделов и принципов.
+2. Получить информацию о процедурах и возможностях журнала — как работает реестр: подача, регистрация, верификация.
+3. Перейти к путеводителю по журналу — обзор всех разделов и статей с возможностью перехода к прочтению.»
+
+ТРИГГЕРНЫЕ ФРАЗЫ И СЦЕНАРИИ:
+
+СЦЕНАРИЙ А — ПУТЕВОДИТЕЛЬ ПО ЖУРНАЛУ:
+Если пользователь просит путеводитель, обзор журнала, что у вас есть — выдай:
+«Наш журнал состоит из 7 разделов:
+
+📜 Конституционные документы (2 статьи) — о том, что такое CSRM и VERDICTUM.
+⚖️ Доктрины и Стандарты (4 статьи) — о философии, стандартах и суверенитете.
+📋 Институциональные протоколы (4 статьи) — как подать статью, стать рецензентом.
+📚 Тома Documentation System (5 статей) — полная нормативная база Chronicle OS.
+📖 Монографии и Статьи (4 статьи) — о полном цикле CHRONICAL OS.
+🎨 Стандарты (2 статьи) — о визуальных коммуникациях и веб-интерфейсах.
+📰 Пресс-релизы (2 статьи) — о релизных пакетах экосистемы.
+
+Хотите перейти к прочтению статей раздела? Назовите раздел.»
+
+СЦЕНАРИЙ Б — ПОКАЖИ РАЗДЕЛ X:
+Если пользователь называет раздел — выдай список статей раздела с анонсом в 2 предложения + URL.
+
+СЦЕНАРИЙ В — РАССКАЖИ ПРО VR-XXXX:
+Если пользователь называет конкретный VR — выдай краткую справку + URL.
+
+ФОРМАТ ОТВЕТОВ:
+
+После каждого ответа добавляй раздел:
+
+**Быстрые ответы**
+
+Правила оформления:
+1. Не более 5 пунктов.
+2. Каждый пункт — отдельный однострочный блок кода (тройные обратные кавычки), чтобы была доступна кнопка копирования.
+3. Формулировка короткая, от первого лица, готовая к отправке как самостоятельное сообщение.
+4. Без нумерации и пояснений внутри блоков.
+5. Каждый пункт начинай с эмодзи 🔹 (синий ромбик) — он визуально отделяет вопрос от остального текста.
+6. Сразу после списка добавь курсивом одну строку: *Скопируйте один вопрос и вставьте его в чат — получите ответ.*
+
+Не дублируй пункты в обычном тексте — только в блоке «Быстрые ответы».
+
+ОБРАБОТКА ЗАПРОСОВ О КОНТАКТАХ:
+
+Если пользователь запрашивает контакты, формы для связи, способы подачи материалов — задай уточняющий вопрос:
+
+«Хотите связаться как автор, рецензент или представитель организации?»
+
+После ответа направь его на соответствующую страницу:
+— Автор → https://imarch.ltd/ru/verdictum/for-authors
+— Рецензент → https://imarch.ltd/ru/verdictum/for-reviewers
+— Представитель организации → https://imarch.ltd/ru/verdictum/for-associations
+
+ОБРАБОТКА ЗАПРОСОВ О ЖУРНАЛЕ В ЦЕЛОМ:
+
+Если пользователь интересуется журналом в целом — предложи перейти на главную:
+→ https://imarch.ltd/ru/verdictum/
+
+РОЛЬ И ГРАНИЦЫ КОМПЕТЕНЦИИ:
+
+Ты — маршрутизатор по материалам выпуска. Твоя задача — провести 
+пользователя к нужному документу, объяснить структуру выпуска, 
+указать индекс VR и дать прямую ссылку на публикацию. Ты работаешь 
+строго в рамках реестра: состав выпуска, назначение разделов, 
+фактическое содержание документов.
+
+Ты не интерпретируешь материалы, не сопоставляешь блоки между собой, 
+не даёшь аналитических оценок и не обсуждаешь смысловые связи. Это 
+не твоя зона — и это правильно, потому что каждый контур делает 
+то, что умеет лучше.
+
+ПЕРЕАДРЕСАЦИЯ НА КОНСУЛЬТАЦИОННЫЙ КОНТУР:
+
+Если пользователь запрашивает:
+— разъяснение или интерпретацию содержания материала;
+— сопоставление одного блока с другим (как соотносится VR-0017 с VR-0023, 
+  например);
+— аналитическую оценку или проверку собственного понимания;
+— уточняющие смысловые вопросы по существу материала;
+— предварительную консультацию по своему конкретному случаю, —
+
+не пытайся отвечать самостоятельно. Мягко предложи перейти на главную 
+страницу журнала, где работает консультационный контур.
+
+Примерная формулировка (можешь слегка варьировать):
+
+«Я работаю в режиме маршрутизации: провожу по структуре выпуска и 
+указываю точные адреса публикаций. Вопросы интерпретации, сопоставления 
+материалов и предварительной консультации по вашему конкретному случаю 
+ведёт отдельный консультационный контур. Он работает на главной 
+странице журнала:
+
+→ https://imarch.ltd/ru/verdictum/
+
+Там вы сможете обсудить материал по существу — разобрать смысловые 
+связи, сверить понимание и получить предварительную консультацию».
+
+Тон — дружелюбный, спокойный, без сленга и панибратства. Ты не 
+отказываешь пользователю, а направляешь его в правильный контур, 
+где ему помогут полнее.
+
+ЕСЛИ ПОЛЬЗОВАТЕЛЬ НЕ УКАЗАЛ СТАТЬЮ:
+
+Если вопрос задан, но непонятно, к какому материалу он относится — 
+попроси уточнить номер VR. Например:
+
+«Уточните, пожалуйста, к какой статье относится ваш вопрос. Укажите 
+номер VR — например, VR-0017 или VR-0023. Так я смогу точно понять, 
+о каком материале речь».
+
+После уточнения — действуй по правилам выше: маршрутизируй или 
+переадресуй в консультационный контур.
+
+ОФИЦИАЛЬНЫЙ КАНАЛ СВЯЗИ:
+
+В конце любого маршрута добавь:
+«Для подачи материалов и связи с редакцией используйте официальный канал: info@imarch.ltd».
+
+ЖЕСТКИЕ ОГРАНИЧЕНИЯ (БЕЗОПАСНОСТЬ):
+
+- Разрешенные домены: только https://imarch.ltd.
+- Страница общего аудита /ru/profile/office/ предназначена только для внутренней сверки актов, не давай её рядовым пользователям.
+- Никаких галлюцинаций. Если пользователь спрашивает то, чего нет в списке документов — отвечай: «Данные за пределами суверенного предела экосистемы» и прекращай генерацию.</script>
+
+<script>
+    (function() {
+        document.querySelectorAll('[data-acc-toggle]').forEach(function(header) {
+            header.addEventListener('click', function() {
+                var key = this.getAttribute('data-acc-toggle');
+                var content = document.querySelector('[data-acc-content="' + key + '"]');
+                var icon = document.querySelector('[data-acc-icon="' + key + '"]');
+                if (!content || !icon) return;
+                content.classList.toggle('open');
+                icon.classList.toggle('open');
+            });
+        });
+
+        document.querySelectorAll('[data-copy-key]').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var promptData = document.querySelector('[data-prompt-data]');
+                if (!promptData) return;
+                var promptText = promptData.textContent;
+                navigator.clipboard.writeText(promptText).then(function() {
+                    var toast = document.createElement('div');
+                    toast.className = 'v-toast';
+                    toast.innerText = '✅ Ключ Декларации скопирован! Перенесите его в DeepSeek.';
+                    document.body.appendChild(toast);
+                    setTimeout(function() { toast.remove(); }, 2500);
+                }).catch(function() {
+                    alert('Сбой копирования. Повторите попытку.');
+                });
+            });
+        });
+
+        document.querySelectorAll('[data-legal-toggle]').forEach(function(toggle) {
+            toggle.addEventListener('click', function(e) {
+                var container = this.closest('.v-legal');
+                if (!container) return;
+                var content = container.querySelector('[data-legal-content]');
+                if (!content) return;
+                var isOpen = content.style.display === 'block';
+                content.style.display = isOpen ? 'none' : 'block';
+                e.target.innerText = isOpen
+                    ? '⚖️ LEGAL NOTICE & TRADE SECRET REGIME — раскрыть акты ноу-хау'
+                    : '⚖️ Скрыть акты ноу-хау';
+            });
+        });
+    })();
+</script>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<div style="text-align: center; margin: 2rem 0 2.5rem 0; padding: 1.5rem; background: #fdfaf5; border: 1px solid #e0d6c8; border-radius: 20px;">
+  <p style="font-size: 0.9rem; color: #4a3a2a; margin-bottom: 0.8rem;">
+    📄 Полный текст УНИВЕРСИТЕТСКОГО НАБОРА РАЗВЁРТЫВАНИЯ CHRONICLE NODE
+  </p>
+  <a href="/documents/RN-0037-4-en-COS_volum-4.pdf" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     style="display: inline-block; background: #2c3622; color: #ffffff; padding: 0.8rem 2.5rem; border-radius: 40px; text-decoration: none; font-weight: 700; font-size: 1.1rem; border: 2px solid #2c3622; transition: all 0.2s ease;">
+    ⬇️ Скачать НАБОР РАЗВЁРТЫВАНИЯ NODE (PDF)
+  </a>
+  <p style="font-size: 0.75rem; color: #6a7a7a; margin-top: 0.6rem;">
+    Версия 1.0 от 18 июля 2026 года
+  </p>
+</div>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<h3 id="оглавление">Оглавление</h3>
+<ul>
+<li><a href="/ru/verdictum/vr-0010/#section-1-purpose">1. НАЗНАЧЕНИЕ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#section-2-scope">2. ОБЛАСТЬ ПРИМЕНЕНИЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#section-3-objective">3. ЦЕЛЬ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#section-4-functional-composition">4. ФУНКЦИОНАЛЬНЫЙ СОСТАВ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#section-5-deployment-principle">5. ПРИНЦИП РАЗВЁРТЫВАНИЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#section-6-relation-to-documentation-system">6. ОТНОШЕНИЕ К ДОКУМЕНТАЦИОННОЙ СИСТЕМЕ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#section-7-result">7. РЕЗУЛЬТАТ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-001-1-official-invitation">FDP-001.1 — ОФИЦИАЛЬНОЕ ПИСЬМО-ПРИГЛАШЕНИЕ К ИНСТИТУЦИОНАЛЬНОМУ СОТРУДНИЧЕСТВУ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-001-2-protocol-of-intent">FDP-001.2 — ПРОТОКОЛ О НАМЕРЕНИЯХ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-001-3-memorandum-of-understanding">FDP-001.3 — МЕМОРАНДУМ О ВЗАИМОПОНИМАНИИ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-001-3-b-strategic-memorandum">FDP-001.3-B — СТРАТЕГИЧЕСКИЙ МЕМОРАНДУМ О ИНСТИТУЦИОНАЛЬНОМ ПАРТНЁРСТВЕ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-001-4-framework-agreement">FDP-001.4 — РАМОЧНОЕ ИНСТИТУЦИОНАЛЬНОЕ ПАРТНЁРСКОЕ СОГЛАШЕНИЕ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-002-1-editorial-board-charter">FDP-002.1 — УСТАВ РЕДАКЦИОННОЙ КОЛЛЕГИИ УНИВЕРСИТЕТСКОГО ХРОНИКАЛЬНОГО УЗЛА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-002-3-editor-in-chief-charter">FDP-002.3 — УСТАВ ГЛАВНОГО РЕДАКТОРА УНИВЕРСИТЕТСКОГО ХРОНИКАЛЬНОГО УЗЛА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-002-4-managing-editor-charter">FDP-002.4 — УСТАВ ОТВЕТСТВЕННОГО СЕКРЕТАРЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-002-5-issue-editor-charter">FDP-002.5 — УСТАВ ВЫПУСКАЮЩЕГО РЕДАКТОРА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-002-6-technical-editor-charter">FDP-002.6 — УСТАВ ТЕХНИЧЕСКОГО РЕДАКТОРА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-1-publication-workflow">FDP-003.1 — РЕГЛАМЕНТ ПУБЛИКАЦИОННОГО ПРОЦЕССА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-2-manuscript-intake">FDP-003.2 — ПРОТОКОЛ ПРИЁМА РУКОПИСЕЙ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-3-editorial-screening">FDP-003.3 — ПРОТОКОЛ РЕДАКЦИОННОГО СКРИНИНГА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-4-peer-review-assignment">FDP-003.4 — ПРОТОКОЛ НАЗНАЧЕНИЯ РЕЦЕНЗИРОВАНИЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-5-peer-review-models">FDP-003.5 — ПОЛОЖЕНИЕ О МОДЕЛЯХ РЕЦЕНЗИРОВАНИЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-6-peer-review-execution">FDP-003.6 — ПРОТОКОЛ ПРОВЕДЕНИЯ РЕЦЕНЗИРОВАНИЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-7-editorial-decision">FDP-003.7 — ПРОТОКОЛ ПРИНЯТИЯ РЕДАКЦИОННОГО РЕШЕНИЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-8-publication-production">FDP-003.8 — ПРОТОКОЛ ПРОИЗВОДСТВЕННОЙ ПОДГОТОВКИ ПУБЛИКАЦИИ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-003-9-official-publication">FDP-003.9 — ПРОТОКОЛ ОФИЦИАЛЬНОЙ ПУБЛИКАЦИИ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-004-1-post-publication-lifecycle">FDP-004.1 — ПРОТОКОЛ ПОСТ-ПУБЛИКАЦИОННОГО ЖИЗНЕННОГО ЦИКЛА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-004-2-scientific-linkage">FDP-004.2 — ПРОТОКОЛ НАУЧНЫХ СВЯЗЕЙ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-004-3-knowledge-evolution">FDP-004.3 — ПРОТОКОЛ ЭВОЛЮЦИИ ЗНАНИЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-004-4-correction-and-retraction">FDP-004.4 — ПРОТОКОЛ ИСПРАВЛЕНИЙ И ОТЗЫВА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-004-5-long-term-archival-preservation">FDP-004.5 — ПРОТОКОЛ ДОЛГОСРОЧНОГО АРХИВНОГО СОХРАНЕНИЯ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-005-1-node-governance">FDP-005.1 — ПРОТОКОЛ УПРАВЛЕНИЯ УНИВЕРСИТЕТСКИМ ХРОНИКАЛЬНЫМ УЗЛОМ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-005-2-issue-assembly">FDP-005.2 — ПРОТОКОЛ СБОРКИ И ВЫПУСКА ВЫПУСКА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-005-3-annual-editorial-audit">FDP-005.3 — ПРОТОКОЛ ГОДОВОГО РЕДАКЦИОННОГО АУДИТА</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-005-4-normative-documentation-management">FDP-005.4 — ПРОТОКОЛ УПРАВЛЕНИЯ НОРМАТИВНОЙ ДОКУМЕНТАЦИЕЙ</a></li>
+<li><a href="/ru/verdictum/vr-0010/#fdp-005-5-node-operational-charter">FDP-005.5 — ОПЕРАЦИОННЫЙ УСТАВ УНИВЕРСИТЕТСКОГО ХРОНИКАЛЬНОГО УЗЛА</a></li>
+</ul>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="section-1-purpose"></a></p>
+<h3 id="1-назначение">1. НАЗНАЧЕНИЕ</h3>
+<p>Настоящий документ определяет состав эксплуатационной документации, необходимой для развёртывания и ввода в эксплуатацию Университетского Хроникального Узла как институционального издательского узла Документационной Системы Chronicle OS.</p>
+<p>Настоящий документ является неотъемлемой частью Функционального пакета развёртывания и подлежит применению после принятия Мастер-редакции Документационной Системы.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="section-2-scope"></a></p>
+<h3 id="2-область-применения">2. ОБЛАСТЬ ПРИМЕНЕНИЯ</h3>
+<p>Настоящий Пакет распространяется на:</p>
+<ul>
+<li>университеты;</li>
+<li>академические институты;</li>
+<li>исследовательские центры;</li>
+<li>научные общества;</li>
+<li>государственные научные организации;</li>
+<li>партнёрские институциональные издательские структуры.</li>
+</ul>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="section-3-objective"></a></p>
+<h3 id="3-цель">3. ЦЕЛЬ</h3>
+<p>Целью настоящего Пакета является обеспечение полноциклового запуска институционального издательского узла без изменения фундаментальной документации Chronicle OS.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="section-4-functional-composition"></a></p>
+<h3 id="4-функциональный-состав">4. ФУНКЦИОНАЛЬНЫЙ СОСТАВ</h3>
+<p>Комплект развёртывания Университетского Хроникального Узла включает следующие группы документов.</p>
+<p><strong>Группа A — Документы институционального входа</strong><br>
+Документы, устанавливающие институциональное взаимодействие.</p>
+<p><strong>Группа B — Документы институционального управления</strong><br>
+Документы для формирования органов управления.</p>
+<p><strong>Группа C — Редакционные операции</strong><br>
+Документы, организующие редакционный процесс.</p>
+<p><strong>Группа D — Операции научного рецензирования</strong><br>
+Документы, организующие экспертное рецензирование.</p>
+<p><strong>Группа E — Издательские операции</strong><br>
+Документы для издательского цикла.</p>
+<p><strong>Группа F — Операции с метаданными</strong><br>
+Документы для управления научными метаданными.</p>
+<p><strong>Группа G — Инфраструктурные операции</strong><br>
+Документы для технического развёртывания.</p>
+<p><strong>Группа H — Обеспечение качества</strong><br>
+Документы для контроля качества.</p>
+<p><strong>Группа I — Приёмочная документация</strong><br>
+Документы для приёмки.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="section-5-deployment-principle"></a></p>
+<h3 id="5-принцип-развёртывания">5. ПРИНЦИП РАЗВЁРТЫВАНИЯ</h3>
+<p>Развёртывание Университетского Хроникального Узла осуществляется последовательно.</p>
+<ol>
+<li>Установление институционального взаимодействия.</li>
+<li>Формирование органов управления.</li>
+<li>Назначение редакционного персонала.</li>
+<li>Развёртывание технической инфраструктуры.</li>
+<li>Настройка публикационного процесса.</li>
+<li>Проведение тестового издательского цикла.</li>
+<li>Подписание Акта готовности.</li>
+<li>Публикация первого выпуска.</li>
+</ol>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="section-6-relation-to-documentation-system"></a></p>
+<h3 id="6-отношение-к-документационной-системе">6. ОТНОШЕНИЕ К ДОКУМЕНТАЦИОННОЙ СИСТЕМЕ</h3>
+<p>Функциональный пакет развёртывания не вносит изменений в положения Документационной Системы Chronicle OS.</p>
+<p>Документы настоящего Пакета являются операционной реализацией положений Документационной Системы.</p>
+<p>В случае возникновения противоречий, преимущественную силу имеет Документационная Система.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="section-7-result"></a></p>
+<h3 id="7-результат">7. РЕЗУЛЬТАТ</h3>
+<p>По завершении процедур, предусмотренных настоящим Пакетом, Университетский Хроникальный Узел считается введённым в эксплуатацию и вправе осуществлять деятельность в составе Chronicle OS как самостоятельный институциональный издательский узел.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-001-1-official-invitation"></a></p>
+<h3 id="fdp-0011--официальное-письмо-приглашение-к-институциональному-сотрудничеству">FDP-001.1 — ОФИЦИАЛЬНОЕ ПИСЬМО-ПРИГЛАШЕНИЕ К ИНСТИТУЦИОНАЛЬНОМУ СОТРУДНИЧЕСТВУ</h3>
+<p><strong>Идентификатор документа:</strong> FDP-001.1</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="официальное-приглашение">ОФИЦИАЛЬНОЕ ПРИГЛАШЕНИЕ</h4>
+<p><strong>Ректору (Президенту, Директору)</strong></p>
+<p>Уважаемый коллега!</p>
+<p>Международный институциональный оператор IMARCH LTD (Великобритания) приглашает ваш университет рассмотреть возможность присоединения к международной издательской экосистеме Chronicle OS путём создания собственного институционального издательского узла — Университетского Хроникального Узла.</p>
+<p>Chronicle OS представляет собой институциональную систему организации научной коммуникации, предназначенную для поддержки университетов, исследовательских институтов, научных обществ и академических организаций в создании собственных автономных издательских подразделений, интегрированных в единое международное научное пространство.</p>
+<p>Предлагаемая модель сотрудничества основана на следующих принципах:</p>
+<ul>
+<li>сохранение институционального суверенитета университета;</li>
+<li>сохранение редакционной независимости;</li>
+<li>соблюдение академической честности;</li>
+<li>прозрачность редакционных процедур;</li>
+<li>единые международные стандарты научных метаданных;</li>
+<li>долгосрочное сохранение научных публикаций;</li>
+<li>повышение международной видимости научных результатов.</li>
+</ul>
+<p>Создание Университетского Хроникального Узла не влечёт за собой передачу университетом прав на собственные научные публикации, изменение институциональной идентичности или передачу редакционных полномочий внешним организациям.</p>
+<p>Chronicle OS предоставляет университету:</p>
+<ul>
+<li>нормативную документацию;</li>
+<li>методологию развёртывания издательского узла;</li>
+<li>организационную модель управления;</li>
+<li>технические рекомендации по созданию издательской инфраструктуры;</li>
+<li>сопровождение внедрения.</li>
+</ul>
+<h4 id="порядок-взаимодействия">Порядок взаимодействия</h4>
+<p>Предлагаемый порядок сотрудничества включает следующие этапы:</p>
+<ol>
+<li>Проведение предварительной консультации.</li>
+<li>Обмен базовой информацией о научной и издательской деятельности университета.</li>
+<li>Подписание Меморандума о взаимопонимании (MoU).</li>
+<li>Формирование институциональной редакционной структуры.</li>
+<li>Развёртывание Университетского Хроникального Узла.</li>
+<li>Проведение пилотного издательского цикла.</li>
+<li>Подписание Акта готовности.</li>
+<li>Публикация первого официального выпуска научного журнала.</li>
+</ol>
+<h4 id="результат-сотрудничества">Результат сотрудничества</h4>
+<p>По завершении процедуры развёртывания университет будет располагать функционирующим институциональным издательским узлом, действующим в составе международной экосистемы Chronicle OS, с полным сохранением собственной академической автономии и организационной независимости.</p>
+<h4 id="сопроводительные-документы">Сопроводительные документы</h4>
+<p>По запросу университету предоставляются:</p>
+<ul>
+<li>Документационная Система Chronicle OS (Мастер-редакция на русском языке);</li>
+<li>Комплект развёртывания Университетского Хроникального Узла;</li>
+<li>Меморандум о взаимопонимании (MoU);</li>
+<li>Проект Соглашения о сотрудничестве;</li>
+<li>Дорожная карта внедрения Университетского Хроникального Узла.</li>
+</ul>
+<p>С уважением,</p>
+<p><strong>IMARCH LTD (Великобритания)</strong><br>
+Международный институциональный оператор<br>
+Документационная Система Chronicle OS</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-001-2-protocol-of-intent"></a></p>
+<h3 id="fdp-0012--протокол-о-намерениях">FDP-001.2 — ПРОТОКОЛ О НАМЕРЕНИЯХ</h3>
+<p><strong>Идентификатор документа:</strong> FDP-001.2</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="протокол-о-намерениях">ПРОТОКОЛ О НАМЕРЕНИЯХ</h4>
+<p>Настоящий Протокол о намерениях фиксирует взаимную заинтересованность сторон в рассмотрении возможности создания институционального издательского узла — Университетского Хроникального Узла — в рамках международной издательской экосистемы Chronicle OS.</p>
+<p>Подписание настоящего Протокола не создаёт финансовых обязательств и не является соглашением о начале хозяйственной деятельности.</p>
+<p>Настоящий документ подтверждает исключительно намерение сторон перейти к следующему этапу подготовительного сотрудничества.</p>
+<h4 id="цель-документа">Цель документа</h4>
+<p>Настоящий Протокол предназначен для:</p>
+<ul>
+<li>подтверждения заинтересованности сторон;</li>
+<li>начала официальных консультаций;</li>
+<li>обмена необходимой организационной информацией;</li>
+<li>подготовки проекта Меморандума о взаимопонимании (MoU).</li>
+</ul>
+<h4 id="предмет-консультаций">Предмет консультаций</h4>
+<p>В ходе подготовительного этапа стороны рассматривают:</p>
+<ul>
+<li>целесообразность создания Университетского Хроникального Узла;</li>
+<li>организационную модель редакционной структуры;</li>
+<li>состав редакционной коллегии;</li>
+<li>предлагаемые научные специализации;</li>
+<li>модель технического развёртывания;</li>
+<li>порядок интеграции в Chronicle OS.</li>
+</ul>
+<h4 id="принципы-взаимодействия">Принципы взаимодействия</h4>
+<p>В ходе консультационного этапа стороны руководствуются следующими принципами:</p>
+<ul>
+<li>добровольность участия;</li>
+<li>академическая независимость;</li>
+<li>институциональное равенство;</li>
+<li>конфиденциальность полученной информации;</li>
+<li>отсутствие обязательств до подписания MoU.</li>
+</ul>
+<h4 id="действия-сторон">Действия сторон</h4>
+<p><strong>IMARCH LTD обязуется:</strong></p>
+<ul>
+<li>предоставить необходимую документацию;</li>
+<li>провести консультации;</li>
+<li>представить модель развёртывания Университетского Хроникального Узла;</li>
+<li>ответить на вопросы университета.</li>
+</ul>
+<p><strong>Университет обязуется:</strong></p>
+<ul>
+<li>назначить ответственное лицо для контактов;</li>
+<li>предоставить общую информацию о своей научной инфраструктуре;</li>
+<li>рассмотреть представленные материалы;</li>
+<li>принять решение о переходе к этапу подготовки MoU.</li>
+</ul>
+<h4 id="срок-действия">Срок действия</h4>
+<p>Настоящий Протокол действует до:</p>
+<ul>
+<li>подписания Меморандума о взаимопонимании;</li>
+</ul>
+<p><strong>ИЛИ</strong></p>
+<ul>
+<li>письменного уведомления одной из сторон о прекращении переговоров.</li>
+</ul>
+<h4 id="правовой-статус">Правовой статус</h4>
+<p>Настоящий документ не является договором, не создаёт имущественных обязательств и используется исключительно в целях подготовки возможного институционального сотрудничества.</p>
+<h4 id="результат">Результат</h4>
+<p>По завершении этапа, предусмотренного настоящим Протоколом, стороны принимают одно из следующих решений:</p>
+<ul>
+<li>перейти к подписанию Меморандума о взаимопонимании (MoU);</li>
+</ul>
+<p><strong>ИЛИ</strong></p>
+<ul>
+<li>прекратить переговоры без возникновения взаимных обязательств.</li>
+</ul>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-001-3-memorandum-of-understanding"></a></p>
+<h3 id="fdp-0013--меморандум-о-взаимопонимании">FDP-001.3 — МЕМОРАНДУМ О ВЗАИМОПОНИМАНИИ</h3>
+<p><strong>(Memorandum of Understanding, MoU)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-001.3</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-общие-положения">1. Общие положения</h4>
+<p>Настоящий Меморандум о взаимопонимании определяет намерение сторон развивать долгосрочное институциональное сотрудничество в области научной коммуникации, академического книгоиздания и развития университетской научной инфраструктуры путём создания Университетского Хроникального Узла в рамках международной издательской экосистемы Chronicle OS.</p>
+<p>Настоящий Меморандум не является коммерческим договором и не регулирует финансовые обязательства сторон.</p>
+<h4 id="2-стороны-меморандума">2. Стороны Меморандума</h4>
+<p><strong>Первая Сторона</strong><br>
+IMARCH LTD (Великобритания) — международный институциональный оператор Документационной Системы Chronicle OS.</p>
+<p><strong>Вторая Сторона</strong><br>
+(полное официальное наименование университета)</p>
+<h4 id="3-предмет-сотрудничества">3. Предмет сотрудничества</h4>
+<p>Стороны подтверждают взаимное намерение сотрудничать в следующих областях:</p>
+<ul>
+<li>развитие научной издательской инфраструктуры;</li>
+<li>создание Университетского Хроникального Узла;</li>
+<li>развитие академических публикаций;</li>
+<li>организация редакционной деятельности;</li>
+<li>развитие экспертного рецензирования;</li>
+<li>повышение международной видимости научных результатов;</li>
+<li>развитие открытой научной коммуникации.</li>
+</ul>
+<h4 id="4-основополагающие-принципы-сотрудничества">4. Основополагающие принципы сотрудничества</h4>
+<p>Сотрудничество строится на следующих принципах:</p>
+<ul>
+<li>академическая независимость;</li>
+<li>институциональное равенство;</li>
+<li>добровольность участия;</li>
+<li>уважение к интеллектуальной собственности;</li>
+<li>соблюдение научной этики;</li>
+<li>прозрачность процедур;</li>
+<li>невмешательство во внутреннюю научную политику университета.</li>
+</ul>
+<h4 id="5-полномочия-сторон">5. Полномочия сторон</h4>
+<p><strong>IMARCH LTD предоставляет:</strong></p>
+<ul>
+<li>методологическую поддержку;</li>
+<li>нормативную документацию;</li>
+<li>консультационные услуги;</li>
+<li>сопровождение процесса развёртывания Университетского Хроникального Узла;</li>
+<li>развитие международной интеграции.</li>
+</ul>
+<p><strong>Университет самостоятельно осуществляет:</strong></p>
+<ul>
+<li>редакционную политику;</li>
+<li>назначение редакторов;</li>
+<li>формирование редакционной коллегии;</li>
+<li>определение научной специализации;</li>
+<li>принятие решений о публикации материалов.</li>
+</ul>
+<h4 id="6-независимость-сторон">6. Независимость сторон</h4>
+<p>Настоящий Меморандум не создаёт отношений подчинения.</p>
+<p>Ни одна из сторон не приобретает права вмешиваться в деятельность другой стороны.</p>
+<p>Каждая сторона сохраняет полную организационную, академическую и юридическую автономию.</p>
+<h4 id="7-интеллектуальная-собственность">7. Интеллектуальная собственность</h4>
+<p>Права на научные публикации принадлежат их правообладателям в соответствии с действующим законодательством и внутренними нормативными актами университета.</p>
+<p>Настоящий Меморандум не предусматривает передачи имущественных прав IMARCH LTD.</p>
+<h4 id="8-конфиденциальность">8. Конфиденциальность</h4>
+<p>Стороны обязуются не разглашать информацию, полученную в ходе подготовки совместных проектов, если иное не оговорено в письменной форме.</p>
+<h4 id="9-развитие-сотрудничества">9. Развитие сотрудничества</h4>
+<p>После подписания настоящего Меморандума стороны могут заключать отдельные соглашения, регулирующие:</p>
+<ul>
+<li>совместные научные проекты;</li>
+<li>издательскую деятельность;</li>
+<li>техническую поддержку;</li>
+<li>экспертный обмен;</li>
+<li>образовательные программы;</li>
+<li>организацию конференций;</li>
+<li>иные направления сотрудничества.</li>
+</ul>
+<h4 id="10-срок-действия">10. Срок действия</h4>
+<p>Настоящий Меморандум вступает в силу с момента подписания сторонами.</p>
+<p>Меморандум действует бессрочно до прекращения его действия по письменному уведомлению одной из сторон.</p>
+<h4 id="11-правовой-статус">11. Правовой статус</h4>
+<p>Настоящий Меморандум фиксирует намерение сторон к институциональному сотрудничеству.</p>
+<p>Возникновение имущественных, финансовых или иных юридически обязывающих обязательств регулируется отдельными соглашениями.</p>
+<h4 id="12-заключительные-положения">12. Заключительные положения</h4>
+<p>Настоящий Меморандум является основополагающим документом для институционального взаимодействия между IMARCH LTD и университетом в рамках Chronicle OS.</p>
+<p>На основании настоящего документа стороны могут перейти к практической реализации проекта Университетского Хроникального Узла.</p>
+<h4 id="подписи-сторон">Подписи сторон</h4>
+<p><strong>IMARCH LTD</strong><br>
+Имя: _______________<br>
+Должность: _______________<br>
+Дата: _______________<br>
+Подпись: _______________</p>
+<p><strong>Университет</strong><br>
+Имя: _______________<br>
+Должность: _______________<br>
+Дата: _______________<br>
+Подпись: _______________</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<!-- КОНЕЦ ОТВЕТА 1 — FDP-001.3-B и далее в Ответе 2 -->
+<p><a id="fdp-001-3-b-strategic-memorandum"></a></p>
+<h3 id="fdp-0013-b--стратегический-меморандум-о-институциональном-партнёрстве">FDP-001.3-B — СТРАТЕГИЧЕСКИЙ МЕМОРАНДУМ О ИНСТИТУЦИОНАЛЬНОМ ПАРТНЁРСТВЕ</h3>
+<p><strong>(Strategic Institutional Partnership Memorandum)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-001.3-B</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="преамбула">Преамбула</h4>
+<p>Осознавая возрастающее значение открытой научной коммуникации, международного академического сотрудничества и институциональной независимости университетов,</p>
+<p>руководствуясь принципами академической свободы, научной добросовестности, долгосрочного развития научной инфраструктуры и взаимного уважения институционального суверенитета,</p>
+<p>стороны заключают настоящий Стратегический меморандум о партнёрстве.</p>
+<p>Настоящий документ определяет общие принципы формирования долговременного институционального союза между университетом и международной системой Chronicle OS.</p>
+<h4 id="1-предмет-стратегического-партнёрства">1. Предмет стратегического партнёрства</h4>
+<p>Стороны подтверждают намерение совместно участвовать в развитии международной инфраструктуры научной коммуникации Chronicle OS посредством:</p>
+<ul>
+<li>формирования Университетского Хроникального Узла;</li>
+<li>совместного развития академических издательских практик;</li>
+<li>участия в развитии международных стандартов научной коммуникации;</li>
+<li>развития экспертных сообществ;</li>
+<li>создания устойчивой институциональной научной экосистемы.</li>
+</ul>
+<h4 id="2-стратегические-цели">2. Стратегические цели</h4>
+<p>Партнёрство направлено на достижение следующих долгосрочных целей:</p>
+<ul>
+<li>развитие международной академической интеграции;</li>
+<li>повышение институциональной субъектности университетов;</li>
+<li>развитие независимых научных издательских платформ;</li>
+<li>формирование устойчивой экспертной инфраструктуры;</li>
+<li>развитие открытой системы научного знания;</li>
+<li>обеспечение долгосрочного хранения и институциональной преемственности научных результатов.</li>
+</ul>
+<h4 id="3-статус-сторон">3. Статус сторон</h4>
+<p>Настоящий Меморандум не устанавливает отношений подчинённости.</p>
+<p>Каждая сторона сохраняет:</p>
+<ul>
+<li>юридическую самостоятельность;</li>
+<li>организационную самостоятельность;</li>
+<li>финансовую самостоятельность;</li>
+<li>редакционную самостоятельность;</li>
+<li>академическую самостоятельность.</li>
+</ul>
+<p>Сотрудничество осуществляется исключительно на принципах институционального партнёрства.</p>
+<h4 id="4-роль-imarch-ltd">4. Роль IMARCH LTD</h4>
+<p>IMARCH LTD выступает в качестве международного институционального оператора Chronicle OS и обеспечивает:</p>
+<ul>
+<li>развитие нормативной базы;</li>
+<li>сопровождение институционального внедрения;</li>
+<li>развитие международной сети Chronicle OS;</li>
+<li>координацию совместных инициатив;</li>
+<li>поддержку международного взаимодействия участников сети.</li>
+</ul>
+<h4 id="5-роль-университета">5. Роль университета</h4>
+<p>Университет самостоятельно определяет:</p>
+<ul>
+<li>собственную научную политику;</li>
+<li>редакционную политику;</li>
+<li>кадровый состав;</li>
+<li>направления исследований;</li>
+<li>публикационную стратегию;</li>
+<li>внутреннюю структуру Университетского Хроникального Узла.</li>
+</ul>
+<h4 id="6-совместная-деятельность">6. Совместная деятельность</h4>
+<p>В рамках настоящего партнёрства стороны могут совместно осуществлять:</p>
+<ul>
+<li>научные исследования;</li>
+<li>издательские проекты;</li>
+<li>международные конференции;</li>
+<li>образовательные программы;</li>
+<li>экспертные программы;</li>
+<li>разработку отраслевых рекомендаций;</li>
+<li>развитие международных научных сетей.</li>
+</ul>
+<h4 id="7-совместное-развитие-chronicle-os">7. Совместное развитие Chronicle OS</h4>
+<p>Стороны признают возможность совместного участия в дальнейшем развитии Chronicle OS.</p>
+<p>Университет вправе:</p>
+<ul>
+<li>направлять предложения по развитию Documentation System;</li>
+<li>участвовать в экспертных обсуждениях;</li>
+<li>принимать участие в рабочих группах;</li>
+<li>инициировать разработку новых академических модулей;</li>
+<li>участвовать в развитии международных стандартов Chronicle OS.</li>
+</ul>
+<p>Все изменения Documentation System принимаются исключительно в порядке, установленном внутренними процедурами Chronicle OS.</p>
+<h4 id="8-международное-экспертное-участие">8. Международное экспертное участие</h4>
+<p>По взаимному согласию представители университета могут быть приглашены к участию в:</p>
+<ul>
+<li>Международном экспертном совете Chronicle OS;</li>
+<li>тематических редакционных коллегиях;</li>
+<li>рабочих экспертных группах;</li>
+<li>международных научных комиссиях.</li>
+</ul>
+<p>Такое участие осуществляется исключительно на добровольной основе и не изменяет институциональную самостоятельность университета.</p>
+<h4 id="9-интеллектуальная-собственность">9. Интеллектуальная собственность</h4>
+<p>Каждая сторона сохраняет исключительные права на принадлежащие ей объекты интеллектуальной собственности.</p>
+<p>Совместные результаты регулируются отдельными соглашениями.</p>
+<p>Настоящий Меморандум не предусматривает передачу имущественных прав.</p>
+<h4 id="10-конфиденциальность">10. Конфиденциальность</h4>
+<p>Информация, полученная сторонами в ходе подготовки совместных проектов, используется исключительно в целях реализации настоящего партнёрства.</p>
+<h4 id="11-срок-партнёрства">11. Срок партнёрства</h4>
+<p>Настоящий Меморандум вступает в силу с момента подписания.</p>
+<p>Партнёрство рассматривается сторонами как долгосрочное и действует до момента его прекращения по инициативе одной из сторон.</p>
+<h4 id="12-заключительные-положения-1">12. Заключительные положения</h4>
+<p>Настоящий Меморандум является декларацией стратегического институционального партнёрства.</p>
+<p>Все проекты, возникающие в рамках настоящего документа, реализуются посредством отдельных соглашений, регламентов и эксплуатационной документации Functional Deployment Package.</p>
+<h4 id="подписи-сторон-1">Подписи сторон</h4>
+<p><strong>IMARCH LTD (Великобритания)</strong><br>
+Имя: _______________<br>
+Должность: _______________<br>
+Дата: _______________<br>
+Подпись: _______________</p>
+<p><strong>Университет</strong><br>
+Имя: _______________<br>
+Должность: _______________<br>
+Дата: _______________<br>
+Подпись: _______________</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-001-4-framework-agreement"></a></p>
+<h3 id="fdp-0014--рамочное-институциональное-партнёрское-соглашение">FDP-001.4 — РАМОЧНОЕ ИНСТИТУЦИОНАЛЬНОЕ ПАРТНЁРСКОЕ СОГЛАШЕНИЕ</h3>
+<p><strong>(Institutional Partnership Agreement Framework)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-001.4</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-документа">1. Назначение документа</h4>
+<p>Настоящее Рамочное соглашение определяет юридические и организационные принципы долговременного сотрудничества между IMARCH LTD и университетом при создании и эксплуатации Университетского Хроникального Узла.</p>
+<p>Настоящий документ является основой для последующего заключения специализированных соглашений по отдельным направлениям сотрудничества.</p>
+<h4 id="2-предмет-соглашения">2. Предмет соглашения</h4>
+<p>Стороны совместно осуществляют деятельность по:</p>
+<ul>
+<li>созданию Университетского Хроникального Узла;</li>
+<li>развитию научной издательской инфраструктуры;</li>
+<li>организации редакционной деятельности;</li>
+<li>развитию международной научной коммуникации;</li>
+<li>внедрению стандартов Chronicle OS.</li>
+</ul>
+<h4 id="3-разграничение-полномочий">3. Разграничение полномочий</h4>
+<p><strong>IMARCH LTD осуществляет:</strong></p>
+<ul>
+<li>сопровождение Documentation System;</li>
+<li>развитие методологии;</li>
+<li>сопровождение международной инфраструктуры;</li>
+<li>развитие нормативной базы;</li>
+<li>координацию международного взаимодействия.</li>
+</ul>
+<p><strong>Университет самостоятельно осуществляет:</strong></p>
+<ul>
+<li>научную деятельность;</li>
+<li>редакционную деятельность;</li>
+<li>управление Университетским Хроникальным Узлом;</li>
+<li>кадровые назначения;</li>
+<li>выпуск научных публикаций;</li>
+<li>развитие собственной научной политики.</li>
+</ul>
+<h4 id="4-финансовая-независимость">4. Финансовая независимость</h4>
+<p>Каждая сторона самостоятельно несёт расходы, связанные с осуществлением собственной деятельности.</p>
+<p>Любые совместные финансовые проекты оформляются отдельными соглашениями.</p>
+<h4 id="5-академическая-независимость">5. Академическая независимость</h4>
+<p>IMARCH LTD не вмешивается:</p>
+<ul>
+<li>в научную политику университета;</li>
+<li>в решения редакционной коллегии;</li>
+<li>в процедуры рецензирования;</li>
+<li>в принятие решений о публикации.</li>
+</ul>
+<p>Университет самостоятельно принимает все редакционные решения.</p>
+<h4 id="6-совместное-использование-брендов">6. Совместное использование брендов</h4>
+<p>Использование:</p>
+<ul>
+<li>Chronicle OS;</li>
+<li>University Chronicle Node;</li>
+<li>IMARCH;</li>
+<li>фирменной символики</li>
+</ul>
+<p>осуществляется исключительно в порядке, установленном отдельными регламентами.</p>
+<h4 id="7-ответственность-сторон">7. Ответственность сторон</h4>
+<p>Каждая сторона отвечает исключительно за собственную деятельность.</p>
+<p>IMARCH LTD не несёт ответственности за содержание научных публикаций университета.</p>
+<p>Университет не несёт ответственности за деятельность других участников Chronicle OS.</p>
+<h4 id="8-урегулирование-разногласий">8. Урегулирование разногласий</h4>
+<p>Все возникающие вопросы стороны стремятся разрешать путём переговоров.</p>
+<p>При невозможности достижения соглашения стороны вправе прекратить сотрудничество без ущерба ранее опубликованным научным материалам.</p>
+<h4 id="9-прекращение-сотрудничества">9. Прекращение сотрудничества</h4>
+<p>Прекращение настоящего соглашения не влияет:</p>
+<ul>
+<li>на ранее опубликованные материалы;</li>
+<li>на права авторов;</li>
+<li>на права университета на собственную научную продукцию;</li>
+<li>на архивные данные Университетского Хроникального Узла.</li>
+</ul>
+<h4 id="10-заключительные-положения">10. Заключительные положения</h4>
+<p>Настоящее соглашение определяет институциональную модель взаимодействия сторон.</p>
+<p>Все специализированные проекты оформляются отдельными приложениями либо самостоятельными договорами.</p>
+<h4 id="приложения">Приложения</h4>
+<p>В состав настоящего соглашения могут входить:</p>
+<ul>
+<li>Техническое приложение;</li>
+<li>Финансовое приложение;</li>
+<li>План внедрения;</li>
+<li>План сопровождения;</li>
+<li>Перечень ответственных лиц;</li>
+<li>Дорожная карта проекта.</li>
+</ul>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-002-1-editorial-board-charter"></a></p>
+<h3 id="fdp-0021--устав-редакционной-коллегии-университетского-хроникального-узла">FDP-002.1 — УСТАВ РЕДАКЦИОННОЙ КОЛЛЕГИИ УНИВЕРСИТЕТСКОГО ХРОНИКАЛЬНОГО УЗЛА</h3>
+<p><strong>Идентификатор документа:</strong> FDP-002.1</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-общие-положения-1">1. Общие положения</h4>
+<p>Настоящий Устав определяет правовой статус, полномочия, порядок формирования и организацию деятельности Редакционной коллегии Университетского Хроникального Узла.</p>
+<p>Редакционная коллегия является постоянно действующим коллегиальным органом управления редакционной политикой институционального издательского узла.</p>
+<h4 id="2-назначение-редакционной-коллегии">2. Назначение Редакционной коллегии</h4>
+<p>Редакционная коллегия обеспечивает:</p>
+<ul>
+<li>формирование редакционной политики;</li>
+<li>развитие научного издания;</li>
+<li>контроль соблюдения редакционных стандартов;</li>
+<li>стратегическое развитие издательской деятельности;</li>
+<li>соблюдение принципов научной этики;</li>
+<li>взаимодействие с Chronicle OS по вопросам развития издательской инфраструктуры.</li>
+</ul>
+<h4 id="3-основные-задачи">3. Основные задачи</h4>
+<p>Редакционная коллегия:</p>
+<ul>
+<li>утверждает редакционную политику;</li>
+<li>определяет научную специализацию издания;</li>
+<li>утверждает тематические выпуски;</li>
+<li>рассматривает вопросы развития журнала;</li>
+<li>принимает решения о создании новых редакционных подразделений;</li>
+<li>утверждает внутренние редакционные документы.</li>
+</ul>
+<h4 id="4-компетенция">4. Компетенция</h4>
+<p>К исключительной компетенции Редакционной коллегии относятся:</p>
+<ul>
+<li>утверждение состава редакционного совета;</li>
+<li>назначение Главного редактора;</li>
+<li>утверждение Этического кодекса;</li>
+<li>утверждение Регламента рецензирования;</li>
+<li>утверждение публикационной политики;</li>
+<li>принятие решений о стратегическом развитии Университетского Хроникального Узла.</li>
+</ul>
+<h4 id="5-состав">5. Состав</h4>
+<p>В состав Редакционной коллегии входят:</p>
+<ul>
+<li>Председатель;</li>
+<li>Главный редактор;</li>
+<li>заместители Главного редактора;</li>
+<li>ответственный секретарь;</li>
+<li>руководители научных направлений;</li>
+<li>приглашённые члены Коллегии (при необходимости).</li>
+</ul>
+<p>Количество членов Коллегии определяется университетом.</p>
+<h4 id="6-формирование-коллегии">6. Формирование Коллегии</h4>
+<p>Члены Коллегии назначаются университетом в порядке, установленном внутренними нормативными документами.</p>
+<p>Chronicle OS не вмешивается в кадровые решения университета.</p>
+<h4 id="7-полномочия-председателя">7. Полномочия Председателя</h4>
+<p>Председатель Коллегии:</p>
+<ul>
+<li>организует работу Коллегии;</li>
+<li>утверждает повестку заседаний;</li>
+<li>подписывает решения Коллегии;</li>
+<li>представляет Коллегию во взаимоотношениях с университетом и IMARCH LTD.</li>
+</ul>
+<h4 id="8-заседания">8. Заседания</h4>
+<p>Редакционная коллегия проводит заседания:</p>
+<ul>
+<li>плановые;</li>
+<li>внеочередные.</li>
+</ul>
+<p>Форма заседаний:</p>
+<ul>
+<li>очная;</li>
+<li>дистанционная;</li>
+<li>смешанная.</li>
+</ul>
+<h4 id="9-принятие-решений">9. Принятие решений</h4>
+<p>Решения принимаются большинством голосов присутствующих членов Коллегии.</p>
+<p>При равенстве голосов решающим является голос Председателя.</p>
+<h4 id="10-конфликт-интересов">10. Конфликт интересов</h4>
+<p>Член Коллегии обязан уведомить Председателя о наличии конфликта интересов до начала рассмотрения соответствующего вопроса.</p>
+<p>В случае конфликта интересов член Коллегии не принимает участия в голосовании.</p>
+<h4 id="11-взаимодействие-с-chronicle-os">11. Взаимодействие с Chronicle OS</h4>
+<p>Редакционная коллегия взаимодействует с IMARCH LTD исключительно по вопросам:</p>
+<ul>
+<li>развития Documentation System;</li>
+<li>совершенствования редакционных стандартов;</li>
+<li>участия в международных научных инициативах;</li>
+<li>обмена опытом;</li>
+<li>международной интеграции.</li>
+</ul>
+<p>Редакционные решения остаются исключительной компетенцией университета.</p>
+<h4 id="12-ответственность">12. Ответственность</h4>
+<p>Редакционная коллегия несёт ответственность за:</p>
+<ul>
+<li>соблюдение редакционной политики;</li>
+<li>соблюдение научной этики;</li>
+<li>качество редакционных процедур;</li>
+<li>стратегическое развитие Университетского Хроникального Узла.</li>
+</ul>
+<p>Ответственность за содержание научных публикаций определяется внутренними нормативными документами университета и действующим законодательством.</p>
+<h4 id="13-заключительные-положения">13. Заключительные положения</h4>
+<p>Настоящий Устав вступает в силу после утверждения университетом.</p>
+<p>Изменения в Устав принимаются в порядке, установленном университетом.</p>
+<p>Настоящий документ рекомендуется к использованию в качестве базового регламента деятельности Редакционной коллегии Университетского Хроникального Узла в составе Chronicle OS.</p>
+<h4 id="приложения-1">Приложения</h4>
+<p>К настоящему Уставу могут прилагаться:</p>
+<ul>
+<li>Регламент заседаний;</li>
+<li>Кодекс научной этики;</li>
+<li>Регламент рецензирования;</li>
+<li>Положение о редакционном совете;</li>
+<li>Положение о Главном редакторе;</li>
+<li>Регламент документооборота.</li>
+</ul>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-002-3-editor-in-chief-charter"></a></p>
+<h3 id="fdp-0023--устав-главного-редактора-университетского-хроникального-узла">FDP-002.3 — УСТАВ ГЛАВНОГО РЕДАКТОРА УНИВЕРСИТЕТСКОГО ХРОНИКАЛЬНОГО УЗЛА</h3>
+<p><strong>Идентификатор документа:</strong> FDP-002.3</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-общие-положения-2">1. Общие положения</h4>
+<p>Главный редактор является высшим должностным лицом редакции Университетского Хроникального Узла и осуществляет текущее руководство редакционной деятельностью.</p>
+<p>Главный редактор действует в пределах полномочий, предоставленных университетом и настоящим Уставом.</p>
+<h4 id="2-основная-задача">2. Основная задача</h4>
+<p>Главный редактор обеспечивает функционирование Университетского Хроникального Узла как непрерывно действующего научного издательского подразделения университета.</p>
+<h4 id="3-основные-функции">3. Основные функции</h4>
+<p>Главный редактор:</p>
+<ul>
+<li>организует редакционный процесс;</li>
+<li>обеспечивает соблюдение Publication Policy;</li>
+<li>организует экспертное рецензирование;</li>
+<li>принимает решения о движении рукописей;</li>
+<li>контролирует соблюдение редакционных сроков;</li>
+<li>организует подготовку выпусков;</li>
+<li>представляет редакцию во внешних отношениях.</li>
+</ul>
+<h4 id="4-полномочия">4. Полномочия</h4>
+<p>Главный редактор имеет право:</p>
+<ul>
+<li>назначать ответственных редакторов;</li>
+<li>распределять рукописи;</li>
+<li>инициировать повторное рецензирование;</li>
+<li>отклонять рукописи по формальным основаниям;</li>
+<li>возвращать материалы авторам на доработку;</li>
+<li>формировать рабочие группы редакции.</li>
+</ul>
+<h4 id="5-ограничения-полномочий">5. Ограничения полномочий</h4>
+<p>Главный редактор не вправе:</p>
+<ul>
+<li>изменять решения Редакционного совета;</li>
+<li>вмешиваться в независимое экспертное заключение;</li>
+<li>изменять авторские материалы без согласования с авторами;</li>
+<li>принимать решения, противоречащие Этическому кодексу.</li>
+</ul>
+<h4 id="6-ответственность">6. Ответственность</h4>
+<p>Главный редактор отвечает за:</p>
+<ul>
+<li>соблюдение редакционных процедур;</li>
+<li>соблюдение Publication Policy;</li>
+<li>организацию рецензирования;</li>
+<li>своевременность подготовки выпусков;</li>
+<li>корректность редакционного документооборота.</li>
+</ul>
+<h4 id="7-взаимодействие">7. Взаимодействие</h4>
+<p>Главный редактор взаимодействует с:</p>
+<ul>
+<li>Редакционным советом;</li>
+<li>Редакционной коллегией;</li>
+<li>Экспертным советом;</li>
+<li>авторами;</li>
+<li>рецензентами;</li>
+<li>технической редакцией;</li>
+<li>IMARCH LTD исключительно по вопросам развития Chronicle OS.</li>
+</ul>
+<h4 id="8-назначение">8. Назначение</h4>
+<p>Главный редактор назначается университетом.</p>
+<p>Порядок назначения определяется внутренними документами университета.</p>
+<p>IMARCH LTD не участвует в кадровых решениях университета.</p>
+<h4 id="9-освобождение-от-должности">9. Освобождение от должности</h4>
+<p>Главный редактор освобождается:</p>
+<ul>
+<li>по собственному заявлению;</li>
+<li>по решению университета;</li>
+<li>по основаниям, предусмотренным внутренними нормативными документами.</li>
+</ul>
+<h4 id="10-заключительные-положения-1">10. Заключительные положения</h4>
+<p>Главный редактор осуществляет свою деятельность в интересах университета, научного сообщества и развития Chronicle OS.</p>
+<p>Настоящий Устав применяется совместно с:</p>
+<ul>
+<li>Уставом Редакционной коллегии;</li>
+<li>Уставом Ответственного секретаря;</li>
+<li>Этическим кодексом;</li>
+<li>Publication Policy;</li>
+<li>Peer Review Policy.</li>
+</ul>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-002-4-managing-editor-charter"></a></p>
+<h3 id="fdp-0024--устав-ответственного-секретаря">FDP-002.4 — УСТАВ ОТВЕТСТВЕННОГО СЕКРЕТАРЯ</h3>
+<p><strong>Идентификатор документа:</strong> FDP-002.4</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-общие-положения-3">1. Общие положения</h4>
+<p>Ответственный секретарь редакции является должностным лицом Университетского Хроникального Узла, обеспечивающим организацию ежедневной деятельности редакции, редакционного документооборота и координацию взаимодействия всех участников публикационного процесса.</p>
+<p>Ответственный секретарь действует в пределах полномочий, определённых настоящим Уставом и внутренними нормативными документами университета.</p>
+<h4 id="2-назначение-должности">2. Назначение должности</h4>
+<p>Основной задачей Ответственного секретаря является обеспечение непрерывного функционирования редакционного процесса на всех этапах жизненного цикла научной публикации.</p>
+<h4 id="3-основные-функции-1">3. Основные функции</h4>
+<p>Ответственный секретарь:</p>
+<ul>
+<li>принимает поступающие рукописи;</li>
+<li>осуществляет первичную регистрацию материалов;</li>
+<li>проверяет комплектность представленных документов;</li>
+<li>организует редакционный документооборот;</li>
+<li>сопровождает движение рукописей;</li>
+<li>организует взаимодействие между авторами, редакторами и рецензентами;</li>
+<li>контролирует соблюдение сроков;</li>
+<li>готовит материалы к заседаниям редакционных органов;</li>
+<li>обеспечивает архивирование редакционной документации;</li>
+<li>ведёт реестр публикаций.</li>
+</ul>
+<h4 id="4-полномочия-1">4. Полномочия</h4>
+<p>Ответственный секретарь имеет право:</p>
+<ul>
+<li>запрашивать у авторов недостающие материалы;</li>
+<li>возвращать материалы на техническую доработку;</li>
+<li>направлять материалы ответственным редакторам;</li>
+<li>осуществлять контроль исполнения редакционных процедур;</li>
+<li>формировать рабочие отчёты;</li>
+<li>инициировать уведомления участников редакционного процесса.</li>
+</ul>
+<h4 id="5-ограничения-полномочий-1">5. Ограничения полномочий</h4>
+<p>Ответственный секретарь не принимает решений:</p>
+<ul>
+<li>о научной ценности материалов;</li>
+<li>о публикации рукописей;</li>
+<li>о результатах рецензирования;</li>
+<li>о редакционной политике;</li>
+<li>о кадровых вопросах редакции.</li>
+</ul>
+<p>Указанные решения относятся к компетенции Главного редактора, Редакционной коллегии или Редакционного совета.</p>
+<h4 id="6-ответственность-1">6. Ответственность</h4>
+<p>Ответственный секретарь отвечает за:</p>
+<ul>
+<li>корректность документооборота;</li>
+<li>своевременность обработки материалов;</li>
+<li>сохранность редакционной документации;</li>
+<li>соблюдение редакционных сроков;</li>
+<li>достоверность редакционных реестров;</li>
+<li>корректность служебной переписки.</li>
+</ul>
+<h4 id="7-взаимодействие-1">7. Взаимодействие</h4>
+<p>Ответственный секретарь взаимодействует с:</p>
+<ul>
+<li>Главным редактором;</li>
+<li>Редакционной коллегией;</li>
+<li>Редакционным советом;</li>
+<li>авторами;</li>
+<li>рецензентами;</li>
+<li>техническими редакторами;</li>
+<li>специалистами по научным метаданным;</li>
+<li>администрацией университета.</li>
+</ul>
+<h4 id="8-назначение-1">8. Назначение</h4>
+<p>Ответственный секретарь назначается университетом в установленном порядке.</p>
+<p>Порядок назначения определяется внутренними нормативными документами университета.</p>
+<h4 id="9-освобождение-от-должности-1">9. Освобождение от должности</h4>
+<p>Ответственный секретарь освобождается:</p>
+<ul>
+<li>по собственному заявлению;</li>
+<li>по решению университета;</li>
+<li>по основаниям, предусмотренным действующим законодательством и внутренними нормативными документами университета.</li>
+</ul>
+<h4 id="10-заключительные-положения-2">10. Заключительные положения</h4>
+<p>Ответственный секретарь является центральным координатором редакционного документооборота Университетского Хроникального Узла и обеспечивает организационную устойчивость публикационного процесса.</p>
+<p>Настоящий Устав применяется совместно с:</p>
+<ul>
+<li>Уставом Главного редактора;</li>
+<li>Уставом Редакционной коллегии;</li>
+<li>Publication Policy;</li>
+<li>Peer Review Policy;</li>
+<li>Регламентом редакционного документооборота.</li>
+</ul>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-002-5-issue-editor-charter"></a></p>
+<h3 id="fdp-0025--устав-выпускающего-редактора">FDP-002.5 — УСТАВ ВЫПУСКАЮЩЕГО РЕДАКТОРА</h3>
+<p><strong>Идентификатор документа:</strong> FDP-002.5</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-общие-положения-4">1. Общие положения</h4>
+<p>Ответственный редактор выпуска является должностным лицом Университетского Хроникального Узла, осуществляющим организацию подготовки конкретного выпуска научного издания.</p>
+<p>Ответственный редактор действует в пределах полномочий, предоставленных Главным редактором и настоящим Уставом.</p>
+<h4 id="2-назначение">2. Назначение</h4>
+<p>Основной задачей Ответственного редактора выпуска является обеспечение подготовки отдельного выпуска журнала от момента формирования тематического плана до передачи материалов в производство.</p>
+<h4 id="3-основные-функции-2">3. Основные функции</h4>
+<p>Ответственный редактор выпуска:</p>
+<ul>
+<li>формирует тематический план выпуска;</li>
+<li>организует взаимодействие с авторами;</li>
+<li>координирует работу рецензентов;</li>
+<li>взаимодействует с ответственным секретарём;</li>
+<li>контролирует прохождение редакционных процедур;</li>
+<li>формирует окончательный состав выпуска;</li>
+<li>представляет выпуск Главному редактору для утверждения.</li>
+</ul>
+<h4 id="4-полномочия-2">4. Полномочия</h4>
+<p>Ответственный редактор выпуска вправе:</p>
+<ul>
+<li>предлагать авторов для публикации;</li>
+<li>инициировать дополнительное рецензирование;</li>
+<li>возвращать материалы на научную доработку;</li>
+<li>формировать предложения по составу выпуска;</li>
+<li>проводить рабочие совещания с авторами и рецензентами.</li>
+</ul>
+<h4 id="5-ограничения-полномочий-2">5. Ограничения полномочий</h4>
+<p>Ответственный редактор выпуска не вправе:</p>
+<ul>
+<li>самостоятельно утверждать публикацию материалов;</li>
+<li>изменять решения Главного редактора;</li>
+<li>изменять заключения независимых рецензентов;</li>
+<li>нарушать утверждённую Publication Policy;</li>
+<li>изменять редакционную политику журнала.</li>
+</ul>
+<h4 id="6-ответственность-2">6. Ответственность</h4>
+<p>Ответственный редактор выпуска отвечает за:</p>
+<ul>
+<li>научную целостность выпуска;</li>
+<li>соблюдение тематической концепции;</li>
+<li>полноту редакционной подготовки материалов;</li>
+<li>соблюдение утверждённых сроков;</li>
+<li>качество взаимодействия с авторами и рецензентами.</li>
+</ul>
+<h4 id="7-взаимодействие-2">7. Взаимодействие</h4>
+<p>Ответственный редактор выпуска взаимодействует с:</p>
+<ul>
+<li>Главным редактором;</li>
+<li>Ответственным секретарём;</li>
+<li>Редакционной коллегией;</li>
+<li>авторами;</li>
+<li>рецензентами;</li>
+<li>техническими редакторами;</li>
+<li>специалистами по научным метаданным.</li>
+</ul>
+<h4 id="8-назначение-2">8. Назначение</h4>
+<p>Ответственный редактор выпуска назначается Главным редактором либо Редакционной коллегией в порядке, установленном внутренними нормативными документами университета.</p>
+<p>Для каждого выпуска может назначаться отдельный Ответственный редактор.</p>
+<h4 id="9-освобождение-от-исполнения-обязанностей">9. Освобождение от исполнения обязанностей</h4>
+<p>Полномочия Ответственного редактора выпуска прекращаются:</p>
+<ul>
+<li>после завершения подготовки выпуска;</li>
+<li>по решению Главного редактора;</li>
+<li>по собственному заявлению;</li>
+<li>в иных случаях, предусмотренных внутренними документами университета.</li>
+</ul>
+<h4 id="10-заключительные-положения-3">10. Заключительные положения</h4>
+<p>Ответственный редактор выпуска обеспечивает организационную и научную подготовку конкретного выпуска журнала и действует в интересах университета, научного сообщества и соблюдения редакционных стандартов Chronicle OS.</p>
+<p>Настоящий Устав применяется совместно с:</p>
+<ul>
+<li>Уставом Главного редактора;</li>
+<li>Уставом Ответственного секретаря;</li>
+<li>Publication Policy;</li>
+<li>Peer Review Policy;</li>
+<li>Регламентом редакционного документооборота.</li>
+</ul>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-002-6-technical-editor-charter"></a></p>
+<h3 id="fdp-0026--устав-технического-редактора">FDP-002.6 — УСТАВ ТЕХНИЧЕСКОГО РЕДАКТОРА</h3>
+<p><strong>Идентификатор документа:</strong> FDP-002.6</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-общие-положения-5">1. Общие положения</h4>
+<p>Технический редактор является должностным лицом Университетского Хроникального Узла, обеспечивающим техническую подготовку научных публикаций к официальному выпуску.</p>
+<p>Технический редактор осуществляет деятельность после завершения научной и редакционной подготовки материалов.</p>
+<h4 id="2-назначение-1">2. Назначение</h4>
+<p>Основной задачей Технического редактора является обеспечение единообразного оформления, корректности публикационных данных и подготовки материалов к официальной публикации.</p>
+<h4 id="3-основные-функции-3">3. Основные функции</h4>
+<p>Технический редактор:</p>
+<ul>
+<li>проверяет оформление рукописей;</li>
+<li>приводит материалы к установленным редакционным стандартам;</li>
+<li>осуществляет подготовку финальной вёрстки;</li>
+<li>контролирует корректность оформления рисунков, таблиц и приложений;</li>
+<li>проверяет полноту научных метаданных;</li>
+<li>готовит публикационные файлы;</li>
+<li>обеспечивает техническую готовность выпуска.</li>
+</ul>
+<h4 id="4-полномочия-3">4. Полномочия</h4>
+<p>Технический редактор вправе:</p>
+<ul>
+<li>возвращать материалы на техническую доработку;</li>
+<li>запрашивать недостающие элементы оформления;</li>
+<li>предлагать исправления технического характера;</li>
+<li>взаимодействовать с авторами по вопросам оформления публикаций.</li>
+</ul>
+<h4 id="5-ограничения-полномочий-3">5. Ограничения полномочий</h4>
+<p>Технический редактор не вправе:</p>
+<ul>
+<li>изменять научное содержание статьи;</li>
+<li>изменять авторскую позицию;</li>
+<li>принимать решения о публикации;</li>
+<li>вмешиваться в процедуру рецензирования;</li>
+<li>изменять редакционную политику.</li>
+</ul>
+<p>Все содержательные изменения осуществляются исключительно по согласованию с автором и Главным редактором.</p>
+<h4 id="6-ответственность-3">6. Ответственность</h4>
+<p>Технический редактор отвечает за:</p>
+<ul>
+<li>соответствие публикаций редакционному стилю;</li>
+<li>качество технической подготовки материалов;</li>
+<li>корректность публикационных файлов;</li>
+<li>соблюдение требований Publication Policy;</li>
+<li>готовность выпуска к публикации.</li>
+</ul>
+<h4 id="7-взаимодействие-3">7. Взаимодействие</h4>
+<p>Технический редактор взаимодействует с:</p>
+<ul>
+<li>Главным редактором;</li>
+<li>Ответственным редактором выпуска;</li>
+<li>Ответственным секретарём;</li>
+<li>авторами;</li>
+<li>администратором издательской платформы.</li>
+</ul>
+<h4 id="8-назначение-3">8. Назначение</h4>
+<p>Технический редактор назначается университетом либо Главным редактором в соответствии с внутренними нормативными документами.</p>
+<h4 id="9-заключительные-положения">9. Заключительные положения</h4>
+<p>Технический редактор завершает редакционный цикл подготовки публикации и передаёт выпуск в стадию официальной публикации в соответствии с утверждённым Publication Workflow.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<!-- КОНЕЦ ОТВЕТА 2 — FDP-003.1 – FDP-003.9 в Ответе 3 -->
+<p><a id="fdp-003-1-publication-workflow"></a></p>
+<h3 id="fdp-0031--регламент-публикационного-процесса">FDP-003.1 — РЕГЛАМЕНТ ПУБЛИКАЦИОННОГО ПРОЦЕССА</h3>
+<p><strong>Полный жизненный цикл научной публикации</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.1</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-документа-1">1. Назначение документа</h4>
+<p>Настоящий Регламент определяет полный жизненный цикл научной публикации в составе Университетского Хроникального Узла, начиная с момента поступления рукописи в редакцию и заканчивая её публикацией, архивированием и последующим сопровождением.</p>
+<p>Настоящий документ применяется всеми участниками редакционного процесса независимо от их должностного положения.</p>
+<h4 id="2-общие-принципы">2. Общие принципы</h4>
+<p>Редакционный процесс строится на следующих принципах:</p>
+<ul>
+<li>научная добросовестность;</li>
+<li>независимость экспертной оценки;</li>
+<li>прозрачность процедур;</li>
+<li>прослеживаемость всех редакционных действий;</li>
+<li>сохранность редакционной истории;</li>
+<li>неизменность опубликованной версии.</li>
+</ul>
+<h4 id="3-участники-публикационного-процесса">3. Участники публикационного процесса</h4>
+<p>В редакционном процессе участвуют:</p>
+<ul>
+<li>Автор;</li>
+<li>Ответственный секретарь;</li>
+<li>Главный редактор;</li>
+<li>Ответственный редактор выпуска;</li>
+<li>Рецензенты;</li>
+<li>Технический редактор;</li>
+<li>Специалист по научным метаданным;</li>
+<li>Администратор издательской платформы.</li>
+</ul>
+<h4 id="4-основные-стадии-жизненного-цикла-публикации">4. Основные стадии жизненного цикла публикации</h4>
+<p>Публикация проходит следующие стадии:</p>
+<p><strong>Stage 1</strong> — Поступление рукописи.</p>
+<p><strong>Stage 2</strong> — Первичная техническая проверка.</p>
+<p><strong>Stage 3</strong> — Предварительная редакционная оценка.</p>
+<p><strong>Stage 4</strong> — Назначение ответственного редактора.</p>
+<p><strong>Stage 5</strong> — Экспертное рецензирование.</p>
+<p><strong>Stage 6</strong> — Авторская доработка.</p>
+<p><strong>Stage 7</strong> — Редакционное утверждение.</p>
+<p><strong>Stage 8</strong> — Техническая подготовка.</p>
+<p><strong>Stage 9</strong> — Формирование научных метаданных.</p>
+<p><strong>Stage 10</strong> — Присвоение публикационных идентификаторов.</p>
+<p><strong>Stage 11</strong> — Официальная публикация.</p>
+<p><strong>Stage 12</strong> — Архивирование.</p>
+<p><strong>Stage 13</strong> — Постпубликационное сопровождение.</p>
+<h4 id="5-управление-состояниями-публикации">5. Управление состояниями публикации</h4>
+<p>Для каждой публикации фиксируется текущее состояние.</p>
+<p>Каждое изменение состояния сопровождается:</p>
+<ul>
+<li>временем изменения;</li>
+<li>ответственным участником;</li>
+<li>основанием изменения;</li>
+<li>записью в редакционном журнале событий.</li>
+</ul>
+<h4 id="6-прослеживаемость">6. Прослеживаемость</h4>
+<p>Ни одно редакционное действие не выполняется без регистрации.</p>
+<p>Все изменения редакционного состояния сохраняются в журнале публикационного процесса.</p>
+<h4 id="7-завершение-жизненного-цикла">7. Завершение жизненного цикла</h4>
+<p>После официальной публикации статья считается завершившей редакционный цикл и переходит в режим архивного сопровождения.</p>
+<p>Последующие изменения допускаются исключительно в порядке, установленном отдельными регламентами Chronicle OS.</p>
+<h4 id="8-заключительные-положения">8. Заключительные положения</h4>
+<p>Настоящий Регламент определяет только последовательность стадий публикационного процесса.</p>
+<p>Подробные процедуры выполнения каждой стадии устанавливаются специализированными эксплуатационными протоколами Functional Deployment Package.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-003-2-manuscript-intake"></a></p>
+<h3 id="fdp-0032--протокол-приёма-рукописей">FDP-003.2 — ПРОТОКОЛ ПРИЁМА РУКОПИСЕЙ</h3>
+<p><strong>(Manuscript Intake Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.2</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-1">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок приёма научной рукописи в редакцию Университетского Хроникального Узла.</p>
+<p>Протокол применяется ко всем материалам независимо от их научной области, типа публикации или способа поступления.</p>
+<h4 id="2-цель">2. Цель</h4>
+<p>Обеспечить единообразную регистрацию каждой поступившей рукописи, исключить потерю материалов и гарантировать прослеживаемость дальнейшего редакционного процесса.</p>
+<h4 id="3-ответственный">3. Ответственный</h4>
+<p>Исполнение настоящего Протокола возлагается на Ответственного секретаря редакции.</p>
+<h4 id="4-основание-начала-процедуры">4. Основание начала процедуры</h4>
+<p>Процедура начинается с момента поступления рукописи через один из официальных каналов редакции.</p>
+<p>Допустимые каналы:</p>
+<ul>
+<li>редакционная информационная система;</li>
+<li>официальный сайт;</li>
+<li>официальный адрес электронной почты;</li>
+<li>иные утверждённые редакцией средства приёма материалов.</li>
+</ul>
+<h4 id="5-регистрация">5. Регистрация</h4>
+<p>После получения материала Ответственный секретарь обязан:</p>
+<ul>
+<li>зарегистрировать дату поступления;</li>
+<li>присвоить внутренний регистрационный номер;</li>
+<li>сформировать редакционную карточку публикации;</li>
+<li>открыть публикационное досье.</li>
+</ul>
+<h4 id="6-проверка-комплектности">6. Проверка комплектности</h4>
+<p>Проверяется наличие:</p>
+<ul>
+<li>текста рукописи;</li>
+<li>сведений об авторах;</li>
+<li>контактной информации;</li>
+<li>необходимых сопроводительных документов;</li>
+<li>деклараций, предусмотренных Publication Policy.</li>
+</ul>
+<h4 id="7-результаты-проверки">7. Результаты проверки</h4>
+<p>По результатам проверки принимается одно из решений:</p>
+<p><strong>7.1 Материал принят к рассмотрению</strong><br>
+Рукопись получает статус <em>Received</em> и передаётся на этап предварительной редакционной оценки.</p>
+<p><strong>7.2 Материал требует доукомплектования</strong><br>
+Автору направляется уведомление с перечнем отсутствующих документов. До устранения замечаний публикация получает статус <em>Incomplete Submission</em>.</p>
+<p><strong>7.3 Материал не соответствует формальным требованиям</strong><br>
+Рукопись возвращается автору без начала редакционного процесса. Статус — <em>Returned Without Review</em>.</p>
+<h4 id="8-документирование">8. Документирование</h4>
+<p>Каждое действие фиксируется:</p>
+<ul>
+<li>дата;</li>
+<li>время;</li>
+<li>исполнитель;</li>
+<li>основание;</li>
+<li>принятое решение.</li>
+</ul>
+<p>Все записи сохраняются в публикационном журнале.</p>
+<h4 id="9-передача-на-следующий-этап">9. Передача на следующий этап</h4>
+<p>После завершения регистрации публикация передаётся Главному редактору для предварительной оценки.</p>
+<p>Статус публикации изменяется на <em>Editorial Screening</em>.</p>
+<h4 id="10-завершение-процедуры">10. Завершение процедуры</h4>
+<p>Настоящий Протокол считается исполненным после передачи публикации на следующий этап редакционного процесса.</p>
+<h4 id="результат-1">Результат</h4>
+<p>Выходом настоящего Протокола является официально зарегистрированная рукопись с полным публикационным досье, готовая к предварительной редакционной оценке.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-003-3-editorial-screening"></a></p>
+<h3 id="fdp-0033--протокол-редакционного-скрининга">FDP-003.3 — ПРОТОКОЛ РЕДАКЦИОННОГО СКРИНИНГА</h3>
+<p><strong>(Editorial Screening Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.3</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-2">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок проведения предварительной редакционной оценки рукописи до передачи её на независимое экспертное рецензирование.</p>
+<h4 id="2-цель-1">2. Цель</h4>
+<p>Предварительная редакционная оценка предназначена для установления соответствия поступившей рукописи базовым требованиям научного издания.</p>
+<p>Данный этап не является научным рецензированием и не содержит оценки научной новизны исследования.</p>
+<h4 id="3-ответственный-1">3. Ответственный</h4>
+<p>Предварительную редакционную оценку осуществляет Главный редактор либо уполномоченный им Ответственный редактор.</p>
+<h4 id="4-предмет-оценки">4. Предмет оценки</h4>
+<p>Проверяется исключительно соответствие следующим критериям:</p>
+<ul>
+<li>тематическая принадлежность журналу;</li>
+<li>соответствие редакционной политике;</li>
+<li>соответствие научному профилю выпуска;</li>
+<li>соблюдение Publication Policy;</li>
+<li>соблюдение Publication Ethics;</li>
+<li>отсутствие очевидных нарушений академической добросовестности;</li>
+<li>полнота представленных материалов.</li>
+</ul>
+<p>На данном этапе не производится научная экспертиза результатов исследования.</p>
+<h4 id="5-возможные-решения">5. Возможные решения</h4>
+<p>По результатам предварительной оценки принимается одно из следующих решений.</p>
+<p><strong>Решение А — Передать на экспертное рецензирование</strong><br>
+Статус публикации: <em>Peer Review Assigned</em></p>
+<p><strong>Решение B — Вернуть автору для предварительной доработки</strong><br>
+Статус: <em>Revision Before Review</em><br>
+Автору направляется перечень замечаний, устранение которых необходимо до начала процедуры рецензирования.</p>
+<p><strong>Решение C — Отклонить без направления на рецензирование</strong><br>
+Статус: <em>Desk Rejected</em><br>
+Основаниями могут являться:</p>
+<ul>
+<li>несоответствие тематике;</li>
+<li>грубое нарушение редакционной политики;</li>
+<li>отсутствие научного характера материала;</li>
+<li>очевидные нарушения Publication Ethics;</li>
+<li>неполнота представленных материалов после повторного запроса.</li>
+</ul>
+<h4 id="6-запреты">6. Запреты</h4>
+<p>При проведении предварительной оценки запрещается:</p>
+<ul>
+<li>оценивать научную новизну исследования;</li>
+<li>оценивать достоверность научных результатов;</li>
+<li>заменять собой процедуру независимого рецензирования;</li>
+<li>учитывать личность автора при принятии решения.</li>
+</ul>
+<h4 id="7-документирование">7. Документирование</h4>
+<p>Каждое решение сопровождается:</p>
+<ul>
+<li>датой;</li>
+<li>временем;</li>
+<li>ответственным редактором;</li>
+<li>основанием принятого решения;</li>
+<li>изменением статуса публикации.</li>
+</ul>
+<h4 id="8-передача-публикации">8. Передача публикации</h4>
+<p>При положительном решении публикация передаётся Ответственному секретарю для назначения независимых рецензентов.</p>
+<h4 id="9-завершение-процедуры">9. Завершение процедуры</h4>
+<p>Протокол считается исполненным после изменения статуса публикации и передачи материалов на следующий этап публикационного цикла.</p>
+<h4 id="результат-2">Результат</h4>
+<p>Выходом настоящего Протокола является одно из трёх решений:</p>
+<ul>
+<li>направление на рецензирование;</li>
+<li>возврат на предварительную доработку;</li>
+<li>отклонение без проведения экспертного рецензирования.</li>
+</ul>
+<p>Решение фиксируется в публикационном журнале Chronicle OS и становится частью редакционной истории рукописи.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-003-4-peer-review-assignment"></a></p>
+<h3 id="fdp-0034--протокол-назначения-рецензирования">FDP-003.4 — ПРОТОКОЛ НАЗНАЧЕНИЯ РЕЦЕНЗИРОВАНИЯ</h3>
+<p><strong>(Peer Review Assignment Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.4</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-3">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок назначения независимого научного рецензирования поступивших рукописей после завершения предварительной редакционной оценки.</p>
+<h4 id="2-цель-2">2. Цель</h4>
+<p>Обеспечить объективную, независимую и профессиональную научную экспертизу каждой рукописи до принятия решения о публикации.</p>
+<h4 id="3-ответственные-лица">3. Ответственные лица</h4>
+<p>Исполнение настоящего Протокола осуществляется:</p>
+<ul>
+<li>Главным редактором;</li>
+<li>Ответственным редактором выпуска;</li>
+<li>Ответственным секретарём.</li>
+</ul>
+<h4 id="4-основание-начала-процедуры-1">4. Основание начала процедуры</h4>
+<p>Процедура начинается после присвоения публикации статуса <em>Peer Review Assigned</em>.</p>
+<h4 id="5-подбор-рецензентов">5. Подбор рецензентов</h4>
+<p>При выборе рецензентов учитываются:</p>
+<ul>
+<li>научная специализация;</li>
+<li>профессиональная компетентность;</li>
+<li>отсутствие конфликта интересов;</li>
+<li>независимость экспертной позиции;</li>
+<li>отсутствие служебной зависимости от автора.</li>
+</ul>
+<h4 id="6-требования-к-рецензенту">6. Требования к рецензенту</h4>
+<p>Рецензент должен:</p>
+<ul>
+<li>обладать подтверждённой квалификацией;</li>
+<li>соблюдать нормы научной этики;</li>
+<li>обеспечивать конфиденциальность материалов;</li>
+<li>отказаться от участия при наличии конфликта интересов.</li>
+</ul>
+<h4 id="7-количество-рецензентов">7. Количество рецензентов</h4>
+<p>Стандартной процедурой является назначение не менее двух независимых рецензентов.</p>
+<p>В отдельных случаях Главный редактор вправе назначить дополнительную экспертизу.</p>
+<h4 id="8-приглашение">8. Приглашение</h4>
+<p>Ответственный секретарь направляет рецензенту:</p>
+<ul>
+<li>приглашение;</li>
+<li>сведения о сроках;</li>
+<li>редакционные инструкции;</li>
+<li>декларацию об отсутствии конфликта интересов;</li>
+<li>текст рукописи (в соответствии с принятой моделью рецензирования).</li>
+</ul>
+<h4 id="9-ответ-рецензента">9. Ответ рецензента</h4>
+<p>Рецензент может:</p>
+<ul>
+<li>принять приглашение;</li>
+<li>отказаться;</li>
+<li>сообщить о наличии конфликта интересов;</li>
+<li>предложить перенести сроки.</li>
+</ul>
+<h4 id="10-замена-рецензента">10. Замена рецензента</h4>
+<p>В случае отказа либо невозможности проведения экспертизы назначается новый независимый рецензент.</p>
+<p>Все действия фиксируются в публикационном журнале.</p>
+<h4 id="11-конфиденциальность">11. Конфиденциальность</h4>
+<p>До завершения публикационного процесса сведения о личности рецензентов, составе экспертной группы и содержании экспертных материалов используются исключительно в пределах редакционного процесса в соответствии с принятой моделью рецензирования.</p>
+<h4 id="12-документирование">12. Документирование</h4>
+<p>Фиксируются:</p>
+<ul>
+<li>дата назначения;</li>
+<li>дата принятия приглашения;</li>
+<li>выбранная модель рецензирования;</li>
+<li>сроки подготовки заключения;</li>
+<li>сведения о назначившем редакторе.</li>
+</ul>
+<h4 id="13-передача-на-следующий-этап">13. Передача на следующий этап</h4>
+<p>После подтверждения участия рецензентов публикация получает статус <em>Under Peer Review</em>.</p>
+<p>Материалы передаются экспертам для проведения научной оценки.</p>
+<h4 id="14-завершение-процедуры">14. Завершение процедуры</h4>
+<p>Протокол считается исполненным после подтверждения состава экспертной группы и передачи рукописи на научное рецензирование.</p>
+<h4 id="результат-3">Результат</h4>
+<p>Выходом настоящего Протокола является сформированная независимая экспертная группа, приступившая к научной оценке рукописи в соответствии с Publication Policy и Publication Ethics Chronicle OS.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-003-5-peer-review-models"></a></p>
+<h3 id="fdp-0035--положение-о-моделях-рецензирования">FDP-003.5 — ПОЛОЖЕНИЕ О МОДЕЛЯХ РЕЦЕНЗИРОВАНИЯ</h3>
+<p><strong>(Peer Review Models Regulation)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.5</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-4">1. Назначение</h4>
+<p>Настоящее Положение определяет модели экспертного рецензирования, поддерживаемые Chronicle OS, а также принципы их выбора и применения в Университетском Хроникальном Узле.</p>
+<h4 id="2-общие-принципы-1">2. Общие принципы</h4>
+<p>Независимо от выбранной модели рецензирование осуществляется на принципах:</p>
+<ul>
+<li>независимости эксперта;</li>
+<li>объективности;</li>
+<li>научной добросовестности;</li>
+<li>отсутствия конфликта интересов;</li>
+<li>конфиденциальности;</li>
+<li>профессиональной компетентности.</li>
+</ul>
+<h4 id="3-выбор-модели">3. Выбор модели</h4>
+<p>Конкретная модель определяется университетом либо редакционной политикой отдельного научного издания.</p>
+<p>Chronicle OS не навязывает обязательную модель экспертной оценки.</p>
+<h4 id="4-поддерживаемые-модели">4. Поддерживаемые модели</h4>
+<p><strong>4.1 Single Blind Peer Review</strong><br>
+Рецензент знает автора. Автор не знает рецензента. Используется преимущественно в прикладных дисциплинах.</p>
+<p><strong>4.2 Double Blind Peer Review</strong><br>
+Ни автор, ни рецензент не знают личности друг друга. Является рекомендуемой моделью для большинства академических журналов.</p>
+<p><strong>4.3 Open Peer Review</strong><br>
+Личности автора и рецензента открыты. Рецензия может публиковаться вместе со статьёй. Используется при наличии соответствующей редакционной политики.</p>
+<p><strong>4.4 Collaborative Review</strong><br>
+Несколько экспертов совместно обсуждают рукопись и формируют единое заключение. Используется для междисциплинарных исследований и крупных коллективных проектов.</p>
+<p><strong>4.5 Registered Review</strong><br>
+Научная программа исследования проходит экспертную оценку до получения результатов исследования. После выполнения утверждённого плана публикация рассматривается независимо от характера полученных результатов.</p>
+<p><strong>4.6 Post Publication Review</strong><br>
+Научное обсуждение продолжается после публикации статьи. Публикация сопровождается открытым экспертным обсуждением.</p>
+<h4 id="5-изменение-модели">5. Изменение модели</h4>
+<p>Редакция вправе изменить модель рецензирования для конкретной рукописи только:</p>
+<ul>
+<li>по согласованию с Главным редактором;</li>
+<li>при наличии объективных оснований;</li>
+<li>с обязательной регистрацией изменения.</li>
+</ul>
+<h4 id="6-конфликт-интересов">6. Конфликт интересов</h4>
+<p>При выявлении конфликта интересов:</p>
+<ul>
+<li>эксперт немедленно уведомляет редакцию;</li>
+<li>участие данного эксперта прекращается;</li>
+<li>назначается новый рецензент.</li>
+</ul>
+<h4 id="7-документирование-1">7. Документирование</h4>
+<p>Для каждой публикации Chronicle OS фиксирует:</p>
+<ul>
+<li>выбранную модель;</li>
+<li>количество экспертов;</li>
+<li>сроки;</li>
+<li>этапы прохождения экспертизы;</li>
+<li>итоговое решение.</li>
+</ul>
+<h4 id="8-заключительные-положения-1">8. Заключительные положения</h4>
+<p>Настоящее Положение определяет поддерживаемые Chronicle OS модели экспертной оценки.</p>
+<p>Конкретные редакционные процедуры устанавливаются Publication Policy соответствующего научного издания.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-003-6-peer-review-execution"></a></p>
+<h3 id="fdp-0036--протокол-проведения-рецензирования">FDP-003.6 — ПРОТОКОЛ ПРОВЕДЕНИЯ РЕЦЕНЗИРОВАНИЯ</h3>
+<p><strong>(Peer Review Execution Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.6</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-5">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок проведения независимого научного рецензирования рукописи после формирования экспертной группы.</p>
+<h4 id="2-цель-3">2. Цель</h4>
+<p>Обеспечить объективную научную оценку исследования посредством независимой экспертной процедуры.</p>
+<h4 id="3-основание-начала-процедуры">3. Основание начала процедуры</h4>
+<p>Процедура начинается после изменения статуса публикации на <em>Under Peer Review</em>.</p>
+<h4 id="4-получение-материалов">4. Получение материалов</h4>
+<p>Каждый назначенный рецензент получает:</p>
+<ul>
+<li>текст рукописи;</li>
+<li>редакционные инструкции;</li>
+<li>критерии оценки;</li>
+<li>сроки подготовки заключения;</li>
+<li>форму экспертного заключения.</li>
+</ul>
+<h4 id="5-проведение-экспертизы">5. Проведение экспертизы</h4>
+<p>Эксперт самостоятельно анализирует:</p>
+<ul>
+<li>научную новизну;</li>
+<li>методологическую корректность;</li>
+<li>логическую последовательность исследования;</li>
+<li>воспроизводимость результатов;</li>
+<li>качество аргументации;</li>
+<li>соответствие научной этике;</li>
+<li>корректность оформления ссылок;</li>
+<li>полноту научного аппарата.</li>
+</ul>
+<h4 id="6-запреты-1">6. Запреты</h4>
+<p>Рецензент не вправе:</p>
+<ul>
+<li>связываться с автором напрямую;</li>
+<li>передавать материалы третьим лицам;</li>
+<li>использовать результаты исследования до публикации;</li>
+<li>разглашать содержание рукописи;</li>
+<li>использовать служебную информацию в личных целях.</li>
+</ul>
+<h4 id="7-итоговое-заключение">7. Итоговое заключение</h4>
+<p>По завершении экспертизы рецензент выбирает одно из решений:</p>
+<p><strong>A</strong> — Принять без изменений.<br>
+<strong>B</strong> — Принять после незначительной доработки.<br>
+<strong>C</strong> — Направить на существенную переработку.<br>
+<strong>D</strong> — Отклонить.</p>
+<p>Каждое решение сопровождается подробным экспертным заключением.</p>
+<h4 id="8-независимость-экспертов">8. Независимость экспертов</h4>
+<p>Каждый рецензент формирует заключение самостоятельно.</p>
+<p>До завершения процедуры обмен мнениями между рецензентами не допускается, если иное не предусмотрено выбранной моделью рецензирования.</p>
+<h4 id="9-противоречивые-заключения">9. Противоречивые заключения</h4>
+<p>При наличии принципиально противоположных экспертных выводов Главный редактор вправе:</p>
+<ul>
+<li>назначить дополнительного рецензента;</li>
+<li>инициировать коллективное рассмотрение;</li>
+<li>передать материалы в Экспертный совет.</li>
+</ul>
+<h4 id="10-документирование">10. Документирование</h4>
+<p>Chronicle OS фиксирует:</p>
+<ul>
+<li>дату получения заключения;</li>
+<li>сроки исполнения;</li>
+<li>итоговое решение;</li>
+<li>редакционную реакцию;</li>
+<li>последующие действия.</li>
+</ul>
+<h4 id="11-передача-результатов">11. Передача результатов</h4>
+<p>После получения всех экспертных заключений публикация передаётся Главному редактору.</p>
+<p>Статус изменяется на <em>Editorial Decision Pending</em>.</p>
+<h4 id="12-завершение-процедуры">12. Завершение процедуры</h4>
+<p>Протокол считается исполненным после регистрации всех экспертных заключений и передачи материалов Главному редактору.</p>
+<h4 id="результат-4">Результат</h4>
+<p>Выходом настоящего Протокола является полный комплект независимых экспертных заключений, являющихся основанием для принятия редакционного решения.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-003-7-editorial-decision"></a></p>
+<h3 id="fdp-0037--протокол-принятия-редакционного-решения">FDP-003.7 — ПРОТОКОЛ ПРИНЯТИЯ РЕДАКЦИОННОГО РЕШЕНИЯ</h3>
+<p><strong>(Editorial Decision Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.7</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-6">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок принятия окончательного редакционного решения по результатам независимого научного рецензирования.</p>
+<h4 id="2-цель-4">2. Цель</h4>
+<p>Обеспечить объективное, документированное и воспроизводимое принятие решения о дальнейшей судьбе научной публикации.</p>
+<h4 id="3-основание-начала-процедуры-1">3. Основание начала процедуры</h4>
+<p>Процедура начинается после изменения статуса публикации на <em>Editorial Decision Pending</em>.</p>
+<h4 id="4-ответственные-лица">4. Ответственные лица</h4>
+<p>Редакционное решение принимается:</p>
+<ul>
+<li>Главным редактором;</li>
+<li>либо Редакционной коллегией, если это предусмотрено редакционной политикой журнала.</li>
+</ul>
+<h4 id="5-основания-для-принятия-решения">5. Основания для принятия решения</h4>
+<p>При принятии решения учитываются:</p>
+<ul>
+<li>экспертные заключения;</li>
+<li>соблюдение Publication Policy;</li>
+<li>соблюдение Publication Ethics;</li>
+<li>ответы автора на замечания;</li>
+<li>результаты дополнительных экспертиз (при наличии).</li>
+</ul>
+<p>Редакционное решение не должно противоречить установленным процедурам Chronicle OS.</p>
+<h4 id="6-возможные-решения">6. Возможные решения</h4>
+<p><strong>6.1 Accept</strong><br>
+Рукопись принимается без дополнительных изменений. Статус: <em>Accepted</em>.</p>
+<p><strong>6.2 Minor Revision</strong><br>
+Требуется незначительная авторская доработка. Статус: <em>Minor Revision Requested</em>.</p>
+<p><strong>6.3 Major Revision</strong><br>
+Необходима существенная переработка исследования. После повторной подачи рукопись проходит повторную редакционную оценку в объёме, определённом редакцией. Статус: <em>Major Revision Requested</em>.</p>
+<p><strong>6.4 Reject</strong><br>
+Публикация отклоняется. Статус: <em>Rejected</em>.</p>
+<p>Редакция направляет автору мотивированное решение с приложением экспертных заключений в объёме, предусмотренном принятой моделью рецензирования.</p>
+<h4 id="7-дополнительная-экспертиза">7. Дополнительная экспертиза</h4>
+<p>При наличии противоречивых экспертных заключений редакция вправе:</p>
+<ul>
+<li>назначить дополнительного рецензента;</li>
+<li>направить публикацию в Экспертный совет;</li>
+<li>организовать коллективное рассмотрение.</li>
+</ul>
+<p>До завершения дополнительной процедуры окончательное решение не принимается.</p>
+<h4 id="8-документирование-1">8. Документирование</h4>
+<p>В публикационном журнале Chronicle OS фиксируются:</p>
+<ul>
+<li>дата принятия решения;</li>
+<li>ответственное лицо;</li>
+<li>принятое решение;</li>
+<li>основания;</li>
+<li>изменение статуса публикации;</li>
+<li>направление уведомления автору.</li>
+</ul>
+<h4 id="9-уведомление-автора">9. Уведомление автора</h4>
+<p>Автор получает официальное редакционное решение с указанием:</p>
+<ul>
+<li>статуса публикации;</li>
+<li>перечня необходимых действий;</li>
+<li>сроков выполнения (при необходимости);</li>
+<li>порядка последующего взаимодействия.</li>
+</ul>
+<h4 id="10-передача-на-следующий-этап">10. Передача на следующий этап</h4>
+<p>После принятия решения публикация передаётся:</p>
+<ul>
+<li>на техническую подготовку, если статья принята;</li>
+<li>автору, если требуется доработка;</li>
+<li>в архив отклонённых материалов, если принято решение об отклонении.</li>
+</ul>
+<h4 id="11-завершение-процедуры">11. Завершение процедуры</h4>
+<p>Протокол считается исполненным после регистрации редакционного решения и изменения статуса публикации в Chronicle OS.</p>
+<h4 id="результат-5">Результат</h4>
+<p>Выходом настоящего Протокола является официальное институциональное редакционное решение, являющееся обязательным для дальнейшего движения публикации.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-003-8-publication-production"></a></p>
+<h3 id="fdp-0038--протокол-производственной-подготовки-публикации">FDP-003.8 — ПРОТОКОЛ ПРОИЗВОДСТВЕННОЙ ПОДГОТОВКИ ПУБЛИКАЦИИ</h3>
+<p><strong>(Publication Production Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.8</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-7">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок подготовки принятой научной публикации к официальному выпуску Университетского Хроникального Узла.</p>
+<h4 id="2-основание-начала-процедуры">2. Основание начала процедуры</h4>
+<p>Процедура начинается после присвоения публикации статуса <em>Accepted</em>.</p>
+<h4 id="3-ответственные-лица-1">3. Ответственные лица</h4>
+<p>В подготовке публикации участвуют:</p>
+<ul>
+<li>Технический редактор;</li>
+<li>Ответственный секретарь;</li>
+<li>Главный редактор;</li>
+<li>специалисты по научным метаданным;</li>
+<li>администратор издательской платформы.</li>
+</ul>
+<h4 id="4-производственный-цикл">4. Производственный цикл</h4>
+<p>Подготовка публикации включает:</p>
+<p><strong>Stage 1</strong> — Финальное авторское согласование текста.</p>
+<p><strong>Stage 2</strong> — Литературное и техническое редактирование.</p>
+<p><strong>Stage 3</strong> — Проверка библиографического аппарата.</p>
+<p><strong>Stage 4</strong> — Формирование научных метаданных.</p>
+<p><strong>Stage 5</strong> — Присвоение внутренних идентификаторов.</p>
+<p><strong>Stage 6</strong> — Подготовка публикационных файлов.</p>
+<p><strong>Stage 7</strong> — Контроль качества.</p>
+<p><strong>Stage 8</strong> — Утверждение финальной версии Главным редактором.</p>
+<h4 id="5-контроль-качества">5. Контроль качества</h4>
+<p>Перед публикацией обязательно проверяются:</p>
+<ul>
+<li>полнота текста;</li>
+<li>корректность ссылок;</li>
+<li>оформление рисунков;</li>
+<li>таблицы;</li>
+<li>DOI;</li>
+<li>ORCID;</li>
+<li>сведения об авторах;</li>
+<li>лицензия публикации;</li>
+<li>научные метаданные;</li>
+<li>цифровые подписи файлов (при использовании).</li>
+</ul>
+<h4 id="6-запрет-внесения-изменений">6. Запрет внесения изменений</h4>
+<p>После утверждения финальной версии изменение текста публикации не допускается.</p>
+<p>Любые последующие изменения оформляются исключительно через процедуры:</p>
+<ul>
+<li>Erratum;</li>
+<li>Corrigendum;</li>
+<li>Retraction;</li>
+<li>Editorial Notice.</li>
+</ul>
+<h4 id="7-документирование-2">7. Документирование</h4>
+<p>Chronicle OS фиксирует:</p>
+<ul>
+<li>дату завершения подготовки;</li>
+<li>ответственных исполнителей;</li>
+<li>контрольные проверки;</li>
+<li>утверждение финальной версии;</li>
+<li>передачу публикации в выпуск.</li>
+</ul>
+<h4 id="8-передача-публикации-1">8. Передача публикации</h4>
+<p>После завершения подготовки публикация получает статус <em>Ready for Publication</em>.</p>
+<p>Материалы передаются в процедуру официального выпуска.</p>
+<h4 id="9-завершение-процедуры-1">9. Завершение процедуры</h4>
+<p>Настоящий Протокол считается исполненным после формирования финального публикационного пакета.</p>
+<h4 id="результат-6">Результат</h4>
+<p>Выходом настоящего Протокола является полностью подготовленная к официальному выпуску научная публикация, соответствующая всем требованиям Chronicle OS и редакционной политики Университетского Хроникального Узла.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-003-9-official-publication"></a></p>
+<h3 id="fdp-0039--протокол-официальной-публикации">FDP-003.9 — ПРОТОКОЛ ОФИЦИАЛЬНОЙ ПУБЛИКАЦИИ</h3>
+<p><strong>(Official Publication Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-003.9</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-8">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок официального опубликования научной работы в составе Университетского Хроникального Узла.</p>
+<p>С момента завершения настоящего Протокола публикация приобретает статус официального научного документа.</p>
+<h4 id="2-основание-начала-процедуры-1">2. Основание начала процедуры</h4>
+<p>Процедура начинается после присвоения публикации статуса <em>Ready for Publication</em>.</p>
+<h4 id="3-ответственные-лица-2">3. Ответственные лица</h4>
+<p>Процедура осуществляется:</p>
+<ul>
+<li>Главным редактором;</li>
+<li>Ответственным секретарём;</li>
+<li>Техническим редактором;</li>
+<li>Администратором издательской платформы.</li>
+</ul>
+<h4 id="4-проверка-готовности">4. Проверка готовности</h4>
+<p>Перед публикацией подтверждается наличие:</p>
+<ul>
+<li>утверждённой финальной версии;</li>
+<li>полного комплекта научных метаданных;</li>
+<li>публикационного идентификатора;</li>
+<li>лицензии публикации;</li>
+<li>подтверждения готовности выпуска.</li>
+</ul>
+<h4 id="5-официальная-публикация">5. Официальная публикация</h4>
+<p>Во время публикации осуществляется:</p>
+<ul>
+<li>размещение статьи на издательской платформе;</li>
+<li>регистрация публикации в редакционном архиве;</li>
+<li>открытие публичной карточки публикации;</li>
+<li>публикация научных метаданных;</li>
+<li>публикация библиографического описания;</li>
+<li>открытие постоянной ссылки публикации.</li>
+</ul>
+<h4 id="6-момент-публикации">6. Момент публикации</h4>
+<p>Официальным моментом публикации считается дата и время регистрации публикации в Университетском Хроникальном Узле.</p>
+<p>С этого момента публикация считается введённой в научный оборот.</p>
+<h4 id="7-неизменяемость">7. Неизменяемость</h4>
+<p>После официальной публикации текст статьи считается архивной редакцией.</p>
+<p>Любые последующие изменения допускаются исключительно посредством:</p>
+<ul>
+<li>Erratum;</li>
+<li>Corrigendum;</li>
+<li>Editorial Note;</li>
+<li>Retraction.</li>
+</ul>
+<p>Исходная версия публикации сохраняется бессрочно.</p>
+<h4 id="8-регистрация">8. Регистрация</h4>
+<p>Chronicle OS фиксирует:</p>
+<ul>
+<li>дату публикации;</li>
+<li>время публикации;</li>
+<li>идентификатор публикации;</li>
+<li>выпуск;</li>
+<li>журнал;</li>
+<li>редакционную историю;</li>
+<li>архивный идентификатор;</li>
+<li>версию публикации.</li>
+</ul>
+<h4 id="9-передача-в-архив">9. Передача в архив</h4>
+<p>После публикации материалы автоматически переходят в режим долговременного хранения.</p>
+<p>Публикации присваивается статус <em>Published</em>.</p>
+<h4 id="10-начало-постпубликационного-сопровождения">10. Начало постпубликационного сопровождения</h4>
+<p>После публикации открываются процедуры:</p>
+<ul>
+<li>научного цитирования;</li>
+<li>индексирования;</li>
+<li>архивирования;</li>
+<li>постпубликационного обсуждения;</li>
+<li>выпуска исправлений;</li>
+<li>статистического сопровождения.</li>
+</ul>
+<h4 id="11-завершение-процедуры-1">11. Завершение процедуры</h4>
+<p>Настоящий Протокол считается исполненным после регистрации публикации в составе Университетского Хроникального Узла.</p>
+<h4 id="результат-7">Результат</h4>
+<p>Выходом настоящего Протокола является официально опубликованный научный документ, включённый в научный фонд Университетского Хроникального Узла и Chronicle OS, обладающий неизменяемой архивной редакцией и полной редакционной историей.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<!-- КОНЕЦ ОТВЕТА 3 — FDP-004.1 – FDP-005.5 и финал в Ответе 4 -->
+<p><a id="fdp-004-1-post-publication-lifecycle"></a></p>
+<h3 id="fdp-0041--протокол-пост-публикационного-жизненного-цикла">FDP-004.1 — ПРОТОКОЛ ПОСТ-ПУБЛИКАЦИОННОГО ЖИЗНЕННОГО ЦИКЛА</h3>
+<p><strong>(Post Publication Lifecycle Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-004.1</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-9">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок сопровождения научной публикации после её официального опубликования в составе Университетского Хроникального Узла.</p>
+<p>Публикация рассматривается как действующий научный объект, продолжающий своё существование после момента публикации.</p>
+<h4 id="2-цель-5">2. Цель</h4>
+<p>Обеспечить непрерывное сопровождение научной публикации в течение всего периода её существования в научном информационном пространстве.</p>
+<h4 id="3-начало-жизненного-цикла">3. Начало жизненного цикла</h4>
+<p>Постпубликационный цикл начинается автоматически после изменения статуса публикации на <em>Published</em>.</p>
+<h4 id="4-основные-направления-сопровождения">4. Основные направления сопровождения</h4>
+<p>Chronicle OS обеспечивает сопровождение публикации по следующим направлениям:</p>
+<ul>
+<li>научное цитирование;</li>
+<li>индексирование;</li>
+<li>регистрация исправлений;</li>
+<li>регистрация дополнений;</li>
+<li>научные обсуждения;</li>
+<li>редакционные уведомления;</li>
+<li>контроль актуальности публикационных данных;</li>
+<li>архивное сопровождение.</li>
+</ul>
+<h4 id="5-непрерывность-публикации">5. Непрерывность публикации</h4>
+<p>После официального опубликования публикация сохраняет:</p>
+<ul>
+<li>неизменяемую архивную редакцию;</li>
+<li>публикационный идентификатор;</li>
+<li>редакционную историю;</li>
+<li>историю исправлений;</li>
+<li>историю научных связей.</li>
+</ul>
+<h4 id="6-допустимые-изменения">6. Допустимые изменения</h4>
+<p>После публикации допускаются исключительно процедуры:</p>
+<ul>
+<li>Erratum;</li>
+<li>Corrigendum;</li>
+<li>Editorial Notice;</li>
+<li>Expression of Concern;</li>
+<li>Retraction.</li>
+</ul>
+<p>Изменение архивной редакции публикации запрещается.</p>
+<h4 id="7-научные-связи">7. Научные связи</h4>
+<p>Chronicle OS ведёт регистрацию:</p>
+<ul>
+<li>цитирований;</li>
+<li>связанных публикаций;</li>
+<li>редакционных комментариев;</li>
+<li>последующих исследований;</li>
+<li>публикаций, развивающих результаты данной работы.</li>
+</ul>
+<h4 id="8-мониторинг">8. Мониторинг</h4>
+<p>Редакция вправе осуществлять мониторинг:</p>
+<ul>
+<li>цитируемости;</li>
+<li>выявленных ошибок;</li>
+<li>обращений научного сообщества;</li>
+<li>сообщений о нарушении Publication Ethics.</li>
+</ul>
+<h4 id="9-архивирование">9. Архивирование</h4>
+<p>Все редакционные действия, осуществлённые после публикации, становятся частью постоянной публикационной истории.</p>
+<p>Удаление публикационной истории не допускается.</p>
+<h4 id="10-завершение-жизненного-цикла">10. Завершение жизненного цикла</h4>
+<p>Публикация считается действующей бессрочно, если иное не установлено процедурами Chronicle OS.</p>
+<h4 id="11-результат">11. Результат</h4>
+<p>Выходом настоящего Протокола является непрерывное сопровождение научной публикации как самостоятельного объекта научного знания на протяжении всего срока её существования.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-004-2-scientific-linkage"></a></p>
+<h3 id="fdp-0042--протокол-научных-связей">FDP-004.2 — ПРОТОКОЛ НАУЧНЫХ СВЯЗЕЙ</h3>
+<p><strong>(Scientific Linkage Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-004.2</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-10">1. Назначение</h4>
+<p>Настоящий Протокол определяет правила регистрации, сопровождения и документирования научных связей публикации в составе Chronicle OS.</p>
+<h4 id="2-цель-6">2. Цель</h4>
+<p>Обеспечить непрерывную регистрацию эволюции научного знания посредством фиксации взаимосвязей между научными публикациями.</p>
+<h4 id="3-основной-принцип">3. Основной принцип</h4>
+<p>Каждая опубликованная работа рассматривается не как изолированный документ, а как элемент постоянно развивающейся сети научного знания.</p>
+<h4 id="4-типы-научных-связей">4. Типы научных связей</h4>
+<p>Chronicle OS регистрирует следующие виды связей:</p>
+<p><strong>4.1 Citation</strong> — Обычное научное цитирование.</p>
+<p><strong>4.2 Continuation</strong> — Продолжение ранее опубликованного исследования.</p>
+<p><strong>4.3 Development</strong> — Развитие результатов предыдущей публикации.</p>
+<p><strong>4.4 Correction</strong> — Исправление ранее опубликованной работы.</p>
+<p><strong>4.5 Refutation</strong> — Научное опровержение.</p>
+<p><strong>4.6 Confirmation</strong> — Независимое подтверждение результатов исследования.</p>
+<p><strong>4.7 Method Application</strong> — Применение ранее опубликованной методологии.</p>
+<p><strong>4.8 Dataset Usage</strong> — Использование опубликованных научных данных.</p>
+<p><strong>4.9 Concept Inheritance</strong> — Использование ранее опубликованной научной концепции.</p>
+<h4 id="5-регистрация-связей">5. Регистрация связей</h4>
+<p>Каждая зарегистрированная связь содержит:</p>
+<ul>
+<li>публикацию-источник;</li>
+<li>публикацию-приёмник;</li>
+<li>тип связи;</li>
+<li>дату регистрации;</li>
+<li>основание возникновения связи;</li>
+<li>уровень достоверности.</li>
+</ul>
+<h4 id="6-изменение-связей">6. Изменение связей</h4>
+<p>После регистрации научная связь не удаляется.</p>
+<p>При изменении научной картины допускается создание новой записи, фиксирующей изменение характера взаимосвязи.</p>
+<p>История изменений сохраняется полностью.</p>
+<h4 id="7-проверка-связей">7. Проверка связей</h4>
+<p>Редакция вправе:</p>
+<ul>
+<li>подтверждать связи;</li>
+<li>отклонять ошибочные связи;</li>
+<li>создавать новые связи;</li>
+<li>уточнять ранее зарегистрированные отношения.</li>
+</ul>
+<p>Все действия документируются.</p>
+<h4 id="8-визуализация">8. Визуализация</h4>
+<p>Chronicle OS может представлять научные связи в виде:</p>
+<ul>
+<li>графов знаний;</li>
+<li>тематических карт;</li>
+<li>деревьев исследований;</li>
+<li>цепочек научного развития;</li>
+<li>семантических сетей.</li>
+</ul>
+<p>Форма представления определяется используемой информационной системой.</p>
+<h4 id="9-архивирование-1">9. Архивирование</h4>
+<p>История научных связей хранится бессрочно.</p>
+<p>Удаление зарегистрированных связей не допускается.</p>
+<h4 id="10-завершение-процедуры-1">10. Завершение процедуры</h4>
+<p>Настоящий Протокол действует непрерывно в течение всего жизненного цикла публикации.</p>
+<h4 id="результат-8">Результат</h4>
+<p>Выходом настоящего Протокола является непрерывно развивающаяся сеть научных взаимосвязей, являющаяся частью Knowledge Graph Chronicle OS.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-004-3-knowledge-evolution"></a></p>
+<h3 id="fdp-0043--протокол-эволюции-знания">FDP-004.3 — ПРОТОКОЛ ЭВОЛЮЦИИ ЗНАНИЯ</h3>
+<p><strong>(Knowledge Evolution Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-004.3</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-11">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок регистрации изменений научного знания после официальной публикации научной работы.</p>
+<h4 id="2-основной-принцип">2. Основной принцип</h4>
+<p>Chronicle OS исходит из того, что научное знание является динамической системой.</p>
+<p>Опубликованная работа не рассматривается как окончательная истина.</p>
+<p>Она представляет собой научное состояние знания на момент публикации.</p>
+<h4 id="3-основания-актуализации">3. Основания актуализации</h4>
+<p>Основанием для актуализации могут являться:</p>
+<ul>
+<li>новые исследования;</li>
+<li>независимые подтверждения;</li>
+<li>новые экспериментальные данные;</li>
+<li>выявленные ошибки;</li>
+<li>изменение научной интерпретации;</li>
+<li>развитие научной теории;</li>
+<li>изменение нормативной базы;</li>
+<li>появление новых методов исследования.</li>
+</ul>
+<h4 id="4-формы-актуализации">4. Формы актуализации</h4>
+<p>Chronicle OS поддерживает следующие формы:</p>
+<p><strong>Подтверждение</strong> — Результаты полностью подтверждены независимыми исследованиями.</p>
+<p><strong>Расширение</strong> — Получены новые данные, дополняющие первоначальную публикацию.</p>
+<p><strong>Уточнение</strong> — Первоначальные выводы требуют частичного уточнения.</p>
+<p><strong>Ограничение применимости</strong> — Определены пределы корректного использования результатов.</p>
+<p><strong>Опровержение</strong> — Получены убедительные научные основания, противоречащие первоначальным выводам.</p>
+<p><strong>Историзация</strong> — Работа сохраняет научную ценность как исторический этап развития знания независимо от её современной актуальности.</p>
+<h4 id="5-принцип-неизменяемости">5. Принцип неизменяемости</h4>
+<p>Первоначальная публикация не изменяется.</p>
+<p>Изменяется исключительно научный контекст вокруг неё.</p>
+<p>Все новые сведения оформляются самостоятельными редакционными событиями.</p>
+<h4 id="6-регистрация-событий">6. Регистрация событий</h4>
+<p>Каждое событие содержит:</p>
+<ul>
+<li>публикацию;</li>
+<li>тип актуализации;</li>
+<li>основание;</li>
+<li>дату;</li>
+<li>источник информации;</li>
+<li>ответственное лицо;</li>
+<li>уровень подтверждения.</li>
+</ul>
+<h4 id="7-прослеживаемость">7. Прослеживаемость</h4>
+<p>Chronicle OS обеспечивает возможность восстановить полную историю развития научной идеи от первой публикации до современного состояния.</p>
+<h4 id="8-архивирование">8. Архивирование</h4>
+<p>Все состояния знания сохраняются.</p>
+<p>Удаление ранее зарегистрированных научных состояний не допускается.</p>
+<h4 id="9-завершение-процедуры-2">9. Завершение процедуры</h4>
+<p>Протокол действует непрерывно в течение всего периода существования публикации.</p>
+<h4 id="результат-9">Результат</h4>
+<p>Выходом настоящего Протокола является непрерывно обновляемая история эволюции научного знания, связанного с конкретной публикацией.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-004-4-correction-and-retraction"></a></p>
+<h3 id="fdp-0044--протокол-исправлений-и-отзыва">FDP-004.4 — ПРОТОКОЛ ИСПРАВЛЕНИЙ И ОТЗЫВА</h3>
+<p><strong>(Correction and Retraction Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-004.4</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-12">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок внесения исправлений, публикации редакционных уведомлений и отзыва научных публикаций после их официального опубликования.</p>
+<h4 id="2-основной-принцип-1">2. Основной принцип</h4>
+<p>Chronicle OS обеспечивает сохранность научной истории.</p>
+<p>Ошибки исправляются.</p>
+<p>История не переписывается.</p>
+<h4 id="3-основания-применения">3. Основания применения</h4>
+<p>Процедура применяется при:</p>
+<ul>
+<li>обнаружении технических ошибок;</li>
+<li>выявлении авторских ошибок;</li>
+<li>обнаружении нарушений Publication Ethics;</li>
+<li>установлении недостоверности результатов;</li>
+<li>выявлении нарушений авторского права;</li>
+<li>официальном обращении автора;</li>
+<li>официальном решении редакции.</li>
+</ul>
+<h4 id="4-формы-редакционного-вмешательства">4. Формы редакционного вмешательства</h4>
+<p>Chronicle OS использует следующие формы:</p>
+<p><strong>Erratum</strong> — Исправление технических ошибок редакции.</p>
+<p><strong>Corrigendum</strong> — Исправление авторских ошибок.</p>
+<p><strong>Editorial Notice</strong> — Редакционное информационное уведомление.</p>
+<p><strong>Expression of Concern</strong> — Официальное уведомление о наличии серьёзных сомнений относительно публикации до завершения расследования.</p>
+<p><strong>Retraction</strong> — Официальный отзыв публикации.</p>
+<h4 id="5-принцип-архивной-сохранности">5. Принцип архивной сохранности</h4>
+<p>Даже после отзыва публикация не удаляется.</p>
+<p>Chronicle OS изменяет исключительно её научный статус.</p>
+<p>Архивная версия остаётся доступной в соответствии с редакционной политикой.</p>
+<h4 id="6-документирование">6. Документирование</h4>
+<p>Каждая процедура сопровождается:</p>
+<ul>
+<li>датой;</li>
+<li>основанием;</li>
+<li>ответственным лицом;</li>
+<li>официальным решением;</li>
+<li>ссылкой на первоначальную публикацию.</li>
+</ul>
+<h4 id="7-информирование">7. Информирование</h4>
+<p>При изменении статуса публикации Chronicle OS обновляет:</p>
+<ul>
+<li>публикационную карточку;</li>
+<li>редакционную историю;</li>
+<li>архивную запись;</li>
+<li>научные связи;</li>
+<li>сведения для индексирования.</li>
+</ul>
+<h4 id="8-научная-преемственность">8. Научная преемственность</h4>
+<p>Все публикации, связанные с исправленной или отозванной работой, сохраняют свои научные связи.</p>
+<p>Chronicle OS фиксирует изменение статуса исходной публикации без разрушения структуры Knowledge Graph.</p>
+<h4 id="9-завершение-процедуры-3">9. Завершение процедуры</h4>
+<p>Процедура считается завершённой после официальной регистрации редакционного решения и обновления публикационного статуса.</p>
+<h4 id="результат-10">Результат</h4>
+<p>Выходом настоящего Протокола является официально зарегистрированное редакционное изменение публикационного статуса при полном сохранении научной и архивной истории публикации.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-004-5-long-term-archival-preservation"></a></p>
+<h3 id="fdp-0045--протокол-долгосрочного-архивного-сохранения">FDP-004.5 — ПРОТОКОЛ ДОЛГОСРОЧНОГО АРХИВНОГО СОХРАНЕНИЯ</h3>
+<p><strong>(Long Term Archival Preservation Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-004.5</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-13">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок долговременного хранения научных публикаций, редакционной документации и связанных информационных объектов в составе Chronicle OS.</p>
+<h4 id="2-цель-7">2. Цель</h4>
+<p>Обеспечить сохранность научного наследия независимо от изменения технологий, организационной структуры или программных платформ.</p>
+<h4 id="3-объекты-архивирования">3. Объекты архивирования</h4>
+<p>Долговременному хранению подлежат:</p>
+<ul>
+<li>опубликованные статьи;</li>
+<li>архивные редакции;</li>
+<li>редакционная история;</li>
+<li>экспертные заключения;</li>
+<li>публикационные метаданные;</li>
+<li>цифровые идентификаторы;</li>
+<li>редакционные решения;</li>
+<li>документы, сопровождающие публикационный процесс;</li>
+<li>научные связи публикации.</li>
+</ul>
+<h4 id="4-принцип-неизменяемости">4. Принцип неизменяемости</h4>
+<p>Архивная версия публикации считается неизменяемым историческим документом.</p>
+<p>После помещения в архив изменение содержимого не допускается.</p>
+<h4 id="5-архивные-уровни">5. Архивные уровни</h4>
+<p>Chronicle OS поддерживает:</p>
+<p><strong>Оперативный архив</strong> — Материалы текущего научного оборота.</p>
+<p><strong>Институциональный архив</strong> — Полный архив университета.</p>
+<p><strong>Долговременный архив</strong> — Архив бессрочного хранения.</p>
+<h4 id="6-проверка-целостности">6. Проверка целостности</h4>
+<p>Архивная система обеспечивает:</p>
+<ul>
+<li>контроль целостности файлов;</li>
+<li>контроль публикационных идентификаторов;</li>
+<li>контроль редакционной истории;</li>
+<li>контроль связности научных объектов.</li>
+</ul>
+<h4 id="7-миграция">7. Миграция</h4>
+<p>При смене информационной платформы Chronicle OS обеспечивает перенос архивных материалов без утраты:</p>
+<ul>
+<li>содержания;</li>
+<li>структуры;</li>
+<li>публикационных связей;</li>
+<li>идентификаторов;</li>
+<li>истории редакций.</li>
+</ul>
+<h4 id="8-доступ">8. Доступ</h4>
+<p>Архивные материалы предоставляются в соответствии:</p>
+<ul>
+<li>с редакционной политикой;</li>
+<li>законодательством;</li>
+<li>лицензионными условиями;</li>
+<li>внутренними регламентами университета.</li>
+</ul>
+<h4 id="9-срок-хранения">9. Срок хранения</h4>
+<p>Архивные публикации подлежат бессрочному хранению.</p>
+<p>Удаление допускается исключительно в случаях, прямо предусмотренных законодательством и при обязательном сохранении регистрационной записи о существовании публикации.</p>
+<h4 id="10-документирование-1">10. Документирование</h4>
+<p>Chronicle OS регистрирует:</p>
+<ul>
+<li>помещение объекта в архив;</li>
+<li>изменение уровня хранения;</li>
+<li>перенос между архивами;</li>
+<li>проверку целостности;</li>
+<li>восстановление архивной копии.</li>
+</ul>
+<h4 id="11-завершение-процедуры-2">11. Завершение процедуры</h4>
+<p>Настоящий Протокол действует непрерывно в течение всего срока существования научной публикации.</p>
+<h4 id="результат-11">Результат</h4>
+<p>Выходом настоящего Протокола является долговременное сохранение научного наследия Университетского Хроникального Узла с полной прослеживаемостью происхождения, публикационной истории и эволюции каждого научного объекта.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-005-1-node-governance"></a></p>
+<h3 id="fdp-0051--протокол-управления-университетским-хроникальным-узлом">FDP-005.1 — ПРОТОКОЛ УПРАВЛЕНИЯ УНИВЕРСИТЕТСКИМ ХРОНИКАЛЬНЫМ УЗЛОМ</h3>
+<p><strong>(University Chronicle Node Governance Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-005.1</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-14">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок управления Университетским Хроникальным Узлом как самостоятельной институциональной единицей Chronicle OS.</p>
+<h4 id="2-цель-8">2. Цель</h4>
+<p>Обеспечить непрерывное функционирование университетского издательского узла независимо от смены персонала, состава редакции или организационных изменений.</p>
+<h4 id="3-объект-управления">3. Объект управления</h4>
+<p>Университетский Хроникальный Узел рассматривается как самостоятельный издательский контур, включающий:</p>
+<ul>
+<li>редакцию;</li>
+<li>редакционную коллегию;</li>
+<li>экспертную сеть;</li>
+<li>архив;</li>
+<li>публикационный фонд;</li>
+<li>нормативную документацию;</li>
+<li>цифровую инфраструктуру;</li>
+<li>систему научных коммуникаций.</li>
+</ul>
+<h4 id="4-основные-функции">4. Основные функции</h4>
+<p>Издательский узел обеспечивает:</p>
+<ul>
+<li>приём рукописей;</li>
+<li>проведение экспертного рецензирования;</li>
+<li>редакционную подготовку;</li>
+<li>выпуск научных публикаций;</li>
+<li>архивное сопровождение;</li>
+<li>развитие научного фонда;</li>
+<li>взаимодействие с международной научной инфраструктурой.</li>
+</ul>
+<h4 id="5-управленческий-цикл">5. Управленческий цикл</h4>
+<p>Работа издательского узла осуществляется непрерывно по циклу:</p>
+<ul>
+<li>планирование;</li>
+<li>приём публикаций;</li>
+<li>редакционный процесс;</li>
+<li>выпуск;</li>
+<li>архивирование;</li>
+<li>анализ результатов;</li>
+<li>совершенствование процедур.</li>
+</ul>
+<p>После завершения цикла начинается следующий редакционный цикл.</p>
+<h4 id="6-институциональная-устойчивость">6. Институциональная устойчивость</h4>
+<p>Функционирование издательского узла не должно зависеть от конкретного должностного лица.</p>
+<p>Каждая функция должна иметь документированную процедуру исполнения и передачи полномочий.</p>
+<h4 id="7-контроль-состояния">7. Контроль состояния</h4>
+<p>Не реже одного раза в календарный год проводится внутренний анализ деятельности Университетского Хроникального Узла.</p>
+<p>Оцениваются:</p>
+<ul>
+<li>выполнение Publication Policy;</li>
+<li>соблюдение Publication Ethics;</li>
+<li>эффективность редакционных процедур;</li>
+<li>полнота архивирования;</li>
+<li>актуальность нормативной документации;</li>
+<li>развитие научного фонда.</li>
+</ul>
+<h4 id="8-совершенствование">8. Совершенствование</h4>
+<p>По результатам анализа могут утверждаться:</p>
+<ul>
+<li>новые редакции регламентов;</li>
+<li>изменения организационной структуры;</li>
+<li>новые технологические процедуры;</li>
+<li>обновления Chronicle OS.</li>
+</ul>
+<p>Все изменения оформляются отдельными нормативными актами.</p>
+<h4 id="9-передача-полномочий">9. Передача полномочий</h4>
+<p>При смене ответственных лиц передаются:</p>
+<ul>
+<li>нормативная документация;</li>
+<li>редакционные журналы;</li>
+<li>публикационный фонд;</li>
+<li>архив;</li>
+<li>цифровая инфраструктура;</li>
+<li>действующие редакционные процессы.</li>
+</ul>
+<p>Передача оформляется официальным актом.</p>
+<h4 id="10-преемственность">10. Преемственность</h4>
+<p>Университетский Хроникальный Узел обязан обеспечивать непрерывность своей деятельности независимо от кадровых, организационных и технологических изменений.</p>
+<h4 id="11-завершение-процедуры-3">11. Завершение процедуры</h4>
+<p>Настоящий Протокол действует непрерывно на протяжении всего периода существования издательского узла.</p>
+<h4 id="результат-12">Результат</h4>
+<p>Выходом настоящего Протокола является устойчивое, воспроизводимое и институционально независимое функционирование Университетского Хроникального Узла как элемента Chronicle OS.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-005-2-issue-assembly"></a></p>
+<h3 id="fdp-0052--протокол-сборки-и-выпуска-выпуска">FDP-005.2 — ПРОТОКОЛ СБОРКИ И ВЫПУСКА ВЫПУСКА</h3>
+<p><strong>(Issue Assembly and Release Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-005.2</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-15">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок формирования, утверждения и официального выпуска очередного номера Университетского Хроникального Узла.</p>
+<h4 id="2-цель-9">2. Цель</h4>
+<p>Обеспечить единый порядок комплектования научного выпуска и гарантировать его редакционную целостность.</p>
+<h4 id="3-основание-начала-процедуры-2">3. Основание начала процедуры</h4>
+<p>Процедура начинается после накопления достаточного количества публикаций, имеющих статус <em>Ready for Publication</em>.</p>
+<h4 id="4-формирование-выпуска">4. Формирование выпуска</h4>
+<p>Главный редактор совместно с Ответственным секретарём определяют:</p>
+<ul>
+<li>номер выпуска;</li>
+<li>тематическую структуру;</li>
+<li>последовательность публикаций;</li>
+<li>редакционное обращение (при наличии);</li>
+<li>состав содержания.</li>
+</ul>
+<h4 id="5-проверка-готовности">5. Проверка готовности</h4>
+<p>Перед утверждением выпуска подтверждается:</p>
+<ul>
+<li>готовность всех публикаций;</li>
+<li>корректность выходных данных;</li>
+<li>полнота метаданных;</li>
+<li>наличие редакционного утверждения;</li>
+<li>отсутствие незавершённых публикационных процедур.</li>
+</ul>
+<h4 id="6-утверждение">6. Утверждение</h4>
+<p>Окончательное решение о выпуске принимает Главный редактор.</p>
+<p>При необходимости решение может утверждаться Редакционной коллегией.</p>
+<h4 id="7-официальный-выпуск">7. Официальный выпуск</h4>
+<p>После утверждения осуществляется:</p>
+<ul>
+<li>публикация номера;</li>
+<li>регистрация выпуска;</li>
+<li>обновление архивов;</li>
+<li>открытие публичного доступа;</li>
+<li>регистрация содержания выпуска.</li>
+</ul>
+<h4 id="8-структура-номера">8. Структура номера</h4>
+<p>Каждый выпуск получает:</p>
+<ul>
+<li>уникальный номер;</li>
+<li>дату публикации;</li>
+<li>перечень публикаций;</li>
+<li>сведения о редакции;</li>
+<li>редакционную историю;</li>
+<li>архивный идентификатор.</li>
+</ul>
+<h4 id="9-неизменяемость">9. Неизменяемость</h4>
+<p>После официального выпуска структура номера считается архивной редакцией.</p>
+<p>Изменение состава опубликованного выпуска не допускается.</p>
+<h4 id="10-архивирование">10. Архивирование</h4>
+<p>Каждый выпуск сохраняется как самостоятельный архивный объект наряду с отдельными публикациями.</p>
+<h4 id="11-завершение-процедуры-4">11. Завершение процедуры</h4>
+<p>Процедура считается завершённой после регистрации номера в составе Университетского Хроникального Узла.</p>
+<h4 id="результат-13">Результат</h4>
+<p>Выходом настоящего Протокола является официально опубликованный научный выпуск, являющийся завершённой единицей издательской деятельности Университетского Хроникального Узла.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-005-3-annual-editorial-audit"></a></p>
+<h3 id="fdp-0053--протокол-годового-редакционного-аудита">FDP-005.3 — ПРОТОКОЛ ГОДОВОГО РЕДАКЦИОННОГО АУДИТА</h3>
+<p><strong>(Annual Editorial Audit Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-005.3</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-16">1. Назначение</h4>
+<p>Настоящий Протокол определяет порядок ежегодной внутренней оценки деятельности Университетского Хроникального Узла.</p>
+<h4 id="2-цель-10">2. Цель</h4>
+<p>Обеспечить постоянное совершенствование редакционных процессов, поддержание высокого уровня публикационной культуры и своевременную актуализацию нормативной базы.</p>
+<h4 id="3-периодичность">3. Периодичность</h4>
+<p>Редакционный аудит проводится не реже одного раза в календарный год.</p>
+<p>При необходимости может проводиться внеочередной аудит.</p>
+<h4 id="4-предмет-аудита">4. Предмет аудита</h4>
+<p>Проверке подлежат:</p>
+<ul>
+<li>соблюдение Publication Policy;</li>
+<li>соблюдение Publication Ethics;</li>
+<li>исполнение редакционных регламентов;</li>
+<li>качество экспертного рецензирования;</li>
+<li>соблюдение сроков редакционного цикла;</li>
+<li>корректность архивирования;</li>
+<li>полнота публикационных метаданных;</li>
+<li>работоспособность Chronicle OS;</li>
+<li>актуальность нормативной документации.</li>
+</ul>
+<h4 id="5-ответственные-лица">5. Ответственные лица</h4>
+<p>Аудит организует Главный редактор.</p>
+<p>К проведению могут привлекаться:</p>
+<ul>
+<li>Редакционная коллегия;</li>
+<li>Экспертный совет;</li>
+<li>независимые специалисты;</li>
+<li>представители университета.</li>
+</ul>
+<h4 id="6-итоговый-отчёт">6. Итоговый отчёт</h4>
+<p>По завершении аудита формируется официальный отчёт, содержащий:</p>
+<ul>
+<li>выявленные сильные стороны;</li>
+<li>выявленные недостатки;</li>
+<li>оценку рисков;</li>
+<li>предложения по совершенствованию;</li>
+<li>перечень необходимых изменений.</li>
+</ul>
+<h4 id="7-корректирующие-мероприятия">7. Корректирующие мероприятия</h4>
+<p>По результатам аудита могут утверждаться:</p>
+<ul>
+<li>новые редакционные процедуры;</li>
+<li>изменения регламентов;</li>
+<li>обновление должностных инструкций;</li>
+<li>модернизация Chronicle OS;</li>
+<li>изменение организационной структуры.</li>
+</ul>
+<h4 id="8-документирование-2">8. Документирование</h4>
+<p>Chronicle OS регистрирует:</p>
+<ul>
+<li>дату проведения аудита;</li>
+<li>состав комиссии;</li>
+<li>результаты проверки;</li>
+<li>утверждённый отчёт;</li>
+<li>перечень принятых решений.</li>
+</ul>
+<h4 id="9-принцип-непрерывного-совершенствования">9. Принцип непрерывного совершенствования</h4>
+<p>Редакционный аудит рассматривается как инструмент развития, а не поиска виновных.</p>
+<p>Основной задачей является повышение качества функционирования Университетского Хроникального Узла.</p>
+<h4 id="10-завершение-процедуры-2">10. Завершение процедуры</h4>
+<p>Протокол считается исполненным после утверждения итогового отчёта и регистрации принятых решений.</p>
+<h4 id="результат-14">Результат</h4>
+<p>Выходом настоящего Протокола является официальный ежегодный отчёт о состоянии Университетского Хроникального Узла и утверждённая программа его дальнейшего развития.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-005-4-normative-documentation-management"></a></p>
+<h3 id="fdp-0054--протокол-управления-нормативной-документацией">FDP-005.4 — ПРОТОКОЛ УПРАВЛЕНИЯ НОРМАТИВНОЙ ДОКУМЕНТАЦИЕЙ</h3>
+<p><strong>(Normative Documentation Governance Protocol)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-005.4</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="1-назначение-17">1. Назначение</h4>
+<p>Настоящий Протокол определяет единый порядок создания, изменения, утверждения, регистрации и отмены нормативной документации Chronicle OS.</p>
+<h4 id="2-цель-11">2. Цель</h4>
+<p>Обеспечить целостность нормативной базы, её непротиворечивость, прослеживаемость развития и институциональную преемственность.</p>
+<h4 id="3-область-действия">3. Область действия</h4>
+<p>Настоящий Протокол распространяется на:</p>
+<ul>
+<li>регламенты;</li>
+<li>редакционные политики;</li>
+<li>процедуры;</li>
+<li>инструкции;</li>
+<li>стандарты;</li>
+<li>архитектурные документы;</li>
+<li>методические документы;</li>
+<li>внутренние нормативные акты Университетского Хроникального Узла.</li>
+</ul>
+<h4 id="4-основные-принципы">4. Основные принципы</h4>
+<p>Нормативная документация Chronicle OS строится на принципах:</p>
+<ul>
+<li>единства;</li>
+<li>непротиворечивости;</li>
+<li>прослеживаемости изменений;</li>
+<li>документированной преемственности;</li>
+<li>сохранения архивных редакций.</li>
+</ul>
+<h4 id="5-создание-документа">5. Создание документа</h4>
+<p>Инициатор разработки представляет:</p>
+<ul>
+<li>цель документа;</li>
+<li>область применения;</li>
+<li>проект редакции;</li>
+<li>обоснование необходимости.</li>
+</ul>
+<p>После рассмотрения документ получает статус рабочей редакции.</p>
+<h4 id="6-рассмотрение">6. Рассмотрение</h4>
+<p>Проект рассматривается:</p>
+<ul>
+<li>Главным редактором;</li>
+<li>при необходимости Редакционной коллегией;</li>
+<li>Экспертным советом;</li>
+<li>администрацией издательского узла.</li>
+</ul>
+<h4 id="7-утверждение">7. Утверждение</h4>
+<p>После принятия решения документ получает:</p>
+<ul>
+<li>регистрационный номер;</li>
+<li>дату утверждения;</li>
+<li>номер версии;</li>
+<li>официальный статус.</li>
+</ul>
+<h4 id="8-изменение-документа">8. Изменение документа</h4>
+<p>Каждая новая редакция оформляется как самостоятельная версия.</p>
+<p>Предыдущая редакция сохраняется в архиве Chronicle OS.</p>
+<p>Удаление архивных редакций не допускается.</p>
+<h4 id="9-отмена-документа">9. Отмена документа</h4>
+<p>Документ может быть признан утратившим силу исключительно официальным решением уполномоченного органа.</p>
+<p>При этом сохраняются:</p>
+<ul>
+<li>архивная редакция;</li>
+<li>регистрационная запись;</li>
+<li>история действия документа.</li>
+</ul>
+<h4 id="10-реестр-нормативной-документации">10. Реестр нормативной документации</h4>
+<p>Chronicle OS ведёт единый Реестр нормативных документов, содержащий:</p>
+<ul>
+<li>регистрационный номер;</li>
+<li>название;</li>
+<li>дату утверждения;</li>
+<li>действующую редакцию;</li>
+<li>историю изменений;</li>
+<li>статус документа;</li>
+<li>связи с другими нормативными актами.</li>
+</ul>
+<h4 id="11-принцип-преемственности">11. Принцип преемственности</h4>
+<p>Ни одно изменение нормативной базы не должно нарушать целостность ранее принятых процедур без документированного основания.</p>
+<h4 id="12-завершение-процедуры-1">12. Завершение процедуры</h4>
+<p>Настоящий Протокол считается исполненным после регистрации соответствующего изменения в Реестре нормативной документации Chronicle OS.</p>
+<h4 id="результат-15">Результат</h4>
+<p>Выходом настоящего Протокола является единая, управляемая и исторически прослеживаемая нормативная система Chronicle OS, обеспечивающая стабильность функционирования Университетского Хроникального Узла независимо от организационных и кадровых изменений.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<p><a id="fdp-005-5-node-operational-charter"></a></p>
+<h3 id="fdp-0055--операционный-устав-университетского-хроникального-узла">FDP-005.5 — ОПЕРАЦИОННЫЙ УСТАВ УНИВЕРСИТЕТСКОГО ХРОНИКАЛЬНОГО УЗЛА</h3>
+<p><strong>(University Chronicle Node Operational Charter)</strong></p>
+<p><strong>Идентификатор документа:</strong> FDP-005.5</p>
+<p><strong>Статус:</strong> Рабочий проект</p>
+<p><strong>Версия:</strong> 1.0</p>
+<p><strong>Владелец:</strong> IMARCH LTD (Великобритания)</p>
+<h4 id="преамбула-1">Преамбула</h4>
+<p>Университетский Хроникальный Узел представляет собой автономный университетский издательский узел, действующий в составе Chronicle OS и реализующий полный жизненный цикл научной публикации.</p>
+<p>Настоящий Устав определяет принципы существования, цели, функции, полномочия и порядок деятельности Университетского Хроникального Узла как самостоятельного научного издательского института.</p>
+<h4 id="1-миссия">1. Миссия</h4>
+<p>Основной миссией Университетского Хроникального Узла является обеспечение устойчивого, воспроизводимого, этически выверенного и научно обоснованного процесса создания, экспертной оценки, публикации, сопровождения и долгосрочного сохранения результатов научной деятельности.</p>
+<h4 id="2-основные-принципы">2. Основные принципы</h4>
+<p>Университетский Хроникальный Узел осуществляет свою деятельность на основе следующих принципов:</p>
+<ul>
+<li>научная независимость;</li>
+<li>редакционная автономия;</li>
+<li>академическая честность;</li>
+<li>прозрачность процедур;</li>
+<li>отслеживаемость решений;</li>
+<li>институциональная преемственность;</li>
+<li>открытость научному развитию;</li>
+<li>сохранение исторической памяти науки.</li>
+</ul>
+<h4 id="3-основные-функции-4">3. Основные функции</h4>
+<p>Университетский Хроникальный Узел обеспечивает:</p>
+<ul>
+<li>приём научных рукописей;</li>
+<li>редакционную оценку;</li>
+<li>организацию экспертного рецензирования;</li>
+<li>принятие редакционных решений;</li>
+<li>подготовку публикаций;</li>
+<li>выпуск научных материалов;</li>
+<li>сопровождение публикаций;</li>
+<li>архивирование;</li>
+<li>регистрацию научных взаимосвязей;</li>
+<li>поддержку жизненного цикла научного знания.</li>
+</ul>
+<h4 id="4-структура">4. Структура</h4>
+<p>В состав Университетского Хроникального Узла входят:</p>
+<ul>
+<li>Главный редактор;</li>
+<li>Редакционный совет;</li>
+<li>Ответственный секретарь;</li>
+<li>Техническая редакция;</li>
+<li>Экспертная сеть;</li>
+<li>Архив Chronicle OS;</li>
+<li>Реестр нормативной документации;</li>
+<li>Репозиторий публикаций.</li>
+</ul>
+<p>Структура может развиваться без нарушения настоящего Устава.</p>
+<h4 id="5-нормативная-база">5. Нормативная база</h4>
+<p>Деятельность Университетского Хроникального Узла осуществляется на основе:</p>
+<ul>
+<li>Публикационной политики;</li>
+<li>Публикационной этики;</li>
+<li>регламентов Chronicle OS;</li>
+<li>внутренних нормативных документов;</li>
+<li>решений редакционных органов.</li>
+</ul>
+<p>Все процедуры должны соответствовать утверждённой нормативной системе Chronicle OS.</p>
+<h4 id="6-жизненный-цикл-публикации">6. Жизненный цикл публикации</h4>
+<p>Каждая научная публикация проходит полный жизненный цикл:</p>
+<ol>
+<li>Подача</li>
+<li>Редакционная оценка</li>
+<li>Рецензирование</li>
+<li>Редакционное решение</li>
+<li>Производство</li>
+<li>Публикация</li>
+<li>Пост-публикационный жизненный цикл</li>
+<li>Долгосрочное сохранение</li>
+<li>Эволюция научного знания</li>
+</ol>
+<h4 id="7-управление">7. Управление</h4>
+<p>Управление Университетским Хроникальным Узлом осуществляется через документированные процедуры.</p>
+<p>Ни одна функция не должна зависеть исключительно от конкретного должностного лица.</p>
+<p>Все процессы должны быть воспроизводимы.</p>
+<h4 id="8-институциональная-память">8. Институциональная память</h4>
+<p>Университетский Хроникальный Узел обеспечивает сохранение:</p>
+<ul>
+<li>публикаций;</li>
+<li>редакционной истории;</li>
+<li>экспертных решений;</li>
+<li>нормативной документации;</li>
+<li>научных взаимосвязей;</li>
+<li>истории развития научного знания.</li>
+</ul>
+<h4 id="9-развитие">9. Развитие</h4>
+<p>Университетский Хроникальный Узел рассматривается как саморазвивающаяся научная система.</p>
+<p>Совершенствование процедур осуществляется через официальное изменение нормативной документации Chronicle OS.</p>
+<h4 id="10-преемственность-1">10. Преемственность</h4>
+<p>Даже при изменении:</p>
+<ul>
+<li>редакционного состава;</li>
+<li>руководства;</li>
+<li>Университета;</li>
+<li>цифровой платформы;</li>
+<li>технологической инфраструктуры</li>
+</ul>
+<p>Университетский Хроникальный Узел сохраняет:</p>
+<ul>
+<li>свою идентичность;</li>
+<li>свой архив;</li>
+<li>свою нормативную систему;</li>
+<li>свою научную память;</li>
+<li>свой репозиторий публикаций.</li>
+</ul>
+<h4 id="11-заключительное-положение">11. Заключительное положение</h4>
+<p>Настоящий Устав является основополагающим организационным документом Университетского Хроникального Узла.</p>
+<p>Все последующие нормативные акты, процедуры и регламенты применяются исключительно в части, не противоречащей настоящему Уставу.</p>
+<h4 id="результат-16">Результат</h4>
+<p>Настоящий документ определяет Университетский Хроникальный Узел как самостоятельный научный издательский институт, действующий в составе Chronicle OS и обеспечивающий полный жизненный цикл научного знания — от возникновения рукописи до бесконечного существования в научной памяти человечества.</p>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<h3 id="утверждено--подписано">Утверждено / Подписано:</h3>
+<p><strong>Александр Пурпуров</strong><br>
+Директор и Главный системный архитектор<br>
+<strong>IMARCH LTD</strong>, Лондон, Великобритания</p>
+<p><em>18 июля 2026 г.</em></p>
+<p> </p>
+<div class="custom-card-banner verdictum-banner verdictum-banner-actions">
+  <span class="banner-emoji">📚</span>
+  <div class="banner-title">МАТЕРИАЛЫ ПУБЛИКАЦИИ</div>
+  <div class="banner-sub">Скачайте версию для печати, откройте презентацию или присоединяйтесь к обсуждению материала.</div>
+  <div class="banner-actions">
+    <a href="[PDF_URL]" class="banner-btn banner-btn--pdf" target="_blank" rel="noopener noreferrer">📄 Скачать PDF</a>
+    <a href="[RAG_URL]" class="banner-btn banner-btn--rag" target="_blank" rel="noopener noreferrer">🎬 RAG-презентация</a>
+    <a href="[FORUM_URL]" class="banner-btn banner-btn--forum" target="_blank" rel="noopener noreferrer">💬 Обсудить на форуме</a>
+  </div>
+</div>
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up"> <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #8b7355, transparent);" /> </div>
+<p> </p>
+<!-- ===== СВЕДЕНИЯ ОБ ИЗДАНИИ И ПРАВОВОЙ РЕЖИМ ===== -->
+<h4 id="сведения-об-издании-и-правовой-режим">Сведения об издании и правовой режим</h4>
+<!-- ТАБЛИЦА I: БИБЛИОГРАФИЧЕСКИЕ ДАННЫЕ (для ISSN Online) -->
+<div class="verdictum-table-wrap bibliography-section">
+<table style="border-collapse: collapse; width: 100%; border: 1px solid #8b7355; margin-bottom: 0;">
+  <thead>
+    <tr>
+      <th colspan="2" style="background-color: #f6f1eb; color: #4b2e2e; text-align: center; padding: 0.75rem; border-bottom: 2px solid #8b7355;">I. БИБЛИОГРАФИЧЕСКИЕ ДАННЫЕ (для ISSN Online)</th>
+    </tr>
+    <tr style="background-color: #eae0d5;">
+      <th style="padding: 0.5rem; border: 1px solid #8b7355; text-align: left; width: 30%;">Параметр</th>
+      <th style="padding: 0.5rem; border: 1px solid #8b7355; text-align: left;">Значение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Название издания (Key Title):</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><strong>VERDICTUM</strong>: Журнал Культурно-Инженерной Реконструкции и Реновации</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">ISSN (Online):</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><strong>____-____</strong> (заявка в процессе рассмотрения)</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">URL издания:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><a href="https://imarch.ltd/ru/verdictum/" target="_blank" rel="noopener noreferrer">https://imarch.ltd/ru/verdictum/</a></td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Тип издания:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">Международный рецензируемый экспертный периодический журнал (электронный)</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Выпуск (Current Issue):</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><strong>Том 1, № 1 (сентябрь 2026)</strong>. Базовый выпуск</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Периодичность:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">Ежеквартальное формирование томов</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Языки публикации:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">русский, английский, украинский</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Планируемое расширение:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">до 8 языков: арабский, китайский, испанский, французский, латынь</td>
+    </tr>
+    <tr style="background-color: #fdfaf5;">
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;"><strong>Лицензия публикации:</strong></td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><strong>CC BY-NC-ND 4.0</strong> (см. VR-0025)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- ТАБЛИЦА II: РЕКВИЗИТЫ ОПЕРАТОРА И ПРАВОВОЙ КОНТУР -->
+<div class="verdictum-table-wrap institutional-section">
+<table style="border-collapse: collapse; width: 100%; border: 1px solid #8b7355; border-top: none;">
+  <thead>
+    <tr>
+      <th colspan="2" style="background-color: #f6f1eb; color: #4b2e2e; text-align: center; padding: 0.75rem; border-bottom: 2px solid #8b7355;">II. РЕКВИЗИТЫ ОПЕРАТОРА И ПРАВОВОЙ КОНТУР</th>
+    </tr>
+    <tr style="background-color: #eae0d5;">
+      <th style="padding: 0.5rem; border: 1px solid #8b7355; text-align: left; width: 30%;">Параметр</th>
+      <th style="padding: 0.5rem; border: 1px solid #8b7355; text-align: left;">Значение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Издатель и оператор:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><strong>IMARCH LTD</strong> (Company No. 16791765)</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Юрисдикция:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">Англия и Уэльс, Соединённое Королевство</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Правовая основа:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">Учредительная институциональная декларация VERDICTUM, Акт RN-0028 (VR-DECL-2026-001 от 06 июля 2026 года)</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Инфраструктурный контур:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><strong>CHRONICLE OS 8888™</strong> (Ver. 1.0 Genesis)</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Режим защиты (IP):</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">UK Trade Secrets Regulations 2018 (SI 2018/597)</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Официальный реестр:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><a href="https://imarch.ltd/ru/profile/office/" target="_blank" rel="noopener noreferrer">imarch.ltd/ru/profile/office/</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- ТАБЛИЦА III: РЕДАКЦИЯ И НОРМАТИВНАЯ БАЗА -->
+<div class="verdictum-table-wrap editorial-section">
+<table style="border-collapse: collapse; width: 100%; border: 1px solid #8b7355; border-top: none;">
+  <thead>
+    <tr>
+      <th colspan="2" style="background-color: #f6f1eb; color: #4b2e2e; text-align: center; padding: 0.75rem; border-bottom: 2px solid #8b7355;">III. РЕДАКЦИЯ И НОРМАТИВНАЯ БАЗА</th>
+    </tr>
+    <tr style="background-color: #eae0d5;">
+      <th style="padding: 0.5rem; border: 1px solid #8b7355; text-align: left; width: 30%;">Параметр</th>
+      <th style="padding: 0.5rem; border: 1px solid #8b7355; text-align: left;">Значение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Главный редактор:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><strong>Олександр Пурпуров</strong></td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Контакт редакции:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><a href="mailto:info@imarch.ltd">info@imarch.ltd</a></td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Год основания:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">2026</td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Официальный канал связи:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;"><a href="mailto:info@imarch.ltd">info@imarch.ltd</a></td>
+    </tr>
+    <tr>
+      <td data-label="Параметр" style="padding: 0.5rem; border: 1px solid #8b7355;">Нормативная база журнала:</td>
+      <td data-label="Значение" style="padding: 0.5rem; border: 1px solid #8b7355;">
+        Издательская доктрина — VR-0003<br>
+        Протокол сети экспертных рецензентов — VR-0005<br>
+        Протокол для авторов — VR-0016<br>
+        Функциональный стандарт IPP — VR-0019<br>
+        Визуальные стандарты — VR-0020<br>
+        Стандарт веб-интерфейсов — VR-0021<br>
+        <strong>Политика лицензирования — VR-0025</strong>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<!-- ПОДПИСЬ ГЛАВНОГО РЕДАКТОРА -->
+<p style="margin-top: 2rem; font-size: 0.95rem; color: #2c2416; line-height: 1.6;">
+<strong>Подпись главного редактора:</strong><br>
+<em>Олександр Пурпуров</em><br>
+Главный редактор<br>
+17 сентября 2026 года
+</p>
+<p style="margin-top: 1.5rem; font-size: 0.85rem; color: #6a5a4a; line-height: 1.6; text-align: justify;">
+<strong>Уведомление о копирайте и режиме.</strong> © 2026, IMARCH LTD. Все права защищены. Настоящая публикация является частью периодического издания VERDICTUM и распространяется под лицензией <strong>CC BY-NC-ND 4.0</strong>. Любое копирование архитектуры, методов или функциональной матрицы без письменного согласия IMARCH LTD является нарушением режима коммерческой тайны и преследуется по закону. Контрольная сумма данного Verdictum Record зафиксирована в SHA-256 контуре CHRONICLE OS.
+</p>
+<div style="text-align: center; margin-top: 1.2rem;">
+  
+  
+    <a href="/ru//verdictum/" style="
+      display: inline-block;
+      font-size: 1.3rem;
+      padding: 0.8rem 1.6rem;
+      background-color: #cccccc;
+      color: #333;
+      text-transform: uppercase;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 0.6rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    "
+    onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'"
+    onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+      ГЛАВНАЯ
+    </a>
+  
+</div>
+
+
+<div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
+  <hr style="border: none; height: 1px; background: linear-gradient(to right, transparent, #4b2e2e, transparent);" />
+</div>
+<p> </p>
+<div class="imarch-contacts-card">
+
+  
+  <div class="imarch-section-title">Subscribe</div>
+
+  <div class="imarch-icon-grid-3">
+    <a href="https://github.com/Imperium-Silentii/IMARCH-CCS-8888" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/git.png" alt="GitHub">
+    </a>
+    <a href="https://x.com/SunLife_Massage" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/x.png" alt="X">
+    </a>
+    <a href="https://t.me/+4ce1gtKVQ0E0NDIy" target="_blank">
+    <img class="imarch-icon" src="/images/ikons/bronze/tg.png" alt="Telegram">
+    </a>
+    <a href="https://medium.com/@imarch" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/med.png" alt="Medium">
+    </a>
+    <a href="https://www.instagram.com/reel/DJ93bvjtWRW/" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/inst.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/share/g/1QAMGUUP5W/" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/bronze/fb.png" alt="Facebook">
+    </a>
+  </div>
+
+  <hr class="imarch-contacts-divider"/>
+
+  
+  <div class="imarch-section-title">Share</div>
+
+  <div class="imarch-icon-grid-3">
+    <a href="https://x.com/share?url=https%3a%2f%2fimarch.ltd%2fru%2fverdictum%2fvr-0010%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/x.png" alt="X Share">
+    </a>
+    <a href="https://api.whatsapp.com/send?text=VR-0010%20https%3a%2f%2fimarch.ltd%2fru%2fverdictum%2fvr-0010%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/wa.png" alt="WhatsApp Share">
+    </a>
+    <a href="https://t.me/share/url?url=https%3a%2f%2fimarch.ltd%2fru%2fverdictum%2fvr-0010%2f&text=VR-0010" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/tg.png" alt="Telegram Share">
+    </a>
+    <a href="https://medium.com/share?url=https%3a%2f%2fimarch.ltd%2fru%2fverdictum%2fvr-0010%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/med.png" alt="Medium Share">
+    </a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3a%2f%2fimarch.ltd%2fru%2fverdictum%2fvr-0010%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/lin.png" alt="LinkedIn Share">
+    </a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fimarch.ltd%2fru%2fverdictum%2fvr-0010%2f" target="_blank">
+      <img class="imarch-icon" src="/images/ikons/silver/fb.png" alt="Facebook Share">
+    </a>
+  </div>
+
+  <hr class="imarch-contacts-divider"/>
+
+</div>
+
+<p style="text-align: center; margin-top: 2rem;"><a href="#top">⬆ Наверх</a></p>
+    
+    
+    
+    
+    
+  </div>
+</main>
+
+<style>
+ 
+.article-date {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin: 0.5rem 0 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+ 
+.article-translations {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin: 0 0 1.5rem;
+  border-left: 3px solid #9333ea;
+  font-size: 0.9rem;
+}
+
+.article-translations span {
+  color: #475569;
+  font-weight: 500;
+  margin-right: 0.5rem;
+}
+
+.translation-link {
+  color: #7c3aed;
+  text-decoration: none;
+  margin: 0 0.25rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.translation-link:hover {
+  background: #ede9fe;
+  color: #5b21b6;
+}
+
+ 
+@media (max-width: 768px) {
+  .article-translations {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .article-translations span {
+    margin-bottom: 0.25rem;
+  }
+  
+  .translation-link {
+    align-self: flex-start;
+  }
+}
+</style>
+
+    </main>
+
+    <footer>
+  <div class="container">
+    
+
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+        <ul class="list-inline text-center footer-links">
+          
+
+          
+        </ul>
+
+        <p class="credits copyright text-muted">
+          
+            <a href="https://imarch.ltd/ru/">Имархия</a>
+            &nbsp;&bull;&nbsp;
+          
+
+          <a href="https://imarch.ltd/en/imarch-ltd/">IMARCH LTD UK</a>
+          &nbsp;&bull;&nbsp; Reg. No: 16791765
+          &nbsp;&bull;&nbsp; <a href="/audit.html" style="font-weight: 600;">Protocol 8888 Audit</a>
+          &nbsp;&bull;&nbsp;&copy;
+          
+            2026
+          
+          &nbsp;&bull;&nbsp;
+          Oleksandr Purpurov
+        </p>
+
+        <p class="credits text-muted" style="font-style: italic; margin-top: 8px; opacity: 0.85; text-align: center;">
+          Chronicle OS is an official operational interface for Complex Sociosystems Risk Management (CSRM).
+        </p>
+
+      </div>
+    </div>
+  </div>
+</footer><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.7/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+<script src="https://imarch.ltd/js/main.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.2/photoswipe-ui-default.min.js" crossorigin="anonymous"></script><script src="https://imarch.ltd/js/load-photoswipe.js"></script>
+
+<script src="https://imarch.ltd/parallax.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".imarch-module details").forEach(details => {
+    const content = details.querySelector(".accordion-content");
+    if (!content) return;
+
+    details.addEventListener("toggle", () => {
+      if (details.open) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        setTimeout(() => { content.style.maxHeight = "0px"; }, 20);
+      }
+    });
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  const elements = document.querySelectorAll('.fade-in-up');
+  if (!elements.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+});
+</script>
+
+    
+    <button id="openFormBtn" class="floating-btn">✉</button>
+
+    
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <span id="closeFormBtn" class="close">&times;</span>
+        <iframe src="https://forms.zohopublic.eu/adminima1/form/CustomerSupportRequestForm/formperma/AbFihH-NR7Iv2BufnOGTiWrfaRud1bW9-SeWL9aBc4Q"
+                frameborder="0"
+                style="width:100%; height:500px; border:none;">
+        </iframe>
+      </div>
+    </div>
+
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const openBtn = document.getElementById('openFormBtn');
+  const modal = document.getElementById('formModal');
+  const closeBtn = document.getElementById('closeFormBtn');
+
+  openBtn.onclick = () => modal.style.display = "block";
+  closeBtn.onclick = () => modal.style.display = "none";
+  window.onclick = (e) => { if (e.target == modal) modal.style.display = "none"; }
+});
+</script>
+
+
+
+<script src="/js/account-return-widget.js?v=1" defer></script>

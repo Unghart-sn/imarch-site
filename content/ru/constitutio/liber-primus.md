@@ -13,7 +13,7 @@ permalink: https://perma.cc/97GP-TDCY
 ---
 
 <div style="text-align:center; margin-top:2rem;">
-  <a href="https://imarch.sbs/ru/constitutio/liber-primus/" title="Перейти к публикации Liber Primus">
+  <a href="https://imarch.ltd/ru/constitutio/liber-primus/" title="Перейти к публикации Liber Primus">
     <img src="/images/banners/logo_imarhc.jpg"
          alt="Logo IMARCH"
          style="max-width:300px; box-shadow:0 0 20px rgba(0,0,0,0.3); transition:opacity 1s ease-in-out;"
@@ -1886,7 +1886,7 @@ _Формализует гражданство как активную форм�
 
 <details>
   <summary>▾</summary>
-  <p><em>2025.10.02, <a href="https://imarch.sbs/ru/constitutio/">КОНСТИТУЦИЯ</a></em></p>
+  <p><em>2025.10.02, <a href="https://imarch.ltd/ru/constitutio/">КОНСТИТУЦИЯ</a></em></p>
   <p><em>Администрация Имарха</em></p>
 
   [const-ru-01.pdf](https://github.com/Imperium-Silentii/Arhivum/blob/main/const-001/const-ru-01.pdf) | `D4CC21B4C8A4CB8D27289F93D1627E8D7176393000A5C2917798D9DD44690FD7`

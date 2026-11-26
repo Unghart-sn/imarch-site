@@ -45,7 +45,7 @@ IMARCH is neither a classical publisher nor a technology provider. We are creati
 Our philosophy is simple: knowledge should not dissolve in bureaucratic labyrinths or be lost in flows of information. It must be anchored in a sustainable architecture, accessible for verification, reproduction and development. That is why IMARCH builds a phygital model — a connection between the paper manifesto and its digital twin. The paper fixes the DNA of the institution, while the digital dimension reveals its dynamics and scalability.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/en/ccs/" class="btn-small">🔗 Go to CCS page →</a>
+  <a href="https://imarch.ltd/en/ccs/" class="btn-small">🔗 Go to CCS page →</a>
 </div>
 
 ---
@@ -59,7 +59,7 @@ At a time when traditional journals are overloaded with bureaucracy and commerci
 The journal fulfills three key functions. First, it provides academic legitimisation of IMARCH projects through peer review and publication. Second, it builds a knowledge base that serves as a foundation for international partnerships and grant programmes. Third, it integrates with Scientometrics 2.0 digital protocols, allowing real-time tracking of research impact and dynamics.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/en/" class="btn-small">🔗 Read the journal →</a>
+  <a href="https://imarch.ltd/en/" class="btn-small">🔗 Read the journal →</a>
 </div>
 
 ---
@@ -73,7 +73,7 @@ The main task of the pilot is to model scenarios and simulate processes that ref
 Vis Realitatis integrates with educational and research initiatives, becoming a platform for collaboration between students, faculty and independent researchers. It serves as a laboratory where new interaction models are tested, digital protocols are trialled, and international cooperation scenarios are rehearsed.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/en/profile/pilot/" class="btn-small">🔗 Explore the Vis Realitatis pilot →</a>
+  <a href="https://imarch.ltd/en/profile/pilot/" class="btn-small">🔗 Explore the Vis Realitatis pilot →</a>
 </div>
 
 ---
@@ -87,7 +87,7 @@ The main task of CCS is to transform complex institutional processes into manage
 CCS functionality includes three key directions. First, the creation of institutional acts and registries that form the legal bulletproof vest of IMARCH. Second, integration with the journal and the hub, ensuring a unified architecture where publications, cases and documents are interconnected. Third, the use of templates for presentations and publications, allowing participants to quickly generate materials without compromising quality and legitimacy.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/en/profile/ccs/" class="btn-small">🔗 Open CCS →</a>
+  <a href="https://imarch.ltd/en/profile/ccs/" class="btn-small">🔗 Open CCS →</a>
 </div>
 
 ---
@@ -101,7 +101,7 @@ The key element is the Act of Know-How RN-0015, recording IMARCH's internal deve
 Equally important is the Memorandum with UMSS RN-0014, which secures an international partnership. This act shows that IMARCH is moving beyond a local initiative and becoming part of a global network. The memorandum provides institutional support and opens access to international grants and donor programmes.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/en/profile/office/" class="btn-small">🔗 Official Documents Registry →</a>
+  <a href="https://imarch.ltd/en/profile/office/" class="btn-small">🔗 Official Documents Registry →</a>
 </div>
 
 ---
@@ -115,7 +115,7 @@ The key element of the framework is the Constitution of IMARCH, consisting of tw
 Of particular importance is Protocol 8888, which serves as a security and onboarding mechanism. It ensures the ritualised inclusion of new participants, records their institutional roles and guarantees compliance with rules. The protocol transforms the joining process into a symbolic act that strengthens the identity of IMARCH.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/en/constitutio/" class="btn-small">🔗 Constitution of Imarchia →</a>
+  <a href="https://imarch.ltd/en/constitutio/" class="btn-small">🔗 Constitution of Imarchia →</a>
 </div>
 
 ---
@@ -131,7 +131,7 @@ The second direction is the expansion of partnerships and expansion into new reg
 The third direction is scaling through the phygital model. The paper manifesto fixes the DNA of the institution, while the digital twin reveals its dynamics. This model allows IMARCH to be both sustainable and flexible, combining tradition and innovation.
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 1.5rem 0;">
-  <a href="https://imarch.sbs/en/docs/collegium/" class="btn-small">🔗 Roadmap and partnerships →</a>
+  <a href="https://imarch.ltd/en/docs/collegium/" class="btn-small">🔗 Roadmap and partnerships →</a>
 </div>
 
 ---
@@ -141,7 +141,7 @@ The third direction is scaling through the phygital model. The paper manifesto f
 ## Project Materials
 
 - 📄 **Presentation Monograph (PDF)**: [Download](/documents/IMARCH_Presentation_Monography_BaseLayer_20260612_EN.pdf)
-- 🏛️ **Official Website**: [https://imarch.sbs](https://imarch.sbs)
+- 🏛️ **Official Website**: [https://imarch.ltd](https://imarch.ltd)
 - 🔗 **Full Monograph DOI**: [10.5281/zenodo.20611942](https://doi.org/10.5281/zenodo.20611942)
 
 <div class="monography-actions" style="display: flex; gap: 1rem; justify-content: center; margin: 2rem 0;">

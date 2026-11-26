@@ -17,7 +17,7 @@ Salvete in scena mea personali. Hic inspirationem colligo, cogitationes communic
 {{< morebutton target="/ru/unghart/" text="🔔 SUBSCRIBE" >}}
 </div>
 
-{{< morebutton target="https://unghart.imarch.sbs/ru/" text="🌐 SITUS PERSONALIS" >}}
+{{< morebutton target="https://unghart.imarch.ltd/ru/" text="🌐 SITUS PERSONALIS" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">

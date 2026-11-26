@@ -66,7 +66,7 @@ Para participar, se requiere:
 
 Para enviar tu solicitud:
 
-1. Revisa la **[Constitución IMARCH](https://imarch.sbs/es/constitutio/)**  
+1. Revisa la **[Constitución IMARCH](https://imarch.ltd/es/constitutio/)**  
 2. Accede al formulario de solicitud:  
    **[📝 Solicitar ciudadanía](...)**  
 3. Indica nombre escénico, GitHub, título, propósito de participación  

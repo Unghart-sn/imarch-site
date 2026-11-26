@@ -145,9 +145,9 @@ P.S. I am simultaneously corresponding with Mykola Havrylovych regarding the gen
       padding-left: 0 !important;
       display: block !important;
   ">
-    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/en/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
-    <p style="text-align: left !important; margin-left: 0 !important;">Electronicā inscriptione: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
-    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.sbs/la/verdictum/verdictum-0006/">VERDICT</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/en/verdictum/verdictum-0003/">IMARCH LTD</a></em></p>
+    <p style="text-align: left !important; margin-left: 0 !important;">Electronicā inscriptione: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
+    <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.13, <a href="https://imarch.ltd/la/verdictum/verdictum-0006/">VERDICT</a></em></p>
     <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/imarch-sbs-la-verdictum-verdictum-0006.pdf">verdictum-0006-la.pdf</a></p>
   </div>
 </div>

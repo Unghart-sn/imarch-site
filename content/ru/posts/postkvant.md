@@ -98,7 +98,7 @@ draft: false
 В мире социальных сетей человек перестал быть субъектом.  
 Он стал потоком контента, который исчезает в общем шуме. Посты тонут в новостной ленте, авторство размывается, репосты не имеют юридической силы, а система доверия строится на лайках, скорости внимания и алгоритмах.
 
-Платформа **imarch.sbs** создавалась как альтернатива всей этой «пустой игре в коммуникацию».  
+Платформа **imarch.ltd** создавалась как альтернатива всей этой «пустой игре в коммуникацию».  
 Не как ещё одна соцсеть, а как **институциональная архитектура доверия**, где:
 
 - каждый акт имеет форму,  
@@ -158,7 +158,7 @@ draft: false
 
 Каждая маска получает свой адрес:
 
-maskname.imarch.sbs
+maskname.imarch.ltd
 
 
 Здесь публикуются **оригиналы**: статьи, акты, меморандумы, заявления.  
@@ -224,7 +224,7 @@ RSA и ECC будут взламываться за минуты.
 
 В Web2 репост — это просто пересылка.  
 
-В imarch.sbs — это акт признания:
+В imarch.ltd — это акт признания:
 
 1. Маска публикует оригинал  
 2. Пользователь цитирует его в своём профиле  
@@ -299,7 +299,7 @@ Imarch — это:
 {{< landing-min >}}
 
   <div style="text-align:left; max-width:800px; margin:0 auto;">
-    <p><em>Сценическое гражданство</em> — ключевая функция платформы imarch.sbs.</p>
+    <p><em>Сценическое гражданство</em> — ключевая функция платформы imarch.ltd.</p>
     <p>Каждый участник получает <strong>сценическое имя</strong> и <strong>маску</strong>, которые выступают как юридически верифицируемая личность.</p>
     <p>Это решение обеспечивает <strong>защиту авторских прав</strong> и признание субъектности в публичной деятельности.</p>
     <p>При этом сохраняется <strong>инкогнито в бытовой жизни</strong>: маска отделяет частное от профессионального.</p>
@@ -318,4 +318,4 @@ Imarch — это:
 <details>
   <summary>Post Scriptum 🔻</summary>
 
-<div style="text-align: left !important; max-width: 800px; margin: 0 auto; padding-left: 0 !important; padding-right: 0 !important;"> <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;"> <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.sbs/ru/verdictum/verdictum-0003/">IMARCH LTD</a></em></p> <p style="text-align: left !important; margin-left: 0 !important;">Электронная почта: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p> <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.22, <a href="https://imarch.sbs/ru/verdictum/0008/">ВЕРДИКТ</a></em></p> <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/proposals/memorandum-ano-vis-realitatis-2025-12-22.pdf">memorandum-ano-vis-realitatis-2025-12-10-la.pdf</a></p> <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>Примечание: В значении криптографического хеша указан SHA-256 оригинального документа на латыни</em></p> </div> </div><div style="background: linear-gradient(145deg, #fefefe, #f5f0eb); border: none; border-radius: 12px; padding: 1.75em; margin: 2em auto; max-width: 700px; box-shadow: 0 4px 20px rgba(75, 46, 46, 0.08), 0 0 0 1px rgba(75, 46, 46, 0.05) inset;"> <details> <summary style="font-weight: 700; font-size: 1.25em; cursor: pointer; color: #2c1810; padding: 0.75em 1em; background: #fff; border-radius: 8px; border: 1px solid #e8dcd3; box-shadow: 0 2px 8px rgba(75, 46, 46, 0.05); display: flex; align-items: center; justify-content: space-between; list-style: none;"> <span>КРИПТОГРАФИЧЕСКАЯ ПОДПИСЬ (SHA-256 оригинального латинского документа)</span> <span style="font-size: 0.9em; color: #8b7355;">🔻</span> </summary> <div style="margin-top: 1.75em;"> <pre style="background: #f8f4f0; padding: 1.25em; border-radius: 8px; overflow-x: auto; margin: 0; font-family: 'Courier New', 'Cascadia Code', monospace; font-size: 0.95em; line-height: 1.6; border: 1px solid #e8dcd3; color: #2c1810; white-space: pre-wrap; word-break: break-all;"> a75d7fee40a786701890a67465efbc5fafac5d5ba60bdea7db8b1402b342e85e </pre> <div style="margin-top: 1em; display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #8b7355;"> <span>✓ Хеш оригинала на латыни • 64 символа</span> <button onclick="navigator.clipboard.writeText('a75d7fee40a786701890a67465efbc5fafac5d5ba60bdea7db8b1402b342e85e')" style="background: transparent; color: #8b7355; border: 1px solid #d4c4b8; padding: 0.4em 1em; border-radius: 6px; font-size: 0.9em; cursor: pointer;" onmouseover="this.style.backgroundColor='#f5f0eb'; this.style.borderColor='#8b7355';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#d4c4b8';"> Копировать </button> </div> <p style="font-size: 0.85em; color: #8b7355; margin-top: 1em; font-style: italic;"> *Данный SHA-256 соответствует оригинальному документу на латыни. Русская версия является его официальным переводом и валидируется по этому хешу. </p> </div> </details> </div> </details>
+<div style="text-align: left !important; max-width: 800px; margin: 0 auto; padding-left: 0 !important; padding-right: 0 !important;"> <div style="text-align: left !important; margin-left: 0 !important; padding-left: 0 !important; display: block !important;"> <p style="text-align: left !important; margin-left: 0 !important;"><em><a href="https://imarch.ltd/ru/verdictum/verdictum-0003/">IMARCH LTD</a></em></p> <p style="text-align: left !important; margin-left: 0 !important;">Электронная почта: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p> <p style="text-align: left !important; margin-left: 0 !important;"><em>2025.12.22, <a href="https://imarch.ltd/ru/verdictum/0008/">ВЕРДИКТ</a></em></p> <p style="text-align: left !important; margin-left: 0 !important;"><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/proposals/memorandum-ano-vis-realitatis-2025-12-22.pdf">memorandum-ano-vis-realitatis-2025-12-10-la.pdf</a></p> <p style="text-align: left !important; margin-left: 0 !important; font-size: 0.9em; color: #666;"><em>Примечание: В значении криптографического хеша указан SHA-256 оригинального документа на латыни</em></p> </div> </div><div style="background: linear-gradient(145deg, #fefefe, #f5f0eb); border: none; border-radius: 12px; padding: 1.75em; margin: 2em auto; max-width: 700px; box-shadow: 0 4px 20px rgba(75, 46, 46, 0.08), 0 0 0 1px rgba(75, 46, 46, 0.05) inset;"> <details> <summary style="font-weight: 700; font-size: 1.25em; cursor: pointer; color: #2c1810; padding: 0.75em 1em; background: #fff; border-radius: 8px; border: 1px solid #e8dcd3; box-shadow: 0 2px 8px rgba(75, 46, 46, 0.05); display: flex; align-items: center; justify-content: space-between; list-style: none;"> <span>КРИПТОГРАФИЧЕСКАЯ ПОДПИСЬ (SHA-256 оригинального латинского документа)</span> <span style="font-size: 0.9em; color: #8b7355;">🔻</span> </summary> <div style="margin-top: 1.75em;"> <pre style="background: #f8f4f0; padding: 1.25em; border-radius: 8px; overflow-x: auto; margin: 0; font-family: 'Courier New', 'Cascadia Code', monospace; font-size: 0.95em; line-height: 1.6; border: 1px solid #e8dcd3; color: #2c1810; white-space: pre-wrap; word-break: break-all;"> a75d7fee40a786701890a67465efbc5fafac5d5ba60bdea7db8b1402b342e85e </pre> <div style="margin-top: 1em; display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; color: #8b7355;"> <span>✓ Хеш оригинала на латыни • 64 символа</span> <button onclick="navigator.clipboard.writeText('a75d7fee40a786701890a67465efbc5fafac5d5ba60bdea7db8b1402b342e85e')" style="background: transparent; color: #8b7355; border: 1px solid #d4c4b8; padding: 0.4em 1em; border-radius: 6px; font-size: 0.9em; cursor: pointer;" onmouseover="this.style.backgroundColor='#f5f0eb'; this.style.borderColor='#8b7355';" onmouseout="this.style.backgroundColor='transparent'; this.style.borderColor='#d4c4b8';"> Копировать </button> </div> <p style="font-size: 0.85em; color: #8b7355; margin-top: 1em; font-style: italic;"> *Данный SHA-256 соответствует оригинальному документу на латыни. Русская версия является его официальным переводом и валидируется по этому хешу. </p> </div> </details> </div> </details>

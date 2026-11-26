@@ -1,4 +1,4 @@
-﻿---
+---
 title: "ادعم Vis Realitatis — الدائرة الأولى لبروتوكول 8888"
 description: "تمويل المركز، تشغيل نموذج Sunlife-Massage®، السجل العام وبروتوكول التكاثر مع تثبيت كل مساهمة."
 categories: ["الجهات المانحة"]
@@ -213,8 +213,8 @@ translationKey: "vis-realitatis-donor"
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
   <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="action-button">🤝 كن مانحاً</a>
   <a href="/ar/vis-realitatis-center-experts/" class="action-button">🧑‍🔬 انضم كخبير</a>
-  <a href="mailto:info@imarch.sbs?subject=الشراكة%20مع%20Vis%20Realitatis" class="action-button">🏛️ كن شريكاً</a>
-  <a href="mailto:info@imarch.sbs?subject=المشاركة%20في%20النموذج%20التجريبي%20Vis%20Realitatis" class="action-button">📋 شارك في النموذج التجريبي</a>
+  <a href="mailto:info@imarch.ltd?subject=الشراكة%20مع%20Vis%20Realitatis" class="action-button">🏛️ كن شريكاً</a>
+  <a href="mailto:info@imarch.ltd?subject=المشاركة%20في%20النموذج%20التجريبي%20Vis%20Realitatis" class="action-button">📋 شارك في النموذج التجريبي</a>
 </div>
 
 <style>

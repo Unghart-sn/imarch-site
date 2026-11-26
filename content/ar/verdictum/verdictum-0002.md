@@ -22,9 +22,9 @@ translationKey: "scene-blog-002"
 <details>
   <summary>🔻</summary>
 
-📜 الدستور متاح: [وثيقة دستور إيمارش (AR)](https://imarch.sbs/ar/constitutio/)
+📜 الدستور متاح: [وثيقة دستور إيمارش (AR)](https://imarch.ltd/ar/constitutio/)
 
-<p><em>2025.10.02، <a href="https://imarch.sbs/ar/verdictum/">الحكم</a></em></p>
+<p><em>2025.10.02، <a href="https://imarch.ltd/ar/verdictum/">الحكم</a></em></p>
 <p><em>إدارة إيمارش</em></p>
 `
 
@@ -32,7 +32,7 @@ translationKey: "scene-blog-002"
 
 <div class="share-buttons">
   <div class="a2a_kit a2a_kit_size_32 a2a_default_style"
-       data-a2a-url="https://imarch.sbs/ar/verdictum/verdictum-001/"
+       data-a2a-url="https://imarch.ltd/ar/verdictum/verdictum-001/"
        data-a2a-title="الدستور: التصديق">
     <a class="a2a_button_facebook"></a>
     <a class="a2a_button_twitter"></a>

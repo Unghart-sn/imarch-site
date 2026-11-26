@@ -81,7 +81,7 @@ discussion: "https://github.com/Imperium-Silentii/kucha/discussions/15"
 }
 </style>
 
-<a href="https://unghart.imarch.sbs/ru/post1/" class="read-more-simple">
+<a href="https://unghart.imarch.ltd/ru/post1/" class="read-more-simple">
     Читать больше <span>→</span>
 </a>
 

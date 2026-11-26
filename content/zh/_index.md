@@ -334,7 +334,7 @@ Chronicle OS 期刊在同行评审后采用开放获取模式运作，无外部�
 **隐私政策：** 我们不收集访客的个人数据，不使用联系信息进行邮件群发，也不与第三方共享信息。
 
 <div align="center">
-  <a href="mailto:info@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

@@ -1868,7 +1868,7 @@ Toutes les dispositions fixées dans les Livres I et II entrent en vigueur dès 
 
 <details>
   <summary>▾</summary>
-  <p><em>2025.10.02, <a href="https://imarch.sbs/fr/constitutio/">CONSTITUTION</a></em></p>
+  <p><em>2025.10.02, <a href="https://imarch.ltd/fr/constitutio/">CONSTITUTION</a></em></p>
   <p><em>Administration d’IMARCH</em></p>
 
   [const-fr-01.pdf](https://github.com/Imperium-Silentii/Arhivum/blob/main/const-001/const-fr-01.pdf) | `A8457B74CC3C72049622AEDA622F8AB933B8B99C223A2034D49FFAAC8AE6F43B`

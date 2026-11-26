@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Sustine Vis Realitatis — primus circulus Protocolli 8888"
 description: "Sumptibus centri, piloti Sunlife-Massage®, chronicae publicae et protocolli reproductionis cum fixione cuiusque contributionis."
 categories: ["donors"]
@@ -213,8 +213,8 @@ Omnis donatio accipit **hash unicum** et publicatur in archivo GitHub incepti. P
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin: 2rem 0;">
   <a href="https://whydonate.com/fundraising/vis-realitatis-preserving-memory" class="action-button">🤝 Fieri donator</a>
   <a href="/la/vis-realitatis-center-experts/" class="action-button">🧑‍🔬 Iungere ut peritus</a>
-  <a href="mailto:info@imarch.sbs?subject=Vis%20Realitatis%20partnership" class="action-button">🏛️ Fieri socius</a>
-  <a href="mailto:info@imarch.sbs?subject=Vis%20Realitatis%20piloti%20participatio" class="action-button">📋 Participare piloto</a>
+  <a href="mailto:info@imarch.ltd?subject=Vis%20Realitatis%20partnership" class="action-button">🏛️ Fieri socius</a>
+  <a href="mailto:info@imarch.ltd?subject=Vis%20Realitatis%20piloti%20participatio" class="action-button">📋 Participare piloto</a>
 </div>
 
 <style>

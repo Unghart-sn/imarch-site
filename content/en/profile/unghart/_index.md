@@ -17,7 +17,7 @@ Welcome to my personal stage. Here I gather inspiration, share thoughts, and dem
 {{< morebutton target="/ru/unghart/" text="🔔 SUBSCRIBE" >}}
 </div>
 
-{{< morebutton target="https://unghart.imarch.sbs/ru/" text="🌐 PERSONAL SITE" >}}
+{{< morebutton target="https://unghart.imarch.ltd/ru/" text="🌐 PERSONAL SITE" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">

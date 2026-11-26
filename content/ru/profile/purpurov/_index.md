@@ -57,7 +57,7 @@ Imarch Ltd зарегистрированная компания в Велико
 
 {{< vis-concept-paper-link >}}
 
-{{< morebutton target="https://imarch.sbs/ru/imarch-ltd/" text="САЙТ IMARCH LTD" >}}
+{{< morebutton target="https://imarch.ltd/ru/imarch-ltd/" text="САЙТ IMARCH LTD" >}}
 </div>
 
 &nbsp;
@@ -91,7 +91,7 @@ Imarch Ltd зарегистрированная компания в Велико
 Если у вас есть официальный запрос к директору Компании, пожалуйста, направьте письмо на его официальный адрес.
 
 <div align="center">
-  <a href="mailto:director@imarch.sbs">
+  <a href="mailto:info@imarch.ltd">
     <img class="imarch-icon" src="/images/ikons/silver/email.png" alt="Email">
   </a>
 </div>

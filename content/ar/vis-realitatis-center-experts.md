@@ -22,7 +22,7 @@ IMARCH Githronical | Chronicle OS هي بيئة مؤسسية تُسجل فيها
 تتطور IMARCH كبيئة تتشكل من خلال تفاعل المشاركين ومساهماتهم. نحن نتجه نحو نموذج مؤسسي مستدام قادر على الحفاظ على الممارسات خارج الدورات قصيرة الأجل.
 
 <div style="text-align: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=طلب%20تسجيل%20مساهم&body=الاسم:%20%0Aالتخصص:%20%0Aرابط%20المنشورات:%20%0Aلماذا%00تهتم%20بالمجلة:" text="✉️ اكتب لنا للتسجيل" margin="1rem 0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=طلب%20تسجيل%20مساهم&body=الاسم:%20%0Aالتخصص:%20%0Aرابط%20المنشورات:%20%0Aلماذا%00تهتم%20بالمجلة:" text="✉️ اكتب لنا للتسجيل" margin="1rem 0" >}}
 </div>
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;" class="fade-in-up">
@@ -251,6 +251,6 @@ IMARCH Githronical | Chronicle OS هي بيئة مؤسسية تُسجل فيها
 {{< hvost >}}
 
 <div style="display: flex; flex-direction: column; gap: 1rem; align-items: center; margin: 2rem 0;">
-  {{< steel_button link="mailto:info@imarch.sbs?subject=طلب%20تسجيل%20مساهم&body=الاسم:%20%0Aالتخصص:%20%0Aرابط%20المنشورات:%20%0Aلماذا%20تهتم%20بالمجلة:" text="✉️ اكتب لنا للتسجيل" margin="0" >}}
+  {{< steel_button link="mailto:info@imarch.ltd?subject=طلب%20تسجيل%20مساهم&body=الاسم:%20%0Aالتخصص:%20%0Aرابط%20المنشورات:%20%0Aلماذا%20تهتم%20بالمجلة:" text="✉️ اكتب لنا للتسجيل" margin="0" >}}
 
 {{< persona-socials >}}

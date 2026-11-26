@@ -1,0 +1,52 @@
+{
+  "generated_at": "2026-10-13 12:35:56 UTC",
+  "total": 3,
+  "entry_schema": "v1",
+  "entries": [
+    {
+      "file": "chronicle_os_architecture.md",
+      "sha256": "9ee0e5b065cf5b3a691be824cf07282502df50e337ed1ef956299ef7b5728b8b",
+      "size_bytes": 115,
+      "ots_file": "chronicle_os_architecture.md.ots",
+      "status": "bitcoin",
+      "block_height": 971064,
+      "attestation_count": 5,
+      "calendars": [
+        "https://alice.btc.calendar.opentimestamps.org",
+        "https://bob.btc.calendar.opentimestamps.org",
+        "https://finney.calendar.eternitywall.com"
+      ],
+      "certificate": "out\\chronicle_os_architecture_cert.pdf"
+    },
+    {
+      "file": "imarch_manifest_v1.md",
+      "sha256": "b8b01a5ca10b69520c8fee96b423b9770f6924283a0ba5beb3d5d5376f635b7f",
+      "size_bytes": 121,
+      "ots_file": "imarch_manifest_v1.md.ots",
+      "status": "bitcoin",
+      "block_height": 971064,
+      "attestation_count": 5,
+      "calendars": [
+        "https://alice.btc.calendar.opentimestamps.org",
+        "https://bob.btc.calendar.opentimestamps.org",
+        "https://finney.calendar.eternitywall.com"
+      ],
+      "certificate": "out\\imarch_manifest_v1_cert.pdf"
+    },
+    {
+      "file": "verdictum_concept.md",
+      "sha256": "772273261d504b92ab001d13cf5036a3f40e02d2c822fbd88538e3fbf9d6acd0",
+      "size_bytes": 99,
+      "ots_file": "verdictum_concept.md.ots",
+      "status": "bitcoin",
+      "block_height": 971062,
+      "attestation_count": 5,
+      "calendars": [
+        "https://alice.btc.calendar.opentimestamps.org",
+        "https://bob.btc.calendar.opentimestamps.org",
+        "https://finney.calendar.eternitywall.com"
+      ],
+      "certificate": "out\\verdictum_concept_cert.pdf"
+    }
+  ]
+}

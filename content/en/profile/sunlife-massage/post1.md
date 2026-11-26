@@ -20,7 +20,7 @@ Every step here is a contribution to the development of the method and the expan
 
 Support Vis Realitatis and become part of the project’s donor community. Together we are building the future of the Method!
  
-{{< morebutton target="https://imarch.sbs/ru/vis-realitatis-center/" text="ABOUT THE PROJECT" >}}
+{{< morebutton target="https://imarch.ltd/ru/vis-realitatis-center/" text="ABOUT THE PROJECT" >}}
 
 
 <div style="width: 100%; text-align: center; margin: 3rem 0;">
@@ -33,8 +33,8 @@ Support Vis Realitatis and become part of the project’s donor community. Toget
   <summary>Post Scriptum🔻</summary>
 
 <div style="max-width:800px; margin:0 auto; text-align:left; padding:0 1.5rem;">
-  <p><em><a href="https://imarch.sbs/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/en/director/">Oleksandr Purpurov</a></em></p>
-  <p>Email: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p><em><a href="https://imarch.ltd/en/imarch-ltd-uk/">IMARCH LTD UK</a> • © 2026 • <a href="/en/director/">Oleksandr Purpurov</a></em></p>
+  <p>Email: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
 </div>
 
 {{< vis-concept-paper-link >}}

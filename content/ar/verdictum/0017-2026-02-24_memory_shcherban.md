@@ -39,12 +39,12 @@ draft: false
 &nbsp;
 <div style="text-align:right; max-width:800px; margin:0 auto;">
   <p><em>IMARCH LTD UK • قسم التطوير التنظيمي</em></p>
-  <p>البريد الإلكتروني: <a href="mailto:admin@imarch.sbs">admin@imarch.sbs</a></p>
+  <p>البريد الإلكتروني: <a href="mailto:info@imarch.ltd">info@imarch.ltd</a></p>
   <p><em>2026.02.24 • VERDICTUM • سلسلة: البيانات الرسمية</em></p>
   <p><a href="https://github.com/Imperium-Silentii/imarch-documents-official/blob/main/verdiktum/0017_%20%20verdiktum.pdf">النشر والأرشفة</a> (AR)</p>
 </div>
 
-تُقبل الطلبات الخارجية فقط مع توقيع رقمي مؤكد يُرسل إلى: **`secretariat@imarch.sbs`**
+تُقبل الطلبات الخارجية فقط مع توقيع رقمي مؤكد يُرسل إلى: **`secretariat@imarch.ltd`**
 
 **تأكيد الأصالة:**  
 تم التحقق من أصالة هذا النشر بواسطة قيمة التجزئة للوثيقة الأصلية:

@@ -19,4 +19,4 @@ We will review the materials you submitted, fix the scope of the task and come b
 
 **Typical first response time — 1–2 business days.**
 
-If the task is urgent, please duplicate your request to orders@imarch.sbs with the subject "Lot No. 03".
+If the task is urgent, please duplicate your request to info@imarch.ltd with the subject "Lot No. 03".
