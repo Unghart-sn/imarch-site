@@ -133,7 +133,7 @@ async function serviceGrants(el,sb){
     tid=null;
     if(!m){box.style.display='none';return;}
     box.style.display='block';box.textContent='Searching...';
-    var r=await sb.rpc('find_user_by_email',{p_email:m});
+    var r=await sb.rpc('find_user_by_email',{email_q:m});
     var w=(r.data&&r.data[0])||null;
     if(r.error||!w){box.innerHTML='<span style="color:#b91c1c;">User not found.</span>';return;}
     tid=w.id;
