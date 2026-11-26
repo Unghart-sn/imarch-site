@@ -4,7 +4,7 @@
 var C={pending:'#b45309',verifying:'#1d4ed8',confirmed:'#047857',rejected:'#b91c1c',refunded:'#6b7280'};
 var TH='padding:6px 8px;text-align:left;color:#6b7280;border-bottom:1px solid #e5e7eb;';
 var TD='padding:6px 8px;border-bottom:1px solid #f3f4f6;';
-var MO=TD+'font-family:monospace;font-size:11px;';
+var NU=TD+'text-align:right;'; var MO=TD+'font-family:monospace;font-size:11px;';
 var IN='padding:8px 10px;border:1px solid #d1d5db;border-radius:8px;width:100%;box-sizing:border-box;margin-bottom:8px;';
 var BT='padding:8px 14px;border:0;border-radius:8px;background:#111827;color:#fff;font-size:13px;cursor:pointer;';
 function e(s){var r='',t=String(s==null?'':s);for(var i=0;i<t.length;i++){var c=t.charCodeAt(i);if(c===38){r+='&amp;';}else if(c===60){r+='&lt;';}else if(c===62){r+='&gt;';}else if(c===34){r+='&quot;';}else if(c===39){r+='&#39;';}else{r+=t[i];}}return r;}
@@ -73,7 +73,7 @@ async function myPayments(el,sb,uid){
   el.innerHTML=card('My top-ups','<div id="mpB">'+em('Loading...')+'</div>',
     'Tokens are credited after the payment is confirmed. The reference code identifies your payment.');
   var r=await fetchIntents(sb,uid,20,false);
-  var b=document.getElementById('mpB');
+  var b=el.querySelector('#mpB');
   if(b)b.innerHTML=r.error?er(r.error):intentTable(r.data||[],false);
 }
 async function adminPayments(el,sb){
