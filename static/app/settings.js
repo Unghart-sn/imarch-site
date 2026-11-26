@@ -230,6 +230,14 @@
         if (window.imarchTreasuryFlow) { window.imarchTreasuryFlow.render(sb, document.getElementById('treasuryCard')); }
         if (findBtn) findBtn.onclick = function () { findUser(sb); };
         if (sendBtn) sendBtn.onclick = function () { sendTokens(sb); };
+        if (window.imarchAdmin) {
+          var _b1 = document.createElement('div');
+          var _b2 = document.createElement('div');
+          container.appendChild(_b1);
+          container.appendChild(_b2);
+          window.imarchAdmin.adminPayments(_b1, sb);
+          window.imarchAdmin.serviceGrants(_b2, sb);
+        }
       }
 
     } catch (e) {

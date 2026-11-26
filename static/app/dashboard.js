@@ -190,7 +190,12 @@
         + navigatorBlock()
         + statusBlock(profile, promo)
         + certificatesBlock(certs)
+        + '<div id="myPaymentsBox"></div>'
         + '</div>';
+      if (window.imarchAdmin) {
+        var _mp = document.getElementById('myPaymentsBox');
+        if (_mp) window.imarchAdmin.myPayments(_mp, sb, uid);
+      }
     } catch (e) {
       console.error(e);
       container.innerHTML = '<div class="app-error">Error loading data: ' + esc(e.message) + '</div>';
