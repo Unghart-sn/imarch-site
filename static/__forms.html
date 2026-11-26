@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<title>IMARCH LTD — lot-03-presentation-passport (form registration twin)</title>
+</head>
+<body>
+<!--
+  Netlify Forms registration twin.
+  Purpose: guarantee that the form "lot-03-presentation-passport" is present
+  in a plain static HTML file at deploy time, so Netlify form detection
+  registers it regardless of how the Hugo-rendered pages are processed.
+  Field names MUST stay identical to content/{ru,en,uk}/docs/consilium/cbb-0003.md
+-->
+<form name="lot-03-presentation-passport" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+<input type="hidden" name="form-name" value="lot-03-presentation-passport" />
+<input type="hidden" name="lot_id" value="LOT-03-PRESENTATION-PASSPORT" />
+<p style="display:none"><label>Do not fill: <input name="bot-field" /></label></p>
+<p><label>applicant_name <input type="text" name="applicant_name" /></label></p>
+<p><label>organization <input type="text" name="organization" /></label></p>
+<p><label>contact_channel <input type="text" name="contact_channel" /></label></p>
+<p><label>task_type
+<select name="task_type">
+<option value="">...</option>
+<option value="conference_talk">Доклад для конференции / симпозиума</option>
+<option value="grant_pitch">Грантовая заявка / питч для фонда</option>
+<option value="video_abstract">Video abstract к научной статье</option>
+<option value="b2b_briefing">B2B-брифинг / партнёрская презентация</option>
+<option value="batch_pack">Пакетная упаковка нескольких докладов</option>
+</select>
+</label></p>
+<p><label>languages <input type="text" name="languages" /></label></p>
+<p><label>voiceover_mode
+<select name="voiceover_mode">
+<option value="full_cycle">Полный цикл</option>
+<option value="slides_only">Только презентация</option>
+<option value="tbd">Обсудим</option>
+</select>
+</label></p>
+<p><label>deadline <input type="text" name="deadline" /></label></p>
+<p><label>source_link <input type="text" name="source_link" /></label></p>
+<p><label>task_notes <textarea name="task_notes" rows="3"></textarea></label></p>
+<p><label><input type="checkbox" name="consent" value="yes" /> consent</label></p>
+<p><button type="submit">Send</button></p>
+</form>
+</body>
+</html>
